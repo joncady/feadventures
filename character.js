@@ -8,6 +8,16 @@ class Character {
     }
 
     checkMap(x, y) {
+        let hitObs = false;
+        obstacleList.forEach((obstacle) => {
+            let hit = obstacle.checkBoundary(x, y, 50, 50);
+            if (hit) {
+                hitObs = true;
+            }
+        });
+        if (hitObs) {
+            return false;
+        }
         let map = document.getElementById("game-area");
         let mapX = map.offsetWidth;
         let mapY = map.offsetHeight;

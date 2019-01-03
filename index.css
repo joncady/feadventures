@@ -126,6 +126,10 @@ body {
     background-image: url('assets/enemy3.png');
 }
 
+.knight {
+    background-image: url('assets/enemy4.png');
+}
+
 .health {
     top: -15px;
     display: inline-block;
@@ -166,4 +170,8 @@ progress::-webkit-progress-value {
 
 progress::-webkit-progress-bar {
     background: gray;
+}
+
+.obstacle {
+    position: absolute;
 }

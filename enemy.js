@@ -3,10 +3,11 @@
  */
 class Enemy extends Character {
 
-    constructor(type, el, health, healthBar, x, y, attack) {
+    constructor(type, el, health, healthBar, x, y, attack, speed) {
         super();
         this.type = type;
         this.el = el;
+        this.speed = speed;
         this.health = health;
         this.healthBar = healthBar;
         this.attack = attack;

@@ -14,7 +14,7 @@ class Player extends Character {
         enemiesList.forEach((enemy) => {
             let { x, y } = enemy.getLocation();
             if (super.checkBounds(this.x, this.y, x, y)) {
-                enemy.subtractHealth(10);
+                enemy.subtractHealth(20);
             }
         });
     }
