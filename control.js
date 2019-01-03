@@ -130,6 +130,7 @@ function decay() {
 function beginStage() {
     obstacleList = stage1.obstacles;
     let gameArea = document.getElementById("game-area");
+    gameArea.style.backgroundImage = stage1.mapTitle;
     obstacleList.forEach((obstacle) => {
         gameArea.appendChild(obstacle.obj);
     });

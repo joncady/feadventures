@@ -1,5 +1,5 @@
 let stage1 = {
-    mapTitle: "assets/map.png",
+    mapTitle: "url(assets/map.png)",
     obstacles:
         [
             new Obstacle(216, 104, 202, 50),

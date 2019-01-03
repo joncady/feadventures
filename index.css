@@ -47,7 +47,7 @@ body {
     border-radius: 15px;
     height: 544px;
     width: 896px;
-    background-image: url("assets/map.png");
+    background-image: url("assets/titleScreen.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -63,6 +63,14 @@ body {
     left: 50%;
     transform:translate(-50%, -50%);
     text-align: center;
+}
+
+#characters {
+    background-image: url("assets/textBox.png");
+    padding: 5rem;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #character-area {
