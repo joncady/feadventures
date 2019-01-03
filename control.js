@@ -128,11 +128,14 @@ function decay() {
 }
 
 function beginStage() {
-    obstacleList = stage1.obstacles;
+    obstacleList = [];
+    let obstacles = stage1.obstacles;
     let gameArea = document.getElementById("game-area");
     gameArea.style.backgroundImage = stage1.mapTitle;
-    obstacleList.forEach((obstacle) => {
-        gameArea.appendChild(obstacle.obj);
+    obstacles.forEach((obstacle) => {
+        let newObs = new Obstacle(obstacle[0], obstacle[1], obstacle[2], obstacle[3]);
+        obstacleList.push(newObs);
+        gameArea.appendChild(newObs.obj);
     });
     setStatus();
     setTimeout(() => {
@@ -175,6 +178,7 @@ function setKeys() {
             } else if (ev.key == "d" && mainStickHorizontal != 1) {
                 keys.axes.mainStickHorizontal += 1;
             } else if (ev.key == " ") {
+                ev.preventDefault();
                 keys.buttons.buttonA = true;
             }
         }
@@ -189,6 +193,7 @@ function setKeys() {
         } else if (ev.key == "d") {
             keys.axes.mainStickHorizontal -= 1;
         } else if (ev.key == " ") {
+            ev.preventDefault();
             keys.buttons.buttonA = false;
         }
     }, false);
