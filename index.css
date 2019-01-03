@@ -81,11 +81,12 @@ body {
 .portrait {
     width: 80%;
     border: 3px solid black;
+    background-color: slategray;
     border-radius: 15px;
 }
 
 .selected {
-    border: 3px solid tan;
+    border: 3px solid white;
 }
 
 #behind {
