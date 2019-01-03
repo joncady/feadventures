@@ -7,12 +7,10 @@ class Obstacle {
         this.width = width;
         this.obj = document.createElement("div");
         this.obj.classList.add("obstacle");
-        let gameArea = document.getElementById("game-area");
         this.obj.style.width = width + "px";
         this.obj.style.height = height + "px";
         this.obj.style.left = x + "px";
         this.obj.style.top = y + "px";
-        gameArea.appendChild(this.obj);
     }
 
     checkBoundary(x1, y1, width1, height1) {

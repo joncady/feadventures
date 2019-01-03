@@ -128,22 +128,11 @@ function decay() {
 }
 
 function beginStage() {
-    let box = new Obstacle(216, 104, 202, 50);
-    let box2 = new Obstacle(634, 226, 262, 318);
-    let box3 = new Obstacle(0, 396, 132, 148);
-    let box4 = new Obstacle(0, 0, 150, 78);
-    let box5 = new Obstacle(708, 56, 120, 40);
-    let box6 = new Obstacle(412, 484, 230, 60);
-    let box7 = new Obstacle(144, 0, 82, 36);
-    let box8 = new Obstacle(0, 360, 44, 44);
-    let box9 = new Obstacle(404, 64, 46, 42);
-    let box10 = new Obstacle(458, 412, 192, 72);
-    let box11 = new Obstacle(576, 292, 72, 120);
-    let box12 = new Obstacle(546, 0, 30, 17);
-    let box13 = new Obstacle(540, 80, 36, 80);
-    let box14 = new Obstacle(576, 130, 70, 18);
-    let box15 = new Obstacle(272, 334, 68, 74);
-    obstacleList.push(box, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12, box13, box14, box15);
+    obstacleList = stage1.obstacles;
+    let gameArea = document.getElementById("game-area");
+    obstacleList.forEach((obstacle) => {
+        gameArea.appendChild(obstacle.obj);
+    });
     setStatus();
     setTimeout(() => {
         if (intervals.checkEnemies !== null && intervals.enemyTimer !== null) {
@@ -184,7 +173,7 @@ function setKeys() {
                 keys.axes.mainStickVertical += -1;
             } else if (ev.key == "d" && mainStickHorizontal != 1) {
                 keys.axes.mainStickHorizontal += 1;
-            } else if (ev.key == "Enter") {
+            } else if (ev.key == " ") {
                 keys.buttons.buttonA = true;
             }
         }
@@ -198,7 +187,7 @@ function setKeys() {
             keys.axes.mainStickVertical += 1;
         } else if (ev.key == "d") {
             keys.axes.mainStickHorizontal -= 1;
-        } else if (ev.key == "Enter") {
+        } else if (ev.key == " ") {
             keys.buttons.buttonA = false;
         }
     }, false);

@@ -7,6 +7,8 @@ class Player extends Character {
         this.health = 100;
         this.el = el;
         this.healthBar = healthBar;
+        this.attacking = false;
+        this.attackCounter = 0;
     }
 
     attack() {
@@ -43,6 +45,7 @@ class Player extends Character {
         let x = this.x;
         let y = this.y;
         let horDirection, verDirection = 0;
+        let attacking = false;
         if (Math.abs(axes.mainStickHorizontal) > 0.1) {
             horDirection = axes.mainStickHorizontal;
             x += axes.mainStickHorizontal * moveDistance;
@@ -55,21 +58,29 @@ class Player extends Character {
         } else {
             verDirection = 0;
         }
-        this.el.classList.remove("flipped");
-        super.choosePicture(horDirection, verDirection, this.el);
-        this.movePlayer(x, y);
-        if (buttons.buttonA && !lastButtonA[index]) {
-            this.el.style.backgroundPositionY = "-47px";
-            if (horDirection > 0) {
-                this.el.classList.add("flipped");
+        if (this.attacking) {
+            this.attackCounter += 1;
+            if (this.attackCounter > 3) {
+                this.attackCounter = 0;
+                this.attacking = false;
+            } else {
+                attacking = true;
             }
-            lastButtonA[index] = true;
-            this.attack();
         } else {
-            if (!buttons.buttonA) {
-                lastButtonA[index] = false;
+            this.el.classList.remove("flipped");
+            if (buttons.buttonA && !lastButtonA[index]) {
+                this.attacking = true;
+                attacking = true;
+                lastButtonA[index] = true;
+                this.attack();
+            } else {
+                if (!buttons.buttonA) {
+                    lastButtonA[index] = false;
+                }
             }
         }
+        super.choosePicture(horDirection, verDirection, this.el, attacking);
+        this.movePlayer(x, y);
     }
 
     getLocation() {

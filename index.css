@@ -105,7 +105,7 @@ body {
     background-position: 0px 0px;
     position: absolute;
     display: inline-block;
-    background-size: 100% auto;
+    background-size: auto auto;
     height: 50px;
     width: 50px;
 }
