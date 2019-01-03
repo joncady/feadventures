@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="index.css">
+    <script src="gameStages.js"></script>
+    <script src="music.js"></script>
+    <script src="control.js"></script>
+    <link rel="icon" href="favicon.png">
+    <title>Fire Emblem Adventures</title>
+</head>
+
+<body>
+    <div id="window">
+        <div id="game-area">
+            <div id="player1" class="player" width="33"></div>
+            <div id="player2" class="player" width="33"></div>
+            <div id="player3" class="player" width="33"></div>
+        </div>
+        <div id="game-status" class="overlay hide">
+            <div>
+                Stage <span id="indicator"></span>
+                <p id="countdown"></p>
+            </div>
+        </div>
+        <div id="startup" class="overlay">
+            <div id="behind">
+                <img src="assets/logo.png">
+            </div>
+            <div id="options">
+                <button id="controller">GameCube Controller</button>
+                <button id="keyboard">Keyboard</button>
+            </div>
+        </div>
+        <div id="characters" class="overlay hide">
+            <div id="character-area">
+                <div id="chrom" class="character">
+                    <img src="assets/chromPortrait1.png" class="portrait">
+                </div>
+                <div id="lucina" class="character">
+                    <img src="assets/lucinaPortrait1.png" class="portrait">
+                </div>
+                <div id="frederick" class="character">
+                    <img src="assets/frederickPortrait1.png" class="portrait">
+                </div>
+            </div>
+            <button id="start">Begin!</button>
+        </div>
+    </div>
+    <div id="controls">
+        <button id="fullscreen">Fullscreen</button>
+        <button id="music">Play Music</button>
+    </div>
+</body>
+
+</html>
