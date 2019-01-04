@@ -9,16 +9,25 @@ class Player extends Character {
         this.healthBar = healthBar;
         this.attacking = false;
         this.attackCounter = 0;
+        this.attack = 10;
     }
 
-    attack() {
+    attackEnemy(horAngle, verAngle) {
+        this.hitbox = null;
         audioPlayer.playAttack();
-        enemiesList.forEach((enemy) => {
-            let { x, y } = enemy.getLocation();
-            if (super.checkBounds(this.x, this.y, x, y)) {
-                enemy.subtractHealth(20);
-            }
-        });
+        let xRel = this.x;
+        let yRel = this.y;
+        if (horAngle < 0) {
+            xRel = this.x - 30;
+        } else if (horAngle > 0) {
+            xRel = this.x + 50;
+        }
+        if (verAngle < 0) {
+            yRel = this.y - 30;
+        } else if (verAngle > 0) {
+            yRel = this.y + 30;
+        }
+        this.hitbox = new Hitbox(xRel, yRel, 30, 30, 1, "player", this.attack);
     }
 
     subtractHealth(attack) {
@@ -72,7 +81,7 @@ class Player extends Character {
                 this.attacking = true;
                 attacking = true;
                 lastButtonA[index] = true;
-                this.attack();
+                this.attackEnemy(horDirection, verDirection);
             } else {
                 if (!buttons.buttonA) {
                     lastButtonA[index] = false;

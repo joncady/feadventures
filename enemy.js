@@ -12,6 +12,8 @@ class Enemy extends Character {
         this.healthBar = healthBar;
         this.attack = attack;
         this.fullHealth = health;
+        this.attackCounter = 0;
+        this.attacking = false;
         this.x = x;
         this.y = y;
         this.el.style.left = this.x + "px";
@@ -30,18 +32,42 @@ class Enemy extends Character {
     }
 
     choosePicture(moveX, moveY, el) {
-        super.choosePicture(moveX, moveY, el);
+        super.choosePicture(moveX, -1 * moveY, el);
     }
 
-    attackPlayer() {
-        audioPlayer.playAttack();
-        playerList.forEach((player) => {
-            let { x, y } = player.getLocation();
-            this.el.style.backgroundPositionY = "-45px";
-            if (super.checkBounds(this.x, this.y, x, y)) {
-                player.subtractHealth(this.attack);
+    attackPlayer(horAngle, verAngle, angle) {
+        if (this.attacking) {
+            this.attackCounter += 1;
+            if (this.attackCounter > 3) {
+                this.attacking = false;
+                this.attackCounter = 0;
             }
-        });
+        } else {
+            this.attacking = true;
+            this.hitbox = null;
+            if (this.type === "archer") {
+                audioPlayer.playArrow();
+            } else {
+                audioPlayer.playAttack();
+            }
+            let xRel = this.x;
+            let yRel = this.y;
+            if (horAngle < 0) {
+                xRel = this.x - 30;
+            } else if (horAngle > 0) {
+                xRel = this.x + 50;
+            }
+            if (verAngle < 0) {
+                yRel = this.y - 30;
+            } else if (verAngle > 0) {
+                yRel = this.y + 30;
+            }
+            if (this.type !== "archer") {
+                this.hitbox = new Hitbox(xRel, yRel, 30, 30, 1, "enemy", this.attack);
+            } else {
+                this.hitbox = new Hitbox(xRel, yRel, 30, 30, 30, "arrow", this.attack, horAngle, verAngle, angle);
+            }
+        }
     }
 
     moveEnemy(x, y) {

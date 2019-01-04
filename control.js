@@ -3,7 +3,7 @@
 let moveDistance = 10;
 let refreshRate = 100;
 let multiplier = 0.1;
-let enemySpawnTime = 10000;
+let enemySpawnTime = 1000;
 let stage = 1;
 let enemiesList = [];
 let playerList = [];
@@ -74,10 +74,11 @@ function setStatus() {
 
 function createEnemies() {
     let types = [
-        { name: "soldier", attack: 10, health: 100, speed: 10 },
-        { name: "assassin", attack: 15, health: 60, speed: 15 },
-        { name: "heavy", attack: 20, health: 140, speed: 5 },
-        { name: "knight", attack: 12, health: 120, speed: 15 }
+        // { name: "soldier", attack: 10, health: 100, speed: 10 },
+        // { name: "assassin", attack: 15, health: 60, speed: 15 },
+        // { name: "heavy", attack: 20, health: 140, speed: 5 },
+        // { name: "knight", attack: 12, health: 120, speed: 15 },
+        { name: "archer", attack: 10, health: 90, speed: 12 }
     ];
     let field = document.getElementById("game-area");
     let width = field.clientWidth;
@@ -129,9 +130,11 @@ function decay() {
 
 function beginStage() {
     obstacleList = [];
-    let obstacles = stage1.obstacles;
+    let stage = stages[game.getStage() - 1];
+    console.log(stage);
+    let obstacles = stage.obstacles;
     let gameArea = document.getElementById("game-area");
-    gameArea.style.backgroundImage = stage1.mapTitle;
+    gameArea.style.backgroundImage = stage.mapTitle;
     obstacles.forEach((obstacle) => {
         let newObs = new Obstacle(obstacle[0], obstacle[1], obstacle[2], obstacle[3]);
         obstacleList.push(newObs);
@@ -264,45 +267,44 @@ function chooseCharacter() {
 function enemiesCheck() {
     // do randomization
     enemiesList.forEach((enemy) => {
-        let randomPattern = getRandomInt(10);
-        if (randomPattern > 6) {
-            enemy.attackPlayer();
-        } else {
-            let closestPlayer;
-            let closestDistance;
-            let { x, y } = enemy.getLocation();
-            playerList.forEach((player) => {
-                let playerValues = player.getLocation();
-                let distance = distanceCalculation(x, y, playerValues.x, playerValues.y);
-                if (closestPlayer == null) {
+        let closestPlayer;
+        let closestDistance;
+        let { x, y } = enemy.getLocation();
+        playerList.forEach((player) => {
+            let playerValues = player.getLocation();
+            let distance = distanceCalculation(x, y, playerValues.x, playerValues.y);
+            if (closestPlayer == null) {
+                closestPlayer = player;
+                closestDistance = distance;
+            } else {
+                if (distance < closestDistance) {
                     closestPlayer = player;
                     closestDistance = distance;
-                } else {
-                    if (distance < closestDistance) {
-                        closestPlayer = player;
-                        closestDistance = distance;
-                    }
                 }
-            });
+            }
             let playerXY = closestPlayer.getLocation();
             let { diffX, diffY } = differenceXY(x, y, playerXY.x, playerXY.y);
-            let moveX = 0;
-            let moveY = 0;
-            if (diffX > 0) {
-                moveX += 1;
-            } else if (diffX < 0) {
-                moveX -= 1;
+            let angle = returnAngle(x, y, playerValues.x, playerValues.y);
+            let xAngle = Math.cos(angle);
+            let yAngle = Math.sin(angle);
+            if (diffX < 0) {
+                xAngle *= -1;
+                yAngle *= -1;
             }
-            if (diffY > 0) {
-                moveY += 1;
-            } else if (diffY < 0) {
-                moveY -= 1;
+            let reverse = 1;
+            if (enemy.type === "archer") {
+                reverse = -1;
             }
-            x = x + enemy.speed * moveX;
-            y = y + enemy.speed * moveY;
-            enemy.choosePicture(moveX, moveY, enemy.el);
-            enemy.moveEnemy(x, y);
-        }
+            let randomPattern = getRandomInt(10);
+            if (randomPattern > 6) {
+                enemy.attackPlayer(xAngle, yAngle, angle);
+            } else {
+                x = x + enemy.speed * xAngle * reverse;
+                y = y + enemy.speed * yAngle * reverse;
+                enemy.choosePicture(xAngle, yAngle, enemy.el);
+                enemy.moveEnemy(x, y);
+            }
+        });
     });
 }
 
@@ -311,6 +313,11 @@ function enemiesCheck() {
  */
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
+}
+
+function returnAngle(x1, y1, x2, y2) {
+    let equation = (y2 - y1) / (x2 - x1);
+    return Math.atan(equation);
 }
 
 function differenceXY(x1, y1, x2, y2) {
@@ -327,4 +334,9 @@ function chooseDirection() {
     let amount = Math.random();
     let direction = getRandomInt(2);
     return direction == 0 ? amount : -1 * amount;
+}
+
+function toDegrees(radians) {
+    var pi = Math.PI;
+    return radians * (180 / pi);
 }
