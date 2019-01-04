@@ -13,11 +13,24 @@ class Hitbox extends Obstacle {
         if ((cleanedAngle < 0 && xAngle > 0) || (xAngle > 0 && yAngle > 0)) {
             cleanedAngle = 180 + cleanedAngle;
         }
+        if (this.type === "arrow") {
+            this.obj.classList.add("arrow");
+        } else {
+            this.obj.classList.add("slash");
+            if (xAngle == 0 && yAngle == 0) {
+                cleanedAngle = 180;
+            } else {
+                let rads = Math.atan(yAngle / xAngle);
+                cleanedAngle = toDegrees(rads);
+                if (xAngle < 0) {
+                    cleanedAngle += 180;
+                }
+            }
+        }
         this.obj.style.transform = "rotate(" + cleanedAngle + "deg)";
         document.getElementById("game-area").appendChild(this.obj)
         this.interval = setInterval(() => {
             if (this.type === "arrow") {
-                this.obj.classList.add("arrow");
                 this.arrow();
             }
             this.check();
@@ -47,7 +60,7 @@ class Hitbox extends Obstacle {
             })
         } else if (this.type === "enemy" || this.type === "arrow") {
             playerList.forEach((player) => {
-                
+
                 let { x, y } = player.getLocation();
                 if (super.checkBoundary(x, y, 50, 50) && this.playersHit.indexOf(player) === -1) {
                     this.playersHit.push(player);

@@ -27,7 +27,7 @@ class Player extends Character {
         } else if (verAngle > 0) {
             yRel = this.y + 30;
         }
-        this.hitbox = new Hitbox(xRel, yRel, 30, 30, 1, "player", this.attack);
+        this.hitbox = new Hitbox(xRel, yRel, 50, 50, 1, "player", this.attack, horAngle, verAngle);
     }
 
     subtractHealth(attack) {

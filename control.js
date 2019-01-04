@@ -74,10 +74,10 @@ function setStatus() {
 
 function createEnemies() {
     let types = [
-        // { name: "soldier", attack: 10, health: 100, speed: 10 },
-        // { name: "assassin", attack: 15, health: 60, speed: 15 },
-        // { name: "heavy", attack: 20, health: 140, speed: 5 },
-        // { name: "knight", attack: 12, health: 120, speed: 15 },
+        { name: "soldier", attack: 10, health: 100, speed: 10 },
+        { name: "assassin", attack: 15, health: 60, speed: 15 },
+        { name: "heavy", attack: 20, health: 140, speed: 5 },
+        { name: "knight", attack: 12, health: 120, speed: 15 },
         { name: "archer", attack: 10, health: 90, speed: 12 }
     ];
     let field = document.getElementById("game-area");
@@ -130,8 +130,8 @@ function decay() {
 
 function beginStage() {
     obstacleList = [];
-    let stage = stages[game.getStage() - 1];
-    console.log(stage);
+    // let stage = stages[game.getStage() - 1];
+    let stage = stages[0];
     let obstacles = stage.obstacles;
     let gameArea = document.getElementById("game-area");
     gameArea.style.backgroundImage = stage.mapTitle;
