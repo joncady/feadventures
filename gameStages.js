@@ -33,10 +33,16 @@ class GameStages {
         keys.forEach((key) => {
             clearInterval(timers[key]);
         });
+        obstacleList.forEach((obstacle) => {
+            let obEl = obstacle.getReference();
+            $(obEl).remove();
+        });
+        $(".player").remove();
         enemies.forEach((enemy) => {
             let enemyEl = enemy.getReference();
-            enemyEl.parentElement.removeChild(enemyEl);
+            $(enemyEl).remove();
         });
+        reset();
     }
 
 }

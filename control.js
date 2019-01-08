@@ -8,6 +8,10 @@ let stage = 1;
 let enemiesList = [];
 let playerList = [];
 let obstacleList = [];
+let chars = [];
+let gameStarted = false;
+let keyDown;
+let keyUp;
 let keys = {
     axes: {
         mainStickVertical: 0,
@@ -35,10 +39,6 @@ window.onload = function () {
         document.body.requestFullscreen();
     });
     startingGame();
-}
-
-function endPlay() {
-    console.log("game over");
 }
 
 function getInputs() {
@@ -128,6 +128,30 @@ function decay() {
     return decayValue;
 }
 
+function reset() {
+    lastButtonA = [false, false, false, false];
+    keys = {
+        axes: {
+            mainStickVertical: 0,
+            mainStickHorizontal: 0
+        },
+        buttons: {
+            buttonA: false
+        }
+    }
+    playerList = [];
+    enemiesList = [];
+    // document.removeEventListener("keydown", keyDown);
+    // document.removeEventListener("keyup", keyUp);
+    // keyDown = null;
+    // keyUp = null;
+    let selected = document.querySelectorAll(".selected");
+    selected.forEach((it) => {
+        it.classList.remove("selected");
+    })
+    startingGame();
+}
+
 function beginStage() {
     obstacleList = [];
     // let stage = stages[game.getStage() - 1];
@@ -147,7 +171,7 @@ function beginStage() {
             clearInterval(intervals.checkPosition);
             clearInterval(intervals.checkEnemies);
         }
-        if (controllerOption == "keyboard" && game.getStage() == 1) {
+        if (controllerOption == "keyboard" && game.getStage() == 1 && !gameStarted) {
             setKeys();
         }
         // player check
@@ -171,7 +195,7 @@ function readKeys() {
 }
 
 function setKeys() {
-    document.addEventListener("keydown", (ev) => {
+    keyDown = (ev) => {
         let { mainStickVertical, mainStickHorizontal } = keys.axes;
         if (ev.repeat == false) {
             if (ev.key == "w" && mainStickVertical != 1) {
@@ -187,8 +211,8 @@ function setKeys() {
                 keys.buttons.buttonA = true;
             }
         }
-    }, false);
-    document.addEventListener("keyup", (ev) => {
+    };
+    keyUp = (ev) => {
         if (ev.key == "w") {
             keys.axes.mainStickVertical -= 1;
         } else if (ev.key == "a") {
@@ -201,11 +225,16 @@ function setKeys() {
             ev.preventDefault();
             keys.buttons.buttonA = false;
         }
-    }, false);
+    };
+    document.addEventListener("keydown", keyDown, false);
+    document.addEventListener("keyup", keyUp, false);
 }
 
 function startingGame() {
     let startScreen = document.getElementById("startup");
+    let gameArea = document.getElementById("game-area");
+    gameArea.style.backgroundImage = "url('assets/titleScreen.png')";
+    startScreen.classList.remove("hide");
     let controller = document.getElementById("controller");
     let keyboard = document.getElementById("keyboard");
     let options = [controller, keyboard];
@@ -220,15 +249,18 @@ function startingGame() {
 
 function createCharacters(players) {
     players.forEach((player, index) => {
-        let character = document.getElementById(`player${index + 1}`);
+        let playerEl = document.createElement("div");
+        playerEl.id = `player${index + 1}`;
         let healthBar = document.createElement("progress");
         healthBar.value = 100;
         healthBar.max = 100;
         healthBar.min = 0;
         healthBar.classList.add("health");
-        character.appendChild(healthBar);
-        character.classList.add(player);
-        playerList[index] = new Player(100, 100, character, healthBar);
+        playerEl.appendChild(healthBar);
+        playerEl.classList.add(player);
+        playerEl.classList.add("player");
+        $("#game-area").append(playerEl);
+        playerList[index] = new Player(100, 100, playerEl, healthBar);
     });
     beginStage();
 }
@@ -238,31 +270,33 @@ function createCharacters(players) {
 function chooseCharacter() {
     let charsEl = document.getElementById("characters");
     charsEl.classList.remove("hide");
-    let chars = []
+    chars = [];
     let characters = document.querySelectorAll(".character");
     let confirm = document.getElementById("start");
-    confirm.addEventListener("click", () => {
-        if (chars.length > 0) {
-            createCharacters(chars);
-            charsEl.classList.add("hide");
-        }
-    });
-    characters.forEach((character) => {
-        character.addEventListener("click", () => {
-            if (chars.indexOf(character.id) >= 0) {
-                let index = chars.indexOf(character.id);
-                chars.splice(index, 1);
-                let img = character.childNodes[1];
-                img.src = `assets/${character.id}Portrait1.png`;
-                img.classList.remove("selected");
-            } else {
-                let img = character.childNodes[1];
-                img.src = `assets/${character.id}Portrait2.png`;
-                img.classList.add("selected");
-                chars.push(character.id);
+    if (!gameStarted) {
+        confirm.addEventListener("click", () => {
+            if (chars.length > 0) {
+                createCharacters(chars);
+                charsEl.classList.add("hide");
             }
         });
-    })
+        characters.forEach((character) => {
+            character.addEventListener("click", () => {
+                if (chars.indexOf(character.id) >= 0) {
+                    let index = chars.indexOf(character.id);
+                    chars.splice(index, 1);
+                    let img = character.childNodes[1];
+                    img.src = `assets/${character.id}Portrait1.png`;
+                    img.classList.remove("selected");
+                } else {
+                    let img = character.childNodes[1];
+                    img.src = `assets/${character.id}Portrait2.png`;
+                    img.classList.add("selected");
+                    chars.push(character.id);
+                }
+            });
+        });
+    }
 }
 
 // [hope to change] - Does an enemy attack round
