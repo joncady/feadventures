@@ -141,10 +141,6 @@ function reset() {
     }
     playerList = [];
     enemiesList = [];
-    // document.removeEventListener("keydown", keyDown);
-    // document.removeEventListener("keyup", keyUp);
-    // keyDown = null;
-    // keyUp = null;
     let selected = document.querySelectorAll(".selected");
     selected.forEach((it) => {
         it.classList.remove("selected");
@@ -172,6 +168,7 @@ function beginStage() {
             clearInterval(intervals.checkEnemies);
         }
         if (controllerOption == "keyboard" && game.getStage() == 1 && !gameStarted) {
+            gameStarted = true;
             setKeys();
         }
         // player check
@@ -238,13 +235,15 @@ function startingGame() {
     let controller = document.getElementById("controller");
     let keyboard = document.getElementById("keyboard");
     let options = [controller, keyboard];
-    options.forEach((option) => {
-        option.addEventListener(("click"), () => {
-            controllerOption = option.id;
-            startScreen.classList.add("hide");
-            chooseCharacter();
+    if (!gameStarted) {
+        options.forEach((option) => {
+            option.addEventListener(("click"), () => {
+                controllerOption = option.id;
+                startScreen.classList.add("hide");
+                chooseCharacter();
+            });
         });
-    });
+    }
 }
 
 function createCharacters(players) {
@@ -276,6 +275,7 @@ function chooseCharacter() {
     if (!gameStarted) {
         confirm.addEventListener("click", () => {
             if (chars.length > 0) {
+                console.log(chars);
                 createCharacters(chars);
                 charsEl.classList.add("hide");
             }

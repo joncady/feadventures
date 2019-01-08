@@ -38,13 +38,13 @@ class Player extends Character {
         if (this.health <= 0) {
             audioPlayer.playDeath();
             this.dead = true;
-            let dead = true;
+            let everyoneDead = true;
             playerList.forEach((player) => {
                 if (!player.dead) {
-                    dead = false;
+                    everyoneDead = false;
                 }
             });
-            if (dead) {
+            if (everyoneDead) {
                 game.endGame(intervals , enemiesList);
             }
         }

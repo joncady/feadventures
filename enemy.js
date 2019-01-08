@@ -90,7 +90,6 @@ class Enemy extends Character {
                 }
             }
         });
-
         let playerXY = closestPlayer.getLocation();
         let { diffX, diffY } = differenceXY(newX, newY, playerXY.x, playerXY.y);
         let angle = returnAngle(newX, newY, playerXY.x, playerXY.y);
