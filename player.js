@@ -10,6 +10,7 @@ class Player extends Character {
         this.attacking = false;
         this.attackCounter = 0;
         this.attack = 10;
+        this.dead = false;
     }
 
     attackEnemy(horAngle, verAngle) {
@@ -36,9 +37,21 @@ class Player extends Character {
         this.healthBar.value = this.healthBar.value - attack;
         if (this.health <= 0) {
             audioPlayer.playDeath();
-            endPlay();
-            game.endGame(intervals, enemiesList);
+            this.dead = true;
+            let dead = true;
+            playerList.forEach((player) => {
+                if (!player.dead) {
+                    dead = false;
+                }
+            });
+            if (dead) {
+                game.endGame(intervals , enemiesList);
+            }
         }
+    }
+
+    isDead() {
+        return this.dead;
     }
 
     choosePicture(moveX, moveY, el) {
@@ -50,46 +63,48 @@ class Player extends Character {
     }
 
     moveCharacter(data, index) {
-        const { buttons, axes } = data;
-        let x = this.x;
-        let y = this.y;
-        let horDirection, verDirection = 0;
-        let attacking = false;
-        if (Math.abs(axes.mainStickHorizontal) > 0.1) {
-            horDirection = axes.mainStickHorizontal;
-            x += axes.mainStickHorizontal * moveDistance;
-        } else {
-            horDirection = 0;
-        }
-        if (Math.abs(axes.mainStickVertical) > 0.1) {
-            verDirection = -1 * axes.mainStickVertical;
-            y += -axes.mainStickVertical * moveDistance;
-        } else {
-            verDirection = 0;
-        }
-        if (this.attacking) {
-            this.attackCounter += 1;
-            if (this.attackCounter > 3) {
-                this.attackCounter = 0;
-                this.attacking = false;
+        if (!this.dead) {
+            const { buttons, axes } = data;
+            let x = this.x;
+            let y = this.y;
+            let horDirection, verDirection = 0;
+            let attacking = false;
+            if (Math.abs(axes.mainStickHorizontal) > 0.1) {
+                horDirection = axes.mainStickHorizontal;
+                x += axes.mainStickHorizontal * moveDistance;
             } else {
-                attacking = true;
+                horDirection = 0;
             }
-        } else {
-            this.el.classList.remove("flipped");
-            if (buttons.buttonA && !lastButtonA[index]) {
-                this.attacking = true;
-                attacking = true;
-                lastButtonA[index] = true;
-                this.attackEnemy(horDirection, verDirection);
+            if (Math.abs(axes.mainStickVertical) > 0.1) {
+                verDirection = -1 * axes.mainStickVertical;
+                y += -axes.mainStickVertical * moveDistance;
             } else {
-                if (!buttons.buttonA) {
-                    lastButtonA[index] = false;
+                verDirection = 0;
+            }
+            if (this.attacking) {
+                this.attackCounter += 1;
+                if (this.attackCounter > 3) {
+                    this.attackCounter = 0;
+                    this.attacking = false;
+                } else {
+                    attacking = true;
+                }
+            } else {
+                this.el.classList.remove("flipped");
+                if (buttons.buttonA && !lastButtonA[index]) {
+                    this.attacking = true;
+                    attacking = true;
+                    lastButtonA[index] = true;
+                    this.attackEnemy(horDirection, verDirection);
+                } else {
+                    if (!buttons.buttonA) {
+                        lastButtonA[index] = false;
+                    }
                 }
             }
+            super.choosePicture(horDirection, verDirection, this.el, attacking);
+            this.movePlayer(x, y);
         }
-        super.choosePicture(horDirection, verDirection, this.el, attacking);
-        this.movePlayer(x, y);
     }
 
     getLocation() {

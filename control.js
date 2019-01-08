@@ -3,7 +3,7 @@
 let moveDistance = 10;
 let refreshRate = 100;
 let multiplier = 0.1;
-let enemySpawnTime = 1000;
+let enemySpawnTime = 5000;
 let stage = 1;
 let enemiesList = [];
 let playerList = [];
@@ -22,7 +22,7 @@ let lastButtonA = [false, false, false, false];
 // imported from music.js
 let audioPlayer = new PlayAudio();
 // imported from gameStages.js
-let game = new GameStages(1, 1, beginStage);
+let game = new GameStages(1, 3, beginStage);
 // intervals to be cleared on game end and at the end of each stage
 let intervals = { checkPosition: null, checkEnemies: null, enemyTimer: null }
 
@@ -150,6 +150,7 @@ function beginStage() {
         if (controllerOption == "keyboard" && game.getStage() == 1) {
             setKeys();
         }
+        // player check
         intervals.checkPosition = setInterval(() => {
             if (controllerOption == "controller") {
                 getInputs();
@@ -158,6 +159,7 @@ function beginStage() {
             }
         }, refreshRate);
         createEnemies();
+        // enemies
         intervals.checkEnemies = setInterval(() => {
             enemiesCheck();
         }, refreshRate * 2);

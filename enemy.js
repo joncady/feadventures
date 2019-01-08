@@ -1,5 +1,5 @@
 /*
- * Enemy class, 
+ * Enemy class
  */
 class Enemy extends Character {
 
@@ -65,7 +65,7 @@ class Enemy extends Character {
             if (this.type !== "archer") {
                 this.hitbox = new Hitbox(xRel, yRel, 50, 50, 1, "enemy", this.attack, horAngle, verAngle, angle);
             } else {
-                this.hitbox = new Hitbox(xRel, yRel, 50, 50, 30, "arrow", this.attack, horAngle, verAngle, angle);
+                this.hitbox = new Hitbox(xRel, yRel, 30, 30, 30, "arrow", this.attack, horAngle, verAngle, angle);
             }
         }
     }

@@ -200,4 +200,5 @@ progress::-webkit-progress-bar {
 
 .obstacle {
     position: absolute;
+    background-color: blue;
 }
