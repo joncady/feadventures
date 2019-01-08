@@ -3,8 +3,9 @@
  */
 class Enemy extends Character {
 
-    constructor(type, el, health, healthBar, x, y, attack, speed) {
+    constructor(type, el, health, healthBar, x, y, attack, speed, attackChance) {
         super();
+		this.attackChance = attackChance;
         this.type = type;
         this.el = el;
         this.speed = speed;
@@ -102,7 +103,7 @@ class Enemy extends Character {
             reverse = -1;
         }
         let randomPattern = getRandomInt(10);
-        if (randomPattern > 6) {
+        if (randomPattern > this.attackChance) {
             this.attackPlayer(xAngle, yAngle, angle);
         } else {
             newX = newX + this.speed * xAngle * reverse;

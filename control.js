@@ -74,11 +74,11 @@ function setStatus() {
 
 function createEnemies() {
     let types = [
-        { name: "soldier", attack: 10, health: 100, speed: 10 },
-        { name: "assassin", attack: 15, health: 60, speed: 15 },
-        { name: "heavy", attack: 20, health: 140, speed: 5 },
-        { name: "knight", attack: 12, health: 120, speed: 15 },
-        { name: "archer", attack: 10, health: 90, speed: 12 }
+        { name: "soldier", attack: 10, health: 100, speed: 10, attackChance: 6 },
+        { name: "assassin", attack: 15, health: 60, speed: 13, attackChance: 8 },
+        { name: "heavy", attack: 20, health: 140, speed: 5, attackChance: 12 },
+        { name: "knight", attack: 12, health: 120, speed: 13, attackChance: 6 },
+        { name: "archer", attack: 10, health: 90, speed: 8, attackChance: 8 }
     ];
     let field = document.getElementById("game-area");
     let width = field.clientWidth;
