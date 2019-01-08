@@ -5,9 +5,13 @@ let pxMult = 49.2;
  */
 class Character {
 
-    constructor() {
+    constructor(x, y) {
         this.frameNumber = 0;
         this.spriteFrame = 0;
+		this.x = x;
+		this.y = y;
+		this.centerX = this.x + 25;
+		this.centerY = this.y + 25;
     }
 
     checkBounds(x, y, enemyX, enemyY) {
