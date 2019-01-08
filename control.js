@@ -275,7 +275,6 @@ function chooseCharacter() {
     if (!gameStarted) {
         confirm.addEventListener("click", () => {
             if (chars.length > 0) {
-                console.log(chars);
                 createCharacters(chars);
                 charsEl.classList.add("hide");
             }

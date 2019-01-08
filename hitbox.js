@@ -37,6 +37,11 @@ class Hitbox extends Obstacle {
         }, refreshRate);
     }
 
+    deleteHitbox() {
+        clearInterval(this.interval);
+        $(this.obj).remove();
+    }
+
     arrow() {
         this.x += this.xAngle * 10;
         this.obj.style.left = this.x + "px";

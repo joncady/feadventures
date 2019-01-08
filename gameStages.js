@@ -33,6 +33,12 @@ class GameStages {
         keys.forEach((key) => {
             clearInterval(timers[key]);
         });
+        let hitboxes = document.querySelectorAll(".arrow");
+        if (hitboxes !== undefined) {
+            hitboxes.forEach((hitbox) => {
+                hitbox.deleteHitbox();
+            });
+        }
         obstacleList.forEach((obstacle) => {
             let obEl = obstacle.getReference();
             $(obEl).remove();

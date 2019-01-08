@@ -81,9 +81,7 @@ class Enemy extends Character {
                 let checkPlayerVals = player.getLocation();
                 let checkX = checkPlayerVals.x;
                 let checkY = checkPlayerVals.y;
-
                 let distance = distanceCalculation(this.x, this.y, checkX, checkY);
-
                 if (closestPlayer == null || distance < closestDistance) {
                     closestPlayer = player;
                     closestDistance = distance;
