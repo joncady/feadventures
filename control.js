@@ -178,7 +178,7 @@ function beginStage() {
             } else {
                 readKeys();
             }
-        }, refreshRate / 2);
+        }, (controllerOption == "controller") ? refreshRate / 2 : refreshRate * .75);
         createEnemies();
         // enemies
         intervals.checkEnemies = setInterval(() => {
