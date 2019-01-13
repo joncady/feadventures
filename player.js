@@ -1,9 +1,7 @@
 class Player extends Character {
 
     constructor(x, y, el, healthBar) {
-        super();
-        this.x = x;
-        this.y = y;
+        super(x, y);
         this.health = 100;
         this.el = el;
         this.healthBar = healthBar;

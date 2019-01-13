@@ -3,7 +3,7 @@
 let moveDistance = 10;
 let refreshRate = 100;
 let multiplier = 0.1;
-let enemySpawnTime = 5000;
+let enemySpawnTime = 2000;
 let stage = 1;
 let enemiesList = [];
 let playerList = [];
@@ -26,7 +26,7 @@ let lastButtonA = [false, false, false, false];
 // imported from music.js
 let audioPlayer = new PlayAudio();
 // imported from gameStages.js
-let game = new GameStages(1, 3, beginStage);
+let game = new GameStages(1, 5, beginStage);
 // intervals to be cleared on game end and at the end of each stage
 let intervals = { checkPosition: null, checkEnemies: null, enemyTimer: null }
 
@@ -178,7 +178,7 @@ function beginStage() {
             } else {
                 readKeys();
             }
-        }, refreshRate);
+        }, refreshRate / 2);
         createEnemies();
         // enemies
         intervals.checkEnemies = setInterval(() => {

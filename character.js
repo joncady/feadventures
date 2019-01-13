@@ -13,7 +13,7 @@ class Character {
 		this.centerX = this.x + 25;
 		this.centerY = this.y + 25;
     }
-
+    
     checkBounds(x, y, enemyX, enemyY) {
         return (x + 50 > enemyX && x < enemyX) && (y + 50 > enemyY && y < enemyY);
     }

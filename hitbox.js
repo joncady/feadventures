@@ -65,7 +65,6 @@ class Hitbox extends Obstacle {
             })
         } else if (this.type === "enemy" || this.type === "arrow") {
             playerList.forEach((player) => {
-
                 let { x, y } = player.getLocation();
                 if (super.checkBoundary(x, y, 50, 50) && this.playersHit.indexOf(player) === -1) {
                     this.playersHit.push(player);

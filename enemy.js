@@ -4,7 +4,7 @@
 class Enemy extends Character {
 
     constructor(type, el, health, healthBar, x, y, attack, speed, attackChance) {
-        super();
+        super(x, y);
 		this.attackChance = attackChance;
         this.type = type;
         this.el = el;
@@ -15,8 +15,6 @@ class Enemy extends Character {
         this.fullHealth = health;
         this.attackCounter = 0;
         this.attacking = false;
-        this.x = x;
-        this.y = y;
         this.el.style.left = this.x + "px";
         this.el.style.top = this.y + "px";
     }
