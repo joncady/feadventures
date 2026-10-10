@@ -9,11 +9,11 @@ test('loads assets, starts a wave, pauses, dies and restarts cleanly', async ({ 
   await page.getByRole('button', { name: 'Begin battle' }).click();
   await expect(page.locator('#hero-name')).toHaveText('Lucina · sword');
   await expect(page.locator('#game')).toHaveAttribute('data-enemies', '1');
-  await page.getByRole('button', { name: 'Pause', exact: true }).click();
+  await page.getByRole('button', { name: 'Pause', exact: true }).press('Enter');
   await expect(page.locator('#notice')).toContainText('Paused');
   await page.waitForTimeout(1800);
   await expect(page.locator('#game')).toHaveAttribute('data-enemies', '1');
-  await page.getByRole('button', { name: 'Resume', exact: true }).click();
+  await page.getByRole('button', { name: 'Resume', exact: true }).press('Enter');
   await page.locator('#game').focus();
   await page.keyboard.down('d'); await page.waitForTimeout(400); await page.keyboard.up('d');
   await page.keyboard.press('Space');
@@ -23,7 +23,7 @@ test('loads assets, starts a wave, pauses, dies and restarts cleanly', async ({ 
     const scene = game.scene.getScene('Arena'); scene.lastDamage = -Infinity; scene.takeDamage(1000);
   });
   await expect(page.getByRole('button', { name: 'Try again' })).toBeVisible();
-  await page.getByRole('button', { name: 'Try again' }).click();
+  await page.getByRole('button', { name: 'Try again' }).press('Enter');
   await expect(page.locator('#health')).toHaveText('HP 100 / 100');
   await expect(page.locator('#wave')).toHaveText('Wave 1');
   await expect(page.locator('#kills')).toHaveText('Defeated 0');

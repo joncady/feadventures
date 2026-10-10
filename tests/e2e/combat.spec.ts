@@ -11,18 +11,18 @@ test('waits for audio assets, toggles mute, and restores ranged and hit audio', 
     return ['music', 'attack', 'damage', 'arrow-fire', 'death'].every(key => game.cache.audio.exists(key));
   })).toBe(true);
   const audio = page.locator('#music');
-  await expect(audio).toHaveAccessibleName('Unmute audio');
-  await expect(audio).toHaveAttribute('aria-pressed', 'false');
-  await expect(page.locator('.caption')).toHaveCount(0);
-  await audio.click();
   await expect(audio).toHaveAccessibleName('Mute audio');
-  await audio.click();
+  await expect(audio).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('.caption')).toHaveCount(0);
+  await audio.press('Enter');
   await expect(audio).toHaveAccessibleName('Unmute audio');
+  await audio.press('Enter');
+  await expect(audio).toHaveAccessibleName('Mute audio');
   await begin.click();
   await expect.poll(() => page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);
     return game.sound.mute;
-  })).toBe(true);
+  })).toBe(false);
   await page.evaluate(async () => {
     const entry = '/src/main.ts';
     const { game } = await import(entry);

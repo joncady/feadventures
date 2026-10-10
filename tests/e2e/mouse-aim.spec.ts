@@ -14,6 +14,6 @@ test('scaled mouse aim is independent of movement, locks windup and resets on me
   await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').arrows.getChildren()[0]?.body.velocity.x??0;})).toBeGreaterThan(0);
   await page.mouse.move(0,0);
   await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').facing.x;})).toBe(-1);
-  await page.getByRole('button',{name:'Main menu',exact:true}).click();await page.getByRole('button',{name:'Begin battle'}).click();
+  await page.getByRole('button',{name:'Main menu',exact:true}).press('Enter');await page.getByRole('button',{name:'Begin battle'}).click();
   expect(await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');return {pointer:s.pointerAim,shot:s.playerShot};})).toEqual({pointer:undefined,shot:undefined});
 });

@@ -48,7 +48,7 @@ test('Virion fires past the close dead zone, hits enemies, and cleans up on rest
     const entry = '/src/main.ts'; const { game } = await import(entry);
     const scene = game.scene.getScene('Arena'); scene.lastDamage = -Infinity; scene.takeDamage(100);
   });
-  await page.getByRole('button', { name: 'Try again' }).click();
+  await page.getByRole('button', { name: 'Try again' }).press('Enter');
   await expect(page.locator('#health')).toHaveText('HP 100 / 100');
   expect(await page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);

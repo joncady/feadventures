@@ -105,7 +105,7 @@
       50,
       50
     ],
-    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left"
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left; gray customization hair palette darkened"
   },
   "morganPortrait.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63381/",
@@ -116,7 +116,12 @@
       256,
       552
     ],
-    "overlay": null
+    "overlay": [
+      1292,
+      298,
+      1546,
+      552
+    ]
   },
   "robin.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/64162/",
@@ -137,7 +142,7 @@
       50,
       50
     ],
-    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left"
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
   },
   "robinPortrait.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63403/",
@@ -206,7 +211,7 @@
       50,
       50
     ],
-    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left"
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
   },
   "lissaPortrait.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63372/",
@@ -238,7 +243,7 @@
       50,
       50
     ],
-    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left"
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
   },
   "lonquPortrait.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63371/",
@@ -270,7 +275,7 @@
       50,
       50
     ],
-    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left"
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
   },
   "mirielPortrait.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63369/",
@@ -302,7 +307,7 @@
       50,
       50
     ],
-    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left"
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
   },
   "rickenPortrait.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63386/",
@@ -334,7 +339,7 @@
       50,
       50
     ],
-    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left"
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
   },
   "stahlPortrait.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63388/",
@@ -366,7 +371,7 @@
       50,
       50
     ],
-    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left"
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
   },
   "sullyPortrait.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63389/",
@@ -398,7 +403,7 @@
       50,
       50
     ],
-    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left"
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
   },
   "tharjaPortrait.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63399/",
@@ -430,16 +435,16 @@
       50,
       50
     ],
-    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left"
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
   },
   "vaikePortrait.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63392/",
     "uploader": "Ploaj",
     "crop": [
       2,
-      362,
+      332,
       256,
-      616
+      586
     ],
     "overlay": null
   },
@@ -518,5 +523,57 @@
     ],
     "palette": "red",
     "processing": "Exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left. Class assignment is the game loadout."
+  },
+  "robin-female.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/64161/",
+    "uploader": "Ploaj",
+    "originalSize": [
+      384,
+      16384
+    ],
+    "origin": [
+      128,
+      0
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+  },
+  "robin-femalePortrait.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63400/",
+    "uploader": "Ploaj",
+    "crop": [
+      2,
+      2,
+      256,
+      256
+    ],
+    "overlay": [
+      2,
+      1374,
+      256,
+      1628
+    ]
+  },
+  "ui-parchment.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/80213/",
+    "uploader": "supersmashball",
+    "originalSize": [
+      514,
+      1255
+    ],
+    "crop": [
+      9,
+      443,
+      313,
+      595
+    ],
+    "processing": "Medium parchment frame, rendered with Phaser NineSlice"
   }
 }

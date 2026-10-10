@@ -1,0 +1,23 @@
+[
+  {
+    "key": "battle-start",
+    "file": "audio/battle-start.wav",
+    "original": "WARC_SYS_FIRST_0.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/401959/",
+    "processing": "Original WAV, unchanged"
+  },
+  {
+    "key": "level-up",
+    "file": "audio/level-up.wav",
+    "source": "https://www.youtube.com/watch?v=aw-CaOiuMco",
+    "original": "asset-library/awakening/level-up-reference.m4a",
+    "processing": "Mono PCM; leading/trailing silence trimmed by scripts/prepare-ui-audio.mjs",
+    "archiveMatch": "No verified match in downloaded effects archive"
+  },
+  {
+    "key": "xp-tick",
+    "file": "audio/xp-tick.wav",
+    "source": "scripts/prepare-progression-audio.py",
+    "processing": "Temporary generated tick"
+  }
+]

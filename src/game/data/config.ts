@@ -1,5 +1,5 @@
 export const WORLD = { width: 896, height: 544 } as const;
-export const HEROES = ['chrom', 'lucina', 'frederick', 'virion', 'sumia', 'morgan', 'robin', 'cordelia', 'lissa', 'lonqu', 'miriel', 'ricken', 'stahl', 'sully', 'tharja', 'vaike'] as const;
+export const HEROES = ['chrom', 'lucina', 'frederick', 'virion', 'sumia', 'morgan', 'robin', 'robin-female', 'cordelia', 'lissa', 'lonqu', 'miriel', 'ricken', 'stahl', 'sully', 'tharja', 'vaike'] as const;
 export type Hero = typeof HEROES[number];
 export const HERO_SHEETS = Object.fromEntries(HEROES.map(hero => [hero, {
   frameHeight: hero === 'sumia' || hero === 'cordelia' ? 55 : 50,
@@ -13,7 +13,8 @@ export const HERO_NAMES: Record<Hero, string> = {
   'virion': 'Virion',
   'sumia': 'Sumia',
   'morgan': 'Morgan',
-  'robin': 'Robin',
+  'robin': 'Robin (Male)',
+  'robin-female': 'Robin (Female)',
   'cordelia': 'Cordelia',
   'lissa': 'Lissa',
   'lonqu': 'Lon’qu',
@@ -31,6 +32,7 @@ export const HERO_PROFILES = {
   virion: { weapon: 'bow', range: 420, minRange: 90, damage: 35, cooldown: 520, speed: 170, description: 'Bow · ranged shots · keep enemies outside the inner ring' },
   sumia: { weapon: 'lance', range: 110, minRange: 0, damage: 35, cooldown: 380, speed: 190, description: 'Pegasus · fly over terrain · lance reach · vulnerable to bows' },
   morgan: { weapon: 'tome', range: 300, minRange: 0, damage: 30, cooldown: 600, speed: 170, description: 'Fire tome · cast a ranged bolt · no close-range dead zone' },
+  'robin-female': { weapon: 'tome', range: 300, minRange: 0, damage: 30, cooldown: 600, speed: 170, description: 'Fire tome · female Robin · ranged magic' },
   robin: { weapon: 'tome', range: 300, minRange: 0, damage: 30, cooldown: 600, speed: 170, description: 'Fire tome · cast a ranged bolt · no close-range dead zone' },
   cordelia: { weapon: 'lance', range: 110, minRange: 0, damage: 35, cooldown: 380, speed: 190, description: 'Pegasus · fly over terrain · vulnerable to bows' },
   lissa: { weapon: 'axe', range: 85, minRange: 0, damage: 35, cooldown: 380, speed: 170, description: 'War Cleric · axe attacks · strong against lances' },

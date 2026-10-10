@@ -202,5 +202,17 @@ export const AUDIO_ASSETS = [
   {
     "key": "archive-effect-3",
     "file": "audio/effect-WARC_EFFECT_11.wav"
+  },
+  {
+    "key": "voice-robin-female-attack",
+    "file": "audio/robin-female-attack.wav"
+  },
+  {
+    "key": "voice-robin-female-damage",
+    "file": "audio/robin-female-damage.wav"
+  },
+  {
+    "key": "voice-robin-female-death",
+    "file": "audio/robin-female-death.wav"
   }
 ] as const;

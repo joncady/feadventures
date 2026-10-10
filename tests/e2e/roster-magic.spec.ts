@@ -6,7 +6,7 @@ test('every roster hero loads, idles, and returns to menu without retained battl
   page.on('response', r => { if (r.status() >= 400) errors.push(`${r.status()} ${r.url()}`); });
   await page.goto('/');
   const names = await page.locator('.hero').allTextContents();
-  expect(names).toHaveLength(16);
+  expect(names).toHaveLength(17);
   for (const name of names) {
     await page.getByRole('button', { name, exact: true }).click();
     await page.getByRole('button', { name: 'Begin battle' }).click();
@@ -33,8 +33,18 @@ test('every roster hero loads, idles, and returns to menu without retained battl
       }
       expect(new Set(frames).size).toBeGreaterThan(1);
     }
-    await page.getByRole('button', { name: 'Pause', exact: true }).click();
-    await page.getByRole('button', { name: 'Main menu', exact: true }).click();
+    await page.locator('#game').focus();
+    for (const [key, direction] of [['ArrowRight', 'down-right'], ['ArrowLeft', 'down-left']]) {
+      await page.keyboard.down('ArrowDown'); await page.keyboard.down(key);
+      await expect.poll(() => page.evaluate(async () => {
+        const entry = '/src/main.ts'; const { game } = await import(entry);
+        const player = game.scene.getScene('Arena').player;
+        return { animation: player.anims.currentAnim?.key, flipped: player.flipX };
+      })).toEqual({ animation: `${state.hero}-walk-${direction}`, flipped: false });
+      await page.keyboard.up(key); await page.keyboard.up('ArrowDown');
+    }
+    await page.getByRole('button', { name: 'Pause', exact: true }).press('Enter');
+    await page.getByRole('button', { name: 'Main menu', exact: true }).press('Enter');
     await expect(page.locator('#menu')).toBeVisible();
     await expect(page.getByRole('button', { name: 'Pause', exact: true })).toBeDisabled();
     expect(await page.evaluate(async () => {
@@ -70,7 +80,7 @@ test('Morgan casts Fire with windup, resistance damage, cover collision and menu
     const entry = '/src/main.ts'; const { game } = await import(entry);
     return game.scene.getScene('Arena').arrows.countActive();
   })).toBe(0);
-  await page.getByRole('button', { name: 'Main menu', exact: true }).click();
+  await page.getByRole('button', { name: 'Main menu', exact: true }).press('Enter');
   await page.getByRole('button', { name: 'Begin battle' }).click();
   expect(await page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);

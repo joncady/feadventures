@@ -21,6 +21,15 @@ for character in json.loads((root / 'docs' / 'character-imports.json').read_text
         for col in range(4):
             tile = image.crop((x + col * width, y + row * height, x + (col + 1) * width, y + (row + 1) * height))
             tile.putdata([(r,g,b,0 if (r,g,b)==(255,0,255) else a) for r,g,b,a in tile.getdata()])
+            if key == 'morgan':
+                # The source already includes the hair silhouette in a gray customization palette.
+                pixels=tile.load()
+                for hy in range(16):
+                    for hx in range(width):
+                        r,g,b,a=pixels[hx,hy]
+                        if a and max(r,g,b)-min(r,g,b)<18 and r>=70:
+                            shade=min(90,max(20,int(r*.32)))
+                            pixels[hx,hy]=(shade,shade+3,shade+12,a)
             atlas.paste(tile.resize((fw, fh), Image.Resampling.NEAREST), (col * fw, row * fh))
     atlas.save(assets / (key + '.png'))
     portrait = Image.open(source / (character['portrait'] + '.png')).convert('RGBA')
@@ -28,6 +37,10 @@ for character in json.loads((root / 'docs' / 'character-imports.json').read_text
     if 'portraitOverlay' in character:
         bust.alpha_composite(portrait.crop(character['portraitOverlay']))
     bust.save(assets / (key + 'Portrait.png'))
-    metadata[key + '.png'] = dict(source=f"https://www.spriters-resource.com/3ds/fireemblemawakening/asset/{character['map']}/", uploader='Ploaj', originalSize=list(image.size), origin=[x,y], sourceFrame=[width,height], outputFrame=[fw,fh], processing='Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left')
+    diagonals = 'down-left, down-right' if key in ('virion', 'sumia', 'cordelia') else 'down-right, down-left'
+    processing = 'Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, ' + diagonals + ', up-right, up-left'
+    if key == 'morgan':
+        processing += '; gray customization hair palette darkened'
+    metadata[key + '.png'] = dict(source=f"https://www.spriters-resource.com/3ds/fireemblemawakening/asset/{character['map']}/", uploader='Ploaj', originalSize=list(image.size), origin=[x,y], sourceFrame=[width,height], outputFrame=[fw,fh], processing=processing)
     metadata[key + 'Portrait.png'] = dict(source=f"https://www.spriters-resource.com/3ds/fireemblemawakening/asset/{character['portrait']}/", uploader='Ploaj', crop=character['portraitCrop'], overlay=character.get('portraitOverlay'))
 metadata_path.write_text(json.dumps(metadata,indent=2)+'\n')

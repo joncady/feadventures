@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import './style.css';
 import { BootScene } from './game/scenes/BootScene';
+import { InterfaceScene, type InterfaceState } from './game/scenes/InterfaceScene';
 import { ArenaScene, type Hud } from './game/scenes/ArenaScene';
 import { AUDIO_ASSETS } from './game/data/audio-assets';
 import { HEROES, HERO_PROFILES, HERO_NAMES, WORLD, type Hero } from './game/data/config';
@@ -11,13 +12,15 @@ export const game = new Phaser.Game({
   pixelArt: true, backgroundColor: '#1d3026',
   scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
   physics: { default: 'arcade', arcade: { debug: false } },
-  scene: [BootScene, ArenaScene],
+  scene: [BootScene, ArenaScene, InterfaceScene],
 });
 let hero: Hero = 'chrom';
 let playing = false;
 let paused = false;
 let music: Phaser.Sound.BaseSound | undefined;
-let muted = true;
+let muted = false;
+let settingsOpen = false;
+let result = '';
 export const audioSettings = { music: 0.18, effects: 1, voices: 0.6, characterVoices: true, spellEffect: 'fire-cast' };
 let lastVoiceAt = -Infinity;
 function stopVoices(): void {
@@ -37,48 +40,67 @@ game.events.on('hero-voice', ({ hero: character, event }: { hero: Hero; event: s
 let loadingFailed = false;
 const startButton = element<HTMLButtonElement>('start');
 const pauseButton = element<HTMLButtonElement>('pause');
-const notice = (text: string) => { element('notice').textContent = text; };
+const notice = (text: string) => { element('notice').textContent = text; game.registry.set('interface-notice', text); game.events.emit('ui-notice', text); };
+function publishInterface(): void {
+  const state: InterfaceState = { ready: !startButton.disabled, playing, paused, muted, settingsOpen, result, audio: { ...audioSettings } };
+  game.registry.set('interface-state', state); game.events.emit('ui-state', state);
+}
+function ensureMusic(): void {
+  if (muted || !game.cache.audio.exists('music')) return;
+  if (!music) music = game.sound.add('music', { loop: true, volume: audioSettings.music });
+  if (!music.isPlaying && !music.isPaused) music.play();
+  if (music.isPaused && !paused) music.resume();
+  if (paused) music.pause();
+}
+publishInterface();
 
 game.events.on('asset-error', (key: string) => {
   loadingFailed = true; notice(`Could not load ${key}. Reload to retry.`);
 });
 game.events.on('assets-ready', () => {
   game.sound.mute = muted;
-  game.sound.once('unlocked', () => { game.sound.mute = muted; });
+  game.sound.once('unlocked', () => { game.sound.mute = muted; ensureMusic(); });
+  ensureMusic();
   if (loadingFailed) return;
   startButton.disabled = false; startButton.textContent = 'Begin battle';
   element<HTMLButtonElement>('music').disabled = false;
-  notice('Choose a hero, then begin.');
+  notice('Choose a hero, then begin.'); publishInterface();
 });
 game.events.on('notice', notice);
 game.events.on('hud', (hud: Hud) => {
-  element('health').textContent = `HP ${hud.health} / 100`;
+  element('health').textContent = `HP ${hud.health} / ${hud.maxHealth}`;
   element('wave').textContent = `Wave ${hud.wave}`;
   element('kills').textContent = `Defeated ${hud.kills}`;
   element('game').dataset.enemies = String(hud.enemies);
 });
-game.events.on('game-over', (result: { wave: number; kills: number }) => {
+game.events.on('game-over', (battleResult: { wave: number; kills: number }) => {
   playing = false; pauseButton.disabled = true;
   element('end').hidden = false;
-  element('result').textContent = `Reached wave ${result.wave} · Defeated ${result.kills} enemies`;
-  notice('Choose Try again for a fresh battle.');
+  element('result').textContent = `Reached wave ${battleResult.wave} · Defeated ${battleResult.kills} enemies`;
+  result = element('result').textContent ?? '';
+  notice('Choose Try again for a fresh battle.'); publishInterface();
 });
 function start(): void {
+  if (startButton.disabled) return;
+  ensureMusic();
+  game.events.emit('effect', 'battle-start', { volume: .45 });
+  result = ''; settingsOpen = false; audioDialog.close();
   game.scene.stop('Boot'); game.scene.stop('Arena');
   element('menu').hidden = true; element('end').hidden = true;
   playing = true; paused = false; pauseButton.disabled = false; pauseButton.textContent = 'Pause';
   element('hero-name').textContent = `${HERO_NAMES[hero]} · ${HERO_PROFILES[hero].weapon}`;
   game.scene.start('Arena', { hero });
+  game.scene.bringToTop('Interface'); publishInterface();
   element('game').focus();
 }
 function togglePause(): void {
-  if (!playing) return;
+  if (!playing || settingsOpen) return;
   paused = !paused;
   if (paused) { stopVoices(); game.scene.pause('Arena'); music?.pause(); }
   else { game.scene.getScene('Arena').input.keyboard?.resetKeys(); game.scene.resume('Arena'); music?.resume(); }
   if (!paused) element('game').focus();
   pauseButton.textContent = paused ? 'Resume' : 'Pause';
-  notice(paused ? 'Paused — press P or Resume to continue.' : 'Back to battle. Space to strike.');
+  notice(paused ? 'Paused — press P or Resume to continue.' : 'Back to battle. Space to strike.'); publishInterface();
 }
 const portraits: Partial<Record<Hero, string>> = { chrom: 'chromPortrait1.png', lucina: 'lucinaPortrait1.png', frederick: 'frederickPortrait1.png' };
 const roster = document.querySelector('.heroes')!;
@@ -107,18 +129,21 @@ startButton.addEventListener('click', start);
 element('restart').addEventListener('click', start);
 function showMenu(): void {
   if (!element('menu').hidden) return;
+  result = ''; settingsOpen = false; audioDialog.close();
   stopVoices(); game.sound.stopAll();
   game.scene.stop('Arena'); game.scene.start('Boot');
   playing = false; paused = false; pauseButton.disabled = true; pauseButton.textContent = 'Pause';
-  music?.play(); if (music && muted) music.pause();
+  ensureMusic();
   element('end').hidden = true; element('menu').hidden = false;
   notice('Choose a hero, then begin.');
+  game.scene.bringToTop('Interface'); publishInterface();
 }
 element('choose').addEventListener('click', showMenu);
 element('main-menu').addEventListener('click', showMenu);
 pauseButton.addEventListener('click', togglePause);
 window.addEventListener('keydown', event => {
-  if (event.code === 'KeyP' && !event.repeat) togglePause();
+  if (event.code === 'Escape' && settingsOpen) element('audio-close').click();
+  else if (event.code === 'KeyP' && !event.repeat) togglePause();
 });
 window.addEventListener('blur', () => {
   if (playing && !paused) togglePause();
@@ -127,17 +152,12 @@ element('music').addEventListener('click', () => {
   muted = !muted;
   game.sound.mute = muted;
   if (muted) stopVoices();
-  if (!muted && !music) {
-    music = game.sound.add('music', { loop: true, volume: audioSettings.music });
-    music.play();
-    if (paused) music.pause();
-  }
-  if (!muted && music?.isPaused && !paused) music.resume();
+  ensureMusic();
   element<HTMLInputElement>('audio-enabled').checked = !muted;
   const label = muted ? 'Unmute audio' : 'Mute audio';
   element('music').setAttribute('aria-label', label);
   element('music').setAttribute('title', label);
-  element('music').setAttribute('aria-pressed', String(!muted));
+  element('music').setAttribute('aria-pressed', String(!muted)); publishInterface();
   if (playing) element('game').focus();
 });
 element('fullscreen').addEventListener('click', () => {
@@ -148,25 +168,37 @@ element('fullscreen').addEventListener('click', () => {
 const audioDialog = element<HTMLDialogElement>('audio-settings');
 element('audio-options').addEventListener('click', () => {
   if (playing && !paused) togglePause();
-  audioDialog.showModal();
+  settingsOpen = true; audioDialog.show(); publishInterface();
 });
 element<HTMLInputElement>('audio-enabled').addEventListener('change', () => element('music').click());
-element('audio-close').addEventListener('click', () => audioDialog.close());
+element('audio-close').addEventListener('click', () => { settingsOpen = false; audioDialog.close(); publishInterface(); if(playing) element('game').focus(); });
 for (const category of ['music', 'effects', 'voices'] as const) {
   element<HTMLInputElement>(`${category}-volume`).addEventListener('input', event => {
     audioSettings[category] = Number((event.target as HTMLInputElement).value) / 100;
     if (category === 'music') (music as Phaser.Sound.WebAudioSound | Phaser.Sound.HTML5AudioSound | undefined)?.setVolume(audioSettings.music);
     if (category === 'voices') stopVoices();
     if (category === 'effects') {
-      for (const key of ['attack', 'damage', 'arrow-fire', 'death', 'archive-effect-1', 'archive-effect-2', 'archive-effect-3', 'axe-impact', 'lance-thrust', 'fire-cast']) game.sound.stopByKey(key);
+      for (const key of ['attack', 'damage', 'arrow-fire', 'death', 'archive-effect-1', 'archive-effect-2', 'archive-effect-3', 'axe-impact', 'lance-thrust', 'fire-cast','xp-tick','level-up','battle-start']) game.sound.stopByKey(key);
     }
+    publishInterface();
   });
 }
-element<HTMLInputElement>('character-voices').addEventListener('change', event => { audioSettings.characterVoices = (event.target as HTMLInputElement).checked; stopVoices(); });
-element<HTMLSelectElement>('spell-effect').addEventListener('change', event => { audioSettings.spellEffect = (event.target as HTMLSelectElement).value; });
+element<HTMLInputElement>('character-voices').addEventListener('change', event => { audioSettings.characterVoices = (event.target as HTMLInputElement).checked; stopVoices(); publishInterface(); });
+element<HTMLSelectElement>('spell-effect').addEventListener('change', event => { audioSettings.spellEffect = (event.target as HTMLSelectElement).value; publishInterface(); });
 game.events.on('spell-effect', () => game.events.emit('effect', audioSettings.spellEffect, { volume: 0.25 }));
 element('audio-preview').addEventListener('click', () => {
   if (muted) { notice('Unmute audio with the speaker button to preview.'); return; }
   game.events.emit('effect', audioSettings.spellEffect, { volume: 0.25 });
   characterVoice(hero, 'attack');
+});
+
+// Native controls and keyboard-accessible DOM mirrors share exactly the same handlers.
+game.events.on('ui-action', (id: string) => element<HTMLButtonElement>(id).click());
+game.events.on('ui-volume', (category: string, value: number) => {
+  const input = element<HTMLInputElement>(`${category}-volume`); input.value = String(value); input.dispatchEvent(new Event('input'));
+});
+game.events.on('ui-voices', () => element<HTMLInputElement>('character-voices').click());
+game.events.on('ui-spell', () => {
+  const select = element<HTMLSelectElement>('spell-effect'); select.selectedIndex = (select.selectedIndex + 1) % select.options.length;
+  select.dispatchEvent(new Event('change'));
 });

@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('audio categories are independent, recorded voices load, and device speech is removed', async ({ page }) => {
   await page.goto('/'); await page.getByRole('button', { name: 'Begin battle' }).waitFor();
-  await page.getByRole('button', { name: 'Audio settings', exact: true }).click();
+  await page.getByRole('button', { name: 'Audio settings', exact: true }).press('Enter');
   await expect(page.getByRole('dialog', { name: 'Audio settings' })).toBeVisible();
   await page.getByLabel('Enable audio', { exact: true }).check();
   await expect(page.locator('#spell-names, #device-voice')).toHaveCount(0);
@@ -21,14 +21,14 @@ test('audio categories are independent, recorded voices load, and device speech 
   expect(sounds.musicVolume).toBe(0); expect(sounds.voiceReady).toBe(true);
   expect(sounds.played).toContainEqual({ key: 'attack', volume: 0.2 });
   expect(sounds.played).toContainEqual({ key: 'voice-morgan-attack', volume: 0.6 });
-  await page.getByLabel('Enable audio', { exact: true }).uncheck();
+  await page.getByLabel('Enable audio', { exact: true }).press('Space');
   expect(await page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);
     const played: string[] = []; game.sound.play = (key: string) => { played.push(key); return true; };
     game.events.emit('hero-attack', { hero: 'morgan', spell: 'Fire' });
     return { played, muted: game.sound.mute };
   })).toEqual({ played: [], muted: true });
-  await page.getByRole('button', { name: 'Close', exact: true }).click();
+  await page.getByRole('button', { name: 'Close', exact: true }).press('Enter');
 });
 
 test('down diagonal movement selects the correct verified sprite rows', async ({ page }) => {
@@ -59,5 +59,5 @@ test('melee attacks route sword, axe and lance to distinct loaded effects', asyn
     return { played, loaded: ['axe-impact', 'lance-thrust', 'fire-cast'].every(key => game.cache.audio.exists(key)) };
   });
   expect(result.loaded).toBe(true);
-  expect(result.played).toEqual(['attack', 'axe-impact', 'lance-thrust', 'fire-cast']);
+  expect(result.played.filter(key => !key.startsWith('voice-'))).toEqual(['attack', 'axe-impact', 'lance-thrust', 'fire-cast']);
 });

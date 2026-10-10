@@ -2,6 +2,8 @@ import Phaser from 'phaser';
 import { ENEMY_TYPES, HERO_PROFILES, HERO_SHEETS, isFlying, OBSTACLES, WORLD, type Hero } from '../data/config';
 import { direction, inMeleeRange, validSpawn, waveSize, type Point } from '../systems/rules';
 import { combatDamage, weaponAttackSound, weaponMatchup, withinWeaponRange, type WeaponType } from '../systems/combat';
+import { BattleHud } from '../systems/BattleHud';
+import { newProgress, gainExperience, attackPower, attackCooldown, killExperience } from '../systems/progression';
 import { NavigationField } from '../systems/navigation';
 
 type Enemy = Phaser.Physics.Arcade.Sprite;
@@ -17,7 +19,7 @@ interface EnemyBrain {
   retreating: boolean;
   targetUnit?: Enemy;
 }
-export interface Hud { health: number; wave: number; kills: number; enemies: number }
+export interface Hud { maxHealth:number; level:number; xp:number; allyMode:string; allies:number; health: number; wave: number; kills: number; enemies: number }
 export class ArenaScene extends Phaser.Scene {
   private hero: Hero = 'chrom';
   private player!: Phaser.Physics.Arcade.Sprite;
@@ -32,6 +34,9 @@ export class ArenaScene extends Phaser.Scene {
   private walls!: Phaser.Physics.Arcade.StaticGroup;
   private keys!: Record<string, Phaser.Input.Keyboard.Key>;
   private health = 100;
+  private progression = newProgress();
+  private battleHud!:BattleHud;
+  private allyMode:'defend'|'attack' = 'defend';
   private wave = 1;
   private kills = 0;
   private facing: Point = { x: 1, y: 0 };
@@ -55,7 +60,7 @@ export class ArenaScene extends Phaser.Scene {
     this.hero = data.hero ?? 'chrom';
     this.brains = new WeakMap(); this.targetFields.clear(); this.allyRoutes.clear();
     this.playerShot = undefined; this.actionUntil = 0; this.pointerAim = undefined; this.pointerAttack = false;
-    this.health = 100; this.wave = 1; this.kills = 0;
+    this.health = 100; this.progression = newProgress(); this.allyMode = 'defend'; this.wave = 1; this.kills = 0;
     this.facing = { x: 1, y: 0 }; this.keyboardFacing = { ...this.facing }; this.lastAttack = -Infinity;
     this.lastDamage = -Infinity; this.spawning = 0; this.advancing = false; this.ended = false;
   }
@@ -91,12 +96,13 @@ export class ArenaScene extends Phaser.Scene {
     this.physics.add.collider(this.enemies, this.walls);
     this.physics.add.collider(this.allies, this.walls);
     this.physics.add.overlap(this.player, this.pickups, (_player, item) => {
-      item.destroy(); this.health = Math.min(100, this.health + 25); this.publishHud();
+      item.destroy(); this.health = Math.min(this.progression.stats.hp, this.health + 25); this.publishHud();
     });
-    this.keys = this.input.keyboard!.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,SPACE') as Record<string, Phaser.Input.Keyboard.Key>;
+    this.keys = this.input.keyboard!.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,SPACE,Q') as Record<string, Phaser.Input.Keyboard.Key>;
     this.input.keyboard!.addCapture(['SPACE', 'UP', 'DOWN', 'LEFT', 'RIGHT']);
     this.input.on('pointermove', this.updatePointerAim, this);
-    this.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
+    this.input.on('pointerdown', (pointer: Phaser.Input.Pointer, over:Phaser.GameObjects.GameObject[]) => {
+      if (over.length) return;
       if (!pointer.leftButtonDown() || this.ended || !['bow', 'tome'].includes(HERO_PROFILES[this.hero].weapon)) return;
       this.updatePointerAim(pointer); this.pointerAttack = true;
     });
@@ -113,16 +119,18 @@ export class ArenaScene extends Phaser.Scene {
       this.input.removeAllListeners();
       this.events.removeAllListeners(Phaser.Scenes.Events.PAUSE);
     });
+    this.battleHud = new BattleHud(this,this.hero,()=>this.toggleAllyMode());
     this.spawnAllies(); this.startWave(); this.publishHud();
   }
   update(time: number): void {
     if (this.ended) return;
+    if (Phaser.Input.Keyboard.JustDown(this.keys.Q)) this.toggleAllyMode();
     if (!isFlying(this.hero)) this.recoverFromTerrain(this.player);
     const horizontal = Number(this.keys.D.isDown || this.keys.RIGHT.isDown) - Number(this.keys.A.isDown || this.keys.LEFT.isDown);
     const vertical = Number(this.keys.S.isDown || this.keys.DOWN.isDown) - Number(this.keys.W.isDown || this.keys.UP.isDown);
     const movement = direction(horizontal, vertical);
     const profile = HERO_PROFILES[this.hero];
-    this.player.setVelocity(movement.x * profile.speed, movement.y * profile.speed);
+    this.player.setVelocity(movement.x * (profile.speed+2*(this.progression.stats.speed-this.progression.base.speed)), movement.y * (profile.speed+2*(this.progression.stats.speed-this.progression.base.speed)));
     if (horizontal || vertical) this.keyboardFacing = movement;
     this.facing = { ...this.keyboardFacing };
     if (this.pointerAim && ['bow', 'tome'].includes(profile.weapon)) {
@@ -143,7 +151,7 @@ export class ArenaScene extends Phaser.Scene {
     }
     const attackRequested = Phaser.Input.Keyboard.JustDown(this.keys.SPACE) || this.pointerAttack;
     this.pointerAttack = false;
-    if (attackRequested && time - this.lastAttack >= profile.cooldown) {
+    if (attackRequested && time - this.lastAttack >= attackCooldown(this.progression,this.hero)) {
       this.lastAttack = time; this.attack();
     }
     if (this.playerShot && time >= this.playerShot.at) {
@@ -168,6 +176,7 @@ export class ArenaScene extends Phaser.Scene {
       if (Phaser.Math.Distance.BetweenPoints(arrow.getData('origin') as Point, this.bodyCenter(arrow)) > (arrow.getData('maxRange') as number) || time >= (arrow.getData('expires') as number) || arrow.x < 0 || arrow.y < 0 || arrow.x > WORLD.width || arrow.y > WORLD.height) arrow.destroy();
     }
     this.drawHealthBars();
+    this.battleHud.update(this.progression,this.health,this.wave,this.kills,this.allyMode,this.allies.countActive());
     if (this.spawning === 0 && this.enemies.countActive() === 0 && !this.advancing) {
       this.advancing = true;
       this.game.events.emit('notice', `Wave ${this.wave} cleared. Catch your breath…`);
@@ -194,14 +203,31 @@ export class ArenaScene extends Phaser.Scene {
     body.prev.copy(body.position);
     body.prevFrame.copy(body.position);
   }
+  private toggleAllyMode():void {
+    if(this.ended)return;
+    this.allyMode=this.allyMode==='defend'?'attack':'defend';
+    for(const ally of this.allies.getChildren())this.brains.delete(ally as Enemy);
+    this.game.events.emit('notice',`Allies: ${this.allyMode} — Q toggles orders. Two soldiers per run; no mid-battle respawn.`);
+    this.publishHud();
+  }
+  private awardExperience(key:string):void {
+    const amount=killExperience(this.progression.level,this.wave,key),hp=this.progression.stats.hp;
+    const gains=gainExperience(this.progression,this.hero,amount);
+    this.health+=this.progression.stats.hp-hp;
+    this.battleHud.gain(amount,gains);
+  }
   private faction(unit: Enemy): 'player' | 'ally' | 'enemy' {
     return unit === this.player ? 'player' : unit.getData('faction') === 'ally' ? 'ally' : 'enemy';
   }
   private chooseTarget(unit: Enemy, current?: Enemy): Enemy | undefined {
-    const targets = this.faction(unit) === 'ally'
+    let targets = this.faction(unit) === 'ally'
       ? this.enemies.getChildren() as Enemy[]
       : [this.player, ...this.allies.getChildren() as Enemy[]];
     const origin = this.bodyCenter(unit);
+    if(this.faction(unit)==='ally' && this.allyMode==='defend') {
+      const player=this.bodyCenter(this.player);
+      targets=targets.filter(target=>Phaser.Math.Distance.BetweenPoints(player,this.bodyCenter(target))<=160 && Phaser.Math.Distance.BetweenPoints(origin,player)<=200);
+    }
     let living = targets.filter(target => target.active && (target === this.player ? !this.ended : target.getData('health') > 0));
     if (this.faction(unit) === 'enemy' && isFlying(this.hero) && !this.navigation.isWalkable(this.bodyCenter(this.player))) {
       const reachableAllies = living.filter(target => target !== this.player && this.targetFields.get(target)?.hasRoute(origin));
@@ -220,7 +246,7 @@ export class ArenaScene extends Phaser.Scene {
     const distance = Phaser.Math.Distance.BetweenPoints(arrow.getData('origin') as Point, this.bodyCenter(arrow));
     if (!withinWeaponRange(distance, arrow.getData('minRange'), arrow.getData('maxRange'))) return;
     if (target === this.player) this.takeDamage(arrow.getData('damage'), arrow.getData('weapon'));
-    else this.damageEnemy(target, arrow.getData('damage'), arrow.getData('weapon'));
+    else this.damageEnemy(target, arrow.getData('damage'), arrow.getData('weapon'),faction);
     arrow.destroy(); this.game.events.emit('effect', 'damage', { volume: 0.3 });
   }
   private spawnAllies(): void {
@@ -228,7 +254,7 @@ export class ArenaScene extends Phaser.Scene {
       const ally = this.allies.create(x, y, 'soldier') as Enemy;
       ally.setSize(28, 28).setOffset(11, 15).setCollideWorldBounds(true).setTint(0x8edfff).setDepth(9);
       ally.setData({ faction: 'ally', weapon: 'sword', health: 100, maxHealth: 100, defense: 3, resistance: 2, damage: 18, speed: 85 });
-      const marker = this.add.text(x, y, 'ALLY', { fontFamily: 'system-ui', fontSize: '10px', color: '#9de6ff', backgroundColor: '#15201b' }).setDepth(21);
+      const marker = this.add.text(x, y, 'ALLY', { fontFamily: 'FE', fontSize: '10px', color: '#9de6ff', backgroundColor: '#15201b' }).setDepth(21);
       ally.setData('weaponMarker', marker);
       this.targetFields.set(ally, new NavigationField(WORLD.width, WORLD.height, OBSTACLES));
       this.allyRoutes.set(ally, new NavigationField(WORLD.width, WORLD.height, OBSTACLES));
@@ -247,6 +273,12 @@ export class ArenaScene extends Phaser.Scene {
     const targetUnit = brain.targetUnit;
     if (!targetUnit?.active) {
       brain.phase = 'chase'; brain.targetUnit = undefined;
+      if(this.faction(enemy)==='ally') {
+        const origin=this.bodyCenter(enemy),target=this.bodyCenter(this.player);
+        const field=this.allyRoutes.get(enemy)!;field.setTarget(target,isFlying(this.hero));
+        const destination=field.canTravel(origin,target)?target:field.nextWaypoint(origin);
+        if(destination && Phaser.Math.Distance.BetweenPoints(origin,target)>70){const aim=direction(destination.x-origin.x,destination.y-origin.y);enemy.setVelocity(aim.x*85,aim.y*85).setFlipX(false);enemy.anims.play(`${enemy.texture.key}-walk-${this.directionName(aim)}`,true);return;}
+      }
       enemy.setVelocity(0); enemy.anims.play(`${enemy.texture.key}-idle`, true); return;
     }
     const origin = this.bodyCenter(enemy), target = this.bodyCenter(targetUnit);
@@ -323,7 +355,7 @@ export class ArenaScene extends Phaser.Scene {
     this.tweens.add({ targets: slash, alpha: 0, duration: 180, onComplete: () => slash.destroy() });
     if (inMeleeRange(origin, target, brain.aim, definition.attack.range) && this.hasLineOfSight(origin, target)) {
       if (targetUnit === this.player) this.takeDamage(enemy.getData('damage') as number, definition.weapon);
-      else this.damageEnemy(targetUnit, enemy.getData('damage') as number, definition.weapon);
+      else this.damageEnemy(targetUnit, enemy.getData('damage') as number, definition.weapon,this.faction(enemy));
     }
   }
   private hasLineOfSight(from: Point, to: Point): boolean {
@@ -340,7 +372,7 @@ export class ArenaScene extends Phaser.Scene {
     if (faction === 'player' && !magic) arrow.setTint(0x9de6ff);
     arrow.setSize(10 / arrow.scaleX, 10 / arrow.scaleY).setVelocity(aim.x * speed, aim.y * speed);
     arrow.setData({ faction, weapon, origin, minRange: faction === 'player' ? HERO_PROFILES[this.hero].minRange : 0, maxRange: range,
-      damage: faction === 'player' ? HERO_PROFILES[this.hero].damage : source.getData('damage'), expires: this.time.now + range / speed * 1000 });
+      damage: faction === 'player' ? attackPower(this.progression,this.hero) : source.getData('damage'), expires: this.time.now + range / speed * 1000 });
     if (magic) this.game.events.emit('spell-effect');
     else this.game.events.emit('effect', 'arrow-fire', { volume: 0.25 });
   }
@@ -358,7 +390,7 @@ export class ArenaScene extends Phaser.Scene {
     this.playerWeapon.setPosition(Phaser.Math.Clamp(this.player.x + 34, 8, WORLD.width - 8), Math.max(8, this.player.y - 32));
     this.flightShadow.setPosition(this.player.x, this.player.y + 22);
     this.healthBar.clear().fillStyle(0x15201b).fillRect(this.player.x - 25, this.player.y - 36, 50, 8)
-      .fillStyle(0x7fce88).fillRect(this.player.x - 24, this.player.y - 35, 48 * this.health / 100, 6);
+      .fillStyle(0x7fce88).fillRect(this.player.x - 24, this.player.y - 35, 48 * this.health / this.progression.stats.hp, 6);
     for (const object of [...this.enemies.getChildren(), ...this.allies.getChildren()]) {
       const enemy = object as Enemy;
       const fraction = Phaser.Math.Clamp((enemy.getData('health') as number) / (enemy.getData('maxHealth') as number), 0, 1);
@@ -398,7 +430,7 @@ export class ArenaScene extends Phaser.Scene {
     enemy.setSize(28, 28).setOffset(11, 15).setCollideWorldBounds(true).setDepth(9);
     const icon = this.add.image(enemy.x, enemy.y, `weapon-${type.weapon}`).setDisplaySize(16, 16).setDepth(21);
     enemy.setData('weaponIcon', icon);
-    const marker = this.add.text(enemy.x, enemy.y, '', { fontFamily: 'system-ui', fontSize: '11px', backgroundColor: '#15201b' }).setDepth(21);
+    const marker = this.add.text(enemy.x, enemy.y, '', { fontFamily: 'FE', fontSize: '11px', backgroundColor: '#15201b' }).setDepth(21);
     enemy.setData('weaponMarker', marker);
     enemy.once('destroy', () => { marker.destroy(); icon.destroy(); });
     enemy.setData({ weapon: type.weapon, defense: type.defense, resistance: type.resistance, health: type.health, maxHealth: type.health, speed: type.speed + Math.min(25, this.wave * 2), damage: type.damage });
@@ -426,20 +458,23 @@ export class ArenaScene extends Phaser.Scene {
     for (const object of [...this.enemies.getChildren()]) {
       const enemy = object as Enemy;
       if (!inMeleeRange(this.bodyCenter(this.player), this.bodyCenter(enemy), this.facing, profile.range) || !this.hasLineOfSight(this.bodyCenter(this.player), this.bodyCenter(enemy))) continue;
-      hit = true; this.damageEnemy(enemy, profile.damage, profile.weapon);
+      hit = true; this.damageEnemy(enemy, attackPower(this.progression,this.hero), profile.weapon);
     }
     if (hit) this.game.events.emit('effect', 'damage', { volume: 0.3 });
   }
-  private damageEnemy(enemy: Enemy, base: number, weapon: WeaponType): void {
+  private damageEnemy(enemy: Enemy, base: number, weapon: WeaponType, attacker:'player'|'ally'|'enemy'='player'): void {
+    if (!enemy.active) return;
     const protection = (enemy.getData(weapon === 'tome' ? 'resistance' : 'defense') as number | undefined) ?? 0;
-    const damage = combatDamage(Math.max(1, base - protection), weapon, this.enemyWeapon(enemy));
+    const criticalChance=attacker==='player'?Math.min(.25,((this.progression.stats.skill-this.progression.base.skill)/2+(this.progression.stats.luck-this.progression.base.luck)/4)/100):0;
+    const critical=Math.random()<criticalChance;
+    const damage = combatDamage(Math.max(1, base - protection)*(critical?3:1), weapon, this.enemyWeapon(enemy));
     const health = (enemy.getData('health') as number) - damage;
     enemy.setData('health', health);
-    const text = this.add.text(enemy.x, enemy.y - 42, `${damage}${weaponMatchup(weapon, this.enemyWeapon(enemy)) === 1 ? ' ↑' : weaponMatchup(weapon, this.enemyWeapon(enemy)) === -1 ? ' ↓' : ''}`,
-      { fontFamily: 'system-ui', fontSize: '13px', color: '#f5edda', stroke: '#15201b', strokeThickness: 3 }).setDepth(25);
+    const text = this.add.text(enemy.x, enemy.y - 42, `${critical?'CRIT ':''}${damage}${weaponMatchup(weapon, this.enemyWeapon(enemy)) === 1 ? ' ↑' : weaponMatchup(weapon, this.enemyWeapon(enemy)) === -1 ? ' ↓' : ''}`,
+      { fontFamily: 'FE', fontSize: '13px', color: '#f5edda', stroke: '#15201b', strokeThickness: 3 }).setDepth(25);
     this.tweens.add({ targets: text, y: text.y - 18, alpha: 0, duration: 650, onComplete: () => text.destroy() });
     if (health <= 0) {
-      const { x, y } = enemy; const hostile = this.faction(enemy) === 'enemy'; enemy.destroy(); if (hostile) this.kills++;
+      const { x, y } = enemy; const typeKey=enemy.texture.key; const hostile = this.faction(enemy) === 'enemy'; enemy.destroy(); if (hostile) { this.kills++; this.awardExperience(typeKey); }
       if (hostile && Phaser.Math.Between(1, 5) === 1 && this.pickups.countActive() < 3) {
         const item = this.pickups.create(x, y, 'vulnerary') as Enemy;
         item.setDisplaySize(20, 20); item.setSize(item.width, item.height);
@@ -452,8 +487,11 @@ export class ArenaScene extends Phaser.Scene {
     this.publishHud();
   }
   private takeDamage(base: number, weapon: WeaponType = HERO_PROFILES[this.hero].weapon): void {
-    const damage = combatDamage(base, weapon, HERO_PROFILES[this.hero].weapon, isFlying(this.hero));
+    const protection = weapon === 'tome' ? this.progression.stats.res : this.progression.stats.def;
+    const damage = combatDamage(Math.max(1,base-protection), weapon, HERO_PROFILES[this.hero].weapon, isFlying(this.hero));
     if (this.ended || this.time.now - this.lastDamage < 700) return;
+    const avoid=Math.min(.25,((this.progression.stats.speed-this.progression.base.speed)*3+this.progression.stats.luck-this.progression.base.luck)/200);
+    if(Math.random()<avoid){this.game.events.emit('notice','Dodged!');return;}
     this.lastDamage = this.time.now;
     this.health = Math.max(0, this.health - damage);
     this.game.events.emit('effect', 'damage', { volume: 0.2 });
@@ -469,6 +507,6 @@ export class ArenaScene extends Phaser.Scene {
     }
   }
   private publishHud(): void {
-    this.game.events.emit('hud', { health: this.health, wave: this.wave, kills: this.kills, enemies: this.enemies.countActive() } satisfies Hud);
+    this.game.events.emit('hud', { health: this.health, maxHealth:this.progression.stats.hp, level:this.progression.level, xp:this.progression.xp, allyMode:this.allyMode, allies:this.allies.countActive(), wave: this.wave, kills: this.kills, enemies: this.enemies.countActive() } satisfies Hud);
   }
 }

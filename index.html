@@ -15,7 +15,7 @@
       <section id="menu" class="overlay" aria-labelledby="menu-title">
         <p class="eyebrow">CHOOSE YOUR HERO</p><h2 id="menu-title">Hold the line.</h2><p>Move, strike, and survive increasingly large enemy waves.</p>
         <div class="heroes" role="group" aria-label="Choose character" aria-describedby="roster-hint"></div>
-        <small id="roster-hint">16 heroes · Scroll for more characters</small>
+        <small id="roster-hint">17 heroes · Scroll for more characters</small>
         <p id="hero-description">Sword · close combat · strong against axes</p>
         <p class="triangle-legend">Sword beats axe · Axe beats lance · Lance beats sword<br />Bows are neutral · Advantage +20%, disadvantage −20% damage<br />Weapon icons show equipment · +/− your matchup</p>
         <button id="start" class="primary" disabled>Loading assets…</button>
@@ -23,7 +23,7 @@
       <section id="end" class="overlay" hidden><p class="eyebrow">THE BATTLE IS OVER</p><h2>You held your ground.</h2><p id="result"></p><button id="restart" class="primary">Try again</button><button id="choose">Choose hero</button></section>
       <div id="notice" role="status" aria-live="polite">Loading the battlefield…</div>
     </section>
-    <footer><p><kbd>WASD</kbd> / <kbd>↑ ↓ ← →</kbd> Move <kbd>Space</kbd> Attack · Mouse aim / click for bow &amp; magic <kbd>P</kbd> Pause</p><div class="actions"><button id="audio-options">Audio settings</button><button id="main-menu">Main menu</button><button id="pause" disabled>Pause</button><button id="music" class="volume-button" aria-label="Unmute audio" title="Unmute audio" aria-pressed="false" disabled>
+    <footer class="accessible-hud"><p><kbd>WASD</kbd> / <kbd>↑ ↓ ← →</kbd> Move <kbd>Space</kbd> Attack · Mouse aim / click for bow &amp; magic <kbd>Q</kbd> Ally orders <kbd>P</kbd> Pause</p><div class="actions"><button id="audio-options">Audio settings</button><button id="main-menu">Main menu</button><button id="pause" disabled>Pause</button><button id="music" class="volume-button" aria-label="Mute audio" title="Mute audio" aria-pressed="true" disabled>
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M11 5 6 9H3v6h3l5 4Z" />
           <path class="volume-muted" d="m16 9 6 6m0-6-6 6" />
@@ -33,8 +33,8 @@
   </main>
   <dialog id="audio-settings" aria-labelledby="audio-title">
     <h2 id="audio-title">Audio settings</h2>
-    <p>Audio starts muted. Opening settings pauses the battle.</p>
-    <label><input id="audio-enabled" type="checkbox" /> Enable audio</label>
+    <p>Music starts enabled after your first interaction. Opening settings pauses the battle.</p>
+    <label><input id="audio-enabled" type="checkbox" checked /> Enable audio</label>
     <label>Music <input id="music-volume" type="range" min="0" max="100" value="18" /></label>
     <label>Sound effects <input id="effects-volume" type="range" min="0" max="100" value="100" /></label>
     <label>Voices <input id="voices-volume" type="range" min="0" max="100" value="60" /></label>

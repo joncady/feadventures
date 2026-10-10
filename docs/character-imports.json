@@ -23,7 +23,13 @@
       552
     ],
     "weapon": "tome",
-    "flying": false
+    "flying": false,
+    "portraitOverlay": [
+      1292,
+      298,
+      1546,
+      552
+    ]
   },
   {
     "key": "robin",
@@ -284,11 +290,43 @@
     ],
     "portraitCrop": [
       2,
-      362,
+      332,
       256,
-      616
+      586
     ],
     "weapon": "axe",
+    "flying": false
+  },
+  {
+    "key": "robin-female",
+    "name": "Robin (Female)",
+    "map": "64161",
+    "portrait": "63400",
+    "origin": [
+      128,
+      0
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "portraitCrop": [
+      2,
+      2,
+      256,
+      256
+    ],
+    "portraitOverlay": [
+      2,
+      1374,
+      256,
+      1628
+    ],
+    "weapon": "tome",
     "flying": false
   }
 ]
