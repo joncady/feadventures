@@ -1,3 +1,4 @@
+export const PLAYER_SPEED_SCALE = .72;
 export const WORLD = { width: 896, height: 544 } as const;
 export const HEROES = ['chrom', 'lucina', 'frederick', 'virion', 'sumia', 'morgan', 'robin', 'robin-female', 'cordelia', 'lissa', 'lonqu', 'miriel', 'ricken', 'stahl', 'sully', 'tharja', 'vaike'] as const;
 export type Hero = typeof HEROES[number];

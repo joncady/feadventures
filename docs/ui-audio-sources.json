@@ -19,5 +19,11 @@
     "file": "audio/xp-tick.wav",
     "source": "scripts/prepare-progression-audio.py",
     "processing": "Temporary generated tick"
+  },
+  {
+    "key": "music-menu",
+    "file": "audio/menu-theme.wav",
+    "source": "scripts/prepare-menu-music.py",
+    "processing": "Original temporary generated 16-second harp/pad loop; not an imported Awakening track"
   }
 ]

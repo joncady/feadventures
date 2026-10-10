@@ -2,9 +2,9 @@ import { test, expect } from '@playwright/test';
 
 test('Sumia flies across terrain, keeps world bounds and uses lance combat with bow weakness', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('button', { name: 'Sumia', exact: true }).click();
+  await page.getByRole('button', { name: 'Sumia', exact: true }).press('Enter');
   await expect(page.locator('#hero-description')).toContainText('fly over terrain');
-  await page.getByRole('button', { name: 'Begin battle' }).click();
+  await page.getByRole('button', { name: 'Begin battle' }).press('Enter');
   await expect(page.locator('#hero-name')).toHaveText('Sumia · lance');
   await page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);

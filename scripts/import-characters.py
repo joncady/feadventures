@@ -37,7 +37,7 @@ for character in json.loads((root / 'docs' / 'character-imports.json').read_text
     if 'portraitOverlay' in character:
         bust.alpha_composite(portrait.crop(character['portraitOverlay']))
     bust.save(assets / (key + 'Portrait.png'))
-    diagonals = 'down-left, down-right' if key in ('virion', 'sumia', 'cordelia') else 'down-right, down-left'
+    diagonals = 'down-left, down-right'
     processing = 'Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, ' + diagonals + ', up-right, up-left'
     if key == 'morgan':
         processing += '; gray customization hair palette darkened'

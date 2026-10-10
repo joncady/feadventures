@@ -1,8 +1,11 @@
 import Phaser from 'phaser';
-import { WORLD } from '../data/config';
+import { HEROES, HERO_NAMES, HERO_PROFILES, WORLD, type Hero } from '../data/config';
 import type { Hud } from './ArenaScene';
 
 export interface InterfaceState {
+  hero: Hero;
+  companions: Hero[];
+  selectionMode: 'player'|'companions';
   ready: boolean;
   playing: boolean;
   paused: boolean;
@@ -12,6 +15,12 @@ export interface InterfaceState {
   audio: { music: number; effects: number; voices: number; characterVoices: boolean; spellEffect: string };
 }
 export class InterfaceScene extends Phaser.Scene {
+  private menu!: Phaser.GameObjects.Container;
+  private cards = new Map<Hero, Phaser.GameObjects.NineSlice>();
+  private selectionTitle!: Phaser.GameObjects.Text;
+  private selectionSummary!: Phaser.GameObjects.Text;
+  private description!: Phaser.GameObjects.Text;
+  private begin!: Phaser.GameObjects.Text;
   private state!: InterfaceState;
   private menuButton!: Phaser.GameObjects.Container;
   private pauseButton!: Phaser.GameObjects.Container;
@@ -45,6 +54,7 @@ export class InterfaceScene extends Phaser.Scene {
     this.button(this.add.container(), 845, 3, 43, 'Full', () => this.request('fullscreen'));
     this.notice = this.add.text(12, WORLD.height-58, '', { ...this.style, color:'#fff1c7', fontSize:'11px', backgroundColor:'#183e57', wordWrap:{width:610} });
     this.instructions = this.add.text(12, WORLD.height-30, 'WASD / Arrows: Move   Space / Click: Attack\nMouse: Aim   Q: Ally orders   P: Pause', { ...this.style, fontSize:'10px', color:'#fff1c7', backgroundColor:'#183e57' });
+    this.createCharacterMenu();
     this.settings = this.panel(360, 370, 'Audio settings');
     this.enabled = this.button(this.settings, -158, -138, 316, '', () => this.request('music'));
     this.levels = this.add.graphics(); this.settings.add(this.levels);
@@ -72,11 +82,33 @@ export class InterfaceScene extends Phaser.Scene {
     this.button(this.endOverlay, -148, 58, 296, 'Choose hero', () => this.request('choose'));
     const onState = (state:InterfaceState) => this.apply(state);
     const onNotice = (text:string) => this.notice.setText(text);
-    const onHud = (hud:Hud) => this.stats.setText(`Wave ${hud.wave}  ·  Defeated ${hud.kills}  ·  Allies ${hud.allies}/2`);
+    const onHud = (hud:Hud) => this.stats.setText(`Wave ${hud.wave}  ·  Defeated ${hud.kills}  ·  Allies ${hud.allies}/${hud.allyCapacity}`);
     this.game.events.on('ui-state',onState); this.game.events.on('ui-notice',onNotice); this.game.events.on('hud',onHud);
     this.events.once('shutdown',()=>{this.game.events.off('ui-state',onState);this.game.events.off('ui-notice',onNotice);this.game.events.off('hud',onHud);});
     this.apply(this.registry.get('interface-state'));
     this.notice.setText(this.registry.get('interface-notice') ?? '');
+  }
+  private createCharacterMenu():void {
+    this.menu=this.add.container().setDepth(80);
+    this.menu.add(this.add.rectangle(WORLD.width/2, (WORLD.height+34)/2, WORLD.width, WORLD.height-34, 0x132b3b,.95).setInteractive());
+    this.selectionTitle=this.add.text(WORLD.width/2,48,'',{...this.style,color:'#f9ebc7',fontSize:'22px'}).setOrigin(.5,0);this.menu.add(this.selectionTitle);
+    this.button(this.menu,282,82,160,'Choose player',()=>this.request('leader-mode'));
+    this.button(this.menu,454,82,160,'Companions',()=>this.request('party-mode'));
+    const bounds:Record<string,{x:number;y:number}>={};
+    for(const [index,hero] of HEROES.entries()){
+      const x=107+(index%6)*114,y=124+Math.floor(index/6)*88;
+      const card=this.add.nineslice(x,y,'ui-parchment',undefined,106,80,10,10,10,10).setOrigin(0).setInteractive({useHandCursor:true});
+      card.on('pointerdown',()=>this.game.events.emit('ui-character',hero));this.cards.set(hero,card);this.menu.add(card);
+      this.menu.add(this.add.image(x+53,y+28,`portrait-${hero}`).setDisplaySize(46,49));
+      this.menu.add(this.add.image(x+94,y+11,`weapon-${HERO_PROFILES[hero].weapon}`).setDisplaySize(14,14));
+      this.menu.add(this.add.text(x+53,y+58,HERO_NAMES[hero],{...this.style,fontSize:'11px'}).setOrigin(.5,0));
+      bounds[hero]={x:x+53,y:y+40};
+    }
+    this.registry.set('character-card-centers',bounds);
+    this.selectionSummary=this.add.text(WORLD.width/2,400,'',{...this.style,fontSize:'13px',color:'#f9ebc7'}).setOrigin(.5,0);this.menu.add(this.selectionSummary);
+    this.description=this.add.text(WORLD.width/2,424,'',{...this.style,fontSize:'12px',color:'#d6cba9',align:'center',wordWrap:{width:690}}).setOrigin(.5,0);this.menu.add(this.description);
+    this.menu.add(this.add.text(WORLD.width/2,458,'Gold: player   ·   Blue: companion   ·   Q: Defend / Attack orders',{...this.style,fontSize:'11px',color:'#c8b789'}).setOrigin(.5,0));
+    this.begin=this.button(this.menu,353,492,190,'Begin battle',()=>this.request('start'));
   }
   private request(id:string):void { this.game.events.emit('ui-action',id); }
   private button(parent:Phaser.GameObjects.Container,x:number,y:number,width:number,label:string,action:()=>void):Phaser.GameObjects.Text {
@@ -94,6 +126,16 @@ export class InterfaceScene extends Phaser.Scene {
   }
   private apply(state:InterfaceState):void {
     if(!state)return;this.state=state;
+    this.menu.setVisible(!state.playing && !state.result && !state.settingsOpen);
+    this.selectionTitle.setText(state.selectionMode === 'player' ? 'Choose your player' : 'Choose up to three companions');
+    this.selectionSummary.setText(`Player: ${HERO_NAMES[state.hero]}   ·   ${state.companions.length}/3 companions   ·   2 NPC soldiers`);
+    this.description.setText(state.selectionMode === 'companions' ? (state.companions.length ? state.companions.map(h => HERO_NAMES[h]).join('  ·  ') : 'Tap characters to add or remove them. Your player cannot also be a companion.') : HERO_PROFILES[state.hero].description);
+    this.begin.setAlpha(state.ready ? 1 : .5);
+    for(const [hero,card] of this.cards){
+      card.clearTint();
+      if(hero===state.hero)card.setTint(0xe7c878);
+      else if(state.companions.includes(hero))card.setTint(0xadd0e5);
+    }
     const inBattle = state.playing || Boolean(state.result);
     this.menuButton.setVisible(inBattle); this.pauseButton.setVisible(state.playing);
     this.notice.setVisible(inBattle); this.instructions.setVisible(inBattle);

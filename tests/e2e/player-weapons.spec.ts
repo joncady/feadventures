@@ -4,9 +4,9 @@ test('Virion fires past the close dead zone, hits enemies, and cleans up on rest
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('/');
-  await page.getByRole('button', { name: 'Virion', exact: true }).click();
+  await page.getByRole('button', { name: 'Virion', exact: true }).press('Enter');
   await expect(page.locator('#hero-description')).toContainText('Bow');
-  await page.getByRole('button', { name: 'Begin battle' }).click();
+  await page.getByRole('button', { name: 'Begin battle' }).press('Enter');
   await expect(page.locator('#hero-name')).toHaveText('Virion · bow');
   await page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);
@@ -59,7 +59,7 @@ test('Virion fires past the close dead zone, hits enemies, and cleans up on rest
 });
 
 test('triangle applies in both directions and Frederick has longer lance reach', async ({ page }) => {
-  await page.goto('/'); await page.getByRole('button', { name: 'Begin battle' }).click();
+  await page.goto('/'); await page.getByRole('button', { name: 'Begin battle' }).press('Enter');
   const result = await page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);
     const scene = game.scene.getScene('Arena'); scene.scene.pause();

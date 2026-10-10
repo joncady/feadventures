@@ -5,7 +5,7 @@ mapping={'chrom':'CHROM','lucina':'MARTH','frederick':'FREDERIK','virion':'VIAUR
 out=Path('public/assets/audio');out.mkdir(parents=True,exist_ok=True);data=[]
 for hero,internal in mapping.items():
  archive='406669' if hero in ('robin','robin-female') else '399888';z=zipfile.ZipFile(source/(archive+'.zip'))
- for event,suffix in [('attack','ATTACK_L_1'),('damage','DAMAGE_1'),('death','DEAD_1')]:
+ for event,suffix in [('attack','ATTACK_L_1'),('damage','DAMAGE_1'),('death','DEAD_1'),('select','DUAL_SUPPORT_1')]:
   match=next(n for n in z.namelist() if n.endswith('SE_VOICE_'+internal+'_'+suffix+'.wav'))
   filename=hero+'-'+event+'.wav';out.joinpath(filename).write_bytes(z.read(match));data.append(dict(key='voice-'+hero+'-'+event,file='audio/'+filename,hero=hero,event=event,member=match,source='https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/'+archive+'/',uploader='robotortoise'))
 z=zipfile.ZipFile(str(source/'401959.zip'));candidates=[]

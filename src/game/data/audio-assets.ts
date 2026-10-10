@@ -12,6 +12,10 @@ export const AUDIO_ASSETS = [
     "file": "audio/chrom-death.wav"
   },
   {
+    "key": "voice-chrom-select",
+    "file": "audio/chrom-select.wav"
+  },
+  {
     "key": "voice-lucina-attack",
     "file": "audio/lucina-attack.wav"
   },
@@ -22,6 +26,10 @@ export const AUDIO_ASSETS = [
   {
     "key": "voice-lucina-death",
     "file": "audio/lucina-death.wav"
+  },
+  {
+    "key": "voice-lucina-select",
+    "file": "audio/lucina-select.wav"
   },
   {
     "key": "voice-frederick-attack",
@@ -36,6 +44,10 @@ export const AUDIO_ASSETS = [
     "file": "audio/frederick-death.wav"
   },
   {
+    "key": "voice-frederick-select",
+    "file": "audio/frederick-select.wav"
+  },
+  {
     "key": "voice-virion-attack",
     "file": "audio/virion-attack.wav"
   },
@@ -46,6 +58,10 @@ export const AUDIO_ASSETS = [
   {
     "key": "voice-virion-death",
     "file": "audio/virion-death.wav"
+  },
+  {
+    "key": "voice-virion-select",
+    "file": "audio/virion-select.wav"
   },
   {
     "key": "voice-sumia-attack",
@@ -60,6 +76,10 @@ export const AUDIO_ASSETS = [
     "file": "audio/sumia-death.wav"
   },
   {
+    "key": "voice-sumia-select",
+    "file": "audio/sumia-select.wav"
+  },
+  {
     "key": "voice-morgan-attack",
     "file": "audio/morgan-attack.wav"
   },
@@ -70,6 +90,10 @@ export const AUDIO_ASSETS = [
   {
     "key": "voice-morgan-death",
     "file": "audio/morgan-death.wav"
+  },
+  {
+    "key": "voice-morgan-select",
+    "file": "audio/morgan-select.wav"
   },
   {
     "key": "voice-cordelia-attack",
@@ -84,6 +108,10 @@ export const AUDIO_ASSETS = [
     "file": "audio/cordelia-death.wav"
   },
   {
+    "key": "voice-cordelia-select",
+    "file": "audio/cordelia-select.wav"
+  },
+  {
     "key": "voice-lissa-attack",
     "file": "audio/lissa-attack.wav"
   },
@@ -94,6 +122,10 @@ export const AUDIO_ASSETS = [
   {
     "key": "voice-lissa-death",
     "file": "audio/lissa-death.wav"
+  },
+  {
+    "key": "voice-lissa-select",
+    "file": "audio/lissa-select.wav"
   },
   {
     "key": "voice-lonqu-attack",
@@ -108,6 +140,10 @@ export const AUDIO_ASSETS = [
     "file": "audio/lonqu-death.wav"
   },
   {
+    "key": "voice-lonqu-select",
+    "file": "audio/lonqu-select.wav"
+  },
+  {
     "key": "voice-miriel-attack",
     "file": "audio/miriel-attack.wav"
   },
@@ -118,6 +154,10 @@ export const AUDIO_ASSETS = [
   {
     "key": "voice-miriel-death",
     "file": "audio/miriel-death.wav"
+  },
+  {
+    "key": "voice-miriel-select",
+    "file": "audio/miriel-select.wav"
   },
   {
     "key": "voice-ricken-attack",
@@ -132,6 +172,10 @@ export const AUDIO_ASSETS = [
     "file": "audio/ricken-death.wav"
   },
   {
+    "key": "voice-ricken-select",
+    "file": "audio/ricken-select.wav"
+  },
+  {
     "key": "voice-stahl-attack",
     "file": "audio/stahl-attack.wav"
   },
@@ -142,6 +186,10 @@ export const AUDIO_ASSETS = [
   {
     "key": "voice-stahl-death",
     "file": "audio/stahl-death.wav"
+  },
+  {
+    "key": "voice-stahl-select",
+    "file": "audio/stahl-select.wav"
   },
   {
     "key": "voice-sully-attack",
@@ -156,6 +204,10 @@ export const AUDIO_ASSETS = [
     "file": "audio/sully-death.wav"
   },
   {
+    "key": "voice-sully-select",
+    "file": "audio/sully-select.wav"
+  },
+  {
     "key": "voice-tharja-attack",
     "file": "audio/tharja-attack.wav"
   },
@@ -166,6 +218,10 @@ export const AUDIO_ASSETS = [
   {
     "key": "voice-tharja-death",
     "file": "audio/tharja-death.wav"
+  },
+  {
+    "key": "voice-tharja-select",
+    "file": "audio/tharja-select.wav"
   },
   {
     "key": "voice-vaike-attack",
@@ -180,6 +236,10 @@ export const AUDIO_ASSETS = [
     "file": "audio/vaike-death.wav"
   },
   {
+    "key": "voice-vaike-select",
+    "file": "audio/vaike-select.wav"
+  },
+  {
     "key": "voice-robin-attack",
     "file": "audio/robin-attack.wav"
   },
@@ -192,16 +252,8 @@ export const AUDIO_ASSETS = [
     "file": "audio/robin-death.wav"
   },
   {
-    "key": "archive-effect-1",
-    "file": "audio/effect-WARC_EFFECT_1.wav"
-  },
-  {
-    "key": "archive-effect-2",
-    "file": "audio/effect-WARC_EFFECT_10.wav"
-  },
-  {
-    "key": "archive-effect-3",
-    "file": "audio/effect-WARC_EFFECT_11.wav"
+    "key": "voice-robin-select",
+    "file": "audio/robin-select.wav"
   },
   {
     "key": "voice-robin-female-attack",
@@ -214,5 +266,21 @@ export const AUDIO_ASSETS = [
   {
     "key": "voice-robin-female-death",
     "file": "audio/robin-female-death.wav"
+  },
+  {
+    "key": "voice-robin-female-select",
+    "file": "audio/robin-female-select.wav"
+  },
+  {
+    "key": "archive-effect-1",
+    "file": "audio/effect-WARC_EFFECT_1.wav"
+  },
+  {
+    "key": "archive-effect-2",
+    "file": "audio/effect-WARC_EFFECT_10.wav"
+  },
+  {
+    "key": "archive-effect-3",
+    "file": "audio/effect-WARC_EFFECT_11.wav"
   }
 ] as const;

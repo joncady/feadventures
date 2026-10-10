@@ -66,7 +66,7 @@ export class BattleHud {
       this.stats.setText(`Str   ${s.str}\nMag ${s.mag}\nSkl   ${s.skill}\nSpd ${s.speed}\nLck   ${s.luck}\nDef   ${s.def}\nRes   ${s.res}`);
       const profile = HERO_PROFILES[this.hero];
       this.combat.setText(`Atk ${attackPower(progress, this.hero)}     Rng ${profile.minRange ? `${profile.minRange}–` : ''}${profile.range}px\nCrit ${Math.round(Math.min(.25, ((s.skill-progress.base.skill)/2+(s.luck-progress.base.luck)/4)/100)*100)}%`);
-      this.orders.setText(`[Q] ${mode.toUpperCase()}  ·  ${allies} soldiers`);
+      this.orders.setText(`[Q] ${mode.toUpperCase()}  ·  ${allies} allies`);
     }
     this.draw();
   }

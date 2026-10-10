@@ -15,6 +15,8 @@ export const game = new Phaser.Game({
   scene: [BootScene, ArenaScene, InterfaceScene],
 });
 let hero: Hero = 'chrom';
+let companions: Hero[] = [];
+let selectionMode: 'player'|'companions' = 'player';
 let playing = false;
 let paused = false;
 let music: Phaser.Sound.BaseSound | undefined;
@@ -27,7 +29,7 @@ function stopVoices(): void {
   for (const clip of AUDIO_ASSETS) if (clip.key.startsWith('voice-')) game.sound.stopByKey(clip.key);
 }
 function characterVoice(character: Hero, event: string): void {
-  if (muted || !audioSettings.characterVoices || audioSettings.voices === 0) return;
+  if (muted || !audioSettings.characterVoices || audioSettings.voices === 0 || !game.cache.audio.exists(`voice-${character}-${event}`)) return;
   if (event === 'attack' && performance.now() - lastVoiceAt < 1200) return;
   stopVoices(); lastVoiceAt = performance.now();
   game.sound.play(`voice-${character}-${event}`, { volume: audioSettings.voices });
@@ -42,12 +44,22 @@ const startButton = element<HTMLButtonElement>('start');
 const pauseButton = element<HTMLButtonElement>('pause');
 const notice = (text: string) => { element('notice').textContent = text; game.registry.set('interface-notice', text); game.events.emit('ui-notice', text); };
 function publishInterface(): void {
-  const state: InterfaceState = { ready: !startButton.disabled, playing, paused, muted, settingsOpen, result, audio: { ...audioSettings } };
+  for (const option of document.querySelectorAll<HTMLButtonElement>('[data-character]')) {
+    const key = option.dataset.character as Hero;
+    const selected = selectionMode === 'companions' ? companions.includes(key) : key === hero;
+    option.classList.toggle('selected', selected);
+    option.setAttribute('aria-pressed', String(selected));
+  }
+  element('leader-mode')?.setAttribute('aria-pressed', String(selectionMode === 'player'));
+  element('party-mode')?.setAttribute('aria-pressed', String(selectionMode === 'companions'));
+  const state: InterfaceState = { hero, companions:[...companions], selectionMode, ready: !startButton.disabled, playing, paused, muted, settingsOpen, result, audio: { ...audioSettings } };
   game.registry.set('interface-state', state); game.events.emit('ui-state', state);
 }
 function ensureMusic(): void {
   if (muted || !game.cache.audio.exists('music')) return;
-  if (!music) music = game.sound.add('music', { loop: true, volume: audioSettings.music });
+  const key = playing || result ? 'music' : 'music-menu';
+  if (music && music.key !== key) { music.stop(); music.destroy(); music = undefined; }
+  if (!music) music = game.sound.add(key, { loop: true, volume: audioSettings.music });
   if (!music.isPlaying && !music.isPaused) music.play();
   if (music.isPaused && !paused) music.resume();
   if (paused) music.pause();
@@ -89,7 +101,8 @@ function start(): void {
   element('menu').hidden = true; element('end').hidden = true;
   playing = true; paused = false; pauseButton.disabled = false; pauseButton.textContent = 'Pause';
   element('hero-name').textContent = `${HERO_NAMES[hero]} · ${HERO_PROFILES[hero].weapon}`;
-  game.scene.start('Arena', { hero });
+  game.scene.start('Arena', { hero, companions });
+  ensureMusic();
   game.scene.bringToTop('Interface'); publishInterface();
   element('game').focus();
 }
@@ -117,12 +130,20 @@ for (const button of document.querySelectorAll<HTMLButtonElement>('[data-charact
   button.addEventListener('click', () => {
     const value = button.dataset.character;
     if (!HEROES.includes(value as Hero)) return;
-    hero = value as Hero;
+    const selected = value as Hero;
+    if(selectionMode === 'companions') {
+      if(selected===hero)return;
+      if(companions.includes(selected))companions=companions.filter(h=>h!==selected);
+      else if(companions.length<3){companions.push(selected);characterVoice(selected,'select');}
+      publishInterface();return;
+    }
+    hero = selected;companions=companions.filter(h=>h!==hero);characterVoice(hero,'select');
     element('hero-description').textContent = HERO_PROFILES[hero].description;
     for (const option of document.querySelectorAll<HTMLButtonElement>('[data-character]')) {
       const selected = option === button;
       option.classList.toggle('selected', selected); option.setAttribute('aria-pressed', String(selected));
     }
+    publishInterface();
   });
 }
 startButton.addEventListener('click', start);
@@ -202,3 +223,8 @@ game.events.on('ui-spell', () => {
   const select = element<HTMLSelectElement>('spell-effect'); select.selectedIndex = (select.selectedIndex + 1) % select.options.length;
   select.dispatchEvent(new Event('change'));
 });
+
+for(const [id,mode] of [['leader-mode','player'],['party-mode','companions']] as const){
+  element(id).addEventListener('click',()=>{selectionMode=mode;publishInterface();});
+}
+game.events.on('ui-character',(character:Hero)=>document.querySelector<HTMLButtonElement>(`[data-character="${character}"]`)?.click());

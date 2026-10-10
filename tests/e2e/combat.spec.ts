@@ -18,7 +18,7 @@ test('waits for audio assets, toggles mute, and restores ranged and hit audio', 
   await expect(audio).toHaveAccessibleName('Unmute audio');
   await audio.press('Enter');
   await expect(audio).toHaveAccessibleName('Mute audio');
-  await begin.click();
+  await begin.press('Enter');
   await expect.poll(() => page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);
     return game.sound.mute;

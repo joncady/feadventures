@@ -51,3 +51,6 @@ footer { margin-top: 18px; flex-wrap: wrap; font: 12px system-ui; color: #b0c1bd
 .overlay { inset:34px 0 0; }
 #menu { font-family:FE,serif; }
 #menu button { font-family:FE,serif; }
+
+/* The character picker is also native; this is its accessible semantic mirror. */
+#menu { position:absolute; width:1px; height:1px; min-width:0; padding:0; margin:0; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }

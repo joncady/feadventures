@@ -8,4 +8,10 @@ The Phaser battle HUD uses Awakening portraits and weapon icons. XP fills progre
 
 Two allied soldiers start each run in Defend mode. They follow the player and engage nearby threats. Q or the HUD order button switches to Attack, pursuing nearby enemies without the defensive leash. Soldiers do not respawn during the current run. Planned finite campaign stages should restore the two-soldier complement between stages, rather than allowing infinite replacements during a battle.
 
-Morgan's separate portrait hair layer is composited during import; his map hair customization palette is darkened. Robin has separate male/female sprites, portraits and recorded voice sets. Ground units use source diagonal rows 6 (down-right) and 7 (down-left); Virion, Sumia and Cordelia use the opposite source ordering. Both directions are exercised for every playable character by the roster browser test.
+Morgan's separate portrait hair layer is composited during import; his map hair customization palette is darkened. Robin has separate male/female sprites, portraits and recorded voice sets. All movement sheets use source diagonal rows 6 (down-left) and 7 (down-right). Bow action rows face right before mirroring; melee and magic action rows face left. Both directions are exercised for every playable character by the roster browser test.
+
+## Selected companions
+
+Choose up to three distinct companions besides the player. Two default soldiers always deploy, making a maximum five allied NPCs. All start in Defend, and Q switches the entire group to Attack. Companions use their own weapon, range, cooldown and attack sound; bow and tome companions fire projectiles. Pegasus companions ignore terrain and ground-unit collision and remain vulnerable to bows. Companions have fixed baseline stats in this slice; kill XP levels the player. No mid-battle respawns; restart restores the selected party. Individual progression and character switching are future work.
+
+Base player and companion movement is reduced 28%, to approximately 122 px/s on foot and 137 px/s for flyers. Speed growth still adds movement; normalized diagonal movement is unchanged.

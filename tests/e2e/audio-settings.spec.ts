@@ -15,7 +15,7 @@ test('audio categories are independent, recorded voices load, and device speech 
     game.sound.play = (key: string, options: any) => { played.push({ key, volume: options.volume }); return original(key, options); };
     game.events.emit('effect', 'attack', { volume: 0.4 });
     game.events.emit('hero-attack', { hero: 'morgan', spell: 'Fire' });
-    return { settings: audioSettings, played, voiceReady: game.cache.audio.exists('voice-morgan-attack'), musicVolume: game.sound.get('music').volume };
+    return { settings: audioSettings, played, voiceReady: game.cache.audio.exists('voice-morgan-attack'), musicVolume: game.sound.get('music-menu').volume };
   });
   expect(sounds.settings).toMatchObject({ music: 0, effects: 0.5, voices: 0.6 });
   expect(sounds.musicVolume).toBe(0); expect(sounds.voiceReady).toBe(true);
@@ -32,8 +32,8 @@ test('audio categories are independent, recorded voices load, and device speech 
 });
 
 test('down diagonal movement selects the correct verified sprite rows', async ({ page }) => {
-  await page.goto('/'); await page.getByRole('button', { name: 'Virion', exact: true }).click();
-  await page.getByRole('button', { name: 'Begin battle' }).click();
+  await page.goto('/'); await page.getByRole('button', { name: 'Virion', exact: true }).press('Enter');
+  await page.getByRole('button', { name: 'Begin battle' }).press('Enter');
   await page.locator('#game').focus(); await page.keyboard.down('s'); await page.keyboard.down('d');
   await expect.poll(() => page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);
@@ -49,7 +49,7 @@ test('down diagonal movement selects the correct verified sprite rows', async ({
 });
 
 test('melee attacks route sword, axe and lance to distinct loaded effects', async ({ page }) => {
-  await page.goto('/'); await page.getByRole('button', { name: 'Begin battle' }).click();
+  await page.goto('/'); await page.getByRole('button', { name: 'Begin battle' }).press('Enter');
   const result = await page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);
     const scene = game.scene.getScene('Arena'); scene.allies.clear(true, true); scene.enemies.clear(true, true);
