@@ -13,7 +13,8 @@ test('allied soldiers attract mage fire, take resistance damage and ignore frien
     const projectile=s.arrows.getChildren()[0];
     const result={targetsAlly:s.brains.get(mage).targetUnit===ally,weapon:projectile.getData('weapon'),friendlyHealth:ally.getData('health')};
     s.projectileHit(projectile,mage);result.friendlyHealth=mage.getData('health');
-    s.scene.resume();return result;
+    // Leave exactly one projectile in flight so resistance damage is stable.
+    mage.destroy(); s.scene.resume();return result;
   });
   expect(before).toEqual({targetsAlly:true,weapon:'tome',friendlyHealth:45});
   await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');return s.allies.getChildren()[0].getData('health');})).toBe(88);
@@ -23,7 +24,7 @@ test('allied soldiers attract mage fire, take resistance damage and ignore frien
 test('allies fight enemies, do not count toward waves and their death does not end the run',async({page})=>{
   await page.goto('/');await page.getByRole('button',{name:'Begin battle'}).click();
   const state=await page.evaluate(async()=>{
-    const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');s.scene.pause();s.brains=new WeakMap();s.enemies.clear(true,true);s.time.removeAllEvents();s.spawning=0;
+    const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');s.scene.pause();s.allyMode='attack';s.brains=new WeakMap();s.enemies.clear(true,true);s.time.removeAllEvents();s.spawning=0;
     const ally=s.allies.getChildren()[0];s.allies.getChildren()[1].destroy();ally.body.reset(300,230);ally.body.updateFromGameObject();
     const enemy=s.enemies.create(350,230,'soldier');enemy.setSize(28,28).setOffset(11,15);enemy.body.reset(350,230);enemy.body.updateFromGameObject();enemy.setData({health:60,maxHealth:60,weapon:'sword',speed:0,damage:10});
     s.updateEnemy(ally,1000);s.updateEnemy(ally,1250);s.updateEnemy(ally,1600);const damaged=enemy.getData('health');
