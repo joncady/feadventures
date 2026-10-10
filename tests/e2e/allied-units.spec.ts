@@ -13,8 +13,9 @@ test('allied soldiers attract mage fire, take resistance damage and ignore frien
     const projectile=s.arrows.getChildren()[0];
     const result={targetsAlly:s.brains.get(mage).targetUnit===ally,weapon:projectile.getData('weapon'),friendlyHealth:ally.getData('health')};
     s.projectileHit(projectile,mage);result.friendlyHealth=mage.getData('health');
-    // Leave exactly one projectile in flight so resistance damage is stable.
-    mage.destroy(); s.scene.resume();return result;
+    // Resolve this projectile directly to isolate faction filtering and resistance
+    // from frame-rate-dependent projectile travel (covered by ranged combat tests).
+    s.projectileHit(projectile,ally); mage.destroy(); s.scene.resume();return result;
   });
   expect(before).toEqual({targetsAlly:true,weapon:'tome',friendlyHealth:45});
   await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');return s.allies.getChildren()[0].getData('health');})).toBe(88);
