@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "removeComments": true,
+        "target": "ES6",
+        "baseUrl": "./src",
+        "moduleResolution": "node"
+    },
+    "include": ["./**/*.ts"],
+    "exclude": [
+        "node_modules/**/*"
+    ]
+}

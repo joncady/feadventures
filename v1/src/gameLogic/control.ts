@@ -16,10 +16,17 @@ let gameStarted = false;
 let keyDown;
 let keyUp;
 let controllerOption;
+let ctx:CanvasRenderingContext2D;
+let canvas:HTMLCanvasElement;
 // imported from gameStages.js
 state.game = new GameStages(1, 1, beginStage, reset);
 
 window.onload = function () {
+
+    canvas = document.getElementById('canvas') as HTMLCanvasElement;
+    ctx = canvas.getContext('2d');
+
+    // new Image()
     let playButton = document.getElementById("music");
     playButton.addEventListener("click", () => audioPlayer.playMusic());
     let fullButton = document.getElementById("fullscreen");
@@ -27,8 +34,22 @@ window.onload = function () {
         document.body.requestFullscreen();
     });
     startingGame();
+    beginStage();
     console.log('loaded')
+    
+    
+    // create button on Canvas
+    let button = document.getElementById("start-game");
+    
+
+
 }
+
+// Write code to load up a 2D game with a player and sprites
+function createCanvas() {
+
+}
+
 
 function getInputs() {
     fetch("http://localhost:8080").then((response) => {
@@ -136,8 +157,21 @@ function beginStage() {
     // let stage = stages[game.getStage() - 1];
     let stage = stages[0];
     let obstacles = stage.obstacles;
-    let gameArea = document.getElementById("game-area");
-    gameArea.style.backgroundImage = stage.mapTitle;
+    // let gameArea = document.getElementById("game-area");
+    let backgroundImage = new Image();
+    backgroundImage.src = stage.mapTitle;
+    backgroundImage.onload = function() {
+        let pattern = ctx.createPattern(backgroundImage, "repeat");
+        ctx.fillStyle = pattern;
+        ctx.fill();
+        // ctx.drawImage(backgroundImage, 0, 0);
+    }
+    // backgroundImage.style.width = canvas.style.width + "px";
+    // backgroundImage.style.width = canvas.style.height + "px";
+    console.log(backgroundImage);
+
+    // gameArea.style.backgroundImage = stage.mapTitle;
+    /** 
     let localGameGrid = new Array();
     for (let i = 0; i < gameArea.offsetHeight; i++) {
         localGameGrid.push(new Array(gameArea.offsetWidth).fill(0));
@@ -182,6 +216,7 @@ function beginStage() {
             enemiesCheck();
         }, REFRESH_RATE * 2);
     }), 4000;
+    */
 }
 
 function readKeys() {

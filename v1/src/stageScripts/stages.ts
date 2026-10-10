@@ -1,6 +1,6 @@
 let stages = [
     {
-        mapTitle: "url(assets/map.png)",
+        mapTitle: "./assets/map.png",
         obstacles:
             [
                 [216, 104, 202, 50],
@@ -21,7 +21,7 @@ let stages = [
             ]
     },
     {
-        mapTitle: "url(assets/map2.png)",
+        mapTitle: "./assets/map2.png",
         obstacles: []
     }
 ]

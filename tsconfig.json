@@ -1,13 +1,14 @@
 {
-    "compilerOptions": {
-        "outDir": "dist",
-        "removeComments": true,
-        "target": "ES6",
-        "baseUrl": "./src",
-        "moduleResolution": "node"
-    },
-    "include": ["./**/*.ts"],
-    "exclude": [
-        "node_modules/**/*"
-    ]
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "types": ["vite/client"]
+  },
+  "include": ["src", "tests", "vite.config.ts", "playwright.config.ts"]
 }

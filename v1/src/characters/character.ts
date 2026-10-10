@@ -22,6 +22,7 @@ class Character {
     protected attackCounter:number;
     protected attack:number;
     protected hitbox:Hitbox;
+    protected image = new Image();
 
     constructor(x, y) {
         this.frameNumber = 0;

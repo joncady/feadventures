@@ -1,0 +1,42 @@
+[
+  {
+    "title": "V2: Preserve v1 and ship the Phaser survival foundation on GitHub Pages",
+    "body": "Preserve the original real-time enemy swarm design and existing Fire Emblem assets.\n\nAcceptance criteria:\n- Archive existing game and controller source under v1, including local edits.\n- Scaffold Phaser 3, TypeScript strict mode and Vite.\n- Playable character selection, movement, melee, waves, damage, pickups, pause and clean restart.\n- Automated rules and browser smoke tests pass.\n- Deploy a verified build to https://joncady.github.io/feadventures/ using GitHub Actions.\n\nThis is the initial migration slice. Full feature parity is tracked separately.",
+    "url": "https://github.com/joncady/feadventures/issues/1"
+  },
+  {
+    "title": "V2: Port directional movement and attack sprite animations",
+    "body": "The initial migration uses the standing-row animation frames from the original 200×492 sprite sheets.\n\nAcceptance criteria:\n- Define exact frame boundaries for all original directional and attack rows.\n- Port movement, facing, idle and attack animations for Chrom, Lucina, Frederick and all enemies.\n- Preserve the last facing direction when attacking from idle.\n- Verify there is no frame bleeding at scaled resolutions.",
+    "url": "https://github.com/joncady/feadventures/issues/2"
+  },
+  {
+    "title": "V2: Add obstacle-aware swarm navigation",
+    "body": "The foundation uses direct pursuit with Arcade Physics terrain collisions. Enemies can become blocked behind the original map obstacles.\n\nAcceptance criteria:\n- Derive a navigation grid from map geometry.\n- Route melee enemies around obstacles toward the living player.\n- Bound and stagger path recalculation as swarm sizes increase.\n- Verify all spawn regions can reach the player and spawning never occurs inside terrain.\n- Add tests for blocked paths and unreachable targets.",
+    "url": "https://github.com/joncady/feadventures/issues/3"
+  },
+  {
+    "title": "V2: Restore enemy combat roles and ranged projectiles",
+    "body": "The initial migration renders all five original enemy types but uses contact damage for each. Restore the distinct original combat roles.\n\nAcceptance criteria:\n- Archer keeps distance and fires arrows with directional visuals.\n- Melee enemies use configurable range, damage and attack cooldowns.\n- Projectiles collide with terrain and players and expire cleanly.\n- Enemy attacks telegraph clearly and cannot damage after death or scene shutdown.\n- Verify projectile cleanup across wave transitions and repeated restarts.",
+    "url": "https://github.com/joncady/feadventures/issues/4"
+  },
+  {
+    "title": "V2: Restore local co-op and evaluate browser controller support",
+    "body": "The original game attempted two-player keyboard input and a separate GameCube adapter server. The initial migration is single-player.\n\nAcceptance criteria:\n- Support at most two selected players with separate input bindings.\n- Support living-player targeting and end the game only when everyone is dead.\n- Add browser Gamepad API input with connection and disconnection handling.\n- Test the actual GameCube adapter in supported browsers; retain an optional local bridge only if browser support requires it.\n- The hosted game must run without a localhost server for keyboard play.",
+    "url": "https://github.com/joncady/feadventures/issues/5"
+  },
+  {
+    "title": "V2: Migrate map progression and data-driven waves",
+    "body": "The foundation uses the original first map and increasing enemy counts. Expand content through typed data instead of scene-specific branching.\n\nAcceptance criteria:\n- Port remaining map assets with collision definitions and safe player spawns.\n- Configure enemy mixes, wave budgets, spawn cadence and pickup frequency per stage.\n- Provide an explicit stage transition and progress display.\n- Test that a cleared wave advances exactly once and final map behavior is defined.",
+    "url": "https://github.com/joncady/feadventures/issues/6"
+  },
+  {
+    "title": "V2: Expand browser regression coverage and performance checks",
+    "body": "Keep the github.io game playable as migration features are added.\n\nAcceptance criteria:\n- Cover movement displacement, terrain collisions, directional melee and wave progression in browser tests.\n- Cover repeated deaths/restarts, hero reselection, pause/resume and tab focus changes.\n- Test asset loading under /feadventures/ as well as a site root.\n- Profile large swarms and set a practical enemy cap.\n- Add Firefox and WebKit coverage where supported, with CI failures blocking publication.",
+    "url": "https://github.com/joncady/feadventures/issues/7"
+  },
+  {
+    "title": "V2: Add touch controls and accessible gameplay settings",
+    "body": "The initial migration scales its canvas but requires a keyboard. Improve input and usability for the public browser build.\n\nAcceptance criteria:\n- Add touch movement and attack controls without obscuring combat.\n- Add separate music/effects levels and persist preferences.\n- Support remappable keyboard controls and a reduced-motion option.\n- Verify menus are usable with keyboard focus and narrow screens.\n- Show a clear loading failure/retry state when assets cannot be loaded.",
+    "url": "https://github.com/joncady/feadventures/issues/8"
+  }
+]

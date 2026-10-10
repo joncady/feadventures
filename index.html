@@ -1,58 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style/index.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <script src="./dist/bundle.js"></script>
-    <link rel="icon" href="assets/favicon.png">
-    <title>Fire Emblem Adventures</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="./assets/favicon.png" />
+  <title>Fire Emblem Adventures</title>
 </head>
-
 <body>
-    <div id="window">
-        <div id="game-area" tabindex="0"></div>
-        <div id="game-status" class="overlay hide">
-            <div>
-                Stage <span id="indicator"></span>
-                <p id="countdown"></p>
-            </div>
+  <main>
+    <header><div><p class="eyebrow">FIRE EMBLEM ADVENTURES</p><h1>Stand against the swarm.</h1></div><span class="version">SURVIVAL</span></header>
+    <section class="game-shell" aria-label="Enemy swarm game">
+      <div class="hud"><span id="hero-name">Chrom</span><span id="health">HP 100 / 100</span><span id="wave">Wave 1</span><span id="kills">Defeated 0</span></div>
+      <div id="game" tabindex="0" aria-label="Game field. Use WASD or arrow keys to move and Space to attack."></div>
+      <section id="menu" class="overlay" aria-labelledby="menu-title">
+        <p class="eyebrow">CHOOSE YOUR HERO</p><h2 id="menu-title">Hold the line.</h2><p>Move, strike, and survive increasingly large enemy waves.</p>
+        <div class="heroes" role="group" aria-label="Choose character">
+          <button class="hero selected" data-character="chrom" aria-pressed="true"><img src="./assets/chromPortrait1.png" alt="" />Chrom</button>
+          <button class="hero" data-character="lucina" aria-pressed="false"><img src="./assets/lucinaPortrait1.png" alt="" />Lucina</button>
+          <button class="hero" data-character="frederick" aria-pressed="false"><img src="./assets/frederickPortrait1.png" alt="" />Frederick</button>
         </div>
-        <div id="startup" class="overlay">
-            <div id="behind">
-                <img src="./assets/logo.png">
-            </div>
-            <div id="options">
-                <!-- <button id="controller">GameCube Controller</button> -->
-                <button id="keyboard">Keyboard</button>
-            </div>
-        </div>
-        <div id="characters" class="overlay hide">
-            <div id="character-area">
-                <div id="chrom" class="character">
-                    <img src="./assets/chromPortrait1.png" class="portrait">
-                </div>
-                <div id="lucina" class="character">
-                    <img src="./assets/lucinaPortrait1.png" class="portrait">
-                </div>
-                <div id="frederick" class="character">
-                    <img src="./assets/frederickPortrait1.png" class="portrait">
-                </div>
-            </div>
-            <button id="start">Begin!</button>
-        </div>
-        <div id="gameover" class="hide">
-            <button id="gameover-button">Start over</button>
-        </div>
-    </div>
-    <div id="controls">
-        <button id="fullscreen">Fullscreen</button>
-        <button id="music">Play Music</button>
-    </div>
+        <button id="start" class="primary" disabled>Loading assets…</button>
+      </section>
+      <section id="end" class="overlay" hidden><p class="eyebrow">THE BATTLE IS OVER</p><h2>You held your ground.</h2><p id="result"></p><button id="restart" class="primary">Try again</button><button id="choose">Choose hero</button></section>
+      <div id="notice" role="status" aria-live="polite">Loading the battlefield…</div>
+    </section>
+    <footer><p><kbd>WASD</kbd> / <kbd>↑ ↓ ← →</kbd> Move <kbd>Space</kbd> Attack <kbd>P</kbd> Pause</p><div class="actions"><button id="pause" disabled>Pause</button><button id="music" aria-pressed="false">Music off</button><button id="fullscreen">Fullscreen</button></div></footer>
+    <p class="caption">A real-time survival prototype using the original Fire Emblem assets.</p>
+  </main>
+  <script type="module" src="/src/main.ts"></script>
 </body>
-
 </html>
