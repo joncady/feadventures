@@ -9,6 +9,7 @@ export class BootScene extends Phaser.Scene {
     this.load.setPath(`${import.meta.env.BASE_URL}assets/`);
     this.load.image('ui-parchment', 'ui-parchment.png');
     this.load.image('map', 'map.png');
+    this.load.image('battlefield', 'battlefield.png');
     this.load.image('title', 'titleScreen.png');
     this.load.image('vulnerary', 'vulnerary.png');
     this.load.image('slash', 'slash.png');

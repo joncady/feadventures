@@ -14,6 +14,8 @@ export const game = new Phaser.Game({
   physics: { default: 'arcade', arcade: { debug: false } },
   scene: [BootScene, ArenaScene, InterfaceScene],
 });
+const tactical = new URLSearchParams(location.search).get('battle') !== 'legacy';
+let phase: 'party'|'deployment'|'battle' = 'party';
 let hero: Hero = 'chrom';
 let companions: Hero[] = [];
 let selectionMode: 'player'|'companions' = 'player';
@@ -52,12 +54,13 @@ function publishInterface(): void {
   }
   element('leader-mode')?.setAttribute('aria-pressed', String(selectionMode === 'player'));
   element('party-mode')?.setAttribute('aria-pressed', String(selectionMode === 'companions'));
-  const state: InterfaceState = { hero, companions:[...companions], selectionMode, ready: !startButton.disabled, playing, paused, muted, settingsOpen, result, audio: { ...audioSettings } };
+  element<HTMLButtonElement>('launch-battle').disabled=phase!=='deployment';element('launch-battle').hidden=phase!=='deployment';
+  const state: InterfaceState = { hero, companions:[...companions], selectionMode, phase, tactical, ready: !startButton.disabled, playing, paused, muted, settingsOpen, result, audio: { ...audioSettings } };
   game.registry.set('interface-state', state); game.events.emit('ui-state', state);
 }
 function ensureMusic(): void {
   if (muted || !game.cache.audio.exists('music')) return;
-  const key = playing || result ? 'music' : 'music-menu';
+  const key = (playing && phase==='battle') || result ? 'music' : 'music-menu';
   if (music && music.key !== key) { music.stop(); music.destroy(); music = undefined; }
   if (!music) music = game.sound.add(key, { loop: true, volume: audioSettings.music });
   if (!music.isPlaying && !music.isPaused) music.play();
@@ -74,7 +77,7 @@ game.events.on('assets-ready', () => {
   game.sound.once('unlocked', () => { game.sound.mute = muted; ensureMusic(); });
   ensureMusic();
   if (loadingFailed) return;
-  startButton.disabled = false; startButton.textContent = 'Begin battle';
+  startButton.disabled = false; startButton.textContent = tactical?'Review battlefield':'Begin battle';
   element<HTMLButtonElement>('music').disabled = false;
   notice('Choose a hero, then begin.'); publishInterface();
 });
@@ -85,29 +88,30 @@ game.events.on('hud', (hud: Hud) => {
   element('kills').textContent = `Defeated ${hud.kills}`;
   element('game').dataset.enemies = String(hud.enemies);
 });
-game.events.on('game-over', (battleResult: { wave: number; kills: number }) => {
+game.events.on('game-over', (battleResult: { wave: number; kills: number; victory?:boolean }) => {
   playing = false; pauseButton.disabled = true;
   element('end').hidden = false;
-  element('result').textContent = `Reached wave ${battleResult.wave} · Defeated ${battleResult.kills} enemies`;
+  element('result').textContent = `${battleResult.victory?'Battle won! All camps cleared.':tactical?'Party defeated.':`Reached wave ${battleResult.wave}`} · Defeated ${battleResult.kills} enemies`;
   result = element('result').textContent ?? '';
   notice('Choose Try again for a fresh battle.'); publishInterface();
 });
 function start(): void {
   if (startButton.disabled) return;
   ensureMusic();
-  game.events.emit('effect', 'battle-start', { volume: .45 });
+  if(!tactical)game.events.emit('effect', 'battle-start', { volume: .45 });
   result = ''; settingsOpen = false; audioDialog.close();
   game.scene.stop('Boot'); game.scene.stop('Arena');
   element('menu').hidden = true; element('end').hidden = true;
-  playing = true; paused = false; pauseButton.disabled = false; pauseButton.textContent = 'Pause';
+  phase=tactical?'deployment':'battle';
+  playing = true; paused = false; pauseButton.disabled = tactical; pauseButton.textContent = 'Pause';
   element('hero-name').textContent = `${HERO_NAMES[hero]} · ${HERO_PROFILES[hero].weapon}`;
-  game.scene.start('Arena', { hero, companions });
+  game.scene.start('Arena', { hero, companions, tactical });
   ensureMusic();
   game.scene.bringToTop('Interface'); publishInterface();
   element('game').focus();
 }
 function togglePause(): void {
-  if (!playing || settingsOpen) return;
+  if (!playing || settingsOpen || phase==='deployment') return;
   paused = !paused;
   if (paused) { stopVoices(); game.scene.pause('Arena'); music?.pause(); }
   else { game.scene.getScene('Arena').input.keyboard?.resetKeys(); game.scene.resume('Arena'); music?.resume(); }
@@ -153,7 +157,7 @@ function showMenu(): void {
   result = ''; settingsOpen = false; audioDialog.close();
   stopVoices(); game.sound.stopAll();
   game.scene.stop('Arena'); game.scene.start('Boot');
-  playing = false; paused = false; pauseButton.disabled = true; pauseButton.textContent = 'Pause';
+  phase='party';playing = false; paused = false; pauseButton.disabled = true; pauseButton.textContent = 'Pause';
   ensureMusic();
   element('end').hidden = true; element('menu').hidden = false;
   notice('Choose a hero, then begin.');
@@ -228,3 +232,9 @@ for(const [id,mode] of [['leader-mode','player'],['party-mode','companions']] as
   element(id).addEventListener('click',()=>{selectionMode=mode;publishInterface();});
 }
 game.events.on('ui-character',(character:Hero)=>document.querySelector<HTMLButtonElement>(`[data-character="${character}"]`)?.click());
+
+game.events.on('ui-deploy-hero',(hero:Hero)=> (game.scene.getScene('Arena') as ArenaScene).selectDeployment(hero));
+game.events.on('ui-launch',()=>{if(phase!=='deployment')return;phase='battle';publishInterface();(game.scene.getScene('Arena') as ArenaScene).launchBattle();pauseButton.disabled=false;game.events.emit('effect','battle-start',{volume:.45});ensureMusic();publishInterface();element('game').focus();});
+game.events.on('controlled-character',(hero:Hero)=>{element('hero-name').textContent=`${HERO_NAMES[hero]} · ${HERO_PROFILES[hero].weapon}`;});
+
+element('launch-battle').addEventListener('click',()=>game.events.emit('ui-launch'));

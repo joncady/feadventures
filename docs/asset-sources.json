@@ -575,5 +575,12 @@
       595
     ],
     "processing": "Medium parchment frame, rendered with Phaser NineSlice"
+  },
+  "battlefield.png": {
+    "source": "https://github.com/Klokinator/FE-Repo/tree/main/Tilesets/Plains/FE8%20Plains%20with%20Big%20Bridges%20-%20Tileset",
+    "creator": "WAve",
+    "original": "asset-library/map-candidates/plains-preview-map.png",
+    "credits": "asset-library/map-candidates/plains-credits.txt",
+    "processing": "Ground, road and forest tiles assembled into an open 896\u00d7544 source image; rendered at 2\u00d7 for a 1792\u00d71088 world. Forts reused from the original project map2.png. Reproduce with scripts/prepare-battlefield.py. These are GBA-style community terrain assets, not Awakening 3D maps."
   }
 }

@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('waits for audio assets, toggles mute, and restores ranged and hit audio', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
-  await page.goto('/');
+  await page.goto('/?battle=legacy');
   const begin = page.getByRole('button', { name: 'Begin battle' });
   await expect(begin).toBeEnabled();
   expect(await page.evaluate(async () => {

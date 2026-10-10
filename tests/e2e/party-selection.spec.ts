@@ -2,7 +2,7 @@ import {test,expect,type Page} from '@playwright/test';
 async function point(page:Page,x:number,y:number){const b=(await page.locator('canvas').boundingBox())!;await page.mouse.click(b.x+x*b.width/896,b.y+y*b.height/544);}
 async function card(page:Page,hero:string){const p=await page.evaluate(async hero=>{const entry='/src/main.ts';const{game}=await import(entry);return game.registry.get('character-card-centers')[hero];},hero);await point(page,p.x,p.y);}
 test('native party picker selects three companions, keeps soldiers and routes bow/magic/flying combat',async({page})=>{
- await page.goto('/');await page.getByRole('button',{name:'Begin battle'}).waitFor();
+ await page.goto('/?battle=legacy');await page.getByRole('button',{name:'Begin battle'}).waitFor();
  await point(page,534,96);await card(page,'morgan');await card(page,'virion');await card(page,'sumia');await card(page,'vaike');
  expect(await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.registry.get('interface-state').companions;})).toEqual(['morgan','virion','sumia']);
  await point(page,448,506);
@@ -30,7 +30,7 @@ test('native party picker selects three companions, keeps soldiers and routes bo
  expect(await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');return {allies:s.allies.countActive(),mode:s.allyMode,arrows:s.arrows.countActive()};})).toEqual({allies:5,mode:'defend',arrows:0});
 });
 test('selection acknowledges character and menu/stage music switch without duplicate loops',async({page})=>{
- await page.goto('/');await page.getByRole('button',{name:'Begin battle'}).waitFor();
+ await page.goto('/?battle=legacy');await page.getByRole('button',{name:'Begin battle'}).waitFor();
  await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const original=game.sound.play.bind(game.sound);const keys:string[]=[];game.registry.set('selection-sounds',keys);game.sound.play=(key:string,options:any)=>{keys.push(key);return original(key,options);};});
  await card(page,'vaike');
  const menu=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return {selected:game.registry.get('interface-state').hero,keys:game.registry.get('selection-sounds'),menu:Boolean(game.sound.get('music-menu')),stage:Boolean(game.sound.get('music'))};});

@@ -1,7 +1,7 @@
 import {test,expect,type Page} from '@playwright/test';
 async function clickCanvas(page:Page,x:number,y:number){const box=(await page.locator('canvas').boundingBox())!;await page.mouse.click(box.x+x*box.width/896,box.y+y*box.height/544);}
 test('native HUD controls work, music defaults on and Begin battle plays the selected archive cue',async({page})=>{
- await page.goto('/');await page.getByRole('button',{name:'Begin battle'}).waitFor();
+ await page.goto('/?battle=legacy');await page.getByRole('button',{name:'Begin battle'}).waitFor();
  await page.getByRole('button',{name:'Morgan',exact:true}).press('Enter');
  await page.evaluate(async()=>{const entry='/src/main.ts';const {game}=await import(entry);const events:string[]=[];game.registry.set('uiSounds',events);game.events.on('effect',(key:string)=>events.push(key));});
  await page.getByRole('button',{name:'Begin battle'}).press('Enter');

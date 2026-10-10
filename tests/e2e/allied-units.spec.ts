@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 
 test('allied soldiers attract mage fire, take resistance damage and ignore friendly projectiles',async({page})=>{
-  await page.goto('/');await page.getByRole('button',{name:'Begin battle'}).press('Enter');
+  await page.goto('/?battle=legacy');await page.getByRole('button',{name:'Begin battle'}).press('Enter');
   const before=await page.evaluate(async()=>{
     const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');s.scene.pause();
     s.enemies.clear(true,true);s.time.removeAllEvents();s.spawning=1;
@@ -23,7 +23,7 @@ test('allied soldiers attract mage fire, take resistance damage and ignore frien
 });
 
 test('allies fight enemies, do not count toward waves and their death does not end the run',async({page})=>{
-  await page.goto('/');await page.getByRole('button',{name:'Begin battle'}).press('Enter');
+  await page.goto('/?battle=legacy');await page.getByRole('button',{name:'Begin battle'}).press('Enter');
   const state=await page.evaluate(async()=>{
     const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');s.scene.pause();s.allyMode='attack';s.brains=new WeakMap();s.enemies.clear(true,true);s.time.removeAllEvents();s.spawning=0;
     const ally=s.allies.getChildren()[0];s.allies.getChildren()[1].destroy();ally.body.reset(300,230);ally.body.updateFromGameObject();

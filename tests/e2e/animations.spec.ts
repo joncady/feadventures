@@ -1,6 +1,6 @@
 import {test,expect} from '@playwright/test';
 test('legacy hero has exact directional frames and melee action is not overwritten by idle',async({page})=>{
- await page.goto('/');await page.getByRole('button',{name:'Begin battle'}).press('Enter');
+ await page.goto('/?battle=legacy');await page.getByRole('button',{name:'Begin battle'}).press('Enter');
  await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');s.allies.clear(true,true);s.enemies.clear(true,true);s.time.removeAllEvents();s.spawning=1;});
  await page.locator('#game').focus();await page.keyboard.down('s');await page.keyboard.down('d');
  await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const p=game.scene.getScene('Arena').player;return {key:p.anims.currentAnim.key,row:Math.floor(Number(p.frame.name)/4),width:p.frame.width,height:p.frame.height,flip:p.flipX};})).toEqual({key:'chrom-walk-down-right',row:7,width:50,height:50,flip:false});

@@ -26,3 +26,7 @@ Advance exactly once and cancel pending spawns, attacks and effects before trans
 4. #21: commander phases, reinforcements and final victory.
 
 #24 equipment switching can follow these foundations. Local co-op/controller support and optional guard remain separate backlog items. This document is a delivery proposal; larger maps and campaign progression are not implemented yet.
+
+## Latest local checkpoint
+
+The first larger arena is now implemented locally, along with party/deployment/battle phases, fixed enemy camps, finite soldiers, per-character XP/stat growth, Q/E control rotation and a fixed minimap. See tactical-battle-plan.md for the updated architecture, verified community terrain sources and implementation scope. This batch is not published yet; multi-stage campaign/boss delivery remains next.

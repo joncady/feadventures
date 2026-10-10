@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('Sumia flies across terrain, keeps world bounds and uses lance combat with bow weakness', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/?battle=legacy');
   await page.getByRole('button', { name: 'Sumia', exact: true }).press('Enter');
   await expect(page.locator('#hero-description')).toContainText('fly over terrain');
   await page.getByRole('button', { name: 'Begin battle' }).press('Enter');

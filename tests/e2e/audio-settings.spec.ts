@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('audio categories are independent, recorded voices load, and device speech is removed', async ({ page }) => {
-  await page.goto('/'); await page.getByRole('button', { name: 'Begin battle' }).waitFor();
+  await page.goto('/?battle=legacy'); await page.getByRole('button', { name: 'Begin battle' }).waitFor();
   await page.getByRole('button', { name: 'Audio settings', exact: true }).press('Enter');
   await expect(page.getByRole('dialog', { name: 'Audio settings' })).toBeVisible();
   await page.getByLabel('Enable audio', { exact: true }).check();
@@ -32,7 +32,7 @@ test('audio categories are independent, recorded voices load, and device speech 
 });
 
 test('down diagonal movement selects the correct verified sprite rows', async ({ page }) => {
-  await page.goto('/'); await page.getByRole('button', { name: 'Virion', exact: true }).press('Enter');
+  await page.goto('/?battle=legacy'); await page.getByRole('button', { name: 'Virion', exact: true }).press('Enter');
   await page.getByRole('button', { name: 'Begin battle' }).press('Enter');
   await page.locator('#game').focus(); await page.keyboard.down('s'); await page.keyboard.down('d');
   await expect.poll(() => page.evaluate(async () => {
@@ -49,7 +49,7 @@ test('down diagonal movement selects the correct verified sprite rows', async ({
 });
 
 test('melee attacks route sword, axe and lance to distinct loaded effects', async ({ page }) => {
-  await page.goto('/'); await page.getByRole('button', { name: 'Begin battle' }).press('Enter');
+  await page.goto('/?battle=legacy'); await page.getByRole('button', { name: 'Begin battle' }).press('Enter');
   const result = await page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);
     const scene = game.scene.getScene('Arena'); scene.allies.clear(true, true); scene.enemies.clear(true, true);

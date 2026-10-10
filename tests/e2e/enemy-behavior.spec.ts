@@ -1,7 +1,7 @@
 import { test, expect, type Page } from '@playwright/test';
 
 async function fixture(page: Page, x: number, y: number, speed: number, texture = 'soldier') {
-  await page.goto('/');
+  await page.goto('/?battle=legacy');
   await page.getByRole('button', { name: 'Begin battle' }).press('Enter');
   await page.evaluate(async ({ x, y, speed, texture }) => {
     const entry = '/src/main.ts'; const { game } = await import(entry);
@@ -73,7 +73,7 @@ test('archer moves around cover before shooting', async ({ page }) => {
 });
 
 test('an enemy embedded in the upper terrain edge recovers and can be hit by Fire', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/?battle=legacy');
   await page.getByRole('button', { name: 'Tharja', exact: true }).press('Enter');
   await page.getByRole('button', { name: 'Begin battle' }).press('Enter');
   const recovered = await page.evaluate(async () => {

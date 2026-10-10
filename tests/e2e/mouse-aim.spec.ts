@@ -1,6 +1,6 @@
 import {test,expect} from '@playwright/test';
 test('scaled mouse aim is independent of movement, locks windup and resets on menu',async({page})=>{
-  await page.setViewportSize({width:900,height:900}); await page.goto('/');
+  await page.setViewportSize({width:900,height:900}); await page.goto('/?battle=legacy');
   await page.getByRole('button',{name:'Morgan',exact:true}).press('Enter'); await page.getByRole('button',{name:'Begin battle'}).press('Enter');
   await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');s.allies.clear(true,true);s.enemies.clear(true,true);s.time.removeAllEvents();s.spawning=1;});
   const canvas=page.locator('canvas'),bounds=(await canvas.boundingBox())!;

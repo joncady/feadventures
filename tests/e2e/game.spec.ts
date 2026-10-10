@@ -4,7 +4,7 @@ test('loads assets, starts a wave, pauses, dies and restarts cleanly', async ({ 
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   page.on('response', response => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
-  await page.goto('/');
+  await page.goto('/?battle=legacy');
   await page.getByRole('button', { name: 'Lucina', exact: true }).press('Enter');
   await page.getByRole('button', { name: 'Begin battle' }).press('Enter');
   await expect(page.locator('#hero-name')).toHaveText('Lucina · sword');

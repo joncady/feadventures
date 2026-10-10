@@ -4,6 +4,8 @@ import { CLASS_NAMES, INVENTORY_CAPACITY, equippedWeapon, initialLoadout } from 
 import { STAT_KEYS, attackPower, type Progress, type Stats } from './progression';
 
 export class BattleHud {
+  private timers: Phaser.Time.TimerEvent[] = [];
+  private objects: Phaser.GameObjects.GameObject[] = [];
   private graphics: Phaser.GameObjects.Graphics;
   private top: Phaser.GameObjects.Text;
   private title: Phaser.GameObjects.Text;
@@ -23,6 +25,7 @@ export class BattleHud {
   private readonly x = WORLD.width - 248;
   private readonly y = WORLD.height - 226;
   constructor(private scene: Phaser.Scene, private hero: Hero, toggleOrders: () => void) {
+    const previous = new Set(scene.children.list);
     const style = { fontFamily: 'FE', fontSize: '12px', color: '#44351e' };
     scene.add.nineslice(this.x, this.y, 'ui-parchment', undefined, 240, 216, 16, 16, 16, 16).setOrigin(0).setDepth(100);
     scene.add.zone(this.x, this.y, 240, 216).setOrigin(0).setDepth(100).setInteractive();
@@ -54,7 +57,12 @@ export class BattleHud {
     this.orders = scene.add.text(this.x + 15, this.y + 196, '', { ...style, fontSize: '10px', color: '#183e57' }).setDepth(102).setInteractive({ useHandCursor: true });
     this.orders.on('pointerdown', toggleOrders);
     this.growth = scene.add.text(this.x + 10, this.y - 38, '', { ...style, fontSize: '11px', color: '#fff2c4', backgroundColor: '#183e57', wordWrap: { width: 222 } }).setDepth(102);
+    this.objects = scene.children.list.filter(object => !previous.has(object));
+    for (const object of this.objects) (object as Phaser.GameObjects.Sprite).setScrollFactor?.(0);
   }
+  setVisible(visible:boolean):void { for(const object of this.objects)(object as Phaser.GameObjects.Sprite).setVisible?.(visible); }
+  destroy(): void { this.scene.tweens.killTweensOf(this);for(const timer of this.timers)timer.remove();for (const object of this.objects) object.destroy(); }
+  synchronize(progress: Progress): void { this.displayedLevel=progress.level; this.displayedXp=progress.xp; this.pendingXp=0; }
   update(progress: Progress, health: number, wave: number, kills: number, mode: string, allies: number): void {
     this.health = health; this.maxHealth = progress.stats.hp;
     const snapshot = JSON.stringify([progress.stats, health, wave, kills, mode, allies]);
@@ -66,7 +74,7 @@ export class BattleHud {
       this.stats.setText(`Str   ${s.str}\nMag ${s.mag}\nSkl   ${s.skill}\nSpd ${s.speed}\nLck   ${s.luck}\nDef   ${s.def}\nRes   ${s.res}`);
       const profile = HERO_PROFILES[this.hero];
       this.combat.setText(`Atk ${attackPower(progress, this.hero)}     Rng ${profile.minRange ? `${profile.minRange}–` : ''}${profile.range}px\nCrit ${Math.round(Math.min(.25, ((s.skill-progress.base.skill)/2+(s.luck-progress.base.luck)/4)/100)*100)}%`);
-      this.orders.setText(`[Q] ${mode.toUpperCase()}  ·  ${allies} allies`);
+      this.orders.setText(mode==='deployment'?'Place party, then begin':mode==='tactical'?`Q / E: Switch  ·  ${allies} allies`:`[Q] ${mode.toUpperCase()}  ·  ${allies} allies`);
     }
     this.draw();
   }
@@ -75,7 +83,7 @@ export class BattleHud {
     if (gains.length) {
       const summary = STAT_KEYS.map(k => [k, gains.reduce((n, g) => n + g[k], 0)] as const).filter(([, v]) => v > 0).map(([k, v]) => `${k.toUpperCase()} +${v}`).join('  ');
       this.growth.setText(summary || 'Level up');
-      this.scene.time.delayedCall(3500, () => this.growth.setText(''));
+      this.timers.push(this.scene.time.delayedCall(3500, () => this.growth.setText('')));
     }
     if (!this.filling) this.fill();
   }
@@ -84,6 +92,7 @@ export class BattleHud {
     this.filling = true;
     const amount = Math.min(this.pendingXp, 100 - this.displayedXp); this.pendingXp -= amount;
     const tick = this.scene.time.addEvent({ delay: 80, loop: true, callback: () => this.scene.game.events.emit('effect', 'xp-tick', { volume: .12 }) });
+    this.timers.push(tick);
     this.scene.tweens.add({ targets: this, displayedXp: this.displayedXp + amount, duration: Math.max(160, amount * 12), onComplete: () => {
       tick.remove();
       if (this.displayedXp >= 100) { this.displayedLevel++; this.displayedXp = 0; this.scene.game.events.emit('effect', 'level-up', { volume: .25 }); }

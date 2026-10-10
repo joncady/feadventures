@@ -8,10 +8,10 @@
   },
   {
     "title": "V2: Port directional movement and attack sprite animations",
-    "body": "The initial migration uses the standing-row animation frames from the original 200×492 sprite sheets.\n\nAcceptance criteria:\n- Define exact frame boundaries for all original directional and attack rows.\n- Port movement, facing, idle and attack animations for Chrom, Lucina, Frederick and all enemies.\n- Preserve the last facing direction when attacking from idle.\n- Verify there is no frame bleeding at scaled resolutions.\n\n## Implementation checkpoint — 2026-10-10\nOriginal trio and all enemy movement/action rows restored with exact normalized legacy frames. Directional movement and action-hold browser regression passes. Imported and legacy down-diagonal row orders are handled separately. Local review checkpoint.\n\nApproved for publication on 2026-10-10.\n\n## Latest review — 2026-10-10\nApproved release now includes XP, Q ally orders, native battle HUD, 17 characters and recorded audio. Remaining follow-ups are tracked separately; animation audit and sustained swarm performance remain open where applicable.\n\n## Local review checkpoint — 2026-10-10\nAll source movement rows now use down-left 6 / down-right 7. Directional movement is never mirrored; bow action rows use opposite facing from melee/magic. Full enemy and playable roster animation regression added.\n\nThis follow-up remains local pending review; it is not included in the approved dc76a2c deployment.",
+    "body": "The initial migration uses the standing-row animation frames from the original 200×492 sprite sheets.\n\nAcceptance criteria:\n- Define exact frame boundaries for all original directional and attack rows.\n- Port movement, facing, idle and attack animations for Chrom, Lucina, Frederick and all enemies.\n- Preserve the last facing direction when attacking from idle.\n- Verify there is no frame bleeding at scaled resolutions.\n\n## Implementation checkpoint — 2026-10-10\nOriginal trio and all enemy movement/action rows restored with exact normalized legacy frames. Directional movement and action-hold browser regression passes. Imported and legacy down-diagonal row orders are handled separately. Local review checkpoint.\n\nApproved for publication on 2026-10-10.\n\n## Latest review — 2026-10-10\nApproved release now includes XP, Q ally orders, native battle HUD, 17 characters and recorded audio. Remaining follow-ups are tracked separately; animation audit and sustained swarm performance remain open where applicable.\n\n## Local review checkpoint — 2026-10-10\nAll source movement rows now use down-left 6 / down-right 7. Directional movement is never mirrored; bow action rows use opposite facing from melee/magic. Full enemy and playable roster animation regression added.\n\nThis follow-up remains local pending review; it is not included in the approved dc76a2c deployment.\n\nApproved and published in 3e0f4bd; CI timeout fix d067b7c passed GitHub Pages deployment. New tactical follow-ups are tracked separately.",
     "url": "https://github.com/joncady/feadventures/issues/2",
     "priority": "P0",
-    "status": "In review"
+    "status": "Done"
   },
   {
     "title": "V2: Add obstacle-aware swarm navigation",
@@ -155,8 +155,8 @@
   },
   {
     "title": "V2: Finish Phaser-native character selection and UI lifecycle",
-    "body": "Replace the HTML roster overlay with a native, scrollable Phaser character picker; no battle-only controls on the menu. Keep pause, settings and game-over controls active in Interface scene; retain accessible DOM mirrors without visible duplicate layers. Test repeated scene transitions and smaller desktop viewports. Native battle HUD is implemented; character picker remains.\n\n## Local review checkpoint — 2026-10-10\nAll visible game UI, including the fixed 17-character picker and companion selection, is Phaser-native. Hidden HTML mirrors retain accessible keyboard controls; battle-only controls and instructions are suppressed on menu.\n\nThis follow-up remains local pending review; it is not included in the approved dc76a2c deployment.",
-    "status": "In review",
+    "body": "Replace the HTML roster overlay with a native, scrollable Phaser character picker; no battle-only controls on the menu. Keep pause, settings and game-over controls active in Interface scene; retain accessible DOM mirrors without visible duplicate layers. Test repeated scene transitions and smaller desktop viewports. Native battle HUD is implemented; character picker remains.\n\n## Local review checkpoint — 2026-10-10\nAll visible game UI, including the fixed 17-character picker and companion selection, is Phaser-native. Hidden HTML mirrors retain accessible keyboard controls; battle-only controls and instructions are suppressed on menu.\n\nThis follow-up remains local pending review; it is not included in the approved dc76a2c deployment.\n\nApproved and published in 3e0f4bd; CI timeout fix d067b7c passed GitHub Pages deployment. New tactical follow-ups are tracked separately.",
+    "status": "Done",
     "priority": "P1",
     "url": "https://github.com/joncady/feadventures/issues/23"
   },
@@ -169,37 +169,65 @@
   },
   {
     "title": "V2: Add contextual selection voices and separate menu music",
-    "body": "Play an appropriate original selection/ready acknowledgement for each character, respecting voice volume/mute. Use a distinct menu music track and retain stage music for combat. Verify switching and pause/menu lifecycle without duplicate music.\n\n## Local review checkpoint — 2026-10-10\nEach of 17 characters has an original recorded DUAL_SUPPORT_1 selection acknowledgment (separate Robin variants). Menu and battle music switch without duplicate loops. Menu theme is an original temporary generated harp/pad loop pending a preferred track.\n\nThis follow-up remains local pending review; it is not included in the approved dc76a2c deployment.",
-    "status": "In review",
+    "body": "Play an appropriate original selection/ready acknowledgement for each character, respecting voice volume/mute. Use a distinct menu music track and retain stage music for combat. Verify switching and pause/menu lifecycle without duplicate music.\n\n## Local review checkpoint — 2026-10-10\nEach of 17 characters has an original recorded DUAL_SUPPORT_1 selection acknowledgment (separate Robin variants). Menu and battle music switch without duplicate loops. Menu theme is an original temporary generated harp/pad loop pending a preferred track.\n\nThis follow-up remains local pending review; it is not included in the approved dc76a2c deployment.\n\nApproved and published in 3e0f4bd; CI timeout fix d067b7c passed GitHub Pages deployment. New tactical follow-ups are tracked separately.",
+    "status": "Done",
     "priority": "P1",
     "url": "https://github.com/joncady/feadventures/issues/25"
   },
   {
     "title": "V2: Select three playable-character companions for each battle",
-    "body": "Keep the two default NPC soldiers. Allow up to three distinct roster companions excluding player. Spawn selected allies with correct weapon/range, magic/bow projectiles, stats and ground/flying movement. Apply Q Defend/Attack orders to all allies. Keep unit identities/run state suitable for future player switching; no switching yet.\n\n## Local review checkpoint — 2026-10-10\nChoose up to three unique companions besides the player. Two default soldiers always deploy. Q orders all allies; bow, tome and flying companions use their own combat profiles. No mid-battle respawns; restart restores party. Switching is deferred.\n\nThis follow-up remains local pending review; it is not included in the approved dc76a2c deployment.",
-    "status": "In review",
+    "body": "Keep the two default NPC soldiers. Allow up to three distinct roster companions excluding player. Spawn selected allies with correct weapon/range, magic/bow projectiles, stats and ground/flying movement. Apply Q Defend/Attack orders to all allies. Keep unit identities/run state suitable for future player switching; no switching yet.\n\n## Local review checkpoint — 2026-10-10\nChoose up to three unique companions besides the player. Two default soldiers always deploy. Q orders all allies; bow, tome and flying companions use their own combat profiles. No mid-battle respawns; restart restores party. Switching is deferred.\n\nThis follow-up remains local pending review; it is not included in the approved dc76a2c deployment.\n\nApproved and published in 3e0f4bd; CI timeout fix d067b7c passed GitHub Pages deployment. New tactical follow-ups are tracked separately.",
+    "status": "Done",
     "priority": "P1",
     "url": "https://github.com/joncady/feadventures/issues/26"
   },
   {
     "title": "V2: Audit all enemy and character directional/action sheets",
-    "body": "Audit every enemy movement direction and action, correct reversed down diagonals or flips, verify action hold and row bounds. Fix Vaike portrait crop. Add runtime coverage per enemy type and a visual source/frame contact sheet.\n\n## Local review checkpoint — 2026-10-10\nAudited all walking rows and action facing: down-left row 6, down-right row 7; no walking flip; bow actions face right natively, other attacks left. Browser coverage checks every enemy animation and every playable hero.\n\nThis follow-up remains local pending review; it is not included in the approved dc76a2c deployment.",
-    "status": "In review",
+    "body": "Audit every enemy movement direction and action, correct reversed down diagonals or flips, verify action hold and row bounds. Fix Vaike portrait crop. Add runtime coverage per enemy type and a visual source/frame contact sheet.\n\n## Local review checkpoint — 2026-10-10\nAudited all walking rows and action facing: down-left row 6, down-right row 7; no walking flip; bow actions face right natively, other attacks left. Browser coverage checks every enemy animation and every playable hero.\n\nThis follow-up remains local pending review; it is not included in the approved dc76a2c deployment.\n\nApproved and published in 3e0f4bd; CI timeout fix d067b7c passed GitHub Pages deployment. New tactical follow-ups are tracked separately.",
+    "status": "Done",
     "priority": "P0",
     "url": "https://github.com/joncady/feadventures/issues/27"
   },
   {
     "title": "V2: Slow and tune player movement against swarm combat",
-    "body": "Reduce baseline player speed for the next local review while retaining normalized diagonals, flying movement, run speed gains and readable melee/mouse combat. Expose a single tuning factor rather than scattered adjustments.\n\n## Local review checkpoint — 2026-10-10\nBase player and playable companion movement reduced 28% (~122 px/s ground, ~137 flyer), retaining normalized diagonal motion and Speed growth.\n\nThis follow-up remains local pending review; it is not included in the approved dc76a2c deployment.",
-    "status": "In review",
+    "body": "Reduce baseline player speed for the next local review while retaining normalized diagonals, flying movement, run speed gains and readable melee/mouse combat. Expose a single tuning factor rather than scattered adjustments.\n\n## Local review checkpoint — 2026-10-10\nBase player and playable companion movement reduced 28% (~122 px/s ground, ~137 flyer), retaining normalized diagonal motion and Speed growth.\n\nThis follow-up remains local pending review; it is not included in the approved dc76a2c deployment.\n\nApproved and published in 3e0f4bd; CI timeout fix d067b7c passed GitHub Pages deployment. New tactical follow-ups are tracked separately.",
+    "status": "Done",
     "priority": "P1",
     "url": "https://github.com/joncady/feadventures/issues/28"
   },
   {
     "title": "V2: Expand the survival arena and overall campaign loop",
-    "body": "After UI/animation/party fixes, evaluate a larger navigable arena with camera following and HUD fixed to screen. Plan objectives, finite stage completion, resupply/rewards, next stage selection and final boss. Preserve grounded terrain clearance, flying movement, reachable spawns, crowd performance and meaningful ally losses. Coordinate with finite campaign and additional collision-map issues.\n\n## Local review checkpoint — 2026-10-10\nDelivery plan recorded locally in docs/arena-and-loop-expansion.md: first 1.5–2× open arena with separate world/camera/UI bounds and crowd profiling, then finite three-stage run with transition/resupply, bounded waves and commander final boss. Map/campaign changes are planned, not implemented.\n\nThis follow-up remains local pending review; it is not included in the approved dc76a2c deployment.",
-    "status": "Ready",
+    "body": "After UI/animation/party fixes, evaluate a larger navigable arena with camera following and HUD fixed to screen. Plan objectives, finite stage completion, resupply/rewards, next stage selection and final boss. Preserve grounded terrain clearance, flying movement, reachable spawns, crowd performance and meaningful ally losses. Coordinate with finite campaign and additional collision-map issues.\n\n## Local review checkpoint — 2026-10-10\nDelivery plan recorded locally in docs/arena-and-loop-expansion.md: first 1.5–2× open arena with separate world/camera/UI bounds and crowd profiling, then finite three-stage run with transition/resupply, bounded waves and commander final boss. Map/campaign changes are planned, not implemented.\n\nThis follow-up remains local pending review; it is not included in the approved dc76a2c deployment.\n\n## Tactical battlefield implementation\nLocal 1792×1088 arena (4× old area), fixed four camps/16 enemies, party → deployment → battle, four distributed soldiers, per-character progression, Q/E rotation, and native minimap are implemented. Terrain assembled using WAve’s FE8 Plains with Big Bridges preview and legacy map2 forts; source/credits retained. New work remains local pending review. Follow-ups: native deployment (#30), party progression (#31), switching (#32), minimap (#33); multi-stage campaign and boss remain future work.\n\nValidation: 18 unit tests, 24 preserved combat/browser regressions and 5 new tactical browser tests pass. Production build and strict TypeScript pass. Native overview and battle UI visually checked at 892×1066. Tactical changes remain local pending review.",
+    "status": "In review",
     "priority": "P1",
     "url": "https://github.com/joncady/feadventures/issues/29"
+  },
+  {
+    "title": "V2: Plan and deploy the party against fixed enemy camps",
+    "body": "Native party → deployment → battle phases. Overview of the full expanded map, four fixed camps with exact initial counts, four distributed finite soldiers, click placement with terrain/spacing/camp validation. No random spawning or endless waves. Start combat explicitly, restart returns to deployment.\n\nLocal implementation ready for review; not deployed. See docs/tactical-battle-plan.md for map provenance, state invariants and campaign follow-ups.\n\nValidation: 18 unit tests, 24 preserved combat/browser regressions and 5 new tactical browser tests pass. Production build and strict TypeScript pass. Native overview and battle UI visually checked at 892×1066. Tactical changes remain local pending review.",
+    "priority": "P0",
+    "status": "In review",
+    "url": "https://github.com/joncady/feadventures/issues/30"
+  },
+  {
+    "title": "V2: Track progression and health for every party character",
+    "body": "Each selected character owns health, XP, level and Awakening-style growth stats. Shared hostile-kill XP is applied to living party members with individual growth rolls. Stat growth affects controlled and AI combat/movement. Switching preserves health/progression; restart resets the run.\n\nLocal implementation ready for review; not deployed. See docs/tactical-battle-plan.md for map provenance, state invariants and campaign follow-ups.\n\nValidation: 18 unit tests, 24 preserved combat/browser regressions and 5 new tactical browser tests pass. Production build and strict TypeScript pass. Native overview and battle UI visually checked at 892×1066. Tactical changes remain local pending review.",
+    "priority": "P0",
+    "status": "In review",
+    "url": "https://github.com/joncady/feadventures/issues/31"
+  },
+  {
+    "title": "V2: Rotate control through living party members with Q and E",
+    "body": "Q previous / E next in original party order. Update sprite, weapon, HUD, camera, collision/flying behavior and input ownership together. Preserve cooldowns and pending projectiles on their original character. Inactive companions guard their deployment front. Retire Attack/Defend in default mode. Skip dead characters, auto-switch on death, and end when all controllable characters fall.\n\nLocal implementation ready for review; not deployed. See docs/tactical-battle-plan.md for map provenance, state invariants and campaign follow-ups.\n\nValidation: 18 unit tests, 24 preserved combat/browser regressions and 5 new tactical browser tests pass. Production build and strict TypeScript pass. Native overview and battle UI visually checked at 892×1066. Tactical changes remain local pending review.",
+    "priority": "P0",
+    "status": "In review",
+    "url": "https://github.com/joncady/feadventures/issues/32"
+  },
+  {
+    "title": "V2: Add a native battlefield minimap and scrolling camera",
+    "body": "Fixed Phaser minimap with terrain context, red enemy dots, blue ally dots, controlled-character highlight and camera rectangle. Separate 896×544 UI from 1792×1088 world. Camera follows controlled character; mouse aim uses world coordinates. Minimap excludes dead units and hides on menu/end screens.\n\nLocal implementation ready for review; not deployed. See docs/tactical-battle-plan.md for map provenance, state invariants and campaign follow-ups.\n\nValidation: 18 unit tests, 24 preserved combat/browser regressions and 5 new tactical browser tests pass. Production build and strict TypeScript pass. Native overview and battle UI visually checked at 892×1066. Tactical changes remain local pending review.",
+    "priority": "P1",
+    "status": "In review",
+    "url": "https://github.com/joncady/feadventures/issues/33"
   }
 ]

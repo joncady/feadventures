@@ -5,7 +5,7 @@ test('every roster hero loads, idles, and returns to menu without retained battl
   const errors: string[] = [];
   page.on('pageerror', e => errors.push(e.message));
   page.on('response', r => { if (r.status() >= 400) errors.push(`${r.status()} ${r.url()}`); });
-  await page.goto('/');
+  await page.goto('/?battle=legacy');
   const names = await page.locator('.hero').allTextContents();
   expect(names).toHaveLength(17);
   for (const name of names) {
@@ -73,7 +73,7 @@ test('every roster hero loads, idles, and returns to menu without retained battl
 });
 
 test('Morgan casts Fire with windup, resistance damage, cover collision and menu cleanup', async ({ page }) => {
-  await page.goto('/'); await page.getByRole('button', { name: 'Morgan', exact: true }).press('Enter');
+  await page.goto('/?battle=legacy'); await page.getByRole('button', { name: 'Morgan', exact: true }).press('Enter');
   await page.getByRole('button', { name: 'Begin battle' }).press('Enter');
   await expect(page.locator('#hero-name')).toHaveText('Morgan · tome');
   await page.evaluate(async () => {

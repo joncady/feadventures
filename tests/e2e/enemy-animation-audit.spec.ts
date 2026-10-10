@@ -1,6 +1,6 @@
 import {test,expect} from '@playwright/test';
 test('every enemy walks without mirrored diagonals and holds correctly oriented actions',async({page})=>{
- await page.goto('/');await page.getByRole('button',{name:'Begin battle'}).press('Enter');
+ await page.goto('/?battle=legacy');await page.getByRole('button',{name:'Begin battle'}).press('Enter');
  const records=await page.evaluate(async()=>{
   const entry='/src/main.ts';const{game}=await import(entry);const cfg='/src/game/data/config.ts';const{ENEMY_TYPES}=await import(cfg);
   const s=game.scene.getScene('Arena');s.scene.pause();s.allies.clear(true,true);s.enemies.clear(true,true);s.time.removeAllEvents();s.spawning=1;const result=[];

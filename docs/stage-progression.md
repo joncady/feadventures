@@ -1,6 +1,6 @@
 # Finite campaign and final boss plan
 
-The current game remains an endless single-map swarm. This is the next-stage design, not a claim that campaign progression is implemented. Existing `map2.png` and `map3.png` are available, but archived v1 defines collision rectangles only for map 1; v1 always selects map 1. Each new map needs visual collision review, safe spawns and connected navigation tests.
+Default local play now uses a finite larger single-map battle with four planned enemy camps, deployment and a switchable party. The previous endless small-map swarm is retained only as a regression fixture. This is the next-stage design, not a claim that campaign progression is implemented. Existing `map2.png` and `map3.png` are available, but archived v1 defines collision rectangles only for map 1; v1 always selects map 1. Each new map needs visual collision review, safe spawns and connected navigation tests.
 
 Use three stages for the first campaign:
 
