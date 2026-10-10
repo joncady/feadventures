@@ -54,3 +54,12 @@ test('original arena routes around its building and spawns only reachable points
   }
   assert.ok(field.canTravel(position, target));
 });
+
+test('ground enemies retain legal routes toward a flyer over terrain', () => {
+  const field = new NavigationField(320, 240, [[140, 60, 40, 120]]);
+  field.setTarget({ x: 160, y: 120 }, true);
+  assert.ok(field.reachablePoints().length > 0);
+  const from = { x: 40, y: 120 }, next = field.nextWaypoint(from);
+  assert.ok(next && field.canTravel(from, next));
+  assert.ok(field.reachablePoints().every(p => field.isWalkable(p)));
+});

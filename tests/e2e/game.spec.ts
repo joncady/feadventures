@@ -7,7 +7,7 @@ test('loads assets, starts a wave, pauses, dies and restarts cleanly', async ({ 
   await page.goto('/');
   await page.getByRole('button', { name: 'Lucina', exact: true }).click();
   await page.getByRole('button', { name: 'Begin battle' }).click();
-  await expect(page.locator('#hero-name')).toHaveText('Lucina');
+  await expect(page.locator('#hero-name')).toHaveText('Lucina · sword');
   await expect(page.locator('#game')).toHaveAttribute('data-enemies', '1');
   await page.getByRole('button', { name: 'Pause', exact: true }).click();
   await expect(page.locator('#notice')).toContainText('Paused');

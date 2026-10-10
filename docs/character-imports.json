@@ -1,0 +1,294 @@
+[
+  {
+    "key": "morgan",
+    "name": "Morgan",
+    "map": "64160",
+    "portrait": "63381",
+    "origin": [
+      128,
+      0
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "portraitCrop": [
+      2,
+      298,
+      256,
+      552
+    ],
+    "weapon": "tome",
+    "flying": false
+  },
+  {
+    "key": "robin",
+    "name": "Robin",
+    "map": "64162",
+    "portrait": "63403",
+    "origin": [
+      128,
+      0
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "portraitCrop": [
+      2,
+      2,
+      256,
+      256
+    ],
+    "weapon": "tome",
+    "flying": false,
+    "portraitOverlay": [
+      2,
+      1338,
+      256,
+      1592
+    ]
+  },
+  {
+    "key": "cordelia",
+    "name": "Cordelia",
+    "map": "63473",
+    "portrait": "63353",
+    "origin": [
+      128,
+      0
+    ],
+    "sourceFrame": [
+      32,
+      35
+    ],
+    "outputFrame": [
+      50,
+      55
+    ],
+    "portraitCrop": [
+      2,
+      298,
+      256,
+      552
+    ],
+    "weapon": "lance",
+    "flying": true
+  },
+  {
+    "key": "lissa",
+    "name": "Lissa",
+    "map": "63504",
+    "portrait": "63372",
+    "origin": [
+      128,
+      2560
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "portraitCrop": [
+      2,
+      298,
+      256,
+      552
+    ],
+    "weapon": "axe",
+    "flying": false
+  },
+  {
+    "key": "lonqu",
+    "name": "Lon\u2019qu",
+    "map": "63486",
+    "portrait": "63371",
+    "origin": [
+      128,
+      0
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "portraitCrop": [
+      2,
+      298,
+      256,
+      552
+    ],
+    "weapon": "sword",
+    "flying": false
+  },
+  {
+    "key": "miriel",
+    "name": "Miriel",
+    "map": "63506",
+    "portrait": "63369",
+    "origin": [
+      128,
+      1024
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "portraitCrop": [
+      2,
+      298,
+      256,
+      552
+    ],
+    "weapon": "tome",
+    "flying": false
+  },
+  {
+    "key": "ricken",
+    "name": "Ricken",
+    "map": "63514",
+    "portrait": "63386",
+    "origin": [
+      128,
+      2560
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "portraitCrop": [
+      2,
+      298,
+      256,
+      552
+    ],
+    "weapon": "tome",
+    "flying": false
+  },
+  {
+    "key": "stahl",
+    "name": "Stahl",
+    "map": "63517",
+    "portrait": "63388",
+    "origin": [
+      128,
+      1536
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "portraitCrop": [
+      2,
+      330,
+      256,
+      584
+    ],
+    "weapon": "sword",
+    "flying": false
+  },
+  {
+    "key": "sully",
+    "name": "Sully",
+    "map": "63518",
+    "portrait": "63389",
+    "origin": [
+      128,
+      512
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "portraitCrop": [
+      2,
+      298,
+      256,
+      552
+    ],
+    "weapon": "lance",
+    "flying": false
+  },
+  {
+    "key": "tharja",
+    "name": "Tharja",
+    "map": "63520",
+    "portrait": "63399",
+    "origin": [
+      128,
+      1024
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "portraitCrop": [
+      2,
+      298,
+      256,
+      552
+    ],
+    "weapon": "tome",
+    "flying": false
+  },
+  {
+    "key": "vaike",
+    "name": "Vaike",
+    "map": "63521",
+    "portrait": "63392",
+    "origin": [
+      128,
+      512
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "portraitCrop": [
+      2,
+      362,
+      256,
+      616
+    ],
+    "weapon": "axe",
+    "flying": false
+  }
+]

@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import './style.css';
 import { BootScene } from './game/scenes/BootScene';
 import { ArenaScene, type Hud } from './game/scenes/ArenaScene';
-import { HEROES, WORLD, type Hero } from './game/data/config';
+import { HEROES, HERO_PROFILES, HERO_NAMES, WORLD, type Hero } from './game/data/config';
 
 const element = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 export const game = new Phaser.Game({
@@ -50,7 +50,7 @@ function start(): void {
   game.scene.stop('Boot'); game.scene.stop('Arena');
   element('menu').hidden = true; element('end').hidden = true;
   playing = true; paused = false; pauseButton.disabled = false; pauseButton.textContent = 'Pause';
-  element('hero-name').textContent = hero[0].toUpperCase() + hero.slice(1);
+  element('hero-name').textContent = `${HERO_NAMES[hero]} · ${HERO_PROFILES[hero].weapon}`;
   game.scene.start('Arena', { hero });
   element('game').focus();
 }
@@ -63,11 +63,23 @@ function togglePause(): void {
   pauseButton.textContent = paused ? 'Resume' : 'Pause';
   notice(paused ? 'Paused — press P or Resume to continue.' : 'Back to battle. Space to strike.');
 }
+const portraits: Partial<Record<Hero, string>> = { chrom: 'chromPortrait1.png', lucina: 'lucinaPortrait1.png', frederick: 'frederickPortrait1.png' };
+const roster = document.querySelector('.heroes')!;
+for (const character of HEROES) {
+  const button = document.createElement('button'); button.className = `hero${character === hero ? ' selected' : ''}`;
+  button.dataset.character = character; button.setAttribute('aria-pressed', String(character === hero));
+  const portrait = document.createElement('img'); portrait.src = `${import.meta.env.BASE_URL}assets/${portraits[character] ?? `${character}Portrait.png`}`; portrait.alt = '';
+  button.append(portrait, document.createTextNode(HERO_NAMES[character])); roster.append(button);
+}
 for (const button of document.querySelectorAll<HTMLButtonElement>('[data-character]')) {
+  const weapon = HERO_PROFILES[button.dataset.character as Hero].weapon;
+  const icon = document.createElement('img'); icon.src = `${import.meta.env.BASE_URL}assets/weapon-${weapon}.png`;
+  icon.alt = ''; icon.setAttribute('aria-hidden', 'true'); icon.className = 'weapon-icon'; button.append(icon);
   button.addEventListener('click', () => {
     const value = button.dataset.character;
     if (!HEROES.includes(value as Hero)) return;
     hero = value as Hero;
+    element('hero-description').textContent = HERO_PROFILES[hero].description;
     for (const option of document.querySelectorAll<HTMLButtonElement>('[data-character]')) {
       const selected = option === button;
       option.classList.toggle('selected', selected); option.setAttribute('aria-pressed', String(selected));
@@ -76,10 +88,16 @@ for (const button of document.querySelectorAll<HTMLButtonElement>('[data-charact
 }
 startButton.addEventListener('click', start);
 element('restart').addEventListener('click', start);
-element('choose').addEventListener('click', () => {
-  game.scene.stop('Arena'); element('end').hidden = true; element('menu').hidden = false;
+function showMenu(): void {
+  if (!element('menu').hidden) return;
+  game.scene.stop('Arena'); game.scene.start('Boot');
+  playing = false; paused = false; pauseButton.disabled = true; pauseButton.textContent = 'Pause';
+  music?.resume();
+  element('end').hidden = true; element('menu').hidden = false;
   notice('Choose a hero, then begin.');
-});
+}
+element('choose').addEventListener('click', showMenu);
+element('main-menu').addEventListener('click', showMenu);
 pauseButton.addEventListener('click', togglePause);
 window.addEventListener('keydown', event => {
   if (event.code === 'KeyP' && !event.repeat) togglePause();

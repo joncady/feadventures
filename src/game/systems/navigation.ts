@@ -68,8 +68,8 @@ export class NavigationField {
     });
   }
 
-  setTarget(target: Point): void {
-    const cell = this.nearestCell(target);
+  setTarget(target: Point, projectToGround = false): void {
+    const cell = projectToGround ? this.closestGroundCell(target) : this.nearestCell(target);
     if (cell === this.targetCell) return;
     this.targetCell = cell;
     this.distances.fill(-1);
@@ -106,6 +106,17 @@ export class NavigationField {
     }
     const waypoint = this.points[next];
     return this.canTravel(from, waypoint) ? waypoint : this.points[cell];
+  }
+
+  /** Flyers over blocked terrain project to the closest legal ground destination. */
+  private closestGroundCell(point: Point): number {
+    let closest = -1, best = Infinity;
+    for (let i = 0; i < this.points.length; i++) {
+      if (!this.walkable[i]) continue;
+      const p = this.points[i], distance = (point.x - p.x) ** 2 + (point.y - p.y) ** 2;
+      if (distance < best) { closest = i; best = distance; }
+    }
+    return closest;
   }
 
   private nearestCell(point: Point): number {

@@ -1,0 +1,446 @@
+{
+  "virion.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63522/",
+    "uploader": "Ploaj",
+    "game": "Fire Emblem: Awakening",
+    "originalSize": [
+      384,
+      4608
+    ],
+    "crop": [
+      128,
+      0,
+      256,
+      320
+    ],
+    "processing": "First Archer class block, blue faction palette. Exact magenta RGB 255,0,255 becomes transparent; 32px frames scaled to 50px with nearest-neighbor.",
+    "rows": {
+      "idle": 0,
+      "bowAction": 1,
+      "walkLeft": 2,
+      "walkRight": 3,
+      "walkDown": 4,
+      "walkUp": 5,
+      "walkDownRight": 6,
+      "walkDownLeft": 7,
+      "walkUpRight": 8,
+      "walkUpLeft": 9
+    }
+  },
+  "virionPortrait.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63394/",
+    "uploader": "Ploaj",
+    "game": "Fire Emblem: Awakening",
+    "originalSize": [
+      1292,
+      756
+    ],
+    "crop": [
+      2,
+      330,
+      256,
+      584
+    ],
+    "processing": "First neutral bust portrait, original transparency retained."
+  },
+  "weapon-icons.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/486162/",
+    "uploader": "Venus_Pisces",
+    "originalSize": [
+      256,
+      64
+    ],
+    "frames": "16px grid; first row sword 8, lance 9, axe 10, bow 11, tome 12; individual weapon PNGs retain transparency"
+  },
+  "item-icons.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/486149/",
+    "uploader": "Venus_Pisces",
+    "originalSize": [
+      256,
+      256
+    ],
+    "purpose": "Retained original sheet for future equipment selection"
+  },
+  "sumia.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63519/",
+    "uploader": "Ploaj",
+    "originalSize": [
+      384,
+      4096
+    ],
+    "crop": [
+      128,
+      512,
+      256,
+      862
+    ],
+    "processing": "Blue Pegasus class block; magenta transparency; 32x35px Pegasus frames scaled to 50x55px nearest-neighbor; ten directional rows, original shadows retained"
+  },
+  "sumiaPortrait.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63390/",
+    "uploader": "Ploaj",
+    "crop": [
+      2,
+      298,
+      256,
+      552
+    ]
+  },
+  "morgan.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/64160/",
+    "uploader": "Ploaj",
+    "originalSize": [
+      384,
+      1536
+    ],
+    "origin": [
+      128,
+      0
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+  },
+  "morganPortrait.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63381/",
+    "uploader": "Ploaj",
+    "crop": [
+      2,
+      298,
+      256,
+      552
+    ],
+    "overlay": null
+  },
+  "robin.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/64162/",
+    "uploader": "Ploaj",
+    "originalSize": [
+      384,
+      16384
+    ],
+    "origin": [
+      128,
+      0
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+  },
+  "robinPortrait.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63403/",
+    "uploader": "Ploaj",
+    "crop": [
+      2,
+      2,
+      256,
+      256
+    ],
+    "overlay": [
+      2,
+      1338,
+      256,
+      1592
+    ]
+  },
+  "cordelia.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63473/",
+    "uploader": "Ploaj",
+    "originalSize": [
+      384,
+      3584
+    ],
+    "origin": [
+      128,
+      0
+    ],
+    "sourceFrame": [
+      32,
+      35
+    ],
+    "outputFrame": [
+      50,
+      55
+    ],
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+  },
+  "cordeliaPortrait.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63353/",
+    "uploader": "Ploaj",
+    "crop": [
+      2,
+      298,
+      256,
+      552
+    ],
+    "overlay": null
+  },
+  "lissa.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63504/",
+    "uploader": "Ploaj",
+    "originalSize": [
+      384,
+      4096
+    ],
+    "origin": [
+      128,
+      2560
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+  },
+  "lissaPortrait.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63372/",
+    "uploader": "Ploaj",
+    "crop": [
+      2,
+      298,
+      256,
+      552
+    ],
+    "overlay": null
+  },
+  "lonqu.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63486/",
+    "uploader": "Ploaj",
+    "originalSize": [
+      384,
+      4096
+    ],
+    "origin": [
+      128,
+      0
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+  },
+  "lonquPortrait.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63371/",
+    "uploader": "Ploaj",
+    "crop": [
+      2,
+      298,
+      256,
+      552
+    ],
+    "overlay": null
+  },
+  "miriel.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63506/",
+    "uploader": "Ploaj",
+    "originalSize": [
+      384,
+      3584
+    ],
+    "origin": [
+      128,
+      1024
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+  },
+  "mirielPortrait.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63369/",
+    "uploader": "Ploaj",
+    "crop": [
+      2,
+      298,
+      256,
+      552
+    ],
+    "overlay": null
+  },
+  "ricken.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63514/",
+    "uploader": "Ploaj",
+    "originalSize": [
+      384,
+      4608
+    ],
+    "origin": [
+      128,
+      2560
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+  },
+  "rickenPortrait.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63386/",
+    "uploader": "Ploaj",
+    "crop": [
+      2,
+      298,
+      256,
+      552
+    ],
+    "overlay": null
+  },
+  "stahl.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63517/",
+    "uploader": "Ploaj",
+    "originalSize": [
+      384,
+      5120
+    ],
+    "origin": [
+      128,
+      1536
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+  },
+  "stahlPortrait.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63388/",
+    "uploader": "Ploaj",
+    "crop": [
+      2,
+      330,
+      256,
+      584
+    ],
+    "overlay": null
+  },
+  "sully.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63518/",
+    "uploader": "Ploaj",
+    "originalSize": [
+      384,
+      5120
+    ],
+    "origin": [
+      128,
+      512
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+  },
+  "sullyPortrait.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63389/",
+    "uploader": "Ploaj",
+    "crop": [
+      2,
+      298,
+      256,
+      552
+    ],
+    "overlay": null
+  },
+  "tharja.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63520/",
+    "uploader": "Ploaj",
+    "originalSize": [
+      384,
+      4096
+    ],
+    "origin": [
+      128,
+      1024
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+  },
+  "tharjaPortrait.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63399/",
+    "uploader": "Ploaj",
+    "crop": [
+      2,
+      298,
+      256,
+      552
+    ],
+    "overlay": null
+  },
+  "vaike.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63521/",
+    "uploader": "Ploaj",
+    "originalSize": [
+      384,
+      2560
+    ],
+    "origin": [
+      128,
+      512
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+  },
+  "vaikePortrait.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63392/",
+    "uploader": "Ploaj",
+    "crop": [
+      2,
+      362,
+      256,
+      616
+    ],
+    "overlay": null
+  }
+}

@@ -22,3 +22,18 @@ footer { margin-top: 18px; flex-wrap: wrap; font: 12px system-ui; color: #b0c1bd
 .volume-button { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; padding: 8px 10px; }
 .volume-button .volume-on, .volume-button[aria-pressed="true"] .volume-muted { display: none; }
 .volume-button[aria-pressed="true"] .volume-on { display: inline; }
+
+.hero { width: 100px; } .heroes { flex-wrap: wrap; justify-content: center; }
+.overlay .triangle-legend { font: 11px system-ui; color: #d9be7b; line-height: 1.5; }
+@media (max-width: 600px) { .hero { width: 70px; } .hero img { height: 45px; } .overlay .triangle-legend { font-size: 10px; } }
+
+.hero { position: relative; }
+.hero .weapon-icon { position: absolute; width: 20px; height: 20px; right: 5px; top: 5px; object-fit: contain; image-rendering: pixelated; }
+
+.heroes { display: grid; grid-template-columns: repeat(4, 100px); max-height: 230px; overflow-y: auto; flex-shrink: 1; min-height: 100px; padding: 4px; margin: 4px 0; gap: 8px; }
+.hero { flex-shrink: 0; gap: 4px; padding: 6px; }.hero img { height: 62px; }
+#menu { overflow-y: auto; } #menu h2 { font-size: 28px; margin: 0; }
+.actions { flex-wrap: wrap; }
+@media(max-width:600px) { .heroes { grid-template-columns: repeat(4, 70px); max-height: 160px; min-height: 70px; } #menu { justify-content: flex-start; } }
+
+#roster-hint { font: 11px system-ui; color: #b0c1bd; }
