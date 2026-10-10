@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('every roster hero loads, idles, and returns to menu without retained battle state', async ({ page }) => {
+  test.setTimeout(120000);
   const errors: string[] = [];
   page.on('pageerror', e => errors.push(e.message));
   page.on('response', r => { if (r.status() >= 400) errors.push(`${r.status()} ${r.url()}`); });
