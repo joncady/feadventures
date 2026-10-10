@@ -24,21 +24,28 @@ async function state(page: Page) {
 
 test('melee has a dodgeable windup and a cooldown between hits', async ({ page }) => {
   await fixture(page, 240, 230, 0);
-  await expect.poll(async () => (await state(page)).phase, { intervals: [16, 50] }).toBe('windup');
-  expect((await state(page)).health).toBe(100);
-  await page.evaluate(async () => {
+  const results = await page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);
-    game.scene.getScene('Arena').player.body.reset(190, 300);
+    const scene = game.scene.getScene('Arena');
+    // Control scene time in one browser task so CI scheduling cannot consume the windup.
+    scene.scene.pause();
+    const enemy = scene.enemies.getChildren()[0];
+    const step = (time: number) => { scene.time.now = time; scene.updateEnemy(enemy, time); };
+    step(1000); step(1250);
+    const before = { phase: scene.brains.get(enemy).phase, health: scene.health };
+    scene.player.body.reset(190, 300);
+    step(1600);
+    const dodged = { phase: scene.brains.get(enemy).phase, health: scene.health };
+    scene.player.body.reset(190, 230);
+    step(2700); step(3050);
+    const hit = scene.health;
+    step(3800);
+    return { before, dodged, hit, duringCooldown: scene.health };
   });
-  await expect.poll(async () => (await state(page)).phase, { intervals: [16, 50] }).toBe('recover');
-  expect((await state(page)).health).toBe(100);
-  await page.evaluate(async () => {
-    const entry = '/src/main.ts'; const { game } = await import(entry);
-    game.scene.getScene('Arena').player.body.reset(190, 230);
-  });
-  await expect.poll(async () => (await state(page)).health).toBe(90);
-  await page.waitForTimeout(750);
-  expect((await state(page)).health).toBe(90);
+  expect(results.before).toEqual({ phase: 'windup', health: 100 });
+  expect(results.dodged).toEqual({ phase: 'recover', health: 100 });
+  expect(results.hit).toBe(90);
+  expect(results.duringCooldown).toBe(90);
 });
 
 test('melee navigates around the building and reaches attack range', async ({ page }) => {
