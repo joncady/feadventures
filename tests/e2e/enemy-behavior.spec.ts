@@ -29,7 +29,11 @@ test('melee has a dodgeable windup and a cooldown between hits', async ({ page }
     const scene = game.scene.getScene('Arena');
     // Control scene time in one browser task so CI scheduling cannot consume the windup.
     scene.scene.pause();
+    scene.brains = new WeakMap();
+    scene.health = 100; scene.lastDamage = -Infinity;
+    scene.player.body.reset(190, 230);
     const enemy = scene.enemies.getChildren()[0];
+    enemy.body.reset(240, 230);
     const step = (time: number) => { scene.time.now = time; scene.updateEnemy(enemy, time); };
     step(1000); step(1250);
     const before = { phase: scene.brains.get(enemy).phase, health: scene.health };
