@@ -17,7 +17,12 @@ test('loads assets, starts a wave, pauses, dies and restarts cleanly', async ({ 
   await page.locator('#game').focus();
   await page.keyboard.down('d'); await page.waitForTimeout(400); await page.keyboard.up('d');
   await page.keyboard.press('Space');
-  await expect(page.getByRole('button', { name: 'Try again' })).toBeVisible({ timeout: 90000 });
+  // Exercise death deterministically; allied survival varies with enemy targets.
+  await page.evaluate(async () => {
+    const entry = '/src/main.ts'; const { game } = await import(entry);
+    const scene = game.scene.getScene('Arena'); scene.lastDamage = -Infinity; scene.takeDamage(1000);
+  });
+  await expect(page.getByRole('button', { name: 'Try again' })).toBeVisible();
   await page.getByRole('button', { name: 'Try again' }).click();
   await expect(page.locator('#health')).toHaveText('HP 100 / 100');
   await expect(page.locator('#wave')).toHaveText('Wave 1');

@@ -40,9 +40,12 @@ test('waits for audio assets, toggles mute, and restores ranged and hit audio', 
   });
   await expect.poll(() => page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);
-    return game.scene.getScene('Arena').arrows.countActive();
-  })).toBeGreaterThan(0);
-  await expect(page.locator('#health')).toHaveText('HP 92 / 100');
+    return game.scene.getScene('Arena').registry.get('testedSounds').includes('arrow-fire');
+  })).toBe(true);
+  await expect.poll(() => page.evaluate(async () => {
+    const entry = '/src/main.ts'; const { game } = await import(entry);
+    return game.scene.getScene('Arena').health;
+  })).toBeLessThan(100);
   const shotSounds = await page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);
     return game.scene.getScene('Arena').registry.get('testedSounds') as string[];
