@@ -8,6 +8,8 @@ async function fixture(page: Page, x: number, y: number, speed: number, texture 
     const scene = game.scene.getScene('Arena');
     scene.allies.clear(true, true); scene.enemies.clear(true, true); scene.time.removeAllEvents(); scene.spawning = 0;
     scene.player.body.reset(190, 230);
+    game.registry.set('archerShots', 0);
+    game.events.on('effect', (key: string) => { if (key === 'arrow-fire') game.registry.set('archerShots', game.registry.get('archerShots') + 1); });
     const enemy = scene.enemies.create(x, y, texture);
     enemy.setSize(28, 28).setOffset(11, 15).setCollideWorldBounds(true);
     enemy.setData({ health: 100, maxHealth: 100, damage: 10, speed });
@@ -18,7 +20,7 @@ async function state(page: Page) {
     const entry = '/src/main.ts'; const { game } = await import(entry);
     const scene = game.scene.getScene('Arena');
     const enemy = scene.enemies.getChildren()[0];
-    return { health: scene.health, phase: scene.brains.get(enemy)?.phase, arrows: scene.arrows.countActive(), x: enemy.x, y: enemy.y };
+    return { health: scene.health, phase: scene.brains.get(enemy)?.phase, shots: game.registry.get('archerShots'), arrows: scene.arrows.countActive(), x: enemy.x, y: enemy.y };
   });
 }
 
@@ -66,7 +68,7 @@ test('archer moves around cover before shooting', async ({ page }) => {
   await fixture(page, 480, 80, 150, 'archer');
   await page.waitForTimeout(500);
   expect((await state(page)).arrows).toBe(0);
-  await expect.poll(async () => (await state(page)).arrows, { timeout: 10000 }).toBeGreaterThan(0);
+  await expect.poll(async () => (await state(page)).shots, { timeout: 10000 }).toBeGreaterThan(0);
   expect((await state(page)).y).toBeGreaterThan(100);
 });
 
