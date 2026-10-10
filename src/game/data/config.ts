@@ -2,8 +2,8 @@ export const WORLD = { width: 896, height: 544 } as const;
 export const HEROES = ['chrom', 'lucina', 'frederick', 'virion', 'sumia', 'morgan', 'robin', 'cordelia', 'lissa', 'lonqu', 'miriel', 'ricken', 'stahl', 'sully', 'tharja', 'vaike'] as const;
 export type Hero = typeof HEROES[number];
 export const HERO_SHEETS = Object.fromEntries(HEROES.map(hero => [hero, {
-  frameHeight: hero === 'sumia' || hero === 'cordelia' ? 55 : ['chrom', 'lucina', 'frederick'].includes(hero) ? 49 : 50,
-  directional: !['chrom', 'lucina', 'frederick'].includes(hero),
+  frameHeight: hero === 'sumia' || hero === 'cordelia' ? 55 : 50,
+  directional: true,
 }])) as Record<Hero, { frameHeight: number; directional: boolean }>;
 export const isFlying = (hero: Hero): boolean => hero === 'sumia' || hero === 'cordelia';
 export const HERO_NAMES: Record<Hero, string> = {
@@ -48,6 +48,8 @@ export const ENEMY_TYPES = [
   { key: 'heavy', weapon: 'axe', file: 'enemy3.png', defense: 8, resistance: 2, health: 100, speed: 38, damage: 18, attack: { kind: 'melee', range: 75, windup: 650, cooldown: 1800, recovery: 350 } },
   { key: 'knight', weapon: 'lance', file: 'enemy4.png', defense: 6, resistance: 0, health: 75, speed: 75, damage: 12, attack: { kind: 'melee', range: 65, windup: 400, cooldown: 1200, recovery: 250 } },
   { key: 'archer', weapon: 'bow', file: 'enemy5.png', defense: 0, resistance: 0, health: 50, speed: 55, damage: 8, attack: { kind: 'ranged', range: 420, windup: 450, cooldown: 1500, recovery: 200 } },
+  { key: 'mage', weapon: 'tome', file: 'mage.png', defense: 0, resistance: 5, health: 45, speed: 50, damage: 14, attack: { kind: 'ranged', range: 330, windup: 650, cooldown: 1700, recovery: 250 } },
+  { key: 'axeman', weapon: 'axe', file: 'axeman.png', defense: 2, resistance: 0, health: 80, speed: 48, damage: 16, attack: { kind: 'melee', range: 70, windup: 550, cooldown: 1450, recovery: 300 } },
 ] as const;
 // Original map rectangles, in the original 896 × 544 world coordinates.
 export const OBSTACLES: readonly [number, number, number, number][] = [

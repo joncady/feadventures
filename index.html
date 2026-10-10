@@ -23,7 +23,7 @@
       <section id="end" class="overlay" hidden><p class="eyebrow">THE BATTLE IS OVER</p><h2>You held your ground.</h2><p id="result"></p><button id="restart" class="primary">Try again</button><button id="choose">Choose hero</button></section>
       <div id="notice" role="status" aria-live="polite">Loading the battlefield…</div>
     </section>
-    <footer><p><kbd>WASD</kbd> / <kbd>↑ ↓ ← →</kbd> Move <kbd>Space</kbd> Attack <kbd>P</kbd> Pause</p><div class="actions"><button id="main-menu">Main menu</button><button id="pause" disabled>Pause</button><button id="music" class="volume-button" aria-label="Unmute audio" title="Unmute audio" aria-pressed="false" disabled>
+    <footer><p><kbd>WASD</kbd> / <kbd>↑ ↓ ← →</kbd> Move <kbd>Space</kbd> Attack · Mouse aim / click for bow &amp; magic <kbd>P</kbd> Pause</p><div class="actions"><button id="audio-options">Audio settings</button><button id="main-menu">Main menu</button><button id="pause" disabled>Pause</button><button id="music" class="volume-button" aria-label="Unmute audio" title="Unmute audio" aria-pressed="false" disabled>
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M11 5 6 9H3v6h3l5 4Z" />
           <path class="volume-muted" d="m16 9 6 6m0-6-6 6" />
@@ -31,6 +31,17 @@
         </svg>
       </button><button id="fullscreen">Fullscreen</button></div></footer>
   </main>
+  <dialog id="audio-settings" aria-labelledby="audio-title">
+    <h2 id="audio-title">Audio settings</h2>
+    <p>Audio starts muted. Opening settings pauses the battle.</p>
+    <label><input id="audio-enabled" type="checkbox" /> Enable audio</label>
+    <label>Music <input id="music-volume" type="range" min="0" max="100" value="18" /></label>
+    <label>Sound effects <input id="effects-volume" type="range" min="0" max="100" value="100" /></label>
+    <label>Voices <input id="voices-volume" type="range" min="0" max="100" value="60" /></label>
+    <label><input id="character-voices" type="checkbox" checked /> Original character battle voices</label>
+    <label>Spell effect <select id="spell-effect"><option value="fire-cast">Fire cast (temporary)</option><option value="archive-effect-1">Archive effect 1 (unidentified)</option><option value="archive-effect-2">Archive effect 2 (unidentified)</option><option value="archive-effect-3">Archive effect 3 (unidentified)</option></select></label>
+    <button id="audio-preview">Preview selected audio</button><button id="audio-close">Close</button>
+  </dialog>
   <script type="module" src="/src/main.ts"></script>
 </body>
 </html>

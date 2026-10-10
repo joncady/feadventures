@@ -13,3 +13,7 @@ export function combatDamage(base: number, attacker: WeaponType, defender: Weapo
 export function withinWeaponRange(distance: number, minimum: number, maximum: number): boolean {
   return distance >= minimum && distance <= maximum;
 }
+
+export function weaponAttackSound(weapon: WeaponType): string {
+  return ({ sword: 'attack', axe: 'axe-impact', lance: 'lance-thrust', bow: 'arrow-fire', tome: 'fire-cast' } as const)[weapon];
+}

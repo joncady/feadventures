@@ -18,7 +18,7 @@ test('every roster hero loads, idles, and returns to menu without retained battl
     const state = await page.evaluate(async () => {
       const entry = '/src/main.ts'; const { game } = await import(entry);
       const scene = game.scene.getScene('Arena');
-      scene.time.removeAllEvents(); scene.spawning = 1; scene.enemies.clear(true, true);
+      scene.time.removeAllEvents(); scene.spawning = 1; scene.allies.clear(true, true); scene.enemies.clear(true, true);
       return { hero: scene.hero, idle: scene.player.anims.currentAnim.frames.length, portrait: [...document.querySelectorAll<HTMLImageElement>('.hero > img')].every(img => img.complete && img.naturalWidth > 0) };
     });
     expect(state.idle).toBe(4); expect(state.portrait).toBe(true);
@@ -51,7 +51,7 @@ test('Morgan casts Fire with windup, resistance damage, cover collision and menu
   await expect(page.locator('#hero-name')).toHaveText('Morgan · tome');
   await page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);
-    const scene = game.scene.getScene('Arena'); scene.enemies.clear(true, true); scene.time.removeAllEvents(); scene.spawning = 1;
+    const scene = game.scene.getScene('Arena'); scene.allies.clear(true, true); scene.enemies.clear(true, true); scene.time.removeAllEvents(); scene.spawning = 1;
     scene.player.body.reset(190, 230);
     const enemy = scene.enemies.create(310, 230, 'soldier'); enemy.setSize(28, 28).setOffset(11, 15);
     enemy.setData({ health: 100, maxHealth: 100, speed: 0, damage: 0, weapon: 'axe', defense: 20, resistance: 4 });

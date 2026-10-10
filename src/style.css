@@ -37,3 +37,7 @@ footer { margin-top: 18px; flex-wrap: wrap; font: 12px system-ui; color: #b0c1bd
 @media(max-width:600px) { .heroes { grid-template-columns: repeat(4, 70px); max-height: 160px; min-height: 70px; } #menu { justify-content: flex-start; } }
 
 #roster-hint { font: 11px system-ui; color: #b0c1bd; }
+
+#audio-settings { width: min(460px, 95vw); border: 1px solid #9c895c; background: #18272c; color: #f5edda; padding: 24px; }
+#audio-settings::backdrop { background: #0009; } #audio-settings label { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 14px 0; font: 13px system-ui; }
+#audio-settings p { font: 12px system-ui; color: #c6d0c9; } #audio-settings select { max-width: 240px; }

@@ -28,6 +28,6 @@ for character in json.loads((root / 'docs' / 'character-imports.json').read_text
     if 'portraitOverlay' in character:
         bust.alpha_composite(portrait.crop(character['portraitOverlay']))
     bust.save(assets / (key + 'Portrait.png'))
-    metadata[key + '.png'] = dict(source=f"https://www.spriters-resource.com/3ds/fireemblemawakening/asset/{character['map']}/", uploader='Ploaj', originalSize=list(image.size), origin=[x,y], sourceFrame=[width,height], outputFrame=[fw,fh], processing='Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left')
+    metadata[key + '.png'] = dict(source=f"https://www.spriters-resource.com/3ds/fireemblemawakening/asset/{character['map']}/", uploader='Ploaj', originalSize=list(image.size), origin=[x,y], sourceFrame=[width,height], outputFrame=[fw,fh], processing='Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left')
     metadata[key + 'Portrait.png'] = dict(source=f"https://www.spriters-resource.com/3ds/fireemblemawakening/asset/{character['portrait']}/", uploader='Ploaj', crop=character['portraitCrop'], overlay=character.get('portraitOverlay'))
 metadata_path.write_text(json.dumps(metadata,indent=2)+'\n')

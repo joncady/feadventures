@@ -8,7 +8,7 @@ test('Sumia flies across terrain, keeps world bounds and uses lance combat with 
   await expect(page.locator('#hero-name')).toHaveText('Sumia · lance');
   await page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);
-    const scene = game.scene.getScene('Arena'); scene.enemies.clear(true, true); scene.time.removeAllEvents(); scene.spawning = 1;
+    const scene = game.scene.getScene('Arena'); scene.allies.clear(true, true); scene.enemies.clear(true, true); scene.time.removeAllEvents(); scene.spawning = 1;
     scene.player.body.reset(300, 190);
   });
   await page.locator('#game').focus(); await page.keyboard.down('w'); await page.waitForTimeout(650); await page.keyboard.up('w');

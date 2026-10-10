@@ -45,6 +45,13 @@ export class NavigationField {
       !this.terrain.some(([x, y, width, height]) => point.x > x - this.radius && point.x < x + width + this.radius && point.y > y - this.radius && point.y < y + height + this.radius);
   }
 
+  /** Recover only invalid body positions, e.g. a crowd pushing a unit into terrain. */
+  recoveryPoint(point: Point): Point | undefined {
+    if (this.isWalkable(point)) return undefined;
+    const cell = this.closestGroundCell(point);
+    return cell >= 0 ? this.points[cell] : undefined;
+  }
+
   canTravel(from: Point, to: Point): boolean {
     if (!this.isWalkable(from) || !this.isWalkable(to)) return false;
     return !this.terrain.some(([x, y, width, height]) => {

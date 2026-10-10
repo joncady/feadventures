@@ -11,7 +11,7 @@ test('Virion fires past the close dead zone, hits enemies, and cleans up on rest
   await page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);
     const scene = game.scene.getScene('Arena');
-    scene.enemies.clear(true, true); scene.time.removeAllEvents(); scene.spawning = 0;
+    scene.allies.clear(true, true); scene.enemies.clear(true, true); scene.time.removeAllEvents(); scene.spawning = 0;
     scene.player.body.reset(190, 230);
     for (const x of [245, 350]) {
       const enemy = scene.enemies.create(x, 230, 'soldier');
@@ -63,7 +63,7 @@ test('triangle applies in both directions and Frederick has longer lance reach',
   const result = await page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);
     const scene = game.scene.getScene('Arena'); scene.scene.pause();
-    scene.enemies.clear(true, true); scene.time.removeAllEvents(); scene.spawning = 0;
+    scene.allies.clear(true, true); scene.enemies.clear(true, true); scene.time.removeAllEvents(); scene.spawning = 0;
     scene.player.body.reset(190, 230); scene.facing = { x: 1, y: 0 };
     const targets = ['axe', 'lance', 'sword'].map(weapon => {
       const enemy = scene.enemies.create(245, 230, 'soldier'); enemy.setSize(28, 28).setOffset(11, 15); enemy.body.reset(245, 230);
@@ -72,7 +72,7 @@ test('triangle applies in both directions and Frederick has longer lance reach',
     scene.attack();
     const dealt = targets.map((e: any) => 100 - e.getData('health'));
     scene.lastDamage = -Infinity; scene.takeDamage(10, 'lance'); const incoming = 100 - scene.health;
-    scene.enemies.clear(true, true);
+    scene.allies.clear(true, true); scene.enemies.clear(true, true);
     const distant = scene.enemies.create(290, 230, 'soldier'); distant.setSize(28, 28).setOffset(11, 15); distant.body.reset(290, 230);
     distant.setData({ health: 100, maxHealth: 100, weapon: 'sword' });
     scene.attack(); const swordHealth = distant.getData('health');

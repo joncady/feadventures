@@ -6,7 +6,7 @@ async function fixture(page: Page, x: number, y: number, speed: number, texture 
   await page.evaluate(async ({ x, y, speed, texture }) => {
     const entry = '/src/main.ts'; const { game } = await import(entry);
     const scene = game.scene.getScene('Arena');
-    scene.enemies.clear(true, true); scene.time.removeAllEvents(); scene.spawning = 0;
+    scene.allies.clear(true, true); scene.enemies.clear(true, true); scene.time.removeAllEvents(); scene.spawning = 0;
     scene.player.body.reset(190, 230);
     const enemy = scene.enemies.create(x, y, texture);
     enemy.setSize(28, 28).setOffset(11, 15).setCollideWorldBounds(true);
@@ -68,4 +68,32 @@ test('archer moves around cover before shooting', async ({ page }) => {
   expect((await state(page)).arrows).toBe(0);
   await expect.poll(async () => (await state(page)).arrows, { timeout: 10000 }).toBeGreaterThan(0);
   expect((await state(page)).y).toBeGreaterThan(100);
+});
+
+test('an enemy embedded in the upper terrain edge recovers and can be hit by Fire', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Tharja', exact: true }).click();
+  await page.getByRole('button', { name: 'Begin battle' }).click();
+  const recovered = await page.evaluate(async () => {
+    const entry = '/src/main.ts'; const { game } = await import(entry);
+    const scene = game.scene.getScene('Arena'); scene.scene.pause();
+    scene.allies.clear(true, true); scene.enemies.clear(true, true); scene.time.removeAllEvents(); scene.spawning = 0;
+    scene.player.body.reset(350, 50); scene.player.body.updateFromGameObject();
+    const enemy = scene.enemies.create(360, 100.5, 'soldier');
+    enemy.setSize(28, 28).setOffset(11, 15).setCollideWorldBounds(true);
+    enemy.setData({ health: 100, maxHealth: 100, damage: 10, speed: 0 });
+    enemy.body.reset(360, 100.5); enemy.body.updateFromGameObject();
+    const before = scene.navigation.isWalkable(scene.bodyCenter(enemy));
+    scene.navigation.setTarget(scene.bodyCenter(scene.player));
+    scene.updateEnemy(enemy, scene.time.now);
+    const target = scene.bodyCenter(enemy), origin = scene.bodyCenter(scene.player);
+    scene.fireArrow(scene.player, { x: (target.x-origin.x)/Math.hypot(target.x-origin.x,target.y-origin.y), y: (target.y-origin.y)/Math.hypot(target.x-origin.x,target.y-origin.y) }, 'player', 'tome');
+    scene.scene.resume();
+    return { before, after: scene.navigation.isWalkable(target), visible: scene.hasLineOfSight(origin,target) };
+  });
+  expect(recovered).toEqual({ before: false, after: true, visible: true });
+  await expect.poll(() => page.evaluate(async () => {
+    const entry = '/src/main.ts'; const { game } = await import(entry);
+    return game.scene.getScene('Arena').enemies.getChildren()[0].getData('health');
+  })).toBe(70);
 });

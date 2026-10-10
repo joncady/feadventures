@@ -21,8 +21,8 @@
       "walkRight": 3,
       "walkDown": 4,
       "walkUp": 5,
-      "walkDownRight": 6,
-      "walkDownLeft": 7,
+      "walkDownRight": 7,
+      "walkDownLeft": 6,
       "walkUpRight": 8,
       "walkUpLeft": 9
     }
@@ -105,7 +105,7 @@
       50,
       50
     ],
-    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left"
   },
   "morganPortrait.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63381/",
@@ -137,7 +137,7 @@
       50,
       50
     ],
-    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left"
   },
   "robinPortrait.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63403/",
@@ -174,7 +174,7 @@
       50,
       55
     ],
-    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left"
   },
   "cordeliaPortrait.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63353/",
@@ -206,7 +206,7 @@
       50,
       50
     ],
-    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left"
   },
   "lissaPortrait.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63372/",
@@ -238,7 +238,7 @@
       50,
       50
     ],
-    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left"
   },
   "lonquPortrait.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63371/",
@@ -270,7 +270,7 @@
       50,
       50
     ],
-    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left"
   },
   "mirielPortrait.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63369/",
@@ -302,7 +302,7 @@
       50,
       50
     ],
-    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left"
   },
   "rickenPortrait.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63386/",
@@ -334,7 +334,7 @@
       50,
       50
     ],
-    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left"
   },
   "stahlPortrait.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63388/",
@@ -366,7 +366,7 @@
       50,
       50
     ],
-    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left"
   },
   "sullyPortrait.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63389/",
@@ -398,7 +398,7 @@
       50,
       50
     ],
-    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left"
   },
   "tharjaPortrait.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63399/",
@@ -430,7 +430,7 @@
       50,
       50
     ],
-    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-right, down-left, up-right, up-left"
+    "processing": "Blue palette, exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left"
   },
   "vaikePortrait.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63392/",
@@ -442,5 +442,81 @@
       616
     ],
     "overlay": null
+  },
+  "chrom-animated.png": {
+    "original": "chrom.png",
+    "processing": "Ten exact rows normalized from rounded 49.2px row boundaries to 50px. Idle/action/cardinal/diagonal frames retained. Original assets unchanged."
+  },
+  "lucina-animated.png": {
+    "original": "lucina.png",
+    "processing": "Ten exact rows normalized from rounded 49.2px row boundaries to 50px. Idle/action/cardinal/diagonal frames retained. Original assets unchanged."
+  },
+  "frederick-animated.png": {
+    "original": "frederick.png",
+    "processing": "Ten exact rows normalized from rounded 49.2px row boundaries to 50px. Idle/action/cardinal/diagonal frames retained. Original assets unchanged."
+  },
+  "enemy1-animated.png": {
+    "original": "enemy1.png",
+    "processing": "Ten exact rows normalized from rounded 49.2px row boundaries to 50px. Idle/action/cardinal/diagonal frames retained. Original assets unchanged."
+  },
+  "enemy2-animated.png": {
+    "original": "enemy2.png",
+    "processing": "Ten exact rows normalized from rounded 49.2px row boundaries to 50px. Idle/action/cardinal/diagonal frames retained. Original assets unchanged."
+  },
+  "enemy3-animated.png": {
+    "original": "enemy3.png",
+    "processing": "Ten exact rows normalized from rounded 49.2px row boundaries to 50px. Idle/action/cardinal/diagonal frames retained. Original assets unchanged."
+  },
+  "enemy4-animated.png": {
+    "original": "enemy4.png",
+    "processing": "Ten exact rows normalized from rounded 49.2px row boundaries to 50px. Idle/action/cardinal/diagonal frames retained. Original assets unchanged."
+  },
+  "enemy5-animated.png": {
+    "original": "enemy5.png",
+    "processing": "Ten exact rows normalized from rounded 49.2px row boundaries to 50px. Idle/action/cardinal/diagonal frames retained. Original assets unchanged."
+  },
+  "mage-animated.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/64153/",
+    "uploader": "Ploaj",
+    "originalSize": [
+      1152,
+      13824
+    ],
+    "origin": [
+      0,
+      7168
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "palette": "red",
+    "processing": "Exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left. Class assignment is the game loadout."
+  },
+  "axeman-animated.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/64153/",
+    "uploader": "Ploaj",
+    "originalSize": [
+      1152,
+      13824
+    ],
+    "origin": [
+      384,
+      1536
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "palette": "red",
+    "processing": "Exact magenta transparency; ten rows: idle, action, left, right, down, up, down-left, down-right, up-right, up-left. Class assignment is the game loadout."
   }
 }

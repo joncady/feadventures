@@ -63,3 +63,15 @@ test('ground enemies retain legal routes toward a flyer over terrain', () => {
   assert.ok(next && field.canTravel(from, next));
   assert.ok(field.reachablePoints().every(p => field.isWalkable(p)));
 });
+
+test('recovers an embedded body to nearby legal terrain without moving valid units', () => {
+  const field = new NavigationField(WORLD.width, WORLD.height, OBSTACLES);
+  const embedded = { x: 360, y: 105 };
+  assert.equal(field.isWalkable(embedded), false);
+  const safe = field.recoveryPoint(embedded);
+  assert.ok(safe && field.isWalkable(safe));
+  assert.ok(Math.hypot(safe.x - embedded.x, safe.y - embedded.y) < 40);
+  field.setTarget({ x: 350, y: 65 });
+  assert.ok(field.hasRoute(safe));
+  assert.equal(field.recoveryPoint(safe), undefined);
+});

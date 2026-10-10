@@ -27,7 +27,7 @@ test('waits for audio assets, toggles mute, and restores ranged and hit audio', 
     const entry = '/src/main.ts';
     const { game } = await import(entry);
     const scene = game.scene.getScene('Arena');
-    scene.enemies.clear(true, true);
+    scene.allies.clear(true, true); scene.enemies.clear(true, true);
     scene.time.removeAllEvents();
     scene.spawning = 0;
     const enemy = scene.enemies.create(350, 230, 'archer');

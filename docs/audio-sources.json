@@ -1,0 +1,461 @@
+[
+  {
+    "key": "voice-chrom-attack",
+    "file": "audio/chrom-attack.wav",
+    "hero": "chrom",
+    "event": "attack",
+    "member": "VOICE_SFX_Wav/SE_VOICE_CHROM_ATTACK_L_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-chrom-damage",
+    "file": "audio/chrom-damage.wav",
+    "hero": "chrom",
+    "event": "damage",
+    "member": "VOICE_SFX_Wav/SE_VOICE_CHROM_DAMAGE_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-chrom-death",
+    "file": "audio/chrom-death.wav",
+    "hero": "chrom",
+    "event": "death",
+    "member": "VOICE_SFX_Wav/SE_VOICE_CHROM_DEAD_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-lucina-attack",
+    "file": "audio/lucina-attack.wav",
+    "hero": "lucina",
+    "event": "attack",
+    "member": "VOICE_SFX_Wav/SE_VOICE_MARTH_ATTACK_L_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-lucina-damage",
+    "file": "audio/lucina-damage.wav",
+    "hero": "lucina",
+    "event": "damage",
+    "member": "VOICE_SFX_Wav/SE_VOICE_MARTH_DAMAGE_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-lucina-death",
+    "file": "audio/lucina-death.wav",
+    "hero": "lucina",
+    "event": "death",
+    "member": "VOICE_SFX_Wav/SE_VOICE_MARTH_DEAD_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-frederick-attack",
+    "file": "audio/frederick-attack.wav",
+    "hero": "frederick",
+    "event": "attack",
+    "member": "VOICE_SFX_Wav/SE_VOICE_FREDERIK_ATTACK_L_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-frederick-damage",
+    "file": "audio/frederick-damage.wav",
+    "hero": "frederick",
+    "event": "damage",
+    "member": "VOICE_SFX_Wav/SE_VOICE_FREDERIK_DAMAGE_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-frederick-death",
+    "file": "audio/frederick-death.wav",
+    "hero": "frederick",
+    "event": "death",
+    "member": "VOICE_SFX_Wav/SE_VOICE_FREDERIK_DEAD_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-virion-attack",
+    "file": "audio/virion-attack.wav",
+    "hero": "virion",
+    "event": "attack",
+    "member": "VOICE_SFX_Wav/SE_VOICE_VIAUR_ATTACK_L_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-virion-damage",
+    "file": "audio/virion-damage.wav",
+    "hero": "virion",
+    "event": "damage",
+    "member": "VOICE_SFX_Wav/SE_VOICE_VIAUR_DAMAGE_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-virion-death",
+    "file": "audio/virion-death.wav",
+    "hero": "virion",
+    "event": "death",
+    "member": "VOICE_SFX_Wav/SE_VOICE_VIAUR_DEAD_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-sumia-attack",
+    "file": "audio/sumia-attack.wav",
+    "hero": "sumia",
+    "event": "attack",
+    "member": "VOICE_SFX_Wav/SE_VOICE_SMIA_ATTACK_L_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-sumia-damage",
+    "file": "audio/sumia-damage.wav",
+    "hero": "sumia",
+    "event": "damage",
+    "member": "VOICE_SFX_Wav/SE_VOICE_SMIA_DAMAGE_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-sumia-death",
+    "file": "audio/sumia-death.wav",
+    "hero": "sumia",
+    "event": "death",
+    "member": "VOICE_SFX_Wav/SE_VOICE_SMIA_DEAD_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-morgan-attack",
+    "file": "audio/morgan-attack.wav",
+    "hero": "morgan",
+    "event": "attack",
+    "member": "VOICE_SFX_Wav/SE_VOICE_MARC_M_ATTACK_L_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-morgan-damage",
+    "file": "audio/morgan-damage.wav",
+    "hero": "morgan",
+    "event": "damage",
+    "member": "VOICE_SFX_Wav/SE_VOICE_MARC_M_DAMAGE_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-morgan-death",
+    "file": "audio/morgan-death.wav",
+    "hero": "morgan",
+    "event": "death",
+    "member": "VOICE_SFX_Wav/SE_VOICE_MARC_M_DEAD_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-cordelia-attack",
+    "file": "audio/cordelia-attack.wav",
+    "hero": "cordelia",
+    "event": "attack",
+    "member": "VOICE_SFX_Wav/SE_VOICE_TIAMO_ATTACK_L_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-cordelia-damage",
+    "file": "audio/cordelia-damage.wav",
+    "hero": "cordelia",
+    "event": "damage",
+    "member": "VOICE_SFX_Wav/SE_VOICE_TIAMO_DAMAGE_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-cordelia-death",
+    "file": "audio/cordelia-death.wav",
+    "hero": "cordelia",
+    "event": "death",
+    "member": "VOICE_SFX_Wav/SE_VOICE_TIAMO_DEAD_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-lissa-attack",
+    "file": "audio/lissa-attack.wav",
+    "hero": "lissa",
+    "event": "attack",
+    "member": "VOICE_SFX_Wav/SE_VOICE_LIZ_ATTACK_L_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-lissa-damage",
+    "file": "audio/lissa-damage.wav",
+    "hero": "lissa",
+    "event": "damage",
+    "member": "VOICE_SFX_Wav/SE_VOICE_LIZ_DAMAGE_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-lissa-death",
+    "file": "audio/lissa-death.wav",
+    "hero": "lissa",
+    "event": "death",
+    "member": "VOICE_SFX_Wav/SE_VOICE_LIZ_DEAD_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-lonqu-attack",
+    "file": "audio/lonqu-attack.wav",
+    "hero": "lonqu",
+    "event": "attack",
+    "member": "VOICE_SFX_Wav/SE_VOICE_RONKUU_ATTACK_L_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-lonqu-damage",
+    "file": "audio/lonqu-damage.wav",
+    "hero": "lonqu",
+    "event": "damage",
+    "member": "VOICE_SFX_Wav/SE_VOICE_RONKUU_DAMAGE_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-lonqu-death",
+    "file": "audio/lonqu-death.wav",
+    "hero": "lonqu",
+    "event": "death",
+    "member": "VOICE_SFX_Wav/SE_VOICE_RONKUU_DEAD_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-miriel-attack",
+    "file": "audio/miriel-attack.wav",
+    "hero": "miriel",
+    "event": "attack",
+    "member": "VOICE_SFX_Wav/SE_VOICE_MYRIEL_ATTACK_L_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-miriel-damage",
+    "file": "audio/miriel-damage.wav",
+    "hero": "miriel",
+    "event": "damage",
+    "member": "VOICE_SFX_Wav/SE_VOICE_MYRIEL_DAMAGE_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-miriel-death",
+    "file": "audio/miriel-death.wav",
+    "hero": "miriel",
+    "event": "death",
+    "member": "VOICE_SFX_Wav/SE_VOICE_MYRIEL_DEAD_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-ricken-attack",
+    "file": "audio/ricken-attack.wav",
+    "hero": "ricken",
+    "event": "attack",
+    "member": "VOICE_SFX_Wav/SE_VOICE_LICHT_ATTACK_L_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-ricken-damage",
+    "file": "audio/ricken-damage.wav",
+    "hero": "ricken",
+    "event": "damage",
+    "member": "VOICE_SFX_Wav/SE_VOICE_LICHT_DAMAGE_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-ricken-death",
+    "file": "audio/ricken-death.wav",
+    "hero": "ricken",
+    "event": "death",
+    "member": "VOICE_SFX_Wav/SE_VOICE_LICHT_DEAD_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-stahl-attack",
+    "file": "audio/stahl-attack.wav",
+    "hero": "stahl",
+    "event": "attack",
+    "member": "VOICE_SFX_Wav/SE_VOICE_SORT_ATTACK_L_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-stahl-damage",
+    "file": "audio/stahl-damage.wav",
+    "hero": "stahl",
+    "event": "damage",
+    "member": "VOICE_SFX_Wav/SE_VOICE_SORT_DAMAGE_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-stahl-death",
+    "file": "audio/stahl-death.wav",
+    "hero": "stahl",
+    "event": "death",
+    "member": "VOICE_SFX_Wav/SE_VOICE_SORT_DEAD_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-sully-attack",
+    "file": "audio/sully-attack.wav",
+    "hero": "sully",
+    "event": "attack",
+    "member": "VOICE_SFX_Wav/SE_VOICE_SOIREE_ATTACK_L_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-sully-damage",
+    "file": "audio/sully-damage.wav",
+    "hero": "sully",
+    "event": "damage",
+    "member": "VOICE_SFX_Wav/SE_VOICE_SOIREE_DAMAGE_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-sully-death",
+    "file": "audio/sully-death.wav",
+    "hero": "sully",
+    "event": "death",
+    "member": "VOICE_SFX_Wav/SE_VOICE_SOIREE_DEAD_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-tharja-attack",
+    "file": "audio/tharja-attack.wav",
+    "hero": "tharja",
+    "event": "attack",
+    "member": "VOICE_SFX_Wav/SE_VOICE_SALLYA_ATTACK_L_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-tharja-damage",
+    "file": "audio/tharja-damage.wav",
+    "hero": "tharja",
+    "event": "damage",
+    "member": "VOICE_SFX_Wav/SE_VOICE_SALLYA_DAMAGE_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-tharja-death",
+    "file": "audio/tharja-death.wav",
+    "hero": "tharja",
+    "event": "death",
+    "member": "VOICE_SFX_Wav/SE_VOICE_SALLYA_DEAD_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-vaike-attack",
+    "file": "audio/vaike-attack.wav",
+    "hero": "vaike",
+    "event": "attack",
+    "member": "VOICE_SFX_Wav/SE_VOICE_WYCK_ATTACK_L_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-vaike-damage",
+    "file": "audio/vaike-damage.wav",
+    "hero": "vaike",
+    "event": "damage",
+    "member": "VOICE_SFX_Wav/SE_VOICE_WYCK_DAMAGE_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-vaike-death",
+    "file": "audio/vaike-death.wav",
+    "hero": "vaike",
+    "event": "death",
+    "member": "VOICE_SFX_Wav/SE_VOICE_WYCK_DEAD_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-robin-attack",
+    "file": "audio/robin-attack.wav",
+    "hero": "robin",
+    "event": "attack",
+    "member": "Robin_VOICE_SFX_WAV/SE_VOICE_PLAYER_M1_ATTACK_L_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-robin-damage",
+    "file": "audio/robin-damage.wav",
+    "hero": "robin",
+    "event": "damage",
+    "member": "Robin_VOICE_SFX_WAV/SE_VOICE_PLAYER_M1_DAMAGE_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "voice-robin-death",
+    "file": "audio/robin-death.wav",
+    "hero": "robin",
+    "event": "death",
+    "member": "Robin_VOICE_SFX_WAV/SE_VOICE_PLAYER_M1_DEAD_1.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
+    "uploader": "robotortoise"
+  },
+  {
+    "key": "archive-effect-1",
+    "file": "audio/effect-WARC_EFFECT_1.wav",
+    "member": "FE_Awakening_SFX_WAV/WARC_EFFECT_1.wav",
+    "duration": 1.7312800456286157,
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/401959/",
+    "uploader": "robotortoise",
+    "status": "Unidentified effect; audition before assignment"
+  },
+  {
+    "key": "archive-effect-2",
+    "file": "audio/effect-WARC_EFFECT_10.wav",
+    "member": "FE_Awakening_SFX_WAV/WARC_EFFECT_10.wav",
+    "duration": 1.5018332925934978,
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/401959/",
+    "uploader": "robotortoise",
+    "status": "Unidentified effect; audition before assignment"
+  },
+  {
+    "key": "archive-effect-3",
+    "file": "audio/effect-WARC_EFFECT_11.wav",
+    "member": "FE_Awakening_SFX_WAV/WARC_EFFECT_11.wav",
+    "duration": 1.8147152285504766,
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/401959/",
+    "uploader": "robotortoise",
+    "status": "Unidentified effect; audition before assignment"
+  }
+]
