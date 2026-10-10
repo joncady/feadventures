@@ -5,7 +5,7 @@ import { ArenaScene, type Hud } from './game/scenes/ArenaScene';
 import { HEROES, WORLD, type Hero } from './game/data/config';
 
 const element = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
-const game = new Phaser.Game({
+export const game = new Phaser.Game({
   type: Phaser.AUTO, parent: 'game', width: WORLD.width, height: WORLD.height,
   pixelArt: true, backgroundColor: '#1d3026',
   scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
@@ -16,6 +16,7 @@ let hero: Hero = 'chrom';
 let playing = false;
 let paused = false;
 let music: Phaser.Sound.BaseSound | undefined;
+let muted = true;
 let loadingFailed = false;
 const startButton = element<HTMLButtonElement>('start');
 const pauseButton = element<HTMLButtonElement>('pause');
@@ -24,9 +25,12 @@ const notice = (text: string) => { element('notice').textContent = text; };
 game.events.on('asset-error', (key: string) => {
   loadingFailed = true; notice(`Could not load ${key}. Reload to retry.`);
 });
-game.events.on('ready', () => {
+game.events.on('assets-ready', () => {
+  game.sound.mute = muted;
+  game.sound.once('unlocked', () => { game.sound.mute = muted; });
   if (loadingFailed) return;
   startButton.disabled = false; startButton.textContent = 'Begin battle';
+  element<HTMLButtonElement>('music').disabled = false;
   notice('Choose a hero, then begin.');
 });
 game.events.on('notice', notice);
@@ -84,11 +88,18 @@ window.addEventListener('blur', () => {
   if (playing && !paused) togglePause();
 });
 element('music').addEventListener('click', () => {
-  if (!game.cache.audio.exists('music')) return;
-  if (music) { music.destroy(); music = undefined; }
-  else { music = game.sound.add('music', { loop: true, volume: 0.18 }); music.play(); if (paused) music.pause(); }
-  element('music').textContent = music ? 'Music on' : 'Music off';
-  element('music').setAttribute('aria-pressed', String(Boolean(music)));
+  muted = !muted;
+  game.sound.mute = muted;
+  if (!muted && !music) {
+    music = game.sound.add('music', { loop: true, volume: 0.18 });
+    music.play();
+    if (paused) music.pause();
+  }
+  const label = muted ? 'Unmute audio' : 'Mute audio';
+  element('music').setAttribute('aria-label', label);
+  element('music').setAttribute('title', label);
+  element('music').setAttribute('aria-pressed', String(!muted));
+  if (playing) element('game').focus();
 });
 element('fullscreen').addEventListener('click', () => {
   const action = document.fullscreenElement ? document.exitFullscreen() : document.querySelector('.game-shell')!.requestFullscreen();

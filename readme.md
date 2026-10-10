@@ -18,7 +18,7 @@ Open the address printed by Vite. Choose Chrom, Lucina or Frederick. Move with W
 ```sh
 npm run check       # rules tests, strict TypeScript checking, production build
 npx playwright install chromium
-npm run test:e2e    # production browser smoke test
+npm run test:e2e    # browser gameplay regression tests
 npm run preview    # serve the build
 ```
 
@@ -28,6 +28,7 @@ npm run preview    # serve the build
 - `src/game/scenes/ArenaScene.ts`: the first playable survival scene and its lifecycle.
 - `src/game/data/config.ts`: original map geometry and typed character/enemy definitions.
 - `src/game/systems/rules.ts`: rendering-independent movement, combat and spawn rules.
+- `src/game/systems/navigation.ts`: shared terrain navigation with clearance for enemy bodies.
 - `src/main.ts`: browser menus, HUD, audio controls and scene transitions.
 - `public/assets/`: assets reused from the original game.
 - `v1/`: preserved legacy game, original assets, build configuration and GameCube server. Local dependency/build folders are preserved but ignored by Git. `archive-manifest.json` records checksums of legacy game files at migration time.
@@ -39,8 +40,12 @@ npm run preview    # serve the build
 
 ## Migration scope
 
-This first slice supports one keyboard player, all three hero choices, the original first map, five enemy appearances, directional melee, increasing waves, contact damage, pickups, pause, music and restart. It is scaffolding with a playable loop, not full legacy feature parity. Enemies currently pursue directly and may get stuck behind terrain; archers currently use contact damage. Sprites animate using the original standing row. Full directional frames, navigation, ranged combat, co-op, map progression and touch controls are follow-up issues.
+The local build supports one keyboard player, all three hero choices, the original first map, five enemy types, directional melee, increasing waves, pickups, pause, muted-by-default audio and restart. Enemies use a shared navigation field to route around terrain. Melee strikes have visible wind-ups, locked aim, recovery and cooldowns; moving out of range or behind cover can evade them. Archers keep distance, move around cover and fire arrows that collide with terrain. Spawns are restricted to areas connected to the player.
+
+This remains a migration in progress. Sprites animate using the original standing row. Full directional and attack frames, co-op, legacy balance/progression and touch controls remain outstanding. Navigation handles static terrain; crowd congestion can still occur in narrow passages.
 
 Board: https://github.com/users/joncady/projects/2
 
 `npm run project:sync` creates missing issues and attaches them to the board. It requires `gh auth login --hostname github.com --scopes project` and safely reuses issues with matching titles.
+
+The current incremental improvements were approved for release on 2026-10-10. Full parity remains unfinished. Keep subsequent implementation local; obtain approval before another deployment. See `docs/parity.md` and `docs/combat-roadmap.md` for gaps, researched combat rules and the ranked backlog.

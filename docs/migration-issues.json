@@ -2,41 +2,97 @@
   {
     "title": "V2: Preserve v1 and ship the Phaser survival foundation on GitHub Pages",
     "body": "Preserve the original real-time enemy swarm design and existing Fire Emblem assets.\n\nAcceptance criteria:\n- Archive existing game and controller source under v1, including local edits.\n- Scaffold Phaser 3, TypeScript strict mode and Vite.\n- Playable character selection, movement, melee, waves, damage, pickups, pause and clean restart.\n- Automated rules and browser smoke tests pass.\n- Deploy a verified build to https://joncady.github.io/feadventures/ using GitHub Actions.\n\nThis is the initial migration slice. Full feature parity is tracked separately.",
-    "url": "https://github.com/joncady/feadventures/issues/1"
+    "url": "https://github.com/joncady/feadventures/issues/1",
+    "priority": "P0"
   },
   {
     "title": "V2: Port directional movement and attack sprite animations",
-    "body": "The initial migration uses the standing-row animation frames from the original 200×492 sprite sheets.\n\nAcceptance criteria:\n- Define exact frame boundaries for all original directional and attack rows.\n- Port movement, facing, idle and attack animations for Chrom, Lucina, Frederick and all enemies.\n- Preserve the last facing direction when attacking from idle.\n- Verify there is no frame bleeding at scaled resolutions.",
-    "url": "https://github.com/joncady/feadventures/issues/2"
+    "body": "The initial migration uses the standing-row animation frames from the original 200\u00d7492 sprite sheets.\n\nAcceptance criteria:\n- Define exact frame boundaries for all original directional and attack rows.\n- Port movement, facing, idle and attack animations for Chrom, Lucina, Frederick and all enemies.\n- Preserve the last facing direction when attacking from idle.\n- Verify there is no frame bleeding at scaled resolutions.",
+    "url": "https://github.com/joncady/feadventures/issues/2",
+    "priority": "P0"
   },
   {
     "title": "V2: Add obstacle-aware swarm navigation",
-    "body": "The foundation uses direct pursuit with Arcade Physics terrain collisions. Enemies can become blocked behind the original map obstacles.\n\nAcceptance criteria:\n- Derive a navigation grid from map geometry.\n- Route melee enemies around obstacles toward the living player.\n- Bound and stagger path recalculation as swarm sizes increase.\n- Verify all spawn regions can reach the player and spawning never occurs inside terrain.\n- Add tests for blocked paths and unreachable targets.",
-    "url": "https://github.com/joncady/feadventures/issues/3"
+    "body": "The foundation uses direct pursuit with Arcade Physics terrain collisions. Enemies can become blocked behind the original map obstacles.\n\nAcceptance criteria:\n- Derive a navigation grid from map geometry.\n- Route melee enemies around obstacles toward the living player.\n- Bound and stagger path recalculation as swarm sizes increase.\n- Verify all spawn regions can reach the player and spawning never occurs inside terrain.\n- Add tests for blocked paths and unreachable targets.\n\nCurrent local status: Local implementation now includes a shared terrain-expanded navigation field, reachable-only spawns and unit/browser tests. Still unpublished; large-swarm profiling and congestion checks remain.",
+    "url": "https://github.com/joncady/feadventures/issues/3",
+    "priority": "P0"
   },
   {
     "title": "V2: Restore enemy combat roles and ranged projectiles",
-    "body": "The initial migration renders all five original enemy types but uses contact damage for each. Restore the distinct original combat roles.\n\nAcceptance criteria:\n- Archer keeps distance and fires arrows with directional visuals.\n- Melee enemies use configurable range, damage and attack cooldowns.\n- Projectiles collide with terrain and players and expire cleanly.\n- Enemy attacks telegraph clearly and cannot damage after death or scene shutdown.\n- Verify projectile cleanup across wave transitions and repeated restarts.",
-    "url": "https://github.com/joncady/feadventures/issues/4"
+    "body": "The initial migration renders all five original enemy types but uses contact damage for each. Restore the distinct original combat roles.\n\nAcceptance criteria:\n- Archer keeps distance and fires arrows with directional visuals.\n- Melee enemies use configurable range, damage and attack cooldowns.\n- Projectiles collide with terrain and players and expire cleanly.\n- Enemy attacks telegraph clearly and cannot damage after death or scene shutdown.\n- Verify projectile cleanup across wave transitions and repeated restarts.\n\nCurrent local status: Local implementation now includes aimed archer projectiles, terrain collisions, timed/dodgeable melee windups, per-type cooldowns and regression tests. Still unpublished; animation and balance parity remain.",
+    "url": "https://github.com/joncady/feadventures/issues/4",
+    "priority": "P0"
   },
   {
     "title": "V2: Restore local co-op and evaluate browser controller support",
     "body": "The original game attempted two-player keyboard input and a separate GameCube adapter server. The initial migration is single-player.\n\nAcceptance criteria:\n- Support at most two selected players with separate input bindings.\n- Support living-player targeting and end the game only when everyone is dead.\n- Add browser Gamepad API input with connection and disconnection handling.\n- Test the actual GameCube adapter in supported browsers; retain an optional local bridge only if browser support requires it.\n- The hosted game must run without a localhost server for keyboard play.",
-    "url": "https://github.com/joncady/feadventures/issues/5"
+    "url": "https://github.com/joncady/feadventures/issues/5",
+    "priority": "P1"
   },
   {
     "title": "V2: Migrate map progression and data-driven waves",
     "body": "The foundation uses the original first map and increasing enemy counts. Expand content through typed data instead of scene-specific branching.\n\nAcceptance criteria:\n- Port remaining map assets with collision definitions and safe player spawns.\n- Configure enemy mixes, wave budgets, spawn cadence and pickup frequency per stage.\n- Provide an explicit stage transition and progress display.\n- Test that a cleared wave advances exactly once and final map behavior is defined.",
-    "url": "https://github.com/joncady/feadventures/issues/6"
+    "url": "https://github.com/joncady/feadventures/issues/6",
+    "priority": "P2"
   },
   {
     "title": "V2: Expand browser regression coverage and performance checks",
     "body": "Keep the github.io game playable as migration features are added.\n\nAcceptance criteria:\n- Cover movement displacement, terrain collisions, directional melee and wave progression in browser tests.\n- Cover repeated deaths/restarts, hero reselection, pause/resume and tab focus changes.\n- Test asset loading under /feadventures/ as well as a site root.\n- Profile large swarms and set a practical enemy cap.\n- Add Firefox and WebKit coverage where supported, with CI failures blocking publication.",
-    "url": "https://github.com/joncady/feadventures/issues/7"
+    "url": "https://github.com/joncady/feadventures/issues/7",
+    "priority": "P0"
   },
   {
     "title": "V2: Add touch controls and accessible gameplay settings",
     "body": "The initial migration scales its canvas but requires a keyboard. Improve input and usability for the public browser build.\n\nAcceptance criteria:\n- Add touch movement and attack controls without obscuring combat.\n- Add separate music/effects levels and persist preferences.\n- Support remappable keyboard controls and a reduced-motion option.\n- Verify menus are usable with keyboard focus and narrow screens.\n- Show a clear loading failure/retry state when assets cannot be loaded.",
-    "url": "https://github.com/joncady/feadventures/issues/8"
+    "url": "https://github.com/joncady/feadventures/issues/8",
+    "priority": "P2"
+  },
+  {
+    "title": "V2: Reconcile legacy balance, pickups and battle start parity",
+    "body": "Compare archived v1 with the current local build before further publication. Current gaps: player damage 10 vs 35, changed enemy stats/timing, kill drops vs rare timed pickups, missing stage countdown, changed wave counts/cadence.\nAcceptance criteria:\n- Record each original/current value and choose restoration or an explicitly accepted design change.\n- Restore countdown/start gating, pickup behavior and wave rules where required.\n- Verify parity with gameplay tests and update docs/parity.md.\n- Keep implementation local; do not push or deploy until parity is approved.",
+    "priority": "P0",
+    "url": "https://github.com/joncady/feadventures/issues/9"
+  },
+  {
+    "title": "V2: Define shared unit, faction and weapon profiles",
+    "body": "Prerequisite for NPC soldiers, player archers, Morgan, weapon effectiveness and flight. Current player attack is hard-coded as one sword strike, and enemies target one scene.player.\nAcceptance criteria:\n- Separate character identity, class, weapon, faction and ground/flying movement.\n- Define min/max attack range, damage kind (physical/magical), windup, recovery, cooldown and projectile behavior in typed data.\n- Route player/enemy/ally attacks through shared damage and targeting rules; select living hostile targets with stable target switching.\n- Preserve current attacks and local tests; bound navigation work when multiple targets exist.\n- Treat pixel ranges/timings as real-time balance values, not literal Awakening tile distances.\nReference: https://serenesforest.net/awakening/miscellaneous/calculations/",
+    "priority": "P1",
+    "url": "https://github.com/joncady/feadventures/issues/10"
+  },
+  {
+    "title": "V2: Add allied NPC soldiers that fight and attract enemies",
+    "body": "User priority: P1. Reuse default enemy sprite sheets for allied soldiers with an unmistakable allied marker/health bar.\nDepends on shared unit/faction/weapon profiles.\nAcceptance criteria:\n- Spawn a bounded set of allied NPC soldiers in reachable terrain; they seek and attack living enemies with range, telegraph and cooldown checks.\n- Enemies can choose soldiers or players using distance/threat and target-switch hysteresis; soldiers attract attacks without every enemy being permanently diverted.\n- Enemy arrows and melee damage the intended hostile faction; no friendly fire by default.\n- Handle target death, navigation for different targets, pause, restart and all-player defeat; NPC survival does not prevent game over.\n- Allies do not count toward enemy wave-clear totals or award player pickup/kill credit accidentally.\n- Test targeting, damage, death cleanup and bounded swarm performance.",
+    "priority": "P1",
+    "url": "https://github.com/joncady/feadventures/issues/11"
+  },
+  {
+    "title": "V2: Add weapon triangle and attack effectiveness rules",
+    "body": "Implement Awakening-inspired weapon matchups, distinct from unit-type effectiveness.\nSword beats axe; axe beats lance; lance beats sword. Bows and tomes are neutral in this triangle. Awakening triangle modifies hit and, at higher weapon ranks, attack; decide/document a deterministic adaptation rather than silently importing Fates/Heroes rules.\nBows and wind tomes are effective against flying units. Other effectiveness requires weapon-specific tags (e.g. armor/cavalry/dragon), not blanket magic-vs-armor bonuses. Physical damage checks defense; magical damage checks resistance. Awakening effectiveness triples weapon Might, not final damage.\nAcceptance criteria:\n- One pure tested damage resolver handles player, enemy and allied attacks consistently.\n- Separate weapon family, damage kind, effectiveness tags and defensive stats.\n- Show advantage/weakness clearly and test neutral types, opposite matchups, stacked effects and minimum damage.\n- Balance against current local stats and record departures from Awakening.\nSources: https://serenesforest.net/awakening/miscellaneous/calculations/ ; https://serenesforest.net/awakening/inventory/bows/ ; https://serenesforest.net/awakening/inventory/tomes/",
+    "priority": "P1",
+    "url": "https://github.com/joncady/feadventures/issues/12"
+  },
+  {
+    "title": "V2: Add a playable archer with weapon-specific range",
+    "body": "Suggested first character: Virion (selection subject to verified map-sheet availability); Noire is an alternative. Reuse the tested enemy arrow pipeline through shared projectile code.\nAwakening standard bows have range 2 and cannot attack adjacent units; Longbow has range 2-3. These are tile rules; our game needs a documented pixel interpretation.\nProposed real-time design: movement sets last facing; Space fires in that direction, with a readable aim line and configurable maximum range. Preserve a close-range weakness, starting with a minimum targeting distance; decide whether already-fired arrows may hit nearer enemies. No hidden automatic melee fallback.\nAcceptance criteria:\n- Add character selection, portrait and verified directional/attack frames.\n- Shared player arrow collision, enemy/ally faction rules, expiry, terrain blocking and audio.\n- Display min/max range and test point-blank policy, facing while idle, pause and restart.\n- Apply flying effectiveness when such units are present.\nSources: https://serenesforest.net/awakening/inventory/bows/ ; https://www.spriters-resource.com/3ds/fireemblemawakening/",
+    "priority": "P1",
+    "url": "https://github.com/joncady/feadventures/issues/13"
+  },
+  {
+    "title": "V2: Add magic attacks with Morgan as the first mage",
+    "body": "User-selected first magic player: Morgan. Choose a verified Morgan map sprite/portrait and explicit tome-capable class/loadout; gender/class availability is an asset/design decision, not a reason to change the requested character.\nMost Awakening tomes have range 1-2 and use Magic against Resistance. Fire/Thunder/Wind are not a rock-paper-scissors magic triangle in Awakening; wind tomes have flying effectiveness.\nProposed first slice: Fire tome, visible cast windup, directional bolt and cooldown; no automatic area damage, mana or elemental status system assumed. Add Wind later through weapon data.\nAcceptance criteria:\n- Morgan selectable with verified frame map, casting state, spell visual and sound.\n- Shared projectile/range/faction/cleanup rules and magical damage resolver.\n- Configurable close and medium range, with a visible range cue.\n- Test resistance vs defense, obstacle policy, cast interruption on death, pause and restart.\nSources: https://serenesforest.net/awakening/inventory/tomes/ ; https://serenesforest.net/awakening/miscellaneous/calculations/ ; https://www.spriters-resource.com/3ds/fireemblemawakening/",
+    "priority": "P1",
+    "url": "https://github.com/joncady/feadventures/issues/14"
+  },
+  {
+    "title": "V2: Add a flying Pegasus Knight player",
+    "body": "Suggested first character: Sumia or Cordelia after verifying the map sprite. Add lance attack and flying movement through shared profiles.\nUser requirement: fly above terrain. Separate low terrain that can be overflown from hard walls/world boundaries; do not disable all collisions globally. Ground AI must still behave sensibly while a flying target is over an unreachable area.\nAcceptance criteria:\n- Flying render depth/shadow and readable movement/attack state.\n- Traverse designated terrain while retaining world boundaries and attack collisions.\n- Define flight height/ground melee reach and projectile occlusion explicitly; flight must not create unintended permanent invulnerability.\n- Bows and wind magic exploit flying weakness.\n- Test switching targets to reachable NPCs and chasing a flyer returning to walkable ground.\nSources: https://www.spriters-resource.com/3ds/fireemblemawakening/ ; https://fireemblem.fandom.com/wiki/Pegasus_Knight ; https://serenesforest.net/awakening/inventory/bows/ ; https://serenesforest.net/awakening/inventory/tomes/",
+    "priority": "P2",
+    "url": "https://github.com/joncady/feadventures/issues/15"
+  },
+  {
+    "title": "V2: Add directional blocking and verify guard sprite options",
+    "body": "Awakening has chance-based allied Dual Guard that negates a hit; it is not a manual player block button. A manual guard is an intentional real-time adaptation.\nProposed first slice: hold a configurable key to guard the facing arc, reduce physical damage, slow movement and disable attacks; use a bounded guard meter or recovery to prevent indefinite holding. Magic bypasses ordinary guard initially unless a ward is explicitly added. Exact values require playtesting.\nAcceptance criteria:\n- Define front/back arc, melee/arrow behavior, repeated hits and resource recovery.\n- Use a verified guard frame if present; otherwise reuse idle pose with a code-rendered shield arc/impact flash and mark the asset gap. No dedicated guard sheet has been verified from the linked catalog.\n- Shared damage handling for guard and weakness interactions.\n- Test attack/guard exclusion, rear hits, magic policy, pause/death/restart and input remapping.\n- Keep optional NPC-triggered Dual Guard separate from this manual mechanic.\nSources: https://serenesforest.net/awakening/miscellaneous/calculations/ ; https://www.spriters-resource.com/3ds/fireemblemawakening/",
+    "priority": "P2",
+    "url": "https://github.com/joncady/feadventures/issues/16"
   }
 ]
