@@ -644,5 +644,279 @@
     "original": "asset-library/map-candidates/compact/stronghold-tileset.png",
     "creator": "ZoramineFae / N426 / Flasuban / Wan",
     "processing": "Sourced16px floor, wall, column, carpet and throne crops assembled at2x from black-keep-chunks.ts; no full-map resize or decorative chest tiles."
+  },
+  "gangrel-animated.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63479/",
+    "uploader": "Ploaj",
+    "origin": [
+      0,
+      0
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "processing": "Red palette, exact magenta transparency; ten unflipped idle/action/cardinal/diagonal rows. Walhart uses mounted armored Conqueror block at y1024. Validar source action row contains shadows only; idle artwork reused during telegraphed cast instead of invisible action."
+  },
+  "gangrelPortrait.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63343/",
+    "uploader": "Ploaj",
+    "crop": [
+      2,
+      330,
+      256,
+      586
+    ]
+  },
+  "walhart-animated.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/64151/",
+    "uploader": "Ploaj",
+    "origin": [
+      0,
+      1024
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "processing": "Red palette, exact magenta transparency; ten unflipped idle/action/cardinal/diagonal rows. Walhart uses mounted armored Conqueror block at y1024. Validar source action row contains shadows only; idle artwork reused during telegraphed cast instead of invisible action."
+  },
+  "walhartPortrait.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63395/",
+    "uploader": "Ploaj",
+    "crop": [
+      2,
+      298,
+      256,
+      554
+    ]
+  },
+  "validar-animated.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63603/",
+    "uploader": "Ploaj",
+    "origin": [
+      0,
+      0
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "processing": "Red palette, exact magenta transparency; ten unflipped idle/action/cardinal/diagonal rows. Walhart uses mounted armored Conqueror block at y1024. Validar source action row contains shadows only; idle artwork reused during telegraphed cast instead of invisible action."
+  },
+  "validarPortrait.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63393/",
+    "uploader": "Ploaj",
+    "crop": [
+      2,
+      282,
+      256,
+      538
+    ]
+  },
+  "morganPortraitSelected.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63381/",
+    "uploader": "Ploaj",
+    "crop": [
+      260,
+      298,
+      514,
+      552
+    ],
+    "overlay": [
+      1292,
+      298,
+      1546,
+      552
+    ],
+    "purpose": "Genuine selected expression; no expression painting"
+  },
+  "robinPortraitSelected.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63403/",
+    "uploader": "Ploaj",
+    "crop": [
+      260,
+      2,
+      514,
+      256
+    ],
+    "overlay": [
+      2,
+      1338,
+      256,
+      1592
+    ],
+    "purpose": "Genuine selected expression; no expression painting"
+  },
+  "cordeliaPortraitSelected.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63353/",
+    "uploader": "Ploaj",
+    "crop": [
+      260,
+      298,
+      514,
+      552
+    ],
+    "overlay": null,
+    "purpose": "Genuine selected expression; no expression painting"
+  },
+  "lissaPortraitSelected.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63372/",
+    "uploader": "Ploaj",
+    "crop": [
+      518,
+      298,
+      772,
+      552
+    ],
+    "overlay": null,
+    "purpose": "Genuine selected expression; no expression painting"
+  },
+  "lonquPortraitSelected.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63371/",
+    "uploader": "Ploaj",
+    "crop": [
+      260,
+      298,
+      514,
+      552
+    ],
+    "overlay": null,
+    "purpose": "Genuine selected expression; no expression painting"
+  },
+  "mirielPortraitSelected.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63369/",
+    "uploader": "Ploaj",
+    "crop": [
+      260,
+      298,
+      514,
+      552
+    ],
+    "overlay": null,
+    "purpose": "Genuine selected expression; no expression painting"
+  },
+  "rickenPortraitSelected.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63386/",
+    "uploader": "Ploaj",
+    "crop": [
+      260,
+      298,
+      514,
+      552
+    ],
+    "overlay": null,
+    "purpose": "Genuine selected expression; no expression painting"
+  },
+  "stahlPortraitSelected.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63388/",
+    "uploader": "Ploaj",
+    "crop": [
+      260,
+      330,
+      514,
+      584
+    ],
+    "overlay": null,
+    "purpose": "Genuine selected expression; no expression painting"
+  },
+  "sullyPortraitSelected.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63389/",
+    "uploader": "Ploaj",
+    "crop": [
+      260,
+      298,
+      514,
+      552
+    ],
+    "overlay": null,
+    "purpose": "Genuine selected expression; no expression painting"
+  },
+  "tharjaPortraitSelected.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63399/",
+    "uploader": "Ploaj",
+    "crop": [
+      260,
+      298,
+      514,
+      552
+    ],
+    "overlay": null,
+    "purpose": "Genuine selected expression; no expression painting"
+  },
+  "vaikePortraitSelected.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63392/",
+    "uploader": "Ploaj",
+    "crop": [
+      518,
+      332,
+      772,
+      586
+    ],
+    "overlay": null,
+    "purpose": "Genuine selected expression; no expression painting"
+  },
+  "robin-femalePortraitSelected.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63400/",
+    "uploader": "Ploaj",
+    "crop": [
+      260,
+      2,
+      514,
+      256
+    ],
+    "overlay": [
+      2,
+      1374,
+      256,
+      1628
+    ],
+    "purpose": "Genuine selected expression; no expression painting"
+  },
+  "maps/objective-standard.png": {
+    "source": "https://feuniverse.us/t/updated-stronghold-tileset/6134",
+    "sourceFile": "asset-library/map-candidates/compact/stronghold-tileset.png",
+    "crop": [
+      272,
+      32,
+      296,
+      64
+    ],
+    "purpose": "Gold/red objective standard, separate from equipment symbols",
+    "credits": "ZoramineFae / N426 / Flasuban / Wan; existing map source credits"
+  },
+  "sumiaPortraitSelected.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63390/",
+    "uploader": "Ploaj",
+    "crop": [
+      260,
+      298,
+      514,
+      552
+    ],
+    "purpose": "Genuine selected speaking expression"
+  },
+  "virionPortraitSelected.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63394/",
+    "uploader": "Ploaj",
+    "crop": [
+      260,
+      330,
+      514,
+      584
+    ],
+    "purpose": "Genuine selected speaking expression"
   }
 }

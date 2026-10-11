@@ -22,3 +22,19 @@ test('corrupt pending result snapshots are rejected without breaking existing sa
  campaign.pendingResult={missionIndex:0,reason:'Done',elapsed:12,kills:5,gold:20,reward:100,progressBefore:[{hero:'chrom',level:1,xp:0}]};assert.ok(decodeCampaignSave(raw()));campaign.pendingResult.missionIndex=2;assert.equal(decodeCampaignSave(raw()),undefined);
  campaign.pendingResult.missionIndex=0;campaign.pendingResult.progressBefore[0].hero='lissa';assert.equal(decodeCampaignSave(raw()),undefined);
 });
+
+test('village commander victory requires both Gangrel defeat and a living village',()=>{
+ assert.equal(victoryReady('defend-commander',{...state,objectiveAlive:true}),true);
+ for(const variation of [{objectiveAlive:false},{objectiveAlive:undefined},{commanderDefeated:false},{phase:'boss'},{phase:'wave'}])assert.equal(victoryReady('defend-commander',{...state,objectiveAlive:true,...variation}),false);
+});
+test('old four-mission checkpoints and pending pre-commander village rewards stay valid',()=>{
+ for(let missionIndex=0;missionIndex<4;missionIndex++){
+  const campaign=newCampaign(['chrom','lissa']);campaign.missionIndex=missionIndex;campaign.gold=320;campaign.members[0].progress.xp=63;
+  const raw=()=>JSON.stringify({version:1,savedAt:'2026-10-11T18:00:00Z',campaign});
+  const before=decodeCampaignSave(raw())!.campaign;assert.equal(before.missionIndex,missionIndex);assert.equal(before.gold,320);
+  const result={missionIndex,reason:missionIndex===1?'Three attacks survived. The village stands.':'Legacy victory',elapsed:180,kills:20,gold:25,reward:100,progressBefore:campaign.members.map(member=>({hero:member.hero,level:member.progress.level,xp:member.progress.xp}))};
+  assert.equal(completeMission(campaign,result,campaign.members),true);
+  const after=decodeCampaignSave(raw())!.campaign;assert.equal(after.gold,445);assert.equal(completeMission(after,result,after.members),false);
+  assert.equal(acceptMissionResult(after),true);assert.equal(after.missionIndex,missionIndex+1);assert.equal(after.complete,missionIndex===3);assert.equal(after.gold,445);assert.equal(acceptMissionResult(after),false);
+ }
+});

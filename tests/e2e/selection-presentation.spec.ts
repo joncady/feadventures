@@ -29,5 +29,5 @@ test('Chrom and Lucina use centered face anchors in cards and focused previews',
  await page.screenshot({path:'/tmp/chrom-centered-1.0.2.png'});
  await page.keyboard.press('d',{delay:100});await page.keyboard.press('Enter',{delay:100});await page.screenshot({path:'/tmp/lucina-centered-1.0.2.png'});
  const framing=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const ui=game.scene.getScene('Interface');return {focused:game.registry.get('character-focus'),selected:game.registry.get('interface-state').hero,previewKey:ui.previewPortrait.texture.key,width:ui.previewPortrait.displayWidth,height:ui.previewPortrait.displayHeight};});
- expect(framing).toEqual({focused:'lucina',selected:'lucina',previewKey:'portrait-lucina',width:174,height:174});
+ expect(framing).toEqual({focused:'lucina',selected:'lucina',previewKey:'portrait-selected-lucina',width:174,height:174});
 });

@@ -60,9 +60,24 @@ footer { margin-top: 18px; flex-wrap: wrap; font: 12px system-ui; color: #b0c1bd
 /* Touch landscape prioritizes the battlefield over the decorative page title. */
 @media (pointer: coarse) and (orientation: landscape) and (max-height: 600px) {
   body { min-height: 100dvh; overflow: hidden; }
-  main { padding: 0; max-width: none; height: 100dvh; display: grid; place-items: center; }
+  main { padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); max-width: none; height: var(--viewport-height,100dvh); display: grid; place-items: center; }
   main > header { display: none; }
-  .game-shell { width: min(100vw, calc(100dvh * 896 / 544)); }
+  .game-shell { width: min(calc(var(--viewport-width,100vw) - env(safe-area-inset-left) - env(safe-area-inset-right)), calc((var(--viewport-height,100dvh) - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 2px) * 896 / 544)); }
   #game { touch-action: none; }
 }
 #game canvas { touch-action: none; }
+
+/* Fullscreen makes the shell viewport-sized. Do not let its 100%-width
+   child retain a width-only aspect ratio and disappear below the screen. */
+.game-shell:fullscreen, .viewport-fullscreen .game-shell {
+  width: var(--viewport-width,100vw); height: var(--viewport-height,100dvh);
+  border: 0; display: grid; place-items: center;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+.game-shell:fullscreen #game, .viewport-fullscreen #game {
+  width: min(calc(var(--viewport-width,100vw) - env(safe-area-inset-left) - env(safe-area-inset-right)), calc((var(--viewport-height,100dvh) - env(safe-area-inset-top) - env(safe-area-inset-bottom)) * 896 / 544));
+  aspect-ratio: 896 / 544;
+}
+.viewport-fullscreen { overflow: hidden; }
+.viewport-fullscreen main { position: fixed; inset: 0; padding: 0; max-width: none; }
+.viewport-fullscreen main > header { display: none; }

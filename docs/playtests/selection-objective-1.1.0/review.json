@@ -1,0 +1,859 @@
+{
+  "rows": [
+    {
+      "hero": "chrom",
+      "selected": false,
+      "preview": "portrait-chrom",
+      "tile": "portrait-face-chrom",
+      "source": {
+        "width": 256,
+        "height": 256
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "chrom",
+      "selected": true,
+      "preview": "portrait-selected-chrom",
+      "tile": "portrait-face-selected-chrom",
+      "source": {
+        "width": 256,
+        "height": 256
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "lucina",
+      "selected": false,
+      "preview": "portrait-lucina",
+      "tile": "portrait-face-lucina",
+      "source": {
+        "width": 256,
+        "height": 256
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "lucina",
+      "selected": true,
+      "preview": "portrait-selected-lucina",
+      "tile": "portrait-face-selected-lucina",
+      "source": {
+        "width": 256,
+        "height": 256
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "frederick",
+      "selected": false,
+      "preview": "portrait-frederick",
+      "tile": "portrait-face-frederick",
+      "source": {
+        "width": 256,
+        "height": 256
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "frederick",
+      "selected": true,
+      "preview": "portrait-selected-frederick",
+      "tile": "portrait-face-selected-frederick",
+      "source": {
+        "width": 256,
+        "height": 256
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "virion",
+      "selected": false,
+      "preview": "portrait-virion",
+      "tile": "portrait-face-virion",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "virion",
+      "selected": true,
+      "preview": "portrait-selected-virion",
+      "tile": "portrait-face-selected-virion",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "sumia",
+      "selected": false,
+      "preview": "portrait-sumia",
+      "tile": "portrait-face-sumia",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "sumia",
+      "selected": true,
+      "preview": "portrait-selected-sumia",
+      "tile": "portrait-face-selected-sumia",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "morgan",
+      "selected": false,
+      "preview": "portrait-morgan",
+      "tile": "portrait-face-morgan",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "morgan",
+      "selected": true,
+      "preview": "portrait-selected-morgan",
+      "tile": "portrait-face-selected-morgan",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "robin",
+      "selected": false,
+      "preview": "portrait-robin",
+      "tile": "portrait-face-robin",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "robin",
+      "selected": true,
+      "preview": "portrait-selected-robin",
+      "tile": "portrait-face-selected-robin",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "robin-female",
+      "selected": false,
+      "preview": "portrait-robin-female",
+      "tile": "portrait-face-robin-female",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "robin-female",
+      "selected": true,
+      "preview": "portrait-selected-robin-female",
+      "tile": "portrait-face-selected-robin-female",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "cordelia",
+      "selected": false,
+      "preview": "portrait-cordelia",
+      "tile": "portrait-face-cordelia",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "cordelia",
+      "selected": true,
+      "preview": "portrait-selected-cordelia",
+      "tile": "portrait-face-selected-cordelia",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "lissa",
+      "selected": false,
+      "preview": "portrait-lissa",
+      "tile": "portrait-face-lissa",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "lissa",
+      "selected": true,
+      "preview": "portrait-selected-lissa",
+      "tile": "portrait-face-selected-lissa",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "lonqu",
+      "selected": false,
+      "preview": "portrait-lonqu",
+      "tile": "portrait-face-lonqu",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "lonqu",
+      "selected": true,
+      "preview": "portrait-selected-lonqu",
+      "tile": "portrait-face-selected-lonqu",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "miriel",
+      "selected": false,
+      "preview": "portrait-miriel",
+      "tile": "portrait-face-miriel",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "miriel",
+      "selected": true,
+      "preview": "portrait-selected-miriel",
+      "tile": "portrait-face-selected-miriel",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "ricken",
+      "selected": false,
+      "preview": "portrait-ricken",
+      "tile": "portrait-face-ricken",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "ricken",
+      "selected": true,
+      "preview": "portrait-selected-ricken",
+      "tile": "portrait-face-selected-ricken",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "stahl",
+      "selected": false,
+      "preview": "portrait-stahl",
+      "tile": "portrait-face-stahl",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "stahl",
+      "selected": true,
+      "preview": "portrait-selected-stahl",
+      "tile": "portrait-face-selected-stahl",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "sully",
+      "selected": false,
+      "preview": "portrait-sully",
+      "tile": "portrait-face-sully",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "sully",
+      "selected": true,
+      "preview": "portrait-selected-sully",
+      "tile": "portrait-face-selected-sully",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "tharja",
+      "selected": false,
+      "preview": "portrait-tharja",
+      "tile": "portrait-face-tharja",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "tharja",
+      "selected": true,
+      "preview": "portrait-selected-tharja",
+      "tile": "portrait-face-selected-tharja",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "vaike",
+      "selected": false,
+      "preview": "portrait-vaike",
+      "tile": "portrait-face-vaike",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    },
+    {
+      "hero": "vaike",
+      "selected": true,
+      "preview": "portrait-selected-vaike",
+      "tile": "portrait-face-selected-vaike",
+      "source": {
+        "width": 254,
+        "height": 254
+      },
+      "display": {
+        "width": 174,
+        "height": 174
+      },
+      "bounds": {
+        "type": 5,
+        "x": 653,
+        "y": 131,
+        "width": 174,
+        "height": 174
+      },
+      "loaded": true
+    }
+  ],
+  "goals": [
+    {
+      "index": 0,
+      "marker": {
+        "key": "objective-standard",
+        "x": 448,
+        "y": 272,
+        "active": true,
+        "scrollFactor": 1
+      },
+      "goal": {
+        "x": 448,
+        "y": 272
+      },
+      "player": {
+        "x": 190,
+        "y": 230
+      },
+      "objective": {
+        "kind": "advance",
+        "victory": "reach-exit",
+        "label": "Survive the ambushes and reach the eastern exit",
+        "x": 1184,
+        "y": 272,
+        "radius": 110
+      }
+    },
+    {
+      "index": 1,
+      "marker": {
+        "key": "objective-standard",
+        "x": 512,
+        "y": 352,
+        "active": true,
+        "scrollFactor": 1
+      },
+      "goal": {
+        "x": 512,
+        "y": 352
+      },
+      "player": {
+        "x": 190,
+        "y": 230
+      },
+      "objective": {
+        "kind": "defend",
+        "victory": "defend-commander",
+        "label": "Protect the village and defeat Gangrel",
+        "x": 512,
+        "y": 352,
+        "radius": 96
+      }
+    },
+    {
+      "index": 2,
+      "marker": {
+        "key": "objective-standard",
+        "x": 640,
+        "y": 448,
+        "active": true,
+        "scrollFactor": 1
+      },
+      "goal": {
+        "x": 640,
+        "y": 448
+      },
+      "player": {
+        "x": 190,
+        "y": 230
+      },
+      "objective": {
+        "kind": "survive",
+        "victory": "defeat-commander",
+        "label": "Defend the keep and defeat Walhart",
+        "x": 640,
+        "y": 448,
+        "radius": 96
+      }
+    },
+    {
+      "index": 3,
+      "marker": {
+        "key": "objective-standard",
+        "x": 512,
+        "y": 128,
+        "active": true,
+        "scrollFactor": 1
+      },
+      "goal": {
+        "x": 512,
+        "y": 128
+      },
+      "player": {
+        "x": 190,
+        "y": 230
+      },
+      "objective": {
+        "kind": "boss",
+        "victory": "defeat-commander",
+        "label": "Advance into the keep and defeat Validar",
+        "x": 512,
+        "y": 128,
+        "radius": 96
+      }
+    }
+  ],
+  "errors": []
+}

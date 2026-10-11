@@ -1,0 +1,56 @@
+[
+  {
+    "character": "Gangrel",
+    "kind": "map",
+    "file": "asset-library/awakening/commanders/63479.png",
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63479/",
+    "uploader": "Ploaj",
+    "sha256": "0489e234a92baa26f4aa465df4f4e2940d8701c3098724b379eb94298dbee8cd",
+    "status": "Reference source acquired and visually inspected; not registered in runtime"
+  },
+  {
+    "character": "Gangrel",
+    "kind": "portrait",
+    "file": "asset-library/awakening/commanders/63343.png",
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63343/",
+    "uploader": "Ploaj",
+    "sha256": "fdb873b38ed9c54c454bee1aeba26e62bc99f6d3ba4d144922fd08b54b879cc0",
+    "status": "Reference source acquired and visually inspected; not registered in runtime"
+  },
+  {
+    "character": "Walhart",
+    "kind": "map",
+    "file": "asset-library/awakening/commanders/64151.png",
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/64151/",
+    "uploader": "Ploaj",
+    "sha256": "ee0dc1fab5793fe248b8744d9f1b21f51b931e8a31d3c3af6f2a98e5c4ba65cf",
+    "status": "Reference source acquired and visually inspected; not registered in runtime"
+  },
+  {
+    "character": "Walhart",
+    "kind": "portrait",
+    "file": "asset-library/awakening/commanders/63395.png",
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63395/",
+    "uploader": "Ploaj",
+    "sha256": "90fdd39b93175ba1a101880862d1a1318ac66fc440098d89da36936530fe3af5",
+    "status": "Reference source acquired and visually inspected; not registered in runtime"
+  },
+  {
+    "character": "Validar",
+    "kind": "map",
+    "file": "asset-library/awakening/commanders/63603.png",
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63603/",
+    "uploader": "Ploaj",
+    "sha256": "ed6468dd2041b00f4b78b38f6bc8fa531ec22b90b8d3daec1083f80ae5e2f975",
+    "status": "Reference source acquired and visually inspected; not registered in runtime"
+  },
+  {
+    "character": "Validar",
+    "kind": "portrait",
+    "file": "asset-library/awakening/commanders/63393.png",
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63393/",
+    "uploader": "Ploaj",
+    "sha256": "b7db4ae8762f0f4618ae6e48c4a2471c06820d6488335e6774cad6073d3a16d0",
+    "status": "Reference source acquired and visually inspected; not registered in runtime"
+  }
+]

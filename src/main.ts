@@ -17,6 +17,17 @@ import { AUDIO_ASSETS } from './game/data/audio-assets';
 import { HEROES, HERO_PROFILES, HERO_NAMES, WORLD, type Hero } from './game/data/config';
 
 const element = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+// Browser chrome and orientation can change the usable height without changing
+// innerHeight. Keep the containing box current before Phaser calculates FIT.
+function updateViewport():void {
+  const viewport=window.visualViewport;
+  document.documentElement.style.setProperty('--viewport-width',`${viewport?.width??window.innerWidth}px`);
+  document.documentElement.style.setProperty('--viewport-height',`${viewport?.height??window.innerHeight}px`);
+}
+updateViewport();
+window.addEventListener('resize',updateViewport);
+window.visualViewport?.addEventListener('resize',updateViewport);
+document.addEventListener('fullscreenchange',updateViewport);
 export const game = new Phaser.Game({
   type: Phaser.AUTO, parent: 'game', width: WORLD.width, height: WORLD.height,
   pixelArt: true, backgroundColor: '#1d3026',
@@ -25,6 +36,20 @@ export const game = new Phaser.Game({
   physics: { default: 'arcade', arcade: { debug: false } },
   scene: [BootScene, ArenaScene, InterfaceScene, CampaignScene, ResultsScene, DevScene],
 });
+// FIT must refresh when CSS safe-area/visualViewport/fullscreen containment
+// changes the parent, even when the layout viewport emits no resize event.
+let fitFrame=0;
+let fittedWidth=-1;
+let fittedHeight=-1;
+new ResizeObserver(entries=>{
+  const {width,height}=entries[0].contentRect;
+  if(Math.abs(width-fittedWidth)<.1&&Math.abs(height-fittedHeight)<.1)return;
+  fittedWidth=width;fittedHeight=height;
+  if(fitFrame)return;
+  // Refresh outside the observer delivery: Phaser updates canvas styles, which
+  // otherwise feeds back into WebKit's current layout notification cycle.
+  fitFrame=requestAnimationFrame(()=>{fitFrame=0;game.scale.refresh();});
+}).observe(element('game'));
 const tactical = new URLSearchParams(location.search).get('battle') !== 'legacy';
 let phase: 'party'|'deployment'|'battle' = 'party';
 let campaign:CampaignState|undefined;
@@ -254,8 +279,13 @@ element('music').addEventListener('click', () => {
   if (playing) element('game').focus();
 });
 element('fullscreen').addEventListener('click', () => {
-  const action = document.fullscreenElement ? document.exitFullscreen() : document.querySelector('.game-shell')!.requestFullscreen();
-  void action.catch(() => notice('Fullscreen is unavailable in this browser.'));
+  const shell=document.querySelector<HTMLElement>('.game-shell')!;
+  if(document.fullscreenElement){void document.exitFullscreen();return;}
+  if(document.body.classList.contains('viewport-fullscreen')){document.body.classList.remove('viewport-fullscreen');updateViewport();return;}
+  // iPhone Safari does not expose element fullscreen. Its viewport mode still
+  // fits the complete game and the Settings button remains available to exit.
+  const fallback=()=>{document.body.classList.add('viewport-fullscreen');updateViewport();};
+  if(shell.requestFullscreen)void shell.requestFullscreen().catch(fallback);else fallback();
 });
 
 const audioDialog = element<HTMLDialogElement>('audio-settings');

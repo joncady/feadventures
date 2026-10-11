@@ -4,6 +4,7 @@ import { APP_VERSION } from '../data/version';
 import { getMap } from '../data/maps';
 import { HEROES, HERO_NAMES, HERO_PROFILES, WORLD, type Hero } from '../data/config';
 import { initialLoadout, equippedWeapon, WEAPONS } from '../data/equipment';
+import type { CommanderId } from '../data/commanders';
 import type { Hud } from './ArenaScene';
 
 export interface InterfaceState {
@@ -60,6 +61,11 @@ export class InterfaceScene extends Phaser.Scene {
   private rallyLabel!:Phaser.GameObjects.Text;
   private partyRows:Phaser.GameObjects.Text[]=[];
   private partyZones:Phaser.GameObjects.Zone[]=[];
+  private bossPanel!:Phaser.GameObjects.Container;
+  private bossPortrait!:Phaser.GameObjects.Image;
+  private bossName!:Phaser.GameObjects.Text;
+  private bossPhase!:Phaser.GameObjects.Text;
+  private bossHealth!:Phaser.GameObjects.Graphics;
   private minimap!:Phaser.GameObjects.Graphics;
   private miniTerrain!:Phaser.GameObjects.Image;
   private miniTitle!:Phaser.GameObjects.Text;
@@ -117,7 +123,7 @@ export class InterfaceScene extends Phaser.Scene {
     this.warning=this.add.text(300,9,'',{...this.style,color:'#ffcd8c',fontSize:'11px'}).setDepth(90);
     const onWarning=({hero,health}:{hero:Hero;health:number})=>{this.warning.setText(`${HERO_NAMES[hero]} under attack! HP ${health}`);this.warningTimer?.remove();this.warningTimer=this.time.delayedCall(4000,()=>this.warning.setText(''));};this.game.events.on('companion-warning',onWarning);this.events.once('shutdown',()=>this.game.events.off('companion-warning',onWarning));
     this.actionFeedback=this.add.text(448,44,'',{...this.style,color:'#fff0c6',fontSize:'13px',backgroundColor:'#183e57',padding:{x:10,y:5}}).setOrigin(.5,0).setDepth(150).setVisible(false);
-    const onFeedback=({kind,message}:{kind:string;message?:string})=>{if(kind==='clear'){this.actionFeedbackTimer?.remove();this.actionFeedback.setVisible(false);return;}if(!message)return;this.actionFeedback.setPosition(this.state?.playing?448:740,this.state?.playing?44:382).setWordWrapWidth(this.state?.playing?760:218).setText(message).setColor(kind==='reject'?'#ffbd98':'#fff0c6').setVisible(true);this.actionFeedbackTimer?.remove();this.actionFeedbackTimer=this.time.delayedCall(1300,()=>this.actionFeedback.setVisible(false));};this.game.events.on('ux-feedback-visible',onFeedback);this.events.once('shutdown',()=>this.game.events.off('ux-feedback-visible',onFeedback));
+    const onFeedback=({kind,message}:{kind:string;message?:string})=>{if(kind==='clear'){this.actionFeedbackTimer?.remove();this.actionFeedback.setVisible(false);return;}if(!message)return;this.actionFeedback.setPosition(this.state?.playing?448:740,this.state?.playing?(this.bossPanel?.visible?110:44):382).setWordWrapWidth(this.state?.playing?760:218).setText(message).setColor(kind==='reject'?'#ffbd98':'#fff0c6').setVisible(true);this.actionFeedbackTimer?.remove();this.actionFeedbackTimer=this.time.delayedCall(1300,()=>this.actionFeedback.setVisible(false));};this.game.events.on('ux-feedback-visible',onFeedback);this.events.once('shutdown',()=>this.game.events.off('ux-feedback-visible',onFeedback));
     this.stats = this.add.text(12, 9, 'Choose your hero', { ...this.style, color:'#fff0c6', fontSize:'12px' });
     this.headerUtilities=this.add.container();
     this.button(this.headerUtilities, 760, 3, 128, 'Settings', () => this.request('audio-options'));
@@ -164,7 +170,7 @@ export class InterfaceScene extends Phaser.Scene {
     this.button(this.endOverlay, -148, 19, 296, 'Try again', () => this.request('restart'));
     this.button(this.endOverlay, -148, 58, 296, 'Choose hero', () => this.request('choose'));
     const onState = (state:InterfaceState) => this.apply(state);
-    const onNotice = (text:string) => {this.notice.setText(text);this.noticeTimer?.remove();this.notice.setVisible(Boolean(text)&&this.state.playing&&this.state.phase!=='deployment');this.noticeTimer=this.time.delayedCall(6500,()=>this.notice.setText('').setVisible(false));};
+    const onNotice = (text:string) => {this.notice.setY(this.bossPanel?.visible?136:78).setText(text);this.noticeTimer?.remove();this.notice.setVisible(Boolean(text)&&this.state.playing&&this.state.phase!=='deployment');this.noticeTimer=this.time.delayedCall(6500,()=>this.notice.setText('').setVisible(false));};
     const onKey=(event:KeyboardEvent)=>this.navigate(event);window.addEventListener('keydown',onKey);this.events.once('shutdown',()=>window.removeEventListener('keydown',onKey));
     const onHud = (hud:Hud) => this.stats.setText(this.state?.tactical?`${this.state.phase==='deployment'?'Deployment':'Battle'} · Hostiles ${hud.enemies} · Defeated ${hud.kills}`:`Wave ${hud.wave}  ·  Defeated ${hud.kills}  ·  Allies ${hud.allies}/${hud.allyCapacity}`);
     const onMap=(data:TacticalMap)=>this.drawTacticalMap(data);this.game.events.on('tactical-map',onMap);
@@ -177,13 +183,16 @@ export class InterfaceScene extends Phaser.Scene {
     // Source-space face anchors align portraits without stretching; profile faces include hair framing.
     const eyes:Record<Hero,[number,number]>={chrom:[125,67],lucina:[126,80],frederick:[120,68],virion:[121,67],sumia:[125,83],morgan:[134,91],robin:[134,90],'robin-female':[120,91],cordelia:[125,68],lissa:[132,108],lonqu:[138,66],miriel:[125,82],ricken:[114,107],stahl:[120,69],sully:[126,74],tharja:[118,106],vaike:[133,71]};
     for(const hero of HEROES){
-      const original=this.textures.get(`portrait-${hero}`);original.setFilter(Phaser.Textures.FilterMode.LINEAR);
-      const key=`portrait-face-${hero}`;
+      for(const variant of ['', '-selected']){
+      const sourceKey=variant?`portrait-selected-${hero}`:`portrait-${hero}`;if(!this.textures.exists(sourceKey))continue;
+      const original=this.textures.get(sourceKey);original.setFilter(Phaser.Textures.FilterMode.LINEAR);
+      const key=`portrait-face${variant}-${hero}`;
       if(!this.textures.exists(key)){
         const face=this.textures.createCanvas(key,160,160)!;
         const [eyeX,eyeY]=eyes[hero];
         face.context.drawImage(original.getSourceImage() as HTMLImageElement,80-eyeX,64-eyeY);
         face.refresh().setFilter(Phaser.Textures.FilterMode.LINEAR);
+      }
       }
     }
   }
@@ -197,7 +206,7 @@ export class InterfaceScene extends Phaser.Scene {
       const card=this.add.rectangle(0,0,100,76,0x203e4d).setOrigin(0).setStrokeStyle(1,0x49616a).setInteractive({useHandCursor:true});
       card.on('pointerover',()=>{if(this.focusIndex!==index){this.focusIndex=index;this.layoutParty();this.game.events.emit('ux-feedback',{kind:'cursor'});}});
       card.on('pointerdown',()=>this.game.events.emit('ui-character',hero));this.cards.set(hero,card);tile.add(card);
-      tile.add(this.add.image(50,27,`portrait-face-${hero}`).setDisplaySize(52,52));
+      tile.add(this.add.image(50,27,`portrait-face-${hero}`).setDisplaySize(52,52).setData('hero-portrait',hero));
       tile.add(this.add.image(89,12,equippedWeapon(initialLoadout(hero)).icon).setDisplaySize(16,16));
       tile.add(this.add.text(50,57,HERO_NAMES[hero],{...this.style,fontSize:'13px',color:'#f3e7c9'}).setOrigin(.5,0));
       const mark=this.add.text(5,4,'',{...this.style,fontSize:'13px',color:'#9ad2ee'});tile.add(mark);this.selectionMarks.set(hero,mark);
@@ -239,7 +248,8 @@ export class InterfaceScene extends Phaser.Scene {
     this.registry.set('character-card-centers',bounds);this.drawFocus();
   }
   private updateResume():void {if(!this.resumeControl)return;this.resumeControl.setVisible(!this.state?.preparationEditing&&this.saveState.available&&!this.saveState.complete);this.resumeLabel.setText(`Resume · ${this.saveState.missionName}`);this.saveHint.setText(this.saveState.available&&!this.saveState.complete?'A new campaign replaces this checkpoint.':'');}
-  private updatePreview():void {if(!this.previewName)return;const hero=HEROES[this.focusIndex];this.previewPortrait.setTexture(`portrait-${hero}`);const source=this.textures.get(`portrait-${hero}`).getSourceImage();const scale=Math.min(196/source.width,174/source.height);this.previewPortrait.setDisplaySize(source.width*scale,source.height*scale);this.previewName.setText(HERO_NAMES[hero]);this.description.setText(initialLoadout(hero).items.map(item=>WEAPONS[item.weaponId].name).join(' · '));}
+  private portraitKey(hero:Hero,face=false):string {const selected=hero===this.state?.hero||this.state?.companions.includes(hero);const alternative=face?`portrait-face-selected-${hero}`:`portrait-selected-${hero}`;return selected&&this.textures.exists(alternative)?alternative:face?`portrait-face-${hero}`:`portrait-${hero}`;}
+  private updatePreview():void {if(!this.previewName)return;const hero=HEROES[this.focusIndex],key=this.portraitKey(hero);this.previewPortrait.setTexture(key);const source=this.textures.get(key).getSourceImage();const scale=Math.min(196/source.width,174/source.height);this.previewPortrait.setDisplaySize(source.width*scale,source.height*scale);this.previewName.setText(HERO_NAMES[hero]);this.description.setText(initialLoadout(hero).items.map(item=>WEAPONS[item.weaponId].name).join(' · '));}
   private createTacticalInterface():void {
     this.goldCounter=this.add.container(270,515).setDepth(92).setVisible(false);this.goldCounter.add(this.add.image(0,0,'gold').setDisplaySize(20,20));this.goldValue=this.add.text(14,0,'',{...this.style,color:'#f7d878',fontSize:'12px'}).setOrigin(0,.5);this.goldCounter.add(this.goldValue);
     this.cooldownBar=this.add.graphics().setDepth(92);this.cooldownText=this.add.text(470,514,'',{...this.style,color:'#fff0c6',fontSize:'11px',backgroundColor:'#183e57',padding:{x:4,y:1}}).setOrigin(.5).setDepth(92);
@@ -258,6 +268,12 @@ export class InterfaceScene extends Phaser.Scene {
     this.deploymentHint=this.add.text(12,12,'Choose deployment positions.',{...this.style,fontSize:'11px',color:'#fff0c6',lineSpacing:3,wordWrap:{width:216}});this.deploymentPanel.add(this.deploymentHint);
     this.deploymentControls=this.add.text(12,40,'',{...this.style,fontSize:'11px',color:'#d2e2e8',lineSpacing:3,wordWrap:{width:216}});this.deploymentPanel.add(this.deploymentControls);
     this.deploymentBegin=this.add.container(12,80);this.deploymentPanel.add(this.deploymentBegin);this.button(this.deploymentBegin,0,0,132,'Auto-place',()=>this.game.events.emit('ui-deploy-auto'));this.button(this.deploymentBegin,0,40,132,'Begin battle',()=>this.game.events.emit('ui-launch'));
+    this.bossPanel=this.add.container(320,40).setDepth(88).setVisible(false);
+    this.bossPanel.add(this.add.rectangle(0,0,256,64,0x152c37,.9).setOrigin(0).setStrokeStyle(1,0xae8746));
+    this.bossPortrait=this.add.image(27,30,'portrait-face-chrom').setDisplaySize(44,44);this.bossPanel.add(this.bossPortrait);
+    this.bossName=this.add.text(54,6,'',{...this.style,fontSize:'16px',color:'#fff0c6'});this.bossPanel.add(this.bossName);
+    this.bossPhase=this.add.text(54,44,'',{...this.style,fontSize:'12px',color:'#eacb9e'});this.bossPanel.add(this.bossPhase);
+    this.bossHealth=this.add.graphics();this.bossPanel.add(this.bossHealth);
     this.miniTerrain=this.add.image(798,108,'battlefield').setDisplaySize(164,100).setTint(0x7c929b).setDepth(85);
     this.minimap=this.add.graphics().setDepth(86);this.miniTitle=this.add.text(722,42,'Battlefield',{...this.style,fontSize:'10px',color:'#fff0c6'}).setDepth(86);
   }
@@ -276,6 +292,10 @@ export class InterfaceScene extends Phaser.Scene {
     const panelHeight=this.deploymentBegin.y+68+12;
     this.deploymentBackground.setSize(panelWidth,panelHeight);
     this.deploymentPanel.setPosition(keepPlanning?728:12,WORLD.height-12-panelHeight);
+    const boss=data.boss;this.bossPanel.setVisible(!data.deploying&&!!boss?.id);
+    if(this.actionFeedback.visible)this.actionFeedback.setY(this.bossPanel.visible?110:44);
+    this.notice.setY(this.bossPanel.visible?136:78);
+    if(boss?.id){const key=`portrait-${boss.id}`;if(this.textures.exists(key))this.bossPortrait.setTexture(key).setDisplaySize(44,44);this.bossName.setText(`${boss.name??boss.id}  ${Math.max(0,Math.ceil(boss.health))}`).setWordWrapWidth(196);this.bossPhase.setText(boss.phase==='windup'?'Preparing attack':boss.phase==='recover'?'Opening':boss.enraged?'Dark magic intensifies':'Commander');this.bossHealth.clear().fillStyle(0x351c23).fillRect(54,29,192,8).fillStyle(0xd47870).fillRect(55,30,190*Phaser.Math.Clamp(boss.health/Math.max(1,boss.maxHealth),0,1),6);}
     this.miniTitle.setText(data.title??'Battlefield');
     if(!data.deploying)this.stats.setText(data.objectiveStatus??data.objective??'Complete the objective');
     // Gold is spent in preparations; combat uses brief pickup feedback only.
@@ -284,6 +304,7 @@ export class InterfaceScene extends Phaser.Scene {
     const sx=164/data.width,sy=100/data.height;
     for(const p of data.enemies)g.fillStyle(0xeb5555).fillCircle(716+p.x*sx,58+p.y*sy,2);
     for(const p of data.allies)g.fillStyle(0x77bfff).fillCircle(716+p.x*sx,58+p.y*sy,2);
+    if(data.goal){const x=716+data.goal.x*sx,y=58+data.goal.y*sy;g.lineStyle(1,0xffdd75).lineBetween(x-2,y-4,x-2,y+5).fillStyle(0xffdd75).fillTriangle(x-1,y-4,x+5,y-2,x-1,y);}
     const controlled=data.controlledPosition;if(controlled)g.lineStyle(1,0xffedb2).strokeCircle(716+controlled.x*sx,58+controlled.y*sy,4);
     g.lineStyle(1,0xe6d19a,.65).strokeRect(716+data.camera.x*sx,58+data.camera.y*sy,Math.min(164,data.camera.width*sx),Math.min(100,data.camera.height*sy));
   }
@@ -335,7 +356,7 @@ export class InterfaceScene extends Phaser.Scene {
     this.backControl.setVisible(state.selectionMode==='companions');
     if(state.tactical && state.phase==='deployment')this.stats.setText('Deployment · Four known camps · Place your party');
     this.begin.setText(state.selectionMode==='player'?'Choose leader':state.preparationEditing?'Return to preparations':'Begin Story');this.legend.setText(this.emptyConfirmation?state.preparationEditing?'Travel alone? Press Return to preparations again to confirm.':'Travel alone? Press Begin Story again to confirm.':'');
-    const tacticalVisible=state.tactical&&state.playing&&!state.result;this.partyPanel.setVisible(tacticalVisible);this.deploymentPanel.setVisible(tacticalVisible&&state.phase==='deployment');this.minimap.setVisible(tacticalVisible);this.miniTerrain.setVisible(tacticalVisible);this.miniTitle.setVisible(tacticalVisible);
+    const tacticalVisible=state.tactical&&state.playing&&!state.result;this.partyPanel.setVisible(tacticalVisible);if(!tacticalVisible)this.bossPanel.setVisible(false);this.deploymentPanel.setVisible(tacticalVisible&&state.phase==='deployment');this.minimap.setVisible(tacticalVisible);this.miniTerrain.setVisible(tacticalVisible);this.miniTitle.setVisible(tacticalVisible);
     this.instructions.setText(state.tactical?'WASD: Move · Space / Click: Attack · Mouse: Aim\nQ/E: Hero · F: Weapon · R: Rally · I: Info · P: Pause':'WASD / Arrows: Move   Space / Click: Attack\nMouse: Aim   Q: Ally orders   P: Pause');
     this.updateResume();this.updatePreview();
     this.partyTray.removeAll(true);
@@ -343,6 +364,7 @@ export class InterfaceScene extends Phaser.Scene {
     for(let i=state.companions.length+1;i<4;i++)this.partyTray.add(this.add.text(i*142+18,20,`+ Companion ${i}`,{...this.style,color:'#819aa5',fontSize:'13px'}));
     this.begin.setAlpha(state.ready ? 1 : .5);
     for(const [hero,card] of this.cards){
+      const portrait=this.heroTiles[HEROES.indexOf(hero)].list.find(child=>child.getData('hero-portrait')) as Phaser.GameObjects.Image;portrait.setTexture(this.portraitKey(hero,true));
       const unavailable=state.selectionMode==='companions'&&hero===state.hero;
       this.heroTiles[HEROES.indexOf(hero)].setAlpha(unavailable?.52:1).setData('leader-unavailable',unavailable);
       card.setFillStyle(0x203e4d).setAlpha(1);this.selectionMarks.get(hero)?.setText(hero===state.hero?'★':state.companions.includes(hero)?`${state.companions.indexOf(hero)+1}`:'');
@@ -372,4 +394,4 @@ export class InterfaceScene extends Phaser.Scene {
   }
 }
 
-interface TacticalMap {rally?:{active:boolean;remaining:number;cooldown:number;available:boolean};missionIndex?:number;title?:string;objective?:string;objectiveStatus?:string;totalWaves?:number;gold?:number;camp?:{health:number;maxHealth:number};cooldown:{fraction:number;remaining:number;recovering:boolean};stagePhase:string;wave:number;remaining:number;elapsed:number;pending:number;boss?:{health:number;maxHealth:number};width:number;height:number;deploying:boolean;controlled:Hero;controlledPosition?:{x:number;y:number};selected:string;placed:number;total:number;party:{hero:Hero;placed:boolean;health:number;maxHealth?:number;level:number;xp:number;equippedWeaponId?:string}[];allies:{x:number;y:number}[];enemies:{x:number;y:number}[];camera:{x:number;y:number;width:number;height:number};}
+interface TacticalMap {goal?:{x:number;y:number};rally?:{active:boolean;remaining:number;cooldown:number;available:boolean};missionIndex?:number;title?:string;objective?:string;objectiveStatus?:string;totalWaves?:number;gold?:number;camp?:{health:number;maxHealth:number};cooldown:{fraction:number;remaining:number;recovering:boolean};stagePhase:string;wave:number;remaining:number;elapsed:number;pending:number;boss?:{id?:CommanderId;name?:string;title?:string;phase?:string;enraged?:boolean;health:number;maxHealth:number};width:number;height:number;deploying:boolean;controlled:Hero;controlledPosition?:{x:number;y:number};selected:string;placed:number;total:number;party:{hero:Hero;placed:boolean;health:number;maxHealth?:number;level:number;xp:number;equippedWeaponId?:string}[];allies:{x:number;y:number}[];enemies:{x:number;y:number}[];camera:{x:number;y:number;width:number;height:number};}

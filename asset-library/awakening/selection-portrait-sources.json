@@ -1,0 +1,52 @@
+[
+  {
+    "character": "Sumia",
+    "file": "Main Game/asset-library/awakening/63390.png",
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63390/",
+    "uploader": "Ploaj",
+    "originalSize": [
+      1292,
+      724
+    ],
+    "sha256": "02668076b9657d17907ccd2589f3f074ba35c9fb0ca5795f76fd2dc2a0227778",
+    "verification": "Existing original download visually inspected; identity/source cross-checked against existing asset-sources.json and prepare scripts. Web reader returned403; browser unavailable this turn.",
+    "neutralBustCrop": [
+      2,
+      298,
+      256,
+      552
+    ],
+    "alternateBustCrop": [
+      260,
+      298,
+      514,
+      552
+    ],
+    "selection": "Second bust is eyes-open speaking expression; third is eyes-closed. Alternate expression is original pixels, not animated voice sync."
+  },
+  {
+    "character": "Virion",
+    "file": "Main Game/asset-library/awakening/63394.png",
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63394/",
+    "uploader": "Ploaj",
+    "originalSize": [
+      1292,
+      756
+    ],
+    "sha256": "c63b62d09f640fbcb476719eaba3ad69b2698128c79d277fb496b02bfa333960",
+    "verification": "Existing original download visually inspected; identity/source cross-checked against existing asset-sources.json and prepare scripts. Web reader returned403; browser unavailable this turn.",
+    "neutralBustCrop": [
+      2,
+      330,
+      256,
+      584
+    ],
+    "alternateBustCrop": [
+      260,
+      330,
+      514,
+      584
+    ],
+    "selection": "Second bust is eyes-open speaking expression; third is eyes-closed. Alternate expression is original pixels, not animated voice sync."
+  }
+]

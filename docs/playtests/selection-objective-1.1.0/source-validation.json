@@ -1,0 +1,376 @@
+[
+  {
+    "hero": "chrom",
+    "neutral": [
+      256,
+      256
+    ],
+    "selected": [
+      256,
+      256
+    ],
+    "distinct": true,
+    "alpha": [
+      0,
+      255
+    ],
+    "selectedBounds": [
+      19,
+      21,
+      233,
+      256
+    ]
+  },
+  {
+    "hero": "lucina",
+    "neutral": [
+      256,
+      256
+    ],
+    "selected": [
+      256,
+      256
+    ],
+    "distinct": true,
+    "alpha": [
+      0,
+      255
+    ],
+    "selectedBounds": [
+      62,
+      33,
+      243,
+      256
+    ]
+  },
+  {
+    "hero": "frederick",
+    "neutral": [
+      256,
+      256
+    ],
+    "selected": [
+      256,
+      256
+    ],
+    "distinct": true,
+    "alpha": [
+      0,
+      255
+    ],
+    "selectedBounds": [
+      40,
+      9,
+      241,
+      256
+    ]
+  },
+  {
+    "hero": "virion",
+    "neutral": [
+      254,
+      254
+    ],
+    "selected": [
+      254,
+      254
+    ],
+    "distinct": true,
+    "alpha": [
+      0,
+      255
+    ],
+    "selectedBounds": [
+      33,
+      9,
+      254,
+      254
+    ]
+  },
+  {
+    "hero": "sumia",
+    "neutral": [
+      254,
+      254
+    ],
+    "selected": [
+      254,
+      254
+    ],
+    "distinct": true,
+    "alpha": [
+      0,
+      255
+    ],
+    "selectedBounds": [
+      30,
+      0,
+      235,
+      254
+    ]
+  },
+  {
+    "hero": "morgan",
+    "neutral": [
+      254,
+      254
+    ],
+    "selected": [
+      254,
+      254
+    ],
+    "distinct": true,
+    "alpha": [
+      0,
+      255
+    ],
+    "selectedBounds": [
+      60,
+      42,
+      210,
+      254
+    ]
+  },
+  {
+    "hero": "robin",
+    "neutral": [
+      254,
+      254
+    ],
+    "selected": [
+      254,
+      254
+    ],
+    "distinct": true,
+    "alpha": [
+      0,
+      255
+    ],
+    "selectedBounds": [
+      59,
+      47,
+      209,
+      254
+    ]
+  },
+  {
+    "hero": "robin-female",
+    "neutral": [
+      254,
+      254
+    ],
+    "selected": [
+      254,
+      254
+    ],
+    "distinct": true,
+    "alpha": [
+      0,
+      255
+    ],
+    "selectedBounds": [
+      68,
+      45,
+      204,
+      252
+    ]
+  },
+  {
+    "hero": "cordelia",
+    "neutral": [
+      254,
+      254
+    ],
+    "selected": [
+      254,
+      254
+    ],
+    "distinct": true,
+    "alpha": [
+      0,
+      255
+    ],
+    "selectedBounds": [
+      40,
+      0,
+      254,
+      254
+    ]
+  },
+  {
+    "hero": "lissa",
+    "neutral": [
+      254,
+      254
+    ],
+    "selected": [
+      254,
+      254
+    ],
+    "distinct": true,
+    "alpha": [
+      0,
+      255
+    ],
+    "selectedBounds": [
+      64,
+      23,
+      230,
+      254
+    ]
+  },
+  {
+    "hero": "lonqu",
+    "neutral": [
+      254,
+      254
+    ],
+    "selected": [
+      254,
+      254
+    ],
+    "distinct": true,
+    "alpha": [
+      0,
+      255
+    ],
+    "selectedBounds": [
+      48,
+      15,
+      227,
+      254
+    ]
+  },
+  {
+    "hero": "miriel",
+    "neutral": [
+      254,
+      254
+    ],
+    "selected": [
+      254,
+      254
+    ],
+    "distinct": true,
+    "alpha": [
+      0,
+      255
+    ],
+    "selectedBounds": [
+      32,
+      0,
+      246,
+      254
+    ]
+  },
+  {
+    "hero": "ricken",
+    "neutral": [
+      254,
+      254
+    ],
+    "selected": [
+      254,
+      254
+    ],
+    "distinct": true,
+    "alpha": [
+      0,
+      255
+    ],
+    "selectedBounds": [
+      48,
+      16,
+      222,
+      254
+    ]
+  },
+  {
+    "hero": "stahl",
+    "neutral": [
+      254,
+      254
+    ],
+    "selected": [
+      254,
+      254
+    ],
+    "distinct": true,
+    "alpha": [
+      0,
+      255
+    ],
+    "selectedBounds": [
+      51,
+      12,
+      254,
+      254
+    ]
+  },
+  {
+    "hero": "sully",
+    "neutral": [
+      254,
+      254
+    ],
+    "selected": [
+      254,
+      254
+    ],
+    "distinct": true,
+    "alpha": [
+      0,
+      255
+    ],
+    "selectedBounds": [
+      34,
+      20,
+      250,
+      254
+    ]
+  },
+  {
+    "hero": "tharja",
+    "neutral": [
+      254,
+      254
+    ],
+    "selected": [
+      254,
+      254
+    ],
+    "distinct": true,
+    "alpha": [
+      0,
+      255
+    ],
+    "selectedBounds": [
+      45,
+      47,
+      221,
+      254
+    ]
+  },
+  {
+    "hero": "vaike",
+    "neutral": [
+      254,
+      254
+    ],
+    "selected": [
+      254,
+      254
+    ],
+    "distinct": true,
+    "alpha": [
+      0,
+      255
+    ],
+    "selectedBounds": [
+      7,
+      1,
+      246,
+      250
+    ]
+  }
+]

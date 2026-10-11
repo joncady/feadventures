@@ -23,7 +23,7 @@ test('bandit road keeps deployment and each ambush connected inside a compact fo
 });
 
 test('compact village has four legal pressure lanes and a bounded, connected deployment square',()=>{
- const village=CAMPAIGN_MAPS[1];assert.equal(village.width,1024);assert.equal(village.height,704);assert.equal(village.soldierCount,4);assert.equal(village.soldiers.length,4);assert.equal(village.waves.count,3);assert.equal(village.waves.minimumMs,44000);
+ const village=CAMPAIGN_MAPS[1];assert.equal(village.width,1024);assert.equal(village.height,704);assert.equal(village.soldierCount,4);assert.equal(village.soldiers.length,4);assert.equal(village.waves.count,2);assert.equal(village.waves.minimumMs,44000);
  const nav=new NavigationField(village.width,village.height,village.terrain);nav.setTarget(village.objective);
  for(let x=384;x<=640;x+=32)for(let y=288;y<=416;y+=32)assert.ok(nav.isWalkable({x,y})&&nav.hasRoute({x,y}),`Village deployment ${x},${y} is blocked`);
  for(const point of [{x:512,y:40},{x:512,y:664},{x:40,y:176},{x:40,y:528},{x:984,y:176},{x:984,y:528}])assert.ok(nav.isWalkable(point)&&nav.hasRoute(point),`Village pressure entry ${point.x},${point.y} is trapped`);

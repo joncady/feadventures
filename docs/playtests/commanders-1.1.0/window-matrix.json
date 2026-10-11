@@ -1,0 +1,164 @@
+[
+  {
+    "index": 1,
+    "w": 809,
+    "h": 1066,
+    "errors": [],
+    "version": "v1.1.0",
+    "boss": {
+      "key": "gangrel",
+      "name": "gangrel",
+      "health": 700,
+      "max": 700
+    },
+    "panel": true,
+    "label": "Gangrel  700",
+    "phase": "Commander",
+    "portrait": "portrait-gangrel",
+    "canvas": {
+      "x": 21,
+      "y": 135,
+      "width": 766.984375,
+      "height": 465.671875,
+      "top": 135,
+      "right": 787.984375,
+      "bottom": 600.671875,
+      "left": 21
+    }
+  },
+  {
+    "index": 2,
+    "w": 809,
+    "h": 1066,
+    "errors": [],
+    "version": "v1.1.0",
+    "boss": {
+      "key": "walhart",
+      "name": "walhart",
+      "health": 900,
+      "max": 900
+    },
+    "panel": true,
+    "label": "Walhart  900",
+    "phase": "Commander",
+    "portrait": "portrait-walhart",
+    "canvas": {
+      "x": 21,
+      "y": 135,
+      "width": 766.984375,
+      "height": 465.671875,
+      "top": 135,
+      "right": 787.984375,
+      "bottom": 600.671875,
+      "left": 21
+    }
+  },
+  {
+    "index": 3,
+    "w": 809,
+    "h": 1066,
+    "errors": [],
+    "version": "v1.1.0",
+    "boss": {
+      "key": "validar",
+      "name": "validar",
+      "health": 1400,
+      "max": 1400
+    },
+    "panel": true,
+    "label": "Validar  1400",
+    "phase": "Commander",
+    "portrait": "portrait-validar",
+    "canvas": {
+      "x": 21,
+      "y": 135,
+      "width": 766.984375,
+      "height": 465.671875,
+      "top": 135,
+      "right": 787.984375,
+      "bottom": 600.671875,
+      "left": 21
+    }
+  },
+  {
+    "index": 1,
+    "w": 844,
+    "h": 390,
+    "errors": [],
+    "version": "v1.1.0",
+    "boss": {
+      "key": "gangrel",
+      "name": "gangrel",
+      "health": 700,
+      "max": 700
+    },
+    "panel": true,
+    "label": "Gangrel  700",
+    "phase": "Commander",
+    "portrait": "portrait-gangrel",
+    "canvas": {
+      "x": 103.46875,
+      "y": 1.609375,
+      "width": 637.015625,
+      "height": 386.765625,
+      "top": 1.609375,
+      "right": 740.484375,
+      "bottom": 388.375,
+      "left": 103.46875
+    }
+  },
+  {
+    "index": 2,
+    "w": 844,
+    "h": 390,
+    "errors": [],
+    "version": "v1.1.0",
+    "boss": {
+      "key": "walhart",
+      "name": "walhart",
+      "health": 900,
+      "max": 900
+    },
+    "panel": true,
+    "label": "Walhart  900",
+    "phase": "Commander",
+    "portrait": "portrait-walhart",
+    "canvas": {
+      "x": 103.46875,
+      "y": 1.609375,
+      "width": 637.015625,
+      "height": 386.765625,
+      "top": 1.609375,
+      "right": 740.484375,
+      "bottom": 388.375,
+      "left": 103.46875
+    }
+  },
+  {
+    "index": 3,
+    "w": 844,
+    "h": 390,
+    "errors": [],
+    "version": "v1.1.0",
+    "boss": {
+      "key": "validar",
+      "name": "validar",
+      "health": 1400,
+      "max": 1400
+    },
+    "panel": true,
+    "label": "Validar  1400",
+    "phase": "Commander",
+    "portrait": "portrait-validar",
+    "canvas": {
+      "x": 103.46875,
+      "y": 1.609375,
+      "width": 637.015625,
+      "height": 386.765625,
+      "top": 1.609375,
+      "right": 740.484375,
+      "bottom": 388.375,
+      "left": 103.46875
+    }
+  }
+]

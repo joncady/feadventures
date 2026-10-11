@@ -1,0 +1,966 @@
+[
+  {
+    "phase": "leader",
+    "engine": "chromium",
+    "w": 390,
+    "h": 844,
+    "active": [
+      "Boot",
+      "Interface"
+    ],
+    "canvas": {
+      "x": 0,
+      "y": 303.609375,
+      "width": 389.984375,
+      "height": 236.78125,
+      "top": 303.609375,
+      "right": 389.984375,
+      "bottom": 540.390625,
+      "left": 0
+    },
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "fits": true
+  },
+  {
+    "phase": "companions",
+    "engine": "chromium",
+    "w": 390,
+    "h": 844,
+    "active": [
+      "Boot",
+      "Interface"
+    ],
+    "canvas": {
+      "x": 0,
+      "y": 303.609375,
+      "width": 389.984375,
+      "height": 236.78125,
+      "top": 303.609375,
+      "right": 389.984375,
+      "bottom": 540.390625,
+      "left": 0
+    },
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "fits": true
+  },
+  {
+    "engine": "chromium",
+    "w": 390,
+    "h": 844,
+    "action": "story",
+    "cssHeight": 6.524107874535463
+  },
+  {
+    "phase": "dialogue",
+    "engine": "chromium",
+    "w": 390,
+    "h": 844,
+    "active": [
+      "Campaign"
+    ],
+    "canvas": {
+      "x": 0,
+      "y": 303.609375,
+      "width": 389.984375,
+      "height": 236.78125,
+      "top": 303.609375,
+      "right": 389.984375,
+      "bottom": 540.390625,
+      "left": 0
+    },
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "fits": true
+  },
+  {
+    "phase": "shop",
+    "engine": "chromium",
+    "w": 390,
+    "h": 844,
+    "active": [
+      "Campaign"
+    ],
+    "canvas": {
+      "x": 0,
+      "y": 303.609375,
+      "width": 389.984375,
+      "height": 236.78125,
+      "top": 303.609375,
+      "right": 389.984375,
+      "bottom": 540.390625,
+      "left": 0
+    },
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "fits": true
+  },
+  {
+    "engine": "chromium",
+    "w": 390,
+    "h": 844,
+    "action": "deploy",
+    "cssHeight": 13.057789522058824
+  },
+  {
+    "phase": "deployment",
+    "engine": "chromium",
+    "w": 390,
+    "h": 844,
+    "active": [
+      "Arena",
+      "Interface"
+    ],
+    "canvas": {
+      "x": 0,
+      "y": 303.609375,
+      "width": 389.984375,
+      "height": 236.78125,
+      "top": 303.609375,
+      "right": 389.984375,
+      "bottom": 540.390625,
+      "left": 0
+    },
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "fits": true
+  },
+  {
+    "engine": "chromium",
+    "w": 390,
+    "h": 844,
+    "action": "auto",
+    "cssHeight": 6.524107874535463
+  },
+  {
+    "engine": "chromium",
+    "w": 390,
+    "h": 844,
+    "action": "battle",
+    "cssHeight": 6.524107874535463
+  },
+  {
+    "phase": "battle",
+    "engine": "chromium",
+    "w": 390,
+    "h": 844,
+    "active": [
+      "Arena",
+      "Interface"
+    ],
+    "canvas": {
+      "x": 0,
+      "y": 303.609375,
+      "width": 389.984375,
+      "height": 236.78125,
+      "top": 303.609375,
+      "right": 389.984375,
+      "bottom": 540.390625,
+      "left": 0
+    },
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "fits": true
+  },
+  {
+    "phase": "results",
+    "engine": "chromium",
+    "w": 390,
+    "h": 844,
+    "active": [
+      "Results"
+    ],
+    "canvas": {
+      "x": 0,
+      "y": 303.609375,
+      "width": 389.984375,
+      "height": 236.78125,
+      "top": 303.609375,
+      "right": 389.984375,
+      "bottom": 540.390625,
+      "left": 0
+    },
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "fits": true
+  },
+  {
+    "engine": "chromium",
+    "w": 390,
+    "h": 844,
+    "action": "continue",
+    "cssHeight": 16.539866727941178
+  },
+  {
+    "phase": "continued",
+    "engine": "chromium",
+    "w": 390,
+    "h": 844,
+    "active": [
+      "Campaign"
+    ],
+    "canvas": {
+      "x": 0,
+      "y": 303.609375,
+      "width": 389.984375,
+      "height": 236.78125,
+      "top": 303.609375,
+      "right": 389.984375,
+      "bottom": 540.390625,
+      "left": 0
+    },
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "fits": true
+  },
+  {
+    "engine": "chromium",
+    "w": 390,
+    "h": 844,
+    "exit": {
+      "native": false,
+      "fallback": false
+    },
+    "errors": []
+  },
+  {
+    "phase": "leader",
+    "engine": "chromium",
+    "w": 844,
+    "h": 390,
+    "active": [
+      "Boot",
+      "Interface"
+    ],
+    "canvas": {
+      "x": 100.828125,
+      "y": 0,
+      "width": 642.3125,
+      "height": 389.984375,
+      "top": 0,
+      "right": 743.140625,
+      "bottom": 389.984375,
+      "left": 100.828125
+    },
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "fits": true
+  },
+  {
+    "phase": "companions",
+    "engine": "chromium",
+    "w": 844,
+    "h": 390,
+    "active": [
+      "Boot",
+      "Interface"
+    ],
+    "canvas": {
+      "x": 100.828125,
+      "y": 0,
+      "width": 642.3125,
+      "height": 389.984375,
+      "top": 0,
+      "right": 743.140625,
+      "bottom": 389.984375,
+      "left": 100.828125
+    },
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "fits": true
+  },
+  {
+    "engine": "chromium",
+    "w": 844,
+    "h": 390,
+    "action": "story",
+    "cssHeight": 10.745361517786103
+  },
+  {
+    "phase": "dialogue",
+    "engine": "chromium",
+    "w": 844,
+    "h": 390,
+    "active": [
+      "Campaign"
+    ],
+    "canvas": {
+      "x": 100.828125,
+      "y": 0,
+      "width": 642.3125,
+      "height": 389.984375,
+      "top": 0,
+      "right": 743.140625,
+      "bottom": 389.984375,
+      "left": 100.828125
+    },
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "fits": true
+  },
+  {
+    "phase": "shop",
+    "engine": "chromium",
+    "w": 844,
+    "h": 390,
+    "active": [
+      "Campaign"
+    ],
+    "canvas": {
+      "x": 100.828125,
+      "y": 0,
+      "width": 642.3125,
+      "height": 389.984375,
+      "top": 0,
+      "right": 743.140625,
+      "bottom": 389.984375,
+      "left": 100.828125
+    },
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "fits": true
+  },
+  {
+    "engine": "chromium",
+    "w": 844,
+    "h": 390,
+    "action": "deploy",
+    "cssHeight": 21.50649126838235
+  },
+  {
+    "phase": "deployment",
+    "engine": "chromium",
+    "w": 844,
+    "h": 390,
+    "active": [
+      "Arena",
+      "Interface"
+    ],
+    "canvas": {
+      "x": 100.828125,
+      "y": 0,
+      "width": 642.3125,
+      "height": 389.984375,
+      "top": 0,
+      "right": 743.140625,
+      "bottom": 389.984375,
+      "left": 100.828125
+    },
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "fits": true
+  },
+  {
+    "engine": "chromium",
+    "w": 844,
+    "h": 390,
+    "action": "auto",
+    "cssHeight": 10.745361517786103
+  },
+  {
+    "engine": "chromium",
+    "w": 844,
+    "h": 390,
+    "action": "battle",
+    "cssHeight": 10.745361517786103
+  },
+  {
+    "phase": "battle",
+    "engine": "chromium",
+    "w": 844,
+    "h": 390,
+    "active": [
+      "Arena",
+      "Interface"
+    ],
+    "canvas": {
+      "x": 100.828125,
+      "y": 0,
+      "width": 642.3125,
+      "height": 389.984375,
+      "top": 0,
+      "right": 743.140625,
+      "bottom": 389.984375,
+      "left": 100.828125
+    },
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "fits": true
+  },
+  {
+    "phase": "results",
+    "engine": "chromium",
+    "w": 844,
+    "h": 390,
+    "active": [
+      "Results"
+    ],
+    "canvas": {
+      "x": 100.828125,
+      "y": 0,
+      "width": 642.3125,
+      "height": 389.984375,
+      "top": 0,
+      "right": 743.140625,
+      "bottom": 389.984375,
+      "left": 100.828125
+    },
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "fits": true
+  },
+  {
+    "engine": "chromium",
+    "w": 844,
+    "h": 390,
+    "action": "continue",
+    "cssHeight": 27.24155560661765
+  },
+  {
+    "phase": "continued",
+    "engine": "chromium",
+    "w": 844,
+    "h": 390,
+    "active": [
+      "Campaign"
+    ],
+    "canvas": {
+      "x": 100.828125,
+      "y": 0,
+      "width": 642.3125,
+      "height": 389.984375,
+      "top": 0,
+      "right": 743.140625,
+      "bottom": 389.984375,
+      "left": 100.828125
+    },
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "fits": true
+  },
+  {
+    "engine": "chromium",
+    "w": 844,
+    "h": 390,
+    "exit": {
+      "native": false,
+      "fallback": false
+    },
+    "errors": []
+  },
+  {
+    "phase": "leader",
+    "engine": "webkit",
+    "w": 390,
+    "h": 844,
+    "active": [
+      "Boot",
+      "Interface"
+    ],
+    "canvas": {
+      "x": 9,
+      "y": 308.609375,
+      "width": 371.96875,
+      "height": 225.84375,
+      "top": 308.609375,
+      "right": 380.96875,
+      "bottom": 534.453125,
+      "left": 9
+    },
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "fits": true
+  },
+  {
+    "phase": "companions",
+    "engine": "webkit",
+    "w": 390,
+    "h": 844,
+    "active": [
+      "Boot",
+      "Interface"
+    ],
+    "canvas": {
+      "x": 9,
+      "y": 308.609375,
+      "width": 371.96875,
+      "height": 225.84375,
+      "top": 308.609375,
+      "right": 380.96875,
+      "bottom": 534.453125,
+      "left": 9
+    },
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "fits": true
+  },
+  {
+    "engine": "webkit",
+    "w": 390,
+    "h": 844,
+    "action": "story",
+    "cssHeight": 6.214335722081802
+  },
+  {
+    "phase": "dialogue",
+    "engine": "webkit",
+    "w": 390,
+    "h": 844,
+    "active": [
+      "Campaign"
+    ],
+    "canvas": {
+      "x": 9,
+      "y": 308.609375,
+      "width": 371.96875,
+      "height": 225.84375,
+      "top": 308.609375,
+      "right": 380.96875,
+      "bottom": 534.453125,
+      "left": 9
+    },
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "fits": true
+  },
+  {
+    "phase": "shop",
+    "engine": "webkit",
+    "w": 390,
+    "h": 844,
+    "active": [
+      "Campaign"
+    ],
+    "canvas": {
+      "x": 9,
+      "y": 308.609375,
+      "width": 371.96875,
+      "height": 225.84375,
+      "top": 308.609375,
+      "right": 380.96875,
+      "bottom": 534.453125,
+      "left": 9
+    },
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "fits": true
+  },
+  {
+    "engine": "webkit",
+    "w": 390,
+    "h": 844,
+    "action": "deploy",
+    "cssHeight": 12.454618566176471
+  },
+  {
+    "phase": "deployment",
+    "engine": "webkit",
+    "w": 390,
+    "h": 844,
+    "active": [
+      "Arena",
+      "Interface"
+    ],
+    "canvas": {
+      "x": 9,
+      "y": 308.609375,
+      "width": 371.96875,
+      "height": 225.84375,
+      "top": 308.609375,
+      "right": 380.96875,
+      "bottom": 534.453125,
+      "left": 9
+    },
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "fits": true
+  },
+  {
+    "engine": "webkit",
+    "w": 390,
+    "h": 844,
+    "action": "auto",
+    "cssHeight": 6.214335722081802
+  },
+  {
+    "engine": "webkit",
+    "w": 390,
+    "h": 844,
+    "action": "battle",
+    "cssHeight": 6.214335722081802
+  },
+  {
+    "phase": "battle",
+    "engine": "webkit",
+    "w": 390,
+    "h": 844,
+    "active": [
+      "Arena",
+      "Interface"
+    ],
+    "canvas": {
+      "x": 9,
+      "y": 308.609375,
+      "width": 371.96875,
+      "height": 225.84375,
+      "top": 308.609375,
+      "right": 380.96875,
+      "bottom": 534.453125,
+      "left": 9
+    },
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "fits": true
+  },
+  {
+    "phase": "results",
+    "engine": "webkit",
+    "w": 390,
+    "h": 844,
+    "active": [
+      "Results"
+    ],
+    "canvas": {
+      "x": 9,
+      "y": 308.609375,
+      "width": 371.96875,
+      "height": 225.84375,
+      "top": 308.609375,
+      "right": 380.96875,
+      "bottom": 534.453125,
+      "left": 9
+    },
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "fits": true
+  },
+  {
+    "engine": "webkit",
+    "w": 390,
+    "h": 844,
+    "action": "continue",
+    "cssHeight": 15.775850183823529
+  },
+  {
+    "phase": "continued",
+    "engine": "webkit",
+    "w": 390,
+    "h": 844,
+    "active": [
+      "Results"
+    ],
+    "canvas": {
+      "x": 9,
+      "y": 308.609375,
+      "width": 371.96875,
+      "height": 225.84375,
+      "top": 308.609375,
+      "right": 380.96875,
+      "bottom": 534.453125,
+      "left": 9
+    },
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "fits": true
+  },
+  {
+    "engine": "webkit",
+    "w": 390,
+    "h": 844,
+    "exit": {
+      "native": false,
+      "fallback": false
+    },
+    "errors": []
+  },
+  {
+    "phase": "leader",
+    "engine": "webkit",
+    "w": 844,
+    "h": 390,
+    "active": [
+      "Boot",
+      "Interface"
+    ],
+    "canvas": {
+      "x": 102.828125,
+      "y": 1,
+      "width": 637.015625,
+      "height": 386.765625,
+      "top": 1,
+      "right": 739.84375,
+      "bottom": 387.765625,
+      "left": 102.828125
+    },
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "fits": true
+  },
+  {
+    "phase": "companions",
+    "engine": "webkit",
+    "w": 844,
+    "h": 390,
+    "active": [
+      "Boot",
+      "Interface"
+    ],
+    "canvas": {
+      "x": 102.828125,
+      "y": 1,
+      "width": 637.015625,
+      "height": 386.765625,
+      "top": 1,
+      "right": 739.84375,
+      "bottom": 387.765625,
+      "left": 102.828125
+    },
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "fits": true
+  },
+  {
+    "engine": "webkit",
+    "w": 844,
+    "h": 390,
+    "action": "story",
+    "cssHeight": 10.642275641946231
+  },
+  {
+    "phase": "dialogue",
+    "engine": "webkit",
+    "w": 844,
+    "h": 390,
+    "active": [
+      "Campaign"
+    ],
+    "canvas": {
+      "x": 102.828125,
+      "y": 1,
+      "width": 637.015625,
+      "height": 386.765625,
+      "top": 1,
+      "right": 739.84375,
+      "bottom": 387.765625,
+      "left": 102.828125
+    },
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "fits": true
+  },
+  {
+    "phase": "shop",
+    "engine": "webkit",
+    "w": 844,
+    "h": 390,
+    "active": [
+      "Campaign"
+    ],
+    "canvas": {
+      "x": 102.828125,
+      "y": 1,
+      "width": 637.015625,
+      "height": 386.765625,
+      "top": 1,
+      "right": 739.84375,
+      "bottom": 387.765625,
+      "left": 102.828125
+    },
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "fits": true
+  },
+  {
+    "engine": "webkit",
+    "w": 844,
+    "h": 390,
+    "action": "deploy",
+    "cssHeight": 21.328986672794116
+  },
+  {
+    "phase": "deployment",
+    "engine": "webkit",
+    "w": 844,
+    "h": 390,
+    "active": [
+      "Arena",
+      "Interface"
+    ],
+    "canvas": {
+      "x": 102.828125,
+      "y": 1,
+      "width": 637.015625,
+      "height": 386.765625,
+      "top": 1,
+      "right": 739.84375,
+      "bottom": 387.765625,
+      "left": 102.828125
+    },
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "fits": true
+  },
+  {
+    "engine": "webkit",
+    "w": 844,
+    "h": 390,
+    "action": "auto",
+    "cssHeight": 10.642275641946231
+  },
+  {
+    "engine": "webkit",
+    "w": 844,
+    "h": 390,
+    "action": "battle",
+    "cssHeight": 10.642275641946231
+  },
+  {
+    "phase": "battle",
+    "engine": "webkit",
+    "w": 844,
+    "h": 390,
+    "active": [
+      "Arena",
+      "Interface"
+    ],
+    "canvas": {
+      "x": 102.828125,
+      "y": 1,
+      "width": 637.015625,
+      "height": 386.765625,
+      "top": 1,
+      "right": 739.84375,
+      "bottom": 387.765625,
+      "left": 102.828125
+    },
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "fits": true
+  },
+  {
+    "phase": "results",
+    "engine": "webkit",
+    "w": 844,
+    "h": 390,
+    "active": [
+      "Results"
+    ],
+    "canvas": {
+      "x": 102.828125,
+      "y": 1,
+      "width": 637.015625,
+      "height": 386.765625,
+      "top": 1,
+      "right": 739.84375,
+      "bottom": 387.765625,
+      "left": 102.828125
+    },
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "fits": true
+  },
+  {
+    "engine": "webkit",
+    "w": 844,
+    "h": 390,
+    "action": "continue",
+    "cssHeight": 27.016716452205884
+  },
+  {
+    "phase": "continued",
+    "engine": "webkit",
+    "w": 844,
+    "h": 390,
+    "active": [
+      "Results"
+    ],
+    "canvas": {
+      "x": 102.828125,
+      "y": 1,
+      "width": 637.015625,
+      "height": 386.765625,
+      "top": 1,
+      "right": 739.84375,
+      "bottom": 387.765625,
+      "left": 102.828125
+    },
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "fits": true
+  },
+  {
+    "engine": "webkit",
+    "w": 844,
+    "h": 390,
+    "exit": {
+      "native": false,
+      "fallback": false
+    },
+    "errors": []
+  }
+]
