@@ -1,6 +1,8 @@
 import {test,expect} from '@playwright/test';
 test.use({deviceScaleFactor:2});
 for(const viewport of [{width:809,height:1066},{width:1440,height:1000}])test(`deployment panels leave all four courtyards clear at ${viewport.width}px`,async({page})=>{
+ // Four high-DPI map transitions and screenshots need a broader wall-time budget.
+ test.setTimeout(60000);
  await page.setViewportSize(viewport);await page.goto('/');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);
  for(let mission=0;mission<4;mission++){
   await page.evaluate(async(m)=>{const entry='/src/main.ts';const{game}=await import(entry);game.events.emit('dev-jump',m);game.events.emit('campaign-continue');game.scene.start('Arena',{hero:'chrom',companions:['virion','sumia','lissa'],tactical:true,missionIndex:m});},mission);await page.waitForTimeout(300);

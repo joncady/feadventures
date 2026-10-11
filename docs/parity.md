@@ -1,37 +1,24 @@
-# v1 → v2 parity checklist
+# Legacy parity and accepted campaign changes
 
-The user approved the current incremental release on 2026-10-10. Full parity remains unfinished; keep subsequent work local and require approval before the next deployment.
+Reviewed 2026-10-11 against release 1.0.8 and archived `v1/`. This supersedes the initial migration checklist. Publication was explicitly approved by the user; the old local-only gate is no longer current. GitHub issue #9 remains the acceptance record, with the detailed comparison in [legacy-parity-review.md](legacy-parity-review.md).
 
-The archived v1 source defines the comparison, including mechanics currently disabled by its unfinished canvas conversion. A passing build or a survival smoke test alone does not establish feature parity.
+“Parity” here means retaining the real-time combat experience and recording deliberate replacements. It does not mean restoring the earlier infinite swarm, random spawning, or two-player controls into the approved single-player campaign.
 
-| Behavior | Initial published build | Current local work / remaining gap |
-| --- | --- | --- |
-| Three original hero choices | Present | Present; Virion and Sumia added locally |
-| Player health display | Present | Present |
-| Enemy health display | Missing | Red bars follow enemies and reflect damage |
-| Sword attack sound | Present, loading race possible | Asset loading gate corrected |
-| Enemy receives damage sound | Missing | Restored once per successful player strike |
-| Player receives damage sound | Present, loading race possible | Asset loading gate corrected |
-| Arrow shot sound | Missing | Restored with original asset |
-| Player death sound | Missing | Restored with original defeated asset |
-| Archer projectiles / retreat | Missing; contact damage only | Restored distance behavior, aimed shots and arrow collisions |
-| Directional and attack sprite rows | Missing | Virion now has eight movement directions and a bow action locally; original heroes/enemies still need full frame restoration |
-| Two-player keyboard play | Missing | Restore selection limit, independent controls, targeting and all-player defeat |
-| GameCube adapter input | Missing | Archived bridge remains; requires hardware verification before parity can be claimed |
-| Melee enemy attack behavior | Replaced by contact damage | Implemented timed wind-ups, locked aim, recovery/cooldown and enemy-specific ranges; balance still needs comparison |
-| Terrain navigation | Absent in v1; direct pursuit in initial build | Shared navigation field routes around expanded terrain, restricts spawns to reachable areas; archers seek clear shots |
-| Combat balance | Changed | Player damage 10 → 35; enemy HP, speeds, wave budgets and attack timing differ; reconcile or explicitly accept |
-| Health pickup behavior | Changed | v1 timer-based rare spawn → v2 drops on kill; v2 items expire; reconcile or explicitly accept |
-| Stage countdown | Removed | Restore countdown/start gating |
-| Wave progression | Present, changed counts | Compare original multiplier/count/spawn decay before accepting |
-| Music/fullscreen | Present | Volume icon now starts all audio muted; user-requested change |
-| Bottom prototype caption | Present | Removed; user-requested change |
-| Restart cleanup | Improved | Keep regression coverage as projectiles and co-op are restored |
+| Behavior | Current status and evidence |
+| --- | --- |
+| Three original heroes | Retained inside a 17-hero roster, including separate Robin genders; `data/config.ts`, `roster-magic.spec.ts`. |
+| Directional movement, idle and attack frames | Imported and audited; `animation-layout.ts`, `animations.spec.ts`, `enemy-animation-audit.spec.ts`, `companion-facing-range.spec.ts`. Exact animation fidelity remains tracked separately (#4). |
+| Directional attacks | Mouse/world aim supports attacking while retreating; `sword-direction.spec.ts`, `mouse-aim.spec.ts`. |
+| Health feedback | Enemy health bars, party health bars and native player card; `native-interface.spec.ts`, `hud-compact.spec.ts`. |
+| Enemy combat | Timed melee windups, recovery and range; archer/mage projectiles and navigation; `enemy-behavior.spec.ts`, `support-and-retaliation.spec.ts`. |
+| Balance, drops and waves | Intentional campaign replacements, values and acceptance rationale recorded in the detailed review. |
+| Battle start | Explicit deployment, Space placement, Enter auto-place and Begin battle/R gating; stage clock has a five-second opening. Replaces the old countdown; `tactical-battle.spec.ts`, `deployment-spacing.spec.ts`. |
+| Campaign | Four objective missions, dialogue/shop, boss reinforcement phases; `campaign.spec.ts`, `black-keep.spec.ts`, `stage-one.test.ts`. Archived v1 hard-coded its first map. |
+| Progression and equipment | Per-companion XP, 100 XP levels and growths, F weapon switching, staff healing and urgent AI healing; `progression.test.ts`, `weapon-switching.spec.ts`, `rally-healing.spec.ts`. |
+| Party control | Q/E cycle living heroes; R calls help for 10 seconds with a 20-second cooldown. Replaces attack/defend orders; `tactical-battle.spec.ts`, `rally-healing.spec.ts`. |
+| Audio | Independent music/effects/voices; recorded attack, selection, Rally and death lines; proximity-scaled battle effects. Music defaults on, superseding the early mute preference. `audio-settings.spec.ts`, `character-death-voice.spec.ts`, `rally-voice.spec.ts`. Exact unidentified legacy effects remain #41. |
+| UI and cleanup | Phaser UI, pause controls, fullscreen, restart/menu cleanup; `pause-controls.spec.ts`, `native-interface.spec.ts`, `game.spec.ts`. Text density/sharpness remains a separate UX issue (#64). |
+| Save | Browser campaign checkpoint, validated schema and retry rollback; not a live mid-fight save. `campaign-save.test.ts`, `campaign-save.spec.ts`. |
+| Two-player keyboard / GameCube bridge | Not implemented in the current campaign. Explicitly deferred with multiplayer/backend stretch work (#5/#34); do not claim full input-device parity. |
 
-The local weapon triangle applies ±20% damage in both directions. Bows are neutral; flying effectiveness and physical/magical defenses remain pending. Tests cover Virion’s dead zone, range, terrain collisions and restart cleanup, plus melee reach and reciprocal triangle damage.
-
-Map progression was already disabled in archived v1 (`stages[0]` is hard-coded). Obstacle-aware pathfinding was also absent. These are planned improvements rather than losses of working v1 behavior.
-
-The initial public release was `49ab95e`. The approved incremental release `3e1351a` is deployed. Virion, Sumia, weapon icons, profiles and the triangle are subsequent local additions and remain unpublished. See `combat-roadmap.md` for the expanded and ranked backlog.
-
-Local follow-up: idle loops restored for every hero and waiting enemies. Main menu ends an active or paused run, stops Arena timers/projectiles and restores selection. Bulk import brings the roster to 16 heroes, with verified frame geometry and source manifests. Morgan and four other tome users cast Fire projectiles; magic uses Resistance while physical attacks use Defense on armored enemies. All these additions remain unpublished. Full original hero/enemy directional and attack frames still need restoration.
+The tests listed are evidence pointers, not a claim that this documentation pass reran them. Use the release QA and CI records for actual executions. Remaining navigation/performance, animation fidelity and multiplayer work stays separately tracked; none requires resurrecting retired v1 wave rules.

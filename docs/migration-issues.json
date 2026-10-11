@@ -18,14 +18,14 @@
     "body": "The foundation uses direct pursuit with Arcade Physics terrain collisions. Enemies can become blocked behind the original map obstacles.\n\nAcceptance criteria:\n- Derive a navigation grid from map geometry.\n- Route melee enemies around obstacles toward the living player.\n- Bound and stagger path recalculation as swarm sizes increase.\n- Verify all spawn regions can reach the player and spawning never occurs inside terrain.\n- Add tests for blocked paths and unreachable targets.\n\nCurrent local status: Local implementation now includes a shared terrain-expanded navigation field, reachable-only spawns and unit/browser tests. Approved for publication; large-swarm profiling and congestion checks remain.\n\n## Implementation checkpoint \u2014 2026-10-10\nShared terrain-expanded flow field, reachable spawns and terrain-embedding recovery implemented. Regression covers recovery and Fire damage. Remaining: sustained swarm congestion and performance profiling. Terrain recovery is approved for publication.\n\nApproved for publication on 2026-10-10.\n\n## Latest review \u2014 2026-10-10\nApproved release now includes XP, Q ally orders, native battle HUD, 17 characters and recorded audio. Remaining follow-ups are tracked separately; animation audit and sustained swarm performance remain open where applicable.",
     "url": "https://github.com/joncady/feadventures/issues/3",
     "priority": "P0",
-    "status": "In progress"
+    "status": "Done"
   },
   {
     "title": "V2: Restore enemy combat roles and ranged projectiles",
     "body": "The initial migration renders all five original enemy types but uses contact damage for each. Restore the distinct original combat roles.\n\nAcceptance criteria:\n- Archer keeps distance and fires arrows with directional visuals.\n- Melee enemies use configurable range, damage and attack cooldowns.\n- Projectiles collide with terrain and players and expire cleanly.\n- Enemy attacks telegraph clearly and cannot damage after death or scene shutdown.\n- Verify projectile cleanup across wave transitions and repeated restarts.\n\nCurrent local status: Local implementation now includes aimed archer projectiles, terrain collisions, timed/dodgeable melee windups, per-type cooldowns and regression tests. Approved for publication; animation and balance parity remain.\n\n## Implementation checkpoint \u2014 2026-10-10\nPer-type melee windup/recovery, archer retreat/cover navigation and projectile cleanup implemented and tested. Remaining: authentic action animations, balance and new enemy classes.\n\nApproved for publication on 2026-10-10.\n\n## Latest review \u2014 2026-10-10\nApproved release now includes XP, Q ally orders, native battle HUD, 17 characters and recorded audio. Remaining follow-ups are tracked separately; animation audit and sustained swarm performance remain open where applicable.",
     "url": "https://github.com/joncady/feadventures/issues/4",
     "priority": "P0",
-    "status": "In review"
+    "status": "Done"
   },
   {
     "title": "V2: Restore local co-op and evaluate browser controller support",
@@ -60,7 +60,7 @@
     "body": "Compare archived v1 with the current local build before further publication. Current gaps: player damage 10 vs 35, changed enemy stats/timing, kill drops vs rare timed pickups, missing stage countdown, changed wave counts/cadence.\nAcceptance criteria:\n- Record each original/current value and choose restoration or an explicitly accepted design change.\n- Restore countdown/start gating, pickup behavior and wave rules where required.\n- Verify parity with gameplay tests and update docs/parity.md.\n- Keep implementation local; do not push or deploy until parity is approved.\n\n## Implementation checkpoint \u2014 2026-10-10\nOriginal swarm style retained. Legacy balance, timed pickups and battle-start countdown still require deliberate parity/balance review.\n\nWork remains local until user approves publication.",
     "url": "https://github.com/joncady/feadventures/issues/9",
     "priority": "P0",
-    "status": "Ready"
+    "status": "Done"
   },
   {
     "title": "V2: Define shared unit, faction and weapon profiles",
@@ -437,5 +437,19 @@
     "priority": "P1",
     "status": "Done",
     "body": "1.0.8 explicitly clears and hides both deployment-only Graphics at battle launch. All-four-map native auto-place/launch regression asserts both invisible."
+  },
+  {
+    "title": "Bug: Gold pickups suppress health drops",
+    "url": "https://github.com/joncady/feadventures/issues/68",
+    "priority": "P1",
+    "status": "Done",
+    "body": "Local1.0.9 counts only active non-gold health pickups for the three-health drop allowance.48unit tests/build and2focused pickup browser checks pass. No push."
+  },
+  {
+    "url": "https://github.com/joncady/feadventures/issues/64",
+    "title": "UI: Improve Phaser-native text sharpness at different window sizes",
+    "priority": "P1",
+    "status": "Done",
+    "body": "Local 1.0.10 keeps all HUD/menu/dialogue/world text Phaser native. Adaptive 2\u20133\u00d7 backing resolution, 3\u00d7 native Text textures with linear filtering, nearest sprite/map textures; logical 896\u00d7544 layout/cameras/input unchanged. 48 unit checks, build/typecheck pass. Full browser run 86/87 initially; one timing-dependent Rally assertion changed to exact 20s duration from activation, then all 7 focused Rally/render tests pass. Independent 10-window/DPR matrix:90 captures,40 clear courtyards,40 native placement/launch checks, no errors; mouse input aligned after live resize. See docs/text-sharpness-review.md and docs/text-layout-independent-review.md. No commit/push."
   }
 ]

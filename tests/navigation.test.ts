@@ -2,6 +2,22 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { NavigationField } from '../src/game/systems/navigation';
 import { OBSTACLES, WORLD } from '../src/game/data/config';
+import {CAMPAIGN_MAPS} from '../src/game/data/maps';
+
+test('each authored camp follows legal waypoints to deployment and objective',()=>{
+  for(const map of CAMPAIGN_MAPS)for(const target of [map.objective,{x:(map.courtyard.left+map.courtyard.right)/2,y:(map.courtyard.top+map.courtyard.bottom)/2}]){
+    const field=new NavigationField(map.width,map.height,map.terrain);field.setTarget(target);
+    for(const camp of map.camps){
+      let position={x:camp.x,y:camp.y};assert.ok(field.hasRoute(position),`${map.id}: ${camp.name} disconnected`);
+      for(let step=0;!field.canTravel(position,target)&&step<500;step++){
+        const next=field.nextWaypoint(position);assert.ok(next,`${map.id}: missing waypoint`);
+        assert.ok(field.canTravel(position,next),`${map.id}: illegal route segment`);
+        assert.notDeepEqual(next,position,`${map.id}: route stalled`);position=next;
+      }
+      assert.ok(field.canTravel(position,target),`${map.id}: target never reached`);
+    }
+  }
+});
 
 test('routes around terrain with clearance for the entire body', () => {
   const field = new NavigationField(320, 240, [[140, 60, 40, 120]]);

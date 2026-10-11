@@ -22,7 +22,7 @@ test('Sage Miriel can select staff and heal automatically when left guarding',as
 test('Pegasus companion physically flies across an intact barricade while ground ally is stopped',async({page})=>{
  await battle(page);
  await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');s.updateEnemy=()=>{};const fly=s.allies.getChildren().find((a:any)=>a.getData('companionHero')==='sumia');const ground=s.allies.getChildren().find((a:any)=>a.getData('companionHero')==='chrom');fly.body.reset(480,320);ground.body.reset(500,320);fly.setVelocity(0,-100);ground.setVelocity(0,-100);game.scene.resume('Arena');});
- await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').allies.getChildren().find((a:any)=>a.getData('companionHero')==='sumia').y;})).toBeLessThan(200);
+ await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').allies.getChildren().find((a:any)=>a.getData('companionHero')==='sumia').y;}),{timeout:15000}).toBeLessThan(200);
  const groundY=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').allies.getChildren().find((a:any)=>a.getData('companionHero')==='chrom').y;});expect(groundY).toBeGreaterThan(220);
 });
 

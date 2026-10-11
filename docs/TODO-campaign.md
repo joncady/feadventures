@@ -107,3 +107,17 @@ Padded measured deployment panel, Black Keep right gutter, allfour projected cou
 ## Release1.0.8 — #67
 
 Deployment cursor and planning grid explicitly hidden on launch, with native Auto-place/R coverage on all four maps at809px/1440px. Release includes reviewed local1.0.1–1.0.7 changes. Full checks recorded in docs/release-qa-1.0.8.md.
+
+## Local1.0.9 — #68 health pickup allowance
+
+- [x] Health drops count active health pickups only; uncollected gold no longer consumes the three-health allowance. Gold amount/probability/expiry unchanged.
+- [x]48unit tests, TypeScript/build, and2focused browser checks pass. Regression proves12gold permit a health drop, threehealth items cap further drops, and restart clears both types.
+- [x] #9 legacy rules reconciled with approved campaign replacements; #3 navigation and #4 combat audit tracked as completed on GitHub.
+- [ ] User review of pickup pacing and a full Black Keep boss playthrough; text sharpness #64 is completed locally in 1.0.10. Local changes not pushed.
+
+## Local 1.0.10 — Native text sharpness #64
+
+- [x] Adaptive 2–3× physical backing canvas, native Text 3×/linear filtering, sprite/map nearest filtering; unchanged logical cameras, world units and input.
+- [x] Independent 600/809/939/1039/1440px DPR1/2 review:90 state captures,40 unobstructed courtyard checks,40 native placement/launch checks and live resize pointer alignment, no errors.
+- [x] 48 unit checks and build/typecheck pass; initial full browser86/87, exact-activation Rally fixture corrected then all7 focused Rally/render checks pass. See docs/text-sharpness-review.md.
+- [ ] User review on actual display;600px fixed FIT labels remain small. Nothing committed/pushed for this update.

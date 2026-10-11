@@ -8,9 +8,13 @@ test('scaled mouse aim is independent of movement, locks windup and resets on me
   await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').pointerAim.x;})).toBeCloseTo(896*.8,0);
   await page.locator('#game').focus(); await page.keyboard.down('a');
   await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');return s.facing.x>0&&s.player.body.velocity.x<0;})).toBe(true);
-  await page.keyboard.up('a');await page.mouse.click(bounds.x+bounds.width*.8,bounds.y+bounds.height*.43);
+  await page.keyboard.up('a');
+  // Pause on the first windup frame so a busy parallel suite cannot miss the 250ms state.
+  await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');const hold=()=>{if(s.playerShot){s.events.off('postupdate',hold);game.scene.pause('Arena');}};s.events.on('postupdate',hold);});
+  await page.mouse.click(bounds.x+bounds.width*.8,bounds.y+bounds.height*.43);
   await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return !!game.scene.getScene('Arena').playerShot;}),{intervals:[10,20,30]}).toBe(true);
   await page.mouse.move(bounds.x+bounds.width*.05,bounds.y+bounds.height*.43);
+  await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);game.scene.resume('Arena');});
   await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').arrows.getChildren()[0]?.body.velocity.x??0;})).toBeGreaterThan(0);
   await page.mouse.move(0,0);
   await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').facing.x;})).toBe(-1);

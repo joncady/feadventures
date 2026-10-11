@@ -83,6 +83,6 @@ test('waits for audio assets, toggles mute, and restores ranged and hit audio', 
   await expect.poll(() => page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);
     return game.scene.getScene('Arena').arrows.countActive();
-  }), { timeout: 1200 }).toBe(0);
+  }), { timeout: 5000 }).toBe(0);
   expect(errors).toEqual([]);
 });

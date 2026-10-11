@@ -1,0 +1,2902 @@
+[
+  {
+    "width": 600,
+    "dpr": 1,
+    "name": "menu",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      581.96875,
+      353.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Boot",
+      "Interface"
+    ],
+    "textCount": 102,
+    "badText": []
+  },
+  {
+    "width": 600,
+    "dpr": 1,
+    "name": "dialogue",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      581.96875,
+      353.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Campaign"
+    ],
+    "textCount": 6,
+    "badText": []
+  },
+  {
+    "width": 600,
+    "dpr": 1,
+    "name": "shop",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      581.96875,
+      353.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Campaign"
+    ],
+    "textCount": 20,
+    "badText": []
+  },
+  {
+    "width": 600,
+    "dpr": 1,
+    "name": "deployment-1",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      581.96875,
+      353.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 108,
+    "badText": []
+  },
+  {
+    "width": 600,
+    "dpr": 1,
+    "name": "courtyard-1",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 600,
+    "dpr": 1,
+    "name": "input-1",
+    "result": {
+      "deploying": false,
+      "count": 4
+    }
+  },
+  {
+    "width": 600,
+    "dpr": 1,
+    "name": "deployment-2",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      581.96875,
+      353.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 600,
+    "dpr": 1,
+    "name": "courtyard-2",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 600,
+    "dpr": 1,
+    "name": "input-2",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 600,
+    "dpr": 1,
+    "name": "deployment-3",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      581.96875,
+      353.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 600,
+    "dpr": 1,
+    "name": "courtyard-3",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 600,
+    "dpr": 1,
+    "name": "input-3",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 600,
+    "dpr": 1,
+    "name": "deployment-4",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      581.96875,
+      353.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 600,
+    "dpr": 1,
+    "name": "courtyard-4",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 600,
+    "dpr": 1,
+    "name": "input-4",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 600,
+    "dpr": 1,
+    "name": "battle",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      581.96875,
+      353.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 121,
+    "badText": []
+  },
+  {
+    "width": 600,
+    "dpr": 1,
+    "name": "pause",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      581.96875,
+      353.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Interface"
+    ],
+    "textCount": 107,
+    "badText": []
+  },
+  {
+    "width": 600,
+    "dpr": 1,
+    "name": "errors",
+    "errors": []
+  },
+  {
+    "width": 809,
+    "dpr": 1,
+    "name": "menu",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      766.984375,
+      465.671875
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Boot",
+      "Interface"
+    ],
+    "textCount": 102,
+    "badText": []
+  },
+  {
+    "width": 809,
+    "dpr": 1,
+    "name": "dialogue",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      766.984375,
+      465.671875
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Campaign"
+    ],
+    "textCount": 6,
+    "badText": []
+  },
+  {
+    "width": 809,
+    "dpr": 1,
+    "name": "shop",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      766.984375,
+      465.671875
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Campaign"
+    ],
+    "textCount": 20,
+    "badText": []
+  },
+  {
+    "width": 809,
+    "dpr": 1,
+    "name": "deployment-1",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      766.984375,
+      465.671875
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 108,
+    "badText": []
+  },
+  {
+    "width": 809,
+    "dpr": 1,
+    "name": "courtyard-1",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 809,
+    "dpr": 1,
+    "name": "input-1",
+    "result": {
+      "deploying": false,
+      "count": 4
+    }
+  },
+  {
+    "width": 809,
+    "dpr": 1,
+    "name": "deployment-2",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      766.984375,
+      465.671875
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 809,
+    "dpr": 1,
+    "name": "courtyard-2",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 809,
+    "dpr": 1,
+    "name": "input-2",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 809,
+    "dpr": 1,
+    "name": "deployment-3",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      766.984375,
+      465.671875
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 809,
+    "dpr": 1,
+    "name": "courtyard-3",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 809,
+    "dpr": 1,
+    "name": "input-3",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 809,
+    "dpr": 1,
+    "name": "deployment-4",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      766.984375,
+      465.671875
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 809,
+    "dpr": 1,
+    "name": "courtyard-4",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 809,
+    "dpr": 1,
+    "name": "input-4",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 809,
+    "dpr": 1,
+    "name": "battle",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      766.984375,
+      465.671875
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 120,
+    "badText": []
+  },
+  {
+    "width": 809,
+    "dpr": 1,
+    "name": "pause",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      766.984375,
+      465.671875
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Interface"
+    ],
+    "textCount": 107,
+    "badText": []
+  },
+  {
+    "width": 809,
+    "dpr": 1,
+    "name": "errors",
+    "errors": []
+  },
+  {
+    "width": 939,
+    "dpr": 1,
+    "name": "menu",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      896.96875,
+      544.59375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Boot",
+      "Interface"
+    ],
+    "textCount": 102,
+    "badText": []
+  },
+  {
+    "width": 939,
+    "dpr": 1,
+    "name": "dialogue",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      896.96875,
+      544.59375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Campaign"
+    ],
+    "textCount": 6,
+    "badText": []
+  },
+  {
+    "width": 939,
+    "dpr": 1,
+    "name": "shop",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      896.96875,
+      544.59375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Campaign"
+    ],
+    "textCount": 20,
+    "badText": []
+  },
+  {
+    "width": 939,
+    "dpr": 1,
+    "name": "deployment-1",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      896.96875,
+      544.59375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 108,
+    "badText": []
+  },
+  {
+    "width": 939,
+    "dpr": 1,
+    "name": "courtyard-1",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 939,
+    "dpr": 1,
+    "name": "input-1",
+    "result": {
+      "deploying": false,
+      "count": 4
+    }
+  },
+  {
+    "width": 939,
+    "dpr": 1,
+    "name": "deployment-2",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      896.96875,
+      544.59375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 939,
+    "dpr": 1,
+    "name": "courtyard-2",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 939,
+    "dpr": 1,
+    "name": "input-2",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 939,
+    "dpr": 1,
+    "name": "deployment-3",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      896.96875,
+      544.59375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 939,
+    "dpr": 1,
+    "name": "courtyard-3",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 939,
+    "dpr": 1,
+    "name": "input-3",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 939,
+    "dpr": 1,
+    "name": "deployment-4",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      896.96875,
+      544.59375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 939,
+    "dpr": 1,
+    "name": "courtyard-4",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 939,
+    "dpr": 1,
+    "name": "input-4",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 939,
+    "dpr": 1,
+    "name": "battle",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      896.96875,
+      544.59375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 121,
+    "badText": []
+  },
+  {
+    "width": 939,
+    "dpr": 1,
+    "name": "pause",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      896.96875,
+      544.59375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Interface"
+    ],
+    "textCount": 107,
+    "badText": []
+  },
+  {
+    "width": 939,
+    "dpr": 1,
+    "name": "errors",
+    "errors": []
+  },
+  {
+    "width": 1039,
+    "dpr": 1,
+    "name": "menu",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Boot",
+      "Interface"
+    ],
+    "textCount": 102,
+    "badText": []
+  },
+  {
+    "width": 1039,
+    "dpr": 1,
+    "name": "dialogue",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Campaign"
+    ],
+    "textCount": 6,
+    "badText": []
+  },
+  {
+    "width": 1039,
+    "dpr": 1,
+    "name": "shop",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Campaign"
+    ],
+    "textCount": 20,
+    "badText": []
+  },
+  {
+    "width": 1039,
+    "dpr": 1,
+    "name": "deployment-1",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 108,
+    "badText": []
+  },
+  {
+    "width": 1039,
+    "dpr": 1,
+    "name": "courtyard-1",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 1039,
+    "dpr": 1,
+    "name": "input-1",
+    "result": {
+      "deploying": false,
+      "count": 4
+    }
+  },
+  {
+    "width": 1039,
+    "dpr": 1,
+    "name": "deployment-2",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 1039,
+    "dpr": 1,
+    "name": "courtyard-2",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 1039,
+    "dpr": 1,
+    "name": "input-2",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 1039,
+    "dpr": 1,
+    "name": "deployment-3",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 1039,
+    "dpr": 1,
+    "name": "courtyard-3",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 1039,
+    "dpr": 1,
+    "name": "input-3",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 1039,
+    "dpr": 1,
+    "name": "deployment-4",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 1039,
+    "dpr": 1,
+    "name": "courtyard-4",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 1039,
+    "dpr": 1,
+    "name": "input-4",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 1039,
+    "dpr": 1,
+    "name": "battle",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 121,
+    "badText": []
+  },
+  {
+    "width": 1039,
+    "dpr": 1,
+    "name": "pause",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Interface"
+    ],
+    "textCount": 107,
+    "badText": []
+  },
+  {
+    "width": 1039,
+    "dpr": 1,
+    "name": "errors",
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "dpr": 1,
+    "name": "menu",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Boot",
+      "Interface"
+    ],
+    "textCount": 102,
+    "badText": []
+  },
+  {
+    "width": 1440,
+    "dpr": 1,
+    "name": "dialogue",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Campaign"
+    ],
+    "textCount": 6,
+    "badText": []
+  },
+  {
+    "width": 1440,
+    "dpr": 1,
+    "name": "shop",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Campaign"
+    ],
+    "textCount": 20,
+    "badText": []
+  },
+  {
+    "width": 1440,
+    "dpr": 1,
+    "name": "deployment-1",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 108,
+    "badText": []
+  },
+  {
+    "width": 1440,
+    "dpr": 1,
+    "name": "courtyard-1",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 1440,
+    "dpr": 1,
+    "name": "input-1",
+    "result": {
+      "deploying": false,
+      "count": 4
+    }
+  },
+  {
+    "width": 1440,
+    "dpr": 1,
+    "name": "deployment-2",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 1440,
+    "dpr": 1,
+    "name": "courtyard-2",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 1440,
+    "dpr": 1,
+    "name": "input-2",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 1440,
+    "dpr": 1,
+    "name": "deployment-3",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 1440,
+    "dpr": 1,
+    "name": "courtyard-3",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 1440,
+    "dpr": 1,
+    "name": "input-3",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 1440,
+    "dpr": 1,
+    "name": "deployment-4",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 1440,
+    "dpr": 1,
+    "name": "courtyard-4",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 1440,
+    "dpr": 1,
+    "name": "input-4",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 1440,
+    "dpr": 1,
+    "name": "battle",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 121,
+    "badText": []
+  },
+  {
+    "width": 1440,
+    "dpr": 1,
+    "name": "pause",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Interface"
+    ],
+    "textCount": 107,
+    "badText": []
+  },
+  {
+    "width": 1440,
+    "dpr": 1,
+    "name": "errors",
+    "errors": []
+  },
+  {
+    "width": 600,
+    "dpr": 2,
+    "name": "menu",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      581.96875,
+      353.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Boot",
+      "Interface"
+    ],
+    "textCount": 102,
+    "badText": []
+  },
+  {
+    "width": 600,
+    "dpr": 2,
+    "name": "dialogue",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      581.96875,
+      353.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Campaign"
+    ],
+    "textCount": 6,
+    "badText": []
+  },
+  {
+    "width": 600,
+    "dpr": 2,
+    "name": "shop",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      581.96875,
+      353.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Campaign"
+    ],
+    "textCount": 20,
+    "badText": []
+  },
+  {
+    "width": 600,
+    "dpr": 2,
+    "name": "deployment-1",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      581.96875,
+      353.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 108,
+    "badText": []
+  },
+  {
+    "width": 600,
+    "dpr": 2,
+    "name": "courtyard-1",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 600,
+    "dpr": 2,
+    "name": "input-1",
+    "result": {
+      "deploying": false,
+      "count": 4
+    }
+  },
+  {
+    "width": 600,
+    "dpr": 2,
+    "name": "deployment-2",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      581.96875,
+      353.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 600,
+    "dpr": 2,
+    "name": "courtyard-2",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 600,
+    "dpr": 2,
+    "name": "input-2",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 600,
+    "dpr": 2,
+    "name": "deployment-3",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      581.96875,
+      353.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 600,
+    "dpr": 2,
+    "name": "courtyard-3",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 600,
+    "dpr": 2,
+    "name": "input-3",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 600,
+    "dpr": 2,
+    "name": "deployment-4",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      581.96875,
+      353.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 600,
+    "dpr": 2,
+    "name": "courtyard-4",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 600,
+    "dpr": 2,
+    "name": "input-4",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 600,
+    "dpr": 2,
+    "name": "battle",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      581.96875,
+      353.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 121,
+    "badText": []
+  },
+  {
+    "width": 600,
+    "dpr": 2,
+    "name": "pause",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      581.96875,
+      353.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Interface"
+    ],
+    "textCount": 107,
+    "badText": []
+  },
+  {
+    "width": 600,
+    "dpr": 2,
+    "name": "errors",
+    "errors": []
+  },
+  {
+    "width": 809,
+    "dpr": 2,
+    "name": "menu",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      766.984375,
+      465.671875
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Boot",
+      "Interface"
+    ],
+    "textCount": 102,
+    "badText": []
+  },
+  {
+    "width": 809,
+    "dpr": 2,
+    "name": "dialogue",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      766.984375,
+      465.671875
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Campaign"
+    ],
+    "textCount": 6,
+    "badText": []
+  },
+  {
+    "width": 809,
+    "dpr": 2,
+    "name": "shop",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      766.984375,
+      465.671875
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Campaign"
+    ],
+    "textCount": 20,
+    "badText": []
+  },
+  {
+    "width": 809,
+    "dpr": 2,
+    "name": "deployment-1",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      766.984375,
+      465.671875
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 108,
+    "badText": []
+  },
+  {
+    "width": 809,
+    "dpr": 2,
+    "name": "courtyard-1",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 809,
+    "dpr": 2,
+    "name": "input-1",
+    "result": {
+      "deploying": false,
+      "count": 4
+    }
+  },
+  {
+    "width": 809,
+    "dpr": 2,
+    "name": "deployment-2",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      766.984375,
+      465.671875
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 809,
+    "dpr": 2,
+    "name": "courtyard-2",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 809,
+    "dpr": 2,
+    "name": "input-2",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 809,
+    "dpr": 2,
+    "name": "deployment-3",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      766.984375,
+      465.671875
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 809,
+    "dpr": 2,
+    "name": "courtyard-3",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 809,
+    "dpr": 2,
+    "name": "input-3",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 809,
+    "dpr": 2,
+    "name": "deployment-4",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      766.984375,
+      465.671875
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 809,
+    "dpr": 2,
+    "name": "courtyard-4",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 809,
+    "dpr": 2,
+    "name": "input-4",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 809,
+    "dpr": 2,
+    "name": "battle",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      766.984375,
+      465.671875
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 121,
+    "badText": []
+  },
+  {
+    "width": 809,
+    "dpr": 2,
+    "name": "pause",
+    "canvas": [
+      1792,
+      1088
+    ],
+    "css": [
+      766.984375,
+      465.671875
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Interface"
+    ],
+    "textCount": 107,
+    "badText": []
+  },
+  {
+    "width": 809,
+    "dpr": 2,
+    "name": "errors",
+    "errors": []
+  },
+  {
+    "width": 939,
+    "dpr": 2,
+    "name": "menu",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      896.96875,
+      544.59375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Boot",
+      "Interface"
+    ],
+    "textCount": 102,
+    "badText": []
+  },
+  {
+    "width": 939,
+    "dpr": 2,
+    "name": "dialogue",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      896.96875,
+      544.59375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Campaign"
+    ],
+    "textCount": 6,
+    "badText": []
+  },
+  {
+    "width": 939,
+    "dpr": 2,
+    "name": "shop",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      896.96875,
+      544.59375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Campaign"
+    ],
+    "textCount": 20,
+    "badText": []
+  },
+  {
+    "width": 939,
+    "dpr": 2,
+    "name": "deployment-1",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      896.96875,
+      544.59375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 108,
+    "badText": []
+  },
+  {
+    "width": 939,
+    "dpr": 2,
+    "name": "courtyard-1",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 939,
+    "dpr": 2,
+    "name": "input-1",
+    "result": {
+      "deploying": false,
+      "count": 4
+    }
+  },
+  {
+    "width": 939,
+    "dpr": 2,
+    "name": "deployment-2",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      896.96875,
+      544.59375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 939,
+    "dpr": 2,
+    "name": "courtyard-2",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 939,
+    "dpr": 2,
+    "name": "input-2",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 939,
+    "dpr": 2,
+    "name": "deployment-3",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      896.96875,
+      544.59375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 939,
+    "dpr": 2,
+    "name": "courtyard-3",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 939,
+    "dpr": 2,
+    "name": "input-3",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 939,
+    "dpr": 2,
+    "name": "deployment-4",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      896.96875,
+      544.59375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 939,
+    "dpr": 2,
+    "name": "courtyard-4",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 939,
+    "dpr": 2,
+    "name": "input-4",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 939,
+    "dpr": 2,
+    "name": "battle",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      896.96875,
+      544.59375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 120,
+    "badText": []
+  },
+  {
+    "width": 939,
+    "dpr": 2,
+    "name": "pause",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      896.96875,
+      544.59375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Interface"
+    ],
+    "textCount": 107,
+    "badText": []
+  },
+  {
+    "width": 939,
+    "dpr": 2,
+    "name": "errors",
+    "errors": []
+  },
+  {
+    "width": 1039,
+    "dpr": 2,
+    "name": "menu",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Boot",
+      "Interface"
+    ],
+    "textCount": 102,
+    "badText": []
+  },
+  {
+    "width": 1039,
+    "dpr": 2,
+    "name": "dialogue",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Campaign"
+    ],
+    "textCount": 6,
+    "badText": []
+  },
+  {
+    "width": 1039,
+    "dpr": 2,
+    "name": "shop",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Campaign"
+    ],
+    "textCount": 20,
+    "badText": []
+  },
+  {
+    "width": 1039,
+    "dpr": 2,
+    "name": "deployment-1",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 108,
+    "badText": []
+  },
+  {
+    "width": 1039,
+    "dpr": 2,
+    "name": "courtyard-1",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 1039,
+    "dpr": 2,
+    "name": "input-1",
+    "result": {
+      "deploying": false,
+      "count": 4
+    }
+  },
+  {
+    "width": 1039,
+    "dpr": 2,
+    "name": "deployment-2",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 1039,
+    "dpr": 2,
+    "name": "courtyard-2",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 1039,
+    "dpr": 2,
+    "name": "input-2",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 1039,
+    "dpr": 2,
+    "name": "deployment-3",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 1039,
+    "dpr": 2,
+    "name": "courtyard-3",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 1039,
+    "dpr": 2,
+    "name": "input-3",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 1039,
+    "dpr": 2,
+    "name": "deployment-4",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 1039,
+    "dpr": 2,
+    "name": "courtyard-4",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 1039,
+    "dpr": 2,
+    "name": "input-4",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 1039,
+    "dpr": 2,
+    "name": "battle",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 120,
+    "badText": []
+  },
+  {
+    "width": 1039,
+    "dpr": 2,
+    "name": "pause",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Interface"
+    ],
+    "textCount": 107,
+    "badText": []
+  },
+  {
+    "width": 1039,
+    "dpr": 2,
+    "name": "errors",
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "dpr": 2,
+    "name": "menu",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Boot",
+      "Interface"
+    ],
+    "textCount": 102,
+    "badText": []
+  },
+  {
+    "width": 1440,
+    "dpr": 2,
+    "name": "dialogue",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Campaign"
+    ],
+    "textCount": 6,
+    "badText": []
+  },
+  {
+    "width": 1440,
+    "dpr": 2,
+    "name": "shop",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Campaign"
+    ],
+    "textCount": 20,
+    "badText": []
+  },
+  {
+    "width": 1440,
+    "dpr": 2,
+    "name": "deployment-1",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 108,
+    "badText": []
+  },
+  {
+    "width": 1440,
+    "dpr": 2,
+    "name": "courtyard-1",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 1440,
+    "dpr": 2,
+    "name": "input-1",
+    "result": {
+      "deploying": false,
+      "count": 4
+    }
+  },
+  {
+    "width": 1440,
+    "dpr": 2,
+    "name": "deployment-2",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 1440,
+    "dpr": 2,
+    "name": "courtyard-2",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 1440,
+    "dpr": 2,
+    "name": "input-2",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 1440,
+    "dpr": 2,
+    "name": "deployment-3",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 1440,
+    "dpr": 2,
+    "name": "courtyard-3",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 1440,
+    "dpr": 2,
+    "name": "input-3",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 1440,
+    "dpr": 2,
+    "name": "deployment-4",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 112,
+    "badText": []
+  },
+  {
+    "width": 1440,
+    "dpr": 2,
+    "name": "courtyard-4",
+    "overlap": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  {
+    "width": 1440,
+    "dpr": 2,
+    "name": "input-4",
+    "result": {
+      "deploying": false,
+      "count": 8
+    }
+  },
+  {
+    "width": 1440,
+    "dpr": 2,
+    "name": "battle",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Arena",
+      "Interface"
+    ],
+    "textCount": 120,
+    "badText": []
+  },
+  {
+    "width": 1440,
+    "dpr": 2,
+    "name": "pause",
+    "canvas": [
+      2688,
+      1632
+    ],
+    "css": [
+      917.96875,
+      557.34375
+    ],
+    "logical": [
+      896,
+      544
+    ],
+    "scenes": [
+      "Interface"
+    ],
+    "textCount": 107,
+    "badText": []
+  },
+  {
+    "width": 1440,
+    "dpr": 2,
+    "name": "errors",
+    "errors": []
+  }
+]

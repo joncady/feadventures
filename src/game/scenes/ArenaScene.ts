@@ -859,7 +859,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     if (health <= 0) {
       const { x, y } = enemy; const typeKey=enemy.texture.key;const defeatedLevel=enemy.getData('level')??1; const companion=enemy.getData('companionHero') as Hero|undefined;if(companion){this.partyStates.get(companion)!.health=0;this.heroDeath(companion);} const hostile = this.faction(enemy) === 'enemy'; enemy.destroy(); if (hostile) { this.kills++; this.awardExperience(typeKey,defeatedLevel); }
       if(hostile&&this.tactical){const coin=this.pickups.create(x,y,'gold') as Enemy;coin.setDisplaySize(20,20).setDepth(12).setData({gold:Phaser.Math.Between(12,22),goldExpires:this.battleClock+20000});coin.setSize(coin.width,coin.height);}
-      if (hostile && Phaser.Math.Between(1, 5) === 1 && this.pickups.countActive() < 3) {
+      if (hostile && Phaser.Math.Between(1, 5) === 1 && this.pickups.getChildren().filter(pickup => pickup.active && pickup.getData('gold') === undefined).length < 3) {
         const item = this.pickups.create(x, y, 'vulnerary') as Enemy;
         item.setDisplaySize(20, 20); item.setSize(item.width, item.height);
         this.time.delayedCall(12000, () => { if (item.active) item.destroy(); });

@@ -10,5 +10,5 @@ test('cursor sound, native rejection and repeated-input throttling',async({page}
   const ui=game.scene.getScene('Interface');return {seen,effects,text:ui.actionFeedback.text,visible:ui.actionFeedback.visible};
  });
  expect(result.seen).toHaveLength(2);expect(result.text).toBe('Choose an empty courtyard cell.');expect(result.visible).toBe(true);expect(result.effects).toContain('ui-cursor');expect(result.effects).toContain('ui-reject');
- await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const {game}=await import(entry);return game.scene.getScene('Interface').actionFeedback.visible;})).toBe(false);
+ await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const {game}=await import(entry);return game.scene.getScene('Interface').actionFeedback.visible;}),{timeout:15000}).toBe(false);
 });

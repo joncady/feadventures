@@ -1,6 +1,7 @@
 import {VoiceGate} from './game/systems/voice-gate';
 import {RallyVoiceSelection} from './game/systems/rally-voice-selection';
 import Phaser from 'phaser';
+import { installSharpRendering } from './game/rendering/sharp-rendering';
 import {DevScene} from './game/scenes/DevScene';
 import {loadCampaign,saveCampaign} from './game/systems/campaign-save';
 import './style.css';
@@ -17,6 +18,7 @@ const element = <T extends HTMLElement>(id: string) => document.getElementById(i
 export const game = new Phaser.Game({
   type: Phaser.AUTO, parent: 'game', width: WORLD.width, height: WORLD.height,
   pixelArt: true, backgroundColor: '#1d3026',
+  callbacks: { postBoot: installSharpRendering },
   scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
   physics: { default: 'arcade', arcade: { debug: false } },
   scene: [BootScene, ArenaScene, InterfaceScene, CampaignScene, DevScene],
