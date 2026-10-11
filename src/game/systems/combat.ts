@@ -1,4 +1,4 @@
-export type WeaponType = 'sword' | 'axe' | 'lance' | 'bow' | 'tome';
+export type WeaponType = 'sword' | 'axe' | 'lance' | 'bow' | 'tome' | 'staff';
 export type Matchup = -1 | 0 | 1;
 const beats: Partial<Record<WeaponType, WeaponType>> = { sword: 'axe', axe: 'lance', lance: 'sword' };
 export function weaponMatchup(attacker: WeaponType, defender: WeaponType): Matchup {
@@ -15,5 +15,8 @@ export function withinWeaponRange(distance: number, minimum: number, maximum: nu
 }
 
 export function weaponAttackSound(weapon: WeaponType): string {
-  return ({ sword: 'attack', axe: 'axe-impact', lance: 'lance-thrust', bow: 'arrow-fire', tome: 'fire-cast' } as const)[weapon];
+  return ({ sword: 'attack', axe: 'axe-impact', lance: 'lance-thrust', bow: 'arrow-fire', tome: 'fire-cast', staff: 'heal' } as const)[weapon];
 }
+
+/** Apply the shared combat pacing setting after defenses and weapon modifiers. */
+export function scaleDamage(damage:number,scale:number):number {return Math.max(1,Math.round(damage*Math.max(.25,Math.min(2,scale))));}

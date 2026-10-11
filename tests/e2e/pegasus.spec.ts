@@ -11,7 +11,7 @@ test('Sumia flies across terrain, keeps world bounds and uses lance combat with 
     const scene = game.scene.getScene('Arena'); scene.allies.clear(true, true); scene.enemies.clear(true, true); scene.time.removeAllEvents(); scene.spawning = 1;
     scene.player.body.reset(300, 190);
   });
-  await page.locator('#game').focus(); await page.keyboard.down('w'); await page.waitForTimeout(650); await page.keyboard.up('w');
+  await page.locator('#game').focus(); await page.keyboard.down('w'); await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const {game}=await import(entry);return game.scene.getScene('Arena').player.y;}),{timeout:3000}).toBeLessThan(130); await page.keyboard.up('w');
   const result = await page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);
     const scene = game.scene.getScene('Arena'); scene.scene.pause();

@@ -29,4 +29,22 @@ Advance exactly once and cancel pending spawns, attacks and effects before trans
 
 ## Latest local checkpoint
 
-The first larger arena is now implemented locally, along with party/deployment/battle phases, fixed enemy camps, finite soldiers, per-character XP/stat growth, Q/E control rotation and a fixed minimap. See tactical-battle-plan.md for the updated architecture, verified community terrain sources and implementation scope. This batch is not published yet; multi-stage campaign/boss delivery remains next.
+The first larger arena is now implemented locally, along with party/deployment/battle phases, fixed enemy camps, finite soldiers, per-character XP/stat growth, Q/E control rotation and a fixed minimap. See tactical-battle-plan.md for the updated architecture, verified community terrain sources and implementation scope. This batch was published in commit 7d40c84; multi-stage campaign/boss delivery remains next.
+
+## Combat pacing and planning review
+
+The current local adjustment uses 50% final damage for all factions; native minus/plus controls range from 25% to 200%. Weapon advantage, defenses and criticals still resolve before that shared multiplier. This changes fight duration without rewriting progression stats. Planning supports clicking party names then open terrain, or Q/E selection and WASD/arrow movement in 32-world-pixel increments. R begins battle. Party selection supports WASD/arrows, Enter/Space, Tab between leader/companions and R to review the battlefield.
+
+The next campaign slice remains #19 → #20 → #21: preserve the entire party state across stage transitions, offer a small resupply screen, then finish with a telegraphed commander fight. Current camps contain generic enemies; named Awakening villains require their own verified map sprites and behavior profiles before being advertised as available. Candidate sheet entries include Gangrel, Validar, Aversa and Walhart.
+
+## Multiplayer stretch goal
+
+Keep backend multiplayer after the single-player campaign. Use room/lobby ownership, explicit per-player character assignment, server-authoritative damage/XP and snapshots, shared deployment confirmation, reconnect handling and synchronized camp schedules. Do not attempt to synchronize Phaser scene objects directly: serialize party, enemies, projectiles, inputs and run transitions through stable unit IDs. Multiplayer is not implemented in this checkpoint.
+
+## Pixel rendering
+
+Phaser uses pixel-art sampling. Small original map sprites and the half-scale deployment overview limit available detail; fractional browser sizing can soften them further. Canvas CSS now explicitly requests pixelated rendering. Higher-detail source art and integer-size sprite normalization remain a separate art audit, rather than an engine migration.
+
+## Stage-one implementation checkpoint
+
+Local play now includes three staggered camp waves, active-time phase clocks, regroup countdowns, a 3,600-HP armored commander and two one-time level-3 reinforcement squads. Complete victory waits for all scheduled releases, enemies and hostile projectiles. Space confirms deployment and advances selection; WASD moves a cursor before confirmation. Later-stage carryover/resupply and the campaign-final boss remain separate work. See stage-progression.md for timings and the 3–5 minute pacing target.

@@ -1,5 +1,10 @@
 import Phaser from 'phaser';
+import {DevScene} from './game/scenes/DevScene';
+import {loadCampaign,saveCampaign} from './game/systems/campaign-save';
 import './style.css';
+import {CampaignScene} from './game/scenes/CampaignScene';
+import {newCampaign,cloneMembers,buyCampaignItem,upgradeCampaignItem,type CampaignState,type CampaignMember} from './game/systems/campaign';
+import {getMap} from './game/data/maps';
 import { BootScene } from './game/scenes/BootScene';
 import { InterfaceScene, type InterfaceState } from './game/scenes/InterfaceScene';
 import { ArenaScene, type Hud } from './game/scenes/ArenaScene';
@@ -12,10 +17,20 @@ export const game = new Phaser.Game({
   pixelArt: true, backgroundColor: '#1d3026',
   scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
   physics: { default: 'arcade', arcade: { debug: false } },
-  scene: [BootScene, ArenaScene, InterfaceScene],
+  scene: [BootScene, ArenaScene, InterfaceScene, CampaignScene, DevScene],
 });
 const tactical = new URLSearchParams(location.search).get('battle') !== 'legacy';
 let phase: 'party'|'deployment'|'battle' = 'party';
+let campaign:CampaignState|undefined;
+let devRun=false;
+let devOpen=false;
+let devPausedScenes:string[]=[];
+function readSave():ReturnType<typeof loadCampaign> {try{return loadCampaign(localStorage);}catch{return undefined;}}
+function publishSave():void {const saved=readSave();const state={available:!!saved,missionName:saved?(saved.campaign.complete?'Campaign complete':getMap(saved.campaign.missionIndex).name):'',complete:saved?.campaign.complete??false,savedAt:saved?.savedAt};game.registry.set('campaign-save-state',state);game.events.emit('campaign-save-state',state);}
+function checkpointCampaign():void {if(campaign&&!devRun){let saved=false;try{saved=saveCampaign(localStorage,campaign);}catch{}if(!saved)notice('Saving unavailable in this browser. Keep this tab open.');publishSave();}}
+let missionCheckpoint:CampaignMember[]=[];
+let checkpointGold=0;
+const campaignEnabled=tactical&&new URLSearchParams(location.search).get('mission')!=='siege';
 let hero: Hero = 'chrom';
 let companions: Hero[] = [];
 let selectionMode: 'player'|'companions' = 'player';
@@ -36,9 +51,12 @@ function characterVoice(character: Hero, event: string): void {
   stopVoices(); lastVoiceAt = performance.now();
   game.sound.play(`voice-${character}-${event}`, { volume: audioSettings.voices });
 }
-game.events.on('effect', (key: string, options: { volume: number }) => {
-  if (audioSettings.effects > 0) game.sound.play(key, { volume: options.volume * audioSettings.effects });
+game.events.on('effect', (key: string, options: { volume: number; rate?:number; position?:{x:number;y:number} }) => {
+  const arena=game.scene.getScene('Arena') as ArenaScene;const proximity=options.position?(arena?.soundGain(options.position)??1):1;
+  if (audioSettings.effects > 0&&proximity>0) game.sound.play(key, { volume: options.volume * audioSettings.effects * proximity, rate:options.rate??1 });
 });
+const feedbackAt=new Map<string,number>();
+game.events.on('ux-feedback',({kind,message}:{kind:string;message?:string})=>{const now=performance.now(),last=feedbackAt.get(kind)??-Infinity;if(now-last<(kind==='reject'?450:kind==='cursor'?65:80)){if(kind==='confirm'&&message)game.events.emit('ux-feedback-visible',{kind,message});return;}feedbackAt.set(kind,now);const key=kind==='cursor'?'ui-cursor':kind==='reject'?'ui-reject':'ui-confirm';if(kind==='cursor')game.sound.stopByKey(key);if(game.cache.audio.exists(key))game.events.emit('effect',key,{volume:kind==='cursor'?.22:.3,rate:kind==='reject'?.65:kind==='confirm'?1.3:1});game.events.emit('ux-feedback-visible',{kind,message});});
 game.events.on('hero-attack', ({ hero: character }: { hero: Hero }) => characterVoice(character, 'attack'));
 game.events.on('hero-voice', ({ hero: character, event }: { hero: Hero; event: string }) => characterVoice(character, event));
 let loadingFailed = false;
@@ -68,6 +86,7 @@ function ensureMusic(): void {
   if (paused) music.pause();
 }
 publishInterface();
+publishSave();
 
 game.events.on('asset-error', (key: string) => {
   loadingFailed = true; notice(`Could not load ${key}. Reload to retry.`);
@@ -88,15 +107,20 @@ game.events.on('hud', (hud: Hud) => {
   element('kills').textContent = `Defeated ${hud.kills}`;
   element('game').dataset.enemies = String(hud.enemies);
 });
-game.events.on('game-over', (battleResult: { wave: number; kills: number; victory?:boolean }) => {
-  playing = false; pauseButton.disabled = true;
+game.events.on('game-over', (battleResult: { wave: number; kills: number; victory?:boolean;reason?:string;missionIndex?:number;members?:CampaignMember[];gold?:number }) => {
+  if(campaign&&battleResult.victory&&battleResult.missionIndex!==undefined){game.events.emit('ux-feedback',{kind:'confirm',message:battleResult.reason??'Victory!'});campaign.members=battleResult.members??campaign.members;campaign.gold+=(battleResult.gold??0)+100;campaign.missionIndex++;campaign.complete=campaign.missionIndex>=4;campaign.members.forEach(m=>m.health=m.progress.stats.hp);checkpointCampaign();playing=false;paused=false;game.scene.stop('Arena');game.scene.stop('Interface');game.scene.start('Campaign',{...campaign,party:campaign.members.map(m=>m.hero),victory:true,victoryReason:battleResult.reason});ensureMusic();return;}
+
+  game.events.emit('ux-feedback',{kind:battleResult.victory?'confirm':'reject',message:battleResult.victory?'Victory!':'Battle lost'});playing = false; pauseButton.disabled = true;
   element('end').hidden = false;
-  element('result').textContent = `${battleResult.victory?'Battle won! All camps cleared.':tactical?'Party defeated.':`Reached wave ${battleResult.wave}`} · Defeated ${battleResult.kills} enemies`;
+  element('result').textContent = `${battleResult.victory?'Battle won! Outskirts Commander defeated.':tactical?(battleResult.reason??'Party defeated.'):`Reached wave ${battleResult.wave}`} · Defeated ${battleResult.kills} enemies`;
   result = element('result').textContent ?? '';
   notice('Choose Try again for a fresh battle.'); publishInterface();
 });
 function start(): void {
   if (startButton.disabled) return;
+  if(campaignEnabled&&!campaign){devRun=false;campaign=newCampaign([hero,...companions]);checkpointCampaign();element('menu').hidden=true;element('end').hidden=true;result='';game.scene.stop('Boot');game.scene.stop('Interface');game.scene.start('Campaign',{...campaign,party:campaign.members.map(m=>m.hero)});ensureMusic();return;}
+  if(campaign){campaign.members=cloneMembers(missionCheckpoint.length?missionCheckpoint:campaign.members);if(missionCheckpoint.length)campaign.gold=checkpointGold;}
+
   ensureMusic();
   if(!tactical)game.events.emit('effect', 'battle-start', { volume: .45 });
   result = ''; settingsOpen = false; audioDialog.close();
@@ -105,14 +129,14 @@ function start(): void {
   phase=tactical?'deployment':'battle';
   playing = true; paused = false; pauseButton.disabled = tactical; pauseButton.textContent = 'Pause';
   element('hero-name').textContent = `${HERO_NAMES[hero]} · ${HERO_PROFILES[hero].weapon}`;
-  game.scene.start('Arena', { hero, companions, tactical });
+  game.scene.start('Arena', { hero, companions, tactical,missionIndex:campaign?.missionIndex,members:campaign?.members,gold:campaign?.gold });
   ensureMusic();
   game.scene.bringToTop('Interface'); publishInterface();
   element('game').focus();
 }
 function togglePause(): void {
-  if (!playing || settingsOpen || phase==='deployment') return;
-  paused = !paused;
+  if (!playing || settingsOpen || devOpen || phase==='deployment') return;
+  paused = !paused;game.events.emit('ux-feedback',{kind:'confirm',message:paused?'Paused':'Battle resumed'});
   if (paused) { stopVoices(); game.scene.pause('Arena'); music?.pause(); }
   else { game.scene.getScene('Arena').input.keyboard?.resetKeys(); game.scene.resume('Arena'); music?.resume(); }
   if (!paused) element('game').focus();
@@ -136,12 +160,13 @@ for (const button of document.querySelectorAll<HTMLButtonElement>('[data-charact
     if (!HEROES.includes(value as Hero)) return;
     const selected = value as Hero;
     if(selectionMode === 'companions') {
-      if(selected===hero)return;
+      if(selected===hero){game.events.emit('ux-feedback',{kind:'reject',message:'Your leader is already in the party.'});return;}
       if(companions.includes(selected))companions=companions.filter(h=>h!==selected);
       else if(companions.length<3){companions.push(selected);characterVoice(selected,'select');}
-      publishInterface();return;
+      else {game.events.emit('ux-feedback',{kind:'reject',message:'Party full — remove a companion first.'});return;}
+      game.events.emit('ux-feedback',{kind:'confirm',message:companions.includes(selected)?`${HERO_NAMES[selected]} joined the party`:`${HERO_NAMES[selected]} removed`});publishInterface();return;
     }
-    hero = selected;companions=companions.filter(h=>h!==hero);characterVoice(hero,'select');
+    game.events.emit('ux-feedback',{kind:'confirm'});hero = selected;companions=companions.filter(h=>h!==hero);characterVoice(hero,'select');
     element('hero-description').textContent = HERO_PROFILES[hero].description;
     for (const option of document.querySelectorAll<HTMLButtonElement>('[data-character]')) {
       const selected = option === button;
@@ -154,6 +179,7 @@ startButton.addEventListener('click', start);
 element('restart').addEventListener('click', start);
 function showMenu(): void {
   if (!element('menu').hidden) return;
+  campaign=undefined;devRun=false;missionCheckpoint=[];checkpointGold=0;game.scene.stop('Campaign');if(!game.scene.isActive('Interface'))game.scene.start('Interface');
   result = ''; settingsOpen = false; audioDialog.close();
   stopVoices(); game.sound.stopAll();
   game.scene.stop('Arena'); game.scene.start('Boot');
@@ -203,14 +229,14 @@ for (const category of ['music', 'effects', 'voices'] as const) {
     if (category === 'music') (music as Phaser.Sound.WebAudioSound | Phaser.Sound.HTML5AudioSound | undefined)?.setVolume(audioSettings.music);
     if (category === 'voices') stopVoices();
     if (category === 'effects') {
-      for (const key of ['attack', 'damage', 'arrow-fire', 'death', 'archive-effect-1', 'archive-effect-2', 'archive-effect-3', 'axe-impact', 'lance-thrust', 'fire-cast','xp-tick','level-up','battle-start']) game.sound.stopByKey(key);
+      for (const key of ['attack', 'damage', 'arrow-fire', 'death', 'archive-effect-1', 'archive-effect-2', 'archive-effect-3', 'axe-impact', 'lance-thrust', 'fire-cast','xp-tick','level-up','battle-start','ui-cursor','ui-confirm','ui-reject','heal','dialogue-advance']) game.sound.stopByKey(key);
     }
     publishInterface();
   });
 }
 element<HTMLInputElement>('character-voices').addEventListener('change', event => { audioSettings.characterVoices = (event.target as HTMLInputElement).checked; stopVoices(); publishInterface(); });
 element<HTMLSelectElement>('spell-effect').addEventListener('change', event => { audioSettings.spellEffect = (event.target as HTMLSelectElement).value; publishInterface(); });
-game.events.on('spell-effect', () => game.events.emit('effect', audioSettings.spellEffect, { volume: 0.25 }));
+game.events.on('spell-effect', (position?:{x:number;y:number}) => game.events.emit('effect', audioSettings.spellEffect, { volume: 0.25,position }));
 element('audio-preview').addEventListener('click', () => {
   if (muted) { notice('Unmute audio with the speaker button to preview.'); return; }
   game.events.emit('effect', audioSettings.spellEffect, { volume: 0.25 });
@@ -234,7 +260,38 @@ for(const [id,mode] of [['leader-mode','player'],['party-mode','companions']] as
 game.events.on('ui-character',(character:Hero)=>document.querySelector<HTMLButtonElement>(`[data-character="${character}"]`)?.click());
 
 game.events.on('ui-deploy-hero',(hero:Hero)=> (game.scene.getScene('Arena') as ArenaScene).selectDeployment(hero));
-game.events.on('ui-launch',()=>{if(phase!=='deployment')return;phase='battle';publishInterface();(game.scene.getScene('Arena') as ArenaScene).launchBattle();pauseButton.disabled=false;game.events.emit('effect','battle-start',{volume:.45});ensureMusic();publishInterface();element('game').focus();});
+game.events.on('ui-launch',()=>{if(phase!=='deployment')return;if(!(game.scene.getScene('Arena') as ArenaScene).launchBattle())return;phase='battle';publishInterface();pauseButton.disabled=false;game.events.emit('effect','battle-start',{volume:.45});ensureMusic();publishInterface();element('game').focus();});
 game.events.on('controlled-character',(hero:Hero)=>{element('hero-name').textContent=`${HERO_NAMES[hero]} · ${HERO_PROFILES[hero].weapon}`;});
 
 element('launch-battle').addEventListener('click',()=>game.events.emit('ui-launch'));
+
+game.events.on('ui-deploy-move',(dx:number,dy:number)=>(game.scene.getScene('Arena') as ArenaScene).nudgeDeployment(dx,dy));
+
+game.events.on('ui-deploy-soldier',()=> (game.scene.getScene('Arena') as ArenaScene).selectSoldierDeployment());
+
+game.events.on('ui-deploy-confirm',()=> (game.scene.getScene('Arena') as ArenaScene).confirmDeployment());
+
+function publishShop(message:string):void {if(!campaign)return;game.events.emit('campaign-shop-state',{gold:campaign.gold,members:campaign.members,message});}
+game.events.on('campaign-shop-buy',({hero:target,itemId}:{hero:Hero;itemId:string})=>{if(!campaign)return;const ok=buyCampaignItem(campaign,target,itemId);if(ok)checkpointCampaign();game.events.emit('ux-feedback',{kind:ok?'confirm':'reject',message:ok?'Weapon purchased':'Cannot purchase: check gold and class'});publishShop(ok?'Weapon purchased. F switches equipment in battle.':'Not enough gold, already owned, or unavailable to this class.');});
+game.events.on('campaign-shop-upgrade',({hero:target,slot}:{hero:Hero;slot:number})=>{if(!campaign)return;const ok=upgradeCampaignItem(campaign,target,slot);if(ok)checkpointCampaign();game.events.emit('ux-feedback',{kind:ok?'confirm':'reject'});publishShop(ok?'Equipment upgraded.':'Needs 100 gold. Each item can be forged three times.');});
+game.events.on('campaign-continue',()=>{if(!campaign)return;game.scene.stop('Campaign');if(campaign.complete){showMenu();return;}hero=campaign.members[0].hero;companions=campaign.members.slice(1).map(m=>m.hero);missionCheckpoint=cloneMembers(campaign.members);checkpointGold=campaign.gold;checkpointCampaign();game.scene.start('Interface');start();notice(getMap(campaign.missionIndex).objective.label);});
+
+function closeDev():void {
+ if(!devOpen)return;devOpen=false;game.scene.stop('Dev');
+ for(const key of devPausedScenes)if(game.scene.isPaused(key))game.scene.resume(key);
+ devPausedScenes=[];game.scene.getScene('Arena').input.keyboard?.resetKeys();
+}
+function openCampaign(state:CampaignState,testRun=false):void {
+ closeDev();for(const key of ['Boot','Arena','Interface','Campaign'])game.scene.stop(key);
+ campaign=structuredClone(state);devRun=testRun;missionCheckpoint=[];checkpointGold=0;
+ hero=campaign.members[0].hero;companions=campaign.members.slice(1).map(m=>m.hero);
+ phase='party';playing=false;paused=false;result='';settingsOpen=false;audioDialog.close();
+ element('menu').hidden=true;element('end').hidden=true;
+ game.scene.start('Campaign',{...campaign,party:campaign.members.map(m=>m.hero)});ensureMusic();
+}
+game.events.on('campaign-resume',()=>{const saved=readSave();if(!saved){game.events.emit('ux-feedback',{kind:'reject',message:'No valid saved campaign available.'});return;}openCampaign(saved.campaign);game.events.emit('ux-feedback',{kind:'confirm',message:'Campaign restored. Battles restart from deployment.'});});
+game.events.on('dev-jump',(index:number)=>{if(!Number.isInteger(index)||index<0||index>=4)return;const test=newCampaign([hero,...companions]);test.missionIndex=index;openCampaign(test,true);game.events.emit('ux-feedback',{kind:'confirm',message:'Developer test mission — regular save preserved.'});});
+game.events.on('dev-close',closeDev);
+function openDev():void {if(devOpen||startButton.disabled)return;devOpen=true;devPausedScenes=['Boot','Arena','Interface','Campaign'].filter(key=>game.scene.isActive(key));for(const key of devPausedScenes)game.scene.pause(key);game.scene.start('Dev');game.scene.bringToTop('Dev');}
+game.events.on('dev-open',openDev);
+window.addEventListener('keydown',event=>{if(event.defaultPrevented)return;if((event.code!=='F9'&&event.code!=='Backquote')||event.repeat)return;event.preventDefault();openDev();});

@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import {CAMPAIGN_MAPS} from '../data/maps';
 import { MOVEMENT_ROWS } from '../data/animation-layout';
 import { AUDIO_ASSETS } from '../data/audio-assets';
 import { ENEMY_TYPES, HEROES, HERO_SHEETS } from '../data/config';
@@ -10,18 +11,25 @@ export class BootScene extends Phaser.Scene {
     this.load.image('ui-parchment', 'ui-parchment.png');
     this.load.image('map', 'map.png');
     this.load.image('battlefield', 'battlefield.png');
+    this.load.image('siege-wall','siege-wall.png');
+    this.load.image('hero-camp','maps/camp-building.png');
+    this.load.image('gold','maps/gold-icon.png');
+    this.load.image('fire-bolt','maps/fire-bolt.png');
+    for(const map of CAMPAIGN_MAPS)this.load.image(map.backgroundKey,map.backgroundPath);
     this.load.image('title', 'titleScreen.png');
     this.load.image('vulnerary', 'vulnerary.png');
     this.load.image('slash', 'slash.png');
     this.load.image('arrow', 'arrow.png');
-    for (const weapon of ['sword', 'axe', 'lance', 'bow', 'tome']) this.load.image(`weapon-${weapon}`, `weapon-${weapon}.png`);
+    for (const weapon of ['sword', 'axe', 'lance', 'bow', 'tome','staff']) this.load.image(`weapon-${weapon}`, `weapon-${weapon}.png`);
     for (const hero of HEROES) this.load.image(`portrait-${hero}`, `${hero === 'chrom' ? 'chromPortrait1' : hero === 'lucina' ? 'lucinaPortrait1' : hero === 'frederick' ? 'frederickPortrait1' : hero + 'Portrait'}.png`);
     // The original sheets have ten rows across 492px; slice row zero explicitly.
     for (const hero of HEROES) this.load.spritesheet(hero, `${hero}${['chrom', 'lucina', 'frederick'].includes(hero) ? '-animated' : ''}.png`, { frameWidth: 50, frameHeight: HERO_SHEETS[hero].frameHeight, endFrame: HERO_SHEETS[hero].directional ? 39 : 3 });
     for (const enemy of ENEMY_TYPES) this.load.spritesheet(enemy.key, enemy.file.replace('.png', '-animated.png'), { frameWidth: 50, frameHeight: 50, endFrame: 39 });
-    for (const [key, file] of [['attack', 'attack.mp3'], ['damage', 'damage.mp3'], ['music', 'purpose.mp3'], ['arrow-fire', 'arrowFire.mp3'], ['death', 'defeated.mp3'], ['music-menu', 'audio/menu-theme.wav']] as const) this.load.audio(key, file);
+    for (const [key, file] of [['attack', 'attack.mp3'], ['damage', 'damage.mp3'], ['music', 'purpose.mp3'], ['arrow-fire', 'arrowFire.mp3'], ['death', 'defeated.mp3'], ['music-menu', 'purpose.mp3']] as const) this.load.audio(key, file);
     this.load.audio('battle-start', 'audio/battle-start.wav');
-    for (const key of ['axe-impact', 'lance-thrust', 'fire-cast', 'xp-tick', 'level-up']) this.load.audio(key, `audio/${key}.wav`);
+    this.load.audio('level-up','audio/level-up.wav');
+    for(const [key,file] of [['axe-impact','effect-WARC_EFFECT_1.wav'],['lance-thrust','effect-WARC_EFFECT_10.wav'],['fire-cast','effect-WARC_EFFECT_11.wav']])this.load.audio(key,`audio/${file}`);
+    this.load.audio('xp-tick','audio/ui-move.wav');
     for (const clip of AUDIO_ASSETS) this.load.audio(clip.key, clip.file);
     this.load.on('loaderror', (file: Phaser.Loader.File) => this.game.events.emit('asset-error', file.key));
   }
@@ -32,11 +40,6 @@ export class BootScene extends Phaser.Scene {
     this.add.image(448, 272, 'title');
     if (!this.scene.isActive('Interface')) this.scene.launch('Interface');
     if (this.anims.exists('chrom-idle')) { this.game.events.emit('assets-ready'); return; }
-    const fire = this.add.graphics();
-    fire.fillStyle(0xff6d22, 0.3).fillCircle(12, 12, 12);
-    fire.fillStyle(0xff6d22).fillCircle(12, 12, 8);
-    fire.fillStyle(0xffe8a2).fillTriangle(7, 17, 12, 3, 17, 17);
-    fire.generateTexture('fire-bolt', 24, 24); fire.destroy();
     this.textures.get('arrow').add('shaft', 0, 0, 40, 100, 20);
     for (const key of [...HEROES, ...ENEMY_TYPES.map(enemy => enemy.key)]) {
       this.anims.create({ key: `${key}-idle`, frames: this.anims.generateFrameNumbers(key, { start: 0, end: 3 }), frameRate: 5, repeat: -1 });

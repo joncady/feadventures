@@ -76,7 +76,7 @@ test('triangle applies in both directions and Frederick has longer lance reach',
     const distant = scene.enemies.create(290, 230, 'soldier'); distant.setSize(28, 28).setOffset(11, 15); distant.body.reset(290, 230);
     distant.setData({ health: 100, maxHealth: 100, weapon: 'sword' });
     scene.attack(); const swordHealth = distant.getData('health');
-    scene.hero = 'frederick'; scene.attack(); const lanceHealth = distant.getData('health');
+    const equipmentEntry='/src/game/data/equipment.ts';const {initialLoadout}=await import(equipmentEntry);scene.partyStates.set('frederick',{...scene.partyStates.get('chrom'),loadout:initialLoadout('frederick')});scene.hero = 'frederick'; scene.attack(); const lanceHealth = distant.getData('health');
     return { dealt, incoming, swordHealth, lanceHealth };
   });
   expect(result).toEqual({ dealt: [42, 28, 35], incoming: 12, swordHealth: 100, lanceHealth: 58 });

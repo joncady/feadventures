@@ -54,10 +54,19 @@ test('melee attacks route sword, axe and lance to distinct loaded effects', asyn
     const entry = '/src/main.ts'; const { game } = await import(entry);
     const scene = game.scene.getScene('Arena'); scene.allies.clear(true, true); scene.enemies.clear(true, true);
     const played: string[] = []; game.sound.play = (key: string) => { played.push(key); return true; };
-    for (const hero of ['chrom', 'vaike', 'frederick']) { scene.hero = hero; scene.attack(); }
+    const equipmentEntry='/src/game/data/equipment.ts';const {initialLoadout}=await import(equipmentEntry);
+    for (const hero of ['chrom', 'vaike', 'frederick']) { if(!scene.partyStates.has(hero))scene.partyStates.set(hero,{...scene.partyStates.get('chrom'),loadout:initialLoadout(hero)});scene.hero = hero; scene.attack(); }
     game.events.emit('spell-effect');
     return { played, loaded: ['axe-impact', 'lance-thrust', 'fire-cast'].every(key => game.cache.audio.exists(key)) };
   });
   expect(result.loaded).toBe(true);
   expect(result.played.filter(key => !key.startsWith('voice-'))).toEqual(['attack', 'axe-impact', 'lance-thrust', 'fire-cast']);
+});
+
+test('dialogue advance uses the effects volume and stops immediately when effects are muted',async({page})=>{
+ await page.goto('/');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);
+ await page.locator('#effects-volume').evaluate((input:HTMLInputElement)=>{input.value='50';input.dispatchEvent(new Event('input',{bubbles:true}));});
+ const played=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const plays:any[]=[];const stops:string[]=[];game.sound.play=(key:string,options:any)=>{plays.push({key,volume:options.volume});return true;};game.sound.stopByKey=(key:string)=>{stops.push(key);return true;};(window as any).__dialogueAudio={plays,stops};game.events.emit('effect','dialogue-advance',{volume:.4});return plays;});expect(played).toEqual([{key:'dialogue-advance',volume:.2}]);
+ await page.locator('#effects-volume').evaluate((input:HTMLInputElement)=>{input.value='0';input.dispatchEvent(new Event('input',{bubbles:true}));});
+ const muted=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);game.events.emit('effect','dialogue-advance',{volume:.4});return(window as any).__dialogueAudio;});expect(muted.stops).toContain('dialogue-advance');expect(muted.plays).toHaveLength(1);
 });

@@ -1,4 +1,11 @@
 export const AUDIO_ASSETS = [
+  // Recorded short noise cue; dialogue/page-turn identity awaits an audible audition.
+  { key: "dialogue-advance", file: "audio/dialogue-advance.wav" },
+  // Cursor clip chosen by the user; confirmation/rejection are provisional pitch variants.
+  { key: "ui-cursor", file: "audio/ui-move.wav" },
+  { key: "ui-confirm", file: "audio/ui-move.wav" },
+  { key: "ui-reject", file: "audio/ui-move.wav" },
+  { key: "heal", file: "audio/ui-move.wav" },
   {
     "key": "voice-chrom-attack",
     "file": "audio/chrom-attack.wav"

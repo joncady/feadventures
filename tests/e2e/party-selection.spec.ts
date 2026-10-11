@@ -5,7 +5,7 @@ test('native party picker selects three companions, keeps soldiers and routes bo
  await page.goto('/?battle=legacy');await page.getByRole('button',{name:'Begin battle'}).waitFor();
  await point(page,534,96);await card(page,'morgan');await card(page,'virion');await card(page,'sumia');await card(page,'vaike');
  expect(await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.registry.get('interface-state').companions;})).toEqual(['morgan','virion','sumia']);
- await point(page,448,506);
+ await point(page,737,506);
  await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').allies.countActive();})).toBe(5);
  const result=await page.evaluate(async()=>{
   const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');s.scene.pause();s.time.removeAllEvents();s.spawning=1;s.allyMode='attack';s.enemies.clear(true,true);
@@ -35,7 +35,7 @@ test('selection acknowledges character and menu/stage music switch without dupli
  await card(page,'vaike');
  const menu=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return {selected:game.registry.get('interface-state').hero,keys:game.registry.get('selection-sounds'),menu:Boolean(game.sound.get('music-menu')),stage:Boolean(game.sound.get('music'))};});
  expect(menu).toMatchObject({selected:'vaike',menu:true,stage:false});expect(menu.keys).toContain('voice-vaike-select');
- await point(page,448,506);
+ await point(page,737,506);
  expect(await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return {menu:Boolean(game.sound.get('music-menu')),stage:Boolean(game.sound.get('music'))};})).toEqual({menu:false,stage:true});
  await point(page,706,17);
  expect(await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return {menu:Boolean(game.sound.get('music-menu')),stage:Boolean(game.sound.get('music')),picker:game.scene.getScene('Interface').menu.visible,pause:game.scene.getScene('Interface').pauseButton.visible};})).toEqual({menu:true,stage:false,picker:true,pause:false});

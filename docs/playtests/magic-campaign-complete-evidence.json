@@ -1,0 +1,193 @@
+{
+  "time": "2026-10-10T23:50:52.318Z",
+  "runSeconds": 767.985,
+  "label": "STOP",
+  "value": {
+    "current": {
+      "now": 1791676252318,
+      "campaign": {
+        "phase": "dialogue",
+        "index": 4,
+        "gold": 911,
+        "complete": true
+      },
+      "arena": null
+    },
+    "last": {
+      "now": 1791676252070,
+      "campaign": null,
+      "arena": {
+        "cooldown": 0.6370999999999767,
+        "partyHP": [
+          {
+            "hero": "morgan",
+            "hp": 105
+          },
+          {
+            "hero": "miriel",
+            "hp": 104
+          },
+          {
+            "hero": "sumia",
+            "hp": 104
+          },
+          {
+            "hero": "virion",
+            "hp": 104
+          }
+        ],
+        "mission": 3,
+        "deploying": false,
+        "party": [
+          "morgan",
+          "miriel",
+          "sumia",
+          "virion"
+        ],
+        "selected": "virion",
+        "cursor": {
+          "x": 544,
+          "y": 736
+        },
+        "placed": {
+          "soldier-0": {
+            "x": 736,
+            "y": 608
+          },
+          "soldier-1": {
+            "x": 544,
+            "y": 608
+          },
+          "soldier-2": {
+            "x": 736,
+            "y": 800
+          },
+          "soldier-3": {
+            "x": 544,
+            "y": 800
+          },
+          "morgan": {
+            "x": 608,
+            "y": 672
+          },
+          "miriel": {
+            "x": 672,
+            "y": 672
+          },
+          "sumia": {
+            "x": 736,
+            "y": 672
+          },
+          "virion": {
+            "x": 544,
+            "y": 736
+          }
+        },
+        "ended": false,
+        "hero": "morgan",
+        "hp": 105,
+        "clock": 179009.50000000955,
+        "phase": "boss",
+        "wave": 3,
+        "pending": 0,
+        "gold": 97,
+        "player": {
+          "x": 703.1706267319206,
+          "y": 584.6298851594222
+        },
+        "camera": {
+          "x": 330,
+          "y": 352
+        },
+        "weapon": {
+          "items": [
+            {
+              "weaponId": "fire",
+              "uses": null,
+              "forge": 1
+            },
+            {
+              "weaponId": "iron-sword",
+              "uses": null
+            },
+            {
+              "weaponId": "thunder",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        },
+        "allies": [
+          {
+            "x": 691.2298805969689,
+            "y": 445.642071924967,
+            "hp": 23
+          },
+          {
+            "hero": "miriel",
+            "x": 637.6280764310894,
+            "y": 507.30020553612496,
+            "hp": 104
+          },
+          {
+            "hero": "sumia",
+            "x": 731.3936813152363,
+            "y": 492.59228392677414,
+            "hp": 104
+          },
+          {
+            "hero": "virion",
+            "x": 653.9238498057953,
+            "y": 661.3747882855679,
+            "hp": 104
+          }
+        ],
+        "enemies": [
+          {
+            "x": 684.5433931412779,
+            "y": 429.99261243266574,
+            "hp": 3,
+            "boss": true,
+            "weapon": "axe"
+          },
+          {
+            "x": 718.5437700673151,
+            "y": 400.77779280533343,
+            "hp": 110,
+            "weapon": "axe"
+          },
+          {
+            "x": 690.3713575709943,
+            "y": 398.99261243266574,
+            "hp": 98,
+            "weapon": "lance"
+          },
+          {
+            "x": 690.4578928022172,
+            "y": 394.7103577716696,
+            "hp": 80,
+            "weapon": "axe"
+          },
+          {
+            "x": 690.5437700673151,
+            "y": 392.45254038033784,
+            "hp": 103,
+            "weapon": "lance"
+          },
+          {
+            "x": 747,
+            "y": 255,
+            "hp": 68,
+            "weapon": "tome"
+          },
+          {
+            "x": 638.2308647971464,
+            "y": 244.01218063161235,
+            "hp": 68,
+            "weapon": "tome"
+          }
+        ]
+      }
+    }
+  }
+}

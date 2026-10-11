@@ -9,7 +9,7 @@ test('scaled mouse aim is independent of movement, locks windup and resets on me
   await page.locator('#game').focus(); await page.keyboard.down('a');
   await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');return s.facing.x>0&&s.player.body.velocity.x<0;})).toBe(true);
   await page.keyboard.up('a');await page.mouse.click(bounds.x+bounds.width*.8,bounds.y+bounds.height*.43);
-  await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return !!game.scene.getScene('Arena').playerShot;})).toBe(true);
+  await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return !!game.scene.getScene('Arena').playerShot;}),{intervals:[10,20,30]}).toBe(true);
   await page.mouse.move(bounds.x+bounds.width*.05,bounds.y+bounds.height*.43);
   await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').arrows.getChildren()[0]?.body.velocity.x??0;})).toBeGreaterThan(0);
   await page.mouse.move(0,0);

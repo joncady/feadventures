@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { combatDamage, weaponMatchup, withinWeaponRange, type WeaponType } from '../src/game/systems/combat';
+import { scaleDamage, combatDamage, weaponMatchup, withinWeaponRange, type WeaponType } from '../src/game/systems/combat';
 
 test('all three triangle edges have reciprocal advantage and disadvantage', () => {
   for (const [winner, loser] of [['sword', 'axe'], ['axe', 'lance'], ['lance', 'sword']] as const) {
@@ -33,3 +33,5 @@ test('bow effectiveness doubles damage only against flying targets', () => {
   assert.equal(combatDamage(8, 'bow', 'lance'), 8);
   assert.equal(combatDamage(10, 'axe', 'lance', true), 12);
 });
+
+test("combat pacing scales final damage with safe bounds",()=>{assert.equal(scaleDamage(35,.5),18);assert.equal(scaleDamage(42,.5),21);assert.equal(scaleDamage(1,.25),1);assert.equal(scaleDamage(20,5),40);assert.equal(scaleDamage(20,0),5);});

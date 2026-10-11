@@ -1,6 +1,6 @@
 {
   "name": "fire-emblem-adventures",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -11,7 +11,8 @@
     "build": "npm run typecheck && vite build",
     "preview": "vite preview --host 127.0.0.1",
     "check": "npm run test && npm run build",
-    "project:sync": "node scripts/sync-project.mjs"
+    "project:sync": "node scripts/sync-project.mjs",
+    "release:bump": "npm version patch --no-git-tag-version"
   },
   "dependencies": {
     "phaser": "3.90.0"

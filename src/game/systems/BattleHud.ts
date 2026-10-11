@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
-import { HERO_NAMES, HERO_PROFILES, WORLD, type Hero } from '../data/config';
-import { CLASS_NAMES, INVENTORY_CAPACITY, equippedWeapon, initialLoadout } from '../data/equipment';
+import { HERO_NAMES, WORLD, type Hero } from '../data/config';
+import { CLASS_NAMES, itemWeapon, equippedWeapon, initialLoadout, type Loadout } from '../data/equipment';
 import { STAT_KEYS, attackPower, type Progress, type Stats } from './progression';
 
 export class BattleHud {
@@ -20,62 +20,95 @@ export class BattleHud {
   private pendingXp = 0;
   private filling = false;
   private snapshot = '';
+  private loadout?: Loadout;
+  private details: Phaser.GameObjects.GameObject[] = [];
+  private expanded = false;
+  private visible = true;
+  private keyListener: (event: KeyboardEvent) => void;
   private health = 100;
   private maxHealth = 100;
-  private readonly x = WORLD.width - 248;
-  private readonly y = WORLD.height - 226;
+  private slots: { background: Phaser.GameObjects.Rectangle; icon: Phaser.GameObjects.Image; text: Phaser.GameObjects.Text }[] = [];
+  private readonly x = WORLD.width - 212;
+  private readonly y = WORLD.height - 84;
   constructor(private scene: Phaser.Scene, private hero: Hero, toggleOrders: () => void) {
     const previous = new Set(scene.children.list);
     const style = { fontFamily: 'FE', fontSize: '12px', color: '#44351e' };
-    scene.add.nineslice(this.x, this.y, 'ui-parchment', undefined, 240, 216, 16, 16, 16, 16).setOrigin(0).setDepth(100);
-    scene.add.zone(this.x, this.y, 240, 216).setOrigin(0).setDepth(100).setInteractive();
+    scene.add.nineslice(this.x, this.y, 'ui-parchment', undefined, 204, 76, 12, 12, 12, 12).setOrigin(0).setDepth(100);
+    scene.add.zone(this.x, this.y, 204, 76).setOrigin(0).setDepth(100).setInteractive();
     this.graphics = scene.add.graphics().setDepth(101);
     this.top = scene.add.text(12, 9, '', { ...style, color: '#f8eac6' }).setDepth(101).setVisible(false);
-    this.title = scene.add.text(this.x + 84, this.y + 10, HERO_NAMES[hero], { ...style, fontSize: '14px', color: '#f8eac6' }).setDepth(102);
-    scene.add.text(this.x + 84, this.y + 29, CLASS_NAMES[hero], { ...style, fontSize: '11px' }).setDepth(102);
-    // Use the upper half of the original bust so the face is readable at HUD size.
+    this.title = scene.add.text(this.x + 54, this.y + 8, HERO_NAMES[hero], { ...style, fontSize: '12px', color: '#f8eac6' }).setDepth(102);
+    scene.add.text(this.x + 54, this.y + 25, CLASS_NAMES[hero], { ...style, fontSize: '10px' }).setDepth(102);
     const portrait = scene.textures.get(`portrait-${hero}`);
     const source = portrait.getSourceImage() as HTMLImageElement;
     if (!portrait.has('hud-face')) portrait.add('hud-face', 0, source.width * .3, source.height * .03, source.width * .4, source.height * .48);
-    scene.add.image(this.x + 44, this.y + 44, `portrait-${hero}`, 'hud-face').setDisplaySize(58, 62).setDepth(102);
-    this.xp = scene.add.text(this.x + 84, this.y + 45, '', { ...style, fontSize: '11px' }).setDepth(102);
-    this.hp = scene.add.text(this.x + 84, this.y + 64, '', style).setDepth(102);
-    this.stats = scene.add.text(this.x + 15, this.y + 88, '', { ...style, lineSpacing: 2 }).setDepth(102);
-    this.combat = scene.add.text(this.x + 86, this.y + 88, '', { ...style, fontSize: '11px', lineSpacing: 2 }).setDepth(102);
-    const loadout = initialLoadout(hero);
-    for (let slot = 0; slot < INVENTORY_CAPACITY; slot++) {
-      const y = this.y + 117 + slot * 15;
-      scene.add.rectangle(this.x + 159, y + 7, 140, 14, slot === loadout.equippedSlot ? 0xfaf0c3 : 0xe8d5a5, .7).setDepth(101);
-      const item = loadout.items[slot];
-      if (item) {
-        const weapon = equippedWeapon({ ...loadout, equippedSlot: slot });
-        scene.add.image(this.x + 95, y + 7, weapon.icon).setDisplaySize(12, 12).setDepth(102);
-        scene.add.text(this.x + 105, y, weapon.name, { ...style, fontSize: '11px' }).setDepth(102);
-        scene.add.text(this.x + 216, y, item.uses === null ? '∞' : String(item.uses), { ...style, fontSize: '11px' }).setDepth(102);
-      } else scene.add.text(this.x + 105, y, '—', { ...style, color: '#897449', fontSize: '11px' }).setDepth(102);
+    scene.add.image(this.x + 29, this.y + 32, `portrait-${hero}`, 'hud-face').setDisplaySize(38, 44).setDepth(102);
+    this.xp = scene.add.text(this.x + 54, this.y + 38, '', { ...style, fontSize: '10px' }).setDepth(102);
+    this.hp = scene.add.text(this.x + 54, this.y + 53, '', { ...style, fontSize: '10px' }).setDepth(102);
+    this.combat = scene.add.text(this.x + 12, this.y - 82, '', { ...style, fontSize: '10px' }).setDepth(102);
+    this.stats = scene.add.text(this.x + 12, this.y - 67, '', { ...style, fontSize: '9px' }).setDepth(102);
+    for (let slot = 0; slot < 3; slot++) {
+      const y = this.y - 50 + slot * 12;
+      const background = scene.add.rectangle(this.x + 102, y + 5, 180, 11, 0xe8d5a5, .7).setDepth(101);
+      const icon = scene.add.image(this.x + 20, y + 5, 'weapon-sword').setDisplaySize(10, 10).setDepth(102);
+      const text = scene.add.text(this.x + 30, y, '', { ...style, fontSize: '10px' }).setDepth(102);
+      this.slots.push({ background, icon, text });
     }
-    this.orders = scene.add.text(this.x + 15, this.y + 196, '', { ...style, fontSize: '10px', color: '#183e57' }).setDepth(102).setInteractive({ useHandCursor: true });
+    this.orders = scene.add.text(this.x + 12, this.y - 12, '', { ...style, fontSize: '9px', color: '#183e57' }).setDepth(102).setInteractive({ useHandCursor: true });
     this.orders.on('pointerdown', toggleOrders);
-    this.growth = scene.add.text(this.x + 10, this.y - 38, '', { ...style, fontSize: '11px', color: '#fff2c4', backgroundColor: '#183e57', wordWrap: { width: 222 } }).setDepth(102);
+    const detailPanel = scene.add.nineslice(this.x, this.y - 94, 'ui-parchment', undefined, 204, 90, 12, 12, 12, 12).setOrigin(0).setDepth(100);
+    const detailZone = scene.add.zone(this.x, this.y - 94, 204, 90).setOrigin(0).setDepth(100).setInteractive();
+    this.details = [detailPanel, detailZone, this.combat, this.stats, ...this.slots.flatMap(row => [row.background, row.icon, row.text])];
+    const info = scene.add.text(this.x + 157, this.y + 25, 'I: Info', { ...style, fontSize: '9px', color: '#183e57' }).setDepth(103).setInteractive({useHandCursor:true});
+    const toggle = () => { if (!this.visible) return; this.expanded = !this.expanded; this.applyDetailVisibility(); this.scene.game.events.emit('ux-feedback', {kind: 'confirm'}); };
+    info.on('pointerdown', toggle);
+    this.keyListener = (event:KeyboardEvent) => {if(event.key.toLowerCase() === 'i' && !event.repeat) toggle();};
+    window.addEventListener('keydown', this.keyListener);
+    this.applyDetailVisibility();
+    this.growth = scene.add.text(this.x + 10, this.y - 128, '', { ...style, fontSize: '11px', color: '#fff2c4', backgroundColor: '#183e57', wordWrap: { width: 184 } }).setDepth(102);
     this.objects = scene.children.list.filter(object => !previous.has(object));
     for (const object of this.objects) (object as Phaser.GameObjects.Sprite).setScrollFactor?.(0);
   }
-  setVisible(visible:boolean):void { for(const object of this.objects)(object as Phaser.GameObjects.Sprite).setVisible?.(visible); }
-  destroy(): void { this.scene.tweens.killTweensOf(this);for(const timer of this.timers)timer.remove();for (const object of this.objects) object.destroy(); }
+  setVisible(visible:boolean):void {
+    this.visible = visible;
+    for(const object of this.objects)(object as Phaser.GameObjects.Sprite).setVisible?.(visible);
+    this.top.setVisible(false);
+    this.applyDetailVisibility();
+    for (let slot = 0; slot < this.slots.length; slot++) {
+      const show = visible && this.expanded && Boolean(this.loadout?.items[slot]);
+      this.slots[slot].background.setVisible(show); this.slots[slot].icon.setVisible(show); this.slots[slot].text.setVisible(show);
+    }
+  }
+  private applyDetailVisibility():void { this.orders.setVisible(false); for (const object of this.details) (object as Phaser.GameObjects.Sprite).setVisible?.(this.visible && this.expanded); for (let slot=0;slot<this.slots.length;slot++){const row=this.slots[slot],show=this.visible&&this.expanded&&Boolean(this.loadout?.items[slot]);row.background.setVisible(show);row.icon.setVisible(show);row.text.setVisible(show);} }
+  destroy(): void { window.removeEventListener('keydown', this.keyListener); this.scene.tweens.killTweensOf(this);for(const timer of this.timers)timer.remove();for (const object of this.objects) object.destroy(); }
   synchronize(progress: Progress): void { this.displayedLevel=progress.level; this.displayedXp=progress.xp; this.pendingXp=0; }
-  update(progress: Progress, health: number, wave: number, kills: number, mode: string, allies: number): void {
+  update(progress: Progress, health: number, wave: number, kills: number, mode: string, allies: number, loadout: Loadout = initialLoadout(this.hero)): void {
+    this.loadout = loadout;
     this.health = health; this.maxHealth = progress.stats.hp;
-    const snapshot = JSON.stringify([progress.stats, health, wave, kills, mode, allies]);
+    const snapshot = JSON.stringify([progress.stats, health, wave, kills, mode, allies, loadout]);
     if (snapshot !== this.snapshot) {
       this.snapshot = snapshot;
       this.top.setText(`Wave ${wave}  ·  Defeated ${kills}  ·  Allies ${allies}/2`);
       this.hp.setText(`HP  ${health}/${progress.stats.hp}`);
       const s = progress.stats;
-      this.stats.setText(`Str   ${s.str}\nMag ${s.mag}\nSkl   ${s.skill}\nSpd ${s.speed}\nLck   ${s.luck}\nDef   ${s.def}\nRes   ${s.res}`);
-      const profile = HERO_PROFILES[this.hero];
-      this.combat.setText(`Atk ${attackPower(progress, this.hero)}     Rng ${profile.minRange ? `${profile.minRange}–` : ''}${profile.range}px\nCrit ${Math.round(Math.min(.25, ((s.skill-progress.base.skill)/2+(s.luck-progress.base.luck)/4)/100)*100)}%`);
-      this.orders.setText(mode==='deployment'?'Place party, then begin':mode==='tactical'?`Q / E: Switch  ·  ${allies} allies`:`[Q] ${mode.toUpperCase()}  ·  ${allies} allies`);
+      this.stats.setText(`Str ${s.str}  Mag ${s.mag}  Def ${s.def}  Res ${s.res}`);
+      const weapon = equippedWeapon(loadout);
+      this.combat.setText(`Atk ${attackPower(progress, this.hero, weapon)}  Rng ${weapon.minRange ? `${weapon.minRange}–` : ''}${weapon.range}`);
+      for (let slot = 0; slot < this.slots.length; slot++) {
+        const row = this.slots[slot];
+        const item = loadout.items[slot];
+        const selected = slot === loadout.equippedSlot;
+        row.background.setVisible(this.visible && this.expanded && Boolean(item)).setFillStyle(selected ? 0xfaf0c3 : 0xe8d5a5, .7);
+        row.icon.setVisible(this.visible && this.expanded && Boolean(item)); row.text.setVisible(this.visible && this.expanded && Boolean(item));
+        if (item) {
+          const choice = itemWeapon(item);
+          row.icon.setTexture(choice.icon).setDisplaySize(10, 10);
+          row.text.setText(`${selected ? '› ' : ''}${choice.name}  ${item.uses === null ? '∞' : item.uses}`);
+        }
+      }
+      this.orders.setText(mode==='deployment'?'Place heroes, then begin':mode==='tactical'?'F: Weapon  ·  Q / E: Hero':`F: Weapon  ·  Q: ${mode}`);
     }
+    this.applyDetailVisibility();
     this.draw();
   }
   gain(amount: number, gains: Stats[]): void {
@@ -101,11 +134,12 @@ export class BattleHud {
   }
   private draw(): void {
     const g = this.graphics; g.clear();
-    g.fillStyle(0x183e57, .92).fillRoundedRect(this.x + 78, this.y + 8, 148, 19, 8);
-    g.lineStyle(1, 0xae8746).strokeRect(this.x + 13, this.y + 12, 62, 64);
-    g.fillStyle(0x80613a).fillRect(this.x + 84, this.y + 59, 140, 3).fillRect(this.x + 84, this.y + 80, 140, 4);
-    g.fillStyle(0xdeb850).fillRect(this.x + 84, this.y + 59, 140 * this.displayedXp / 100, 3);
-    g.fillStyle(0x91bd54).fillRect(this.x + 84, this.y + 80, 140 * Phaser.Math.Clamp(this.health / this.maxHealth, 0, 1), 4);
+    g.fillStyle(0x183e57, .92).fillRoundedRect(this.x + 50, this.y + 6, 142, 17, 6);
+    g.lineStyle(1, 0xae8746).strokeRect(this.x + 9, this.y + 9, 40, 46);
+    g.fillStyle(0x80613a).fillRect(this.x + 54, this.y + 49, 136, 3).fillRect(this.x + 54, this.y + 65, 136, 6);
+    g.fillStyle(0xdeb850).fillRect(this.x + 54, this.y + 49, 136 * this.displayedXp / 100, 3);
+    const fraction = Phaser.Math.Clamp(this.health / this.maxHealth, 0, 1);
+    g.fillStyle(fraction <= .25 ? 0xca6553 : fraction <= .5 ? 0xe0af50 : 0x91bd54).fillRect(this.x + 54, this.y + 65, 136 * fraction, 6);
     this.xp.setText(`LV ${this.displayedLevel}    EXP ${Math.floor(this.displayedXp)}`);
   }
 }

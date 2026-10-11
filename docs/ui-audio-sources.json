@@ -16,14 +16,57 @@
   },
   {
     "key": "xp-tick",
-    "file": "audio/xp-tick.wav",
-    "source": "scripts/prepare-progression-audio.py",
-    "processing": "Temporary generated tick"
+    "file": "audio/ui-move.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/401959/",
+    "processing": "Existing sourced cursor clip reused provisionally. Generated original is no longer registered.",
+    "original": "WARC_14_3.wav",
+    "confidence": "Sourced clip, semantic match not audition-verified"
   },
   {
     "key": "music-menu",
-    "file": "audio/menu-theme.wav",
-    "source": "scripts/prepare-menu-music.py",
-    "processing": "Original temporary generated 16-second harp/pad loop; not an imported Awakening track"
+    "file": "purpose.mp3",
+    "source": null,
+    "processing": "Existing imported game track reused for menu; exact original download provenance is unverified. Generated menu-theme.wav is no longer registered.",
+    "confidence": "Existing asset; source gap"
+  },
+  {
+    "key": "ui-cursor",
+    "file": "audio/ui-move.wav",
+    "original": "WARC_14_3.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/401959/",
+    "processing": "Original WAV unchanged; playback pitch may vary by action",
+    "confidence": "User selected as close to cursor/movement cue. Confirmation/rejection uses are provisional, not verified video matches."
+  },
+  {
+    "key": "ui-confirm",
+    "file": "audio/ui-move.wav",
+    "original": "WARC_14_3.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/401959/",
+    "processing": "Original WAV unchanged; playback pitch may vary by action",
+    "confidence": "User selected as close to cursor/movement cue. Confirmation/rejection uses are provisional, not verified video matches."
+  },
+  {
+    "key": "ui-reject",
+    "file": "audio/ui-move.wav",
+    "original": "WARC_14_3.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/401959/",
+    "processing": "Original WAV unchanged; playback pitch may vary by action",
+    "confidence": "User selected as close to cursor/movement cue. Confirmation/rejection uses are provisional, not verified video matches."
+  },
+  {
+    "key": "heal",
+    "file": "audio/ui-move.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/401959/",
+    "processing": "Existing sourced cursor clip reused provisionally. Generated original is no longer registered.",
+    "confidence": "Sourced clip, semantic match not audition-verified",
+    "original": "WARC_14_3.wav"
+  },
+  {
+    "key": "dialogue-advance",
+    "file": "audio/dialogue-advance.wav",
+    "original": "WARC_14_0.wav",
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/401959/",
+    "processing": "Original WAV unchanged; separate dialogue-only route",
+    "confidence": "Provisional short noise/page-turn candidate based on duration and waveform, not an audible reference match."
   }
 ]

@@ -1,0 +1,68 @@
+[
+  {
+    "file": "courtyard.png",
+    "title": "Courtyard \u2014 RandomWizard",
+    "dimensions": [
+      240,
+      160
+    ],
+    "source": "https://feuniverse.us/t/1-screen-mapping-blitz-challenge/9639/9",
+    "creditsAndTerms": "Map F2E with credit; tileset by N426, ZoramineFae and Vennobennu.",
+    "usage": "Reference / candidate only; not shipped in runtime"
+  },
+  {
+    "file": "castle-moat.png",
+    "title": "Castle Moat \u2014 RandomWizard",
+    "dimensions": [
+      240,
+      160
+    ],
+    "source": "https://feuniverse.us/t/1-screen-mapping-blitz-challenge/9639/39",
+    "creditsAndTerms": "Map F2U/F2E; uses N426 improved castle tileset.",
+    "usage": "Reference / candidate only; not shipped in runtime"
+  },
+  {
+    "file": "royal-great-hall.png",
+    "title": "Royal Great Hall \u2014 RandomWizard",
+    "dimensions": [
+      240,
+      160
+    ],
+    "source": "https://feuniverse.us/t/1-screen-mapping-blitz-challenge/9639/39",
+    "creditsAndTerms": "Map F2U/F2E; uses N426 improved castle tileset.",
+    "usage": "Reference / candidate only; not shipped in runtime"
+  },
+  {
+    "file": "barons-castle.png",
+    "title": "Barons Castle \u2014 RandomWizard",
+    "dimensions": [
+      240,
+      160
+    ],
+    "source": "https://feuniverse.us/t/1-screen-mapping-blitz-challenge/9639/39",
+    "creditsAndTerms": "Map F2U/F2E; uses N426 improved castle tileset.",
+    "usage": "Reference / candidate only; not shipped in runtime"
+  },
+  {
+    "file": "fort-tileset.png",
+    "title": "Fort kit \u2014 ZoramineFae / Flasuban",
+    "dimensions": [
+      512,
+      512
+    ],
+    "source": "https://feuniverse.us/t/updated-fort-tileset/9288",
+    "creditsAndTerms": "Creator-posted tileset image; original game graphics plus edits. Preserve contributor credits.",
+    "usage": "Reference / candidate only; not shipped in runtime"
+  },
+  {
+    "file": "stronghold-tileset.png",
+    "title": "Stronghold \u2014 ZoramineFae / N426 / Flasuban / Wan",
+    "dimensions": [
+      512,
+      512
+    ],
+    "source": "https://feuniverse.us/t/updated-stronghold-tileset/6134",
+    "creditsAndTerms": "Creator-posted tileset image; original game graphics plus edits. Preserve contributor credits.",
+    "usage": "Reference / candidate only; not shipped in runtime"
+  }
+]

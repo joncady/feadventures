@@ -50,7 +50,7 @@
       256,
       64
     ],
-    "frames": "16px grid; first row sword 8, lance 9, axe 10, bow 11, tome 12; individual weapon PNGs retain transparency"
+    "frames": "16px grid; first row sword 8, lance 9, axe 10, bow 11, tome 12, staff 13; individual weapon PNGs retain transparency"
   },
   "item-icons.png": {
     "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/486149/",
@@ -581,6 +581,33 @@
     "creator": "WAve",
     "original": "asset-library/map-candidates/plains-preview-map.png",
     "credits": "asset-library/map-candidates/plains-credits.txt",
-    "processing": "Ground, road and forest tiles assembled into an open 896\u00d7544 source image; rendered at 2\u00d7 for a 1792\u00d71088 world. Forts reused from the original project map2.png. Reproduce with scripts/prepare-battlefield.py. These are GBA-style community terrain assets, not Awakening 3D maps."
+    "processing": "Compact 640\u00d7448 source map rendered at 2\u00d7 into a 1280\u00d7896 siege world. Courtyard floor from N426 castle palette; grass and approach roads from WAve plains. Reproduce with scripts/prepare-battlefield.py.",
+    "castleSource": "https://github.com/Klokinator/FE-Repo/tree/main/Tilesets/Castles%20%26%20Fortresses/FE8%20Castle%20%2B%20Customs%20-%20Tileset%20Improved",
+    "castleCreator": "N426"
+  },
+  "siege-wall.png": {
+    "source": "https://github.com/Klokinator/FE-Repo/tree/main/Tilesets/Castles%20%26%20Fortresses/FE8%20Castle%20%2B%20Customs%20-%20Tileset%20Improved",
+    "creator": "N426",
+    "original": "asset-library/map-candidates/castle-palette.png",
+    "credits": "asset-library/map-candidates/castle-credits.txt",
+    "crop": [
+      320,
+      176,
+      336,
+      192
+    ],
+    "processing": "16-pixel castle wall tile enlarged to 32 pixels with nearest-neighbor sampling. Runtime tile sprites disappear on breach."
+  },
+  "weapon-staff.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/486162/",
+    "uploader": "Venus_Pisces",
+    "original": "public/assets/weapon-icons.png",
+    "crop": [
+      208,
+      0,
+      224,
+      16
+    ],
+    "processing": "Exact16-pixel staff icon from first row, preserving transparency."
   }
 }
