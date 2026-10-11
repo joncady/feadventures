@@ -11,3 +11,7 @@ October 11, 2026. Includes local 1.0.9 health-drop fix and navigation/parity rev
 - Natural full campaign pacing was not replayed for this release. Automated campaign progression and capped navigation/Keep doorway checks are included.
 
 GitHub issues remain the bug source of truth. Generated local audio-review catalog and ignored source archives are excluded.
+
+## CI resource follow-up
+
+The first GitHub run passed 80 of 87 checks but failed seven wall-time/lifecycle fixtures while two Linux software-rendered browsers competed for the larger framebuffers (12.5-minute browser step). CI now uses one worker, a 60-second per-case budget and 10-second assertion budget. The 17-character loop has a 240-second CI budget. The Virion retry fixture verifies replacement of the prior projectile group and destruction of prior objects, rather than forbidding legitimate new-run enemy shots. All seven affected cases pass locally under the single-worker CI configuration (1.1 minutes). Gameplay, renderer density, production version and functional assertions remain unchanged. This stabilization commit excludes the subsequent local 1.0.11 healing work.

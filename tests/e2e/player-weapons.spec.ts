@@ -46,15 +46,19 @@ test('Virion fires past the close dead zone, hits enemies, and cleans up on rest
   }), { timeout: 1500 }).toBe(0);
   await page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);
-    const scene = game.scene.getScene('Arena'); scene.lastDamage = -Infinity; scene.takeDamage(100);
+    const scene = game.scene.getScene('Arena');
+    // Retain the old group to distinguish cleanup from legitimate new-run shots.
+    (window as any).__oldArrowGroup = scene.arrows;
+    (window as any).__oldArrows = [...scene.arrows.getChildren()];
+    scene.lastDamage = -Infinity; scene.takeDamage(100);
   });
   await page.getByRole('button', { name: 'Try again' }).press('Enter');
   await expect(page.locator('#health')).toHaveText('HP 100 / 100');
   expect(await page.evaluate(async () => {
     const entry = '/src/main.ts'; const { game } = await import(entry);
     const scene = game.scene.getScene('Arena');
-    return { arrows: scene.arrows.countActive(), pending: Boolean(scene.playerShot), texture: scene.player.texture.key };
-  })).toEqual({ arrows: 0, pending: false, texture: 'virion' });
+    return { oldGroupReplaced: scene.arrows !== (window as any).__oldArrowGroup, oldArrowsDestroyed: (window as any).__oldArrows.every((arrow:any)=>!arrow.active), pending: Boolean(scene.playerShot), texture: scene.player.texture.key };
+  })).toEqual({ oldGroupReplaced: true, oldArrowsDestroyed: true, pending: false, texture: 'virion' });
   expect(errors).toEqual([]);
 });
 
