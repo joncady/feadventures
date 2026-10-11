@@ -17,3 +17,8 @@ The supplied Spriters Resource UI sheet (80213) and Morgan portrait sheet (63381
 3. Preserve consistent selection feedback across menu, shop and deployment. Native health bars and selection focus now have clear visual states; the remaining review should verify sound and cancellation behavior together.
 
 Verification: typecheck and the focused native browser test cover five-column navigation, focused portrait identity, max-health display, and fallen-unit contrast. `/tmp/party-health-display-fixture.png` is deliberately a UI fixture showing healthy, wounded, critical and fallen units; it is not natural gameplay evidence.
+
+
+## 1.0.2 portrait correction
+
+Chrom and Lucina now use horizontal source anchors125 and126 rather than108 and110. This centers their face/head framing in both the roster and focused preview while preserving source pixels, aspect ratio and vertical eye baseline. Root reviewed the actual native selected-card screenshots in `playtests/chrom-centered-1.0.2.png` and `playtests/lucina-centered-1.0.2.png`. Typecheck, production build and all three focused selection browser tests passed. Issue#56 is Done in the historical mirror; GitHub remains authoritative. No push was performed for this local patch.

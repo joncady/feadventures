@@ -47,16 +47,36 @@ house=fort.crop((400,64,448,112))
 for x,y,w,h in village['houses']:c.paste(house.resize((w//2,h//2),Image.Resampling.NEAREST),(x//2,y//2))
 c.resize((village['width'],village['height']),Image.Resampling.NEAREST).save(out/'village.png')
 Image.open(root/'public/assets/battlefield.png').resize((1280,896),Image.Resampling.NEAREST).save(out/'castle-defense.png')
-# Existing authored Royal Great Hall layout; original native pixels enlarged at exact 4x.
-hall=Image.open(root/'asset-library/map-candidates/compact/royal-great-hall.png').convert('RGB')
-c=Image.new('RGB',(640,448));floor=hall.crop((32,112,48,128));fill(c,floor,(0,0,640,448))
-c.paste(hall.resize((480,320),Image.Resampling.NEAREST),(80,64))
-c.resize((1280,896),Image.Resampling.NEAREST).save(out/'dark-castle.png')
+# Black Keep: compose native 16px Stronghold building blocks at 2×, never resize a whole map.
+manifest=(root/'src/game/data/black-keep-chunks.ts').read_text().split('= ',1)[1].split(' as const',1)[0]
+keep_chunks=json.loads(manifest)
+floor=strong.crop((0,272,16,288))
+brick=strong.crop((16,144,32,160))
+carpet=strong.crop((64,48,80,64))
+keep=Image.new('RGB',(1024,768))
+for chunk in keep_chunks:
+ _,_,w,h=chunk['sourceRect']; room=Image.new('RGB',(w//2,h//2))
+ fill(room,floor,(0,0,w//2,h//2))
+ fill(room,carpet,(224,0,288,h//2))
+ for x,y,rw,rh in chunk['terrain']:fill(room,brick,(x//2,y//2,(x+rw)//2,(y+rh)//2))
+ # Source trim/columns emphasize the central doorway without introducing invisible barriers.
+ column=strong.crop((96,0,112,32))
+ for x,y,rw,rh in chunk['terrain']:
+  if rw==64 and rh==64:room.paste(column,(x//2+8,y//2))
+ if chunk['id']=='throne-room':
+  throne=strong.crop((32,0,48,32));room.paste(throne,(248,16))
+ pixels=room.resize((w,h),Image.Resampling.NEAREST)
+ pixels.save(root/chunk['source']);keep.paste(pixels,(chunk['position']['x'],chunk['position']['y']))
+keep.save(out/'dark-castle.png')
 # Camp is a source village/fort structure rather than locally drawn graphics.
 fort.crop((400,64,448,112)).resize((64,64),Image.Resampling.NEAREST).save(out/'camp-building.png')
 # Gold uses the actual Awakening inventory/system icon.
-icons=Image.open(root/'public/assets/weapon-icons.png').convert('RGBA')
-icons.crop((32,16,48,32)).save(out/'gold-icon.png')
+icons=Image.open(root/'public/assets/item-icons.png').convert('RGBA')
+gold=icons.crop((96,176,112,192))
+for y in range(16):
+ for x in range(16):
+  if gold.getpixel((x,y))[:3]==(255,0,255):gold.putpixel((x,y),(255,0,255,0))
+gold.save(out/'gold-icon.png')
 
 # Source flame icon on Stronghold sheet; remove only its dark background, retain source flame pixels.
 flame=strong.crop((272,0,288,16)).convert('RGBA')

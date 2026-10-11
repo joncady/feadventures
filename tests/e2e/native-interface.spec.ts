@@ -9,7 +9,7 @@ test('native HUD controls work, music defaults on and Begin battle plays the sel
  expect(initial).toEqual({muted:false,music:true,font:true,cue:1,frame:true});
  await clickCanvas(page,768,17);
  await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.isPaused('Arena');})).toBe(true);
- await clickCanvas(page,448,269);
+ await clickCanvas(page,263,421);
  await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.isPaused('Arena');})).toBe(false);
  await clickCanvas(page,641,17);
  await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Interface').settings.visible;})).toBe(true);
@@ -19,7 +19,7 @@ test('native HUD controls work, music defaults on and Begin battle plays the sel
  expect(await page.evaluate(async()=>{const entry='/src/main.ts';const{audioSettings}=await import(entry);return audioSettings.music;})).toBe(.25);
  await clickCanvas(page,448,148);
  expect(await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.sound.mute;})).toBe(true);
- await clickCanvas(page,530,425);await clickCanvas(page,448,269);
+ await clickCanvas(page,530,425);await clickCanvas(page,263,421);
  await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');s.enemies.clear(true,true);s.arrows.clear(true,true);s.time.removeAllEvents();s.spawning=1;});
  await clickCanvas(page,790,470);await page.waitForTimeout(350);
  expect(await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');return {arrows:s.arrows.countActive(),shot:Boolean(s.playerShot)};})).toEqual({arrows:0,shot:false});

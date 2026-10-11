@@ -29,6 +29,8 @@ export class InterfaceScene extends Phaser.Scene {
   private previewName!:Phaser.GameObjects.Text;
   private selectionMarks=new Map<Hero,Phaser.GameObjects.Text>();
   private partyHeads:Phaser.GameObjects.Image[]=[];
+  private goldCounter!:Phaser.GameObjects.Container;
+  private goldValue!:Phaser.GameObjects.Text;
   private cooldownBar!:Phaser.GameObjects.Graphics;
   private cooldownText!:Phaser.GameObjects.Text;
   private soldiersControl!:Phaser.GameObjects.Container;
@@ -44,6 +46,9 @@ export class InterfaceScene extends Phaser.Scene {
   private deploymentHeroes:Hero[]=[];
   private selectedDeployment?:string;
   private deploymentPanel!:Phaser.GameObjects.Container;
+  private deploymentBackground!:Phaser.GameObjects.Rectangle;
+  private deploymentControls!:Phaser.GameObjects.Text;
+  private deploymentBegin!:Phaser.GameObjects.Container;
   private partyPanel!:Phaser.GameObjects.Container;
   private partyBackground!:Phaser.GameObjects.Rectangle;
   private damageControls!:Phaser.GameObjects.Container;
@@ -63,6 +68,9 @@ export class InterfaceScene extends Phaser.Scene {
   private state!: InterfaceState;
   private menuButton!: Phaser.GameObjects.Container;
   private pauseButton!: Phaser.GameObjects.Container;
+  private pauseFocus=0;
+  private pauseChoices:Phaser.GameObjects.Text[]=[];
+  private pauseActions:(()=>void)[]=[];
   private instructions!: Phaser.GameObjects.Text;
   private noticeTimer?:Phaser.Time.TimerEvent;
   private pauseText!: Phaser.GameObjects.Text;
@@ -78,7 +86,7 @@ export class InterfaceScene extends Phaser.Scene {
   private enabled!: Phaser.GameObjects.Text;
   private voices!: Phaser.GameObjects.Text;
   private spell!: Phaser.GameObjects.Text;
-  private readonly style = { fontFamily: 'FE', fontSize: '13px', color: '#44351e' };
+  private readonly style = { resolution: 3, fontFamily: 'FE', fontSize: '13px', color: '#44351e' };
   constructor() { super('Interface'); }
   create(): void {
     this.registry.set('app-version', APP_VERSION);
@@ -122,15 +130,19 @@ export class InterfaceScene extends Phaser.Scene {
     this.spell = this.button(this.settings, -158, 99, 316, '', () => this.game.events.emit('ui-spell'));
     this.button(this.settings, -158, 139, 151, 'Preview', () => this.request('audio-preview'));
     this.button(this.settings, 7, 139, 151, 'Close', () => this.request('audio-close'));
-    this.pauseOverlay = this.panel(300, 160, 'Paused');
-    this.button(this.pauseOverlay, -128, -17, 256, 'Resume', () => this.request('pause'));
-    this.button(this.pauseOverlay, -128, 24, 256, 'Main menu', () => this.request('main-menu'));
+    this.pauseOverlay = this.panel(620, 400, 'Paused · Battle controls');
+    const controls=[['WASD / Arrows','Move'],['Mouse','Aim ranged attacks'],['Space / Left click','Attack or cast equipped ability'],['Q / E','Previous / next living hero'],['F','Switch weapon or ability'],['I / Info','Inspect stats and equipment'],['R','Call companions · 10s / 20s cooldown'],['P','Pause / resume battle']];
+    controls.forEach(([key,meaning],i)=>{const y=-140+i*27;this.pauseOverlay.add(this.add.text(-266,y,key,{...this.style,fontSize:'14px',color:'#183e57'}));this.pauseOverlay.add(this.add.text(-100,y,meaning,{...this.style,fontSize:'13px'}));});
+    this.pauseOverlay.add(this.add.text(-266,84,'Companions with staves automatically help nearby allies in danger.',{...this.style,fontSize:'11px',wordWrap:{width:530}}));
+    this.pauseActions=[()=>this.request('pause'),()=>this.request('audio-options'),()=>this.request('main-menu')];
+    this.pauseChoices=['Resume · P','Audio','Main menu'].map((label,i)=>this.button(this.pauseOverlay,-270+i*185,135,170,label,this.pauseActions[i]));
+    this.pauseOverlay.add(this.add.text(0,174,'← / →: choose · Enter / Space: confirm',{...this.style,fontSize:'11px'}).setOrigin(.5));
     this.endOverlay = this.panel(340, 208, 'The battle is over');
     this.resultText = this.add.text(0,-43,'',{...this.style,align:'center',wordWrap:{width:290}}).setOrigin(.5,0); this.endOverlay.add(this.resultText);
     this.button(this.endOverlay, -148, 19, 296, 'Try again', () => this.request('restart'));
     this.button(this.endOverlay, -148, 58, 296, 'Choose hero', () => this.request('choose'));
     const onState = (state:InterfaceState) => this.apply(state);
-    const onNotice = (text:string) => {this.notice.setText(text);this.noticeTimer?.remove();this.noticeTimer=this.time.delayedCall(6500,()=>this.notice.setText(''));if(this.state?.phase==='deployment')this.deploymentHint.setText(text);};
+    const onNotice = (text:string) => {this.notice.setText(text);this.noticeTimer?.remove();this.noticeTimer=this.time.delayedCall(6500,()=>this.notice.setText(''));};
     const onKey=(event:KeyboardEvent)=>this.navigate(event);window.addEventListener('keydown',onKey);this.events.once('shutdown',()=>window.removeEventListener('keydown',onKey));
     const onHud = (hud:Hud) => this.stats.setText(this.state?.tactical?`${this.state.phase==='deployment'?'Deployment':'Battle'} · Hostiles ${hud.enemies} · Defeated ${hud.kills}`:`Wave ${hud.wave}  ·  Defeated ${hud.kills}  ·  Allies ${hud.allies}/${hud.allyCapacity}`);
     const onMap=(data:TacticalMap)=>this.drawTacticalMap(data);this.game.events.on('tactical-map',onMap);
@@ -140,8 +152,18 @@ export class InterfaceScene extends Phaser.Scene {
     this.notice.setText(this.registry.get('interface-notice') ?? '');
   }
   private preparePortraits():void {
-    const crops:Record<Hero,[number,number]>={chrom:[38,10],lucina:[20,4],frederick:[55,0],virion:[46,0],sumia:[40,0],morgan:[54,0],robin:[54,0],'robin-female':[40,0],cordelia:[35,0],lissa:[52,0],lonqu:[48,0],miriel:[50,45],ricken:[34,10],stahl:[55,0],sully:[46,0],tharja:[38,0],vaike:[43,0]};
-    for(const hero of HEROES){const texture=this.textures.get(`portrait-${hero}`);texture.setFilter(Phaser.Textures.FilterMode.LINEAR);if(!texture.has('face'))texture.add('face',0,...crops[hero],160,160);}
+    // Source-space face anchors align portraits without stretching; profile faces include hair framing.
+    const eyes:Record<Hero,[number,number]>={chrom:[125,67],lucina:[126,80],frederick:[120,68],virion:[121,67],sumia:[125,83],morgan:[134,91],robin:[134,90],'robin-female':[120,91],cordelia:[125,68],lissa:[132,108],lonqu:[138,66],miriel:[125,82],ricken:[114,107],stahl:[120,69],sully:[126,74],tharja:[118,106],vaike:[133,71]};
+    for(const hero of HEROES){
+      const original=this.textures.get(`portrait-${hero}`);original.setFilter(Phaser.Textures.FilterMode.LINEAR);
+      const key=`portrait-face-${hero}`;
+      if(!this.textures.exists(key)){
+        const face=this.textures.createCanvas(key,160,160)!;
+        const [eyeX,eyeY]=eyes[hero];
+        face.context.drawImage(original.getSourceImage() as HTMLImageElement,80-eyeX,64-eyeY);
+        face.refresh().setFilter(Phaser.Textures.FilterMode.LINEAR);
+      }
+    }
   }
   private createCharacterMenu():void {
     this.menu=this.add.container().setDepth(80);
@@ -154,14 +176,14 @@ export class InterfaceScene extends Phaser.Scene {
       const x=38+(index%5)*112,y=122+Math.floor(index/5)*84;
       const card=this.add.nineslice(x,y,'ui-parchment',undefined,104,78,10,10,10,10).setOrigin(0).setInteractive({useHandCursor:true});
       card.on('pointerover',()=>{this.focusIndex=index;this.drawFocus();this.game.events.emit('ux-feedback',{kind:'cursor'});});card.on('pointerdown',()=>this.game.events.emit('ui-character',hero));this.cards.set(hero,card);this.menu.add(card);
-      this.menu.add(this.add.image(x+52,y+29,`portrait-${hero}`,'face').setDisplaySize(56,56));
+      this.menu.add(this.add.image(x+52,y+29,`portrait-face-${hero}`).setDisplaySize(56,56));
       this.menu.add(this.add.image(x+91,y+12,equippedWeapon(initialLoadout(hero)).icon).setDisplaySize(14,14));
       this.menu.add(this.add.text(x+52,y+59,HERO_NAMES[hero],{...this.style,fontSize:'11px'}).setOrigin(.5,0));
       const mark=this.add.text(x+5,y+5,'',{...this.style,fontSize:'10px',color:'#183e57'});this.menu.add(mark);this.selectionMarks.set(hero,mark);
       bounds[hero]={x:x+52,y:y+39};
     }
     this.menu.add(this.add.nineslice(616,122,'ui-parchment',undefined,242,330,14,14,14,14).setOrigin(0));
-    this.previewPortrait=this.add.image(737,218,'portrait-chrom').setDisplaySize(174,174);this.menu.add(this.previewPortrait);
+    this.previewPortrait=this.add.image(737,218,'portrait-face-chrom').setDisplaySize(174,174);this.menu.add(this.previewPortrait);
     this.previewName=this.add.text(737,310,'',{...this.style,fontSize:'19px'}).setOrigin(.5,0);this.menu.add(this.previewName);
     this.description=this.add.text(637,343,'',{...this.style,fontSize:'12px',wordWrap:{width:204},lineSpacing:4});this.menu.add(this.description);
     this.focusFrame=this.add.graphics();this.menu.add(this.focusFrame);this.drawFocus();
@@ -173,14 +195,15 @@ export class InterfaceScene extends Phaser.Scene {
     this.resumeControl=this.add.container();this.menu.add(this.resumeControl);this.resumeLabel=this.button(this.resumeControl,626,457,222,'Resume campaign',()=>this.game.events.emit('campaign-resume'));
   }
   private updateResume():void {if(!this.resumeControl)return;this.resumeControl.setVisible(this.saveState.available&&!this.saveState.complete);this.resumeLabel.setText(`Resume · ${this.saveState.missionName}`);this.saveHint.setText(this.saveState.available&&!this.saveState.complete?'A new campaign replaces this checkpoint.':'');}
-  private updatePreview():void {if(!this.previewName)return;const hero=HEROES[this.focusIndex];this.previewPortrait.setTexture(`portrait-${hero}`).setDisplaySize(174,174);this.previewName.setText(HERO_NAMES[hero]);this.description.setText(`${HERO_PROFILES[hero].description}
+  private updatePreview():void {if(!this.previewName)return;const hero=HEROES[this.focusIndex];this.previewPortrait.setTexture(`portrait-face-${hero}`).setDisplaySize(174,174);this.previewName.setText(HERO_NAMES[hero]);this.description.setText(`${HERO_PROFILES[hero].description}
 
 ${initialLoadout(hero).items.map(item=>WEAPONS[item.weaponId].name).join(' · ')}`);}
   private createTacticalInterface():void {
+    this.goldCounter=this.add.container(270,515).setDepth(92).setVisible(false);this.goldCounter.add(this.add.image(0,0,'gold').setDisplaySize(20,20));this.goldValue=this.add.text(14,0,'',{...this.style,color:'#f7d878',fontSize:'12px'}).setOrigin(0,.5);this.goldCounter.add(this.goldValue);
     this.cooldownBar=this.add.graphics().setDepth(92);this.cooldownText=this.add.text(470,514,'',{...this.style,color:'#fff0c6',fontSize:'11px',backgroundColor:'#183e57',padding:{x:4,y:1}}).setOrigin(.5).setDepth(92);
     this.partyPanel=this.add.container().setDepth(85);
-    this.partyBackground=this.add.rectangle(108,115,192,150,0x183e57,.94).setInteractive();this.partyPanel.add(this.partyBackground);this.rallyLabel=this.add.text(16,194,'R: Rally ready',{...this.style,fontSize:'11px',color:'#fff0c6',backgroundColor:'#183e57',padding:{x:5,y:3}}).setVisible(false);this.partyPanel.add(this.rallyLabel);
-    for(let i=0;i<4;i++){const zone=this.add.zone(108,62+i*34,186,32).setInteractive({useHandCursor:true});zone.on('pointerdown',()=>{const heroes=[this.state.hero,...this.state.companions];if(this.state.phase==='deployment'&&heroes[i])this.game.events.emit('ui-deploy-hero',heroes[i]);});this.partyPanel.add(zone);this.partyZones.push(zone);const head=this.add.image(38,62+i*34,'portrait-chrom','face').setDisplaySize(30,30);this.partyPanel.add(head);this.partyHeads.push(head);const row=this.add.text(60,48+i*34,'',{...this.style,color:'#fff0c6',fontSize:'10px'}).setInteractive({useHandCursor:true});row.on('pointerdown',()=>{const heroes=[this.state.hero,...this.state.companions];if(this.state.phase==='deployment')this.game.events.emit('ui-deploy-hero',heroes[i]);});this.partyPanel.add(row);this.partyRows.push(row);}
+    this.partyBackground=this.add.rectangle(108,115,192,150,0x183e57,.94).setInteractive();this.partyPanel.add(this.partyBackground);this.rallyLabel=this.add.text(16,194,'Rally ready',{...this.style,fontSize:'11px',color:'#fff0c6',backgroundColor:'#183e57',padding:{x:5,y:3}}).setVisible(false);this.partyPanel.add(this.rallyLabel);
+    for(let i=0;i<4;i++){const zone=this.add.zone(108,62+i*34,186,32).setInteractive({useHandCursor:true});zone.on('pointerdown',()=>{const heroes=[this.state.hero,...this.state.companions];if(this.state.phase==='deployment'&&heroes[i])this.game.events.emit('ui-deploy-hero',heroes[i]);});this.partyPanel.add(zone);this.partyZones.push(zone);const head=this.add.image(38,62+i*34,'portrait-face-chrom').setDisplaySize(30,30);this.partyPanel.add(head);this.partyHeads.push(head);const row=this.add.text(60,48+i*34,'',{...this.style,color:'#fff0c6',fontSize:'10px'}).setInteractive({useHandCursor:true});row.on('pointerdown',()=>{const heroes=[this.state.hero,...this.state.companions];if(this.state.phase==='deployment')this.game.events.emit('ui-deploy-hero',heroes[i]);});this.partyPanel.add(row);this.partyRows.push(row);}
     this.damageControls=this.add.container();this.partyPanel.add(this.damageControls);this.damageControls.add(this.add.rectangle(108,208,192,30,0x183e57,.96).setInteractive());
     const adjust=(step:number)=>{const value=Math.round(Math.max(.25,Math.min(2,(this.registry.get('damage-scale')??.5)+step))*100)/100;this.registry.set('damage-scale',value);this.damageLabel.setText(`Damage ${Math.round(value*100)}%`);};
     this.button(this.damageControls,16,194,30,'−',()=>adjust(-.1));this.button(this.damageControls,170,194,30,'+',()=>adjust(.1));
@@ -189,23 +212,31 @@ ${initialLoadout(hero).items.map(item=>WEAPONS[item.weaponId].name).join(' · ')
     this.soldiersControl=this.add.container();this.partyPanel.add(this.soldiersControl);
     this.soldiersButton=this.button(this.soldiersControl,16,229,184,'Place soldiers',()=>this.game.events.emit('ui-deploy-soldier'));
     this.deploymentPanel=this.add.container().setDepth(85);
-    this.deploymentPanel.add(this.add.rectangle(210,492,400,84,0x183e57,.96).setInteractive());
-    this.deploymentHint=this.add.text(22,458,'Choose deployment positions.\nWASD: cursor · Space: place + next · R: begin',{...this.style,fontSize:'11px',color:'#fff0c6',wordWrap:{width:375}});this.deploymentPanel.add(this.deploymentHint);
-    this.button(this.deploymentPanel,22,495,190,'Begin battle',()=>this.game.events.emit('ui-launch'));
+    this.deploymentBackground=this.add.rectangle(0,0,240,120,0x183e57,.96).setOrigin(0).setInteractive();this.deploymentPanel.add(this.deploymentBackground);
+    this.deploymentHint=this.add.text(12,12,'Choose deployment positions.',{...this.style,fontSize:'11px',color:'#fff0c6',lineSpacing:3,wordWrap:{width:216}});this.deploymentPanel.add(this.deploymentHint);
+    this.deploymentControls=this.add.text(12,40,'WASD: move cursor\nSpace: place + next\nEnter: auto-place · R: begin',{...this.style,fontSize:'11px',color:'#d2e2e8',lineSpacing:3,wordWrap:{width:216}});this.deploymentPanel.add(this.deploymentControls);
+    this.deploymentBegin=this.add.container(12,80);this.deploymentPanel.add(this.deploymentBegin);this.button(this.deploymentBegin,0,0,132,'Auto-place',()=>this.game.events.emit('ui-deploy-auto'));this.button(this.deploymentBegin,0,40,132,'Begin battle',()=>this.game.events.emit('ui-launch'));
     this.miniTerrain=this.add.image(798,108,'battlefield').setDisplaySize(164,100).setTint(0x7c929b).setDepth(85);
     this.minimap=this.add.graphics().setDepth(86);this.miniTitle=this.add.text(722,42,'Battlefield',{...this.style,fontSize:'10px',color:'#fff0c6'}).setDepth(86);
   }
   private drawTacticalMap(data:TacticalMap):void {
     if(!this.state?.tactical)return;
     const background=getMap(data.missionIndex??2).backgroundKey;if(this.textures.exists(background))this.miniTerrain.setTexture(background).setDisplaySize(164,100);
-    const rosterHeight=Math.max(1,data.party.length)*34+14;const roadPlanning=data.deploying&&data.missionIndex===0;this.partyPanel.setPosition(roadPlanning?WORLD.width-216:0,roadPlanning?WORLD.height-48-rosterHeight:0);this.partyBackground.setSize(192,rosterHeight).setY(40+rosterHeight/2);this.damageControls.setPosition(roadPlanning?-260:0,rosterHeight-150-(roadPlanning?36:0)).setVisible(data.deploying);const rally=data.rally;this.rallyLabel.setPosition(16,rosterHeight+45).setVisible(!data.deploying&&!!rally&&data.party.filter(p=>p.health>0).length>1).setText(rally?.active?`Rallying · ${Math.ceil(rally.remaining)}s`:rally?.available?'R: Rally ready':`R: Rally · ${Math.ceil(rally?.cooldown??0)}s`).setColor(rally?.active?'#a8dcaa':rally?.available?'#fff0c6':'#acb7b9');
-    for(const [i,row] of this.partyRows.entries()){const unit=data.party[i];this.partyZones[i].setVisible(!!unit);row.setVisible(!!unit);this.partyHeads[i].setVisible(!!unit);if(unit)this.partyHeads[i].setTexture(`portrait-${unit.hero}`,'face').setDisplaySize(30,30).setAlpha(unit.health>0?1:.3);row.setText(unit?`${(data.deploying?data.selected:data.controlled)===unit.hero?'▶ ':''}${HERO_NAMES[unit.hero]}  LV ${unit.level}\n${data.deploying&&!unit.placed?'Not placed':`${unit.health<=0?'Fallen':`HP ${Math.max(0,unit.health)} / ${unit.maxHealth??unit.health}`} · XP ${unit.xp}`}`:'').setAlpha(unit&&unit.health>0?1:.4);}
+    const rosterHeight=Math.max(1,data.party.length)*34+14;const roadPlanning=data.deploying&&data.missionIndex===0;this.partyPanel.setPosition(roadPlanning?WORLD.width-216:0,roadPlanning?WORLD.height-48-rosterHeight:0);this.partyBackground.setSize(192,rosterHeight).setY(40+rosterHeight/2);this.damageControls.setPosition(roadPlanning?-260:0,rosterHeight-150-(roadPlanning?36:0)).setVisible(data.deploying);const rally=data.rally;this.rallyLabel.setPosition(16,rosterHeight+45).setVisible(!data.deploying&&!!rally&&data.party.filter(p=>p.health>0).length>1).setText(rally?.active?`Rallying · ${Math.ceil(rally.remaining)}s`:rally?.available?'Rally ready':`Rally · ${Math.ceil(rally?.cooldown??0)}s`).setColor(rally?.active?'#a8dcaa':rally?.available?'#fff0c6':'#acb7b9');
+    for(const [i,row] of this.partyRows.entries()){const unit=data.party[i];this.partyZones[i].setVisible(!!unit);row.setVisible(!!unit);this.partyHeads[i].setVisible(!!unit);if(unit)this.partyHeads[i].setTexture(`portrait-face-${unit.hero}`).setDisplaySize(30,30).setAlpha(unit.health>0?1:.3);row.setText(unit?`${(data.deploying?data.selected:data.controlled)===unit.hero?'▶ ':''}${HERO_NAMES[unit.hero]}  LV ${unit.level}\n${data.deploying&&!unit.placed?'Not placed':`${unit.health<=0?'Fallen':`HP ${Math.max(0,unit.health)} / ${unit.maxHealth??unit.health}`} · XP ${unit.xp}`}`:'').setAlpha(unit&&unit.health>0?1:.4);}
     this.partyHealth.clear();for(const [i,unit]of data.party.entries()){const fraction=Phaser.Math.Clamp(unit.health/Math.max(1,unit.maxHealth??unit.health),0,1),color=unit.health<=0?0x53636c:fraction>.5?0x88c899:fraction>.25?0xe8be6c:0xe87969;this.partyHealth.fillStyle(0x0c2533).fillRect(59,76+i*34,131,5).fillStyle(color).fillRect(60,77+i*34,129*fraction,3);}
     this.soldiersControl.setVisible(false);this.soldiersButton.setText(`Place soldiers · ${data.placed-data.party.filter(p=>p.placed).length}/${getMap(data.missionIndex??2).soldierCount}`);
     this.deploymentHeroes=data.party.map(p=>p.hero);this.selectedDeployment=data.selected;
-    this.deploymentHint.setText(`${data.party.every(p=>p.placed)?'Army ready. ':''}${data.objective??'Choose deployment positions.'}\n${getMap(data.missionIndex??2).soldierCount?`${getMap(data.missionIndex??2).soldierCount} soldiers guard map posts`:'Your chosen companions deploy here'}\nWASD: cursor · Space: place + next · R: begin`);this.miniTitle.setText(data.title??'Battlefield');
+    const keepPlanning=data.deploying&&data.missionIndex===3,panelWidth=keepPlanning?156:240;
+    this.deploymentHint.setWordWrapWidth(panelWidth-24).setText(data.party.every(p=>p.placed)?'Army ready.':data.objective??'Choose deployment positions.');
+    this.deploymentControls.setWordWrapWidth(panelWidth-24).setY(12+this.deploymentHint.height+10);
+    this.deploymentBegin.setY(this.deploymentControls.y+this.deploymentControls.height+16);
+    const panelHeight=this.deploymentBegin.y+68+12;
+    this.deploymentBackground.setSize(panelWidth,panelHeight);
+    this.deploymentPanel.setPosition(keepPlanning?728:12,WORLD.height-12-panelHeight);
+    this.miniTitle.setText(data.title??'Battlefield');
     if(!data.deploying)this.stats.setText(data.boss?`Commander HP ${Math.max(0,data.boss.health)}/${data.boss.maxHealth}`:`Mission ${(data.missionIndex??0)+1} · ${data.stagePhase==='wave'?`Wave ${data.wave}/${data.totalWaves??3}`:data.stagePhase} · ${data.elapsed}s${['rest','opening','boss-warning'].includes(data.stagePhase)||(data.stagePhase==='wave'&&data.enemies.length===0&&data.pending===0)?` · ${data.remaining}s`:''}`);
-    this.cooldownBar.clear();this.cooldownText.setVisible(!data.deploying);if(!data.deploying){this.cooldownBar.fillStyle(0x183e57).fillRect(330,525,280,10).fillStyle(data.cooldown.recovering?0xe7a55d:data.cooldown.fraction===1?0x85cda1:0x86baff).fillRect(332,527,276*data.cooldown.fraction,6);this.cooldownText.setText(`${data.cooldown.recovering?'Recovering':data.cooldown.fraction===1?'Attack ready':'Recharging'}${data.cooldown.remaining>0?` · ${data.cooldown.remaining.toFixed(1)}s`:''}${data.camp?` · Camp ${Math.max(0,data.camp.health)}`:''} · ${data.gold??0} G`);}
+    this.goldCounter.setVisible(!data.deploying);this.goldValue.setText(`${data.gold??0}`);this.cooldownBar.clear();this.cooldownText.setVisible(!data.deploying);if(!data.deploying){this.cooldownBar.fillStyle(0x183e57).fillRect(330,525,280,10).fillStyle(data.cooldown.recovering?0xe7a55d:data.cooldown.fraction===1?0x85cda1:0x86baff).fillRect(332,527,276*data.cooldown.fraction,6);this.cooldownText.setText(`${data.cooldown.recovering?'Recovering':data.cooldown.fraction===1?'Attack ready':'Recharging'}${data.cooldown.remaining>0?` · ${data.cooldown.remaining.toFixed(1)}s`:''}${data.camp?` · Camp ${Math.max(0,data.camp.health)}`:''}`);}
     const g=this.minimap;g.clear().fillStyle(0x152c37,.96).fillRect(712,38,172,20).lineStyle(1,0xae8746).strokeRect(716,58,164,100);
     const sx=164/data.width,sy=100/data.height;
     for(const p of data.enemies)g.fillStyle(0xeb5555).fillCircle(716+p.x*sx,58+p.y*sy,2);
@@ -218,21 +249,24 @@ ${initialLoadout(hero).items.map(item=>WEAPONS[item.weaponId].name).join(' · ')
     if(!this.state||this.state.settingsOpen||this.state.result)return;
     if(event.target instanceof HTMLElement&&event.target.closest('button,input,select,textarea,dialog'))return;
     const key=event.key.toLowerCase();
+    if(this.state.paused){if(['w','a','arrowup','arrowleft','s','d','arrowdown','arrowright'].includes(key)){this.pauseFocus=(this.pauseFocus+(['w','a','arrowup','arrowleft'].includes(key)?-1:1)+this.pauseActions.length)%this.pauseActions.length;this.game.events.emit('ux-feedback',{kind:'cursor'});this.updatePauseFocus();}else if((key==='enter'||key===' ')&&!event.repeat)this.pauseActions[this.pauseFocus]?.();else return;event.preventDefault();event.stopImmediatePropagation();return;}
     if(this.state.phase==='battle'){if(key==='f'&&!event.repeat&&!this.state.paused){this.game.events.emit('ui-switch-weapon');event.preventDefault();}return;}
     if(this.state.phase==='deployment'){
       if(['q','e'].includes(key)){const i=this.deploymentHeroes.indexOf(this.selectedDeployment as Hero);this.game.events.emit('ui-deploy-hero',this.deploymentHeroes[(i+(key==='q'?-1:1)+this.deploymentHeroes.length)%this.deploymentHeroes.length]);}
       else if(['w','a','s','d','arrowup','arrowleft','arrowdown','arrowright'].includes(key)){this.game.events.emit('ui-deploy-move',['a','arrowleft'].includes(key)?-32:['d','arrowright'].includes(key)?32:0,['w','arrowup'].includes(key)?-32:['s','arrowdown'].includes(key)?32:0);}
       else if(key===' '&&!event.repeat)this.game.events.emit('ui-deploy-confirm');
+      else if(key==='enter'&&!event.repeat)this.game.events.emit('ui-deploy-auto');
       else if(key==='r')this.game.events.emit('ui-launch');else return;
     }else {
       const move=({w:-5,arrowup:-5,s:5,arrowdown:5,a:-1,arrowleft:-1,d:1,arrowright:1} as Record<string,number>)[key];
-      if(move!==undefined){this.focusIndex=(this.focusIndex+move+HEROES.length)%HEROES.length;this.drawFocus();this.game.events.emit('ux-feedback',{kind:'cursor'});}
+      if(move!==undefined){if(Math.abs(move)===5){const column=this.focusIndex%5;const rows=Math.floor((HEROES.length-1-column)/5)+1;const row=Math.floor(this.focusIndex/5);this.focusIndex=((row+(move>0?1:-1)+rows)%rows)*5+column;}else this.focusIndex=(this.focusIndex+move+HEROES.length)%HEROES.length;this.drawFocus();this.game.events.emit('ux-feedback',{kind:'cursor'});}
       else if(key==='enter'||key===' ')this.game.events.emit('ui-character',HEROES[this.focusIndex]);
       else if(key==='tab')this.request(this.state.selectionMode==='player'?'party-mode':'leader-mode');
       else if(key==='r')this.request('start');else return;
     }
     event.preventDefault();
   }
+  private updatePauseFocus():void {this.pauseChoices.forEach((choice,i)=>choice.setColor(i===this.pauseFocus?'#153e66':'#44351e').setBackgroundColor(i===this.pauseFocus?'#fff2cd':'#00000000'));}
   private request(id:string):void { this.game.events.emit('ui-action',id); }
   private button(parent:Phaser.GameObjects.Container,x:number,y:number,width:number,label:string,action:()=>void):Phaser.GameObjects.Text {
     const frame = this.add.nineslice(x,y,'ui-parchment',undefined,width,28,8,8,8,8).setOrigin(0).setInteractive({useHandCursor:true});
@@ -248,8 +282,8 @@ ${initialLoadout(hero).items.map(item=>WEAPONS[item.weaponId].name).join(' · ')
     container.add([shade,frame,text]);return container;
   }
   private apply(state:InterfaceState):void {
-    if(!state)return;this.state=state;if(state.phase!=='battle'||state.result)this.warning.setText('');
-    if(!state.playing){this.cooldownBar.clear();this.cooldownText.setVisible(false);}
+    if(!state)return;if(state.paused&&!this.state?.paused)this.pauseFocus=0;this.state=state;this.updatePauseFocus();if(state.phase!=='battle'||state.result)this.warning.setText('');
+    if(!state.playing){this.goldCounter.setVisible(false);this.cooldownBar.clear();this.cooldownText.setVisible(false);}
     this.menu.setVisible(!state.playing && !state.result && !state.settingsOpen);
     this.selectionTitle.setText(state.selectionMode === 'player' ? 'Choose your party leader' : 'Choose up to three companions');
     if(state.tactical&&state.phase==='battle')this.stats.setText('Battle · Defeat all four camps');
@@ -267,7 +301,7 @@ ${initialLoadout(hero).items.map(item=>WEAPONS[item.weaponId].name).join(' · ')
     }
     const inBattle = state.playing || Boolean(state.result);
     this.menuButton.setVisible(inBattle); this.pauseButton.setVisible(state.playing && state.phase!=='deployment');
-    this.notice.setVisible(inBattle && state.phase!=='deployment'); this.instructions.setVisible(inBattle && state.phase!=='deployment');
+    this.notice.setVisible(inBattle && state.phase!=='deployment'); this.instructions.setVisible(false);
     this.pauseText.setText(state.paused?'Resume':'Pause').setAlpha(state.playing?1:.5);
     this.settings.setVisible(state.settingsOpen);
     this.pauseOverlay.setVisible(state.playing&&state.paused&&!state.settingsOpen);

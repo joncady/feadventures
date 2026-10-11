@@ -2,9 +2,9 @@
 
 Every file in public/assets, asset-library, v1/assets and the local audio-review audition library; excludes node_modules/build output. Catalog references identify available local sheets, not a claim to own/download the entire remote catalog.
 
-Indexed **5005 files**. Types: font: 2, image: 167, audio: 4818, metadata: 18.
+Indexed **5078 files**. Types: font: 2, image: 170, audio: 4888, metadata: 18.
 
-Provenance: unverified: 196, generated-placeholder: 6, documented: 132, catalog-id: 4671.
+Provenance: unverified: 196, generated-placeholder: 6, documented: 205, catalog-id: 4671.
 
 Machine-readable inventory: `asset-index.json`; reproduce with `scripts/index-assets.py`. Each entry records file size, SHA-256, image dimensions, runtime/reference/legacy scope and exact known source metadata.
 

@@ -1,3 +1,5 @@
+import {VoiceGate} from './game/systems/voice-gate';
+import {RallyVoiceSelection} from './game/systems/rally-voice-selection';
 import Phaser from 'phaser';
 import {DevScene} from './game/scenes/DevScene';
 import {loadCampaign,saveCampaign} from './game/systems/campaign-save';
@@ -41,15 +43,34 @@ let muted = false;
 let settingsOpen = false;
 let result = '';
 export const audioSettings = { music: 0.18, effects: 1, voices: 0.6, characterVoices: true, spellEffect: 'fire-cast' };
-let lastVoiceAt = -Infinity;
+const voiceGate=new VoiceGate();
+const rallyVoices=new RallyVoiceSelection();
+let deathVoice:Phaser.Sound.BaseSound|undefined;
+let voiceGeneration=0;
+const deathQueue:Hero[]=[];
+function playDeathVoice():void {
+  if(deathVoice||!deathQueue.length)return;
+  const character=deathQueue.shift()!;
+  if(muted||!audioSettings.characterVoices||audioSettings.voices===0){deathQueue.length=0;return;}
+  for(const clip of AUDIO_ASSETS)if(clip.key.startsWith('voice-'))game.sound.stopByKey(clip.key);
+  const generation=voiceGeneration,voice=game.sound.add(`voice-${character}-death`);deathVoice=voice;
+  voice.once('complete',()=>{voice.destroy();if(generation!==voiceGeneration)return;deathVoice=undefined;playDeathVoice();});
+  voice.play({volume:audioSettings.voices});
+}
 function stopVoices(): void {
+  voiceGeneration++;deathQueue.length=0;if(deathVoice){deathVoice.destroy();deathVoice=undefined;}
   for (const clip of AUDIO_ASSETS) if (clip.key.startsWith('voice-')) game.sound.stopByKey(clip.key);
 }
 function characterVoice(character: Hero, event: string): void {
-  if (muted || !audioSettings.characterVoices || audioSettings.voices === 0 || !game.cache.audio.exists(`voice-${character}-${event}`)) return;
-  if (event === 'attack' && performance.now() - lastVoiceAt < 1200) return;
-  stopVoices(); lastVoiceAt = performance.now();
-  game.sound.play(`voice-${character}-${event}`, { volume: audioSettings.voices });
+  if (muted || !audioSettings.characterVoices || audioSettings.voices === 0) return;
+  const clip=event==='rally'?rallyVoices.pick(character,key=>game.cache.audio.exists(key)):undefined;
+  const key=event==='rally'?clip?.key:`voice-${character}-${event}`;
+  if (!key || !game.cache.audio.exists(key)) return;
+  if(event==='death'){voiceGate.accept(character,event,performance.now());deathQueue.push(character);playDeathVoice();return;}
+  if(deathVoice||deathQueue.length)return;
+  if (!voiceGate.accept(character,event,performance.now(),(clip?.durationMs??0)+150)) return;
+  stopVoices();
+  if(game.sound.play(key,{volume:audioSettings.voices}) && clip)rallyVoices.played(character,clip);
 }
 game.events.on('effect', (key: string, options: { volume: number; rate?:number; position?:{x:number;y:number} }) => {
   const arena=game.scene.getScene('Arena') as ArenaScene;const proximity=options.position?(arena?.soundGain(options.position)??1):1;
@@ -89,6 +110,8 @@ publishInterface();
 publishSave();
 
 game.events.on('asset-error', (key: string) => {
+  // Optional rally recordings fall back to ordinary confirmation feedback.
+  if(AUDIO_ASSETS.some(clip=>clip.key===key&&clip.key.includes('-rally-')))return;
   loadingFailed = true; notice(`Could not load ${key}. Reload to retry.`);
 });
 game.events.on('assets-ready', () => {
@@ -121,7 +144,7 @@ function start(): void {
   if(campaignEnabled&&!campaign){devRun=false;campaign=newCampaign([hero,...companions]);checkpointCampaign();element('menu').hidden=true;element('end').hidden=true;result='';game.scene.stop('Boot');game.scene.stop('Interface');game.scene.start('Campaign',{...campaign,party:campaign.members.map(m=>m.hero)});ensureMusic();return;}
   if(campaign){campaign.members=cloneMembers(missionCheckpoint.length?missionCheckpoint:campaign.members);if(missionCheckpoint.length)campaign.gold=checkpointGold;}
 
-  ensureMusic();
+  stopVoices();ensureMusic();
   if(!tactical)game.events.emit('effect', 'battle-start', { volume: .45 });
   result = ''; settingsOpen = false; audioDialog.close();
   game.scene.stop('Boot'); game.scene.stop('Arena');
@@ -268,6 +291,8 @@ element('launch-battle').addEventListener('click',()=>game.events.emit('ui-launc
 game.events.on('ui-deploy-move',(dx:number,dy:number)=>(game.scene.getScene('Arena') as ArenaScene).nudgeDeployment(dx,dy));
 
 game.events.on('ui-deploy-soldier',()=> (game.scene.getScene('Arena') as ArenaScene).selectSoldierDeployment());
+
+game.events.on('ui-deploy-auto',()=>{if(phase==='deployment')(game.scene.getScene('Arena') as ArenaScene).autoPlaceDeployment();});
 
 game.events.on('ui-deploy-confirm',()=> (game.scene.getScene('Arena') as ArenaScene).confirmDeployment());
 

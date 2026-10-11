@@ -367,5 +367,75 @@
     "priority": "P1",
     "status": "Done",
     "body": "Compact1024\u00d7704 village with4guardposts and legal concealedentries. R rally10seconds/20secondcooldown restores posts afterward; fixedsoldiers excluded. User-confirmed inactivecompanion urgentstaff support triggers below50%, stopsafter75%, restorespriorweapon; controlledhero untouched. Village damage0.85\u21921.25/cap14unchanged. Normal152.407secwin allheroesalive, nearendVirion53/Sumia81,oneNPCfallen,camp897. Cohesive supportpartycomfortable; not severe-pressure proof.43unit/build +8focusedbrowser +2affectedrerunPASS. Fullcampaignnotrerunafterchange. Durableproofdocs/playtests/village-rally-healing-review.md. No push/deploy."
+  },
+  {
+    "url": "https://github.com/joncady/feadventures/issues/55",
+    "title": "Bug: Character-grid vertical wrap changes columns on the partial last row",
+    "priority": "P1",
+    "status": "Done",
+    "body": "Local1.0.1 implemented and verified. See docs/release-qa-1.0.1.md and docs/playtests/companion-facing-range-1.0.1.md for scope/evidence.43unit/typecheck/build pass; full64/65 initially plus5affectedchecks allpass after outdatedResumehitpoint fixture correction. Source movementrows unchanged; source portrait faces normalized; controls in nativepause. Fresh5173v1.0.1 nativepause noerrors. Fullnormalcampaignnotrerun. No commit/push for this patch."
+  },
+  {
+    "url": "https://github.com/joncady/feadventures/issues/56",
+    "title": "Bug: Character selection portraits have inconsistent centering",
+    "priority": "P1",
+    "status": "Done",
+    "body": "Local1.0.1 implemented and verified. See docs/release-qa-1.0.1.md and docs/playtests/companion-facing-range-1.0.1.md for scope/evidence.43unit/typecheck/build pass; full64/65 initially plus5affectedchecks allpass after outdatedResumehitpoint fixture correction. Source movementrows unchanged; source portrait faces normalized; controls in nativepause. Fresh5173v1.0.1 nativepause noerrors. Fullnormalcampaignnotrerun. No commit/push for this patch.\n\nLocal 1.0.2 follow-up: Chrom and Lucina horizontal source anchors corrected to125/126. Original portrait artwork and aspect ratio preserved. Typecheck, production build and3 focused browser tests passed; selected-card and focused-preview screenshots reviewed. GitHub issue remains authoritative."
+  },
+  {
+    "url": "https://github.com/joncady/feadventures/issues/57",
+    "title": "Bug: Audit character and enemy sprite facing across every action",
+    "priority": "P1",
+    "status": "Done",
+    "body": "Local1.0.1 implemented and verified. See docs/release-qa-1.0.1.md and docs/playtests/companion-facing-range-1.0.1.md for scope/evidence.43unit/typecheck/build pass; full64/65 initially plus5affectedchecks allpass after outdatedResumehitpoint fixture correction. Source movementrows unchanged; source portrait faces normalized; controls in nativepause. Fresh5173v1.0.1 nativepause noerrors. Fullnormalcampaignnotrerun. No commit/push for this patch."
+  },
+  {
+    "url": "https://github.com/joncady/feadventures/issues/58",
+    "title": "Bug: Companions can remain idle outside engagement range",
+    "priority": "P1",
+    "status": "Done",
+    "body": "Local1.0.1 implemented and verified. See docs/release-qa-1.0.1.md and docs/playtests/companion-facing-range-1.0.1.md for scope/evidence.43unit/typecheck/build pass; full64/65 initially plus5affectedchecks allpass after outdatedResumehitpoint fixture correction. Source movementrows unchanged; source portrait faces normalized; controls in nativepause. Fresh5173v1.0.1 nativepause noerrors. Fullnormalcampaignnotrerun. No commit/push for this patch."
+  },
+  {
+    "url": "https://github.com/joncady/feadventures/issues/59",
+    "title": "1.0.1: Fix reviewed bugs and move controls into native pause menu",
+    "priority": "P1",
+    "status": "Done",
+    "body": "Local1.0.1 implemented and verified. See docs/release-qa-1.0.1.md and docs/playtests/companion-facing-range-1.0.1.md for scope/evidence.43unit/typecheck/build pass; full64/65 initially plus5affectedchecks allpass after outdatedResumehitpoint fixture correction. Source movementrows unchanged; source portrait faces normalized; controls in nativepause. Fresh5173v1.0.1 nativepause noerrors. Fullnormalcampaignnotrerun. No commit/push for this patch."
+  },
+  {
+    "url": "https://github.com/joncady/feadventures/issues/60",
+    "title": "Audio: Play recorded character death lines once when heroes fall",
+    "priority": "P1",
+    "status": "Done",
+    "body": "Local 1.0.4: all 17 existing recorded character death clips now fire once for controlled or companion hero death. Simultaneous falls queue without overlap; auto character swap/final defeat preserve the line, voices enable/volume/master mute apply, retry clears prior-run audio. Shared rally random selection/cut-in work preserved. Male Morgan and male/female Robin covered; Anna is not playable and her clip remains indexed for future. Final merged source: 46 unit/typecheck/build +12 relevant browser checks pass; fresh local v1.0.4 no errors. Full normal campaign not rerun; no push. Detailed provenance/QA docs/character-death-audio.md."
+  },
+  {
+    "title": "UX: Simplify gold feedback and expire ground pickups",
+    "body": "Near-player gold +number with clustered collection feedback; source Awakening bullion icon shared by world/HUD/shop;20s active-battle lifetime,4s fade, pause safe. Local1.0.5 verified; see docs/gold-ux-review.md.",
+    "url": "https://github.com/joncady/feadventures/issues/61",
+    "priority": "P1",
+    "status": "Done"
+  },
+  {
+    "title": "Maps: Rebuild Black Keep from sourced building blocks at character scale",
+    "url": "https://github.com/joncady/feadventures/issues/62",
+    "priority": "P1",
+    "status": "Done",
+    "body": "Local1.0.6: sourced Stronghold2x tiles, three connected authored chunks1024x768, matching wall collision, no decorative chest tiles/invisible gates. Updated deployment/guards/objective/offcamera spawn fallbacks; boss/waves unchanged.47unit/build+7targetedbrowserchecks. See docs/black-keep-rebuild.md."
+  },
+  {
+    "title": "Combat: Aim sword attacks independently while retreating",
+    "url": "https://github.com/joncady/feadventures/issues/66",
+    "priority": "P1",
+    "status": "Done",
+    "body": "Local1.0.7: offensive melee shares mouse aim and left click/Space attack, independent of retreat movement. Strike facing locks during action; keyboard direction fallback outside canvas; staff selection unchanged.47 unit/typecheck/build and merged4 deployment/ranged/sword browser checks passed. Fresh5173v1.0.7 no pageerrors. See docs/directional-melee-review.md. No push."
+  },
+  {
+    "title": "Bug: Deployment cursor remains visible after battle starts",
+    "url": "https://github.com/joncady/feadventures/issues/67",
+    "priority": "P1",
+    "status": "Done",
+    "body": "1.0.8 explicitly clears and hides both deployment-only Graphics at battle launch. All-four-map native auto-place/launch regression asserts both invisible."
   }
 ]

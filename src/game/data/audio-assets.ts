@@ -1,4 +1,6 @@
+import {RALLY_VOICES} from './rally-voices';
 export const AUDIO_ASSETS = [
+  ...Object.values(RALLY_VOICES).flatMap(clips=>clips.map(({key,file})=>({key,file}))),
   // Recorded short noise cue; dialogue/page-turn identity awaits an audible audition.
   { key: "dialogue-advance", file: "audio/dialogue-advance.wav" },
   // Cursor clip chosen by the user; confirmation/rejection are provisional pitch variants.

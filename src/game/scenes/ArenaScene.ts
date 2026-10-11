@@ -35,6 +35,9 @@ export class ArenaScene extends Phaser.Scene {
   private missionIndex:number|undefined;
   private missionGold=0;
   private treasuryGold=0;
+  private goldPopup?:Phaser.GameObjects.Text;
+  private goldPopupTotal=0;
+  private goldCollectedAt=-Infinity;
   private objectiveReached=false;
   private objectiveMarker?:Phaser.GameObjects.Image;
   private camp?:Enemy;
@@ -85,8 +88,10 @@ export class ArenaScene extends Phaser.Scene {
   private pointerAim: Point | undefined;
   private keyboardFacing: Point = { x: 1, y: 0 };
   private pointerAttack = false;
+  private actionAim: Point = { x: 1, y: 0 };
   private lastDamage = -Infinity;
   private spawning = 0;
+  private fallenVoices = new Set<Hero>();
   private rallyUntil = 0;
   private rallyReadyAt = 0;
   private advancing = false;
@@ -99,7 +104,7 @@ export class ArenaScene extends Phaser.Scene {
   private brains = new WeakMap<Enemy, EnemyBrain>();
   constructor() { super('Arena'); }
   init(data: { hero?: Hero; companions?: Hero[]; tactical?:boolean;missionIndex?:number;members?:CampaignMember[];gold?:number }): void {
-    this.rallyUntil=0;this.rallyReadyAt=0;this.missionIndex=data.missionIndex;this.map=getMap(data.missionIndex??2);this.missionGold=0;this.treasuryGold=data.gold??0;this.objectiveReached=false;
+    this.fallenVoices.clear();this.rallyUntil=0;this.rallyReadyAt=0;this.missionIndex=data.missionIndex;this.map=getMap(data.missionIndex??2);this.missionGold=0;this.goldPopup=undefined;this.goldPopupTotal=0;this.goldCollectedAt=-Infinity;this.treasuryGold=data.gold??0;this.objectiveReached=false;
     this.tactical = data.tactical === true; this.deploying=this.tactical;
     this.width=this.tactical?this.map.width:WORLD.width;this.height=this.tactical?this.map.height:WORLD.height;this.terrain=this.tactical?[...this.map.terrain,...this.map.siegeWalls.map(w=>w.rect)]:OBSTACLES;
     this.hero = data.hero ?? 'chrom';
@@ -162,7 +167,7 @@ export class ArenaScene extends Phaser.Scene {
     this.physics.add.collider(this.enemies, this.walls);
     this.physics.add.collider(this.allies, this.walls, undefined, (a,b) => !this.unitFlying(a as Enemy)&&!this.unitFlying(b as Enemy));
     this.physics.add.overlap(this.player, this.pickups, (_player, item) => {
-      const pickup=item as Enemy;if(pickup.getData('gold')){this.missionGold+=pickup.getData('gold');this.game.events.emit('campaign-gold',this.missionGold);this.feedback('confirm',`+${pickup.getData('gold')} gold`);}else {this.health = Math.min(this.progression.stats.hp, this.health + 25);this.feedback('confirm','Recovered 25 HP');}item.destroy();this.publishHud();
+      const pickup=item as Enemy;if(pickup.getData('gold')){this.missionGold+=pickup.getData('gold');this.game.events.emit('campaign-gold',this.missionGold);this.showGoldPickup(pickup.getData('gold'));}else {this.health = Math.min(this.progression.stats.hp, this.health + 25);this.feedback('confirm','Recovered 25 HP');}item.destroy();this.publishHud();
     });
     const switchEquipment=()=>this.switchWeapon();this.game.events.on('ui-switch-weapon',switchEquipment);this.events.once('shutdown',()=>this.game.events.off('ui-switch-weapon',switchEquipment));
     this.keys = this.input.keyboard!.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,SPACE,Q,E,R') as Record<string, Phaser.Input.Keyboard.Key>;
@@ -171,7 +176,7 @@ export class ArenaScene extends Phaser.Scene {
     this.input.on('pointerdown', (pointer: Phaser.Input.Pointer, over:Phaser.GameObjects.GameObject[]) => {
       if (over.length) return;
       if(this.deploying){const point=pointer.positionToCamera(this.cameras.main) as Phaser.Math.Vector2;if(!this.insideDeployment(point)){this.feedback('reject','Deploy inside the courtyard.');return;}this.deploymentCursor=this.clampDeploymentCursor(point);this.confirmDeployment();return;}
-      if (!pointer.leftButtonDown() || this.ended || !['bow', 'tome'].includes(this.profile().weapon)) return;
+      if (!pointer.leftButtonDown() || this.ended || this.profile().weapon === 'staff') return;
       this.updatePointerAim(pointer); this.pointerAttack = true;
     });
     this.input.on('gameout', () => { this.pointerAim = undefined; this.pointerAttack = false; });
@@ -202,6 +207,7 @@ export class ArenaScene extends Phaser.Scene {
     if (this.ended) return;
     if(this.deploying){this.deploymentGuide.clear().fillStyle(0x48aaff,.3).fillRect(this.deploymentCursor.x-32,this.deploymentCursor.y-32,64,64).lineStyle(3,0x79bcff).strokeRect(this.deploymentCursor.x-32,this.deploymentCursor.y-32,64,64);this.drawHealthBars();this.publishTacticalMap();return;}
     if(this.tactical)this.battleClock+=delta;
+    this.updateGoldPickups();
     if(this.rallyUntil && time>=this.rallyUntil){this.rallyUntil=0;this.game.events.emit('notice','Rally ended — companions return to their posts.');}
     if(this.tactical&&Phaser.Input.Keyboard.JustDown(this.keys.R))this.rallyCompanions();
     if (Phaser.Input.Keyboard.JustDown(this.keys.Q)) this.tactical?this.switchCharacter(-1):this.toggleAllyMode();
@@ -214,7 +220,9 @@ export class ArenaScene extends Phaser.Scene {
     this.player.setVelocity(movement.x * (profile.speed*PLAYER_SPEED_SCALE+2*(this.progression.stats.speed-this.progression.base.speed)), movement.y * (profile.speed*PLAYER_SPEED_SCALE+2*(this.progression.stats.speed-this.progression.base.speed)));
     if (horizontal || vertical) this.keyboardFacing = movement;
     this.facing = { ...this.keyboardFacing };
-    if (this.pointerAim && ['bow', 'tome'].includes(profile.weapon)) {
+    if (this.pointerAim && profile.weapon !== 'staff') {
+      // Keep aiming at the screen cursor as the camera follows a retreating hero.
+      this.updatePointerAim(this.input.activePointer);
       const origin = this.bodyCenter(this.player);
       const aim = direction(this.pointerAim.x - origin.x, this.pointerAim.y - origin.y);
       if (aim.x || aim.y) this.facing = aim;
@@ -222,9 +230,9 @@ export class ArenaScene extends Phaser.Scene {
     if (HERO_SHEETS[this.hero].directional) {
       this.player.setFlipX(false);
       const row = this.directionName(horizontal || vertical ? movement : this.facing);
-      if (this.playerShot || time < this.actionUntil) { this.player.setVelocity(movement.x * 90, movement.y * 90); this.player.setFlipX(actionFlipX(this.hero,(this.playerShot?.aim ?? this.facing).x)); }
+      if (this.playerShot || time < this.actionUntil) { this.player.setVelocity(movement.x * 90, movement.y * 90); this.player.setFlipX(actionFlipX(this.hero,(this.playerShot?.aim ?? this.actionAim).x)); }
       else if (horizontal || vertical) this.player.anims.play(`${this.hero}-walk-${row}`, true);
-      else { this.player.anims.play(`${this.hero}-idle`, true); this.player.setFlipX(this.facing.x > 0); }
+      else { this.player.anims.play(`${this.hero}-idle`, true); this.player.setFlipX(false); }
     } else {
       if (horizontal || vertical) this.player.anims.play(`${this.hero}-walk`, true);
       else this.player.anims.play(`${this.hero}-idle`, true);
@@ -290,6 +298,15 @@ export class ArenaScene extends Phaser.Scene {
   nudgeDeployment(dx:number,dy:number):void {if(!this.deploying)return;const previous=this.deploymentCursor;this.deploymentCursor=this.clampDeploymentCursor({x:previous.x+Math.sign(dx)*64,y:previous.y+Math.sign(dy)*64});if(previous.x!==this.deploymentCursor.x||previous.y!==this.deploymentCursor.y)this.feedback('cursor');else this.feedback('reject','Keep deployment inside the courtyard.');}
   confirmDeployment():boolean {if(!this.deploying)return false;const placedId=this.selectedDeployment;if(!this.placeDeployment(this.deploymentCursor))return false;this.feedback('confirm',`${HERO_NAMES[placedId as Hero]} deployed`);const ids:readonly string[]=this.party;const index=ids.indexOf(placedId);const next=[...ids.slice(index+1),...ids.slice(0,index+1)].find(id=>!this.deployment[id]);if(next){this.selectedDeployment=next;for(let n=0;n<40;n++){const c=this.map.courtyard;this.deploymentCursor=this.deploymentCursor.x+64>c.right-32?{x:c.left+32,y:this.deploymentCursor.y+64>c.bottom-32?c.top+32:this.deploymentCursor.y+64}:{x:this.deploymentCursor.x+64,y:this.deploymentCursor.y};if(this.canDeploy(this.deploymentCursor))break;}this.game.events.emit('notice',`Placed. Next: ${HERO_NAMES[next as Hero]??'Soldier '+(Number(next.split('-')[1])+1)}. WASD moves; Space places.`);}else this.game.events.emit('notice','Army ready. R or Begin battle starts stage one.');return true;}
   selectDeployment(hero:Hero):void { if(this.deploying && this.party.includes(hero)){this.feedback('cursor');this.selectedDeployment=hero;this.deploymentCursor=this.deployment[hero]??this.deploymentCursor;this.game.events.emit('notice',`Place ${HERO_NAMES[hero]} on open terrain.`);} }
+  autoPlaceDeployment():number {
+    if(!this.deploying||this.ended)return 0;
+    const previous=this.selectedDeployment,c=this.map.courtyard;let placed=0;
+    for(const hero of this.party){if(this.deployment[hero])continue;this.selectedDeployment=hero;
+      outer:for(let y=c.top+32;y<c.bottom;y+=32)for(let x=c.left+32;x<c.right;x+=32){const point={x,y};if(this.canDeploy(point)){this.placeDeployment(point);placed++;break outer;}}
+    }
+    this.selectedDeployment=this.party.find(h=>!this.deployment[h])??previous;
+    this.feedback(placed?'confirm':'reject',placed?`Deployed ${placed} heroes`:'No empty deployment cells');return placed;
+  }
   private insideDeployment(point:Point):boolean {const c=this.map.courtyard;return point.x>=c.left+20&&point.x<=c.right-20&&point.y>=c.top+20&&point.y<=c.bottom-20;}
   private canDeploy(point:Point):boolean {
 return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero)?point.x>=20&&point.x<=this.width-20&&point.y>=20&&point.y<=this.height-20:this.navigation.isWalkable({x:point.x,y:point.y+4.5})) && !Object.entries(this.deployment).some(([hero,p])=>hero!==this.selectedDeployment && p && Phaser.Math.Distance.BetweenPoints(p,point)<64) && !this.map.camps.some(p=>Phaser.Math.Distance.BetweenPoints(p,point)<150) && (!this.camp||Phaser.Math.Distance.BetweenPoints(this.map.heroCamp,point)>=64);
@@ -304,8 +321,8 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
   private showCamps():void {
     for(const camp of this.map.camps){
       this.campLabels.push(this.add.circle(camp.x,camp.y,48,0x9c3434,.35).setStrokeStyle(3,0xe56565).setDepth(2));
-      const planned:Record<string,number>={};for(let wave=1;wave<=this.stage.settings.waves;wave++)for(let batch=0;batch<(this.missionIndex===undefined?4:this.map.waves.batches??4);batch++){const key=camp.units[(batch+wave-1)%4];planned[key]=(planned[key]??0)+1;}const counts=Object.entries(planned).map(([key,n])=>`${n} ${key}`).join(' · ');
-      this.campLabels.push(this.add.text(camp.x,camp.y+(camp.y<600?100:-80),`${camp.name}\n${counts}`,{fontFamily:'FE',fontSize:'16px',color:'#fff0c6',backgroundColor:'#522c2c',align:'center'}).setOrigin(camp.x<this.width/2?0:1,.5).setDepth(22));
+      const planned:Record<string,number>={};for(let wave=1;wave<=this.stage.settings.waves;wave++)for(let batch=0;batch<(this.missionIndex===undefined?4:this.map.waves.batches??4);batch++){const key=camp.units[(batch+wave-1)%4];planned[key]=(planned[key]??0)+1;}const entries=Object.entries(planned).map(([key,n])=>`${n} ${key}`);const counts=[entries.slice(0,2).join(' · '),entries.slice(2).join(' · ')].filter(Boolean).join('\n');
+      this.campLabels.push(this.add.text(Phaser.Math.Clamp(camp.x+(camp.x<this.width/2?-80:80),150,this.width-150),camp.y+(camp.y<600?100:-80),`${camp.name}\n${counts}`,{fontFamily:'FE',fontSize:'18px',color:'#fff0c6',backgroundColor:'#522c2c',align:'center',lineSpacing:3,padding:{x:6,y:4}}).setResolution(3).setOrigin(.5).setDepth(22));
 
     }
     this.game.events.emit('notice',`${this.map.title}: ${this.map.objective.label}. WASD + Space deploys heroes in blue cells.`);
@@ -313,11 +330,11 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
   launchBattle():boolean {
     if(!this.deploying || this.ended)return false;
     if(this.party.some(h=>!this.deployment[h])||this.allies.getChildren().some(a=>!this.deployment[a.getData('companionHero')??a.getData('deploymentId')])){this.feedback('reject','Place every hero before beginning.');this.game.events.emit('notice','Place every party member before beginning. Soldiers are already deployed.');return false;}
-    this.deploying=false;this.deploymentGuide.clear();this.planningGrid.clear();this.battleClock=0;this.stage.start(0);for(const object of this.campLabels)object.destroy();this.campLabels=[];
+    this.deploying=false;this.deploymentGuide.clear().setVisible(false);this.planningGrid.clear().setVisible(false);this.battleClock=0;this.stage.start(0);for(const object of this.campLabels)object.destroy();this.campLabels=[];
     this.cameras.main.setZoom(1).startFollow(this.player,true,.12,.12).setDeadzone(180,100);
     this.physics.resume();this.input.keyboard?.resetKeys();this.pointerAim=undefined;this.pointerAttack=false;
     this.battleHud.destroy();this.battleHud=new BattleHud(this,this.hero,()=>this.switchCharacter(1));this.battleHud.synchronize(this.progression);
-    this.game.events.emit('notice',`${this.map.title} begins in 5 seconds. ${this.map.objective.label}. Q/E switches heroes; F switches equipment.`);this.publishHud();return true;
+    this.game.events.emit('notice',`${this.map.title} begins in 5 seconds. ${this.map.objective.label}.`);this.publishHud();return true;
   }
   private campSpawnPoint(index:number):Point|undefined {
     const camp=this.map.camps[index];
@@ -326,10 +343,10 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     const candidates=offsets.map(([x,y])=>({x:camp.x+x,y:camp.y+y}));
     if(this.map.id==='east-road')candidates.push(...[192,272,352].flatMap(y=>[{x:40,y},{x:this.width-40,y}]));
     if(this.map.id==='village')candidates.push({x:512,y:40},{x:512,y:this.height-40},...[176,528].flatMap(y=>[{x:40,y},{x:this.width-40,y}]));
-    if(assault)candidates.push({x:544,y:208},{x:736,y:208},{x:544,y:856},{x:736,y:856});
+    if(assault)candidates.push(...[96,this.height-96].flatMap(y=>[{x:128,y},{x:this.width-128,y}]));
     else candidates.push({x:camp.x<this.width/2?40:this.width-40,y:40},{x:camp.x<this.width/2?40:this.width-40,y:this.height-40});
     const view=this.cameras.main.worldView,margin=this.missionIndex===1?24:assault?32:70;
-    return candidates.find(p=>(!assault||(p.x>=488&&p.x<=792&&p.y>=208&&p.y<=856))&&this.navigation.isWalkable(p)&&!(p.x>view.x-margin&&p.x<view.right+margin&&p.y>view.y-margin&&p.y<view.bottom+margin)&&![this.player,...this.allies.getChildren(),...this.enemies.getChildren()].some(a=>a.active&&Phaser.Math.Distance.Between(p.x,p.y,(a as Enemy).x,(a as Enemy).y)<52));
+    return candidates.find(p=>this.navigation.isWalkable(p)&&!(p.x>view.x-margin&&p.x<view.right+margin&&p.y>view.y-margin&&p.y<view.bottom+margin)&&![this.player,...this.allies.getChildren(),...this.enemies.getChildren()].some(a=>a.active&&Phaser.Math.Distance.Between(p.x,p.y,(a as Enemy).x,(a as Enemy).y)<52));
   }
   private updateStage(now:number):void {
     const ready=this.releases.find(r=>now>=r.at&&this.campSpawnPoint(r.camp));
@@ -376,8 +393,8 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     const next=this.partyStates.get(hero)!;next.health=ally.getData('health');const nextBrain=this.brains.get(ally);if(nextBrain)next.lastAttack=Math.max(next.lastAttack,nextBrain.nextAttackAt-attackCooldown(next.progress,hero,equippedWeapon(next.loadout))*2.4);
     const from={x:this.player.x,y:this.player.y},to={x:ally.x,y:ally.y};const shot=this.playerShot;
     this.hero=hero;this.health=next.health;this.progression=next.progress;this.lastAttack=next.lastAttack;this.lastDamage=next.lastDamage;
-    this.player.setTexture(hero).clearTint().setDepth(isFlying(hero)?12:10).setSize(28,28).setOffset(11,15);this.player.body!.reset(to.x,to.y);this.player.body!.updateFromGameObject();this.player.setVelocity(0);this.player.anims.play(`${hero}-idle`);
-    ally.setTexture(previous).setDepth(isFlying(previous)?12:9).setSize(28,28).setOffset(11,15);ally.body!.reset(from.x,from.y);ally.body!.updateFromGameObject();ally.setVelocity(0);
+    this.player.setTexture(hero).setFlipX(false).clearTint().setDepth(isFlying(hero)?12:10).setSize(28,28).setOffset(11,15);this.player.body!.reset(to.x,to.y);this.player.body!.updateFromGameObject();this.player.setVelocity(0);this.player.anims.play(`${hero}-idle`);
+    ally.setTexture(previous).setFlipX(false).setDepth(isFlying(previous)?12:9).setSize(28,28).setOffset(11,15);ally.body!.reset(from.x,from.y);ally.body!.updateFromGameObject();ally.setVelocity(0);
     const p=weaponProfile(previous,state.loadout);ally.setData({companionHero:previous,flying:isFlying(previous),weapon:p.weapon,health:state.health,maxHealth:state.progress.stats.hp,progression:state.progress,loadout:state.loadout,damage:attackPower(state.progress,previous,equippedWeapon(state.loadout)),speed:p.speed*PLAYER_SPEED_SCALE+2*(state.progress.stats.speed-state.progress.base.speed),defense:state.progress.stats.def,resistance:state.progress.stats.res,home:this.deployment[previous],pendingShot:shot,nextAttackAt:state.lastAttack+attackCooldown(state.progress,previous,equippedWeapon(state.loadout))*2.4});
     (ally.getData('weaponIcon') as Phaser.GameObjects.Image).setTexture(`weapon-${p.weapon}`);this.playerWeapon.setTexture(`weapon-${this.profile().weapon}`);
     this.brains.delete(ally);for(const unit of [...this.enemies.getChildren(),...this.allies.getChildren()]){const brain=this.brains.get(unit as Enemy);if(brain?.targetUnit===this.player)brain.targetUnit=ally;else if(brain?.targetUnit===ally)brain.targetUnit=this.player;}
@@ -442,6 +459,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     if(this.time.now<this.rallyReadyAt){this.feedback('reject',`Rally ready in ${Math.ceil((this.rallyReadyAt-this.time.now)/1000)}s`);return false;}
     this.rallyUntil=this.time.now+10000;this.rallyReadyAt=this.time.now+20000;
     for(const unit of this.allies.getChildren() as Enemy[])if(unit.getData('companionHero')){unit.setData('retaliation',undefined);this.brains.delete(unit);}
+    this.game.events.emit('hero-voice',{hero:this.hero,event:'rally'});
     this.feedback('confirm','Companions rally to you for 10 seconds');return true;
   }
   private rallying(unit:Enemy):boolean {return this.rallyUntil>this.time.now&&!!unit.getData('companionHero');}
@@ -554,9 +572,9 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
       const wounded=[this.player,...this.allies.getChildren() as Enemy[]].filter(u=>u!==enemy&&u.active&&u.visible&&(u===this.player?this.health:u.getData('health'))>0&&(u===this.player?this.health<this.progression.stats.hp:u.getData('health')<u.getData('maxHealth'))&&Phaser.Math.Distance.BetweenPoints(anchor,this.bodyCenter(u))<=this.retaliationRadius(enemy)).sort((a,b)=>Phaser.Math.Distance.BetweenPoints(origin,this.bodyCenter(a))-Phaser.Math.Distance.BetweenPoints(origin,this.bodyCenter(b)));
       const target=wounded.length?this.bodyCenter(wounded[0]):anchor;
       const stop=wounded.length?weapon.range*.7:16;
-      if(wounded.length?Phaser.Math.Distance.BetweenPoints(origin,target)<=stop:!this.following(enemy,origin,target)){enemy.setVelocity(0);enemy.anims.play(`${enemy.texture.key}-idle`,true);return;}
+      if(wounded.length?Phaser.Math.Distance.BetweenPoints(origin,target)<=stop:!this.following(enemy,origin,target)){enemy.setVelocity(0).setFlipX(false);enemy.anims.play(`${enemy.texture.key}-idle`,true);return;}
       const field=this.allyRoutes.get(enemy)!;field.setTarget(target,this.unitFlying(enemy));const waypoint=this.unitFlying(enemy)||field.canTravel(origin,target)?target:field.nextWaypoint(origin);
-      if(waypoint){const aim=direction(waypoint.x-origin.x,waypoint.y-origin.y);const speed=wounded.length?enemy.getData('speed'):this.followSpeed(enemy,origin,target);enemy.setVelocity(aim.x*speed,aim.y*speed);enemy.anims.play(`${enemy.texture.key}-walk-${this.directionName(aim)}`,true);}else enemy.setVelocity(0);
+      if(waypoint){const aim=direction(waypoint.x-origin.x,waypoint.y-origin.y);const speed=wounded.length?enemy.getData('speed'):this.followSpeed(enemy,origin,target);enemy.setVelocity(aim.x*speed,aim.y*speed).setFlipX(false);enemy.anims.play(`${enemy.texture.key}-walk-${this.directionName(aim)}`,true);}else {enemy.setVelocity(0).setFlipX(false);enemy.anims.play(`${enemy.texture.key}-idle`,true);}
       return;
     }
     const pending=enemy.getData('pendingShot') as {aim:Point;at:number}|undefined;
@@ -580,7 +598,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
         const destination=this.unitFlying(enemy)||field.canTravel(origin,target)?target:field.nextWaypoint(origin);
         if(destination && this.following(enemy,origin,target)){const aim=direction(destination.x-origin.x,destination.y-origin.y);const speed=this.followSpeed(enemy,origin,target);enemy.setVelocity(aim.x*speed,aim.y*speed).setFlipX(false);enemy.anims.play(`${enemy.texture.key}-walk-${this.directionName(aim)}`,true);return;}
       }
-      enemy.setVelocity(0); enemy.anims.play(`${enemy.texture.key}-idle`, true); return;
+      enemy.setVelocity(0).setFlipX(false); enemy.anims.play(`${enemy.texture.key}-idle`, true); return;
     }
     const origin = this.bodyCenter(enemy), target = this.structureTarget(targetUnit,origin);
     const route = this.faction(enemy) === 'ally' ? this.allyRoutes.get(enemy)! : targetUnit === this.player ? this.navigation : this.targetFields.get(targetUnit)!;
@@ -604,10 +622,11 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
       brain.phase = 'chase';
     }
     if (attack.kind === 'ranged') {
-      if (distance < (definition.weapon === 'tome' ? 65 : 140)) brain.retreating = true;
-      if (distance >= (definition.weapon === 'tome' ? 110 : 180)) brain.retreating = false;
+      const minimum=attack.minRange??0;
+      if(distance<minimum)brain.retreating=true;
+      if(distance>=Math.min(attack.range,minimum+Math.min(30,(attack.range-minimum)*.15)))brain.retreating=false;
     }
-    const canAttack = distance <= attack.range && visible && !brain.retreating;
+    const canAttack = distance >= (attack.minRange??0) && distance <= attack.range && visible && !brain.retreating;
     if (canAttack && time >= brain.nextAttackAt) {
       brain.phase = 'windup'; brain.aim = direction(target.x - origin.x, target.y - origin.y);
       brain.target = target; brain.strikeAt = time + attack.windup;
@@ -615,11 +634,11 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
       this.drawTelegraph(enemy, brain, definition);
       return;
     }
-    const holdPosition = attack.kind === 'melee' ? distance <= attack.range * 0.9 && visible : distance <= 260 && visible && !brain.retreating;
-    if (holdPosition) { enemy.setVelocity(0); enemy.anims.play(`${enemy.texture.key}-idle`, true); return; }
+    const holdPosition = attack.kind === 'melee' ? distance <= attack.range * 0.9 && visible : distance >= (attack.minRange??0) && distance <= attack.range && visible && !brain.retreating;
+    if (holdPosition) { enemy.setVelocity(0).setFlipX(false); enemy.anims.play(`${enemy.texture.key}-idle`, true); return; }
     const waypoint = !brain.retreating && (this.unitFlying(enemy) || route.canTravel(origin, target))
       ? target : route.nextWaypoint(origin, brain.retreating);
-    if (!waypoint) { enemy.setVelocity(0); enemy.anims.stop(); return; }
+    if (!waypoint) { enemy.setVelocity(0).setFlipX(false); enemy.anims.play(`${enemy.texture.key}-idle`,true); return; }
     const movement = direction(waypoint.x - origin.x, waypoint.y - origin.y);
     const speed = enemy.getData('speed') as number;
     // Reach cell centers without overshooting them at low frame rates.
@@ -696,7 +715,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
   }
   private drawAimGuide(): void {
     this.aimGuide.clear();
-    if (!['bow', 'tome'].includes(this.profile().weapon)) return;
+    if (this.profile().weapon === 'staff') return;
     const origin = this.bodyCenter(this.player), profile = this.profile();
     const aim = this.playerShot?.aim ?? this.facing;
     this.aimGuide.lineStyle(1, 0xe79d79, 0.45).strokeCircle(origin.x, origin.y, profile.minRange);
@@ -783,7 +802,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     state.lastAttack=this.time.now;
     if(source===this.player){this.health=state.health;this.lastAttack=this.time.now;this.actionUntil=this.time.now+350;this.battleHud.gain(experience,gains);}else source.setData({health:state.health,maxHealth:state.progress.stats.hp,defense:state.progress.stats.def,resistance:state.progress.stats.res,nextAttackAt:this.time.now+attackCooldown(state.progress,hero,weapon)*(this.tactical?2.4:1)});
     if(source!==this.player&&source.getData('autoHealPrior')!==undefined)this.feedback('confirm',`${HERO_NAMES[hero]}: urgent heal`);
-    source.anims.play(`${hero}-action`);source.setData('healUntil',this.time.now+350);
+    source.setFlipX(actionFlipX(hero,patient.unit.x-source.x));source.anims.play(`${hero}-action`);source.setData('healUntil',this.time.now+350);
     if(this.cache.audio.exists('heal'))this.game.events.emit('effect','heal',{volume:.3,position:{x:source.x,y:source.y}});
     const ring=this.add.graphics().setDepth(24).lineStyle(3,0x8deaa8,.9).strokeCircle(patient.unit.x,patient.unit.y,30);
     const text=this.add.text(patient.unit.x,patient.unit.y-50,`+${result.restored} HP`,{fontFamily:'FE',fontSize:'14px',color:'#a2ffc3',stroke:'#15201b',strokeThickness:3}).setOrigin(.5).setDepth(25);
@@ -793,6 +812,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
   private attack(): void {
     const profile = this.profile();
     this.actionUntil = this.time.now + 200;
+    this.actionAim = { ...this.facing };
     this.player.anims.play(`${this.hero}-action`);
     this.player.setFlipX(actionFlipX(this.hero,this.facing.x));
     if(profile.weapon==='staff'){this.castHeal(this.player);return;}
@@ -837,8 +857,8 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
       { fontFamily: 'FE', fontSize: '13px', color: '#f5edda', stroke: '#15201b', strokeThickness: 3 }).setDepth(25);
     this.tweens.add({ targets: text, y: text.y - 18, alpha: 0, duration: 650, onComplete: () => text.destroy() });
     if (health <= 0) {
-      const { x, y } = enemy; const typeKey=enemy.texture.key;const defeatedLevel=enemy.getData('level')??1; const companion=enemy.getData('companionHero') as Hero|undefined;if(companion)this.partyStates.get(companion)!.health=0; const hostile = this.faction(enemy) === 'enemy'; enemy.destroy(); if (hostile) { this.kills++; this.awardExperience(typeKey,defeatedLevel); }
-      if(hostile&&this.tactical){const coin=this.pickups.create(x,y,'gold') as Enemy;coin.setDisplaySize(18,18).setData('gold',Phaser.Math.Between(12,22));coin.setSize(coin.width,coin.height);}
+      const { x, y } = enemy; const typeKey=enemy.texture.key;const defeatedLevel=enemy.getData('level')??1; const companion=enemy.getData('companionHero') as Hero|undefined;if(companion){this.partyStates.get(companion)!.health=0;this.heroDeath(companion);} const hostile = this.faction(enemy) === 'enemy'; enemy.destroy(); if (hostile) { this.kills++; this.awardExperience(typeKey,defeatedLevel); }
+      if(hostile&&this.tactical){const coin=this.pickups.create(x,y,'gold') as Enemy;coin.setDisplaySize(20,20).setDepth(12).setData({gold:Phaser.Math.Between(12,22),goldExpires:this.battleClock+20000});coin.setSize(coin.width,coin.height);}
       if (hostile && Phaser.Math.Between(1, 5) === 1 && this.pickups.countActive() < 3) {
         const item = this.pickups.create(x, y, 'vulnerary') as Enemy;
         item.setDisplaySize(20, 20); item.setSize(item.width, item.height);
@@ -850,6 +870,25 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     }
     this.publishHud();
   }
+  private updateGoldPickups():void {
+    for(const pickup of this.pickups.getChildren() as Enemy[]){
+      const expires=pickup.getData('goldExpires') as number|undefined;
+      if(expires===undefined)continue;
+      const remaining=expires-this.battleClock;
+      if(remaining<=0)pickup.destroy();
+      else pickup.setAlpha(remaining<4000?.3+.7*remaining/4000:1);
+    }
+  }
+  private showGoldPickup(amount:number):void {
+    const clustered=this.battleClock-this.goldCollectedAt<500&&this.goldPopup?.active;
+    this.goldPopupTotal=clustered?this.goldPopupTotal+amount:amount;
+    if(!clustered){this.goldPopup?.destroy();this.goldPopup=this.add.text(this.player.x,this.player.y-45,'',{fontFamily:'FE',fontSize:'16px',color:'#f7d878',stroke:'#352717',strokeThickness:3}).setOrigin(.5).setDepth(26);this.feedback('confirm');}
+    this.goldCollectedAt=this.battleClock;
+    const popup=this.goldPopup!;this.tweens.killTweensOf(popup);
+    popup.setPosition(this.player.x,this.player.y-45).setAlpha(1).setText(`+${this.goldPopupTotal}`);
+    this.tweens.add({targets:popup,y:popup.y-22,alpha:0,duration:1000,onComplete:()=>popup.destroy()});
+  }
+  private heroDeath(hero:Hero):void {if(this.fallenVoices.has(hero))return;this.fallenVoices.add(hero);this.game.events.emit('hero-voice',{hero,event:'death'});}
   private takeDamage(base: number, weapon: WeaponType = this.profile().weapon): void {
     const protection = weapon === 'tome' ? this.progression.stats.res : this.progression.stats.def;
     const damage = scaleDamage(combatDamage(Math.max(1,base-protection), weapon, this.profile().weapon, isFlying(this.hero)),this.tactical?(this.registry.get('damage-scale')??.5):1);
@@ -859,7 +898,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     this.lastDamage = this.time.now;
     this.health = Math.max(0, this.health - damage);
     this.game.events.emit('effect', 'damage', { volume: 0.2 });
-    this.game.events.emit('hero-voice', { hero: this.hero, event: this.health <= 0 ? 'death' : 'damage' });
+    if(this.health<=0)this.heroDeath(this.hero);else this.game.events.emit('hero-voice',{hero:this.hero,event:'damage'});
     this.player.setTint(0xffaaaa);
     this.time.delayedCall(180, () => { if (this.player.active) this.player.clearTint(); });
     this.publishHud();

@@ -30,3 +30,12 @@ test('compact village has four legal pressure lanes and a bounded, connected dep
  assert.equal(nav.isWalkable({x:288,y:224}),false);assert.equal(nav.isWalkable({x:736,y:480}),false);assert.equal(nav.isWalkable({x:64,y:352}),false);
  assert.ok(village.camps.every(c=>Math.hypot(c.x-village.objective.x,c.y-village.objective.y)<510));
 });
+
+test('Black Keep sourced rooms connect deployment, side guards and boss without hidden gates',()=>{
+ const map=CAMPAIGN_MAPS[3];assert.equal(map.width,1024);assert.equal(map.height,768);assert.equal(map.chunks.length,3);assert.equal(map.siegeWalls.length,0);
+ const nav=new NavigationField(map.width,map.height,map.terrain);nav.setTarget(map.objective);
+ for(let x=384;x<=640;x+=64)for(let y=608;y<=672;y+=64)assert.ok(nav.isWalkable({x,y})&&nav.hasRoute({x,y}),`Keep deployment ${x},${y} blocked`);
+ for(const y of [256,512])for(const x of [384,448,512,576,640])assert.ok(nav.isWalkable({x,y:y+16})&&nav.hasRoute({x,y:y+16}),`Keep doorway ${x},${y} blocked`);
+ for(const chunk of map.chunks)for(const [x,y,w,h] of chunk.terrain)assert.equal(nav.isWalkable({x:chunk.position.x+x+w/2,y:chunk.position.y+y+h/2}),false,'Visible wall must block ground units');
+ assert.deepEqual(assembleTerrain(map),map.terrain);assert.equal(map.waves.bossHealth,1400);assert.equal(map.waves.hostileCap,24);
+});

@@ -39,10 +39,8 @@ export class BattleHud {
     this.top = scene.add.text(12, 9, '', { ...style, color: '#f8eac6' }).setDepth(101).setVisible(false);
     this.title = scene.add.text(this.x + 54, this.y + 8, HERO_NAMES[hero], { ...style, fontSize: '12px', color: '#f8eac6' }).setDepth(102);
     scene.add.text(this.x + 54, this.y + 25, CLASS_NAMES[hero], { ...style, fontSize: '10px' }).setDepth(102);
-    const portrait = scene.textures.get(`portrait-${hero}`);
-    const source = portrait.getSourceImage() as HTMLImageElement;
-    if (!portrait.has('hud-face')) portrait.add('hud-face', 0, source.width * .3, source.height * .03, source.width * .4, source.height * .48);
-    scene.add.image(this.x + 29, this.y + 32, `portrait-${hero}`, 'hud-face').setDisplaySize(38, 44).setDepth(102);
+    const faceKey = scene.textures.exists(`portrait-face-${hero}`) ? `portrait-face-${hero}` : `portrait-${hero}`;
+    scene.add.image(this.x + 29, this.y + 32, faceKey).setDisplaySize(38, 38).setDepth(102);
     this.xp = scene.add.text(this.x + 54, this.y + 38, '', { ...style, fontSize: '10px' }).setDepth(102);
     this.hp = scene.add.text(this.x + 54, this.y + 53, '', { ...style, fontSize: '10px' }).setDepth(102);
     this.combat = scene.add.text(this.x + 12, this.y - 82, '', { ...style, fontSize: '10px' }).setDepth(102);
@@ -59,10 +57,10 @@ export class BattleHud {
     const detailPanel = scene.add.nineslice(this.x, this.y - 94, 'ui-parchment', undefined, 204, 90, 12, 12, 12, 12).setOrigin(0).setDepth(100);
     const detailZone = scene.add.zone(this.x, this.y - 94, 204, 90).setOrigin(0).setDepth(100).setInteractive();
     this.details = [detailPanel, detailZone, this.combat, this.stats, ...this.slots.flatMap(row => [row.background, row.icon, row.text])];
-    const info = scene.add.text(this.x + 157, this.y + 25, 'I: Info', { ...style, fontSize: '9px', color: '#183e57' }).setDepth(103).setInteractive({useHandCursor:true});
+    const info = scene.add.text(this.x + 157, this.y + 25, 'Info', { ...style, fontSize: '9px', color: '#183e57' }).setDepth(103).setInteractive({useHandCursor:true});
     const toggle = () => { if (!this.visible) return; this.expanded = !this.expanded; this.applyDetailVisibility(); this.scene.game.events.emit('ux-feedback', {kind: 'confirm'}); };
     info.on('pointerdown', toggle);
-    this.keyListener = (event:KeyboardEvent) => {if(event.key.toLowerCase() === 'i' && !event.repeat) toggle();};
+    this.keyListener = (event:KeyboardEvent) => {if(event.key.toLowerCase() === 'i' && !event.repeat && !scene.game.scene.isPaused(scene.scene.key)) toggle();};
     window.addEventListener('keydown', this.keyListener);
     this.applyDetailVisibility();
     this.growth = scene.add.text(this.x + 10, this.y - 128, '', { ...style, fontSize: '11px', color: '#fff2c4', backgroundColor: '#183e57', wordWrap: { width: 184 } }).setDepth(102);

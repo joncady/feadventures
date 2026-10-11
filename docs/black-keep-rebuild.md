@@ -1,0 +1,9 @@
+# Black Keep rebuild — local1.0.6 / issue62
+
+Old final map resized RandomWizard's240×160 Royal Great Hall map at4×. Its source16px tiles became64px, twice road/village terrain size, and its decorative chests were baked into the image. There were no chest entities/rewards/open interactions in game code.
+
+Rebuilt as1024×768 with existing sourced Stronghold building blocks (ZoramineFae / N426 / Flasuban / Wan): https://feuniverse.us/t/updated-stronghold-tileset/6134 . Source: `asset-library/map-candidates/compact/stronghold-tileset.png`. Exact16px floor/wall/carpet tiles enlarged2×; original column/throne crops match that pixel scale. No new painted/generated graphics. Shared `black-keep-chunks.ts` drives source composition and collision across connected entry hall → guard hall → throne room.320px openings connect the ground routes; columns block their visible footprints. Flight/archery collision behavior unchanged. Removed chest decorations and old invisible barricades.
+
+South staging rectangle352,576–672,704, four NPC posts, throne objective512,128 and four guard camps moved to walkable positions. Original3wave cadence,1400HP commander, level3reinforcements and hostilecap24 preserved. Offcamera release fallbacks use new map dimensions rather than old4×hall coordinates.
+
+Validation:47unit tests/typecheck/build passed. Seven focused browser checks passed including real keyboard upward travel across both doors and six campaign progression/combat/retry checks; finalmap check rerun after removing stale spawn bounds, confirms four camps have offcamera releases at boss end. Durable native screenshot `docs/playtests/black-keep-1.0.6.png` shows character/throne/wall scale. Test fixture uses UIlaunch so planning panel disappears normally. Full natural finalbattle duration/victory has not been replayed for this map change. Nothing committed/pushed.

@@ -3,7 +3,7 @@
   "updated": "2026-10-10",
   "catalogReference": "https://www.spriters-resource.com/3ds/fireemblemawakening/",
   "coverage": "Every file in public/assets, asset-library, v1/assets and the local audio-review audition library; excludes node_modules/build output. Catalog references identify available local sheets, not a claim to own/download the entire remote catalog.",
-  "totalFiles": 5005,
+  "totalFiles": 5078,
   "entries": [
     {
       "path": "public/assets/FE.otf",
@@ -142,6 +142,94 @@
       }
     },
     {
+      "path": "public/assets/audio/chrom-rally-1-1.wav",
+      "bytes": 63532,
+      "sha256": "4beed351fae47ecdf8be4ef30e489cbab44ca55678d3070934e78d64edfa769e",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-chrom-rally-1-1",
+        "file": "audio/chrom-rally-1-1.wav",
+        "indexedPath": "audio-review/399888/421-SE_VOICE_CHROM_CUTIN1_1.wav",
+        "durationMs": 970,
+        "hero": "chrom",
+        "event": "rally",
+        "member": "SE_VOICE_CHROM_CUTIN1_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "4beed351fae47ecdf8be4ef30e489cbab44ca55678d3070934e78d64edfa769e",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/chrom-rally-1-2.wav",
+      "bytes": 79916,
+      "sha256": "d409cec9b83cfc012034182e198c32d2d9bff177b635b8435dc6a4d35e98dd36",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-chrom-rally-1-2",
+        "file": "audio/chrom-rally-1-2.wav",
+        "indexedPath": "audio-review/399888/422-SE_VOICE_CHROM_CUTIN1_2.wav",
+        "durationMs": 1220,
+        "hero": "chrom",
+        "event": "rally",
+        "member": "SE_VOICE_CHROM_CUTIN1_2.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "d409cec9b83cfc012034182e198c32d2d9bff177b635b8435dc6a4d35e98dd36",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/chrom-rally-1-3.wav",
+      "bytes": 75820,
+      "sha256": "76f57f6430d77327e265e96c9f8013423a36a484a2ae09531d423769c06e9cfc",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-chrom-rally-1-3",
+        "file": "audio/chrom-rally-1-3.wav",
+        "indexedPath": "audio-review/399888/423-SE_VOICE_CHROM_CUTIN1_3.wav",
+        "durationMs": 1158,
+        "hero": "chrom",
+        "event": "rally",
+        "member": "SE_VOICE_CHROM_CUTIN1_3.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "76f57f6430d77327e265e96c9f8013423a36a484a2ae09531d423769c06e9cfc",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/chrom-rally-2-1.wav",
+      "bytes": 86060,
+      "sha256": "176a9545a0a5501f8e1d30fb70c054e06fd9aab590724d40a755dc3c5f8f2615",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-chrom-rally-2-1",
+        "file": "audio/chrom-rally-2-1.wav",
+        "indexedPath": "audio-review/399888/424-SE_VOICE_CHROM_CUTIN2_1.wav",
+        "durationMs": 1314,
+        "hero": "chrom",
+        "event": "rally",
+        "member": "SE_VOICE_CHROM_CUTIN2_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "176a9545a0a5501f8e1d30fb70c054e06fd9aab590724d40a755dc3c5f8f2615",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
       "path": "public/assets/audio/chrom-select.wav",
       "bytes": 38956,
       "sha256": "6ec63e57e5564f254e6470def7eea81c193d333cadf7735351a28057c8354b8c",
@@ -215,6 +303,94 @@
         "member": "VOICE_SFX_Wav/SE_VOICE_TIAMO_DEAD_1.wav",
         "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
         "uploader": "robotortoise"
+      }
+    },
+    {
+      "path": "public/assets/audio/cordelia-rally-1-1.wav",
+      "bytes": 86060,
+      "sha256": "1da3b48876d7b1dab54bb5c321c11e085b29f9cdd48589858a79aa0928ff0eef",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-cordelia-rally-1-1",
+        "file": "audio/cordelia-rally-1-1.wav",
+        "indexedPath": "audio-review/399888/3257-SE_VOICE_TIAMO_CUTIN1_1.wav",
+        "durationMs": 1314,
+        "hero": "cordelia",
+        "event": "rally",
+        "member": "SE_VOICE_TIAMO_CUTIN1_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "1da3b48876d7b1dab54bb5c321c11e085b29f9cdd48589858a79aa0928ff0eef",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/cordelia-rally-1-2.wav",
+      "bytes": 73772,
+      "sha256": "48a5e383f2a9ed06fd090943593f86ffe3b9edcb556d212e0ca9342844f7fb3d",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-cordelia-rally-1-2",
+        "file": "audio/cordelia-rally-1-2.wav",
+        "indexedPath": "audio-review/399888/3258-SE_VOICE_TIAMO_CUTIN1_2.wav",
+        "durationMs": 1126,
+        "hero": "cordelia",
+        "event": "rally",
+        "member": "SE_VOICE_TIAMO_CUTIN1_2.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "48a5e383f2a9ed06fd090943593f86ffe3b9edcb556d212e0ca9342844f7fb3d",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/cordelia-rally-1-3.wav",
+      "bytes": 59436,
+      "sha256": "269c2e73a7152f1a4e3eb2875e108528fa5a341b9921d670e9ff6285598ba272",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-cordelia-rally-1-3",
+        "file": "audio/cordelia-rally-1-3.wav",
+        "indexedPath": "audio-review/399888/3259-SE_VOICE_TIAMO_CUTIN1_3.wav",
+        "durationMs": 907,
+        "hero": "cordelia",
+        "event": "rally",
+        "member": "SE_VOICE_TIAMO_CUTIN1_3.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "269c2e73a7152f1a4e3eb2875e108528fa5a341b9921d670e9ff6285598ba272",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/cordelia-rally-2-1.wav",
+      "bytes": 59436,
+      "sha256": "b33ba67438900c33b28e9bb792aa98c2315e70bcb5992d7ded10adf35df9d449",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-cordelia-rally-2-1",
+        "file": "audio/cordelia-rally-2-1.wav",
+        "indexedPath": "audio-review/399888/3260-SE_VOICE_TIAMO_CUTIN2_1.wav",
+        "durationMs": 907,
+        "hero": "cordelia",
+        "event": "rally",
+        "member": "SE_VOICE_TIAMO_CUTIN2_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "b33ba67438900c33b28e9bb792aa98c2315e70bcb5992d7ded10adf35df9d449",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
       }
     },
     {
@@ -383,6 +559,94 @@
       }
     },
     {
+      "path": "public/assets/audio/frederick-rally-1-1.wav",
+      "bytes": 34860,
+      "sha256": "593c1d0d3690b888e01fc5e8770be8b6e6986e883e2d7bcb76c61080da7d5ad4",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-frederick-rally-1-1",
+        "file": "audio/frederick-rally-1-1.wav",
+        "indexedPath": "audio-review/399888/1096-SE_VOICE_FREDERIK_CUTIN1_1.wav",
+        "durationMs": 532,
+        "hero": "frederick",
+        "event": "rally",
+        "member": "SE_VOICE_FREDERIK_CUTIN1_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "593c1d0d3690b888e01fc5e8770be8b6e6986e883e2d7bcb76c61080da7d5ad4",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/frederick-rally-1-2.wav",
+      "bytes": 94252,
+      "sha256": "9c487821040d04c8046230f65117b34fa9e6541b0add41ec5ec717a009089be1",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-frederick-rally-1-2",
+        "file": "audio/frederick-rally-1-2.wav",
+        "indexedPath": "audio-review/399888/1097-SE_VOICE_FREDERIK_CUTIN1_2.wav",
+        "durationMs": 1439,
+        "hero": "frederick",
+        "event": "rally",
+        "member": "SE_VOICE_FREDERIK_CUTIN1_2.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "9c487821040d04c8046230f65117b34fa9e6541b0add41ec5ec717a009089be1",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/frederick-rally-1-3.wav",
+      "bytes": 55340,
+      "sha256": "299d12352cae6d209d50e10f44f1f3c9cfe9f5c2122d3106cfb1e5437f5fbaa0",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-frederick-rally-1-3",
+        "file": "audio/frederick-rally-1-3.wav",
+        "indexedPath": "audio-review/399888/1098-SE_VOICE_FREDERIK_CUTIN1_3.wav",
+        "durationMs": 845,
+        "hero": "frederick",
+        "event": "rally",
+        "member": "SE_VOICE_FREDERIK_CUTIN1_3.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "299d12352cae6d209d50e10f44f1f3c9cfe9f5c2122d3106cfb1e5437f5fbaa0",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/frederick-rally-2-1.wav",
+      "bytes": 98348,
+      "sha256": "e51d7feb8c29b09a7fffb9d54c2ba15aeb05e4a00f9a26bb44edc5831ecbc851",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-frederick-rally-2-1",
+        "file": "audio/frederick-rally-2-1.wav",
+        "indexedPath": "audio-review/399888/1099-SE_VOICE_FREDERIK_CUTIN2_1.wav",
+        "durationMs": 1502,
+        "hero": "frederick",
+        "event": "rally",
+        "member": "SE_VOICE_FREDERIK_CUTIN2_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "e51d7feb8c29b09a7fffb9d54c2ba15aeb05e4a00f9a26bb44edc5831ecbc851",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
       "path": "public/assets/audio/frederick-select.wav",
       "bytes": 30764,
       "sha256": "66f7d4c21c4fffcb0a3cb462693e7f7120e11c90314b61ba4386bda54aa7ed5c",
@@ -505,6 +769,94 @@
       }
     },
     {
+      "path": "public/assets/audio/lissa-rally-1-1.wav",
+      "bytes": 92204,
+      "sha256": "90b8809a6e55b416f00c7340dbe0f24dd35b2615ef170dc1f9642d0687fea8f1",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-lissa-rally-1-1",
+        "file": "audio/lissa-rally-1-1.wav",
+        "indexedPath": "audio-review/399888/1719-SE_VOICE_LIZ_CUTIN1_1.wav",
+        "durationMs": 1408,
+        "hero": "lissa",
+        "event": "rally",
+        "member": "SE_VOICE_LIZ_CUTIN1_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "90b8809a6e55b416f00c7340dbe0f24dd35b2615ef170dc1f9642d0687fea8f1",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/lissa-rally-1-2.wav",
+      "bytes": 79916,
+      "sha256": "7a9e8334e0f05a5a42363b7bb130606b0cac73937ab0da44ce32b3605fe201c7",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-lissa-rally-1-2",
+        "file": "audio/lissa-rally-1-2.wav",
+        "indexedPath": "audio-review/399888/1720-SE_VOICE_LIZ_CUTIN1_2.wav",
+        "durationMs": 1220,
+        "hero": "lissa",
+        "event": "rally",
+        "member": "SE_VOICE_LIZ_CUTIN1_2.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "7a9e8334e0f05a5a42363b7bb130606b0cac73937ab0da44ce32b3605fe201c7",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/lissa-rally-1-3.wav",
+      "bytes": 86060,
+      "sha256": "e99ea76577171582356e80be3361e3b385c16538c1b3991fe3debdc692d96889",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-lissa-rally-1-3",
+        "file": "audio/lissa-rally-1-3.wav",
+        "indexedPath": "audio-review/399888/1721-SE_VOICE_LIZ_CUTIN1_3.wav",
+        "durationMs": 1314,
+        "hero": "lissa",
+        "event": "rally",
+        "member": "SE_VOICE_LIZ_CUTIN1_3.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "e99ea76577171582356e80be3361e3b385c16538c1b3991fe3debdc692d96889",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/lissa-rally-2-1.wav",
+      "bytes": 94252,
+      "sha256": "d4e9b4637234fddcb35cb358425b7cd835de94595764f689a6fb356f5f730ff6",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-lissa-rally-2-1",
+        "file": "audio/lissa-rally-2-1.wav",
+        "indexedPath": "audio-review/399888/1722-SE_VOICE_LIZ_CUTIN2_1.wav",
+        "durationMs": 1439,
+        "hero": "lissa",
+        "event": "rally",
+        "member": "SE_VOICE_LIZ_CUTIN2_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "d4e9b4637234fddcb35cb358425b7cd835de94595764f689a6fb356f5f730ff6",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
       "path": "public/assets/audio/lissa-select.wav",
       "bytes": 51244,
       "sha256": "560054e93a69c073152bb75ef76b688cbd0a1f233d02e9e04ead79d3752a344b",
@@ -581,6 +933,94 @@
       }
     },
     {
+      "path": "public/assets/audio/lonqu-rally-1-1.wav",
+      "bytes": 75820,
+      "sha256": "2eafc2317620323256673e63b0b3dbff0fd3aeb2b3b7214811d56c0152912f96",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-lonqu-rally-1-1",
+        "file": "audio/lonqu-rally-1-1.wav",
+        "indexedPath": "audio-review/399888/2776-SE_VOICE_RONKUU_CUTIN1_1.wav",
+        "durationMs": 1158,
+        "hero": "lonqu",
+        "event": "rally",
+        "member": "SE_VOICE_RONKUU_CUTIN1_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "2eafc2317620323256673e63b0b3dbff0fd3aeb2b3b7214811d56c0152912f96",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/lonqu-rally-1-2.wav",
+      "bytes": 69676,
+      "sha256": "57da528bd1855dec9d22312c3676ea2a6a02c4a8beae5ada38eb096ffd322184",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-lonqu-rally-1-2",
+        "file": "audio/lonqu-rally-1-2.wav",
+        "indexedPath": "audio-review/399888/2777-SE_VOICE_RONKUU_CUTIN1_2.wav",
+        "durationMs": 1064,
+        "hero": "lonqu",
+        "event": "rally",
+        "member": "SE_VOICE_RONKUU_CUTIN1_2.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "57da528bd1855dec9d22312c3676ea2a6a02c4a8beae5ada38eb096ffd322184",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/lonqu-rally-1-3.wav",
+      "bytes": 61484,
+      "sha256": "73058f4d1f8389c8655533af95cea78daa5b5572b801a1e1fd3cec47f6669757",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-lonqu-rally-1-3",
+        "file": "audio/lonqu-rally-1-3.wav",
+        "indexedPath": "audio-review/399888/2778-SE_VOICE_RONKUU_CUTIN1_3.wav",
+        "durationMs": 939,
+        "hero": "lonqu",
+        "event": "rally",
+        "member": "SE_VOICE_RONKUU_CUTIN1_3.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "73058f4d1f8389c8655533af95cea78daa5b5572b801a1e1fd3cec47f6669757",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/lonqu-rally-2-1.wav",
+      "bytes": 79916,
+      "sha256": "e65dee3115209f1c14773310ee96229f17f82f622669e230f2c55e1e1b6d9414",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-lonqu-rally-2-1",
+        "file": "audio/lonqu-rally-2-1.wav",
+        "indexedPath": "audio-review/399888/2779-SE_VOICE_RONKUU_CUTIN2_1.wav",
+        "durationMs": 1220,
+        "hero": "lonqu",
+        "event": "rally",
+        "member": "SE_VOICE_RONKUU_CUTIN2_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "e65dee3115209f1c14773310ee96229f17f82f622669e230f2c55e1e1b6d9414",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
       "path": "public/assets/audio/lonqu-select.wav",
       "bytes": 57388,
       "sha256": "dd17595ad07efdf253bd10434ebe4664b5f4d58cca2d87f11f05aea693b362b5",
@@ -654,6 +1094,94 @@
         "member": "VOICE_SFX_Wav/SE_VOICE_MARTH_DEAD_1.wav",
         "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
         "uploader": "robotortoise"
+      }
+    },
+    {
+      "path": "public/assets/audio/lucina-rally-1-1.wav",
+      "bytes": 71724,
+      "sha256": "fe18b5781b69dd456276b166f3e32c998bb5958eed31c684a705281526b6d484",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-lucina-rally-1-1",
+        "file": "audio/lucina-rally-1-1.wav",
+        "indexedPath": "audio-review/399888/2081-SE_VOICE_MARTH_CUTIN1_1.wav",
+        "durationMs": 1095,
+        "hero": "lucina",
+        "event": "rally",
+        "member": "SE_VOICE_MARTH_CUTIN1_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "fe18b5781b69dd456276b166f3e32c998bb5958eed31c684a705281526b6d484",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/lucina-rally-1-2.wav",
+      "bytes": 73772,
+      "sha256": "951adebae3224935bc6e9386e13a8f3f59f2d5e82c3d7a59f5e01367b595ce17",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-lucina-rally-1-2",
+        "file": "audio/lucina-rally-1-2.wav",
+        "indexedPath": "audio-review/399888/2082-SE_VOICE_MARTH_CUTIN1_2.wav",
+        "durationMs": 1126,
+        "hero": "lucina",
+        "event": "rally",
+        "member": "SE_VOICE_MARTH_CUTIN1_2.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "951adebae3224935bc6e9386e13a8f3f59f2d5e82c3d7a59f5e01367b595ce17",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/lucina-rally-1-3.wav",
+      "bytes": 92204,
+      "sha256": "7eb29e4a02e7bd54b440e41d89d00132a62e67762877a4d448719a651b108671",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-lucina-rally-1-3",
+        "file": "audio/lucina-rally-1-3.wav",
+        "indexedPath": "audio-review/399888/2083-SE_VOICE_MARTH_CUTIN1_3.wav",
+        "durationMs": 1408,
+        "hero": "lucina",
+        "event": "rally",
+        "member": "SE_VOICE_MARTH_CUTIN1_3.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "7eb29e4a02e7bd54b440e41d89d00132a62e67762877a4d448719a651b108671",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/lucina-rally-2-1.wav",
+      "bytes": 81964,
+      "sha256": "5608362513bb9f14e2f83eb420dd255206120da0130eea09528510911cc2d518",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-lucina-rally-2-1",
+        "file": "audio/lucina-rally-2-1.wav",
+        "indexedPath": "audio-review/399888/2084-SE_VOICE_MARTH_CUTIN2_1.wav",
+        "durationMs": 1252,
+        "hero": "lucina",
+        "event": "rally",
+        "member": "SE_VOICE_MARTH_CUTIN2_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "5608362513bb9f14e2f83eb420dd255206120da0130eea09528510911cc2d518",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
       }
     },
     {
@@ -747,6 +1275,94 @@
       }
     },
     {
+      "path": "public/assets/audio/miriel-rally-1-1.wav",
+      "bytes": 88108,
+      "sha256": "985dc80152aa4465647ef5d16e1b93dcc834c984703fec9fc5867939be2d5d4f",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-miriel-rally-1-1",
+        "file": "audio/miriel-rally-1-1.wav",
+        "indexedPath": "audio-review/399888/2156-SE_VOICE_MYRIEL_CUTIN1_1.wav",
+        "durationMs": 1345,
+        "hero": "miriel",
+        "event": "rally",
+        "member": "SE_VOICE_MYRIEL_CUTIN1_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "985dc80152aa4465647ef5d16e1b93dcc834c984703fec9fc5867939be2d5d4f",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/miriel-rally-1-2.wav",
+      "bytes": 135212,
+      "sha256": "5ea6b3e949488a58bf893e9d507037691610c6bc4b83546f4407c55dfa1c43ab",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-miriel-rally-1-2",
+        "file": "audio/miriel-rally-1-2.wav",
+        "indexedPath": "audio-review/399888/2157-SE_VOICE_MYRIEL_CUTIN1_2.wav",
+        "durationMs": 2065,
+        "hero": "miriel",
+        "event": "rally",
+        "member": "SE_VOICE_MYRIEL_CUTIN1_2.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "5ea6b3e949488a58bf893e9d507037691610c6bc4b83546f4407c55dfa1c43ab",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/miriel-rally-1-3.wav",
+      "bytes": 100396,
+      "sha256": "e42cc614bdb53ebf6c1f353b597767d4486c7f390e9852d1befd9b32f0f08a33",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-miriel-rally-1-3",
+        "file": "audio/miriel-rally-1-3.wav",
+        "indexedPath": "audio-review/399888/2158-SE_VOICE_MYRIEL_CUTIN1_3.wav",
+        "durationMs": 1533,
+        "hero": "miriel",
+        "event": "rally",
+        "member": "SE_VOICE_MYRIEL_CUTIN1_3.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "e42cc614bdb53ebf6c1f353b597767d4486c7f390e9852d1befd9b32f0f08a33",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/miriel-rally-2-1.wav",
+      "bytes": 102444,
+      "sha256": "75416602d858c934afc4f466cb46823a627054227e82bbe2f4f585f6ee085e65",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-miriel-rally-2-1",
+        "file": "audio/miriel-rally-2-1.wav",
+        "indexedPath": "audio-review/399888/2159-SE_VOICE_MYRIEL_CUTIN2_1.wav",
+        "durationMs": 1564,
+        "hero": "miriel",
+        "event": "rally",
+        "member": "SE_VOICE_MYRIEL_CUTIN2_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "75416602d858c934afc4f466cb46823a627054227e82bbe2f4f585f6ee085e65",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
       "path": "public/assets/audio/miriel-select.wav",
       "bytes": 81964,
       "sha256": "17caee6c22ae363ff203946c2bf56612f2baf8fd6943a31e5d69cee45e23b3f9",
@@ -823,6 +1439,94 @@
       }
     },
     {
+      "path": "public/assets/audio/morgan-rally-1-1.wav",
+      "bytes": 88108,
+      "sha256": "95074b74410751379ebd204a2583e8446c777689540be882fcd6e1014a3ed694",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-morgan-rally-1-1",
+        "file": "audio/morgan-rally-1-1.wav",
+        "indexedPath": "audio-review/399888/1911-SE_VOICE_MARC_M_CUTIN1_1.wav",
+        "durationMs": 1345,
+        "hero": "morgan",
+        "event": "rally",
+        "member": "SE_VOICE_MARC_M_CUTIN1_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "95074b74410751379ebd204a2583e8446c777689540be882fcd6e1014a3ed694",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/morgan-rally-1-2.wav",
+      "bytes": 51244,
+      "sha256": "ed2117427bc8fef15e264d858a0e7128c6aedb2a3e7ed9af7aad2fcb9cbe4333",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-morgan-rally-1-2",
+        "file": "audio/morgan-rally-1-2.wav",
+        "indexedPath": "audio-review/399888/1912-SE_VOICE_MARC_M_CUTIN1_2.wav",
+        "durationMs": 782,
+        "hero": "morgan",
+        "event": "rally",
+        "member": "SE_VOICE_MARC_M_CUTIN1_2.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "ed2117427bc8fef15e264d858a0e7128c6aedb2a3e7ed9af7aad2fcb9cbe4333",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/morgan-rally-1-3.wav",
+      "bytes": 45100,
+      "sha256": "c9db9688664c1b06305daa7256df3bc403c24446de5bd7a40d506f3e8f8e12b6",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-morgan-rally-1-3",
+        "file": "audio/morgan-rally-1-3.wav",
+        "indexedPath": "audio-review/399888/1913-SE_VOICE_MARC_M_CUTIN1_3.wav",
+        "durationMs": 688,
+        "hero": "morgan",
+        "event": "rally",
+        "member": "SE_VOICE_MARC_M_CUTIN1_3.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "c9db9688664c1b06305daa7256df3bc403c24446de5bd7a40d506f3e8f8e12b6",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/morgan-rally-2-1.wav",
+      "bytes": 45100,
+      "sha256": "de3c7c89293a03db5d93d55c4817a08f9fb3553be346fe161463fc4461ac9033",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-morgan-rally-2-1",
+        "file": "audio/morgan-rally-2-1.wav",
+        "indexedPath": "audio-review/399888/1914-SE_VOICE_MARC_M_CUTIN2_1.wav",
+        "durationMs": 688,
+        "hero": "morgan",
+        "event": "rally",
+        "member": "SE_VOICE_MARC_M_CUTIN2_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "de3c7c89293a03db5d93d55c4817a08f9fb3553be346fe161463fc4461ac9033",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
       "path": "public/assets/audio/morgan-select.wav",
       "bytes": 65580,
       "sha256": "74d52e7bcc8dc379a74d9f270957b3ed28225a8634e5828871b1e3d70db5be98",
@@ -896,6 +1600,94 @@
         "member": "VOICE_SFX_Wav/SE_VOICE_LICHT_DEAD_1.wav",
         "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
         "uploader": "robotortoise"
+      }
+    },
+    {
+      "path": "public/assets/audio/ricken-rally-1-1.wav",
+      "bytes": 73772,
+      "sha256": "3d4dc0588e90fee897b8e78495941d90733bf36555e8a100660feac0ccc2f6fa",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-ricken-rally-1-1",
+        "file": "audio/ricken-rally-1-1.wav",
+        "indexedPath": "audio-review/399888/1660-SE_VOICE_LICHT_CUTIN1_1.wav",
+        "durationMs": 1126,
+        "hero": "ricken",
+        "event": "rally",
+        "member": "SE_VOICE_LICHT_CUTIN1_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "3d4dc0588e90fee897b8e78495941d90733bf36555e8a100660feac0ccc2f6fa",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/ricken-rally-1-2.wav",
+      "bytes": 77868,
+      "sha256": "6ea41125be07281b5087fe97d0815584b80d0b451e94640d220026f4af1d7931",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-ricken-rally-1-2",
+        "file": "audio/ricken-rally-1-2.wav",
+        "indexedPath": "audio-review/399888/1661-SE_VOICE_LICHT_CUTIN1_2.wav",
+        "durationMs": 1189,
+        "hero": "ricken",
+        "event": "rally",
+        "member": "SE_VOICE_LICHT_CUTIN1_2.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "6ea41125be07281b5087fe97d0815584b80d0b451e94640d220026f4af1d7931",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/ricken-rally-1-3.wav",
+      "bytes": 51244,
+      "sha256": "5559650838d2b386aed3d62c479ea15cfe86469f96c9744e3093558e77a47cc5",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-ricken-rally-1-3",
+        "file": "audio/ricken-rally-1-3.wav",
+        "indexedPath": "audio-review/399888/1662-SE_VOICE_LICHT_CUTIN1_3.wav",
+        "durationMs": 782,
+        "hero": "ricken",
+        "event": "rally",
+        "member": "SE_VOICE_LICHT_CUTIN1_3.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "5559650838d2b386aed3d62c479ea15cfe86469f96c9744e3093558e77a47cc5",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/ricken-rally-2-1.wav",
+      "bytes": 77868,
+      "sha256": "d2b5281dc95b325ceac49d542432deb1daf01ed983b7f21eaee4453e04e5501f",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-ricken-rally-2-1",
+        "file": "audio/ricken-rally-2-1.wav",
+        "indexedPath": "audio-review/399888/1663-SE_VOICE_LICHT_CUTIN2_1.wav",
+        "durationMs": 1189,
+        "hero": "ricken",
+        "event": "rally",
+        "member": "SE_VOICE_LICHT_CUTIN2_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "d2b5281dc95b325ceac49d542432deb1daf01ed983b7f21eaee4453e04e5501f",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
       }
     },
     {
@@ -1032,6 +1824,94 @@
       }
     },
     {
+      "path": "public/assets/audio/robin-female-rally-1-1.wav",
+      "bytes": 92204,
+      "sha256": "e32f8e57c7f75bcc1a964109b86b22b559e572c14dc404b325af1e0c7a5aedc3",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-robin-female-rally-1-1",
+        "file": "audio/robin-female-rally-1-1.wav",
+        "indexedPath": "audio-review/406669/7-SE_VOICE_PLAYER_F1_CUTIN1_1.wav",
+        "durationMs": 1408,
+        "hero": "robin-female",
+        "event": "rally",
+        "member": "SE_VOICE_PLAYER_F1_CUTIN1_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
+        "sha256": "e32f8e57c7f75bcc1a964109b86b22b559e572c14dc404b325af1e0c7a5aedc3",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/robin-female-rally-1-2.wav",
+      "bytes": 51244,
+      "sha256": "e02fb7cc955574ba31d6076d1d71b50b922d10bf3c0993ce0bc1bc19674928e0",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-robin-female-rally-1-2",
+        "file": "audio/robin-female-rally-1-2.wav",
+        "indexedPath": "audio-review/406669/8-SE_VOICE_PLAYER_F1_CUTIN1_2.wav",
+        "durationMs": 782,
+        "hero": "robin-female",
+        "event": "rally",
+        "member": "SE_VOICE_PLAYER_F1_CUTIN1_2.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
+        "sha256": "e02fb7cc955574ba31d6076d1d71b50b922d10bf3c0993ce0bc1bc19674928e0",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/robin-female-rally-1-3.wav",
+      "bytes": 69676,
+      "sha256": "1508bc2398aefd9b7a9c98680ddbfceee490dd3f867d0e83d9984a3c8229b83a",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-robin-female-rally-1-3",
+        "file": "audio/robin-female-rally-1-3.wav",
+        "indexedPath": "audio-review/406669/9-SE_VOICE_PLAYER_F1_CUTIN1_3.wav",
+        "durationMs": 1064,
+        "hero": "robin-female",
+        "event": "rally",
+        "member": "SE_VOICE_PLAYER_F1_CUTIN1_3.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
+        "sha256": "1508bc2398aefd9b7a9c98680ddbfceee490dd3f867d0e83d9984a3c8229b83a",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/robin-female-rally-2-1.wav",
+      "bytes": 47148,
+      "sha256": "4766bf0240a32e866194e18a01f61c210f0a1b22e929da693e334de1d919e0ef",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-robin-female-rally-2-1",
+        "file": "audio/robin-female-rally-2-1.wav",
+        "indexedPath": "audio-review/406669/10-SE_VOICE_PLAYER_F1_CUTIN2_1.wav",
+        "durationMs": 720,
+        "hero": "robin-female",
+        "event": "rally",
+        "member": "SE_VOICE_PLAYER_F1_CUTIN2_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
+        "sha256": "4766bf0240a32e866194e18a01f61c210f0a1b22e929da693e334de1d919e0ef",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
       "path": "public/assets/audio/robin-female-select.wav",
       "bytes": 51244,
       "sha256": "722a4cba0df6ff824badb48aa92c253a9f72e558d3c9dce169f2ae850eac71ac",
@@ -1048,6 +1928,94 @@
         "member": "Robin_VOICE_SFX_WAV/SE_VOICE_PLAYER_F1_DUAL_SUPPORT_1.wav",
         "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
         "uploader": "robotortoise"
+      }
+    },
+    {
+      "path": "public/assets/audio/robin-rally-1-1.wav",
+      "bytes": 98348,
+      "sha256": "5b27fcf6a0e99885e495250f52b7073e659ad3ef6e8965d166dc9d690d0d7f97",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-robin-rally-1-1",
+        "file": "audio/robin-rally-1-1.wav",
+        "indexedPath": "audio-review/406669/225-SE_VOICE_PLAYER_M1_CUTIN1_1.wav",
+        "durationMs": 1502,
+        "hero": "robin",
+        "event": "rally",
+        "member": "SE_VOICE_PLAYER_M1_CUTIN1_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
+        "sha256": "5b27fcf6a0e99885e495250f52b7073e659ad3ef6e8965d166dc9d690d0d7f97",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/robin-rally-1-2.wav",
+      "bytes": 53292,
+      "sha256": "326ba0af385ef014e85272901f8837d5dccd7205b4a013e86892d4f80bb5d70b",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-robin-rally-1-2",
+        "file": "audio/robin-rally-1-2.wav",
+        "indexedPath": "audio-review/406669/226-SE_VOICE_PLAYER_M1_CUTIN1_2.wav",
+        "durationMs": 813,
+        "hero": "robin",
+        "event": "rally",
+        "member": "SE_VOICE_PLAYER_M1_CUTIN1_2.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
+        "sha256": "326ba0af385ef014e85272901f8837d5dccd7205b4a013e86892d4f80bb5d70b",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/robin-rally-1-3.wav",
+      "bytes": 63532,
+      "sha256": "399f3101e8129e886f7930d301e195aee3910fa45e515936a70b104691b90273",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-robin-rally-1-3",
+        "file": "audio/robin-rally-1-3.wav",
+        "indexedPath": "audio-review/406669/227-SE_VOICE_PLAYER_M1_CUTIN1_3.wav",
+        "durationMs": 970,
+        "hero": "robin",
+        "event": "rally",
+        "member": "SE_VOICE_PLAYER_M1_CUTIN1_3.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
+        "sha256": "399f3101e8129e886f7930d301e195aee3910fa45e515936a70b104691b90273",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/robin-rally-2-1.wav",
+      "bytes": 45100,
+      "sha256": "1ea613c945117e9e96a2214f5856989f5e05cc39552a5e1b3f3675b91dce12a5",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-robin-rally-2-1",
+        "file": "audio/robin-rally-2-1.wav",
+        "indexedPath": "audio-review/406669/228-SE_VOICE_PLAYER_M1_CUTIN2_1.wav",
+        "durationMs": 688,
+        "hero": "robin",
+        "event": "rally",
+        "member": "SE_VOICE_PLAYER_M1_CUTIN2_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
+        "sha256": "1ea613c945117e9e96a2214f5856989f5e05cc39552a5e1b3f3675b91dce12a5",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
       }
     },
     {
@@ -1127,6 +2095,94 @@
       }
     },
     {
+      "path": "public/assets/audio/stahl-rally-1-1.wav",
+      "bytes": 73772,
+      "sha256": "6e08aae396e6b8b3c6f28c272624cfe6a594a7c7f3752f535e8626cc230095a9",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-stahl-rally-1-1",
+        "file": "audio/stahl-rally-1-1.wav",
+        "indexedPath": "audio-review/399888/3201-SE_VOICE_SORT_CUTIN1_1.wav",
+        "durationMs": 1126,
+        "hero": "stahl",
+        "event": "rally",
+        "member": "SE_VOICE_SORT_CUTIN1_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "6e08aae396e6b8b3c6f28c272624cfe6a594a7c7f3752f535e8626cc230095a9",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/stahl-rally-1-2.wav",
+      "bytes": 32812,
+      "sha256": "6fc86ab9887f06eaa280fafd5fffeaf57621217251a5bbb91486d910d59bdcd5",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-stahl-rally-1-2",
+        "file": "audio/stahl-rally-1-2.wav",
+        "indexedPath": "audio-review/399888/3202-SE_VOICE_SORT_CUTIN1_2.wav",
+        "durationMs": 501,
+        "hero": "stahl",
+        "event": "rally",
+        "member": "SE_VOICE_SORT_CUTIN1_2.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "6fc86ab9887f06eaa280fafd5fffeaf57621217251a5bbb91486d910d59bdcd5",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/stahl-rally-1-3.wav",
+      "bytes": 77868,
+      "sha256": "1d074dee8715afb14edba62d06be83aa08de87e58a8df606c224af78a60efda8",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-stahl-rally-1-3",
+        "file": "audio/stahl-rally-1-3.wav",
+        "indexedPath": "audio-review/399888/3203-SE_VOICE_SORT_CUTIN1_3.wav",
+        "durationMs": 1189,
+        "hero": "stahl",
+        "event": "rally",
+        "member": "SE_VOICE_SORT_CUTIN1_3.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "1d074dee8715afb14edba62d06be83aa08de87e58a8df606c224af78a60efda8",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/stahl-rally-2-1.wav",
+      "bytes": 41004,
+      "sha256": "674d8539e43d7a29db83a60ecde725f5d1ea71c8cf268b3bc5d082fee9477534",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-stahl-rally-2-1",
+        "file": "audio/stahl-rally-2-1.wav",
+        "indexedPath": "audio-review/399888/3204-SE_VOICE_SORT_CUTIN2_1.wav",
+        "durationMs": 626,
+        "hero": "stahl",
+        "event": "rally",
+        "member": "SE_VOICE_SORT_CUTIN2_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "674d8539e43d7a29db83a60ecde725f5d1ea71c8cf268b3bc5d082fee9477534",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
       "path": "public/assets/audio/stahl-select.wav",
       "bytes": 38956,
       "sha256": "b4a82191acb10864d40f8e5f5839b013920c56efe0c828aa65d99a9b6393660e",
@@ -1200,6 +2256,94 @@
         "member": "VOICE_SFX_Wav/SE_VOICE_SOIREE_DEAD_1.wav",
         "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
         "uploader": "robotortoise"
+      }
+    },
+    {
+      "path": "public/assets/audio/sully-rally-1-1.wav",
+      "bytes": 86060,
+      "sha256": "5c3d92017631e62866a80f5814e633ef1592de53acd00c13fb1f43a87c895be4",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-sully-rally-1-1",
+        "file": "audio/sully-rally-1-1.wav",
+        "indexedPath": "audio-review/399888/3141-SE_VOICE_SOIREE_CUTIN1_1.wav",
+        "durationMs": 1314,
+        "hero": "sully",
+        "event": "rally",
+        "member": "SE_VOICE_SOIREE_CUTIN1_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "5c3d92017631e62866a80f5814e633ef1592de53acd00c13fb1f43a87c895be4",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/sully-rally-1-2.wav",
+      "bytes": 110636,
+      "sha256": "1f0c24f30c36652a4544ebef34eea9da3d7c6da8c5e57f524c16a2e0db588863",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-sully-rally-1-2",
+        "file": "audio/sully-rally-1-2.wav",
+        "indexedPath": "audio-review/399888/3142-SE_VOICE_SOIREE_CUTIN1_2.wav",
+        "durationMs": 1690,
+        "hero": "sully",
+        "event": "rally",
+        "member": "SE_VOICE_SOIREE_CUTIN1_2.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "1f0c24f30c36652a4544ebef34eea9da3d7c6da8c5e57f524c16a2e0db588863",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/sully-rally-1-3.wav",
+      "bytes": 63532,
+      "sha256": "bbc8af33ed4a22f8bb5c5fc1f7dd982d3a1ce964013afa31116ef4b573d24868",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-sully-rally-1-3",
+        "file": "audio/sully-rally-1-3.wav",
+        "indexedPath": "audio-review/399888/3143-SE_VOICE_SOIREE_CUTIN1_3.wav",
+        "durationMs": 970,
+        "hero": "sully",
+        "event": "rally",
+        "member": "SE_VOICE_SOIREE_CUTIN1_3.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "bbc8af33ed4a22f8bb5c5fc1f7dd982d3a1ce964013afa31116ef4b573d24868",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/sully-rally-2-1.wav",
+      "bytes": 77868,
+      "sha256": "e1e9822062c4dfc2f5102bd346c705739a7646431873e39c44d4d8d16a0c82c1",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-sully-rally-2-1",
+        "file": "audio/sully-rally-2-1.wav",
+        "indexedPath": "audio-review/399888/3144-SE_VOICE_SOIREE_CUTIN2_1.wav",
+        "durationMs": 1189,
+        "hero": "sully",
+        "event": "rally",
+        "member": "SE_VOICE_SOIREE_CUTIN2_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "e1e9822062c4dfc2f5102bd346c705739a7646431873e39c44d4d8d16a0c82c1",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
       }
     },
     {
@@ -1279,6 +2423,94 @@
       }
     },
     {
+      "path": "public/assets/audio/sumia-rally-1-1.wav",
+      "bytes": 65580,
+      "sha256": "195915cceb9774cfe835345ada5b7fd65840a3d1503631225735ddce72c6849d",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-sumia-rally-1-1",
+        "file": "audio/sumia-rally-1-1.wav",
+        "indexedPath": "audio-review/399888/3078-SE_VOICE_SMIA_CUTIN1_1.wav",
+        "durationMs": 1001,
+        "hero": "sumia",
+        "event": "rally",
+        "member": "SE_VOICE_SMIA_CUTIN1_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "195915cceb9774cfe835345ada5b7fd65840a3d1503631225735ddce72c6849d",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/sumia-rally-1-2.wav",
+      "bytes": 51244,
+      "sha256": "e2f909f9c6cbee5d4a7f49f15f215ae90cce1ecaa648eb848ce88181a38f0d2a",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-sumia-rally-1-2",
+        "file": "audio/sumia-rally-1-2.wav",
+        "indexedPath": "audio-review/399888/3079-SE_VOICE_SMIA_CUTIN1_2.wav",
+        "durationMs": 782,
+        "hero": "sumia",
+        "event": "rally",
+        "member": "SE_VOICE_SMIA_CUTIN1_2.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "e2f909f9c6cbee5d4a7f49f15f215ae90cce1ecaa648eb848ce88181a38f0d2a",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/sumia-rally-1-3.wav",
+      "bytes": 77868,
+      "sha256": "35d362ca7f3e3470910c15d2acbfa0e0a5c4ef9fb95dd59a24bcc4230637856d",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-sumia-rally-1-3",
+        "file": "audio/sumia-rally-1-3.wav",
+        "indexedPath": "audio-review/399888/3080-SE_VOICE_SMIA_CUTIN1_3.wav",
+        "durationMs": 1189,
+        "hero": "sumia",
+        "event": "rally",
+        "member": "SE_VOICE_SMIA_CUTIN1_3.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "35d362ca7f3e3470910c15d2acbfa0e0a5c4ef9fb95dd59a24bcc4230637856d",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/sumia-rally-2-1.wav",
+      "bytes": 61484,
+      "sha256": "e70ab6d4865622a7c30cb262699227223d08ea30f4226004c3aee3c6e2de44ba",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-sumia-rally-2-1",
+        "file": "audio/sumia-rally-2-1.wav",
+        "indexedPath": "audio-review/399888/3081-SE_VOICE_SMIA_CUTIN2_1.wav",
+        "durationMs": 939,
+        "hero": "sumia",
+        "event": "rally",
+        "member": "SE_VOICE_SMIA_CUTIN2_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "e70ab6d4865622a7c30cb262699227223d08ea30f4226004c3aee3c6e2de44ba",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
       "path": "public/assets/audio/sumia-select.wav",
       "bytes": 67628,
       "sha256": "56e6e1d7735d4f56d341f7ad6ad883d2f439f7e0f3f7a6c15ab054668038047a",
@@ -1352,6 +2584,94 @@
         "member": "VOICE_SFX_Wav/SE_VOICE_SALLYA_DEAD_1.wav",
         "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
         "uploader": "robotortoise"
+      }
+    },
+    {
+      "path": "public/assets/audio/tharja-rally-1-1.wav",
+      "bytes": 116780,
+      "sha256": "65c16d7dab884862ca32e63842b871a5f90caebcaff1edb36519edd89a03e2b5",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-tharja-rally-1-1",
+        "file": "audio/tharja-rally-1-1.wav",
+        "indexedPath": "audio-review/399888/2831-SE_VOICE_SALLYA_CUTIN1_1.wav",
+        "durationMs": 1783,
+        "hero": "tharja",
+        "event": "rally",
+        "member": "SE_VOICE_SALLYA_CUTIN1_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "65c16d7dab884862ca32e63842b871a5f90caebcaff1edb36519edd89a03e2b5",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/tharja-rally-1-2.wav",
+      "bytes": 63532,
+      "sha256": "424d7fecebd7a96f417f5c599664dd45d0ed5cf22bc1de2f4d8c302a11842442",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-tharja-rally-1-2",
+        "file": "audio/tharja-rally-1-2.wav",
+        "indexedPath": "audio-review/399888/2832-SE_VOICE_SALLYA_CUTIN1_2.wav",
+        "durationMs": 970,
+        "hero": "tharja",
+        "event": "rally",
+        "member": "SE_VOICE_SALLYA_CUTIN1_2.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "424d7fecebd7a96f417f5c599664dd45d0ed5cf22bc1de2f4d8c302a11842442",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/tharja-rally-1-3.wav",
+      "bytes": 133164,
+      "sha256": "c1d313a598752017988885a076c11adddc4cc40debc3cc6a1f6d213877fd28cc",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-tharja-rally-1-3",
+        "file": "audio/tharja-rally-1-3.wav",
+        "indexedPath": "audio-review/399888/2833-SE_VOICE_SALLYA_CUTIN1_3.wav",
+        "durationMs": 2034,
+        "hero": "tharja",
+        "event": "rally",
+        "member": "SE_VOICE_SALLYA_CUTIN1_3.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "c1d313a598752017988885a076c11adddc4cc40debc3cc6a1f6d213877fd28cc",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/tharja-rally-2-1.wav",
+      "bytes": 108588,
+      "sha256": "d12e3c042ed4d9191f45392a8ef924d620c3e56791511c5c6293d06072b4ca72",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-tharja-rally-2-1",
+        "file": "audio/tharja-rally-2-1.wav",
+        "indexedPath": "audio-review/399888/2834-SE_VOICE_SALLYA_CUTIN2_1.wav",
+        "durationMs": 1658,
+        "hero": "tharja",
+        "event": "rally",
+        "member": "SE_VOICE_SALLYA_CUTIN2_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "d12e3c042ed4d9191f45392a8ef924d620c3e56791511c5c6293d06072b4ca72",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
       }
     },
     {
@@ -1449,6 +2769,116 @@
       }
     },
     {
+      "path": "public/assets/audio/vaike-rally-1-1.wav",
+      "bytes": 67628,
+      "sha256": "bb0b8206aa9b04d12578e24fb1d3729531817ff4300fdbd1ea2c8b9bfd3c547b",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-vaike-rally-1-1",
+        "file": "audio/vaike-rally-1-1.wav",
+        "indexedPath": "audio-review/399888/3679-SE_VOICE_WYCK_CUTIN1_1.wav",
+        "durationMs": 1033,
+        "hero": "vaike",
+        "event": "rally",
+        "member": "SE_VOICE_WYCK_CUTIN1_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "bb0b8206aa9b04d12578e24fb1d3729531817ff4300fdbd1ea2c8b9bfd3c547b",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/vaike-rally-1-2.wav",
+      "bytes": 92204,
+      "sha256": "8ea5917896c2020ac47b87d23a7ab7a88769c3e47a6dcd012ef5e2615336bd02",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-vaike-rally-1-2",
+        "file": "audio/vaike-rally-1-2.wav",
+        "indexedPath": "audio-review/399888/3680-SE_VOICE_WYCK_CUTIN1_2.wav",
+        "durationMs": 1408,
+        "hero": "vaike",
+        "event": "rally",
+        "member": "SE_VOICE_WYCK_CUTIN1_2.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "8ea5917896c2020ac47b87d23a7ab7a88769c3e47a6dcd012ef5e2615336bd02",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/vaike-rally-1-3-alt.wav",
+      "bytes": 108588,
+      "sha256": "2af9e1002e27398bca82a9f7e6dec65771e8fe49ad75bab650ce29da6e722dc2",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-vaike-rally-1-3-alt",
+        "file": "audio/vaike-rally-1-3-alt.wav",
+        "indexedPath": "audio-review/399888/3682-SE_VOICE_WYCK_CUTIN1_3_ALT.wav",
+        "durationMs": 1658,
+        "hero": "vaike",
+        "event": "rally",
+        "member": "SE_VOICE_WYCK_CUTIN1_3_ALT.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "2af9e1002e27398bca82a9f7e6dec65771e8fe49ad75bab650ce29da6e722dc2",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/vaike-rally-1-3.wav",
+      "bytes": 135212,
+      "sha256": "5949dccc1e5018c13656e429ae10e8c7f1b63bcf6e1f7ffd9e100edccafd4a57",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-vaike-rally-1-3",
+        "file": "audio/vaike-rally-1-3.wav",
+        "indexedPath": "audio-review/399888/3681-SE_VOICE_WYCK_CUTIN1_3.wav",
+        "durationMs": 2065,
+        "hero": "vaike",
+        "event": "rally",
+        "member": "SE_VOICE_WYCK_CUTIN1_3.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "5949dccc1e5018c13656e429ae10e8c7f1b63bcf6e1f7ffd9e100edccafd4a57",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/vaike-rally-2-1.wav",
+      "bytes": 59436,
+      "sha256": "cc71e70e2b8520676051a97a01efb4eebe216bcb3a147ca2e5b2375dc37cf918",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-vaike-rally-2-1",
+        "file": "audio/vaike-rally-2-1.wav",
+        "indexedPath": "audio-review/399888/3683-SE_VOICE_WYCK_CUTIN2_1.wav",
+        "durationMs": 907,
+        "hero": "vaike",
+        "event": "rally",
+        "member": "SE_VOICE_WYCK_CUTIN2_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "cc71e70e2b8520676051a97a01efb4eebe216bcb3a147ca2e5b2375dc37cf918",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
       "path": "public/assets/audio/vaike-select.wav",
       "bytes": 47148,
       "sha256": "3d1b0b2594a2265daede12243f2d1580b0393b84848b89f7da2691db7d744a32",
@@ -1522,6 +2952,116 @@
         "member": "VOICE_SFX_Wav/SE_VOICE_VIAUR_DEAD_1.wav",
         "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
         "uploader": "robotortoise"
+      }
+    },
+    {
+      "path": "public/assets/audio/virion-rally-1-1.wav",
+      "bytes": 135212,
+      "sha256": "ccadf1c7a91345a79eef0bd9a84946a3406d588fb8efa3757d6b0329d8667534",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-virion-rally-1-1",
+        "file": "audio/virion-rally-1-1.wav",
+        "indexedPath": "audio-review/399888/3531-SE_VOICE_VIAUR_CUTIN1_1.wav",
+        "durationMs": 2065,
+        "hero": "virion",
+        "event": "rally",
+        "member": "SE_VOICE_VIAUR_CUTIN1_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "ccadf1c7a91345a79eef0bd9a84946a3406d588fb8efa3757d6b0329d8667534",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/virion-rally-1-2.wav",
+      "bytes": 118828,
+      "sha256": "18d03e6cd36a25a55a2f2b995be197018541dff726f310087a29d991acd76a5f",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-virion-rally-1-2",
+        "file": "audio/virion-rally-1-2.wav",
+        "indexedPath": "audio-review/399888/3532-SE_VOICE_VIAUR_CUTIN1_2.wav",
+        "durationMs": 1815,
+        "hero": "virion",
+        "event": "rally",
+        "member": "SE_VOICE_VIAUR_CUTIN1_2.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "18d03e6cd36a25a55a2f2b995be197018541dff726f310087a29d991acd76a5f",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/virion-rally-1-3.wav",
+      "bytes": 41004,
+      "sha256": "6fb9456802d0d690daa22e396959c3fd5911f9a12e8fa333da70f86ea83ec034",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-virion-rally-1-3",
+        "file": "audio/virion-rally-1-3.wav",
+        "indexedPath": "audio-review/399888/3533-SE_VOICE_VIAUR_CUTIN1_3.wav",
+        "durationMs": 626,
+        "hero": "virion",
+        "event": "rally",
+        "member": "SE_VOICE_VIAUR_CUTIN1_3.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "6fb9456802d0d690daa22e396959c3fd5911f9a12e8fa333da70f86ea83ec034",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/virion-rally-2-1-alt.wav",
+      "bytes": 114732,
+      "sha256": "b08a57f9a8fef48b7b76076024665f91e001f0d9ba85a7f9b6d378f58697bdfd",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-virion-rally-2-1-alt",
+        "file": "audio/virion-rally-2-1-alt.wav",
+        "indexedPath": "audio-review/399888/3535-SE_VOICE_VIAUR_CUTIN2_1_ALT.wav",
+        "durationMs": 1752,
+        "hero": "virion",
+        "event": "rally",
+        "member": "SE_VOICE_VIAUR_CUTIN2_1_ALT.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "b08a57f9a8fef48b7b76076024665f91e001f0d9ba85a7f9b6d378f58697bdfd",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
+      }
+    },
+    {
+      "path": "public/assets/audio/virion-rally-2-1.wav",
+      "bytes": 100396,
+      "sha256": "529cd8672efa4f15e0af330d068a520c9f6f2d33e7ae42fd0264cb1ab0529d55",
+      "kind": "audio",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+      "provenance": "documented",
+      "metadata": {
+        "key": "voice-virion-rally-2-1",
+        "file": "audio/virion-rally-2-1.wav",
+        "indexedPath": "audio-review/399888/3534-SE_VOICE_VIAUR_CUTIN2_1.wav",
+        "durationMs": 1533,
+        "hero": "virion",
+        "event": "rally",
+        "member": "SE_VOICE_VIAUR_CUTIN2_1.wav",
+        "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+        "sha256": "529cd8672efa4f15e0af330d068a520c9f6f2d33e7ae42fd0264cb1ab0529d55",
+        "selection": "User requested randomized character-specific cut-ins for rally. Agent has not listened to/transcribed the dialogue."
       }
     },
     {
@@ -2348,6 +3888,63 @@
       ]
     },
     {
+      "path": "public/assets/maps/black-keep-entry.png",
+      "bytes": 10340,
+      "sha256": "364319fa26a972fe07dffc524565fed1a31623490cb42c57c8c514b37cc82216",
+      "kind": "image",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://feuniverse.us/t/updated-stronghold-tileset/6134",
+      "provenance": "documented",
+      "metadata": {
+        "source": "https://feuniverse.us/t/updated-stronghold-tileset/6134",
+        "creator": "ZoramineFae / N426 / Flasuban / Wan",
+        "processing": "Native16px sourced floors, walls, columns, carpet and throne assembled at2x from black-keep-chunks.ts. No whole-map resize or chest tiles."
+      },
+      "dimensions": [
+        1024,
+        256
+      ]
+    },
+    {
+      "path": "public/assets/maps/black-keep-hall.png",
+      "bytes": 11708,
+      "sha256": "b6d121f111718ef05d133f585b20821a1231c14c547da2a556480b8f270d94a1",
+      "kind": "image",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://feuniverse.us/t/updated-stronghold-tileset/6134",
+      "provenance": "documented",
+      "metadata": {
+        "source": "https://feuniverse.us/t/updated-stronghold-tileset/6134",
+        "creator": "ZoramineFae / N426 / Flasuban / Wan",
+        "processing": "Native16px sourced floors, walls, columns, carpet and throne assembled at2x from black-keep-chunks.ts. No whole-map resize or chest tiles."
+      },
+      "dimensions": [
+        1024,
+        256
+      ]
+    },
+    {
+      "path": "public/assets/maps/black-keep-throne.png",
+      "bytes": 12146,
+      "sha256": "e3cc35eaea4b29e730b91b3e5438c2dfb87f60aba7f9f34335dc875d57ad844f",
+      "kind": "image",
+      "registered": true,
+      "scope": "runtime",
+      "source": "https://feuniverse.us/t/updated-stronghold-tileset/6134",
+      "provenance": "documented",
+      "metadata": {
+        "source": "https://feuniverse.us/t/updated-stronghold-tileset/6134",
+        "creator": "ZoramineFae / N426 / Flasuban / Wan",
+        "processing": "Native16px sourced floors, walls, columns, carpet and throne assembled at2x from black-keep-chunks.ts. No whole-map resize or chest tiles."
+      },
+      "dimensions": [
+        1024,
+        256
+      ]
+    },
+    {
       "path": "public/assets/maps/camp-building.png",
       "bytes": 3060,
       "sha256": "bd509299909eaa8873225f661f0d85d41f6bd1a3e7a1c12926e14b099c5b847c",
@@ -2390,20 +3987,21 @@
     },
     {
       "path": "public/assets/maps/dark-castle.png",
-      "bytes": 52662,
-      "sha256": "5cd16d8e35152b4ec2d7186c25f34da4a88a7514d1ec0da6a2ec2fe4ce06b156",
+      "bytes": 33875,
+      "sha256": "5af1ca1ccdde971e9c5a3df14899be5ff815b5baf5e14386cfd6dae8a84fd97d",
       "kind": "image",
       "registered": true,
       "scope": "runtime",
-      "source": "https://feuniverse.us/t/1-screen-mapping-blitz-challenge/9639/39",
+      "source": "https://feuniverse.us/t/updated-stronghold-tileset/6134",
       "provenance": "documented",
       "metadata": {
-        "source": "https://feuniverse.us/t/1-screen-mapping-blitz-challenge/9639/39",
-        "creator": "RandomWizard; tiles N426"
+        "source": "https://feuniverse.us/t/updated-stronghold-tileset/6134",
+        "creator": "ZoramineFae / N426 / Flasuban / Wan",
+        "processing": "Native16px sourced floors, walls, columns, carpet and throne assembled at2x from black-keep-chunks.ts. No whole-map resize or chest tiles."
       },
       "dimensions": [
-        1280,
-        896
+        1024,
+        768
       ]
     },
     {
@@ -2498,21 +4096,23 @@
     },
     {
       "path": "public/assets/maps/gold-icon.png",
-      "bytes": 268,
-      "sha256": "3b8a700f85c9178dcadfe61f713722b5baecd4f93b5b14291f1981d3430f0288",
+      "bytes": 298,
+      "sha256": "b9fb461f800ca4709df4d7190f6032a4c17e76a6ae685810d405e251fe2d9fde",
       "kind": "image",
       "registered": true,
       "scope": "runtime",
-      "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/486162/",
+      "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/486149/",
       "provenance": "documented",
       "metadata": {
-        "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/486162/",
-        "uploader": "Venus_Pisces",
-        "originalSize": [
-          256,
-          64
+        "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/486149/",
+        "original": "public/assets/item-icons.png",
+        "crop": [
+          96,
+          176,
+          112,
+          192
         ],
-        "frames": "16px grid; first row sword 8, lance 9, axe 10, bow 11, tome 12, staff 13; individual weapon PNGs retain transparency"
+        "processing": "Exact 16px gold bullion stack; source magenta background made transparent. Used consistently for pickups, treasury and shop prices."
       },
       "dimensions": [
         16,

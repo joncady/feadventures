@@ -85,3 +85,25 @@ Compact1024×704 village,4 fixedNPC posts, legal concealed entries; R gatherscom
 ## Local1.0.0 release QA
 
 Visible/injected/package version1.0.0 agree.43unit tests, strictTypeScript/productionbuild and61browserchecks (60fullsuite+1newversiontest) pass. No blocking regression observed. GitHub remains the bugsource; known balance/audio/provenance followups remain. Fullnormalcampaignnotrerunafterlatestvillage/rally change. See docs/release-qa-1.0.0.md. Nothing pushed/tagged/deployed.
+
+## Local1.0.1 bug fixes — #55–#59 complete
+
+Column-local selection wrap, shared17-character portrait framing, explicitaction→walk/idle/control-transfer facing, actualweaponrange-driven companionAI, and nativepausecontrols are readyforuserreview.43unit/typecheck/buildPASS; full64/65initialpassed, staleResumepointerfixturecorrectedthen5affectedchecksPASS. Local5173restartedv1.0.1, nativepausecaptureclear/noerrors. See docs/release-qa-1.0.1.md and durableplaytests. No commit/pushforthispatch.
+
+## Recorded death voices — #60 complete locally
+
+All 17 current heroes use their existing sourced DEAD_1 clips, now emitted once for controlled and companion deaths. Simultaneous deaths queue; automatic control switching preserves the line. Voice settings/mute and retry cleanup are verified. Shared rally work preserved; resulting local version 1.0.4. Final merged-source checks: 46 unit tests, TypeScript/build and 12 relevant browser checks pass; fresh local preview v1.0.4 loads without errors. See docs/character-death-audio.md for coverage and Anna/Morgan/Robin availability. No push.
+
+
+## Gold pickup UX — #61 complete locally
+
+Local1.0.5 uses source gold bullion in drops, battle treasury and shop currency. Pickups show a gold +number near the controlled hero; pickups within500ms aggregate and play one confirmation per cluster. Uncollected gold expires after20 active battle seconds, with4 seconds of fading; pause consumes no lifetime.46unit/build and4focused browser checks pass. See docs/gold-ux-review.md. No push.
+- [x] Local1.0.6 / #62: rebuild Black Keep from sourced Stronghold tiles at2×, three connected chunks and matching collision; remove baked decorative chests/invisible barricades; update map-relative concealed spawn fallback;47unit/build and targeted finalmap/campaign browser checks pass. See `docs/black-keep-rebuild.md`.
+
+## Local1.0.7 deployment UX — #63/#64/#65
+
+Padded measured deployment panel, Black Keep right gutter, allfour projected courtyards clear; nativeAuto-place/Enter preserves manual positions and uses legal32px lattice with64px separation; doesnotbeginbattle. NativeHUD/camp text3× rasterization, larger compact camp labels. Twoall-stage Retina browser checks and BlackKeep path check pass; rootcoordinatesfinalbuild/swordintegration. See docs/deployment-layout-review.md. No push.
+
+## Release1.0.8 — #67
+
+Deployment cursor and planning grid explicitly hidden on launch, with native Auto-place/R coverage on all four maps at809px/1440px. Release includes reviewed local1.0.1–1.0.7 changes. Full checks recorded in docs/release-qa-1.0.8.md.

@@ -4,12 +4,13 @@ import json,hashlib,zipfile,re
 from PIL import Image
 root=Path(__file__).resolve().parent.parent
 sources=json.loads((root/'docs/asset-sources.json').read_text())
-for f in ('audio-sources.json','ui-audio-sources.json'):
+for f in ('audio-sources.json','ui-audio-sources.json','rally-audio-sources.json'):
  for item in json.loads((root/'docs'/f).read_text()):sources[item['file']]=item
 for item in json.loads((root/'asset-library/map-candidates/compact/sources.json').read_text()):sources['asset-library/map-candidates/compact/'+item['file']]=item
-mapcredits={'east-road.png':{'source':'https://github.com/Klokinator/FE-Repo/tree/main/Tilesets/Plains','creator':'WAve; trees ZoramineFae / Flasuban'},'village.png':{'source':'https://feuniverse.us/t/updated-fort-tileset/9288','creator':'ZoramineFae / Flasuban; plains WAve'},'castle-defense.png':sources['battlefield.png'],'dark-castle.png':{'source':'https://feuniverse.us/t/1-screen-mapping-blitz-challenge/9639/39','creator':'RandomWizard; tiles N426'},'camp-building.png':{'source':'https://feuniverse.us/t/updated-fort-tileset/9288','creator':'ZoramineFae / Flasuban'},'gold-icon.png':sources['weapon-icons.png'],'fire-bolt.png':{'source':'https://feuniverse.us/t/updated-stronghold-tileset/6134','creator':'ZoramineFae / N426 / Flasuban / Wan'}}
+mapcredits={'east-road.png':{'source':'https://github.com/Klokinator/FE-Repo/tree/main/Tilesets/Plains','creator':'WAve; trees ZoramineFae / Flasuban'},'village.png':{'source':'https://feuniverse.us/t/updated-fort-tileset/9288','creator':'ZoramineFae / Flasuban; plains WAve'},'castle-defense.png':sources['battlefield.png'],'dark-castle.png':{'source':'https://feuniverse.us/t/updated-stronghold-tileset/6134','creator':'ZoramineFae / N426 / Flasuban / Wan','processing':'Native16px sourced floors, walls, columns, carpet and throne assembled at2x from black-keep-chunks.ts. No whole-map resize or chest tiles.'},'camp-building.png':{'source':'https://feuniverse.us/t/updated-fort-tileset/9288','creator':'ZoramineFae / Flasuban'},'gold-icon.png':sources['maps/gold-icon.png'],'fire-bolt.png':{'source':'https://feuniverse.us/t/updated-stronghold-tileset/6134','creator':'ZoramineFae / N426 / Flasuban / Wan'}}
 for name,item in mapcredits.items():sources['maps/'+name]=item
 for part in ('west','center','east'):sources['maps/east-road-'+part+'.png']=mapcredits['east-road.png']
+for part in ('throne','hall','entry'):sources['maps/black-keep-'+part+'.png']=mapcredits['dark-castle.png']
 for weapon in ('sword','axe','lance','bow','tome'):sources['weapon-'+weapon+'.png']={**sources['weapon-icons.png'],'processing':'16px icon crop from standard System Icons sheet.'}
 for name in ('menu-theme.wav','xp-tick.wav','heal.wav','axe-impact.wav','lance-thrust.wav','fire-cast.wav'):sources['audio/'+name]={'source':'scripts/legacy-generated-placeholder','processing':'Unused generated placeholder retained for inventory; not registered in active game.'}
 audio_catalog={item['file']:item for item in json.loads((root/'audio-review/catalog.json').read_text())} if (root/'audio-review/catalog.json').exists() else {}

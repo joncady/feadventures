@@ -609,5 +609,40 @@
       16
     ],
     "processing": "Exact16-pixel staff icon from first row, preserving transparency."
+  },
+  "maps/gold-icon.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/486149/",
+    "original": "public/assets/item-icons.png",
+    "crop": [
+      96,
+      176,
+      112,
+      192
+    ],
+    "processing": "Exact 16px gold bullion stack; source magenta background made transparent. Used consistently for pickups, treasury and shop prices."
+  },
+  "maps/dark-castle.png": {
+    "source": "https://feuniverse.us/t/updated-stronghold-tileset/6134",
+    "original": "asset-library/map-candidates/compact/stronghold-tileset.png",
+    "creator": "ZoramineFae / N426 / Flasuban / Wan",
+    "processing": "Sourced16px floor, wall, column, carpet and throne crops assembled at2x from black-keep-chunks.ts; no full-map resize or decorative chest tiles."
+  },
+  "maps/black-keep-throne.png": {
+    "source": "https://feuniverse.us/t/updated-stronghold-tileset/6134",
+    "original": "asset-library/map-candidates/compact/stronghold-tileset.png",
+    "creator": "ZoramineFae / N426 / Flasuban / Wan",
+    "processing": "Sourced16px floor, wall, column, carpet and throne crops assembled at2x from black-keep-chunks.ts; no full-map resize or decorative chest tiles."
+  },
+  "maps/black-keep-hall.png": {
+    "source": "https://feuniverse.us/t/updated-stronghold-tileset/6134",
+    "original": "asset-library/map-candidates/compact/stronghold-tileset.png",
+    "creator": "ZoramineFae / N426 / Flasuban / Wan",
+    "processing": "Sourced16px floor, wall, column, carpet and throne crops assembled at2x from black-keep-chunks.ts; no full-map resize or decorative chest tiles."
+  },
+  "maps/black-keep-entry.png": {
+    "source": "https://feuniverse.us/t/updated-stronghold-tileset/6134",
+    "original": "asset-library/map-candidates/compact/stronghold-tileset.png",
+    "creator": "ZoramineFae / N426 / Flasuban / Wan",
+    "processing": "Sourced16px floor, wall, column, carpet and throne crops assembled at2x from black-keep-chunks.ts; no full-map resize or decorative chest tiles."
   }
 }
