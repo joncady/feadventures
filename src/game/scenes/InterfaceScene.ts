@@ -143,14 +143,14 @@ export class InterfaceScene extends Phaser.Scene {
     this.button(this.endOverlay, -148, 19, 296, 'Try again', () => this.request('restart'));
     this.button(this.endOverlay, -148, 58, 296, 'Choose hero', () => this.request('choose'));
     const onState = (state:InterfaceState) => this.apply(state);
-    const onNotice = (text:string) => {this.notice.setText(text);this.noticeTimer?.remove();this.noticeTimer=this.time.delayedCall(6500,()=>this.notice.setText(''));};
+    const onNotice = (text:string) => {this.notice.setText(text);this.noticeTimer?.remove();this.notice.setVisible(Boolean(text)&&this.state.playing&&this.state.phase!=='deployment');this.noticeTimer=this.time.delayedCall(6500,()=>this.notice.setText('').setVisible(false));};
     const onKey=(event:KeyboardEvent)=>this.navigate(event);window.addEventListener('keydown',onKey);this.events.once('shutdown',()=>window.removeEventListener('keydown',onKey));
     const onHud = (hud:Hud) => this.stats.setText(this.state?.tactical?`${this.state.phase==='deployment'?'Deployment':'Battle'} · Hostiles ${hud.enemies} · Defeated ${hud.kills}`:`Wave ${hud.wave}  ·  Defeated ${hud.kills}  ·  Allies ${hud.allies}/${hud.allyCapacity}`);
     const onMap=(data:TacticalMap)=>this.drawTacticalMap(data);this.game.events.on('tactical-map',onMap);
     this.game.events.on('ui-state',onState); this.game.events.on('ui-notice',onNotice); this.game.events.on('hud',onHud);
     this.events.once('shutdown',()=>{this.game.events.off('tactical-map',onMap);this.game.events.off('ui-state',onState);this.game.events.off('ui-notice',onNotice);this.game.events.off('hud',onHud);});
     this.apply(this.registry.get('interface-state'));
-    this.notice.setText(this.registry.get('interface-notice') ?? '');
+    this.notice.setText(this.registry.get('interface-notice') ?? '').setVisible(false);
   }
   private preparePortraits():void {
     // Source-space face anchors align portraits without stretching; profile faces include hair framing.
@@ -236,8 +236,9 @@ ${initialLoadout(hero).items.map(item=>WEAPONS[item.weaponId].name).join(' · ')
     this.deploymentBackground.setSize(panelWidth,panelHeight);
     this.deploymentPanel.setPosition(keepPlanning?728:12,WORLD.height-12-panelHeight);
     this.miniTitle.setText(data.title??'Battlefield');
-    if(!data.deploying)this.stats.setText(data.boss?`Commander HP ${Math.max(0,data.boss.health)}/${data.boss.maxHealth}`:`Mission ${(data.missionIndex??0)+1} · ${data.stagePhase==='wave'?`Wave ${data.wave}/${data.totalWaves??3}`:data.stagePhase} · ${data.elapsed}s${['rest','opening','boss-warning'].includes(data.stagePhase)||(data.stagePhase==='wave'&&data.enemies.length===0&&data.pending===0)?` · ${data.remaining}s`:''}`);
-    this.goldCounter.setVisible(!data.deploying);this.goldValue.setText(`${data.gold??0}`);this.cooldownBar.clear();this.cooldownText.setVisible(!data.deploying);if(!data.deploying){this.cooldownBar.fillStyle(0x183e57).fillRect(330,525,280,10).fillStyle(data.cooldown.recovering?0xe7a55d:data.cooldown.fraction===1?0x85cda1:0x86baff).fillRect(332,527,276*data.cooldown.fraction,6);this.cooldownText.setText(`${data.cooldown.recovering?'Recovering':data.cooldown.fraction===1?'Attack ready':'Recharging'}${data.cooldown.remaining>0?` · ${data.cooldown.remaining.toFixed(1)}s`:''}${data.camp?` · Camp ${Math.max(0,data.camp.health)}`:''}`);}
+    if(!data.deploying)this.stats.setText(data.objectiveStatus??data.objective??'Complete the objective');
+    // Gold is spent in preparations; combat uses brief pickup feedback only.
+    this.goldCounter.setVisible(false);this.goldValue.setText(`${data.gold??0}`);this.cooldownBar.clear();this.cooldownText.setVisible(!data.deploying);if(!data.deploying){this.cooldownBar.fillStyle(0x183e57).fillRect(330,525,280,10).fillStyle(data.cooldown.recovering?0xe7a55d:data.cooldown.fraction===1?0x85cda1:0x86baff).fillRect(332,527,276*data.cooldown.fraction,6);this.cooldownText.setText(`${data.cooldown.recovering?'Recovering':data.cooldown.fraction===1?'Attack ready':'Recharging'}${data.cooldown.remaining>0?` · ${data.cooldown.remaining.toFixed(1)}s`:''}${data.camp?` · Camp ${Math.max(0,data.camp.health)}`:''}`);}
     const g=this.minimap;g.clear().fillStyle(0x152c37,.96).fillRect(712,38,172,20).lineStyle(1,0xae8746).strokeRect(716,58,164,100);
     const sx=164/data.width,sy=100/data.height;
     for(const p of data.enemies)g.fillStyle(0xeb5555).fillCircle(716+p.x*sx,58+p.y*sy,2);
@@ -302,7 +303,7 @@ ${initialLoadout(hero).items.map(item=>WEAPONS[item.weaponId].name).join(' · ')
     }
     const inBattle = state.playing || Boolean(state.result);
     this.menuButton.setVisible(inBattle); this.pauseButton.setVisible(state.playing && state.phase!=='deployment');
-    this.notice.setVisible(inBattle && state.phase!=='deployment'); this.instructions.setVisible(false);
+    this.notice.setVisible(inBattle && state.phase!=='deployment' && Boolean(this.notice.text)); this.instructions.setVisible(false);
     this.pauseText.setText(state.paused?'Resume':'Pause').setAlpha(state.playing?1:.5);
     this.settings.setVisible(state.settingsOpen);
     this.pauseOverlay.setVisible(state.playing&&state.paused&&!state.settingsOpen);
@@ -323,4 +324,4 @@ ${initialLoadout(hero).items.map(item=>WEAPONS[item.weaponId].name).join(' · ')
   }
 }
 
-interface TacticalMap {rally?:{active:boolean;remaining:number;cooldown:number;available:boolean};missionIndex?:number;title?:string;objective?:string;totalWaves?:number;gold?:number;camp?:{health:number;maxHealth:number};cooldown:{fraction:number;remaining:number;recovering:boolean};stagePhase:string;wave:number;remaining:number;elapsed:number;pending:number;boss?:{health:number;maxHealth:number};width:number;height:number;deploying:boolean;controlled:Hero;controlledPosition?:{x:number;y:number};selected:string;placed:number;total:number;party:{hero:Hero;placed:boolean;health:number;maxHealth?:number;level:number;xp:number;equippedWeaponId?:string}[];allies:{x:number;y:number}[];enemies:{x:number;y:number}[];camera:{x:number;y:number;width:number;height:number};}
+interface TacticalMap {rally?:{active:boolean;remaining:number;cooldown:number;available:boolean};missionIndex?:number;title?:string;objective?:string;objectiveStatus?:string;totalWaves?:number;gold?:number;camp?:{health:number;maxHealth:number};cooldown:{fraction:number;remaining:number;recovering:boolean};stagePhase:string;wave:number;remaining:number;elapsed:number;pending:number;boss?:{health:number;maxHealth:number};width:number;height:number;deploying:boolean;controlled:Hero;controlledPosition?:{x:number;y:number};selected:string;placed:number;total:number;party:{hero:Hero;placed:boolean;health:number;maxHealth?:number;level:number;xp:number;equippedWeaponId?:string}[];allies:{x:number;y:number}[];enemies:{x:number;y:number}[];camera:{x:number;y:number;width:number;height:number};}

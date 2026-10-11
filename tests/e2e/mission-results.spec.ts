@@ -1,0 +1,37 @@
+import {test,expect} from '@playwright/test';
+async function battle(page:any,index=0){await page.goto('/');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);await page.evaluate(async(index:number)=>{const entry='/src/main.ts';const{game}=await import(entry);if(index)game.events.emit('dev-jump',index);else game.events.emit('ui-action','start');game.events.emit('campaign-continue');},index);await page.waitForFunction(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.isActive('Arena');});await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');a.autoPlaceDeployment();game.events.emit('ui-launch');game.scene.pause('Arena');});}
+test('timed village freezes into results, plays results music, and waits before advancing',async({page})=>{
+ await battle(page,1);
+ const result=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');a.stage.phase='wave';a.stage.wave=3;a.wave=3;a.stage.waveStarted=0;a.releases=[];a.battleClock=132000;a.createHostile(50,176,'soldier');a.missionGold=31;a.updateStage(132000);const r=game.scene.getScene('Results');return {active:game.scene.isActive('Results'),next:game.scene.isActive('Campaign'),result:r.dataState.result,music:game.sound.getAllPlaying().map((s:any)=>s.key)};});
+ expect(result.active).toBe(true);expect(result.next).toBe(false);expect(result.result.reason).toContain('Three attacks survived');expect(result.result.gold).toBe(31);expect(result.music).toContain('music-menu');
+ await page.waitForTimeout(500);expect(await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.isActive('Results');})).toBe(true);
+ await page.keyboard.press('Enter');const once=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);game.events.emit('results-continue');return game.scene.getScene('Campaign').dataState;});expect(once.missionIndex).toBe(2);expect(once.gold).toBe(251);
+});
+test('road does not complete until exit reached; commander arrival preserves earlier attackers',async({page})=>{
+ await battle(page);
+ const road=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');a.stage.phase='complete';a.player.body.reset(500,272);a.updateStage(150000);const before=a.ended;a.player.body.reset(1184,272);a.updateStage(150000);return {before,after:a.ended};});expect(road).toEqual({before:false,after:true});
+ await battle(page,3);
+ const boss=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');a.stage.phase='boss-warning';a.stage.deadline=0;const old=a.createHostile(512,400,'soldier');a.updateStage(0);const retained=old.active;a.boss.destroy();a.releases=[];a.updateStage(1);return {retained,results:game.scene.isActive('Results'),reason:game.scene.getScene('Results').dataState.result.reason};});expect(boss.retained).toBe(true);expect(boss.results).toBe(true);expect(boss.reason).toContain('guards surrender');
+});
+test('pending victory checkpoint resumes results with no duplicate rewards',async({page})=>{
+ await battle(page);
+ await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');a.missionGold=45;a.partyStates.get(a.hero).progress.xp=67;a.finishTactical(true);});
+ const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('feadventures.campaign.v1')!).campaign);expect(saved.missionIndex).toBe(0);expect(saved.gold).toBe(265);expect(saved.pendingResult).toBeTruthy();expect(saved.members[0].progress.xp).toBe(67);
+ await page.reload();await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);game.events.emit('campaign-resume');});await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.isActive('Results');})).toBe(true);
+ await page.keyboard.press('Space');const after=await page.evaluate(()=>JSON.parse(localStorage.getItem('feadventures.campaign.v1')!).campaign);expect(after.missionIndex).toBe(1);expect(after.gold).toBe(265);expect(after.pendingResult).toBeUndefined();
+});
+test('objective countdown pauses with combat and defeat-all cannot finish with scheduled or living foes',async({page})=>{
+ await battle(page,1);
+ const clock=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');a.stage.phase='wave';a.stage.wave=1;a.stage.waveStarted=0;a.battleClock=10000;a.publishTacticalMap();return {clock:a.battleClock,status:game.scene.getScene('Interface').stats.text};});expect(clock.status).toContain('0:34');await page.waitForTimeout(350);expect(await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').battleClock;})).toBe(clock.clock);
+ const gate=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');a.map={...a.map,objective:{...a.map.objective,victory:'defeat-all'}};a.stage.phase='complete';a.releases=[{at:1e9,camp:0,key:'soldier'}];a.updateStage(10000);const scheduled=a.ended;a.releases=[];const foe=a.createHostile(50,176,'soldier');a.updateStage(10000);const living=a.ended;foe.destroy();a.updateStage(10000);return {scheduled,living,clear:a.ended,reason:game.scene.getScene('Results').dataState.result.reason};});expect(gate).toEqual({scheduled:false,living:false,clear:true,reason:'All enemy forces defeated.'});
+});
+test('battle Space held through victory cannot dismiss results until released and pressed again',async({page})=>{
+ await battle(page);await page.locator('#game').focus();await page.keyboard.down('Space');
+ await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);game.scene.getScene('Arena').finishTactical(true);});
+ await page.waitForTimeout(200);await page.keyboard.down('Space');expect(await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.isActive('Results');})).toBe(true);
+ await page.keyboard.up('Space');await page.keyboard.press('Space');expect(await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.isActive('Campaign');})).toBe(true);
+});
+test('commander waits for a free hostile slot and does not erase the previous wave',async({page})=>{
+ await battle(page,3);
+ const cap=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');a.enemies.clear(true,true);a.releases=[];a.stage.phase='boss-warning';a.stage.deadline=0;for(let i=0;i<a.stage.settings.hostileCap;i++)a.createHostile(160+i*12,400,'soldier');a.updateStage(1);const waiting=a.stage.phase,status=a.objectiveStatus();a.enemies.getChildren()[0].destroy();a.updateStage(2);return {waiting,status,boss:!!a.boss?.active,count:a.enemies.countActive(),cap:a.stage.settings.hostileCap};});expect(cap.waiting).toBe('boss-warning');expect(cap.status).toBe('Commander approaching');expect(cap.boss).toBe(true);expect(cap.count).toBe(cap.cap);
+});

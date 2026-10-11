@@ -121,3 +121,12 @@ Deployment cursor and planning grid explicitly hidden on launch, with native Aut
 - [x] Independent 600/809/939/1039/1440px DPR1/2 review:90 state captures,40 unobstructed courtyard checks,40 native placement/launch checks and live resize pointer alignment, no errors.
 - [x] 48 unit checks and build/typecheck pass; initial full browser86/87, exact-activation Rally fixture corrected then all7 focused Rally/render checks pass. See docs/text-sharpness-review.md.
 - [ ] User review on actual display;600px fixed FIT labels remain small. Nothing committed/pushed for this update.
+
+## Local 1.0.13 — Completion flow and small feedback (#74, #76–#79)
+
+- [x] Native Results, truthful per-phase objective/timer, explicit Continue, pending-result Resume with exactly-once rewards/progression; existing four mission goals preserved.
+- [x] Earlier enemies remain when the commander arrives; hostile-cap entry gate and future active/scheduled defeat-all completion gate verified.
+- [x] Actual green healing amounts, short dodge symbol/cue, expired-notice cleanup; permanent combat gold total hidden while pickup/preparations/results gold remains.
+- [x] 51 unit checks and final type/build pass; full 97 browser checks pass; final bounded hide/reason correction has 12 affected browser checks passing.
+- [x] Independent four-window DPR2 Results review and fresh local 1.0.13 badge/no-error verification. See docs/release-qa-1.0.13.md.
+- [ ] Next user review: natural Village/Keep completion clarity and difficulty with earlier attackers retained at commander arrival; dedicated victory theme remains audio follow-up. Release 1.0.13 approved; fresh final release audit passed 51 unit/build and all 97 browser checks.

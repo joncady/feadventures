@@ -5,8 +5,9 @@ import { installSharpRendering } from './game/rendering/sharp-rendering';
 import {DevScene} from './game/scenes/DevScene';
 import {loadCampaign,saveCampaign} from './game/systems/campaign-save';
 import './style.css';
+import {ResultsScene} from './game/scenes/ResultsScene';
 import {CampaignScene} from './game/scenes/CampaignScene';
-import {newCampaign,cloneMembers,buyCampaignItem,upgradeCampaignItem,type CampaignState,type CampaignMember} from './game/systems/campaign';
+import {completeMission,acceptMissionResult,newCampaign,cloneMembers,buyCampaignItem,upgradeCampaignItem,type CampaignState,type CampaignMember} from './game/systems/campaign';
 import {getMap} from './game/data/maps';
 import { BootScene } from './game/scenes/BootScene';
 import { InterfaceScene, type InterfaceState } from './game/scenes/InterfaceScene';
@@ -21,7 +22,7 @@ export const game = new Phaser.Game({
   callbacks: { postBoot: installSharpRendering },
   scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
   physics: { default: 'arcade', arcade: { debug: false } },
-  scene: [BootScene, ArenaScene, InterfaceScene, CampaignScene, DevScene],
+  scene: [BootScene, ArenaScene, InterfaceScene, CampaignScene, ResultsScene, DevScene],
 });
 const tactical = new URLSearchParams(location.search).get('battle') !== 'legacy';
 let phase: 'party'|'deployment'|'battle' = 'party';
@@ -30,7 +31,7 @@ let devRun=false;
 let devOpen=false;
 let devPausedScenes:string[]=[];
 function readSave():ReturnType<typeof loadCampaign> {try{return loadCampaign(localStorage);}catch{return undefined;}}
-function publishSave():void {const saved=readSave();const state={available:!!saved,missionName:saved?(saved.campaign.complete?'Campaign complete':getMap(saved.campaign.missionIndex).name):'',complete:saved?.campaign.complete??false,savedAt:saved?.savedAt};game.registry.set('campaign-save-state',state);game.events.emit('campaign-save-state',state);}
+function publishSave():void {const saved=readSave();const state={available:!!saved,missionName:saved?(saved.campaign.complete?'Campaign complete':saved.campaign.pendingResult?'Mission results':getMap(saved.campaign.missionIndex).name):'',complete:saved?.campaign.complete??false,savedAt:saved?.savedAt};game.registry.set('campaign-save-state',state);game.events.emit('campaign-save-state',state);}
 function checkpointCampaign():void {if(campaign&&!devRun){let saved=false;try{saved=saveCampaign(localStorage,campaign);}catch{}if(!saved)notice('Saving unavailable in this browser. Keep this tab open.');publishSave();}}
 let missionCheckpoint:CampaignMember[]=[];
 let checkpointGold=0;
@@ -101,7 +102,7 @@ function publishInterface(): void {
 }
 function ensureMusic(): void {
   if (muted || !game.cache.audio.exists('music')) return;
-  const key = (playing && phase==='battle') || result ? 'music' : 'music-menu';
+  const key = game.scene.isActive('Results')?'music-menu':(playing && phase==='battle') || result ? 'music' : 'music-menu';
   if (music && music.key !== key) { music.stop(); music.destroy(); music = undefined; }
   if (!music) music = game.sound.add(key, { loop: true, volume: audioSettings.music });
   if (!music.isPlaying && !music.isPaused) music.play();
@@ -132,8 +133,12 @@ game.events.on('hud', (hud: Hud) => {
   element('kills').textContent = `Defeated ${hud.kills}`;
   element('game').dataset.enemies = String(hud.enemies);
 });
-game.events.on('game-over', (battleResult: { wave: number; kills: number; victory?:boolean;reason?:string;missionIndex?:number;members?:CampaignMember[];gold?:number }) => {
-  if(campaign&&battleResult.victory&&battleResult.missionIndex!==undefined){game.events.emit('ux-feedback',{kind:'confirm',message:battleResult.reason??'Victory!'});campaign.members=battleResult.members??campaign.members;campaign.gold+=(battleResult.gold??0)+100;campaign.missionIndex++;campaign.complete=campaign.missionIndex>=4;campaign.members.forEach(m=>m.health=m.progress.stats.hp);checkpointCampaign();playing=false;paused=false;game.scene.stop('Arena');game.scene.stop('Interface');game.scene.start('Campaign',{...campaign,party:campaign.members.map(m=>m.hero),victory:true,victoryReason:battleResult.reason});ensureMusic();return;}
+game.events.on('game-over', (battleResult: { wave: number; kills: number; victory?:boolean;reason?:string;missionIndex?:number;members?:CampaignMember[];gold?:number;elapsed?:number;heldKeys?:string[] }) => {
+  if(campaign&&battleResult.victory&&battleResult.missionIndex!==undefined){
+    const snapshot={missionIndex:battleResult.missionIndex,reason:battleResult.reason??'Objective complete.',kills:battleResult.kills,elapsed:battleResult.elapsed??0,gold:battleResult.gold??0,reward:100,progressBefore:missionCheckpoint.map(member=>({hero:member.hero,level:member.progress.level,xp:member.progress.xp}))};
+    if(!completeMission(campaign,snapshot,battleResult.members??campaign.members))return;
+    checkpointCampaign();playing=false;paused=false;pauseButton.disabled=true;game.scene.stop('Arena');game.scene.stop('Interface');showMissionResult(battleResult.heldKeys);return;
+  }
 
   game.events.emit('ux-feedback',{kind:battleResult.victory?'confirm':'reject',message:battleResult.victory?'Victory!':'Battle lost'});playing = false; pauseButton.disabled = true;
   element('end').hidden = false;
@@ -202,9 +207,11 @@ for (const button of document.querySelectorAll<HTMLButtonElement>('[data-charact
 }
 startButton.addEventListener('click', start);
 element('restart').addEventListener('click', start);
+function showMissionResult(heldKeys:string[]=[]):void {if(!campaign?.pendingResult)return;game.scene.start('Results',{result:campaign.pendingResult,members:cloneMembers(campaign.members),gold:campaign.gold,heldKeys});ensureMusic();}
+game.events.on('results-continue',()=>{if(!campaign||!acceptMissionResult(campaign))return;checkpointCampaign();game.scene.stop('Results');game.scene.start('Campaign',{...campaign,party:campaign.members.map(member=>member.hero),victory:true});ensureMusic();});
 function showMenu(): void {
   if (!element('menu').hidden) return;
-  campaign=undefined;devRun=false;missionCheckpoint=[];checkpointGold=0;game.scene.stop('Campaign');if(!game.scene.isActive('Interface'))game.scene.start('Interface');
+  campaign=undefined;devRun=false;missionCheckpoint=[];checkpointGold=0;game.scene.stop('Campaign');game.scene.stop('Results');if(!game.scene.isActive('Interface'))game.scene.start('Interface');
   result = ''; settingsOpen = false; audioDialog.close();
   stopVoices(); game.sound.stopAll();
   game.scene.stop('Arena'); game.scene.start('Boot');
@@ -309,16 +316,16 @@ function closeDev():void {
  devPausedScenes=[];game.scene.getScene('Arena').input.keyboard?.resetKeys();
 }
 function openCampaign(state:CampaignState,testRun=false):void {
- closeDev();for(const key of ['Boot','Arena','Interface','Campaign'])game.scene.stop(key);
+ closeDev();for(const key of ['Boot','Arena','Interface','Campaign','Results'])game.scene.stop(key);
  campaign=structuredClone(state);devRun=testRun;missionCheckpoint=[];checkpointGold=0;
  hero=campaign.members[0].hero;companions=campaign.members.slice(1).map(m=>m.hero);
  phase='party';playing=false;paused=false;result='';settingsOpen=false;audioDialog.close();
  element('menu').hidden=true;element('end').hidden=true;
- game.scene.start('Campaign',{...campaign,party:campaign.members.map(m=>m.hero)});ensureMusic();
+ if(campaign.pendingResult)showMissionResult();else {game.scene.start('Campaign',{...campaign,party:campaign.members.map(m=>m.hero)});ensureMusic();}
 }
-game.events.on('campaign-resume',()=>{const saved=readSave();if(!saved){game.events.emit('ux-feedback',{kind:'reject',message:'No valid saved campaign available.'});return;}openCampaign(saved.campaign);game.events.emit('ux-feedback',{kind:'confirm',message:'Campaign restored. Battles restart from deployment.'});});
+game.events.on('campaign-resume',()=>{const saved=readSave();if(!saved){game.events.emit('ux-feedback',{kind:'reject',message:'No valid saved campaign available.'});return;}openCampaign(saved.campaign);game.events.emit('ux-feedback',{kind:'confirm',message:saved.campaign.pendingResult?'Mission results restored.':'Campaign restored. Battles restart from deployment.'});});
 game.events.on('dev-jump',(index:number)=>{if(!Number.isInteger(index)||index<0||index>=4)return;const test=newCampaign([hero,...companions]);test.missionIndex=index;openCampaign(test,true);game.events.emit('ux-feedback',{kind:'confirm',message:'Developer test mission — regular save preserved.'});});
 game.events.on('dev-close',closeDev);
-function openDev():void {if(devOpen||startButton.disabled)return;devOpen=true;devPausedScenes=['Boot','Arena','Interface','Campaign'].filter(key=>game.scene.isActive(key));for(const key of devPausedScenes)game.scene.pause(key);game.scene.start('Dev');game.scene.bringToTop('Dev');}
+function openDev():void {if(devOpen||startButton.disabled)return;devOpen=true;devPausedScenes=['Boot','Arena','Interface','Campaign','Results'].filter(key=>game.scene.isActive(key));for(const key of devPausedScenes)game.scene.pause(key);game.scene.start('Dev');game.scene.bringToTop('Dev');}
 game.events.on('dev-open',openDev);
 window.addEventListener('keydown',event=>{if(event.defaultPrevented)return;if((event.code!=='F9'&&event.code!=='Backquote')||event.repeat)return;event.preventDefault();openDev();});

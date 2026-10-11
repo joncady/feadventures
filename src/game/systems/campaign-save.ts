@@ -19,6 +19,7 @@ export function decodeCampaignSave(raw:string|null):CampaignSave|undefined {
    if(!l||!Array.isArray(l.items)||l.items.length<1||l.items.length>3||!Number.isInteger(l.equippedSlot)||l.equippedSlot<0||l.equippedSlot>=l.items.length)return;
    for(const item of l.items)if(!canEquip(member.hero as Hero,item)||(item.uses!==null&&(!Number.isInteger(item.uses)||item.uses<1))||(item.forge!==undefined&&(!Number.isInteger(item.forge)||item.forge<0||item.forge>MAX_FORGE)))return;
   }
+  if(state.pendingResult){const r=state.pendingResult;if(state.complete||r.missionIndex!==state.missionIndex||typeof r.reason!=='string'||r.reason.length>500||!number(r.kills)||!number(r.elapsed)||!Number.isInteger(r.elapsed)||!number(r.gold)||!number(r.reward)||!Array.isArray(r.progressBefore)||r.progressBefore.length!==state.members.length)return;const before=new Set();for(const p of r.progressBefore){if(!seen.has(p.hero)||before.has(p.hero)||!Number.isInteger(p.level)||p.level<1||p.level>1000||!number(p.xp,99))return;before.add(p.hero);}}
   return structuredClone(save) as CampaignSave;
  }catch{return;}
 }
