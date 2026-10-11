@@ -1,0 +1,12 @@
+{
+  "url": "http://127.0.0.1:4178/feadventures/",
+  "engine": "WebKit",
+  "steps": [
+    {
+      "name": "production assets/story",
+      "saved": true
+    }
+  ],
+  "errors": [],
+  "failed": []
+}

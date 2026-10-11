@@ -1,0 +1,442 @@
+[
+  {
+    "width": 600,
+    "dpr": 1,
+    "errors": [],
+    "state": {
+      "hero": "chrom",
+      "companions": [
+        "lucina"
+      ],
+      "selectionMode": "companions",
+      "phase": "party",
+      "tactical": true,
+      "ready": true,
+      "playing": false,
+      "paused": false,
+      "muted": false,
+      "settingsOpen": false,
+      "result": "",
+      "audio": {
+        "music": 0.18,
+        "effects": 1,
+        "voices": 0.6,
+        "characterVoices": true,
+        "spellEffect": "fire-cast"
+      }
+    },
+    "compact": true,
+    "cols": 3,
+    "canvas": 581.9779411764706,
+    "title": "Select Companions",
+    "legend": "WASD: focus · Enter: choose · Tab: action · R: Begin Story · More heroes: ↓",
+    "tiles": 9,
+    "retained": {
+      "hero": "chrom",
+      "companions": [
+        "lucina"
+      ],
+      "selectionMode": "player",
+      "phase": "party",
+      "tactical": true,
+      "ready": true,
+      "playing": false,
+      "paused": false,
+      "muted": false,
+      "settingsOpen": false,
+      "result": "",
+      "audio": {
+        "music": 0.18,
+        "effects": 1,
+        "voices": 0.6,
+        "characterVoices": true,
+        "spellEffect": "fire-cast"
+      }
+    }
+  },
+  {
+    "width": 809,
+    "dpr": 1,
+    "errors": [],
+    "state": {
+      "hero": "chrom",
+      "companions": [
+        "lucina"
+      ],
+      "selectionMode": "companions",
+      "phase": "party",
+      "tactical": true,
+      "ready": true,
+      "playing": false,
+      "paused": false,
+      "muted": false,
+      "settingsOpen": false,
+      "result": "",
+      "audio": {
+        "music": 0.18,
+        "effects": 1,
+        "voices": 0.6,
+        "characterVoices": true,
+        "spellEffect": "fire-cast"
+      }
+    },
+    "compact": false,
+    "cols": 5,
+    "canvas": 766.9889705882352,
+    "title": "Select Companions",
+    "legend": "WASD: focus · Enter: choose · Tab: action · R: Begin Story",
+    "tiles": 17,
+    "retained": {
+      "hero": "chrom",
+      "companions": [
+        "lucina"
+      ],
+      "selectionMode": "player",
+      "phase": "party",
+      "tactical": true,
+      "ready": true,
+      "playing": false,
+      "paused": false,
+      "muted": false,
+      "settingsOpen": false,
+      "result": "",
+      "audio": {
+        "music": 0.18,
+        "effects": 1,
+        "voices": 0.6,
+        "characterVoices": true,
+        "spellEffect": "fire-cast"
+      }
+    }
+  },
+  {
+    "width": 1039,
+    "dpr": 1,
+    "errors": [],
+    "state": {
+      "hero": "chrom",
+      "companions": [
+        "lucina"
+      ],
+      "selectionMode": "companions",
+      "phase": "party",
+      "tactical": true,
+      "ready": true,
+      "playing": false,
+      "paused": false,
+      "muted": false,
+      "settingsOpen": false,
+      "result": "",
+      "audio": {
+        "music": 0.18,
+        "effects": 1,
+        "voices": 0.6,
+        "characterVoices": true,
+        "spellEffect": "fire-cast"
+      }
+    },
+    "compact": false,
+    "cols": 5,
+    "canvas": 917.9779411764705,
+    "title": "Select Companions",
+    "legend": "WASD: focus · Enter: choose · Tab: action · R: Begin Story",
+    "tiles": 17,
+    "retained": {
+      "hero": "chrom",
+      "companions": [
+        "lucina"
+      ],
+      "selectionMode": "player",
+      "phase": "party",
+      "tactical": true,
+      "ready": true,
+      "playing": false,
+      "paused": false,
+      "muted": false,
+      "settingsOpen": false,
+      "result": "",
+      "audio": {
+        "music": 0.18,
+        "effects": 1,
+        "voices": 0.6,
+        "characterVoices": true,
+        "spellEffect": "fire-cast"
+      }
+    }
+  },
+  {
+    "width": 1440,
+    "dpr": 1,
+    "errors": [],
+    "state": {
+      "hero": "chrom",
+      "companions": [
+        "lucina"
+      ],
+      "selectionMode": "companions",
+      "phase": "party",
+      "tactical": true,
+      "ready": true,
+      "playing": false,
+      "paused": false,
+      "muted": false,
+      "settingsOpen": false,
+      "result": "",
+      "audio": {
+        "music": 0.18,
+        "effects": 1,
+        "voices": 0.6,
+        "characterVoices": true,
+        "spellEffect": "fire-cast"
+      }
+    },
+    "compact": false,
+    "cols": 5,
+    "canvas": 917.9779411764705,
+    "title": "Select Companions",
+    "legend": "WASD: focus · Enter: choose · Tab: action · R: Begin Story",
+    "tiles": 17,
+    "retained": {
+      "hero": "chrom",
+      "companions": [
+        "lucina"
+      ],
+      "selectionMode": "player",
+      "phase": "party",
+      "tactical": true,
+      "ready": true,
+      "playing": false,
+      "paused": false,
+      "muted": false,
+      "settingsOpen": false,
+      "result": "",
+      "audio": {
+        "music": 0.18,
+        "effects": 1,
+        "voices": 0.6,
+        "characterVoices": true,
+        "spellEffect": "fire-cast"
+      }
+    }
+  },
+  {
+    "width": 600,
+    "dpr": 2,
+    "errors": [],
+    "state": {
+      "hero": "chrom",
+      "companions": [
+        "lucina"
+      ],
+      "selectionMode": "companions",
+      "phase": "party",
+      "tactical": true,
+      "ready": true,
+      "playing": false,
+      "paused": false,
+      "muted": false,
+      "settingsOpen": false,
+      "result": "",
+      "audio": {
+        "music": 0.18,
+        "effects": 1,
+        "voices": 0.6,
+        "characterVoices": true,
+        "spellEffect": "fire-cast"
+      }
+    },
+    "compact": true,
+    "cols": 3,
+    "canvas": 581.9779411764706,
+    "title": "Select Companions",
+    "legend": "WASD: focus · Enter: choose · Tab: action · R: Begin Story · More heroes: ↓",
+    "tiles": 9,
+    "retained": {
+      "hero": "chrom",
+      "companions": [
+        "lucina"
+      ],
+      "selectionMode": "player",
+      "phase": "party",
+      "tactical": true,
+      "ready": true,
+      "playing": false,
+      "paused": false,
+      "muted": false,
+      "settingsOpen": false,
+      "result": "",
+      "audio": {
+        "music": 0.18,
+        "effects": 1,
+        "voices": 0.6,
+        "characterVoices": true,
+        "spellEffect": "fire-cast"
+      }
+    }
+  },
+  {
+    "width": 809,
+    "dpr": 2,
+    "errors": [],
+    "state": {
+      "hero": "chrom",
+      "companions": [
+        "lucina"
+      ],
+      "selectionMode": "companions",
+      "phase": "party",
+      "tactical": true,
+      "ready": true,
+      "playing": false,
+      "paused": false,
+      "muted": false,
+      "settingsOpen": false,
+      "result": "",
+      "audio": {
+        "music": 0.18,
+        "effects": 1,
+        "voices": 0.6,
+        "characterVoices": true,
+        "spellEffect": "fire-cast"
+      }
+    },
+    "compact": false,
+    "cols": 5,
+    "canvas": 766.9889705882352,
+    "title": "Select Companions",
+    "legend": "WASD: focus · Enter: choose · Tab: action · R: Begin Story",
+    "tiles": 17,
+    "retained": {
+      "hero": "chrom",
+      "companions": [
+        "lucina"
+      ],
+      "selectionMode": "player",
+      "phase": "party",
+      "tactical": true,
+      "ready": true,
+      "playing": false,
+      "paused": false,
+      "muted": false,
+      "settingsOpen": false,
+      "result": "",
+      "audio": {
+        "music": 0.18,
+        "effects": 1,
+        "voices": 0.6,
+        "characterVoices": true,
+        "spellEffect": "fire-cast"
+      }
+    }
+  },
+  {
+    "width": 1039,
+    "dpr": 2,
+    "errors": [],
+    "state": {
+      "hero": "chrom",
+      "companions": [
+        "lucina"
+      ],
+      "selectionMode": "companions",
+      "phase": "party",
+      "tactical": true,
+      "ready": true,
+      "playing": false,
+      "paused": false,
+      "muted": false,
+      "settingsOpen": false,
+      "result": "",
+      "audio": {
+        "music": 0.18,
+        "effects": 1,
+        "voices": 0.6,
+        "characterVoices": true,
+        "spellEffect": "fire-cast"
+      }
+    },
+    "compact": false,
+    "cols": 5,
+    "canvas": 917.9779411764705,
+    "title": "Select Companions",
+    "legend": "WASD: focus · Enter: choose · Tab: action · R: Begin Story",
+    "tiles": 17,
+    "retained": {
+      "hero": "chrom",
+      "companions": [
+        "lucina"
+      ],
+      "selectionMode": "player",
+      "phase": "party",
+      "tactical": true,
+      "ready": true,
+      "playing": false,
+      "paused": false,
+      "muted": false,
+      "settingsOpen": false,
+      "result": "",
+      "audio": {
+        "music": 0.18,
+        "effects": 1,
+        "voices": 0.6,
+        "characterVoices": true,
+        "spellEffect": "fire-cast"
+      }
+    }
+  },
+  {
+    "width": 1440,
+    "dpr": 2,
+    "errors": [],
+    "state": {
+      "hero": "chrom",
+      "companions": [
+        "lucina"
+      ],
+      "selectionMode": "companions",
+      "phase": "party",
+      "tactical": true,
+      "ready": true,
+      "playing": false,
+      "paused": false,
+      "muted": false,
+      "settingsOpen": false,
+      "result": "",
+      "audio": {
+        "music": 0.18,
+        "effects": 1,
+        "voices": 0.6,
+        "characterVoices": true,
+        "spellEffect": "fire-cast"
+      }
+    },
+    "compact": false,
+    "cols": 5,
+    "canvas": 917.9779411764705,
+    "title": "Select Companions",
+    "legend": "WASD: focus · Enter: choose · Tab: action · R: Begin Story",
+    "tiles": 17,
+    "retained": {
+      "hero": "chrom",
+      "companions": [
+        "lucina"
+      ],
+      "selectionMode": "player",
+      "phase": "party",
+      "tactical": true,
+      "ready": true,
+      "playing": false,
+      "paused": false,
+      "muted": false,
+      "settingsOpen": false,
+      "result": "",
+      "audio": {
+        "music": 0.18,
+        "effects": 1,
+        "voices": 0.6,
+        "characterVoices": true,
+        "spellEffect": "fire-cast"
+      }
+    }
+  }
+]

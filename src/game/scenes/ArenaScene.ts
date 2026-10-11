@@ -4,7 +4,8 @@ import Phaser from 'phaser';
 import { ENEMY_TYPES, HEROES, HERO_PROFILES, HERO_SHEETS, isFlying, OBSTACLES, PLAYER_SPEED_SCALE, WORLD, type Hero } from '../data/config';
 import {victoryReady,formatClock} from '../systems/mission-objective';
 import { direction, inMeleeRange, validSpawn, waveSize, type Point } from '../systems/rules';
-import { scaleDamage, combatDamage, weaponAttackSound, weaponMatchup, withinWeaponRange, type WeaponType } from '../systems/combat';
+import { scaleDamage, resolveDamage, weaponAttackSound, weaponMatchup, withinWeaponRange, type WeaponType, type CombatWeapon, type EffectivenessTag } from '../systems/combat';
+import {newGuard,updateGuard,guardedDamage,GUARD} from '../systems/guard';
 import { BattleHud } from '../systems/BattleHud';
 import { newProgress, type Progress, gainExperience, attackPower, attackCooldown, killExperience } from '../systems/progression';
 import { actionFlipX } from '../data/animation-layout';
@@ -89,6 +90,11 @@ export class ArenaScene extends Phaser.Scene {
   private pointerAim: Point | undefined;
   private keyboardFacing: Point = { x: 1, y: 0 };
   private pointerAttack = false;
+  private touchMovement={x:0,y:0};
+  private touchSelfHeal=false;
+  private touchGuard=false;
+  private guard=newGuard();
+  private guardGuide!:Phaser.GameObjects.Graphics;
   private actionAim: Point = { x: 1, y: 0 };
   private lastDamage = -Infinity;
   private spawning = 0;
@@ -115,6 +121,7 @@ export class ArenaScene extends Phaser.Scene {
     this.siegeRoutes=new WeakMap();this.siegeWalls=[];this.camp=undefined;this.battleClock=0;this.stage=new StageOne(this.missionIndex===undefined?STAGE_ONE:{waves:this.map.waves.count,waveMinimum:this.map.waves.minimumMs,releaseInterval:this.map.waves.releaseIntervalMs,intermission:this.map.waves.intermissionMs,bossWarning:8000,hostileCap:this.map.waves.hostileCap,bossHealth:this.map.waves.bossHealth});this.releases=[];this.boss=undefined;this.bossThresholds.clear();this.deploymentCursor=this.missionIndex===undefined?{x:480,y:352}:{x:this.map.courtyard.left+96,y:Math.max(this.map.courtyard.top+96,Math.min(this.map.courtyard.bottom-96,480))};
     if(data.members)for(const member of cloneMembers(data.members)){if(this.party.includes(member.hero))this.partyStates.set(member.hero,{...member,lastAttack:-Infinity,lastDamage:-Infinity});}
     this.allyWarningAt.clear();this.brains = new WeakMap(); this.targetFields.clear(); this.allyRoutes.clear();this.followFormation=new FollowFormation();
+    this.guard=newGuard();this.touchGuard=false;this.touchMovement={x:0,y:0};this.touchSelfHeal=false;
     this.playerShot = undefined; this.actionUntil = 0; this.pointerAim = undefined; this.pointerAttack = false;
     this.health = this.partyStates.get(this.hero)!.health; this.progression = this.partyStates.get(this.hero)!.progress; this.allyMode = 'defend'; this.wave = 1; this.kills = 0;
     this.facing = { x: 1, y: 0 }; this.keyboardFacing = { ...this.facing }; this.lastAttack = -Infinity;
@@ -171,20 +178,27 @@ export class ArenaScene extends Phaser.Scene {
       const pickup=item as Enemy;if(pickup.getData('gold')){this.missionGold+=pickup.getData('gold');this.game.events.emit('campaign-gold',this.missionGold);this.showGoldPickup(pickup.getData('gold'));}else {const before=this.health;this.health = Math.min(this.progression.stats.hp, this.health + 25);const restored=this.health-before;if(restored){this.showHealthGain(this.player,restored);this.feedback('confirm');}}item.destroy();this.publishHud();
     });
     const switchEquipment=()=>this.switchWeapon();this.game.events.on('ui-switch-weapon',switchEquipment);this.events.once('shutdown',()=>this.game.events.off('ui-switch-weapon',switchEquipment));
-    this.keys = this.input.keyboard!.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,SPACE,Q,E,R,SHIFT') as Record<string, Phaser.Input.Keyboard.Key>;
+    this.keys = this.input.keyboard!.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,SPACE,Q,E,R,SHIFT,CTRL') as Record<string, Phaser.Input.Keyboard.Key>;
     this.input.keyboard!.addCapture(['SPACE', 'UP', 'DOWN', 'LEFT', 'RIGHT']);
-    this.input.on('pointermove', this.updatePointerAim, this);
+    if(this.input.manager.pointers.length<4)this.input.addPointer(4-this.input.manager.pointers.length);
+    this.input.mouse?.disableContextMenu();
+    const touchMove=(point:Point)=>{this.touchMovement=point;};
+    const touchAction=(action:string)=>{if(action==='guard-end'){this.touchGuard=false;return;}if(this.deploying||this.ended)return;if(action==='guard-start'){this.touchGuard=true;return;}if(action==='previous')this.switchCharacter(-1);else if(action==='next')this.switchCharacter(1);else if(action==='weapon')this.switchWeapon();else if(action==='rally')this.rallyCompanions();else if(action==='self-heal'&&this.profile().weapon==='staff'){this.touchSelfHeal=true;this.pointerAttack=true;}};
+    this.game.events.on('touch-move',touchMove);this.game.events.on('touch-action',touchAction);
+    this.events.once('shutdown',()=>{this.game.events.off('touch-move',touchMove);this.game.events.off('touch-action',touchAction);});
+    this.input.on('pointermove',(pointer:Phaser.Input.Pointer)=>{if(!pointer.wasTouch)this.updatePointerAim(pointer);});
     this.input.on('pointerdown', (pointer: Phaser.Input.Pointer, over:Phaser.GameObjects.GameObject[]) => {
       if (over.length) return;
       if(this.deploying){const point=pointer.positionToCamera(this.cameras.main) as Phaser.Math.Vector2;if(!this.insideDeployment(point)){this.feedback('reject','Deploy inside the courtyard.');return;}this.deploymentCursor=this.clampDeploymentCursor(point);this.confirmDeployment();return;}
-      if (!pointer.leftButtonDown() || this.ended || this.profile().weapon === 'staff') return;
+      if ((!pointer.wasTouch&&!pointer.leftButtonDown()) || this.ended || (!pointer.wasTouch&&this.profile().weapon === 'staff')) return;
       this.updatePointerAim(pointer); this.pointerAttack = true;
     });
-    this.input.on('gameout', () => { this.pointerAim = undefined; this.pointerAttack = false; });
-    this.events.on(Phaser.Scenes.Events.PAUSE, () => { this.pointerAim = undefined; this.pointerAttack = false; });
+    this.input.on('gameout', () => { this.pointerAim = undefined; this.pointerAttack = false;this.touchGuard=false; });
+    this.events.on(Phaser.Scenes.Events.PAUSE, () => { this.touchMovement={x:0,y:0};this.touchGuard=false;this.guard.active=false;this.guardGuide.clear(); this.pointerAim = undefined; this.pointerAttack = false; });
     this.planningGrid=this.add.graphics().setDepth(3);if(this.tactical){const c=this.map.courtyard;this.planningGrid.fillStyle(0x48aaff,.12).fillRect(c.left,c.top,c.right-c.left,c.bottom-c.top);this.planningGrid.lineStyle(1,0xb7d5e9,.35);for(let x=0;x<=this.width;x+=64)this.planningGrid.lineBetween(x,0,x,this.height);for(let y=0;y<=this.height;y+=64)this.planningGrid.lineBetween(0,y,this.width,y);}
     this.deploymentGuide=this.add.graphics().setDepth(24);
     this.aimGuide = this.add.graphics().setDepth(7);
+    this.guardGuide=this.add.graphics().setDepth(24);
     this.healthBar = this.add.graphics().setDepth(20);
     this.telegraphs = this.add.graphics().setDepth(8);
     this.navigation.setTarget(this.bodyCenter(this.player), isFlying(this.hero));
@@ -214,16 +228,17 @@ export class ArenaScene extends Phaser.Scene {
     if (Phaser.Input.Keyboard.JustDown(this.keys.Q)) this.tactical?this.switchCharacter(-1):this.toggleAllyMode();
     if (this.tactical && Phaser.Input.Keyboard.JustDown(this.keys.E)) this.switchCharacter(1);
     if (!isFlying(this.hero)) this.recoverFromTerrain(this.player);
-    const horizontal = Number(this.keys.D.isDown || this.keys.RIGHT.isDown) - Number(this.keys.A.isDown || this.keys.LEFT.isDown);
-    const vertical = Number(this.keys.S.isDown || this.keys.DOWN.isDown) - Number(this.keys.W.isDown || this.keys.UP.isDown);
+    const horizontal = Number(this.keys.D.isDown || this.keys.RIGHT.isDown) - Number(this.keys.A.isDown || this.keys.LEFT.isDown) + this.touchMovement.x;
+    const vertical = Number(this.keys.S.isDown || this.keys.DOWN.isDown) - Number(this.keys.W.isDown || this.keys.UP.isDown) + this.touchMovement.y;
     const movement = direction(horizontal, vertical);
     const profile = this.profile();
+    updateGuard(this.guard,this.touchGuard||this.keys.CTRL.isDown||this.input.activePointer.rightButtonDown(),delta,!this.playerShot&&time>=this.actionUntil);
     this.player.setVelocity(movement.x * (profile.speed*PLAYER_SPEED_SCALE+2*(this.progression.stats.speed-this.progression.base.speed)), movement.y * (profile.speed*PLAYER_SPEED_SCALE+2*(this.progression.stats.speed-this.progression.base.speed)));
     if (horizontal || vertical) this.keyboardFacing = movement;
     this.facing = { ...this.keyboardFacing };
     if (this.pointerAim && profile.weapon !== 'staff') {
       // Keep aiming at the screen cursor as the camera follows a retreating hero.
-      this.updatePointerAim(this.input.activePointer);
+      if(!this.input.activePointer.wasTouch)this.updatePointerAim(this.input.activePointer);
       const origin = this.bodyCenter(this.player);
       const aim = direction(this.pointerAim.x - origin.x, this.pointerAim.y - origin.y);
       if (aim.x || aim.y) this.facing = aim;
@@ -240,10 +255,13 @@ export class ArenaScene extends Phaser.Scene {
       this.player.setFlipX(this.facing.x > 0);
     }
     if(this.tactical&&time-this.lastAttack<this.attackDelay()*.65)this.player.setVelocity(movement.x*profile.speed*PLAYER_SPEED_SCALE*.3,movement.y*profile.speed*PLAYER_SPEED_SCALE*.3);
+    if(this.guard.active){this.player.setVelocity(movement.x*profile.speed*PLAYER_SPEED_SCALE*GUARD.speedMultiplier,movement.y*profile.speed*PLAYER_SPEED_SCALE*GUARD.speedMultiplier);this.player.anims.play(`${this.hero}-idle`,true);this.player.setFlipX(false);}
+    this.drawGuard();
     const attackRequested = Phaser.Input.Keyboard.JustDown(this.keys.SPACE) || this.pointerAttack;
     this.pointerAttack = false;
-    if(attackRequested && time-this.lastAttack<this.attackDelay())this.feedback('reject','Attack recovering — wait for the bar.');
-    if (attackRequested && time - this.lastAttack >= this.attackDelay()) {
+    if(attackRequested&&this.guard.active)this.feedback('reject');
+    if(attackRequested && !this.guard.active && time-this.lastAttack<this.attackDelay())this.feedback('reject','Attack recovering — wait for the bar.');
+    if (attackRequested && !this.guard.active && time - this.lastAttack >= this.attackDelay()) {
       if(profile.weapon==='staff'){if(this.castHeal(this.player))this.lastAttack=time;}else {this.lastAttack = time; this.attack();}
     }
     if (this.playerShot && time >= this.playerShot.at) {
@@ -268,6 +286,8 @@ export class ArenaScene extends Phaser.Scene {
       if (Phaser.Math.Distance.BetweenPoints(arrow.getData('origin') as Point, this.bodyCenter(arrow)) > (arrow.getData('maxRange') as number) || time >= (arrow.getData('expires') as number) || arrow.x < 0 || arrow.y < 0 || arrow.x > this.width || arrow.y > this.height) arrow.destroy();
     }
     this.drawHealthBars();
+    this.touchSelfHeal=false;
+    if(this.registry.get('touch-overlay-active'))this.battleHud.setVisible(false);
     this.battleHud.update(this.progression,this.health,this.wave,this.kills,this.tactical?'tactical':this.allyMode,this.allies.countActive(),this.weaponLoadout());
     if(this.tactical){this.updateStage(this.battleClock);if(!this.ended)this.publishTacticalMap();return;}
     if (this.spawning === 0 && this.enemies.countActive() === 0 && !this.advancing) {
@@ -276,6 +296,8 @@ export class ArenaScene extends Phaser.Scene {
       this.time.delayedCall(1600, () => { this.wave++; this.advancing = false; this.startWave(); });
     }
   }
+  private combatTags(unit:Enemy):EffectivenessTag[] {const tags=[...(unit.getData('combatTags')??[])] as EffectivenessTag[];if(this.unitFlying(unit))tags.push('flying');const hero=unit===this.player?this.hero:unit.getData('companionHero');if(['frederick','stahl','sully'].includes(hero))tags.push('mounted');if(hero==='frederick'||['knight','heavy'].includes(unit.texture.key))tags.push('armored');return tags;}
+  private drawGuard():void {this.guardGuide.clear();if(!this.guard.active&&!this.guard.broken)return;const origin=this.bodyCenter(this.player),angle=Math.atan2(this.facing.y,this.facing.x);if(this.guard.active)this.guardGuide.lineStyle(4,0xbce9ff,.9).beginPath().arc(origin.x,origin.y,34,angle-GUARD.halfArc,angle+GUARD.halfArc,false).strokePath();this.guardGuide.fillStyle(0x192d36,.85).fillRect(origin.x-24,origin.y+32,48,5).fillStyle(this.guard.broken?0xf1a46b:0xbce9ff,1).fillRect(origin.x-24,origin.y+32,48*this.guard.meter/GUARD.capacity,5);}
   private weaponLoadout():Loadout {return this.partyStates.get(this.hero)!.loadout;}
   private profile(){return weaponProfile(this.hero,this.weaponLoadout());}
   private feedback(kind:string,message?:string):void {this.game.events.emit('ux-feedback',{kind,message});}
@@ -406,12 +428,12 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     (ally.getData('weaponIcon') as Phaser.GameObjects.Image).setTexture(`weapon-${p.weapon}`);this.playerWeapon.setTexture(`weapon-${this.profile().weapon}`);
     this.brains.delete(ally);for(const unit of [...this.enemies.getChildren(),...this.allies.getChildren()]){const brain=this.brains.get(unit as Enemy);if(brain?.targetUnit===this.player)brain.targetUnit=ally;else if(brain?.targetUnit===ally)brain.targetUnit=this.player;}
     if(state.health<=0)ally.destroy();else ally.anims.play(`${previous}-idle`);
-    this.playerShot=undefined;this.actionUntil=0;this.pointerAim=undefined;this.pointerAttack=false;this.facing={x:1,y:0};this.keyboardFacing={...this.facing};
+    this.playerShot=undefined;this.actionUntil=0;this.pointerAim=undefined;this.pointerAttack=false;this.guard=newGuard();this.touchGuard=false;this.touchMovement={x:0,y:0};this.touchSelfHeal=false;this.guardGuide.clear();this.facing={x:1,y:0};this.keyboardFacing={...this.facing};
     this.battleHud.destroy();this.battleHud=new BattleHud(this,hero,()=>this.switchCharacter(1));this.battleHud.synchronize(this.progression);
     this.feedback('confirm',`${HERO_NAMES[hero]} · controlling`);this.game.events.emit('controlled-character',hero);this.game.events.emit('hero-voice',{hero,event:'select'});this.publishHud();return true;
   }
   private finishTactical(victory:boolean,reason?:string):void {
-    if(this.ended)return;for(const unit of this.allies.getChildren() as Enemy[]){const prior=unit.getData('autoHealPrior') as number|undefined;if(prior!==undefined)this.setCompanionSlot(unit,prior);}this.ended=true;this.releases=[];this.playerShot=undefined;this.arrows.clear(true,true);this.physics.pause();this.time.removeAllEvents();this.aimGuide.clear();this.telegraphs.clear();this.partyStates.get(this.hero)!.health=this.health;const members=this.party.map(hero=>{const state=this.partyStates.get(hero)!;return {hero,health:state.health,progress:state.progress,loadout:state.loadout};});const victoryReason=victory?(this.map.objective.victory==='defeat-all'?'All enemy forces defeated.':this.map.objective.kind==='advance'?'Eastern exit reached. The party escaped the ambushes.':this.map.objective.kind==='defend'?'Three attacks survived. The raiders withdraw; the village stands.':this.map.objective.kind==='survive'?'Siege commander defeated. The remaining attackers retreat.':'Keep commander defeated. The remaining guards surrender.'):reason;this.game.events.emit('game-over',{wave:this.wave,kills:this.kills,victory,reason:victoryReason,missionIndex:this.missionIndex,members:cloneMembers(members),gold:this.missionGold,elapsed:Math.floor(this.battleClock/1000),heldKeys:this.keys.SPACE.isDown?['Space']:[]});
+    if(this.ended)return;for(const unit of this.allies.getChildren() as Enemy[]){const prior=unit.getData('autoHealPrior') as number|undefined;if(prior!==undefined)this.setCompanionSlot(unit,prior);}this.ended=true;this.guard.active=false;this.touchGuard=false;this.guardGuide.clear();this.releases=[];this.playerShot=undefined;this.arrows.clear(true,true);this.physics.pause();this.time.removeAllEvents();this.aimGuide.clear();this.telegraphs.clear();this.partyStates.get(this.hero)!.health=this.health;const members=this.party.map(hero=>{const state=this.partyStates.get(hero)!;return {hero,health:state.health,progress:state.progress,loadout:state.loadout};});const victoryReason=victory?(this.map.objective.victory==='defeat-all'?'All enemy forces defeated.':this.map.objective.kind==='advance'?'Eastern exit reached. The party escaped the ambushes.':this.map.objective.kind==='defend'?'Three attacks survived. The raiders withdraw; the village stands.':this.map.objective.kind==='survive'?'Siege commander defeated. The remaining attackers retreat.':'Keep commander defeated. The remaining guards surrender.'):reason;this.game.events.emit('game-over',{wave:this.wave,kills:this.kills,victory,reason:victoryReason,missionIndex:this.missionIndex,members:cloneMembers(members),gold:this.missionGold,elapsed:Math.floor(this.battleClock/1000),heldKeys:this.keys.SPACE.isDown?['Space']:[]});
   }
   private objectiveStatus():string {
     const phase=this.stage.phase,condition=this.map.objective.victory;
@@ -540,8 +562,8 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     const distance = Phaser.Math.Distance.BetweenPoints(arrow.getData('origin') as Point, this.bodyCenter(arrow));
     if (!withinWeaponRange(distance, arrow.getData('minRange'), arrow.getData('maxRange'))) return;
     const healthBefore=target===this.player?this.health:target.getData('health');
-    if (target === this.player) this.takeDamage(arrow.getData('damage'), arrow.getData('weapon'));
-    else this.damageEnemy(target, arrow.getData('damage'), arrow.getData('weapon'),faction,arrow.getData('attackingHero'),arrow.getData('source'));
+    if (target === this.player) this.takeDamage(arrow.getData('damage'), arrow.getData('weapon'),arrow.getData('origin'));
+    else this.damageEnemy(target, arrow.getData('damage'), arrow.getData('weapon'),faction,arrow.getData('attackingHero'),arrow.getData('source'),WEAPONS[arrow.getData('weaponId')]);
     const drain=WEAPONS[arrow.getData('weaponId')]?.drain??0;
     if(drain&&arrow.getData('attackingHero')){const hero=arrow.getData('attackingHero') as Hero;const restored=Math.round(Math.max(0,healthBefore-Math.max(0,target===this.player?this.health:target.active?target.getData('health'):0))*drain);const state=this.partyStates.get(hero);if(state&&state.health>0){state.health=Math.min(state.progress.stats.hp,(hero===this.hero?this.health:state.health)+restored);if(hero===this.hero)this.health=state.health;else (this.allies.getChildren().find(a=>a.getData('companionHero')===hero) as Enemy|undefined)?.setData('health',state.health);}}
     arrow.destroy(); this.game.events.emit('effect', 'damage', { volume: 0.3, position:{x:target.x,y:target.y} });
@@ -694,7 +716,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
       .setDisplaySize(55, 55).setRotation(Math.atan2(brain.aim.y, brain.aim.x)).setTint(0xffb070).setDepth(15);
     this.tweens.add({ targets: slash, alpha: 0, duration: 180, onComplete: () => slash.destroy() });
     if (inMeleeRange(origin, target, brain.aim, definition.attack.range) && (this.unitFlying(enemy) || this.hasLineOfSight(origin, target))) {
-      if (targetUnit === this.player) this.takeDamage(enemy.getData('damage') as number, definition.weapon);
+      if (targetUnit === this.player) this.takeDamage(enemy.getData('damage') as number, definition.weapon,this.bodyCenter(enemy));
       else this.damageEnemy(targetUnit, enemy.getData('damage') as number, definition.weapon,this.faction(enemy),enemy.getData('companionHero'),enemy);
     }
   }
@@ -729,6 +751,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     arrow.setSize(10 / arrow.scaleX, 10 / arrow.scaleY).setVelocity(aim.x * speed, aim.y * speed);
     arrow.setData({ source,faction, weapon, origin,weaponId:sourceWeapon?.id,siegeTarget:this.brains.get(source)?.targetUnit?.getData('structure')?this.brains.get(source)?.targetUnit:undefined,attackingHero:faction==='player'?this.hero:source.getData('companionHero'), minRange: faction === 'player' ? this.profile().minRange : (definition.attack.minRange ?? 0), maxRange: range,
       damage: faction === 'player' ? attackPower(this.progression,this.hero,equippedWeapon(this.weaponLoadout())) : source.getData('companionHero')?attackPower(source.getData('progression'),source.getData('companionHero'),sourceWeapon):source.getData('damage'), expires: this.time.now + range / speed * 1000 });
+    if(sourceWeapon?.id==='wind')arrow.setTint(0xa9efc4);
     if (magic) this.game.events.emit('spell-effect',{x:source.x,y:source.y});
     else this.game.events.emit('effect', 'arrow-fire', { volume: 0.25, position:{x:source.x,y:source.y} });
   }
@@ -737,7 +760,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     if (this.profile().weapon === 'staff') {
       const origin=this.bodyCenter(this.player),profile=this.profile(),{patient}=this.healingSelection(this.player);
       this.aimGuide.lineStyle(1,patient?0x8deaa8:0xacb7b9,.28).strokeCircle(origin.x,origin.y,profile.range);
-      const ringTarget=this.keys.SHIFT.isDown?this.player:patient?.unit;
+      const ringTarget=(this.keys.SHIFT.isDown||this.touchSelfHeal)?this.player:patient?.unit;
       if(ringTarget)this.aimGuide.lineStyle(2,patient?0x8deaa8:0xacb7b9,.85).strokeCircle(ringTarget.x,ringTarget.y,26);
       return;
     }
@@ -811,7 +834,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     const range=equippedWeapon(this.partyStates.get(hero)!.loadout).range;
     const candidates=[this.player,...this.allies.getChildren() as Enemy[]].filter(unit=>unit.active&&unit.visible).map(unit=>({...this.bodyCenter(unit),unit,active:unit.active,health:unit===this.player?this.health:unit.getData('health') as number,maxHealth:unit===this.player?this.progression.stats.hp:unit.getData('maxHealth') as number}));
     const caster=candidates.find(candidate=>candidate.unit===source);
-    const controlled=source===this.player,self=controlled&&this.keys.SHIFT.isDown;
+    const controlled=source===this.player,self=controlled&&(this.keys.SHIFT.isDown||this.touchSelfHeal);
     const patient=self?(caster?.active&&caster.health>0&&caster.health<caster.maxHealth?caster:undefined):selectHealingTarget(this.bodyCenter(source),controlled?candidates.filter(candidate=>candidate!==caster):candidates,range,controlled?undefined:caster);
     return {candidates,patient,self};
   }
@@ -875,26 +898,26 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     }
     if (hit) this.game.events.emit('effect', 'damage', { volume: 0.3 });
   }
-  private damageEnemy(enemy: Enemy, base: number, weapon: WeaponType, attacker:'player'|'ally'|'enemy'='player',attackingHero?:Hero,source?:Enemy): void {
+  private damageEnemy(enemy: Enemy, base: number, weapon: WeaponType, attacker:'player'|'ally'|'enemy'='player',attackingHero?:Hero,source?:Enemy,attackWeapon?:CombatWeapon): void {
     if (!enemy.active) return;
     if(enemy.getData('structure')){if(attacker!=='enemy')return;enemy.setData('health',enemy.getData('health')-scaleDamage(base,this.registry.get('damage-scale')??.5));if(enemy.getData('health')<=0)this.breachWall(enemy);return;}
     const defendedHero=enemy.getData('companionHero') as Hero|undefined;
     if(defendedHero&&attacker==='enemy'){const state=this.partyStates.get(defendedHero)!;if(this.time.now-state.lastDamage<700)return;state.lastDamage=this.time.now;}
     const targetProgress=enemy.getData('progression') as Progress|undefined;
     if(this.tactical && targetProgress){const avoid=Math.min(.25,((targetProgress.stats.speed-targetProgress.base.speed)*3+targetProgress.stats.luck-targetProgress.base.luck)/200);if(Math.random()<avoid)return;}
-    const protection = (enemy.getData(weapon === 'tome' ? 'resistance' : 'defense') as number | undefined) ?? 0;
     const attackingProgress=attackingHero?this.partyStates.get(attackingHero)?.progress:attacker==='player'?this.progression:undefined;
     const attackingLoadout=attackingHero?this.partyStates.get(attackingHero)?.loadout:attacker==='player'?this.weaponLoadout():undefined;const criticalBonus=attackingLoadout?equippedWeapon(attackingLoadout).criticalBonus??0:0;
     const criticalChance=attackingProgress?Math.min(.25,((attackingProgress.stats.skill-attackingProgress.base.skill)/2+(attackingProgress.stats.luck-attackingProgress.base.luck)/4+criticalBonus)/100):0;
     const critical=Math.random()<criticalChance;
-    const damage = scaleDamage(combatDamage(Math.max(1, base - protection)*(critical?3:1), weapon, this.enemyWeapon(enemy),this.unitFlying(enemy)),this.tactical?(this.registry.get('damage-scale')??.5):1);
+    const resolved=resolveDamage({power:base,weapon:attackWeapon??(attackingLoadout?equippedWeapon(attackingLoadout):{type:weapon}),defenderWeapon:this.enemyWeapon(enemy),defense:enemy.getData('defense')??0,resistance:enemy.getData('resistance')??0,targetTags:this.combatTags(enemy),critical,scale:this.tactical?(this.registry.get('damage-scale')??.5):1});
+    const damage=resolved.damage;
     const health = (enemy.getData('health') as number) - damage;
     enemy.setData('health', health);if(enemy===this.camp&&health<=0){this.finishTactical(false,'Hero camp destroyed.');return;}
     const companion=enemy.getData('companionHero') as Hero|undefined;
     if(this.faction(enemy)==='ally'&&attacker==='enemy'&&source?.active&&health>0&&Phaser.Math.Distance.BetweenPoints(this.allyAnchor(enemy),this.bodyCenter(source))<=this.retaliationRadius(enemy)){enemy.setData('retaliation',{unit:source,until:this.time.now+6000});const brain=this.brains.get(enemy);if(brain?.phase==='chase')brain.targetUnit=source;}
     if(this.tactical&&companion&&attacker==='enemy'&&health>0&&this.time.now-(this.allyWarningAt.get(companion)??-Infinity)>6000){this.allyWarningAt.set(companion,this.time.now);this.game.events.emit('companion-warning',{hero:companion,health:Math.max(0,health)});}
     if(companion)this.partyStates.get(companion)!.health=Math.max(0,health);
-    const text = this.add.text(enemy.x, enemy.y - 42, `${critical?'CRIT ':''}${damage}${weaponMatchup(weapon, this.enemyWeapon(enemy)) === 1 ? ' ↑' : weaponMatchup(weapon, this.enemyWeapon(enemy)) === -1 ? ' ↓' : ''}`,
+    const text = this.add.text(enemy.x, enemy.y - 42, `${critical?'CRIT ':''}${damage}${resolved.effective?' ✦':''}${weaponMatchup(weapon, this.enemyWeapon(enemy)) === 1 ? ' ↑' : weaponMatchup(weapon, this.enemyWeapon(enemy)) === -1 ? ' ↓' : ''}`,
       { fontFamily: 'FE', fontSize: '13px', color: '#f5edda', stroke: '#15201b', strokeThickness: 3 }).setDepth(25);
     this.tweens.add({ targets: text, y: text.y - 18, alpha: 0, duration: 650, onComplete: () => text.destroy() });
     if (health <= 0) {
@@ -930,12 +953,13 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     this.tweens.add({targets:popup,y:popup.y-22,alpha:0,duration:1000,onComplete:()=>popup.destroy()});
   }
   private heroDeath(hero:Hero):void {if(this.fallenVoices.has(hero))return;this.fallenVoices.add(hero);this.game.events.emit('hero-voice',{hero,event:'death'});}
-  private takeDamage(base: number, weapon: WeaponType = this.profile().weapon): void {
-    const protection = weapon === 'tome' ? this.progression.stats.res : this.progression.stats.def;
-    const damage = scaleDamage(combatDamage(Math.max(1,base-protection), weapon, this.profile().weapon, isFlying(this.hero)),this.tactical?(this.registry.get('damage-scale')??.5):1);
+  private takeDamage(base: number, weapon: WeaponType = this.profile().weapon,source?:Point): void {
+    const resolved=resolveDamage({power:base,weapon:{type:weapon},defenderWeapon:this.profile().weapon,defense:this.progression.stats.def,resistance:this.progression.stats.res,targetTags:this.combatTags(this.player),scale:this.tactical?(this.registry.get('damage-scale')??.5):1});
+    let damage=resolved.damage;
     if (this.ended || this.time.now - this.lastDamage < 700) return;
     const avoid=Math.min(.25,((this.progression.stats.speed-this.progression.base.speed)*3+this.progression.stats.luck-this.progression.base.luck)/200);
     if(Math.random()<avoid){this.lastDamage=this.time.now;const symbol=this.add.text(this.player.x+22,this.player.y-38,'↷',{fontFamily:'sans-serif',fontSize:'22px',color:'#bce9ff',stroke:'#15201b',strokeThickness:3}).setOrigin(.5).setDepth(25).setData('evade-feedback',true);this.tweens.add({targets:symbol,y:symbol.y-15,alpha:0,duration:650,onComplete:()=>symbol.destroy()});this.game.events.emit('effect','ui-cursor',{volume:.12,position:{x:this.player.x,y:this.player.y}});return;}
+    if(source){const origin=this.bodyCenter(this.player),blocked=guardedDamage(this.guard,damage,resolved.kind,Math.atan2(this.facing.y,this.facing.x),Math.atan2(source.y-origin.y,source.x-origin.x));damage=blocked.damage;if(blocked.blocked){this.guardGuide.setAlpha(.65);this.tweens.add({targets:this.guardGuide,alpha:1,duration:120});this.game.events.emit('effect','ui-confirm',{volume:.14,position:origin});}}
     this.lastDamage = this.time.now;
     this.health = Math.max(0, this.health - damage);
     this.game.events.emit('effect', 'damage', { volume: 0.2 });
@@ -946,7 +970,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     if (this.health === 0 && this.tactical){this.partyStates.get(this.hero)!.health=0;if(this.switchCharacter(1))return;this.finishTactical(false);return;}
     if (this.health === 0) {
       this.game.events.emit('effect', 'death', { volume: 0.3 });
-      this.playerShot = undefined; this.aimGuide.clear(); this.telegraphs.clear();
+      this.guard.active=false;this.touchGuard=false;this.guardGuide.clear();this.playerShot = undefined; this.aimGuide.clear(); this.telegraphs.clear();
       this.ended = true; this.arrows.clear(true, true); this.physics.pause(); this.time.removeAllEvents();
       this.game.events.emit('game-over', { wave: this.wave, kills: this.kills });
     }

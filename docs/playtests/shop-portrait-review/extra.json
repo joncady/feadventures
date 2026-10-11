@@ -1,0 +1,189 @@
+{
+  "leader": [
+    {
+      "alpha": 0.52,
+      "children": 5
+    }
+  ],
+  "deployment": {
+    "utilities": true,
+    "instructions": false,
+    "buttons": [
+      "Auto-place",
+      "Begin battle"
+    ]
+  },
+  "pause": {
+    "visible": true,
+    "controls": [
+      "Paused · Battle controls",
+      "WASD / Arrows",
+      "Move",
+      "Mouse",
+      "Aim ranged attacks",
+      "Space / Left click",
+      "Attack or cast equipped ability",
+      "Q / E",
+      "Previous / next living hero",
+      "F",
+      "Switch weapon or ability",
+      "I / Info",
+      "Inspect stats and equipment",
+      "R",
+      "Call companions · 10s / 20s cooldown",
+      "P",
+      "Pause / resume battle",
+      "Staff: Space heals allies · Shift + Space heals yourself.\nCompanions with staves automatically help nearby allies in danger.",
+      "Resume",
+      "Settings",
+      "Main menu",
+      "← / →: choose · Enter / Space: confirm"
+    ],
+    "buttons": [
+      "Resume",
+      "Settings",
+      "Main menu"
+    ]
+  },
+  "settings": {
+    "visible": true,
+    "text": [
+      "Settings",
+      "[✓] Enable audio",
+      "Music",
+      "18%",
+      "Sound effects",
+      "100%",
+      "Voices",
+      "60%",
+      "[✓] Character battle voices",
+      "Spell: Fire cast",
+      "Fullscreen",
+      "Close"
+    ]
+  },
+  "resize": [
+    {
+      "window": 1440,
+      "index": 0,
+      "tiles": [
+        {
+          "hero": "robin",
+          "selected": true
+        }
+      ],
+      "portrait": [
+        {
+          "sourceRatio": 1,
+          "displayRatio": 1
+        }
+      ],
+      "rows": [
+        "› Fire",
+        "Iron Sword",
+        "Thunder",
+        "Killing Edge",
+        "Nosferatu",
+        "Deploy →"
+      ]
+    },
+    {
+      "window": 809,
+      "index": 0,
+      "tiles": [
+        {
+          "hero": "robin",
+          "selected": true
+        }
+      ],
+      "portrait": [
+        {
+          "sourceRatio": 1,
+          "displayRatio": 1
+        }
+      ],
+      "rows": [
+        "› Fire",
+        "Iron Sword",
+        "Thunder",
+        "Killing Edge",
+        "Nosferatu",
+        "Deploy →"
+      ]
+    },
+    {
+      "window": 600,
+      "index": 0,
+      "tiles": [
+        {
+          "hero": "robin",
+          "selected": true
+        }
+      ],
+      "portrait": [
+        {
+          "sourceRatio": 1,
+          "displayRatio": 1
+        }
+      ],
+      "rows": [
+        "› Fire",
+        "Iron Sword",
+        "Thunder",
+        "Killing Edge",
+        "Nosferatu",
+        "Deploy →"
+      ]
+    },
+    {
+      "window": 1039,
+      "index": 0,
+      "tiles": [
+        {
+          "hero": "robin",
+          "selected": true
+        }
+      ],
+      "portrait": [
+        {
+          "sourceRatio": 1,
+          "displayRatio": 1
+        }
+      ],
+      "rows": [
+        "› Fire",
+        "Iron Sword",
+        "Thunder",
+        "Killing Edge",
+        "Nosferatu",
+        "Deploy →"
+      ]
+    },
+    {
+      "window": 1440,
+      "index": 0,
+      "tiles": [
+        {
+          "hero": "robin",
+          "selected": true
+        }
+      ],
+      "portrait": [
+        {
+          "sourceRatio": 1,
+          "displayRatio": 1
+        }
+      ],
+      "rows": [
+        "› Fire",
+        "Iron Sword",
+        "Thunder",
+        "Killing Edge",
+        "Nosferatu",
+        "Deploy →"
+      ]
+    }
+  ],
+  "soloSounds": [],
+  "errors": []
+}

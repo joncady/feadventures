@@ -1,3 +1,4 @@
+import {AUDIO_PREFERENCES_KEY,decodeAudioPreferences} from './game/systems/audio-preferences';
 import {VoiceGate} from './game/systems/voice-gate';
 import {RallyVoiceSelection} from './game/systems/rally-voice-selection';
 import Phaser from 'phaser';
@@ -7,7 +8,7 @@ import {loadCampaign,saveCampaign} from './game/systems/campaign-save';
 import './style.css';
 import {ResultsScene} from './game/scenes/ResultsScene';
 import {CampaignScene} from './game/scenes/CampaignScene';
-import {completeMission,acceptMissionResult,newCampaign,cloneMembers,buyCampaignItem,upgradeCampaignItem,type CampaignState,type CampaignMember} from './game/systems/campaign';
+import {completeMission,acceptMissionResult,changeCampaignParty,newCampaign,cloneMembers,buyCampaignItem,upgradeCampaignItem,type CampaignState,type CampaignMember} from './game/systems/campaign';
 import {getMap} from './game/data/maps';
 import { BootScene } from './game/scenes/BootScene';
 import { InterfaceScene, type InterfaceState } from './game/scenes/InterfaceScene';
@@ -38,6 +39,7 @@ let checkpointGold=0;
 const campaignEnabled=tactical&&new URLSearchParams(location.search).get('mission')!=='siege';
 let hero: Hero = 'chrom';
 let companions: Hero[] = [];
+let preparationEditing = false;
 let selectionMode: 'player'|'companions' = 'player';
 let playing = false;
 let paused = false;
@@ -46,6 +48,8 @@ let muted = false;
 let settingsOpen = false;
 let result = '';
 export const audioSettings = { music: 0.18, effects: 1, voices: 0.6, characterVoices: true, spellEffect: 'fire-cast' };
+try{const saved=decodeAudioPreferences(localStorage.getItem(AUDIO_PREFERENCES_KEY));if(saved){muted=saved.muted;const {muted:_,...preferences}=saved;Object.assign(audioSettings,preferences);}}catch{}
+function saveAudioPreferences():void {try{localStorage.setItem(AUDIO_PREFERENCES_KEY,JSON.stringify({muted,...audioSettings}));}catch{}}
 const voiceGate=new VoiceGate();
 const rallyVoices=new RallyVoiceSelection();
 let deathVoice:Phaser.Sound.BaseSound|undefined;
@@ -97,7 +101,7 @@ function publishInterface(): void {
   element('leader-mode')?.setAttribute('aria-pressed', String(selectionMode === 'player'));
   element('party-mode')?.setAttribute('aria-pressed', String(selectionMode === 'companions'));
   element<HTMLButtonElement>('launch-battle').disabled=phase!=='deployment';element('launch-battle').hidden=phase!=='deployment';
-  const state: InterfaceState = { hero, companions:[...companions], selectionMode, phase, tactical, ready: !startButton.disabled, playing, paused, muted, settingsOpen, result, audio: { ...audioSettings } };
+  const state: InterfaceState = { preparationEditing, hero, companions:[...companions], selectionMode, phase, tactical, ready: !startButton.disabled, playing, paused, muted, settingsOpen, result, audio: { ...audioSettings } };
   game.registry.set('interface-state', state); game.events.emit('ui-state', state);
 }
 function ensureMusic(): void {
@@ -148,6 +152,12 @@ game.events.on('game-over', (battleResult: { wave: number; kills: number; victor
 });
 function start(): void {
   if (startButton.disabled) return;
+  if(preparationEditing&&campaign){
+    if(!changeCampaignParty(campaign,[hero,...companions]))return;
+    preparationEditing=false;checkpointCampaign();element('menu').hidden=true;
+    game.scene.stop('Interface');game.scene.stop('Boot');
+    game.scene.start('Campaign',{...campaign,party:campaign.members.map(m=>m.hero),skipDialogue:true});ensureMusic();return;
+  }
   if(campaignEnabled&&!campaign){devRun=false;campaign=newCampaign([hero,...companions]);checkpointCampaign();element('menu').hidden=true;element('end').hidden=true;result='';game.scene.stop('Boot');game.scene.stop('Interface');game.scene.start('Campaign',{...campaign,party:campaign.members.map(m=>m.hero)});ensureMusic();return;}
   if(campaign){campaign.members=cloneMembers(missionCheckpoint.length?missionCheckpoint:campaign.members);if(missionCheckpoint.length)campaign.gold=checkpointGold;}
 
@@ -196,7 +206,7 @@ for (const button of document.querySelectorAll<HTMLButtonElement>('[data-charact
       else {game.events.emit('ux-feedback',{kind:'reject',message:'Party full — remove a companion first.'});return;}
       game.events.emit('ux-feedback',{kind:'confirm',message:companions.includes(selected)?`${HERO_NAMES[selected]} joined the party`:`${HERO_NAMES[selected]} removed`});publishInterface();return;
     }
-    game.events.emit('ux-feedback',{kind:'confirm'});hero = selected;companions=companions.filter(h=>h!==hero);characterVoice(hero,'select');
+    game.events.emit('ux-feedback',{kind:'confirm'});hero = selected;selectionMode='companions';companions=companions.filter(h=>h!==hero);characterVoice(hero,'select');
     element('hero-description').textContent = HERO_PROFILES[hero].description;
     for (const option of document.querySelectorAll<HTMLButtonElement>('[data-character]')) {
       const selected = option === button;
@@ -211,7 +221,7 @@ function showMissionResult(heldKeys:string[]=[]):void {if(!campaign?.pendingResu
 game.events.on('results-continue',()=>{if(!campaign||!acceptMissionResult(campaign))return;checkpointCampaign();game.scene.stop('Results');game.scene.start('Campaign',{...campaign,party:campaign.members.map(member=>member.hero),victory:true});ensureMusic();});
 function showMenu(): void {
   if (!element('menu').hidden) return;
-  campaign=undefined;devRun=false;missionCheckpoint=[];checkpointGold=0;game.scene.stop('Campaign');game.scene.stop('Results');if(!game.scene.isActive('Interface'))game.scene.start('Interface');
+  preparationEditing=false;campaign=undefined;devRun=false;missionCheckpoint=[];checkpointGold=0;game.scene.stop('Campaign');game.scene.stop('Results');if(!game.scene.isActive('Interface'))game.scene.start('Interface');
   result = ''; settingsOpen = false; audioDialog.close();
   stopVoices(); game.sound.stopAll();
   game.scene.stop('Arena'); game.scene.start('Boot');
@@ -240,7 +250,7 @@ element('music').addEventListener('click', () => {
   const label = muted ? 'Unmute audio' : 'Mute audio';
   element('music').setAttribute('aria-label', label);
   element('music').setAttribute('title', label);
-  element('music').setAttribute('aria-pressed', String(!muted)); publishInterface();
+  element('music').setAttribute('aria-pressed', String(!muted));saveAudioPreferences(); publishInterface();
   if (playing) element('game').focus();
 });
 element('fullscreen').addEventListener('click', () => {
@@ -249,6 +259,8 @@ element('fullscreen').addEventListener('click', () => {
 });
 
 const audioDialog = element<HTMLDialogElement>('audio-settings');
+for(const category of ['music','effects','voices'] as const)element<HTMLInputElement>(`${category}-volume`).value=String(audioSettings[category]*100);
+element('music').setAttribute('aria-label',muted?'Unmute audio':'Mute audio');element('music').setAttribute('aria-pressed',String(!muted));element<HTMLInputElement>('audio-enabled').checked=!muted;element<HTMLInputElement>('character-voices').checked=audioSettings.characterVoices;element<HTMLSelectElement>('spell-effect').value=audioSettings.spellEffect;
 element('audio-options').addEventListener('click', () => {
   if (playing && !paused) togglePause();
   settingsOpen = true; audioDialog.show(); publishInterface();
@@ -257,7 +269,7 @@ element<HTMLInputElement>('audio-enabled').addEventListener('change', () => elem
 element('audio-close').addEventListener('click', () => { settingsOpen = false; audioDialog.close(); publishInterface(); if(playing) element('game').focus(); });
 for (const category of ['music', 'effects', 'voices'] as const) {
   element<HTMLInputElement>(`${category}-volume`).addEventListener('input', event => {
-    audioSettings[category] = Number((event.target as HTMLInputElement).value) / 100;
+    audioSettings[category] = Number((event.target as HTMLInputElement).value) / 100;saveAudioPreferences();
     if (category === 'music') (music as Phaser.Sound.WebAudioSound | Phaser.Sound.HTML5AudioSound | undefined)?.setVolume(audioSettings.music);
     if (category === 'voices') stopVoices();
     if (category === 'effects') {
@@ -266,8 +278,8 @@ for (const category of ['music', 'effects', 'voices'] as const) {
     publishInterface();
   });
 }
-element<HTMLInputElement>('character-voices').addEventListener('change', event => { audioSettings.characterVoices = (event.target as HTMLInputElement).checked; stopVoices(); publishInterface(); });
-element<HTMLSelectElement>('spell-effect').addEventListener('change', event => { audioSettings.spellEffect = (event.target as HTMLSelectElement).value; publishInterface(); });
+element<HTMLInputElement>('character-voices').addEventListener('change', event => { audioSettings.characterVoices = (event.target as HTMLInputElement).checked; stopVoices();saveAudioPreferences(); publishInterface(); });
+element<HTMLSelectElement>('spell-effect').addEventListener('change', event => { audioSettings.spellEffect = (event.target as HTMLSelectElement).value;saveAudioPreferences(); publishInterface(); });
 game.events.on('spell-effect', (position?:{x:number;y:number}) => game.events.emit('effect', audioSettings.spellEffect, { volume: 0.25,position }));
 element('audio-preview').addEventListener('click', () => {
   if (muted) { notice('Unmute audio with the speaker button to preview.'); return; }
@@ -305,6 +317,13 @@ game.events.on('ui-deploy-auto',()=>{if(phase==='deployment')(game.scene.getScen
 
 game.events.on('ui-deploy-confirm',()=> (game.scene.getScene('Arena') as ArenaScene).confirmDeployment());
 
+game.events.on('campaign-edit-party',()=>{
+ if(!campaign||campaign.complete||campaign.pendingResult)return;
+ preparationEditing=true;hero=campaign.members[0].hero;companions=campaign.members.slice(1).map(member=>member.hero);
+ selectionMode='player';phase='party';playing=false;paused=false;result='';
+ missionCheckpoint=[];checkpointGold=0;game.scene.stop('Campaign');game.scene.start('Boot');game.scene.start('Interface');
+ element('menu').hidden=false;element('end').hidden=true;publishInterface();game.scene.bringToTop('Interface');
+});
 function publishShop(message:string):void {if(!campaign)return;game.events.emit('campaign-shop-state',{gold:campaign.gold,members:campaign.members,message});}
 game.events.on('campaign-shop-buy',({hero:target,itemId}:{hero:Hero;itemId:string})=>{if(!campaign)return;const ok=buyCampaignItem(campaign,target,itemId);if(ok)checkpointCampaign();game.events.emit('ux-feedback',{kind:ok?'confirm':'reject',message:ok?'Weapon purchased':'Cannot purchase: check gold and class'});publishShop(ok?'Weapon purchased. F switches equipment in battle.':'Not enough gold, already owned, or unavailable to this class.');});
 game.events.on('campaign-shop-upgrade',({hero:target,slot}:{hero:Hero;slot:number})=>{if(!campaign)return;const ok=upgradeCampaignItem(campaign,target,slot);if(ok)checkpointCampaign();game.events.emit('ux-feedback',{kind:ok?'confirm':'reject'});publishShop(ok?'Equipment upgraded.':'Needs 100 gold. Each item can be forged three times.');});
@@ -317,7 +336,7 @@ function closeDev():void {
 }
 function openCampaign(state:CampaignState,testRun=false):void {
  closeDev();for(const key of ['Boot','Arena','Interface','Campaign','Results'])game.scene.stop(key);
- campaign=structuredClone(state);devRun=testRun;missionCheckpoint=[];checkpointGold=0;
+ preparationEditing=false;campaign=structuredClone(state);devRun=testRun;missionCheckpoint=[];checkpointGold=0;
  hero=campaign.members[0].hero;companions=campaign.members.slice(1).map(m=>m.hero);
  phase='party';playing=false;paused=false;result='';settingsOpen=false;audioDialog.close();
  element('menu').hidden=true;element('end').hidden=true;

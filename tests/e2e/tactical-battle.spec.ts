@@ -3,10 +3,10 @@ async function point(page:Page,x:number,y:number){const b=(await page.locator('c
 async function worldPoint(page:Page,x:number,y:number){const screen=await page.evaluate(async({x,y})=>{const entry='/src/main.ts';const{game}=await import(entry);const c=game.scene.getScene('Arena').cameras.main;return {x:(x-c.worldView.x)*c.zoom,y:(y-c.worldView.y)*c.zoom};},{x,y});await point(page,screen.x,screen.y);}
 async function deploy(page:Page){
  await page.goto('/?mission=siege');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);
- await point(page,534,96);
+ await point(page,78,154);
  const cards=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.registry.get('character-card-centers');});
  for(const hero of ['morgan','virion','sumia'])await point(page,cards[hero].x,cards[hero].y);
- await point(page,737,506);
+ await point(page,791,458);
  await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').deploying;})).toBe(true);
  await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');const ids=[...s.party,...s.allies.getChildren().filter((a:any)=>!a.getData('companionHero')).map((a:any)=>a.getData('deploymentId'))];for(const [i,id] of ids.entries()){s.selectedDeployment=id;if(!s.placeDeployment({x:480+(i%4)*128,y:352+Math.floor(i/4)*192}))throw Error(`Invalid fixture deployment ${id}`);}});
 }
@@ -67,7 +67,7 @@ test('keyboard party selection, placement feedback and shared damage pacing',asy
  await page.goto('/?mission=siege');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);await page.locator('#game').focus();
  await page.keyboard.press('d');await page.keyboard.press('Enter');
  expect(await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.registry.get('interface-state').hero;})).toBe('lucina');
- await page.keyboard.press('r');
+ await page.keyboard.press('r');await page.keyboard.press('r');
  await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').deploying;})).toBe(true);
  const before=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return {...game.scene.getScene('Arena').deployment.lucina};});
  await page.keyboard.press('d');await page.keyboard.press('Space');

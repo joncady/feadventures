@@ -1,0 +1,1404 @@
+{
+  "party": [
+    "chrom",
+    "virion",
+    "sumia",
+    "lissa"
+  ],
+  "settings": "default damage 50%; normal real-time native keyboard/mouse",
+  "started": "2026-10-11T21:58:17.094Z",
+  "events": [
+    {
+      "kind": "start",
+      "wall": 3620
+    },
+    {
+      "kind": "shop",
+      "mission": 0,
+      "wall": 4547,
+      "gold": 120,
+      "members": [
+        {
+          "hero": "chrom",
+          "health": 100,
+          "progress": {
+            "level": 1,
+            "xp": 0,
+            "stats": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "falchion",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "virion",
+          "health": 100,
+          "progress": {
+            "level": 1,
+            "xp": 0,
+            "stats": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "iron-bow",
+                "uses": null
+              },
+              {
+                "weaponId": "steel-bow",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "sumia",
+          "health": 100,
+          "progress": {
+            "level": 1,
+            "xp": 0,
+            "stats": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "iron-lance",
+                "uses": null
+              },
+              {
+                "weaponId": "steel-lance",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "progress": {
+            "level": 1,
+            "xp": 0,
+            "stats": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "heal",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        }
+      ]
+    },
+    {
+      "kind": "battle start",
+      "mission": 0,
+      "wall": 6592,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "virion",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 100
+        }
+      ]
+    },
+    {
+      "kind": "battle sample",
+      "wall": 6675,
+      "mission": 0,
+      "clock": 392,
+      "wave": 0,
+      "phase": "opening",
+      "kills": 0,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "virion",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 96,
+        "y": 228
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 17031,
+      "mission": 0,
+      "clock": 10748,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 0,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "virion",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 1037.5072277956706,
+        "y": 206
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 27422,
+      "mission": 0,
+      "clock": 21141,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 4,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "virion",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 529.177658145702,
+        "y": 229.1649610051699
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 37501,
+      "mission": 0,
+      "clock": 31220,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 9,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 88,
+          "max": 100
+        },
+        {
+          "hero": "virion",
+          "health": 90,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 331.1914199449941,
+        "y": 216.593945768117
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 47672,
+      "mission": 0,
+      "clock": 41388,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 12,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 71,
+          "max": 100
+        },
+        {
+          "hero": "virion",
+          "health": 95,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 961.3540366133292,
+        "y": 216.593945768117
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 57843,
+      "mission": 0,
+      "clock": 51565,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "virion",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 1160.5834904692604,
+        "y": 260.1421350374656
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 68132,
+      "mission": 0,
+      "clock": 61846,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "virion",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 91,
+          "max": 100
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 814,
+        "y": 190
+      },
+      "enemies": 8
+    },
+    {
+      "kind": "battle sample",
+      "wall": 78154,
+      "mission": 0,
+      "clock": 71859,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 17,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "virion",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 46,
+          "max": 100
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 814,
+        "y": 190
+      },
+      "enemies": 11
+    },
+    {
+      "kind": "battle sample",
+      "wall": 88600,
+      "mission": 0,
+      "clock": 82318,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 20,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 95,
+          "max": 100
+        },
+        {
+          "hero": "virion",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 0,
+          "max": 100
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 814,
+        "y": 203.2599999999999
+      },
+      "enemies": 12
+    },
+    {
+      "kind": "battle sample",
+      "wall": 98887,
+      "mission": 0,
+      "clock": 92611,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 28,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 81,
+          "max": 100
+        },
+        {
+          "hero": "virion",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 0,
+          "max": 100
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 647.9492699479598,
+        "y": 257.75493500861677
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 109181,
+      "mission": 0,
+      "clock": 102904,
+      "wave": 2,
+      "phase": "rest",
+      "kills": 32,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "virion",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 0,
+          "max": 100
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 1124.8065082452417,
+        "y": 265.57480330911017
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 119577,
+      "mission": 0,
+      "clock": 113299,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 32,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "virion",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 0,
+          "max": 100
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 814,
+        "y": 190
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 129933,
+      "mission": 0,
+      "clock": 123648,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 34,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 91,
+          "max": 101
+        },
+        {
+          "hero": "virion",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 0,
+          "max": 100
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 751.8706482474764,
+        "y": 206
+      },
+      "enemies": 7
+    },
+    {
+      "kind": "battle sample",
+      "wall": 140308,
+      "mission": 0,
+      "clock": 134018,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 39,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "virion",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 0,
+          "max": 100
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 527.2379313566005,
+        "y": 248.78102855529187
+      },
+      "enemies": 9
+    },
+    {
+      "kind": "battle sample",
+      "wall": 150680,
+      "mission": 0,
+      "clock": 144404,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 45,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 75,
+          "max": 101
+        },
+        {
+          "hero": "virion",
+          "health": 84,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 0,
+          "max": 100
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 509.1129862310407,
+        "y": 268.97599822597977
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "mission victory",
+      "wall": 158506,
+      "result": {
+        "result": {
+          "missionIndex": 0,
+          "reason": "Eastern exit reached. The party escaped the ambushes.",
+          "kills": 48,
+          "elapsed": 151,
+          "gold": 637,
+          "reward": 100,
+          "progressBefore": [
+            {
+              "hero": "chrom",
+              "level": 1,
+              "xp": 0
+            },
+            {
+              "hero": "virion",
+              "level": 1,
+              "xp": 0
+            },
+            {
+              "hero": "sumia",
+              "level": 1,
+              "xp": 0
+            },
+            {
+              "hero": "lissa",
+              "level": 1,
+              "xp": 0
+            }
+          ]
+        },
+        "members": [
+          {
+            "hero": "chrom",
+            "health": 80,
+            "progress": {
+              "level": 2,
+              "xp": 44,
+              "stats": {
+                "hp": 101,
+                "str": 20,
+                "mag": 15,
+                "skill": 11,
+                "speed": 10,
+                "luck": 11,
+                "def": 0,
+                "res": 0
+              },
+              "base": {
+                "hp": 100,
+                "str": 20,
+                "mag": 15,
+                "skill": 10,
+                "speed": 10,
+                "luck": 10,
+                "def": 0,
+                "res": 0
+              }
+            },
+            "loadout": {
+              "items": [
+                {
+                  "weaponId": "falchion",
+                  "uses": null,
+                  "forge": 1
+                },
+                {
+                  "weaponId": "iron-sword",
+                  "uses": null
+                }
+              ],
+              "equippedSlot": 0
+            }
+          },
+          {
+            "hero": "virion",
+            "health": 95,
+            "progress": {
+              "level": 2,
+              "xp": 44,
+              "stats": {
+                "hp": 100,
+                "str": 21,
+                "mag": 15,
+                "skill": 11,
+                "speed": 10,
+                "luck": 11,
+                "def": 0,
+                "res": 0
+              },
+              "base": {
+                "hp": 100,
+                "str": 20,
+                "mag": 15,
+                "skill": 10,
+                "speed": 10,
+                "luck": 10,
+                "def": 0,
+                "res": 0
+              }
+            },
+            "loadout": {
+              "items": [
+                {
+                  "weaponId": "iron-bow",
+                  "uses": null
+                },
+                {
+                  "weaponId": "steel-bow",
+                  "uses": null
+                }
+              ],
+              "equippedSlot": 0
+            }
+          },
+          {
+            "hero": "sumia",
+            "health": 0,
+            "progress": {
+              "level": 1,
+              "xp": 57,
+              "stats": {
+                "hp": 100,
+                "str": 20,
+                "mag": 15,
+                "skill": 10,
+                "speed": 10,
+                "luck": 10,
+                "def": 0,
+                "res": 0
+              },
+              "base": {
+                "hp": 100,
+                "str": 20,
+                "mag": 15,
+                "skill": 10,
+                "speed": 10,
+                "luck": 10,
+                "def": 0,
+                "res": 0
+              }
+            },
+            "loadout": {
+              "items": [
+                {
+                  "weaponId": "iron-lance",
+                  "uses": null
+                },
+                {
+                  "weaponId": "steel-lance",
+                  "uses": null
+                }
+              ],
+              "equippedSlot": 0
+            }
+          },
+          {
+            "hero": "lissa",
+            "health": 100,
+            "progress": {
+              "level": 2,
+              "xp": 94,
+              "stats": {
+                "hp": 100,
+                "str": 21,
+                "mag": 16,
+                "skill": 10,
+                "speed": 10,
+                "luck": 11,
+                "def": 0,
+                "res": 1
+              },
+              "base": {
+                "hp": 100,
+                "str": 20,
+                "mag": 15,
+                "skill": 10,
+                "speed": 10,
+                "luck": 10,
+                "def": 0,
+                "res": 0
+              }
+            },
+            "loadout": {
+              "items": [
+                {
+                  "weaponId": "heal",
+                  "uses": null
+                },
+                {
+                  "weaponId": "iron-axe",
+                  "uses": null
+                }
+              ],
+              "equippedSlot": 0
+            }
+          }
+        ],
+        "gold": 757,
+        "heldKeys": []
+      }
+    },
+    {
+      "kind": "shop",
+      "mission": 1,
+      "wall": 160444,
+      "gold": 757,
+      "members": [
+        {
+          "hero": "chrom",
+          "health": 101,
+          "progress": {
+            "level": 2,
+            "xp": 44,
+            "stats": {
+              "hp": 101,
+              "str": 20,
+              "mag": 15,
+              "skill": 11,
+              "speed": 10,
+              "luck": 11,
+              "def": 0,
+              "res": 0
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "falchion",
+                "uses": null,
+                "forge": 1
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "virion",
+          "health": 100,
+          "progress": {
+            "level": 2,
+            "xp": 44,
+            "stats": {
+              "hp": 100,
+              "str": 21,
+              "mag": 15,
+              "skill": 11,
+              "speed": 10,
+              "luck": 11,
+              "def": 0,
+              "res": 0
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "iron-bow",
+                "uses": null
+              },
+              {
+                "weaponId": "steel-bow",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "sumia",
+          "health": 100,
+          "progress": {
+            "level": 1,
+            "xp": 57,
+            "stats": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "iron-lance",
+                "uses": null
+              },
+              {
+                "weaponId": "steel-lance",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "progress": {
+            "level": 2,
+            "xp": 94,
+            "stats": {
+              "hp": 100,
+              "str": 21,
+              "mag": 16,
+              "skill": 10,
+              "speed": 10,
+              "luck": 11,
+              "def": 0,
+              "res": 1
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "heal",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        }
+      ]
+    },
+    {
+      "kind": "battle start",
+      "mission": 1,
+      "wall": 162407,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "virion",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 100
+        }
+      ]
+    },
+    {
+      "kind": "battle sample",
+      "wall": 162489,
+      "mission": 1,
+      "clock": 390,
+      "wave": 0,
+      "phase": "opening",
+      "kills": 0,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "virion",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "camp": 900,
+      "hero": "chrom",
+      "p": {
+        "x": 480,
+        "y": 292
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 172526,
+      "mission": 1,
+      "clock": 10431,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 2,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "virion",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "lissa",
+          "health": 101,
+          "max": 101
+        }
+      ],
+      "camp": 900,
+      "hero": "chrom",
+      "p": {
+        "x": 668.4473548525762,
+        "y": 496.8221883764288
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 182607,
+      "mission": 1,
+      "clock": 20513,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 6,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "virion",
+          "health": 95,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "lissa",
+          "health": 101,
+          "max": 101
+        }
+      ],
+      "camp": 900,
+      "hero": "chrom",
+      "p": {
+        "x": 755.377380849131,
+        "y": 542
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 192703,
+      "mission": 1,
+      "clock": 30604,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 11,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "virion",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "lissa",
+          "health": 81,
+          "max": 101
+        }
+      ],
+      "camp": 894,
+      "hero": "chrom",
+      "p": {
+        "x": 755.377380849131,
+        "y": 542
+      },
+      "enemies": 5
+    },
+    {
+      "kind": "battle sample",
+      "wall": 203145,
+      "mission": 1,
+      "clock": 41057,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 15,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "virion",
+          "health": 95,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 68,
+          "max": 101
+        },
+        {
+          "hero": "lissa",
+          "health": 81,
+          "max": 101
+        }
+      ],
+      "camp": 894,
+      "hero": "chrom",
+      "p": {
+        "x": 320.8573808491334,
+        "y": 542
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 213430,
+      "mission": 1,
+      "clock": 51338,
+      "wave": 1,
+      "phase": "rest",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "virion",
+          "health": 95,
+          "max": 100
+        },
+        {
+          "hero": "sumia",
+          "health": 100,
+          "max": 101
+        },
+        {
+          "hero": "lissa",
+          "health": 81,
+          "max": 101
+        }
+      ],
+      "camp": 894,
+      "hero": "chrom",
+      "p": {
+        "x": 507.0196968962457,
+        "y": 342.7727318025992
+      },
+      "enemies": 0
+    }
+  ],
+  "errors": []
+}

@@ -33,7 +33,7 @@ export class ResultsScene extends Phaser.Scene {
    const hp=member.health,max=member.progress.stats.hp;
    text(140,y+22,hp>0?`HP ${hp}/${max}`:'Fallen · returns next mission',12);
   });
-  text(84,424,'Full health restored before the next mission.',13);
+  text(84,424,result.missionIndex===3?'The eastern campaign is won.':'Full health restored before the next mission.',13);
   const button=this.add.nineslice(448,467,'ui-parchment',undefined,230,38,10,10,10,10).setInteractive({useHandCursor:true}).setData('results-continue',true);
   text(448,455,result.missionIndex===3?'Finish campaign':'Continue',19).setOrigin(.5,0);
   const enteredAt=performance.now();

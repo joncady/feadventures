@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { TouchControls } from '../input/TouchControls';
 import { APP_VERSION } from '../data/version';
 import { getMap } from '../data/maps';
 import { HEROES, HERO_NAMES, HERO_PROFILES, WORLD, type Hero } from '../data/config';
@@ -6,6 +7,7 @@ import { initialLoadout, equippedWeapon, WEAPONS } from '../data/equipment';
 import type { Hud } from './ArenaScene';
 
 export interface InterfaceState {
+  preparationEditing?: boolean;
   hero: Hero;
   phase:'party'|'deployment'|'battle';
   tactical:boolean;
@@ -20,6 +22,8 @@ export interface InterfaceState {
   audio: { music: number; effects: number; voices: number; characterVoices: boolean; spellEffect: string };
 }
 export class InterfaceScene extends Phaser.Scene {
+  private touchControls!:TouchControls;
+  private touchUsed=false;
   private partyHealth!:Phaser.GameObjects.Graphics;
   private resumeControl!:Phaser.GameObjects.Container;
   private resumeLabel!:Phaser.GameObjects.Text;
@@ -61,7 +65,20 @@ export class InterfaceScene extends Phaser.Scene {
   private miniTitle!:Phaser.GameObjects.Text;
   private legend!:Phaser.GameObjects.Text;
   private menu!: Phaser.GameObjects.Container;
-  private cards = new Map<Hero, Phaser.GameObjects.NineSlice>();
+  private cards = new Map<Hero, Phaser.GameObjects.Rectangle>();
+  private heroTiles:Phaser.GameObjects.Container[]=[];
+  private rosterColumns=5;
+  private rosterPaging!:Phaser.GameObjects.Container;
+  private rosterPageLabel!:Phaser.GameObjects.Text;
+  private rosterPrevious!:Phaser.GameObjects.Text;
+  private rosterNext!:Phaser.GameObjects.Text;
+  private compactParty=false;
+  private previewFrame!:Phaser.GameObjects.NineSlice;
+  private backControl!:Phaser.GameObjects.Container;
+  private primaryControl!:Phaser.GameObjects.Container;
+  private partyTray!:Phaser.GameObjects.Container;
+  private emptyConfirmation=false;
+  private partyActionFocus=false;
   private selectionTitle!: Phaser.GameObjects.Text;
   private selectionSummary!: Phaser.GameObjects.Text;
   private description!: Phaser.GameObjects.Text;
@@ -75,6 +92,7 @@ export class InterfaceScene extends Phaser.Scene {
   private instructions!: Phaser.GameObjects.Text;
   private noticeTimer?:Phaser.Time.TimerEvent;
   private pauseText!: Phaser.GameObjects.Text;
+  private headerUtilities!: Phaser.GameObjects.Container;
   private speaker!: Phaser.GameObjects.Graphics;
   private stats!: Phaser.GameObjects.Text;
   private notice!: Phaser.GameObjects.Text;
@@ -90,30 +108,33 @@ export class InterfaceScene extends Phaser.Scene {
   private readonly style = { resolution: 3, fontFamily: 'FE', fontSize: '13px', color: '#44351e' };
   constructor() { super('Interface'); }
   create(): void {
+    this.touchUsed=window.matchMedia('(pointer: coarse)').matches;
+    this.touchControls=new TouchControls(this);
+    this.input.on('pointerdown',(p:Phaser.Input.Pointer)=>{if(p.wasTouch){this.touchUsed=true;this.touchControls.setEnabled(this.state?.phase==='battle'&&this.state.playing&&!this.state.paused&&!this.state.settingsOpen);}});
     this.registry.set('app-version', APP_VERSION);
-    this.partyHeads=[];this.partyWeaponIcons=[];this.partyRows=[];this.partyZones=[];this.selectionMarks=new Map();this.cards=new Map();this.values={};this.warningTimer=undefined;this.actionFeedbackTimer=undefined;
+    this.partyHeads=[];this.partyWeaponIcons=[];this.partyRows=[];this.partyZones=[];this.selectionMarks=new Map();this.cards=new Map();this.heroTiles=[];this.emptyConfirmation=false;this.partyActionFocus=false;this.values={};this.warningTimer=undefined;this.actionFeedbackTimer=undefined;
     this.add.rectangle(WORLD.width/2, 17, WORLD.width, 34, 0x183e57, .94);
     this.warning=this.add.text(300,9,'',{...this.style,color:'#ffcd8c',fontSize:'11px'}).setDepth(90);
-    const onWarning=({hero,health}:{hero:Hero;health:number})=>{this.warning.setText(`${HERO_NAMES[hero]} under attack! HP ${health} · Q/E`);this.warningTimer?.remove();this.warningTimer=this.time.delayedCall(4000,()=>this.warning.setText(''));};this.game.events.on('companion-warning',onWarning);this.events.once('shutdown',()=>this.game.events.off('companion-warning',onWarning));
+    const onWarning=({hero,health}:{hero:Hero;health:number})=>{this.warning.setText(`${HERO_NAMES[hero]} under attack! HP ${health}`);this.warningTimer?.remove();this.warningTimer=this.time.delayedCall(4000,()=>this.warning.setText(''));};this.game.events.on('companion-warning',onWarning);this.events.once('shutdown',()=>this.game.events.off('companion-warning',onWarning));
     this.actionFeedback=this.add.text(448,44,'',{...this.style,color:'#fff0c6',fontSize:'13px',backgroundColor:'#183e57',padding:{x:10,y:5}}).setOrigin(.5,0).setDepth(150).setVisible(false);
-    const onFeedback=({kind,message}:{kind:string;message?:string})=>{if(kind==='clear'){this.actionFeedbackTimer?.remove();this.actionFeedback.setVisible(false);return;}if(!message)return;this.actionFeedback.setPosition(448,this.state?.playing?44:470).setText(message).setColor(kind==='reject'?'#ffbd98':'#fff0c6').setVisible(true);this.actionFeedbackTimer?.remove();this.actionFeedbackTimer=this.time.delayedCall(1300,()=>this.actionFeedback.setVisible(false));};this.game.events.on('ux-feedback-visible',onFeedback);this.events.once('shutdown',()=>this.game.events.off('ux-feedback-visible',onFeedback));
+    const onFeedback=({kind,message}:{kind:string;message?:string})=>{if(kind==='clear'){this.actionFeedbackTimer?.remove();this.actionFeedback.setVisible(false);return;}if(!message)return;this.actionFeedback.setPosition(this.state?.playing?448:740,this.state?.playing?44:382).setWordWrapWidth(this.state?.playing?760:218).setText(message).setColor(kind==='reject'?'#ffbd98':'#fff0c6').setVisible(true);this.actionFeedbackTimer?.remove();this.actionFeedbackTimer=this.time.delayedCall(1300,()=>this.actionFeedback.setVisible(false));};this.game.events.on('ux-feedback-visible',onFeedback);this.events.once('shutdown',()=>this.game.events.off('ux-feedback-visible',onFeedback));
     this.stats = this.add.text(12, 9, 'Choose your hero', { ...this.style, color:'#fff0c6', fontSize:'12px' });
-    this.button(this.add.container(), 610, 3, 65, 'Audio', () => this.request('audio-options'));
+    this.headerUtilities=this.add.container();
+    this.button(this.headerUtilities, 760, 3, 128, 'Settings', () => this.request('audio-options'));
     this.menuButton = this.add.container();
     this.button(this.menuButton, 678, 3, 56, 'Menu', () => this.request('main-menu'));
     this.pauseButton = this.add.container();
     this.pauseText = this.button(this.pauseButton, 737, 3, 65, 'Pause', () => this.request('pause'));
-    const sound = this.add.container(805, 3);
+    const sound = this.add.container(805, 3).setVisible(false);
     this.button(sound, 0, 0, 37, '', () => this.request('music'));
     this.speaker = this.add.graphics(); sound.add(this.speaker);
-    this.button(this.add.container(), 845, 3, 43, 'Full', () => this.request('fullscreen'));
     this.notice = this.add.text(WORLD.width/2, 78, '', { ...this.style, color:'#fff1c7', fontSize:'11px', align:'center', backgroundColor:'#183e57', padding:{x:6,y:3}, wordWrap:{width:420} }).setOrigin(.5,0).setDepth(91);
     this.instructions = this.add.text(12, WORLD.height-30, 'WASD / Arrows: Move   Space / Click: Attack\nMouse: Aim   Q: Ally orders   P: Pause', { ...this.style, fontSize:'10px', color:'#fff1c7', backgroundColor:'#183e57' });
     this.preparePortraits();this.createCharacterMenu();this.createTacticalInterface();
     const onSave=(save:typeof this.saveState)=>{this.saveState=save;this.updateResume();};
     this.game.events.on('campaign-save-state',onSave);this.events.once('shutdown',()=>this.game.events.off('campaign-save-state',onSave));
     onSave(this.registry.get('campaign-save-state')??this.saveState);
-    this.settings = this.panel(360, 370, 'Audio settings');
+    this.settings = this.panel(360, 370, 'Settings');
     this.enabled = this.button(this.settings, -158, -138, 316, '', () => this.request('music'));
     this.levels = this.add.graphics(); this.settings.add(this.levels);
     for (const [i, key] of (['music','effects','voices'] as const).entries()) {
@@ -129,14 +150,14 @@ export class InterfaceScene extends Phaser.Scene {
     }
     this.voices = this.button(this.settings, -158, 63, 316, '', () => this.game.events.emit('ui-voices'));
     this.spell = this.button(this.settings, -158, 99, 316, '', () => this.game.events.emit('ui-spell'));
-    this.button(this.settings, -158, 139, 151, 'Preview', () => this.request('audio-preview'));
+    this.button(this.settings, -158, 139, 151, 'Fullscreen', () => this.request('fullscreen'));
     this.button(this.settings, 7, 139, 151, 'Close', () => this.request('audio-close'));
     this.pauseOverlay = this.panel(620, 400, 'Paused · Battle controls');
-    const controls=[['WASD / Arrows','Move'],['Mouse','Aim ranged attacks'],['Space / Left click','Attack or cast equipped ability'],['Q / E','Previous / next living hero'],['F','Switch weapon or ability'],['I / Info','Inspect stats and equipment'],['R','Call companions · 10s / 20s cooldown'],['P','Pause / resume battle']];
+    const controls=[['WASD / Arrows','Move'],['Mouse','Aim attacks (including melee)'],['Space / Left click','Attack or cast equipped ability'],['Q / E','Previous / next living hero'],['F','Switch weapon or ability'],['I / Info','Inspect stats and equipment'],['R','Call companions · 10s / 20s cooldown'],['P','Pause / resume battle']];
     controls.forEach(([key,meaning],i)=>{const y=-140+i*27;this.pauseOverlay.add(this.add.text(-266,y,key,{...this.style,fontSize:'14px',color:'#183e57'}));this.pauseOverlay.add(this.add.text(-100,y,meaning,{...this.style,fontSize:'13px'}));});
-    this.pauseOverlay.add(this.add.text(-266,84,'Staff: Space heals allies · Shift + Space heals yourself.\nCompanions with staves automatically help nearby allies in danger.',{...this.style,fontSize:'11px',wordWrap:{width:530}}));
+    this.pauseOverlay.add(this.add.text(-266,84,'Ctrl / right mouse: Guard frontal physical attacks.\nStaff: Space heals allies · Shift + Space heals yourself.\nCompanions with staves automatically help nearby allies in danger.',{...this.style,fontSize:'11px',wordWrap:{width:530}}));
     this.pauseActions=[()=>this.request('pause'),()=>this.request('audio-options'),()=>this.request('main-menu')];
-    this.pauseChoices=['Resume · P','Audio','Main menu'].map((label,i)=>this.button(this.pauseOverlay,-270+i*185,135,170,label,this.pauseActions[i]));
+    this.pauseChoices=['Resume','Settings','Main menu'].map((label,i)=>this.button(this.pauseOverlay,-270+i*185,135,170,label,this.pauseActions[i]));
     this.pauseOverlay.add(this.add.text(0,174,'← / →: choose · Enter / Space: confirm',{...this.style,fontSize:'11px'}).setOrigin(.5));
     this.endOverlay = this.panel(340, 208, 'The battle is over');
     this.resultText = this.add.text(0,-43,'',{...this.style,align:'center',wordWrap:{width:290}}).setOrigin(.5,0); this.endOverlay.add(this.resultText);
@@ -168,37 +189,57 @@ export class InterfaceScene extends Phaser.Scene {
   }
   private createCharacterMenu():void {
     this.menu=this.add.container().setDepth(80);
-    this.menu.add(this.add.rectangle(WORLD.width/2,(WORLD.height+34)/2,WORLD.width,WORLD.height-34,0x132b3b,.97).setInteractive());
-    this.selectionTitle=this.add.text(WORLD.width/2,46,'',{...this.style,color:'#f9ebc7',fontSize:'22px'}).setOrigin(.5,0);this.menu.add(this.selectionTitle);
-    this.button(this.menu,282,82,160,'Choose player',()=>this.request('leader-mode'));
-    this.button(this.menu,454,82,160,'Companions',()=>this.request('party-mode'));
-    const bounds:Record<string,{x:number;y:number}>={};
+    this.menu.add(this.add.rectangle(448,289,896,510,0x132b3b,.98).setInteractive());
+    this.selectionTitle=this.add.text(28,48,'',{...this.style,color:'#f9ebc7',fontSize:'25px'});this.menu.add(this.selectionTitle);
+    this.selectionSummary=this.add.text(28,83,'',{...this.style,fontSize:'15px',color:'#c8b789'});this.menu.add(this.selectionSummary);
     for(const [index,hero] of HEROES.entries()){
-      const x=38+(index%5)*112,y=122+Math.floor(index/5)*84;
-      const card=this.add.nineslice(x,y,'ui-parchment',undefined,104,78,10,10,10,10).setOrigin(0).setInteractive({useHandCursor:true});
-      card.on('pointerover',()=>{this.focusIndex=index;this.drawFocus();this.game.events.emit('ux-feedback',{kind:'cursor'});});card.on('pointerdown',()=>this.game.events.emit('ui-character',hero));this.cards.set(hero,card);this.menu.add(card);
-      this.menu.add(this.add.image(x+52,y+29,`portrait-face-${hero}`).setDisplaySize(56,56));
-      this.menu.add(this.add.image(x+91,y+12,equippedWeapon(initialLoadout(hero)).icon).setDisplaySize(14,14));
-      this.menu.add(this.add.text(x+52,y+59,HERO_NAMES[hero],{...this.style,fontSize:'11px'}).setOrigin(.5,0));
-      const mark=this.add.text(x+5,y+5,'',{...this.style,fontSize:'10px',color:'#183e57'});this.menu.add(mark);this.selectionMarks.set(hero,mark);
-      bounds[hero]={x:x+52,y:y+39};
+      const tile=this.add.container();this.menu.add(tile);this.heroTiles.push(tile);
+      const card=this.add.rectangle(0,0,100,76,0x203e4d).setOrigin(0).setStrokeStyle(1,0x49616a).setInteractive({useHandCursor:true});
+      card.on('pointerover',()=>{if(this.focusIndex!==index){this.focusIndex=index;this.layoutParty();this.game.events.emit('ux-feedback',{kind:'cursor'});}});
+      card.on('pointerdown',()=>this.game.events.emit('ui-character',hero));this.cards.set(hero,card);tile.add(card);
+      tile.add(this.add.image(50,27,`portrait-face-${hero}`).setDisplaySize(52,52));
+      tile.add(this.add.image(89,12,equippedWeapon(initialLoadout(hero)).icon).setDisplaySize(16,16));
+      tile.add(this.add.text(50,57,HERO_NAMES[hero],{...this.style,fontSize:'13px',color:'#f3e7c9'}).setOrigin(.5,0));
+      const mark=this.add.text(5,4,'',{...this.style,fontSize:'13px',color:'#9ad2ee'});tile.add(mark);this.selectionMarks.set(hero,mark);
     }
-    this.menu.add(this.add.nineslice(616,122,'ui-parchment',undefined,242,330,14,14,14,14).setOrigin(0));
-    this.previewPortrait=this.add.image(737,218,'portrait-face-chrom').setDisplaySize(174,174);this.menu.add(this.previewPortrait);
-    this.previewName=this.add.text(737,310,'',{...this.style,fontSize:'19px'}).setOrigin(.5,0);this.menu.add(this.previewName);
-    this.description=this.add.text(637,343,'',{...this.style,fontSize:'12px',wordWrap:{width:204},lineSpacing:4});this.menu.add(this.description);
-    this.focusFrame=this.add.graphics();this.menu.add(this.focusFrame);this.drawFocus();
-    this.registry.set('character-card-centers',bounds);
-    this.selectionSummary=this.add.text(38,467,'',{...this.style,fontSize:'12px',color:'#f9ebc7'});this.menu.add(this.selectionSummary);
-    this.legend=this.add.text(38,489,'',{...this.style,fontSize:'10px',color:'#c8b789',wordWrap:{width:520}});this.menu.add(this.legend);
-    this.begin=this.button(this.menu,626,492,222,'Review battlefield',()=>this.request('start'));
-    this.saveHint=this.add.text(616,527,'',{...this.style,fontSize:'9px',color:'#dbcba5'});this.menu.add(this.saveHint);
-    this.resumeControl=this.add.container();this.menu.add(this.resumeControl);this.resumeLabel=this.button(this.resumeControl,626,457,222,'Resume campaign',()=>this.game.events.emit('campaign-resume'));
+    this.previewFrame=this.add.nineslice(612,116,'ui-parchment',undefined,256,310,14,14,14,14).setOrigin(0);this.menu.add(this.previewFrame);
+    this.previewPortrait=this.add.image(740,218,'portrait-chrom');this.menu.add(this.previewPortrait);
+    this.previewName=this.add.text(740,305,'',{...this.style,fontSize:'20px'}).setOrigin(.5,0);this.menu.add(this.previewName);
+    this.description=this.add.text(632,336,'',{...this.style,fontSize:'15px',wordWrap:{width:215},lineSpacing:4});this.menu.add(this.description);
+    this.focusFrame=this.add.graphics();this.menu.add(this.focusFrame);
+    this.partyTray=this.add.container(28,442);this.menu.add(this.partyTray);
+    this.legend=this.add.text(28,519,'',{...this.style,fontSize:'13px',color:'#c8b789'});this.menu.add(this.legend);
+    this.backControl=this.add.container();this.menu.add(this.backControl);this.button(this.backControl,612,444,90,'Back',()=>{this.emptyConfirmation=false;this.request('leader-mode');});
+    this.primaryControl=this.add.container();this.menu.add(this.primaryControl);this.begin=this.button(this.primaryControl,714,444,154,'Begin Story',()=>this.beginStory(),false);
+    this.saveHint=this.add.text(612,512,'',{...this.style,fontSize:'11px',color:'#dbcba5'});this.menu.add(this.saveHint);
+    this.resumeControl=this.add.container();this.menu.add(this.resumeControl);this.resumeLabel=this.button(this.resumeControl,612,480,256,'Resume campaign',()=>this.game.events.emit('campaign-resume'));
+    this.rosterPaging=this.add.container();this.menu.add(this.rosterPaging);
+    const changePage=(step:number)=>{const page=Math.floor(this.focusIndex/9),next=page+step;if(next<0||next>Math.floor((HEROES.length-1)/9))return;this.focusIndex=Math.min(next*9+this.focusIndex%9,HEROES.length-1);this.partyActionFocus=false;this.layoutParty();this.game.events.emit('ux-feedback',{kind:'cursor'});};
+    this.rosterPrevious=this.add.text(616,85,'‹ Prev',{...this.style,color:'#f3e7c9',fontSize:'20px',padding:{x:3,y:3}}).setInteractive({useHandCursor:true}).on('pointerdown',()=>changePage(-1));
+    this.rosterPageLabel=this.add.text(740,88,'',{...this.style,color:'#c8b789',fontSize:'18px'}).setOrigin(.5,0);
+    this.rosterNext=this.add.text(787,85,'Next ›',{...this.style,color:'#f3e7c9',fontSize:'20px',padding:{x:3,y:3}}).setInteractive({useHandCursor:true}).on('pointerdown',()=>changePage(1));
+    this.rosterPaging.add([this.rosterPrevious,this.rosterPageLabel,this.rosterNext]);
+    const resize=()=>this.layoutParty();this.scale.on('resize',resize);this.events.once('shutdown',()=>this.scale.off('resize',resize));this.layoutParty();
   }
-  private updateResume():void {if(!this.resumeControl)return;this.resumeControl.setVisible(this.saveState.available&&!this.saveState.complete);this.resumeLabel.setText(`Resume · ${this.saveState.missionName}`);this.saveHint.setText(this.saveState.available&&!this.saveState.complete?'A new campaign replaces this checkpoint.':'');}
-  private updatePreview():void {if(!this.previewName)return;const hero=HEROES[this.focusIndex];this.previewPortrait.setTexture(`portrait-face-${hero}`).setDisplaySize(174,174);this.previewName.setText(HERO_NAMES[hero]);this.description.setText(`${HERO_PROFILES[hero].description}
-
-${initialLoadout(hero).items.map(item=>WEAPONS[item.weaponId].name).join(' · ')}`);}
+  private beginStory():void {
+    if(this.state.selectionMode==='player'){this.game.events.emit('ui-character',HEROES[this.focusIndex]);return;}
+    if(!this.state.companions.length&&!this.emptyConfirmation){this.emptyConfirmation=true;this.legend.setText(this.state.preparationEditing?'Travel alone? Press Return to preparations again to confirm.':'Travel alone? Press Begin Story again to confirm.');this.game.events.emit('ux-feedback',{kind:'reject'});return;}
+    this.emptyConfirmation=false;this.game.events.emit('ux-feedback',{kind:'confirm'});this.request('start');
+  }
+  private layoutParty():void {
+    if(!this.menu)return;
+    this.compactParty=this.scale.displaySize.width<720;this.rosterColumns=this.compactParty?3:5;
+    const page=this.compactParty?Math.floor(this.focusIndex/9):0;
+    if(this.rosterPaging){this.rosterPaging.setVisible(this.compactParty);this.rosterPageLabel.setText(`${page+1} / ${Math.ceil(HEROES.length/9)}`);this.rosterPrevious.setAlpha(page===0?.35:1);this.rosterNext.setAlpha(page===Math.floor((HEROES.length-1)/9)?.35:1);if(page===0)this.rosterPrevious.disableInteractive();else this.rosterPrevious.setInteractive({useHandCursor:true});if(page===Math.floor((HEROES.length-1)/9))this.rosterNext.disableInteractive();else this.rosterNext.setInteractive({useHandCursor:true});}
+    const bounds:Record<string,{x:number;y:number}>={};
+    this.heroTiles.forEach((tile,i)=>{const n=this.compactParty?i%9:i;const x=28+(n%this.rosterColumns)*(this.compactParty?180:114),y=116+Math.floor(n/this.rosterColumns)*(this.compactParty?101:80);tile.setPosition(x,y).setVisible(!this.compactParty||Math.floor(i/9)===page);tile.setScale(this.compactParty?1.3:1);bounds[HEROES[i]]={x:x+50*tile.scaleX,y:y+38*tile.scaleY};});
+    // Compact mode pages the roster rather than squeezing all seventeen names.
+    this.previewFrame.setVisible(true);this.previewPortrait.setVisible(true);this.previewName.setVisible(true);this.description.setVisible(true);this.description.setFontSize(this.compactParty?19:15);
+    this.selectionTitle.setFontSize(this.compactParty?30:25);this.selectionSummary.setFontSize(this.compactParty?20:15);
+    this.registry.set('character-card-centers',bounds);this.drawFocus();
+  }
+  private updateResume():void {if(!this.resumeControl)return;this.resumeControl.setVisible(!this.state?.preparationEditing&&this.saveState.available&&!this.saveState.complete);this.resumeLabel.setText(`Resume · ${this.saveState.missionName}`);this.saveHint.setText(this.saveState.available&&!this.saveState.complete?'A new campaign replaces this checkpoint.':'');}
+  private updatePreview():void {if(!this.previewName)return;const hero=HEROES[this.focusIndex];this.previewPortrait.setTexture(`portrait-${hero}`);const source=this.textures.get(`portrait-${hero}`).getSourceImage();const scale=Math.min(196/source.width,174/source.height);this.previewPortrait.setDisplaySize(source.width*scale,source.height*scale);this.previewName.setText(HERO_NAMES[hero]);this.description.setText(initialLoadout(hero).items.map(item=>WEAPONS[item.weaponId].name).join(' · '));}
   private createTacticalInterface():void {
     this.goldCounter=this.add.container(270,515).setDepth(92).setVisible(false);this.goldCounter.add(this.add.image(0,0,'gold').setDisplaySize(20,20));this.goldValue=this.add.text(14,0,'',{...this.style,color:'#f7d878',fontSize:'12px'}).setOrigin(0,.5);this.goldCounter.add(this.goldValue);
     this.cooldownBar=this.add.graphics().setDepth(92);this.cooldownText=this.add.text(470,514,'',{...this.style,color:'#fff0c6',fontSize:'11px',backgroundColor:'#183e57',padding:{x:4,y:1}}).setOrigin(.5).setDepth(92);
@@ -215,7 +256,7 @@ ${initialLoadout(hero).items.map(item=>WEAPONS[item.weaponId].name).join(' · ')
     this.deploymentPanel=this.add.container().setDepth(85);
     this.deploymentBackground=this.add.rectangle(0,0,240,120,0x183e57,.96).setOrigin(0).setInteractive();this.deploymentPanel.add(this.deploymentBackground);
     this.deploymentHint=this.add.text(12,12,'Choose deployment positions.',{...this.style,fontSize:'11px',color:'#fff0c6',lineSpacing:3,wordWrap:{width:216}});this.deploymentPanel.add(this.deploymentHint);
-    this.deploymentControls=this.add.text(12,40,'WASD: move cursor\nSpace: place + next\nEnter: auto-place · R: begin',{...this.style,fontSize:'11px',color:'#d2e2e8',lineSpacing:3,wordWrap:{width:216}});this.deploymentPanel.add(this.deploymentControls);
+    this.deploymentControls=this.add.text(12,40,'',{...this.style,fontSize:'11px',color:'#d2e2e8',lineSpacing:3,wordWrap:{width:216}});this.deploymentPanel.add(this.deploymentControls);
     this.deploymentBegin=this.add.container(12,80);this.deploymentPanel.add(this.deploymentBegin);this.button(this.deploymentBegin,0,0,132,'Auto-place',()=>this.game.events.emit('ui-deploy-auto'));this.button(this.deploymentBegin,0,40,132,'Begin battle',()=>this.game.events.emit('ui-launch'));
     this.miniTerrain=this.add.image(798,108,'battlefield').setDisplaySize(164,100).setTint(0x7c929b).setDepth(85);
     this.minimap=this.add.graphics().setDepth(86);this.miniTitle=this.add.text(722,42,'Battlefield',{...this.style,fontSize:'10px',color:'#fff0c6'}).setDepth(86);
@@ -238,7 +279,7 @@ ${initialLoadout(hero).items.map(item=>WEAPONS[item.weaponId].name).join(' · ')
     this.miniTitle.setText(data.title??'Battlefield');
     if(!data.deploying)this.stats.setText(data.objectiveStatus??data.objective??'Complete the objective');
     // Gold is spent in preparations; combat uses brief pickup feedback only.
-    this.goldCounter.setVisible(false);this.goldValue.setText(`${data.gold??0}`);this.cooldownBar.clear();this.cooldownText.setVisible(!data.deploying);if(!data.deploying){this.cooldownBar.fillStyle(0x183e57).fillRect(330,525,280,10).fillStyle(data.cooldown.recovering?0xe7a55d:data.cooldown.fraction===1?0x85cda1:0x86baff).fillRect(332,527,276*data.cooldown.fraction,6);this.cooldownText.setText(`${data.cooldown.recovering?'Recovering':data.cooldown.fraction===1?'Attack ready':'Recharging'}${data.cooldown.remaining>0?` · ${data.cooldown.remaining.toFixed(1)}s`:''}${data.camp?` · Camp ${Math.max(0,data.camp.health)}`:''}`);}
+    this.goldCounter.setVisible(false);this.goldValue.setText(`${data.gold??0}`);this.cooldownBar.clear();this.cooldownText.setVisible(!data.deploying);if(!data.deploying){const cooldownY=this.touchUsed?176:525;this.cooldownText.setPosition(470,cooldownY-11);this.cooldownBar.fillStyle(0x183e57).fillRect(330,cooldownY,280,10).fillStyle(data.cooldown.recovering?0xe7a55d:data.cooldown.fraction===1?0x85cda1:0x86baff).fillRect(332,cooldownY+2,276*data.cooldown.fraction,6);this.cooldownText.setText(`${data.cooldown.recovering?'Recovering':data.cooldown.fraction===1?'Attack ready':'Recharging'}${data.cooldown.remaining>0?` · ${data.cooldown.remaining.toFixed(1)}s`:''}${data.camp?` · Camp ${Math.max(0,data.camp.health)}`:''}`);}
     const g=this.minimap;g.clear().fillStyle(0x152c37,.96).fillRect(712,38,172,20).lineStyle(1,0xae8746).strokeRect(716,58,164,100);
     const sx=164/data.width,sy=100/data.height;
     for(const p of data.enemies)g.fillStyle(0xeb5555).fillCircle(716+p.x*sx,58+p.y*sy,2);
@@ -246,7 +287,7 @@ ${initialLoadout(hero).items.map(item=>WEAPONS[item.weaponId].name).join(' · ')
     const controlled=data.controlledPosition;if(controlled)g.lineStyle(1,0xffedb2).strokeCircle(716+controlled.x*sx,58+controlled.y*sy,4);
     g.lineStyle(1,0xe6d19a,.65).strokeRect(716+data.camera.x*sx,58+data.camera.y*sy,Math.min(164,data.camera.width*sx),Math.min(100,data.camera.height*sy));
   }
-  private drawFocus():void {const x=38+(this.focusIndex%5)*112,y=122+Math.floor(this.focusIndex/5)*84;this.focusFrame.clear().lineStyle(3,0xfff0b0).strokeRect(x-2,y-2,108,82);this.updatePreview();this.registry.set('character-focus',HEROES[this.focusIndex]);}
+  private drawFocus():void {const tile=this.heroTiles[this.focusIndex];if(!tile)return;this.focusFrame.clear().lineStyle(2,0xe7c878).strokeRect(tile.x-2,tile.y-2,100*tile.scaleX+4,76*tile.scaleY+4);this.updatePreview();this.registry.set('character-focus',HEROES[this.focusIndex]);}
   private navigate(event:KeyboardEvent):void {
     if(!this.state||this.state.settingsOpen||this.state.result)return;
     if(event.target instanceof HTMLElement&&event.target.closest('button,input,select,textarea,dialog'))return;
@@ -260,20 +301,21 @@ ${initialLoadout(hero).items.map(item=>WEAPONS[item.weaponId].name).join(' · ')
       else if(key==='enter'&&!event.repeat)this.game.events.emit('ui-deploy-auto');
       else if(key==='r')this.game.events.emit('ui-launch');else return;
     }else {
-      const move=({w:-5,arrowup:-5,s:5,arrowdown:5,a:-1,arrowleft:-1,d:1,arrowright:1} as Record<string,number>)[key];
-      if(move!==undefined){if(Math.abs(move)===5){const column=this.focusIndex%5;const rows=Math.floor((HEROES.length-1-column)/5)+1;const row=Math.floor(this.focusIndex/5);this.focusIndex=((row+(move>0?1:-1)+rows)%rows)*5+column;}else this.focusIndex=(this.focusIndex+move+HEROES.length)%HEROES.length;this.drawFocus();this.game.events.emit('ux-feedback',{kind:'cursor'});}
-      else if(key==='enter'||key===' ')this.game.events.emit('ui-character',HEROES[this.focusIndex]);
-      else if(key==='tab')this.request(this.state.selectionMode==='player'?'party-mode':'leader-mode');
-      else if(key==='r')this.request('start');else return;
+      const move=({w:-this.rosterColumns,arrowup:-this.rosterColumns,s:this.rosterColumns,arrowdown:this.rosterColumns,a:-1,arrowleft:-1,d:1,arrowright:1} as Record<string,number>)[key];
+      if(move!==undefined){this.partyActionFocus=false;this.begin.setColor('#44351e');this.focusIndex=(this.focusIndex+move+HEROES.length)%HEROES.length;this.layoutParty();this.game.events.emit('ux-feedback',{kind:'cursor'});}
+      else if(key==='tab'){this.partyActionFocus=!this.partyActionFocus;this.begin.setColor(this.partyActionFocus?'#153e66':'#44351e');this.game.events.emit('ux-feedback',{kind:'cursor'});}
+      else if((key==='enter'||key===' ')&&!event.repeat){if(this.partyActionFocus)this.beginStory();else this.game.events.emit('ui-character',HEROES[this.focusIndex]);}
+      else if(key==='escape'||key==='backspace'){this.emptyConfirmation=false;this.request('leader-mode');}
+      else if(key==='r'&&!event.repeat)this.beginStory();else return;
     }
     event.preventDefault();
   }
   private updatePauseFocus():void {this.pauseChoices.forEach((choice,i)=>choice.setColor(i===this.pauseFocus?'#153e66':'#44351e').setBackgroundColor(i===this.pauseFocus?'#fff2cd':'#00000000'));}
   private request(id:string):void { this.game.events.emit('ui-action',id); }
-  private button(parent:Phaser.GameObjects.Container,x:number,y:number,width:number,label:string,action:()=>void):Phaser.GameObjects.Text {
+  private button(parent:Phaser.GameObjects.Container,x:number,y:number,width:number,label:string,action:()=>void,feedback=true):Phaser.GameObjects.Text {
     const frame = this.add.nineslice(x,y,'ui-parchment',undefined,width,28,8,8,8,8).setOrigin(0).setInteractive({useHandCursor:true});
     const text = this.add.text(x+width/2,y+14,label,this.style).setOrigin(.5);
-    frame.on('pointerdown',()=>{this.game.events.emit('ux-feedback',{kind:'confirm'});frame.setTint(0xe1c187);action();}); frame.on('pointerup',()=>frame.clearTint()); frame.on('pointerout',()=>frame.clearTint());
+    frame.on('pointerdown',()=>{if(feedback)this.game.events.emit('ux-feedback',{kind:'confirm'});frame.setTint(0xe1c187);action();}); frame.on('pointerup',()=>frame.clearTint()); frame.on('pointerout',()=>frame.clearTint());
     parent.add([frame,text]); return text;
   }
   private panel(width:number,height:number,title:string):Phaser.GameObjects.Container {
@@ -284,25 +326,31 @@ ${initialLoadout(hero).items.map(item=>WEAPONS[item.weaponId].name).join(' · ')
     container.add([shade,frame,text]);return container;
   }
   private apply(state:InterfaceState):void {
-    if(!state)return;if(state.paused&&!this.state?.paused)this.pauseFocus=0;this.state=state;this.updatePauseFocus();if(state.phase!=='battle'||state.result)this.warning.setText('');
+    if(!state)return;this.touchControls.setEnabled(this.touchUsed&&state.phase==='battle'&&state.playing&&!state.paused&&!state.settingsOpen);if(state.paused&&!this.state?.paused)this.pauseFocus=0;this.state=state;this.updatePauseFocus();if(state.phase!=='battle'||state.result)this.warning.setText('');
     if(!state.playing){this.goldCounter.setVisible(false);this.cooldownBar.clear();this.cooldownText.setVisible(false);}
     this.menu.setVisible(!state.playing && !state.result && !state.settingsOpen);
-    this.selectionTitle.setText(state.selectionMode === 'player' ? 'Choose your party leader' : 'Choose up to three companions');
-    if(state.tactical&&state.phase==='battle')this.stats.setText('Battle · Defeat all four camps');
+    if(state.phase==='party')this.stats.setText(state.selectionMode==='player'?'Choose your party leader':'Select Companions');
+    this.selectionTitle.setText(state.selectionMode === 'player' ? 'Choose your party leader' : 'Select Companions');
+    this.selectionSummary.setText(state.selectionMode==='player'?'1 · Leader   →   2 · Companions   →   Story':`Leader: ${HERO_NAMES[state.hero]}   ·   ${state.companions.length}/3 companions`);
+    this.backControl.setVisible(state.selectionMode==='companions');
     if(state.tactical && state.phase==='deployment')this.stats.setText('Deployment · Four known camps · Place your party');
-    this.begin.setText(state.tactical?'Review battlefield':'Begin battle');this.legend.setText(state.tactical?'★ Leader · 1–3 Companions\nWASD: focus · Enter: choose · Tab: mode · R: battlefield · F9: developer maps':'Gold: player · Blue: companion · Q: Defend / Attack orders');
+    this.begin.setText(state.selectionMode==='player'?'Choose leader':state.preparationEditing?'Return to preparations':'Begin Story');this.legend.setText(this.emptyConfirmation?state.preparationEditing?'Travel alone? Press Return to preparations again to confirm.':'Travel alone? Press Begin Story again to confirm.':'');
     const tacticalVisible=state.tactical&&state.playing&&!state.result;this.partyPanel.setVisible(tacticalVisible);this.deploymentPanel.setVisible(tacticalVisible&&state.phase==='deployment');this.minimap.setVisible(tacticalVisible);this.miniTerrain.setVisible(tacticalVisible);this.miniTitle.setVisible(tacticalVisible);
     this.instructions.setText(state.tactical?'WASD: Move · Space / Click: Attack · Mouse: Aim\nQ/E: Hero · F: Weapon · R: Rally · I: Info · P: Pause':'WASD / Arrows: Move   Space / Click: Attack\nMouse: Aim   Q: Ally orders   P: Pause');
     this.updateResume();this.updatePreview();
-    this.selectionSummary.setText(`Leader: ${HERO_NAMES[state.hero]}   ·   ${state.companions.length}/3 companions   ·   ${state.tactical?4:2} NPC soldiers`);
+    this.partyTray.removeAll(true);
+    [state.hero,...state.companions].forEach((hero,i)=>{const x=i*142;this.partyTray.add(this.add.rectangle(x,0,134,58,0x203e4d).setOrigin(0).setStrokeStyle(1,0x49616a));this.partyTray.add(this.add.image(x+25,28,`portrait-face-${hero}`).setDisplaySize(42,42));this.partyTray.add(this.add.text(x+51,10,i===0?'Leader':`${i}`,{...this.style,color:'#9ad2ee',fontSize:'13px'}));this.partyTray.add(this.add.text(x+51,30,HERO_NAMES[hero],{...this.style,color:'#f3e7c9',fontSize:'12px'}));});
+    for(let i=state.companions.length+1;i<4;i++)this.partyTray.add(this.add.text(i*142+18,20,`+ Companion ${i}`,{...this.style,color:'#819aa5',fontSize:'13px'}));
     this.begin.setAlpha(state.ready ? 1 : .5);
     for(const [hero,card] of this.cards){
-      card.clearTint();this.selectionMarks.get(hero)?.setText(hero===state.hero?'★':state.companions.includes(hero)?`${state.companions.indexOf(hero)+1}`:'');
-      if(hero===state.hero)card.setTint(0xe7c878);
-      else if(state.companions.includes(hero))card.setTint(0xadd0e5);
+      const unavailable=state.selectionMode==='companions'&&hero===state.hero;
+      this.heroTiles[HEROES.indexOf(hero)].setAlpha(unavailable?.52:1).setData('leader-unavailable',unavailable);
+      card.setFillStyle(0x203e4d).setAlpha(1);this.selectionMarks.get(hero)?.setText(hero===state.hero?'★':state.companions.includes(hero)?`${state.companions.indexOf(hero)+1}`:'');
+      if(hero===state.hero)card.setFillStyle(0x344c59);
+      else if(state.companions.includes(hero))card.setFillStyle(0x315b70);
     }
     const inBattle = state.playing || Boolean(state.result);
-    this.menuButton.setVisible(inBattle); this.pauseButton.setVisible(state.playing && state.phase!=='deployment');
+    this.headerUtilities.setVisible(!inBattle || state.phase==='deployment');this.menuButton.setVisible(inBattle); this.pauseButton.setVisible(state.playing && state.phase!=='deployment');
     this.notice.setVisible(inBattle && state.phase!=='deployment' && Boolean(this.notice.text)); this.instructions.setVisible(false);
     this.pauseText.setText(state.paused?'Resume':'Pause').setAlpha(state.playing?1:.5);
     this.settings.setVisible(state.settingsOpen);

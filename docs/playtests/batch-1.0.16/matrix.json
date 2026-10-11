@@ -1,0 +1,128 @@
+[
+  {
+    "width": 600,
+    "errors": [],
+    "canvas": {
+      "x": 9,
+      "y": 109,
+      "width": 581.96875,
+      "height": 353.34375
+    }
+  },
+  {
+    "width": 809,
+    "errors": [],
+    "canvas": {
+      "x": 21,
+      "y": 135,
+      "width": 766.984375,
+      "height": 465.671875
+    }
+  },
+  {
+    "width": 1039,
+    "errors": [],
+    "canvas": {
+      "x": 60.5,
+      "y": 141,
+      "width": 917.96875,
+      "height": 557.34375
+    }
+  },
+  {
+    "width": 1440,
+    "errors": [],
+    "canvas": {
+      "x": 261,
+      "y": 141,
+      "width": 917.96875,
+      "height": 557.34375
+    }
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "box": {
+      "x": 9,
+      "y": 109,
+      "width": 371.96875,
+      "height": 225.84375
+    },
+    "first": {
+      "move": {
+        "x": 0.600000032817357,
+        "y": -2.1620312793402263e-7
+      },
+      "attack": false,
+      "guard": false
+    },
+    "second": {
+      "move": {
+        "x": 0.600000032817357,
+        "y": -2.1620312793402263e-7
+      },
+      "attack": true,
+      "guard": false
+    },
+    "releaseAim": {
+      "move": {
+        "x": 0,
+        "y": 0
+      },
+      "attack": true,
+      "guard": false
+    },
+    "cancel": {
+      "move": {
+        "x": 0,
+        "y": 0
+      },
+      "attack": true,
+      "guard": false
+    },
+    "errors": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "box": {
+      "x": 21,
+      "y": 136,
+      "width": 801.984375,
+      "height": 486.921875
+    },
+    "first": {
+      "move": {
+        "x": 0.600000060884135,
+        "y": 8.02233417118714e-7
+      },
+      "attack": false,
+      "guard": false
+    },
+    "second": {
+      "move": {
+        "x": 0.600000060884135,
+        "y": 8.02233417118714e-7
+      },
+      "attack": true,
+      "guard": false
+    },
+    "releaseAim": {
+      "move": {
+        "x": 0,
+        "y": 0
+      },
+      "attack": true,
+      "guard": false
+    },
+    "cancel": {
+      "move": {
+        "x": 0,
+        "y": 0
+      },
+      "attack": true,
+      "guard": false
+    },
+    "errors": []
+  }
+]

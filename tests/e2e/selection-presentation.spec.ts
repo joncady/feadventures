@@ -10,13 +10,13 @@ test('five-column keyboard focus previews sourced portraits and native party hea
  await page.screenshot({path:'/tmp/party-health-display-fixture.png'});
 });
 
-test('vertical roster navigation wraps within each partial column',async({page})=>{
+test('roster keyboard navigation wraps through the current five-column grid',async({page})=>{
  await page.goto('/');await expect(page.locator('#start')).toBeEnabled();
  const focused=()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.registry.get('character-focus');});
  await expect.poll(focused).toBe('chrom');
- await page.keyboard.press('w',{delay:100});expect(await focused()).toBe('tharja');
+ await page.keyboard.press('w',{delay:100});expect(await focused()).toBe('ricken');
  await page.keyboard.press('s');expect(await focused()).toBe('chrom');
- await page.keyboard.press('d');await page.keyboard.press('d');await page.keyboard.press('w');expect(await focused()).toBe('ricken');
+ await page.keyboard.press('d');await page.keyboard.press('d');await page.keyboard.press('w');expect(await focused()).toBe('sully');
  await page.keyboard.press('s');expect(await focused()).toBe('frederick');
  const portraits=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const config='/src/game/data/config.ts';const{HEROES}=await import(config);return HEROES.map((hero:string)=>{const t=game.textures.get(`portrait-face-${hero}`);return [hero,t.get().width,t.get().height];});});
  expect(portraits).toHaveLength(17);for(const [,w,h] of portraits){expect(w).toBe(160);expect(h).toBe(160);}
@@ -26,8 +26,8 @@ test('vertical roster navigation wraps within each partial column',async({page})
 test('Chrom and Lucina use centered face anchors in cards and focused previews',async({page})=>{
  await page.goto('/');await expect(page.locator('#start')).toBeEnabled();
  await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.registry.get('character-focus');})).toBe('chrom');
- await page.keyboard.press('Enter',{delay:100});await page.screenshot({path:'/tmp/chrom-centered-1.0.2.png'});
+ await page.screenshot({path:'/tmp/chrom-centered-1.0.2.png'});
  await page.keyboard.press('d',{delay:100});await page.keyboard.press('Enter',{delay:100});await page.screenshot({path:'/tmp/lucina-centered-1.0.2.png'});
  const framing=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const ui=game.scene.getScene('Interface');return {focused:game.registry.get('character-focus'),selected:game.registry.get('interface-state').hero,previewKey:ui.previewPortrait.texture.key,width:ui.previewPortrait.displayWidth,height:ui.previewPortrait.displayHeight};});
- expect(framing).toEqual({focused:'lucina',selected:'lucina',previewKey:'portrait-face-lucina',width:174,height:174});
+ expect(framing).toEqual({focused:'lucina',selected:'lucina',previewKey:'portrait-lucina',width:174,height:174});
 });

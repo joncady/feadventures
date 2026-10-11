@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-11",
+  "widths": [
+    600,
+    809,
+    1039,
+    1440
+  ],
+  "dpr": 2,
+  "pageErrors": [],
+  "note": "Read-only code audit; isolated browser campaign state; runtime shortcuts used only to expose later deployment and results screens, not completion-proof gameplay."
+}

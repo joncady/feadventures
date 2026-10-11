@@ -1,0 +1,67 @@
+{
+  "disabled": {
+    "state": {
+      "hero": "chrom",
+      "companions": [],
+      "selectionMode": "companions",
+      "phase": "party",
+      "tactical": true,
+      "ready": true,
+      "playing": false,
+      "paused": false,
+      "muted": false,
+      "settingsOpen": false,
+      "result": "",
+      "audio": {
+        "music": 0.18,
+        "effects": 1,
+        "voices": 0.6,
+        "characterVoices": true,
+        "spellEffect": "fire-cast"
+      }
+    },
+    "focus": "chrom",
+    "tiles": 9,
+    "canvases": 1
+  },
+  "secondpage": {
+    "state": {
+      "hero": "chrom",
+      "companions": [],
+      "selectionMode": "companions",
+      "phase": "party",
+      "tactical": true,
+      "ready": true,
+      "playing": false,
+      "paused": false,
+      "muted": false,
+      "settingsOpen": false,
+      "result": "",
+      "audio": {
+        "music": 0.18,
+        "effects": 1,
+        "voices": 0.6,
+        "characterVoices": true,
+        "spellEffect": "fire-cast"
+      }
+    },
+    "focus": "lissa",
+    "tiles": 8,
+    "canvases": 1
+  },
+  "confirmation": {
+    "campaign": false,
+    "legend": "Travel alone? Press Begin Story again to confirm.",
+    "sounds": [
+      "ui-confirm",
+      "voice-chrom-select",
+      "ui-reject",
+      "ui-cursor",
+      "ui-confirm",
+      "voice-lissa-select",
+      "ui-cursor",
+      "ui-reject"
+    ]
+  },
+  "story": true
+}

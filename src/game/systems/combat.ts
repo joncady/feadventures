@@ -1,5 +1,21 @@
 export type WeaponType = 'sword' | 'axe' | 'lance' | 'bow' | 'tome' | 'staff';
 export type Matchup = -1 | 0 | 1;
+export type DamageKind = 'physical' | 'magical';
+export type EffectivenessTag = 'flying' | 'armored' | 'mounted' | 'dragon';
+export interface CombatWeapon {type:WeaponType;damageKind?:DamageKind;effectiveAgainst?:readonly EffectivenessTag[];}
+export interface DamageRequest {power:number;weapon:CombatWeapon;defenderWeapon:WeaponType;defense:number;resistance:number;targetTags?:readonly EffectivenessTag[];critical?:boolean;scale?:number;}
+export interface DamageResult {damage:number;kind:DamageKind;matchup:Matchup;effective:boolean;}
+export function damageKind(weapon:CombatWeapon):DamageKind {return weapon.damageKind??(weapon.type==='tome'||weapon.type==='staff'?'magical':'physical');}
+/** Metadata fallback keeps existing enemy bows effective without giving every tome wind properties. */
+export function effectivenessTags(weapon:CombatWeapon):readonly EffectivenessTag[]{return weapon.effectiveAgainst??(weapon.type==='bow'?['flying']:[]);}
+/** Reviewed real-time adaptation: +/-20% triangle and x2 final effective damage, not Awakening's x3 Might. */
+export function resolveDamage(request:DamageRequest):DamageResult {
+ const kind=damageKind(request.weapon),matchup=weaponMatchup(request.weapon.type,request.defenderWeapon);
+ const effective=effectivenessTags(request.weapon).some(tag=>request.targetTags?.includes(tag));
+ const protection=kind==='magical'?request.resistance:request.defense;
+ const unscaled=Math.max(1,Math.round(Math.max(1,request.power-protection)*(request.critical?3:1)*(1+.2*matchup)*(effective?2:1)));
+ return {damage:scaleDamage(unscaled,request.scale??1),kind,matchup,effective};
+}
 const beats: Partial<Record<WeaponType, WeaponType>> = { sword: 'axe', axe: 'lance', lance: 'sword' };
 export function weaponMatchup(attacker: WeaponType, defender: WeaponType): Matchup {
   if (beats[attacker] === defender) return 1;

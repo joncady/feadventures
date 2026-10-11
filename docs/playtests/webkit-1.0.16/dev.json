@@ -1,0 +1,209 @@
+{
+  "url": "http://127.0.0.1:5173/",
+  "engine": "WebKit",
+  "steps": [
+    {
+      "name": "native party/story",
+      "state": {
+        "selectionMode": "companions",
+        "companions": [
+          "lucina"
+        ],
+        "phase": "party",
+        "playing": false,
+        "paused": false,
+        "campaign": true,
+        "campaignPhase": "dialogue",
+        "deploying": false
+      }
+    },
+    {
+      "name": "shop",
+      "state": {
+        "selectionMode": "companions",
+        "companions": [
+          "lucina"
+        ],
+        "phase": "party",
+        "playing": false,
+        "paused": false,
+        "campaign": true,
+        "campaignPhase": "shop",
+        "deploying": false
+      }
+    },
+    {
+      "name": "deployment",
+      "state": {
+        "selectionMode": "companions",
+        "companions": [
+          "lucina"
+        ],
+        "phase": "deployment",
+        "playing": true,
+        "paused": false,
+        "campaign": false,
+        "campaignPhase": "shop",
+        "deploying": true
+      }
+    },
+    {
+      "name": "battle movement",
+      "initial": 96,
+      "playerX": 204.11999999999998,
+      "clock": 1357.4000000000005,
+      "renderer": 2,
+      "enemies": 0,
+      "state": {
+        "selectionMode": "companions",
+        "companions": [
+          "lucina"
+        ],
+        "phase": "battle",
+        "playing": true,
+        "paused": false,
+        "campaign": false,
+        "campaignPhase": "shop",
+        "deploying": false
+      }
+    },
+    {
+      "name": "paused",
+      "state": {
+        "selectionMode": "companions",
+        "companions": [
+          "lucina"
+        ],
+        "phase": "battle",
+        "playing": true,
+        "paused": true,
+        "campaign": false,
+        "campaignPhase": "shop",
+        "deploying": false
+      }
+    },
+    {
+      "name": "resumed",
+      "state": {
+        "selectionMode": "companions",
+        "companions": [
+          "lucina"
+        ],
+        "phase": "battle",
+        "playing": true,
+        "paused": false,
+        "campaign": false,
+        "campaignPhase": "shop",
+        "deploying": false
+      }
+    },
+    {
+      "name": "checkpoint resume",
+      "state": {
+        "selectionMode": "player",
+        "companions": [],
+        "phase": "party",
+        "playing": false,
+        "paused": false,
+        "campaign": true,
+        "campaignPhase": "dialogue",
+        "deploying": false
+      }
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "saved": {
+    "version": 1,
+    "savedAt": "2026-10-11T21:51:38.184Z",
+    "campaign": {
+      "missionIndex": 0,
+      "gold": 120,
+      "members": [
+        {
+          "hero": "chrom",
+          "health": 100,
+          "progress": {
+            "level": 1,
+            "xp": 0,
+            "stats": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "falchion",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "lucina",
+          "health": 100,
+          "progress": {
+            "level": 1,
+            "xp": 0,
+            "stats": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "parallel-falchion",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        }
+      ],
+      "complete": false
+    }
+  }
+}

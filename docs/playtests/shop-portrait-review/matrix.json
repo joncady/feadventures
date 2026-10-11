@@ -1,0 +1,1398 @@
+[
+  {
+    "width": 600,
+    "box": {
+      "x": 9,
+      "y": 109,
+      "width": 581.96875,
+      "height": 353.34375
+    },
+    "initial": {
+      "heroIndex": 1,
+      "party": [
+        "chrom",
+        "robin-female",
+        "lissa",
+        "cordelia"
+      ],
+      "rows": [
+        "› Fire",
+        "Iron Sword",
+        "Thunder",
+        "Killing Edge",
+        "Nosferatu",
+        "Deploy →"
+      ],
+      "tiles": [
+        {
+          "hero": "chrom",
+          "selected": false,
+          "x": 66,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Chrom",
+              "width": 39,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "robin-female",
+          "selected": true,
+          "x": 172,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Robin (F)",
+              "width": 52,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "lissa",
+          "selected": false,
+          "x": 278,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Lissa",
+              "width": 29,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "cordelia",
+          "selected": false,
+          "x": 384,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Cordelia",
+              "width": 49,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        }
+      ],
+      "events": [
+        "cursor"
+      ]
+    },
+    "key": {
+      "heroIndex": 2,
+      "party": [
+        "chrom",
+        "robin-female",
+        "lissa",
+        "cordelia"
+      ],
+      "rows": [
+        "› Heal",
+        "Iron Axe",
+        "Steel Axe",
+        "Deploy →"
+      ],
+      "tiles": [
+        {
+          "hero": "chrom",
+          "selected": false,
+          "x": 66,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Chrom",
+              "width": 39,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "robin-female",
+          "selected": false,
+          "x": 172,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Robin (F)",
+              "width": 52,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "lissa",
+          "selected": true,
+          "x": 278,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Lissa",
+              "width": 29,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "cordelia",
+          "selected": false,
+          "x": 384,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Cordelia",
+              "width": 49,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        }
+      ],
+      "events": [
+        "cursor",
+        "cursor"
+      ]
+    },
+    "errors": []
+  },
+  {
+    "width": 809,
+    "box": {
+      "x": 21,
+      "y": 135,
+      "width": 766.984375,
+      "height": 465.671875
+    },
+    "initial": {
+      "heroIndex": 1,
+      "party": [
+        "chrom",
+        "robin-female",
+        "lissa",
+        "cordelia"
+      ],
+      "rows": [
+        "› Fire",
+        "Iron Sword",
+        "Thunder",
+        "Killing Edge",
+        "Nosferatu",
+        "Deploy →"
+      ],
+      "tiles": [
+        {
+          "hero": "chrom",
+          "selected": false,
+          "x": 66,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Chrom",
+              "width": 39,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "robin-female",
+          "selected": true,
+          "x": 172,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Robin (F)",
+              "width": 52,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "lissa",
+          "selected": false,
+          "x": 278,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Lissa",
+              "width": 29,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "cordelia",
+          "selected": false,
+          "x": 384,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Cordelia",
+              "width": 49,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        }
+      ],
+      "events": [
+        "cursor"
+      ]
+    },
+    "key": {
+      "heroIndex": 2,
+      "party": [
+        "chrom",
+        "robin-female",
+        "lissa",
+        "cordelia"
+      ],
+      "rows": [
+        "› Heal",
+        "Iron Axe",
+        "Steel Axe",
+        "Deploy →"
+      ],
+      "tiles": [
+        {
+          "hero": "chrom",
+          "selected": false,
+          "x": 66,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Chrom",
+              "width": 39,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "robin-female",
+          "selected": false,
+          "x": 172,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Robin (F)",
+              "width": 52,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "lissa",
+          "selected": true,
+          "x": 278,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Lissa",
+              "width": 29,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "cordelia",
+          "selected": false,
+          "x": 384,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Cordelia",
+              "width": 49,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        }
+      ],
+      "events": [
+        "cursor",
+        "cursor"
+      ]
+    },
+    "errors": []
+  },
+  {
+    "width": 1039,
+    "box": {
+      "x": 60.5,
+      "y": 141,
+      "width": 917.96875,
+      "height": 557.34375
+    },
+    "initial": {
+      "heroIndex": 1,
+      "party": [
+        "chrom",
+        "robin-female",
+        "lissa",
+        "cordelia"
+      ],
+      "rows": [
+        "› Fire",
+        "Iron Sword",
+        "Thunder",
+        "Killing Edge",
+        "Nosferatu",
+        "Deploy →"
+      ],
+      "tiles": [
+        {
+          "hero": "chrom",
+          "selected": false,
+          "x": 66,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Chrom",
+              "width": 39,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "robin-female",
+          "selected": true,
+          "x": 172,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Robin (F)",
+              "width": 52,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "lissa",
+          "selected": false,
+          "x": 278,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Lissa",
+              "width": 29,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "cordelia",
+          "selected": false,
+          "x": 384,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Cordelia",
+              "width": 49,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        }
+      ],
+      "events": [
+        "cursor"
+      ]
+    },
+    "key": {
+      "heroIndex": 2,
+      "party": [
+        "chrom",
+        "robin-female",
+        "lissa",
+        "cordelia"
+      ],
+      "rows": [
+        "› Heal",
+        "Iron Axe",
+        "Steel Axe",
+        "Deploy →"
+      ],
+      "tiles": [
+        {
+          "hero": "chrom",
+          "selected": false,
+          "x": 66,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Chrom",
+              "width": 39,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "robin-female",
+          "selected": false,
+          "x": 172,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Robin (F)",
+              "width": 52,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "lissa",
+          "selected": true,
+          "x": 278,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Lissa",
+              "width": 29,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "cordelia",
+          "selected": false,
+          "x": 384,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Cordelia",
+              "width": 49,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        }
+      ],
+      "events": [
+        "cursor",
+        "cursor"
+      ]
+    },
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "box": {
+      "x": 261,
+      "y": 141,
+      "width": 917.96875,
+      "height": 557.34375
+    },
+    "initial": {
+      "heroIndex": 1,
+      "party": [
+        "chrom",
+        "robin-female",
+        "lissa",
+        "cordelia"
+      ],
+      "rows": [
+        "› Fire",
+        "Iron Sword",
+        "Thunder",
+        "Killing Edge",
+        "Nosferatu",
+        "Deploy →"
+      ],
+      "tiles": [
+        {
+          "hero": "chrom",
+          "selected": false,
+          "x": 66,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Chrom",
+              "width": 39,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "robin-female",
+          "selected": true,
+          "x": 172,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Robin (F)",
+              "width": 52,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "lissa",
+          "selected": false,
+          "x": 278,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Lissa",
+              "width": 29,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "cordelia",
+          "selected": false,
+          "x": 384,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Cordelia",
+              "width": 49,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        }
+      ],
+      "events": [
+        "cursor"
+      ]
+    },
+    "key": {
+      "heroIndex": 2,
+      "party": [
+        "chrom",
+        "robin-female",
+        "lissa",
+        "cordelia"
+      ],
+      "rows": [
+        "› Heal",
+        "Iron Axe",
+        "Steel Axe",
+        "Deploy →"
+      ],
+      "tiles": [
+        {
+          "hero": "chrom",
+          "selected": false,
+          "x": 66,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Chrom",
+              "width": 39,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "robin-female",
+          "selected": false,
+          "x": 172,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Robin (F)",
+              "width": 52,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "lissa",
+          "selected": true,
+          "x": 278,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Lissa",
+              "width": 29,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "hero": "cordelia",
+          "selected": false,
+          "x": 384,
+          "y": 425,
+          "children": [
+            {
+              "type": "Rectangle",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "type": "Image",
+              "width": 42,
+              "height": 42,
+              "x": 47,
+              "y": 25
+            },
+            {
+              "type": "Text",
+              "text": "Cordelia",
+              "width": 49,
+              "height": 13.836000442504883,
+              "x": 47,
+              "y": 48
+            },
+            {
+              "type": "Zone",
+              "width": 94,
+              "height": 64,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        }
+      ],
+      "events": [
+        "cursor",
+        "cursor"
+      ]
+    },
+    "errors": []
+  }
+]

@@ -1,5 +1,5 @@
 import { HERO_PROFILES, type Hero } from './config';
-import type { WeaponType } from '../systems/combat';
+import type { WeaponType, DamageKind, EffectivenessTag } from '../systems/combat';
 
 export interface WeaponDefinition {
   id: string;
@@ -11,6 +11,8 @@ export interface WeaponDefinition {
   damage: number;
   cooldown: number;
   effect: string;
+  damageKind?: DamageKind;
+  effectiveAgainst?: readonly EffectivenessTag[];
   drain?: number;
   criticalBonus?: number;
   healingBonus?: number;
@@ -40,6 +42,7 @@ Object.assign(WEAPONS,{
  'steel-axe':variant('iron-axe','steel-axe','Steel Axe',{damage:48,cooldown:600}),
  'killing-edge':variant('iron-sword','killing-edge','Killing Edge',{damage:32,cooldown:430,criticalBonus:20}),
  thunder:variant('fire','thunder','Thunder',{range:360,damage:38,cooldown:850}),
+ wind:variant('fire','wind','Wind',{range:340,damage:26,cooldown:650,damageKind:'magical',effectiveAgainst:['flying']}),
  nosferatu:variant('fire','nosferatu','Nosferatu',{range:220,damage:26,cooldown:950,drain:.5}),
  heal:{id:'heal',name:'Heal',type:'staff',icon:'weapon-staff',range:180,minRange:0,damage:0,cooldown:1800,effect:'heal'},
 });

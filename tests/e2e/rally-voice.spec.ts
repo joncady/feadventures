@@ -3,8 +3,11 @@ async function fixture(page:any){
  await page.goto('/');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);
  await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);game.scene.start('Arena',{hero:'chrom',companions:['lissa'],tactical:true,missionIndex:1});});
  await page.waitForFunction(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').allies?.getChildren().some((u:any)=>u.getData('companionHero'));});
+ await page.locator('canvas').click({position:{x:10,y:10}});
  await page.keyboard.press('Shift');
- await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');a.deploying=false;a.enemies.clear(true,true);a.player.setVisible(true);a.player.body.enable=true;const state:any={events:[],plays:[],stops:[]};(window as any).__rally=state;game.events.on('hero-voice',(x:any)=>{state.events.push(x);if(x.event==='rally')state.rallyAt=a.time.now;});game.sound.play=(key:string,options:any)=>{state.plays.push({key,volume:options?.volume});return true;};game.sound.stopByKey=(key:string)=>{state.stops.push(key);return true;};});
+ // Finish the unlocked menu selection voice before instrumenting battle-only audio.
+ await page.waitForTimeout(1500);
+ await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');a.deploying=false;game.events.emit('ui-state',{...game.registry.get('interface-state'),playing:true,phase:'battle'});a.enemies.clear(true,true);a.player.setVisible(true);a.player.body.enable=true;const state:any={events:[],plays:[],stops:[]};(window as any).__rally=state;game.events.on('hero-voice',(x:any)=>{state.events.push(x);if(x.event==='rally')state.rallyAt=a.time.now;});game.sound.play=(key:string,options:any)=>{state.plays.push({key,volume:options?.volume});return true;};game.sound.stopByKey=(key:string)=>{state.stops.push(key);return true;};});
 }
 test('real R path emits once; repeated keys, cooldown, deployment, ended and no-companion paths do not call',async({page})=>{
  await fixture(page);await page.keyboard.press('r');await page.keyboard.press('r');await page.keyboard.press('r');

@@ -130,3 +130,10 @@ Deployment cursor and planning grid explicitly hidden on launch, with native Aut
 - [x] 51 unit checks and final type/build pass; full 97 browser checks pass; final bounded hide/reason correction has 12 affected browser checks passing.
 - [x] Independent four-window DPR2 Results review and fresh local 1.0.13 badge/no-error verification. See docs/release-qa-1.0.13.md.
 - [ ] Next user review: natural Village/Keep completion clarity and difficulty with earlier attackers retained at commander arrival; dedicated victory theme remains audio follow-up. Release 1.0.13 approved; fresh final release audit passed 51 unit/build and all 97 browser checks.
+
+## Local 1.0.16 — Preparations completion
+
+- [x] #69 Shop Change party → phased leader/companions → Return to preparations, preserving mission, treasury, active/benched XP and purchased/forged equipment through save/reload.
+- [x] #80 final Results recovery copy; #81 paused objective and #82 melee mouse controls coordinated with mobile agent.
+- [x] Validated audio preferences persisted separately from campaign state.
+- [ ] #41 distinct sourced menu/victory track and exact page-turn identification: existing alternate menu WAV is generated, excluded from active runtime. See `docs/preparations-return-1.0.16.md`.
