@@ -170,7 +170,7 @@ export class ArenaScene extends Phaser.Scene {
       const pickup=item as Enemy;if(pickup.getData('gold')){this.missionGold+=pickup.getData('gold');this.game.events.emit('campaign-gold',this.missionGold);this.showGoldPickup(pickup.getData('gold'));}else {this.health = Math.min(this.progression.stats.hp, this.health + 25);this.feedback('confirm','Recovered 25 HP');}item.destroy();this.publishHud();
     });
     const switchEquipment=()=>this.switchWeapon();this.game.events.on('ui-switch-weapon',switchEquipment);this.events.once('shutdown',()=>this.game.events.off('ui-switch-weapon',switchEquipment));
-    this.keys = this.input.keyboard!.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,SPACE,Q,E,R') as Record<string, Phaser.Input.Keyboard.Key>;
+    this.keys = this.input.keyboard!.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,SPACE,Q,E,R,SHIFT') as Record<string, Phaser.Input.Keyboard.Key>;
     this.input.keyboard!.addCapture(['SPACE', 'UP', 'DOWN', 'LEFT', 'RIGHT']);
     this.input.on('pointermove', this.updatePointerAim, this);
     this.input.on('pointerdown', (pointer: Phaser.Input.Pointer, over:Phaser.GameObjects.GameObject[]) => {
@@ -288,7 +288,7 @@ export class ArenaScene extends Phaser.Scene {
     this.lastAttack=Math.max(this.lastAttack,readyAt-this.attackDelay());
     this.partyStates.get(this.hero)!.lastAttack=this.lastAttack;
     this.playerWeapon.setTexture(this.profile().icon);this.pointerAttack=false;
-    this.game.events.emit('notice',this.profile().weapon==='staff'?'Heal: Space / click restores a nearby wounded ally · companion keeps healing after Q/E':`${this.profile().name} equipped · F: next weapon / ability`);
+    this.game.events.emit('notice',this.profile().weapon==='staff'?'Heal: Space / click for allies · Shift + Space for yourself':`${this.profile().name} equipped · F: next weapon / ability`);
     this.publishHud();return true;
   }
   private attackDelay():number {return attackCooldown(this.progression,this.hero,equippedWeapon(this.weaponLoadout()))*(this.tactical?2.4:1);}
@@ -408,7 +408,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
   }
   private publishTacticalMap():void {
     const camera=this.cameras.main;
-    this.game.events.emit('tactical-map',{rally:{active:this.rallyUntil>this.time.now,remaining:Math.max(0,Math.ceil((this.rallyUntil-this.time.now)/1000)),cooldown:Math.max(0,Math.ceil((this.rallyReadyAt-this.time.now)/1000)),available:!this.deploying&&this.time.now>=this.rallyReadyAt},missionIndex:this.missionIndex,title:this.map.title,objective:this.map.objective.label,gold:this.treasuryGold+this.missionGold,totalWaves:this.stage.settings.waves,width:this.width,height:this.height,deploying:this.deploying,selected:this.selectedDeployment,party:this.party.map(hero=>{const state=this.partyStates.get(hero)!;const health=hero===this.hero?this.health:state.health;return {hero,placed:!!this.deployment[hero],health,maxHealth:state.progress.stats.hp,level:state.progress.level,xp:state.progress.xp};}),camp:this.camp?.active?{health:this.camp.getData('health'),maxHealth:this.camp.getData('maxHealth')}:undefined,cooldown:{fraction:Phaser.Math.Clamp((this.time.now-this.lastAttack)/this.attackDelay(),0,1),remaining:Math.max(0,(this.lastAttack+this.attackDelay()-this.time.now)/1000),recovering:this.time.now-this.lastAttack<this.attackDelay()*.65},stagePhase:this.stage.phase,wave:this.stage.wave,remaining:Math.max(0,Math.ceil(((this.stage.phase==='wave'?this.stage.waveStarted+this.stage.settings.waveMinimum:this.stage.deadline)-this.battleClock)/1000)),elapsed:Math.floor(this.battleClock/1000),pending:this.releases.length,boss:this.boss?.active?{health:this.boss.getData('health'),maxHealth:this.boss.getData('maxHealth')}:undefined,controlled:this.hero,controlledPosition:this.player.visible?{x:this.player.x,y:this.player.y}:undefined,placed:Object.keys(this.deployment).length,total:this.party.length+this.map.soldierCount,allies:[...(this.player.visible?[{x:this.player.x,y:this.player.y}]:[]),...this.allies.getChildren().filter(a=>(a as Enemy).visible).map(a=>({x:(a as Enemy).x,y:(a as Enemy).y}))],enemies:this.enemies.getChildren().filter(a=>this.cameras.main.worldView.contains((a as Enemy).x,(a as Enemy).y)).map(a=>({x:(a as Enemy).x,y:(a as Enemy).y})),camera:{x:camera.worldView.x,y:camera.worldView.y,width:camera.worldView.width,height:camera.worldView.height}});
+    this.game.events.emit('tactical-map',{rally:{active:this.rallyUntil>this.time.now,remaining:Math.max(0,Math.ceil((this.rallyUntil-this.time.now)/1000)),cooldown:Math.max(0,Math.ceil((this.rallyReadyAt-this.time.now)/1000)),available:!this.deploying&&this.time.now>=this.rallyReadyAt},missionIndex:this.missionIndex,title:this.map.title,objective:this.map.objective.label,gold:this.treasuryGold+this.missionGold,totalWaves:this.stage.settings.waves,width:this.width,height:this.height,deploying:this.deploying,selected:this.selectedDeployment,party:this.party.map(hero=>{const state=this.partyStates.get(hero)!;const health=hero===this.hero?this.health:state.health;return {hero,placed:!!this.deployment[hero],health,maxHealth:state.progress.stats.hp,level:state.progress.level,xp:state.progress.xp,equippedWeaponId:equippedWeapon(state.loadout).id};}),camp:this.camp?.active?{health:this.camp.getData('health'),maxHealth:this.camp.getData('maxHealth')}:undefined,cooldown:{fraction:Phaser.Math.Clamp((this.time.now-this.lastAttack)/this.attackDelay(),0,1),remaining:Math.max(0,(this.lastAttack+this.attackDelay()-this.time.now)/1000),recovering:this.time.now-this.lastAttack<this.attackDelay()*.65},stagePhase:this.stage.phase,wave:this.stage.wave,remaining:Math.max(0,Math.ceil(((this.stage.phase==='wave'?this.stage.waveStarted+this.stage.settings.waveMinimum:this.stage.deadline)-this.battleClock)/1000)),elapsed:Math.floor(this.battleClock/1000),pending:this.releases.length,boss:this.boss?.active?{health:this.boss.getData('health'),maxHealth:this.boss.getData('maxHealth')}:undefined,controlled:this.hero,controlledPosition:this.player.visible?{x:this.player.x,y:this.player.y}:undefined,placed:Object.keys(this.deployment).length,total:this.party.length+this.map.soldierCount,allies:[...(this.player.visible?[{x:this.player.x,y:this.player.y}]:[]),...this.allies.getChildren().filter(a=>(a as Enemy).visible).map(a=>({x:(a as Enemy).x,y:(a as Enemy).y}))],enemies:this.enemies.getChildren().filter(a=>this.cameras.main.worldView.contains((a as Enemy).x,(a as Enemy).y)).map(a=>({x:(a as Enemy).x,y:(a as Enemy).y})),camera:{x:camera.worldView.x,y:camera.worldView.y,width:camera.worldView.width,height:camera.worldView.height}});
   }
   private updatePointerAim(pointer: Phaser.Input.Pointer): void {
     if (this.ended || pointer.x < 0 || pointer.y < 0 || pointer.x > WORLD.width || pointer.y > WORLD.height) return;
@@ -715,7 +715,13 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
   }
   private drawAimGuide(): void {
     this.aimGuide.clear();
-    if (this.profile().weapon === 'staff') return;
+    if (this.profile().weapon === 'staff') {
+      const origin=this.bodyCenter(this.player),profile=this.profile(),{patient}=this.healingSelection(this.player);
+      this.aimGuide.lineStyle(1,patient?0x8deaa8:0xacb7b9,.28).strokeCircle(origin.x,origin.y,profile.range);
+      const ringTarget=this.keys.SHIFT.isDown?this.player:patient?.unit;
+      if(ringTarget)this.aimGuide.lineStyle(2,patient?0x8deaa8:0xacb7b9,.85).strokeCircle(ringTarget.x,ringTarget.y,26);
+      return;
+    }
     const origin = this.bodyCenter(this.player), profile = this.profile();
     const aim = this.playerShot?.aim ?? this.facing;
     this.aimGuide.lineStyle(1, 0xe79d79, 0.45).strokeCircle(origin.x, origin.y, profile.minRange);
@@ -780,6 +786,16 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
   private enemyWeapon(enemy: Enemy): WeaponType {
     return (enemy.getData('weapon') as WeaponType | undefined) ?? (ENEMY_TYPES.find(type => type.key === enemy.texture.key) ?? ENEMY_TYPES[0]).weapon;
   }
+  /** Preview and cast share the same explicit self/ally intent. AI retains its self fallback. */
+  private healingSelection(source:Enemy) {
+    const hero=source===this.player?this.hero:source.getData('companionHero') as Hero;
+    const range=equippedWeapon(this.partyStates.get(hero)!.loadout).range;
+    const candidates=[this.player,...this.allies.getChildren() as Enemy[]].filter(unit=>unit.active&&unit.visible).map(unit=>({...this.bodyCenter(unit),unit,active:unit.active,health:unit===this.player?this.health:unit.getData('health') as number,maxHealth:unit===this.player?this.progression.stats.hp:unit.getData('maxHealth') as number}));
+    const caster=candidates.find(candidate=>candidate.unit===source);
+    const controlled=source===this.player,self=controlled&&this.keys.SHIFT.isDown;
+    const patient=self?(caster?.active&&caster.health>0&&caster.health<caster.maxHealth?caster:undefined):selectHealingTarget(this.bodyCenter(source),controlled?candidates.filter(candidate=>candidate!==caster):candidates,range,controlled?undefined:caster);
+    return {candidates,patient,self};
+  }
   private castHeal(source:Enemy):boolean {
     const hero=source===this.player?this.hero:source.getData('companionHero') as Hero|undefined;
     if(!hero)return false;
@@ -788,10 +804,11 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     if(weapon.type!=='staff')return false;
     const cooldown=attackCooldown(state.progress,hero,weapon)*(this.tactical?2.4:1);
     if(this.time.now-(source===this.player?this.lastAttack:state.lastAttack)<cooldown)return false;
-    const candidates=[this.player,...this.allies.getChildren() as Enemy[]].filter(unit=>unit.active&&unit.visible).map(unit=>({...this.bodyCenter(unit),unit,active:unit.active,health:unit===this.player?this.health:unit.getData('health') as number,maxHealth:unit===this.player?this.progression.stats.hp:unit.getData('maxHealth') as number}));
-    const caster=candidates.find(candidate=>candidate.unit===source);
-    const patient=selectHealingTarget(this.bodyCenter(source),candidates,weapon.range,caster);
-    if(!patient){if(source===this.player)this.feedback('reject','No wounded ally within healing range.');return false;}
+    const {candidates,patient,self}=this.healingSelection(source);
+    if(!patient){
+      if(source===this.player)this.feedback('reject',self?'You are at full HP':candidates.some(unit=>unit.unit!==source&&unit.health>0&&unit.health<unit.maxHealth)?'Wounded ally out of range':'All allies at full HP');
+      return false;
+    }
     const result=restoreHealth(patient.health,patient.maxHealth,healAmount(state.progress.stats.mag)+(weapon.healingBonus??0));
     if(!result.restored)return false;
     const targetHero=patient.unit===this.player?this.hero:patient.unit.getData('companionHero') as Hero|undefined;
@@ -801,6 +818,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     state.health=(source===this.player?this.health:source.getData('health'))+state.progress.stats.hp-hpBefore;
     state.lastAttack=this.time.now;
     if(source===this.player){this.health=state.health;this.lastAttack=this.time.now;this.actionUntil=this.time.now+350;this.battleHud.gain(experience,gains);}else source.setData({health:state.health,maxHealth:state.progress.stats.hp,defense:state.progress.stats.def,resistance:state.progress.stats.res,nextAttackAt:this.time.now+attackCooldown(state.progress,hero,weapon)*(this.tactical?2.4:1)});
+    if(source===this.player)this.game.events.emit('ux-feedback-visible',{kind:'clear'});
     if(source!==this.player&&source.getData('autoHealPrior')!==undefined)this.feedback('confirm',`${HERO_NAMES[hero]}: urgent heal`);
     source.setFlipX(actionFlipX(hero,patient.unit.x-source.x));source.anims.play(`${hero}-action`);source.setData('healUntil',this.time.now+350);
     if(this.cache.audio.exists('heal'))this.game.events.emit('effect','heal',{volume:.3,position:{x:source.x,y:source.y}});
