@@ -38,7 +38,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install --with-deps chromium webkit
       # One worker per machine preserves game-clock reliability with software WebGL.
       - run: npm run test:e2e -- --shard=${{ matrix.shard }}/3
       - uses: actions/upload-artifact@v4
