@@ -81,3 +81,15 @@ footer { margin-top: 18px; flex-wrap: wrap; font: 12px system-ui; color: #b0c1bd
 .viewport-fullscreen { overflow: hidden; }
 .viewport-fullscreen main { position: fixed; inset: 0; padding: 0; max-width: none; }
 .viewport-fullscreen main > header { display: none; }
+
+/* Orientation is a viewport-level browser gate, not a rotated game canvas. */
+#landscape-required {
+  position:fixed; inset:0; z-index:10000; width:100%; height:var(--viewport-height,100dvh);
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  gap:16px; padding:max(24px,env(safe-area-inset-top)) max(24px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(24px,env(safe-area-inset-left));
+  background:#122c3b; color:#f3e7c9; text-align:center; touch-action:none;
+}
+#landscape-required h2 {font-family:FE,serif;font-size:30px;margin:0;}
+#landscape-required p {font:16px/1.5 system-ui;max-width:320px;margin:0;}
+#landscape-required button {min-height:48px;min-width:140px;}
+.rotate-device {font-size:64px;color:#d5b46b;}

@@ -1,3 +1,4 @@
+import {installMobileLandscape,lockLandscape} from './game/platform/mobile-landscape';
 import {AUDIO_PREFERENCES_KEY,decodeAudioPreferences} from './game/systems/audio-preferences';
 import {VoiceGate} from './game/systems/voice-gate';
 import {RallyVoiceSelection} from './game/systems/rally-voice-selection';
@@ -285,7 +286,7 @@ element('fullscreen').addEventListener('click', () => {
   // iPhone Safari does not expose element fullscreen. Its viewport mode still
   // fits the complete game and the Settings button remains available to exit.
   const fallback=()=>{document.body.classList.add('viewport-fullscreen');updateViewport();};
-  if(shell.requestFullscreen)void shell.requestFullscreen().catch(fallback);else fallback();
+  if(shell.requestFullscreen)void shell.requestFullscreen().then(()=>lockLandscape()).catch(fallback);else fallback();
 });
 
 const audioDialog = element<HTMLDialogElement>('audio-settings');
@@ -378,3 +379,5 @@ game.events.on('dev-close',closeDev);
 function openDev():void {if(devOpen||startButton.disabled)return;devOpen=true;devPausedScenes=['Boot','Arena','Interface','Campaign','Results'].filter(key=>game.scene.isActive(key));for(const key of devPausedScenes)game.scene.pause(key);game.scene.start('Dev');game.scene.bringToTop('Dev');}
 game.events.on('dev-open',openDev);
 window.addEventListener('keydown',event=>{if(event.defaultPrevented)return;if((event.code!=='F9'&&event.code!=='Backquote')||event.repeat)return;event.preventDefault();openDev();});
+
+installMobileLandscape(game,stopVoices);

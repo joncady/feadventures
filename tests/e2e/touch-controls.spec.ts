@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-test.use({hasTouch:true,viewport:{width:390,height:844}});
+test.use({hasTouch:true,viewport:{width:844,height:390}});
 test('touch movement moves the hero and cancellation stops movement',async({page})=>{
   await page.goto('/');
   await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);
@@ -23,7 +23,7 @@ test('touch movement moves the hero and cancellation stops movement',async({page
   await session.send('Input.dispatchTouchEvent',{type:'touchCancel',touchPoints:[]});
   await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const {game}=await import(entry);return game.scene.getScene('Arena').touchMovement.x;})).toBe(0);
   await page.setViewportSize({width:809,height:1066});
-  await page.setViewportSize({width:390,height:844});
+  await page.setViewportSize({width:844,height:390});
   await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const width=game.canvas.getBoundingClientRect().width;return game.registry.get('touch-control-layout').actions[0].size*width/896;})).toBeGreaterThan(43.9);
   await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);game.scene.getScene('Arena').lastAttack=-Infinity;});
   const resizedBox=(await page.locator('#game canvas').first().boundingBox())!;

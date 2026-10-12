@@ -1,5 +1,5 @@
 import {test,expect} from '@playwright/test';
-test.use({hasTouch:true,viewport:{width:390,height:844}});
+test.use({hasTouch:true,viewport:{width:844,height:390}});
 test('dual touch sticks aim through all angles and retain independent pointer ownership',async({page})=>{
  // Twelve real CDP gesture sequences across two orientations exceed one-minute software-WebGL budgets.
  test.setTimeout(process.env.CI?120000:60000);
@@ -10,7 +10,7 @@ test('dual touch sticks aim through all angles and retain independent pointer ow
  // Isolate pointer ownership from random combat deaths; keep native inputs, frames and cooldowns live.
  const cdp=await page.context().newCDPSession(page);
  const snapshot=()=>page.evaluate(async()=>{const{game}=await import(String('/src/main.ts'));const a=game.scene.getScene('Arena');return{move:a.touchMovement,aim:a.touchAim,last:a.lastAttack,layout:game.registry.get('touch-control-layout')};});
- for(const viewport of [{width:390,height:844},{width:844,height:390}]){
+ for(const viewport of [{width:844,height:390},{width:932,height:430}]){
   await page.setViewportSize(viewport);await expect.poll(async()=>{const s=await snapshot();const b=(await page.locator('canvas').boundingBox())!;return s.layout.actions[0].size*b.width/896;}).toBeGreaterThan(43.9);
   const b=(await page.locator('canvas').boundingBox())!,l=(await snapshot()).layout;
   const at=(x:number,y:number,id:number)=>({x:b.x+x*b.width/896,y:b.y+y*b.height/544,id});
