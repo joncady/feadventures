@@ -17,7 +17,7 @@ test('native staff attack distinguishes full health and distance, and highlights
 test('native equipment and hero switching keep party ability icons current; staff still heals its caster',async({page})=>{
  await setup(page,'miriel');await page.keyboard.press('f');await page.keyboard.press('f');await expect.poll(async()=>(await state(page)).weapon).toBe('staff');await expect.poll(async()=>(await state(page)).icons[0].key).toBe('weapon-staff');
  await page.keyboard.down('Shift');await page.keyboard.press('e');await expect.poll(async()=>(await state(page)).weapon).toBe('sword');expect((await state(page)).icons[0].key).toBe('weapon-staff');
- await page.keyboard.press('q');await expect.poll(async()=>(await state(page)).weapon).toBe('staff');
+ await page.keyboard.press('q',{delay:200});await expect.poll(async()=>(await state(page)).weapon).toBe('staff');
  await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');a.health=50;a.partyStates.get('miriel').health=50;});await page.keyboard.press('Shift+Space');
  await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').health;})).toBe(65);
  await page.keyboard.up('Shift');await page.waitForTimeout(450);await page.keyboard.press('f');await expect.poll(async()=>(await state(page)).weapon).toBe('tome');await expect.poll(async()=>(await state(page)).icons[0].key).toBe('weapon-tome');
