@@ -4,7 +4,8 @@ test('dual touch sticks aim through all angles and retain independent pointer ow
  await page.goto('/');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);
  await page.evaluate(async()=>{const{game}=await import(String('/src/main.ts'));game.scene.start('Arena',{hero:'chrom',tactical:true,companions:[],missionIndex:0});});
  await page.waitForFunction(async()=>{const{game}=await import(String('/src/main.ts'));return game.scene.getScene('Arena').player?.active;});
- await page.evaluate(async()=>{const{game}=await import(String('/src/main.ts'));const a=game.scene.getScene('Arena');a.autoPlaceDeployment();a.launchBattle();game.events.emit('ui-state',{...game.registry.get('interface-state'),phase:'battle',playing:true,paused:false,settingsOpen:false});});
+ await page.evaluate(async()=>{const{game}=await import(String('/src/main.ts'));const a=game.scene.getScene('Arena');a.autoPlaceDeployment();a.launchBattle();a.releases=[];a.enemies.clear(true,true);a.updateEnemy=()=>{};game.events.emit('ui-state',{...game.registry.get('interface-state'),phase:'battle',playing:true,paused:false,settingsOpen:false});});
+ // Isolate pointer ownership from random combat deaths; keep native inputs, frames and cooldowns live.
  const cdp=await page.context().newCDPSession(page);
  const snapshot=()=>page.evaluate(async()=>{const{game}=await import(String('/src/main.ts'));const a=game.scene.getScene('Arena');return{move:a.touchMovement,aim:a.touchAim,last:a.lastAttack,layout:game.registry.get('touch-control-layout')};});
  for(const viewport of [{width:390,height:844},{width:844,height:390}]){
