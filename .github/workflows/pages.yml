@@ -20,14 +20,39 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check
-      - run: npx playwright install --with-deps chromium
-      - run: npm run test:e2e
       - uses: actions/upload-pages-artifact@v4
         with:
           path: dist
+  browser-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      # Complete every shard so a failure still leaves useful evidence for the rest.
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      # One worker per machine preserves game-clock reliability with software WebGL.
+      - run: npm run test:e2e -- --shard=${{ matrix.shard }}/3
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: browser-results-${{ matrix.shard }}
+          path: |
+            test-results
+            playwright-report
+          if-no-files-found: warn
+          retention-days: 7
   deploy:
     if: github.event_name != 'pull_request'
-    needs: build
+    needs: [build, browser-tests]
     runs-on: ubuntu-latest
     permissions:
       pages: write

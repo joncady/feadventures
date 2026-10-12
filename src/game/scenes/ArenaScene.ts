@@ -93,6 +93,7 @@ export class ArenaScene extends Phaser.Scene {
   private pointerAttack = false;
   private touchMovement={x:0,y:0};
   private touchSelfHeal=false;
+  private touchAim:Point|undefined;
   private touchGuard=false;
   private guard=newGuard();
   private guardGuide!:Phaser.GameObjects.Graphics;
@@ -122,7 +123,7 @@ export class ArenaScene extends Phaser.Scene {
     this.siegeRoutes=new WeakMap();this.siegeWalls=[];this.camp=undefined;this.battleClock=0;this.stage=new StageOne(this.missionIndex===undefined?STAGE_ONE:{waves:this.map.waves.count,waveMinimum:this.map.waves.minimumMs,releaseInterval:this.map.waves.releaseIntervalMs,intermission:this.map.waves.intermissionMs,bossWarning:8000,hostileCap:this.map.waves.hostileCap,bossHealth:this.map.waves.bossHealth});this.releases=[];this.boss=undefined;this.bossThresholds.clear();this.deploymentCursor=this.missionIndex===undefined?{x:480,y:352}:{x:this.map.courtyard.left+96,y:Math.max(this.map.courtyard.top+96,Math.min(this.map.courtyard.bottom-96,480))};
     if(data.members)for(const member of cloneMembers(data.members)){if(this.party.includes(member.hero))this.partyStates.set(member.hero,{...member,lastAttack:-Infinity,lastDamage:-Infinity});}
     this.allyWarningAt.clear();this.brains = new WeakMap(); this.targetFields.clear(); this.allyRoutes.clear();this.followFormation=new FollowFormation();
-    this.guard=newGuard();this.touchGuard=false;this.touchMovement={x:0,y:0};this.touchSelfHeal=false;
+    this.guard=newGuard();this.touchGuard=false;this.touchAim=undefined;this.touchMovement={x:0,y:0};this.touchSelfHeal=false;
     this.playerShot = undefined; this.actionUntil = 0; this.pointerAim = undefined; this.pointerAttack = false;
     this.health = this.partyStates.get(this.hero)!.health; this.progression = this.partyStates.get(this.hero)!.progress; this.allyMode = 'defend'; this.wave = 1; this.kills = 0;
     this.facing = { x: 1, y: 0 }; this.keyboardFacing = { ...this.facing }; this.lastAttack = -Infinity;
@@ -185,8 +186,10 @@ export class ArenaScene extends Phaser.Scene {
     this.input.mouse?.disableContextMenu();
     const touchMove=(point:Point)=>{this.touchMovement=point;};
     const touchAction=(action:string)=>{if(action==='guard-end'){this.touchGuard=false;return;}if(this.deploying||this.ended)return;if(action==='guard-start'){this.touchGuard=true;return;}if(action==='previous')this.switchCharacter(-1);else if(action==='next')this.switchCharacter(1);else if(action==='weapon')this.switchWeapon();else if(action==='rally')this.rallyCompanions();else if(action==='self-heal'&&this.profile().weapon==='staff'){this.touchSelfHeal=true;this.pointerAttack=true;}};
+    const touchAim=(aim:Point|undefined)=>{if(!aim&&this.touchAim&&(this.touchAim.x||this.touchAim.y))this.keyboardFacing={...this.touchAim};this.touchAim=aim;if(aim)this.pointerAim=undefined;if(aim&&(aim.x||aim.y))this.keyboardFacing={...aim};};
+    this.game.events.on('touch-aim',touchAim);
     this.game.events.on('touch-move',touchMove);this.game.events.on('touch-action',touchAction);
-    this.events.once('shutdown',()=>{this.game.events.off('touch-move',touchMove);this.game.events.off('touch-action',touchAction);});
+    this.events.once('shutdown',()=>{this.game.events.off('touch-aim',touchAim);this.game.events.off('touch-move',touchMove);this.game.events.off('touch-action',touchAction);});
     this.input.on('pointermove',(pointer:Phaser.Input.Pointer)=>{if(!pointer.wasTouch)this.updatePointerAim(pointer);});
     this.input.on('pointerdown', (pointer: Phaser.Input.Pointer, over:Phaser.GameObjects.GameObject[]) => {
       if (over.length) return;
@@ -195,7 +198,7 @@ export class ArenaScene extends Phaser.Scene {
       this.updatePointerAim(pointer); this.pointerAttack = true;
     });
     this.input.on('gameout', () => { this.pointerAim = undefined; this.pointerAttack = false;this.touchGuard=false; });
-    this.events.on(Phaser.Scenes.Events.PAUSE, () => { this.touchMovement={x:0,y:0};this.touchGuard=false;this.guard.active=false;this.guardGuide.clear(); this.pointerAim = undefined; this.pointerAttack = false; });
+    this.events.on(Phaser.Scenes.Events.PAUSE, () => { this.touchAim=undefined;this.touchMovement={x:0,y:0};this.touchGuard=false;this.guard.active=false;this.guardGuide.clear(); this.pointerAim = undefined; this.pointerAttack = false; });
     this.planningGrid=this.add.graphics().setDepth(3);if(this.tactical){const c=this.map.courtyard;this.planningGrid.fillStyle(0x48aaff,.12).fillRect(c.left,c.top,c.right-c.left,c.bottom-c.top);this.planningGrid.lineStyle(1,0xb7d5e9,.35);for(let x=0;x<=this.width;x+=64)this.planningGrid.lineBetween(x,0,x,this.height);for(let y=0;y<=this.height;y+=64)this.planningGrid.lineBetween(0,y,this.width,y);}
     this.deploymentGuide=this.add.graphics().setDepth(24);
     this.aimGuide = this.add.graphics().setDepth(7);
@@ -244,6 +247,7 @@ export class ArenaScene extends Phaser.Scene {
       const aim = direction(this.pointerAim.x - origin.x, this.pointerAim.y - origin.y);
       if (aim.x || aim.y) this.facing = aim;
     }
+    if(this.touchAim&&(this.touchAim.x||this.touchAim.y))this.facing={...this.touchAim};
     if (HERO_SHEETS[this.hero].directional) {
       this.player.setFlipX(false);
       const row = this.directionName(horizontal || vertical ? movement : this.facing);
@@ -258,10 +262,10 @@ export class ArenaScene extends Phaser.Scene {
     if(this.tactical&&time-this.lastAttack<this.attackDelay()*.65)this.player.setVelocity(movement.x*profile.speed*PLAYER_SPEED_SCALE*.3,movement.y*profile.speed*PLAYER_SPEED_SCALE*.3);
     if(this.guard.active){this.player.setVelocity(movement.x*profile.speed*PLAYER_SPEED_SCALE*GUARD.speedMultiplier,movement.y*profile.speed*PLAYER_SPEED_SCALE*GUARD.speedMultiplier);this.player.anims.play(`${this.hero}-idle`,true);this.player.setFlipX(false);}
     this.drawGuard();
-    const attackRequested = Phaser.Input.Keyboard.JustDown(this.keys.SPACE) || this.pointerAttack;
+    const attackRequested = Phaser.Input.Keyboard.JustDown(this.keys.SPACE) || this.pointerAttack || !!this.touchAim;
     this.pointerAttack = false;
     if(attackRequested&&this.guard.active)this.feedback('reject');
-    if(attackRequested && !this.guard.active && time-this.lastAttack<this.attackDelay())this.feedback('reject','Attack recovering — wait for the bar.');
+    if(attackRequested && !this.touchAim && !this.guard.active && time-this.lastAttack<this.attackDelay())this.feedback('reject','Attack recovering — wait for the bar.');
     if (attackRequested && !this.guard.active && time - this.lastAttack >= this.attackDelay()) {
       if(profile.weapon==='staff'){if(this.castHeal(this.player))this.lastAttack=time;}else {this.lastAttack = time; this.attack();}
     }
@@ -436,7 +440,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     (ally.getData('weaponIcon') as Phaser.GameObjects.Image).setTexture(`weapon-${p.weapon}`);this.playerWeapon.setTexture(`weapon-${this.profile().weapon}`);
     this.brains.delete(ally);for(const unit of [...this.enemies.getChildren(),...this.allies.getChildren()]){const brain=this.brains.get(unit as Enemy);if(brain?.targetUnit===this.player)brain.targetUnit=ally;else if(brain?.targetUnit===ally)brain.targetUnit=this.player;}
     if(state.health<=0)ally.destroy();else ally.anims.play(`${previous}-idle`);
-    this.playerShot=undefined;this.actionUntil=0;this.pointerAim=undefined;this.pointerAttack=false;this.guard=newGuard();this.touchGuard=false;this.touchMovement={x:0,y:0};this.touchSelfHeal=false;this.guardGuide.clear();this.facing={x:1,y:0};this.keyboardFacing={...this.facing};
+    this.playerShot=undefined;this.actionUntil=0;this.pointerAim=undefined;this.pointerAttack=false;this.guard=newGuard();this.touchGuard=false;this.touchAim=undefined;this.touchMovement={x:0,y:0};this.touchSelfHeal=false;this.guardGuide.clear();this.facing={x:1,y:0};this.keyboardFacing={...this.facing};
     this.battleHud.destroy();this.battleHud=new BattleHud(this,hero,()=>this.switchCharacter(1));this.battleHud.synchronize(this.progression);
     this.feedback('confirm',`${HERO_NAMES[hero]} · controlling`);this.game.events.emit('controlled-character',hero);this.game.events.emit('hero-voice',{hero,event:'select'});this.publishHud();return true;
   }
