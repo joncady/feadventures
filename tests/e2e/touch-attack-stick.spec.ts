@@ -1,6 +1,8 @@
 import {test,expect} from '@playwright/test';
 test.use({hasTouch:true,viewport:{width:390,height:844}});
 test('dual touch sticks aim through all angles and retain independent pointer ownership',async({page})=>{
+ // Twelve real CDP gesture sequences across two orientations exceed one-minute software-WebGL budgets.
+ test.setTimeout(process.env.CI?120000:60000);
  await page.goto('/');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);
  await page.evaluate(async()=>{const{game}=await import(String('/src/main.ts'));game.scene.start('Arena',{hero:'chrom',tactical:true,companions:[],missionIndex:0});});
  await page.waitForFunction(async()=>{const{game}=await import(String('/src/main.ts'));return game.scene.getScene('Arena').player?.active;});
