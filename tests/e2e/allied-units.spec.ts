@@ -33,6 +33,7 @@ test('allies fight enemies, do not count toward waves and their death does not e
     s.damageEnemy(ally,200,'sword');return {damaged,advancing,ended:s.ended,kills:s.kills,allies:s.allies.countActive()};
   });
   expect(state).toEqual({damaged:42,advancing:true,ended:false,kills:1,allies:0});
+  await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');(window as any).__oldAllyArrows=s.arrows;(window as any).__oldAllyShots=s.arrows.getChildren().slice();});
   await page.getByRole('button',{name:'Main menu',exact:true}).press('Enter');await page.getByRole('button',{name:'Begin battle'}).press('Enter');
-  expect(await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');return {allies:s.allies.countActive(),fields:s.targetFields.size,arrows:s.arrows.countActive()};})).toEqual({allies:2,fields:2,arrows:0});
+  expect(await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');return {allies:s.allies.countActive(),fields:s.targetFields.size,newGroup:s.arrows!==(window as any).__oldAllyArrows,oldShotsInactive:(window as any).__oldAllyShots.every((shot:any)=>!shot.active)};})).toEqual({allies:2,fields:2,newGroup:true,oldShotsInactive:true});
 });
