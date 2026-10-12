@@ -57,12 +57,17 @@ footer { margin-top: 18px; flex-wrap: wrap; font: 12px system-ui; color: #b0c1bd
 
 #game canvas { image-rendering: auto; }
 
-/* Touch landscape prioritizes the battlefield over the decorative page title. */
+/* Normal mobile pages retain context; fullscreen is an explicit choice. */
+@media (pointer: coarse) and (max-width: 1100px) {
+  main { padding: max(10px,env(safe-area-inset-top)) max(8px,env(safe-area-inset-right)) max(10px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left)); }
+  main > header { margin-bottom: 10px; gap: 8px; }
+  main > header h1 { font-size: 20px; margin: 4px 0 0; }
+  main > header .eyebrow { margin: 0; font-size: 10px; letter-spacing: 1.5px; }
+  main > header .version { display: block; font-size: 10px; padding: 6px; letter-spacing: 1px; }
+}
 @media (pointer: coarse) and (orientation: landscape) and (max-height: 600px) {
-  body { min-height: 100dvh; overflow: hidden; }
-  main { padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); max-width: none; height: var(--viewport-height,100dvh); display: grid; place-items: center; }
-  main > header { display: none; }
-  .game-shell { width: min(calc(var(--viewport-width,100vw) - env(safe-area-inset-left) - env(safe-area-inset-right)), calc((var(--viewport-height,100dvh) - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 2px) * 896 / 544)); }
+  main { max-width: none; }
+  .game-shell { margin: auto; width: min(100%, calc((var(--viewport-height,100dvh) - var(--page-header-height,62px) - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 22px) * 896 / 544)); }
   #game { touch-action: none; }
 }
 #game canvas { touch-action: none; }
@@ -82,14 +87,18 @@ footer { margin-top: 18px; flex-wrap: wrap; font: 12px system-ui; color: #b0c1bd
 .viewport-fullscreen main { position: fixed; inset: 0; padding: 0; max-width: none; }
 .viewport-fullscreen main > header { display: none; }
 
-/* Orientation is a viewport-level browser gate, not a rotated game canvas. */
+/* Portrait gates only the game, preserving the page title and context. */
 #landscape-required {
-  position:fixed; inset:0; z-index:10000; width:100%; height:var(--viewport-height,100dvh);
+  position:absolute; inset:0; z-index:10000; width:100%; min-height:100%;
   display:flex; flex-direction:column; justify-content:center; align-items:center;
   gap:16px; padding:max(24px,env(safe-area-inset-top)) max(24px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(24px,env(safe-area-inset-left));
   background:#122c3b; color:#f3e7c9; text-align:center; touch-action:none;
 }
+#landscape-required { position: relative; min-height: 360px; }
+.game-shell:fullscreen #landscape-required, .viewport-fullscreen #landscape-required { position:absolute; height:100%; }
 #landscape-required h2 {font-family:FE,serif;font-size:30px;margin:0;}
 #landscape-required p {font:16px/1.5 system-ui;max-width:320px;margin:0;}
 #landscape-required button {min-height:48px;min-width:140px;}
 .rotate-device {font-size:64px;color:#d5b46b;}
+
+.game-shell.portrait-blocked #game { visibility:hidden; position:absolute; inset:0; }

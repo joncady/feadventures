@@ -1,3 +1,4 @@
+import {keyFor} from './game/input/control-preferences';
 import {installMobileLandscape,lockLandscape} from './game/platform/mobile-landscape';
 import {AUDIO_PREFERENCES_KEY,decodeAudioPreferences} from './game/systems/audio-preferences';
 import {VoiceGate} from './game/systems/voice-gate';
@@ -22,6 +23,7 @@ const element = <T extends HTMLElement>(id: string) => document.getElementById(i
 // innerHeight. Keep the containing box current before Phaser calculates FIT.
 function updateViewport():void {
   const viewport=window.visualViewport;
+  document.documentElement.style.setProperty('--page-header-height',`${document.querySelector('main > header')?.getBoundingClientRect().height??62}px`);
   document.documentElement.style.setProperty('--viewport-width',`${viewport?.width??window.innerWidth}px`);
   document.documentElement.style.setProperty('--viewport-height',`${viewport?.height??window.innerHeight}px`);
 }
@@ -145,8 +147,11 @@ publishSave();
 game.events.on('asset-error', (key: string) => {
   // Optional rally recordings fall back to ordinary confirmation feedback.
   if(AUDIO_ASSETS.some(clip=>clip.key===key&&clip.key.includes('-rally-')))return;
-  loadingFailed = true; notice(`Could not load ${key}. Reload to retry.`);
+  loadingFailed = true; game.registry.set('loading-error',key);game.events.emit('loading-error',key);notice(`Could not load ${key}. Retry loading.`);
 });
+game.events.on('ui-retry-load',()=>location.reload());
+let controlsPausedArena=false;
+game.events.on('controls-open',(open:boolean)=>{game.registry.set('controls-open',open);if(open){controlsPausedArena=game.scene.isActive('Arena');if(controlsPausedArena)game.scene.pause('Arena');}else{if(controlsPausedArena&&playing&&!paused&&!game.registry.get('landscape-required'))game.scene.resume('Arena');controlsPausedArena=false;}});
 game.events.on('assets-ready', () => {
   game.sound.mute = muted;
   game.sound.once('unlocked', () => { game.sound.mute = muted; ensureMusic(); });
@@ -261,8 +266,9 @@ element('choose').addEventListener('click', showMenu);
 element('main-menu').addEventListener('click', showMenu);
 pauseButton.addEventListener('click', togglePause);
 window.addEventListener('keydown', event => {
+  if(game.registry.get('controls-open')||game.registry.get('controls-capture'))return;
   if (event.code === 'Escape' && settingsOpen) element('audio-close').click();
-  else if (event.code === 'KeyP' && !event.repeat) togglePause();
+  else if (event.code === keyFor('pause') && !event.repeat) togglePause();
 });
 window.addEventListener('blur', () => {
   if (playing && !paused) togglePause();

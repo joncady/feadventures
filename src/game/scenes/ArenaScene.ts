@@ -1,3 +1,4 @@
+import { keyFor, reducedMotion, phaserKeyCode } from '../input/control-preferences';
 import {COMMANDERS,commanderDefinition,type CommanderId} from '../data/commanders';
 import {healAmount,healingExperience,restoreHealth,selectHealingTarget} from '../systems/healing';
 import {StageOne,STAGE_ONE} from '../systems/stage-one';
@@ -180,7 +181,7 @@ export class ArenaScene extends Phaser.Scene {
       const pickup=item as Enemy;if(pickup.getData('gold')){this.missionGold+=pickup.getData('gold');this.game.events.emit('campaign-gold',this.missionGold);this.showGoldPickup(pickup.getData('gold'));}else {const before=this.health;this.health = Math.min(this.progression.stats.hp, this.health + 25);const restored=this.health-before;if(restored){this.showHealthGain(this.player,restored);this.feedback('confirm');}}item.destroy();this.publishHud();
     });
     const switchEquipment=()=>this.switchWeapon();this.game.events.on('ui-switch-weapon',switchEquipment);this.events.once('shutdown',()=>this.game.events.off('ui-switch-weapon',switchEquipment));
-    this.keys = this.input.keyboard!.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,SPACE,Q,E,R,SHIFT,CTRL') as Record<string, Phaser.Input.Keyboard.Key>;
+    const bindKeys=()=>{const aliases={W:'up',A:'left',S:'down',D:'right',SPACE:'attack',Q:'previous',E:'next',R:'rally',SHIFT:'selfHeal',CTRL:'guard'} as const;this.keys=this.input.keyboard!.addKeys('UP,DOWN,LEFT,RIGHT') as Record<string,Phaser.Input.Keyboard.Key>;for(const [alias,action] of Object.entries(aliases))this.keys[alias]=this.input.keyboard!.addKey(phaserKeyCode(keyFor(action)));};bindKeys();this.game.events.on('controls-changed',bindKeys);this.events.once('shutdown',()=>this.game.events.off('controls-changed',bindKeys));
     this.input.keyboard!.addCapture(['SPACE', 'UP', 'DOWN', 'LEFT', 'RIGHT']);
     if(this.input.manager.pointers.length<4)this.input.addPointer(4-this.input.manager.pointers.length);
     this.input.mouse?.disableContextMenu();
@@ -446,7 +447,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     this.feedback('confirm',`${HERO_NAMES[hero]} · controlling`);this.game.events.emit('controlled-character',hero);this.game.events.emit('hero-voice',{hero,event:'select'});this.publishHud();return true;
   }
   private finishTactical(victory:boolean,reason?:string):void {
-    if(this.ended)return;for(const unit of this.allies.getChildren() as Enemy[]){const prior=unit.getData('autoHealPrior') as number|undefined;if(prior!==undefined)this.setCompanionSlot(unit,prior);}this.ended=true;this.guard.active=false;this.touchGuard=false;this.guardGuide.clear();this.releases=[];this.playerShot=undefined;this.arrows.clear(true,true);this.physics.pause();this.time.removeAllEvents();this.aimGuide.clear();this.telegraphs.clear();this.partyStates.get(this.hero)!.health=this.health;const members=this.party.map(hero=>{const state=this.partyStates.get(hero)!;return {hero,health:state.health,progress:state.progress,loadout:state.loadout};});const victoryReason=victory?(this.map.objective.victory==='defeat-all'?'All enemy forces defeated.':this.map.objective.kind==='advance'?'Eastern exit reached. The party escaped the ambushes.':this.map.objective.kind==='defend'?this.map.commander?`${COMMANDERS[this.map.commander].name} defeated. The village stands.`:'Three attacks survived. The raiders withdraw; the village stands.':this.map.objective.kind==='survive'?this.map.commander?`${COMMANDERS[this.map.commander].name} defeated. The remaining attackers retreat.`:'Siege commander defeated. The remaining attackers retreat.':this.map.commander?`${COMMANDERS[this.map.commander].name} defeated. The remaining guards surrender.`:'Keep commander defeated. The remaining guards surrender.'):reason;this.game.events.emit('game-over',{wave:this.wave,kills:this.kills,victory,reason:victoryReason,missionIndex:this.missionIndex,members:cloneMembers(members),gold:this.missionGold,elapsed:Math.floor(this.battleClock/1000),heldKeys:this.keys.SPACE.isDown?['Space']:[]});
+    if(this.ended)return;for(const unit of this.allies.getChildren() as Enemy[]){const prior=unit.getData('autoHealPrior') as number|undefined;if(prior!==undefined)this.setCompanionSlot(unit,prior);}this.ended=true;this.guard.active=false;this.touchGuard=false;this.guardGuide.clear();this.releases=[];this.playerShot=undefined;this.arrows.clear(true,true);this.physics.pause();this.time.removeAllEvents();this.aimGuide.clear();this.telegraphs.clear();this.partyStates.get(this.hero)!.health=this.health;const members=this.party.map(hero=>{const state=this.partyStates.get(hero)!;return {hero,health:state.health,progress:state.progress,loadout:state.loadout};});const victoryReason=victory?(this.map.objective.victory==='defeat-all'?'All enemy forces defeated.':this.map.objective.kind==='advance'?'Eastern exit reached. The party escaped the ambushes.':this.map.objective.kind==='defend'?this.map.commander?`${COMMANDERS[this.map.commander].name} defeated. The village stands.`:'Three attacks survived. The raiders withdraw; the village stands.':this.map.objective.kind==='survive'?this.map.commander?`${COMMANDERS[this.map.commander].name} defeated. The remaining attackers retreat.`:'Siege commander defeated. The remaining attackers retreat.':this.map.commander?`${COMMANDERS[this.map.commander].name} defeated. The remaining guards surrender.`:'Keep commander defeated. The remaining guards surrender.'):reason;this.game.events.emit('game-over',{wave:this.wave,kills:this.kills,victory,reason:victoryReason,missionIndex:this.missionIndex,members:cloneMembers(members),gold:this.missionGold,elapsed:Math.floor(this.battleClock/1000),heldKeys:this.keys.SPACE.isDown?[keyFor('attack')]:[]});
   }
   private objectiveStatus():string {
     const phase=this.stage.phase,condition=this.map.objective.victory;
@@ -907,7 +908,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
   }
   private showHealthGain(unit:Enemy,amount:number):void {
     const text=this.add.text(unit.x+22,unit.y-38,`+${amount}`,{fontFamily:'FE',fontSize:'14px',color:'#a2ffc3',stroke:'#15201b',strokeThickness:3}).setOrigin(.5).setDepth(25).setData('health-gain',amount);
-    this.tweens.add({targets:text,y:text.y-18,alpha:0,duration:650,onComplete:()=>text.destroy()});
+    this.tweens.add({targets:text,y:text.y-(reducedMotion()?0:18),alpha:0,duration:650,onComplete:()=>text.destroy()});
   }
   private attack(): void {
     const profile = this.profile();
@@ -955,7 +956,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     if(companion)this.partyStates.get(companion)!.health=Math.max(0,health);
     const text = this.add.text(enemy.x, enemy.y - 42, `${critical?'CRIT ':''}${damage}${resolved.effective?' ✦':''}${weaponMatchup(weapon, this.enemyWeapon(enemy)) === 1 ? ' ↑' : weaponMatchup(weapon, this.enemyWeapon(enemy)) === -1 ? ' ↓' : ''}`,
       { fontFamily: 'FE', fontSize: '13px', color: '#f5edda', stroke: '#15201b', strokeThickness: 3 }).setDepth(25);
-    this.tweens.add({ targets: text, y: text.y - 18, alpha: 0, duration: 650, onComplete: () => text.destroy() });
+    this.tweens.add({ targets: text, y: text.y - (reducedMotion()?0:18), alpha: 0, duration: 650, onComplete: () => text.destroy() });
     if (health <= 0) {
       const { x, y } = enemy; const typeKey=enemy.texture.key;const defeatedLevel=enemy.getData('level')??1; const companion=enemy.getData('companionHero') as Hero|undefined;if(companion){this.partyStates.get(companion)!.health=0;this.heroDeath(companion);} const hostile = this.faction(enemy) === 'enemy'; enemy.destroy(); if (hostile) { this.kills++; this.awardExperience(typeKey,defeatedLevel); }
       if(hostile&&this.tactical){const coin=this.pickups.create(x,y,'gold') as Enemy;coin.setDisplaySize(20,20).setDepth(12).setData({gold:Phaser.Math.Between(12,22),goldExpires:this.battleClock+20000});coin.setSize(coin.width,coin.height);}
@@ -986,7 +987,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     this.goldCollectedAt=this.battleClock;
     const popup=this.goldPopup!;this.tweens.killTweensOf(popup);
     popup.setPosition(this.player.x,this.player.y-45).setAlpha(1).setText(`+${this.goldPopupTotal}`);
-    this.tweens.add({targets:popup,y:popup.y-22,alpha:0,duration:1000,onComplete:()=>popup.destroy()});
+    this.tweens.add({targets:popup,y:popup.y-(reducedMotion()?0:22),alpha:0,duration:1000,onComplete:()=>popup.destroy()});
   }
   private heroDeath(hero:Hero):void {if(this.fallenVoices.has(hero))return;this.fallenVoices.add(hero);this.game.events.emit('hero-voice',{hero,event:'death'});}
   private takeDamage(base: number, weapon: WeaponType = this.profile().weapon,source?:Point): void {
@@ -994,7 +995,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     let damage=resolved.damage;
     if (this.ended || this.time.now - this.lastDamage < 700) return;
     const avoid=Math.min(.25,((this.progression.stats.speed-this.progression.base.speed)*3+this.progression.stats.luck-this.progression.base.luck)/200);
-    if(Math.random()<avoid){this.lastDamage=this.time.now;const symbol=this.add.text(this.player.x+22,this.player.y-38,'↷',{fontFamily:'sans-serif',fontSize:'22px',color:'#bce9ff',stroke:'#15201b',strokeThickness:3}).setOrigin(.5).setDepth(25).setData('evade-feedback',true);this.tweens.add({targets:symbol,y:symbol.y-15,alpha:0,duration:650,onComplete:()=>symbol.destroy()});this.game.events.emit('effect','ui-cursor',{volume:.12,position:{x:this.player.x,y:this.player.y}});return;}
+    if(Math.random()<avoid){this.lastDamage=this.time.now;const symbol=this.add.text(this.player.x+22,this.player.y-38,'↷',{fontFamily:'sans-serif',fontSize:'22px',color:'#bce9ff',stroke:'#15201b',strokeThickness:3}).setOrigin(.5).setDepth(25).setData('evade-feedback',true);this.tweens.add({targets:symbol,y:symbol.y-(reducedMotion()?0:15),alpha:0,duration:650,onComplete:()=>symbol.destroy()});this.game.events.emit('effect','ui-cursor',{volume:.12,position:{x:this.player.x,y:this.player.y}});return;}
     if(source){const origin=this.bodyCenter(this.player),blocked=guardedDamage(this.guard,damage,resolved.kind,Math.atan2(this.facing.y,this.facing.x),Math.atan2(source.y-origin.y,source.x-origin.x));damage=blocked.damage;if(blocked.blocked){this.guardGuide.setAlpha(.65);this.tweens.add({targets:this.guardGuide,alpha:1,duration:120});this.game.events.emit('effect','ui-confirm',{volume:.14,position:origin});}}
     this.lastDamage = this.time.now;
     this.health = Math.max(0, this.health - damage);

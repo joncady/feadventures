@@ -1,3 +1,4 @@
+import { CONTROL_LABELS, DEFAULT_BINDINGS, readControlPreferences, saveControlPreferences, keyFor, keyLabel, validBinding, type ControlAction, type ControlPreferences } from '../input/control-preferences';
 import Phaser from 'phaser';
 import { TouchControls } from '../input/TouchControls';
 import { APP_VERSION } from '../data/version';
@@ -102,6 +103,14 @@ export class InterfaceScene extends Phaser.Scene {
   private speaker!: Phaser.GameObjects.Graphics;
   private stats!: Phaser.GameObjects.Text;
   private notice!: Phaser.GameObjects.Text;
+  private pauseKeyLabels:Phaser.GameObjects.Text[]=[];
+  private pauseGuardText!:Phaser.GameObjects.Text;
+  private controlPanel!:Phaser.GameObjects.Container;
+  private controlRows:Phaser.GameObjects.Text[]=[];
+  private controlFocus=0;
+  private capturing:ControlAction|undefined;
+  private controlPrefs:ControlPreferences=readControlPreferences();
+  private controlMessage!:Phaser.GameObjects.Text;
   private settings!: Phaser.GameObjects.Container;
   private pauseOverlay!: Phaser.GameObjects.Container;
   private endOverlay!: Phaser.GameObjects.Container;
@@ -114,6 +123,9 @@ export class InterfaceScene extends Phaser.Scene {
   private readonly style = { resolution: 3, fontFamily: 'FE', fontSize: '13px', color: '#44351e' };
   constructor() { super('Interface'); }
   create(): void {
+    // Scene instances survive shutdown; never retain destroyed controls across phases.
+    this.controlRows=[];this.pauseKeyLabels=[];this.controlFocus=0;this.capturing=undefined;this.controlPrefs=readControlPreferences();this.registry.set('controls-open',false);this.registry.set('controls-capture',false);
+    this.events.once('shutdown',()=>{if(this.registry.get('controls-open'))this.game.events.emit('controls-open',false);this.registry.set('controls-open',false);this.registry.set('controls-capture',false);this.capturing=undefined;});
     this.touchUsed=window.matchMedia('(pointer: coarse)').matches;
     this.touchControls=new TouchControls(this);
     this.input.on('pointerdown',(p:Phaser.Input.Pointer)=>{if(p.wasTouch){this.touchUsed=true;this.touchControls.setEnabled(this.state?.phase==='battle'&&this.state.playing&&!this.state.paused&&!this.state.settingsOpen);}});
@@ -144,7 +156,9 @@ export class InterfaceScene extends Phaser.Scene {
     const onSave=(save:typeof this.saveState)=>{this.saveState=save;this.updateResume();};
     this.game.events.on('campaign-save-state',onSave);this.events.once('shutdown',()=>this.game.events.off('campaign-save-state',onSave));
     onSave(this.registry.get('campaign-save-state')??this.saveState);
-    this.settings = this.panel(360, 370, 'Settings');
+    this.settings = this.panel(360, 414, 'Settings');
+    this.button(this.settings,-158,175,316,'Controls & accessibility · C',()=>this.openControls());
+    this.createControls();
     this.enabled = this.button(this.settings, -158, -138, 316, '', () => this.request('music'));
     this.levels = this.add.graphics(); this.settings.add(this.levels);
     for (const [i, key] of (['music','effects','voices'] as const).entries()) {
@@ -164,11 +178,13 @@ export class InterfaceScene extends Phaser.Scene {
     this.button(this.settings, 7, 139, 151, 'Close', () => this.request('audio-close'));
     this.pauseOverlay = this.panel(620, 400, 'Paused · Battle controls');
     const controls=[['WASD / Arrows','Move'],['Mouse','Aim attacks (including melee)'],['Space / Left click','Attack or cast equipped ability'],['Q / E','Previous / next living hero'],['F','Switch weapon or ability'],['I / Info','Inspect stats and equipment'],['R','Call companions · 10s / 20s cooldown'],['P','Pause / resume battle']];
-    controls.forEach(([key,meaning],i)=>{const y=-140+i*27;this.pauseOverlay.add(this.add.text(-266,y,key,{...this.style,fontSize:'14px',color:'#183e57'}));this.pauseOverlay.add(this.add.text(-100,y,meaning,{...this.style,fontSize:'13px'}));});
-    this.pauseOverlay.add(this.add.text(-266,84,'Ctrl / right mouse: Guard frontal physical attacks.\nStaff: Space heals allies · Shift + Space heals yourself.\nCompanions with staves automatically help nearby allies in danger.',{...this.style,fontSize:'11px',wordWrap:{width:530}}));
+    controls.forEach(([key,meaning],i)=>{const y=-140+i*27;const label=this.add.text(-266,y,key,{...this.style,fontSize:'14px',color:'#183e57'});this.pauseKeyLabels.push(label);this.pauseOverlay.add(label);this.pauseOverlay.add(this.add.text(-100,y,meaning,{...this.style,fontSize:'13px'}));});
+    this.pauseGuardText=this.add.text(-266,84,'Ctrl / right mouse: Guard frontal physical attacks.\nStaff: Space heals allies · Shift + Space heals yourself.\nCompanions with staves automatically help nearby allies in danger.',{...this.style,fontSize:'11px',wordWrap:{width:530}});this.pauseOverlay.add(this.pauseGuardText);
     this.pauseActions=[()=>this.request('pause'),()=>this.request('audio-options'),()=>this.request('main-menu')];
     this.pauseChoices=['Resume','Settings','Main menu'].map((label,i)=>this.button(this.pauseOverlay,-270+i*185,135,170,label,this.pauseActions[i]));
     this.pauseOverlay.add(this.add.text(0,174,'← / →: choose · Enter / Space: confirm',{...this.style,fontSize:'11px'}).setOrigin(.5));
+    this.refreshPauseBindings();
+    const retryPanel=this.textures.exists('ui-parchment')?this.panel(360,180,'Unable to load game assets'):this.add.container(WORLD.width/2,WORLD.height/2).add([this.add.rectangle(0,0,WORLD.width,WORLD.height,0x0d1d28,.9).setInteractive(),this.add.rectangle(0,0,360,180,0x183e57).setStrokeStyle(2,0xe6d19a),this.add.text(0,-68,'Unable to load game assets',{...this.style,color:'#fff1c7',fontSize:'18px'}).setOrigin(.5)]);retryPanel.setDepth(260).setVisible(false);const fallback=!this.textures.exists('ui-parchment');retryPanel.add(this.add.text(0,-40,'Check your connection, then try again.',{...this.style,color:fallback?'#fff1c7':'#44351e',fontSize:'13px'}).setOrigin(.5));if(fallback){const retryTarget=this.add.rectangle(0,42,280,46,0xe6d19a).setInteractive({useHandCursor:true});retryTarget.on('pointerdown',()=>this.game.events.emit('ui-retry-load'));retryPanel.add([retryTarget,this.add.text(0,42,'Retry loading',{...this.style,color:'#183e57',fontSize:'18px'}).setOrigin(.5)]);}else this.button(retryPanel,-140,18,280,'Retry loading',()=>this.game.events.emit('ui-retry-load'));const onLoadingError=()=>retryPanel.setVisible(true);this.game.events.on('loading-error',onLoadingError);this.events.once('shutdown',()=>this.game.events.off('loading-error',onLoadingError));if(this.registry.get('loading-error'))onLoadingError();
     this.endOverlay = this.panel(340, 208, 'The battle is over');
     this.resultText = this.add.text(0,-43,'',{...this.style,align:'center',wordWrap:{width:290}}).setOrigin(.5,0); this.endOverlay.add(this.resultText);
     this.button(this.endOverlay, -148, 19, 296, 'Try again', () => this.request('restart'));
@@ -314,11 +330,13 @@ export class InterfaceScene extends Phaser.Scene {
   }
   private drawFocus():void {const tile=this.heroTiles[this.focusIndex];if(!tile)return;this.focusFrame.clear().lineStyle(2,0xe7c878).strokeRect(tile.x-2,tile.y-2,100*tile.scaleX+4,76*tile.scaleY+4);this.updatePreview();this.registry.set('character-focus',HEROES[this.focusIndex]);}
   private navigate(event:KeyboardEvent):void {
+    if(this.controlPanel?.visible){this.navigateControls(event);return;}
+    if(this.state?.settingsOpen&&event.code==='KeyC'&&!event.repeat){this.openControls();event.preventDefault();return;}
     if(!this.state||this.state.settingsOpen||this.state.result)return;
     if(event.target instanceof HTMLElement&&event.target.closest('button,input,select,textarea,dialog'))return;
     const key=event.key.toLowerCase();
     if(this.state.paused){if(['w','a','arrowup','arrowleft','s','d','arrowdown','arrowright'].includes(key)){this.pauseFocus=(this.pauseFocus+(['w','a','arrowup','arrowleft'].includes(key)?-1:1)+this.pauseActions.length)%this.pauseActions.length;this.game.events.emit('ux-feedback',{kind:'cursor'});this.updatePauseFocus();}else if((key==='enter'||key===' ')&&!event.repeat)this.pauseActions[this.pauseFocus]?.();else return;event.preventDefault();event.stopImmediatePropagation();return;}
-    if(this.state.phase==='battle'){if(key==='f'&&!event.repeat&&!this.state.paused){this.game.events.emit('ui-switch-weapon');event.preventDefault();}return;}
+    if(this.state.phase==='battle'){if(event.code===keyFor('weapon')&&!event.repeat&&!this.state.paused){this.game.events.emit('ui-switch-weapon');event.preventDefault();}return;}
     if(this.state.phase==='deployment'){
       if(['q','e'].includes(key)){const i=this.deploymentHeroes.indexOf(this.selectedDeployment as Hero);this.game.events.emit('ui-deploy-hero',this.deploymentHeroes[(i+(key==='q'?-1:1)+this.deploymentHeroes.length)%this.deploymentHeroes.length]);}
       else if(['w','a','s','d','arrowup','arrowleft','arrowdown','arrowright'].includes(key)){this.game.events.emit('ui-deploy-move',['a','arrowleft'].includes(key)?-32:['d','arrowright'].includes(key)?32:0,['w','arrowup'].includes(key)?-32:['s','arrowdown'].includes(key)?32:0);}
@@ -334,6 +352,27 @@ export class InterfaceScene extends Phaser.Scene {
       else if(key==='r'&&!event.repeat)this.beginStory();else return;
     }
     event.preventDefault();
+  }
+  private createControls():void {
+    this.controlPanel=this.panel(600,500,'Battle controls & accessibility').setDepth(240).setVisible(false);
+    const actions=Object.keys(DEFAULT_BINDINGS) as ControlAction[];
+    actions.forEach((action,i)=>{const col=i<6?0:1,row=i%6,x=-276+col*280,y=-204+row*48;this.controlRows.push(this.button(this.controlPanel,x,y,264,'',()=>{this.controlFocus=i;this.captureControl(action);}));});
+    this.controlRows.push(this.button(this.controlPanel,-276,98,552,'',()=>{this.controlPrefs.reducedMotion=!this.controlPrefs.reducedMotion;this.persistControls();}));
+    this.controlRows.push(this.button(this.controlPanel,-276,142,264,'Reset defaults',()=>{this.controlPrefs={bindings:{...DEFAULT_BINDINGS},reducedMotion:typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches};this.persistControls();}));
+    this.controlRows.push(this.button(this.controlPanel,12,142,264,'Back',()=>this.closeControls()));
+    this.controlMessage=this.add.text(0,186,'Battle bindings only. Menus and deployment retain default keys.\nChoose an action, then press a key. Escape cancels.',{...this.style,fontSize:'12px',align:'center',wordWrap:{width:540}}).setOrigin(.5,0);this.controlPanel.add(this.controlMessage);this.renderControls();
+  }
+  private openControls():void {this.controlFocus=0;this.capturing=undefined;this.registry.set('controls-open',true);this.game.events.emit('controls-open',true);this.controlPanel.setVisible(true);this.renderControls();}
+  private closeControls():void {this.capturing=undefined;this.registry.set('controls-open',false);this.registry.set('controls-capture',false);this.game.events.emit('controls-open',false);this.controlPanel.setVisible(false);}
+  private captureControl(action:ControlAction):void {this.capturing=action;this.registry.set('controls-capture',true);this.controlMessage.setText(`Press a new key for ${CONTROL_LABELS[action]}. Escape cancels.`);this.renderControls();}
+  private refreshPauseBindings():void {const labels=[`${keyLabel(keyFor('up'))}${keyLabel(keyFor('left'))}${keyLabel(keyFor('down'))}${keyLabel(keyFor('right'))} / Arrows`,'Mouse',`${keyLabel(keyFor('attack'))} / Left click`,`${keyLabel(keyFor('previous'))} / ${keyLabel(keyFor('next'))}`,keyLabel(keyFor('weapon')),'I / Info',keyLabel(keyFor('rally')),keyLabel(keyFor('pause'))];this.pauseKeyLabels.forEach((text,i)=>text.setText(labels[i]));this.pauseGuardText?.setText(`${keyLabel(keyFor('guard'))} / right mouse: Guard frontal physical attacks.\nStaff: ${keyLabel(keyFor('attack'))} heals allies · ${keyLabel(keyFor('selfHeal'))} + ${keyLabel(keyFor('attack'))} heals yourself.\nCompanions with staves automatically help nearby allies in danger.`);}
+  private persistControls():void {saveControlPreferences(this.controlPrefs);this.game.events.emit('controls-changed');this.refreshPauseBindings();this.renderControls();}
+  private renderControls():void {const actions=Object.keys(DEFAULT_BINDINGS) as ControlAction[];actions.forEach((a,i)=>this.controlRows[i].setText(`${CONTROL_LABELS[a]} · ${this.capturing===a?'…':keyLabel(this.controlPrefs.bindings[a])}`));this.controlRows[12]?.setText(`Reduced motion · ${this.controlPrefs.reducedMotion?'On':'Off'}`);this.controlRows.forEach((row,i)=>row.setColor(i===this.controlFocus?'#153e66':'#44351e').setBackgroundColor(i===this.controlFocus?'#fff2cd':'#00000000'));}
+  private navigateControls(event:KeyboardEvent):void {
+    event.preventDefault();event.stopImmediatePropagation();if(event.repeat)return;
+    if(this.capturing){if(event.code==='Escape'){this.capturing=undefined;this.registry.set('controls-capture',false);this.controlMessage.setText('Change canceled.');this.renderControls();return;}const action=this.capturing;if(!validBinding(event.code)){this.controlMessage.setText('Use a letter, number, Space, Shift or Control. I and navigation keys are reserved.');return;}const conflict=(Object.keys(DEFAULT_BINDINGS) as ControlAction[]).find(a=>a!==action&&this.controlPrefs.bindings[a]===event.code);if(conflict){this.controlMessage.setText(`${keyLabel(event.code)} is already assigned to ${CONTROL_LABELS[conflict]}.`);return;}this.controlPrefs.bindings[action]=event.code;this.capturing=undefined;this.registry.set('controls-capture',false);this.controlMessage.setText('Saved. Arrow keys still move and navigate menus.');this.persistControls();return;}
+    if(event.code==='Escape'){this.closeControls();return;}if(['ArrowUp','ArrowLeft','ArrowDown','ArrowRight','Tab'].includes(event.code)){this.controlFocus=(this.controlFocus+(['ArrowUp','ArrowLeft'].includes(event.code)?-1:1)+this.controlRows.length)%this.controlRows.length;this.renderControls();return;}
+    if(event.code==='Enter'||event.code==='Space'){const actions=Object.keys(DEFAULT_BINDINGS) as ControlAction[];if(this.controlFocus<12)this.captureControl(actions[this.controlFocus]);else if(this.controlFocus===12){this.controlPrefs.reducedMotion=!this.controlPrefs.reducedMotion;this.persistControls();}else if(this.controlFocus===13){this.controlPrefs={bindings:{...DEFAULT_BINDINGS},reducedMotion:typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches};this.persistControls();}else this.closeControls();}
   }
   private updatePauseFocus():void {this.pauseChoices.forEach((choice,i)=>choice.setColor(i===this.pauseFocus?'#153e66':'#44351e').setBackgroundColor(i===this.pauseFocus?'#fff2cd':'#00000000'));}
   private request(id:string):void { this.game.events.emit('ui-action',id); }

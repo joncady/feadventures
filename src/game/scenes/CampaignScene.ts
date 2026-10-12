@@ -1,3 +1,4 @@
+import { reducedMotion } from '../input/control-preferences';
 import Phaser from 'phaser';
 import { getMap } from '../data/maps';
 import { HERO_NAMES, type Hero } from '../data/config';
@@ -18,7 +19,7 @@ export class CampaignScene extends Phaser.Scene {
   if(this.textures.exists(background))this.add.image(448,272,background).setDisplaySize(896,544).setAlpha(.3);
   const listener=(state:{gold:number;members:CampaignMemberView[];message?:string})=>{this.dataState.gold=state.gold;this.dataState.members=state.members;this.message=state.message??'Equipment updated.';this.render();};
   this.game.events.on('campaign-shop-state',listener);
-  const key=(event:KeyboardEvent)=>{if(this.finished)return;const k=event.key.toLowerCase();if(['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright',' ','enter','q','e'].includes(k)){event.preventDefault();event.stopImmediatePropagation();}else return;if(event.repeat)return;if(this.phase==='dialogue'){if(k===' '||k==='enter')this.advance();return;}if(['q','e'].includes(k)){this.selectHero((this.heroIndex+(k==='q'?-1:1)+this.dataState.party.length)%this.dataState.party.length);}else if(['w','a','arrowup','arrowleft','s','d','arrowdown','arrowright'].includes(k)){this.focus=(this.focus+(['w','a','arrowup','arrowleft'].includes(k)?-1:1)+this.choiceActions.length)%this.choiceActions.length;this.feedback('cursor');this.updateFocus();}else if(k===' '||k==='enter')this.choiceActions[this.focus]?.();};
+  const key=(event:KeyboardEvent)=>{if(this.finished||this.registry.get('controls-open'))return;const k=event.key.toLowerCase();if(['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright',' ','enter','q','e'].includes(k)){event.preventDefault();event.stopImmediatePropagation();}else return;if(event.repeat)return;if(this.phase==='dialogue'){if(k===' '||k==='enter')this.advance();return;}if(['q','e'].includes(k)){this.selectHero((this.heroIndex+(k==='q'?-1:1)+this.dataState.party.length)%this.dataState.party.length);}else if(['w','a','arrowup','arrowleft','s','d','arrowdown','arrowright'].includes(k)){this.focus=(this.focus+(['w','a','arrowup','arrowleft'].includes(k)?-1:1)+this.choiceActions.length)%this.choiceActions.length;this.feedback('cursor');this.updateFocus();}else if(k===' '||k==='enter')this.choiceActions[this.focus]?.();};
   window.addEventListener('keydown',key,true);this.events.once('shutdown',()=>{window.removeEventListener('keydown',key,true);this.game.events.off('campaign-shop-state',listener);});this.render();
  }
  private feedback(kind:string,message?:string):void{this.game.events.emit('ux-feedback',{kind,message});}
@@ -51,7 +52,7 @@ export class CampaignScene extends Phaser.Scene {
   add(this.text(activeSide===0?65:651,389,HERO_NAMES[current.hero],19).setColor('#f7e5b2'));
   add(this.text(49,430,current.text,19).setWordWrapWidth(775).setLineSpacing(6));
   const caret=add(this.text(834,494,'▼',18).setColor('#62447d')) as Phaser.GameObjects.Text;
-  this.tweens.add({targets:caret,alpha:.35,duration:650,yoyo:true,repeat:-1});
+  if(!reducedMotion())this.tweens.add({targets:caret,alpha:.35,duration:650,yoyo:true,repeat:-1});
   const next=this.add.zone(25,405,846,119).setOrigin(0).setInteractive().setData('dialogue-next',true);add(next);
   next.on('pointerdown',()=>this.advance());
   this.content!.setData('dialogue-speaker',current.hero).setData('dialogue-line',this.line);

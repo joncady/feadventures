@@ -15,7 +15,7 @@ export function installMobileLandscape(game:Phaser.Game,onBlock:()=>void):void {
   const shell=document.querySelector<HTMLElement>('.game-shell')!;
   const overlay=document.createElement('section');
   overlay.id='landscape-required';overlay.hidden=true;overlay.setAttribute('role','dialog');
-  overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-labelledby','landscape-title');
+  overlay.setAttribute('aria-modal','false');overlay.setAttribute('aria-labelledby','landscape-title');
   overlay.innerHTML='<div class="rotate-device" aria-hidden="true">↻</div><h2 id="landscape-title">Rotate your phone</h2><p>Play in landscape for a clear battlefield and room for both controls.</p><button type="button">Fullscreen</button>';
   shell.append(overlay);
   overlay.querySelector('button')!.addEventListener('click',()=>document.getElementById('fullscreen')!.click());
@@ -23,7 +23,7 @@ export function installMobileLandscape(game:Phaser.Game,onBlock:()=>void):void {
   const heldScenes=new Set<string>();
   let heldSounds:Phaser.Sound.BaseSound[]=[];
   const inertNodes=new Map<HTMLElement,boolean>();
-  const isolateFocus=()=>{let branch:HTMLElement=overlay;while(branch.parentElement){for(const sibling of branch.parentElement.children){if(sibling!==branch&&sibling instanceof HTMLElement&&!inertNodes.has(sibling)){inertNodes.set(sibling,sibling.inert);sibling.inert=true;}}branch=branch.parentElement;}};
+  const isolateFocus=()=>{let branch:HTMLElement=overlay;while(branch.parentElement&&branch!==shell){for(const sibling of branch.parentElement.children){if(sibling!==branch&&sibling instanceof HTMLElement&&!inertNodes.has(sibling)){inertNodes.set(sibling,sibling.inert);sibling.inert=true;}}branch=branch.parentElement;}};
   const capture=()=>{
     for(const sound of game.sound.getAllPlaying()){if(!heldSounds.includes(sound))heldSounds.push(sound);sound.pause();}
     // Include scenes opened asynchronously during boot or a queued transition.
@@ -36,7 +36,7 @@ export function installMobileLandscape(game:Phaser.Game,onBlock:()=>void):void {
     const viewport=window.visualViewport;
     const next=requiresLandscape(window.matchMedia('(pointer: coarse)').matches,viewport?.width??innerWidth,viewport?.height??innerHeight);
     if(next===blocked){if(blocked)capture();return;}
-    blocked=next;game.registry.set('landscape-required',blocked);overlay.hidden=!blocked;
+    blocked=next;shell.classList.toggle('portrait-blocked',blocked);game.registry.set('landscape-required',blocked);overlay.hidden=!blocked;
     if(blocked){
       isolateFocus();priorInput=game.input.enabled;game.input.enabled=false;
       game.events.emit('orientation-blocked');onBlock();

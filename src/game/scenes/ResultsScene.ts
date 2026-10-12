@@ -38,7 +38,7 @@ export class ResultsScene extends Phaser.Scene {
   text(448,455,result.missionIndex===3?'Finish campaign':'Continue',19).setOrigin(.5,0);
   const enteredAt=performance.now();
   button.on('pointerdown',()=>{if(performance.now()-enteredAt>=150)this.continue();});
-  const key=(event:KeyboardEvent)=>{if(this.blockedKeys.has(event.code)||event.repeat||event.code!=='Space'&&event.code!=='Enter')return;event.preventDefault();event.stopImmediatePropagation();this.continue();};
+  const key=(event:KeyboardEvent)=>{if(this.registry.get('controls-open'))return;if(this.blockedKeys.has(event.code)||event.repeat||event.code!=='Space'&&event.code!=='Enter')return;event.preventDefault();event.stopImmediatePropagation();this.continue();};
   const release=(event:KeyboardEvent)=>this.blockedKeys.delete(event.code);
   window.addEventListener('keydown',key,true);window.addEventListener('keyup',release,true);
   this.events.once('shutdown',()=>{window.removeEventListener('keydown',key,true);window.removeEventListener('keyup',release,true);});
