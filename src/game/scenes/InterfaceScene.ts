@@ -126,7 +126,11 @@ export class InterfaceScene extends Phaser.Scene {
     const onFeedback=({kind,message}:{kind:string;message?:string})=>{if(kind==='clear'){this.actionFeedbackTimer?.remove();this.actionFeedback.setVisible(false);return;}if(!message)return;this.actionFeedback.setPosition(this.state?.playing?448:740,this.state?.playing?(this.bossPanel?.visible?110:44):382).setWordWrapWidth(this.state?.playing?760:218).setText(message).setColor(kind==='reject'?'#ffbd98':'#fff0c6').setVisible(true);this.actionFeedbackTimer?.remove();this.actionFeedbackTimer=this.time.delayedCall(1300,()=>this.actionFeedback.setVisible(false));};this.game.events.on('ux-feedback-visible',onFeedback);this.events.once('shutdown',()=>this.game.events.off('ux-feedback-visible',onFeedback));
     this.stats = this.add.text(12, 9, 'Choose your hero', { ...this.style, color:'#fff0c6', fontSize:'12px' });
     this.headerUtilities=this.add.container();
-    this.button(this.headerUtilities, 760, 3, 128, 'Settings', () => this.request('audio-options'));
+    this.button(this.headerUtilities, 678, 3, 124, 'Settings', () => this.request('audio-options'));
+    const fullscreen=this.add.container().setDepth(180);
+    this.button(fullscreen,0,0,28,'⛶',()=>this.request('fullscreen'));
+    const layoutFullscreen=()=>{const width=this.game.canvas.getBoundingClientRect().width||896;const factor=this.touchUsed?Math.max(1,44*896/width/28):1;fullscreen.setScale(factor).setPosition(896-28*factor-4,3);const shift=Math.min(0,fullscreen.x-8-802);this.headerUtilities.setX(shift);this.menuButton?.setX(shift);this.pauseButton?.setX(shift);this.registry.set('fullscreen-control',{x:fullscreen.x,y:fullscreen.y,width:28*factor,height:28*factor});};
+    this.scale.on('resize',layoutFullscreen);this.events.once('shutdown',()=>this.scale.off('resize',layoutFullscreen));layoutFullscreen();
     this.menuButton = this.add.container();
     this.button(this.menuButton, 678, 3, 56, 'Menu', () => this.request('main-menu'));
     this.pauseButton = this.add.container();
@@ -299,7 +303,7 @@ export class InterfaceScene extends Phaser.Scene {
     this.miniTitle.setText(data.title??'Battlefield');
     if(!data.deploying)this.stats.setText(data.objectiveStatus??data.objective??'Complete the objective');
     // Gold is spent in preparations; combat uses brief pickup feedback only.
-    this.goldCounter.setVisible(false);this.goldValue.setText(`${data.gold??0}`);this.cooldownBar.clear();this.cooldownText.setVisible(!data.deploying);if(!data.deploying){const cooldownY=this.touchUsed?176:525;this.cooldownText.setPosition(470,cooldownY-11);this.cooldownBar.fillStyle(0x183e57).fillRect(330,cooldownY,280,10).fillStyle(data.cooldown.recovering?0xe7a55d:data.cooldown.fraction===1?0x85cda1:0x86baff).fillRect(332,cooldownY+2,276*data.cooldown.fraction,6);this.cooldownText.setText(`${data.cooldown.recovering?'Recovering':data.cooldown.fraction===1?'Attack ready':'Recharging'}${data.cooldown.remaining>0?` · ${data.cooldown.remaining.toFixed(1)}s`:''}${data.camp?` · Camp ${Math.max(0,data.camp.health)}`:''}`);}
+    this.goldCounter.setVisible(false);this.goldValue.setText(`${data.gold??0}`);this.cooldownBar.clear();this.cooldownText.setVisible(!data.deploying);if(!data.deploying){const cooldownY=525,cooldownX=this.touchUsed?300:330,cooldownWidth=this.touchUsed?180:280;this.cooldownText.setPosition(cooldownX+cooldownWidth/2,cooldownY-11);this.cooldownBar.fillStyle(0x183e57).fillRect(cooldownX,cooldownY,cooldownWidth,10).fillStyle(data.cooldown.recovering?0xe7a55d:data.cooldown.fraction===1?0x85cda1:0x86baff).fillRect(cooldownX+2,cooldownY+2,(cooldownWidth-4)*data.cooldown.fraction,6);this.cooldownText.setText(`${data.cooldown.recovering?'Recovering':data.cooldown.fraction===1?'Attack ready':'Recharging'}${data.cooldown.remaining>0?` · ${data.cooldown.remaining.toFixed(1)}s`:''}${data.camp?` · Camp ${Math.max(0,data.camp.health)}`:''}`);}
     const g=this.minimap;g.clear().fillStyle(0x152c37,.96).fillRect(712,38,172,20).lineStyle(1,0xae8746).strokeRect(716,58,164,100);
     const sx=164/data.width,sy=100/data.height;
     for(const p of data.enemies)g.fillStyle(0xeb5555).fillCircle(716+p.x*sx,58+p.y*sy,2);

@@ -15,10 +15,14 @@ test('dual touch sticks aim through all angles and retain independent pointer ow
   const b=(await page.locator('canvas').boundingBox())!,l=(await snapshot()).layout;
   const at=(x:number,y:number,id:number)=>({x:b.x+x*b.width/896,y:b.y+y*b.height/544,id});
   const move=at(l.joystick.x+l.radius*.7,l.joystick.y,1),aim=(x:number,y:number)=>at(l.attack.x+x*l.attack.radius*.8,l.attack.y+y*l.attack.radius*.8,2);
-  expect(l.attack.radius*2.4*b.width/896).toBeGreaterThan(43.9);
-  // The complete stick clears the minimap and the first utility-action row.
+  expect(l.attack.radius*2.4*b.width/896).toBeGreaterThan(71);
+  // Commands form aligned columns in two rows, with full-sized targets clear of both sticks.
+  expect(new Set(l.actions.slice(0,6).map((action:any)=>action.y)).size).toBe(2);
+  for(let column=0;column<3;column++) expect(l.actions[column].x).toBe(l.actions[column+3].x);
+  expect(l.actions[0].x-l.actions[0].size/2).toBeGreaterThan(480); // Cooldown remains unobstructed at the bottom center.
+  for(const action of l.actions.slice(0,6)){const dx=Math.max(0,Math.abs(l.joystick.x-action.x)-action.size/2),dy=Math.max(0,Math.abs(l.joystick.y-action.y)-action.size/2);expect(Math.hypot(dx,dy)).toBeGreaterThan(l.radius*1.2);}
   expect(l.attack.y-l.attack.radius*1.2).toBeGreaterThan(158);
-  expect(l.attack.y+l.attack.radius*1.2).toBeLessThan(l.actions[3].y-l.actions[3].size/2);
+  for(const action of l.actions){const dx=Math.max(0,Math.abs(l.attack.x-action.x)-action.size/2),dy=Math.max(0,Math.abs(l.attack.y-action.y)-action.size/2);expect(Math.hypot(dx,dy)).toBeGreaterThan(l.attack.radius*1.2);}
   await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[move]});await expect.poll(async()=>(await snapshot()).move.x).toBeGreaterThan(0);
   for(const[x,y]of[[1,0],[0,1],[-1,0],[0,-1],[.707,.707],[-.707,-.707]]){
    await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[move,aim(x,y)]});

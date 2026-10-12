@@ -227,7 +227,7 @@ export class ArenaScene extends Phaser.Scene {
     if(this.deploying){this.deploymentGuide.clear().fillStyle(0x48aaff,.3).fillRect(this.deploymentCursor.x-32,this.deploymentCursor.y-32,64,64).lineStyle(3,0x79bcff).strokeRect(this.deploymentCursor.x-32,this.deploymentCursor.y-32,64,64);this.drawHealthBars();this.publishTacticalMap();return;}
     if(this.tactical)this.battleClock+=delta;
     this.updateGoldPickups();
-    if(this.rallyUntil && time>=this.rallyUntil){this.rallyUntil=0;this.game.events.emit('notice','Rally ended — companions return to their posts.');}
+    if(this.rallyUntil && time>=this.rallyUntil)this.endRally();
     if(this.tactical&&Phaser.Input.Keyboard.JustDown(this.keys.R))this.rallyCompanions();
     if (Phaser.Input.Keyboard.JustDown(this.keys.Q)) this.tactical?this.switchCharacter(-1):this.toggleAllyMode();
     if (this.tactical && Phaser.Input.Keyboard.JustDown(this.keys.E)) this.switchCharacter(1);
@@ -421,7 +421,8 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     const type=COMMANDERS[key as CommanderId]??ENEMY_TYPES.find(t=>t.key===key)!;const enemy=this.enemies.create(x,y,key) as Enemy;
     enemy.setSize(28,28).setOffset(11,15).setCollideWorldBounds(true).setDepth(9);enemy.body!.updateFromGameObject();
     const icon=this.add.image(x,y,`weapon-${type.weapon}`).setDisplaySize(16,16).setDepth(21);
-    const marker=this.add.text(x,y,'',{fontFamily:'FE',fontSize:'11px',backgroundColor:'#15201b'}).setDepth(21);enemy.setData({weaponIcon:icon,weaponMarker:marker,weapon:type.weapon,defense:type.defense,resistance:type.resistance,health:'health' in type?type.health:100,maxHealth:'health' in type?type.health:100,speed:type.speed,damage:Math.round(type.damage*(this.missionIndex===undefined?1:this.map.waves.damageScale)),level:this.missionIndex===undefined?1:this.missionIndex+1});enemy.once('destroy',()=>{marker.destroy();icon.destroy();});return enemy;
+    const health=Math.round(('health' in type?Number(type.health):100)*(this.missionIndex===undefined?1:this.map.waves.healthScale??1));
+    const marker=this.add.text(x,y,'',{fontFamily:'FE',fontSize:'11px',backgroundColor:'#15201b'}).setDepth(21);enemy.setData({weaponIcon:icon,weaponMarker:marker,weapon:type.weapon,defense:type.defense,resistance:type.resistance,health,maxHealth:health,speed:type.speed,damage:Math.round(type.damage*(this.missionIndex===undefined?1:this.map.waves.damageScale)),level:this.missionIndex===undefined?1:this.missionIndex+1});enemy.once('destroy',()=>{marker.destroy();icon.destroy();});return enemy;
   }
   private switchCharacter(step:number):boolean {
     if(!this.tactical || this.deploying || this.ended)return false;
@@ -511,23 +512,40 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     if(!(this.allies.getChildren() as Enemy[]).some(u=>u.active&&u.getData('companionHero')&&u.getData('health')>0)){this.feedback('reject','No living companions to rally.');return false;}
     if(this.time.now<this.rallyReadyAt){this.feedback('reject',`Rally ready in ${Math.ceil((this.rallyReadyAt-this.time.now)/1000)}s`);return false;}
     this.rallyUntil=this.time.now+10000;this.rallyReadyAt=this.time.now+20000;
-    for(const unit of this.allies.getChildren() as Enemy[])if(unit.getData('companionHero')){unit.setData('retaliation',undefined);this.brains.delete(unit);}
+    for(const unit of this.allies.getChildren() as Enemy[])if(unit.getData('companionHero')){unit.setData({retaliation:undefined,rallyEngagement:undefined,rallyReturning:false});this.brains.delete(unit);}
     this.game.events.emit('hero-voice',{hero:this.hero,event:'rally'});
     this.feedback('confirm','Companions rally to you for 10 seconds');return true;
+  }
+  private endRally():void {
+    this.rallyUntil=0;
+    // Finish fighting around the gathered position, without chasing beyond its original AOE.
+    // Once that pocket is clear, the normal post anchor takes over at walking speed.
+    for(const unit of this.allies.getChildren() as Enemy[])if(unit.active&&unit.getData('companionHero'))unit.setData('rallyEngagement',this.bodyCenter(unit));
+    this.game.events.emit('notice','Rally ended — companions finish nearby engagements.');
   }
   private rallying(unit:Enemy):boolean {return this.rallyUntil>this.time.now&&!!unit.getData('companionHero');}
   private allyAnchor(unit:Enemy):Point {
     if(this.rallying(unit)){const center=this.bodyCenter(this.player),slot=this.party.indexOf(unit.getData('companionHero'));const offsets=[{x:-84,y:-60},{x:86,y:44},{x:-44,y:90},{x:72,y:-82}];const offset=offsets[Math.max(0,slot)%offsets.length];const target={x:Phaser.Math.Clamp(center.x+offset.x,24,this.width-24),y:Phaser.Math.Clamp(center.y+offset.y,24,this.height-24)};return this.unitFlying(unit)?target:this.navigation.recoveryPoint(target)??target;}
 
     const holds=this.tactical&&(this.map.companionBehavior==='hold'||(this.missionIndex===undefined&&!unit.getData('companionHero')));
-    if(holds)return unit.getData('home') as Point??this.bodyCenter(unit);
+    if(holds){
+      const origin=this.bodyCenter(unit),home=unit.getData('home') as Point??origin;
+      const engagement=unit.getData('rallyEngagement') as Point|undefined;
+      const threats=(anchor:Point,radius:number)=>(this.enemies.getChildren() as Enemy[]).some(enemy=>enemy.active&&enemy.getData('health')>0&&Phaser.Math.Distance.BetweenPoints(anchor,this.bodyCenter(enemy))<=radius);
+      if(engagement){if(threats(engagement,this.map.companionRadius))return engagement;unit.setData({rallyEngagement:undefined,rallyReturning:true});}
+      if(unit.getData('rallyReturning')){
+        if(Phaser.Math.Distance.BetweenPoints(origin,home)<=32)unit.setData('rallyReturning',false);
+        else if(threats(origin,140)){unit.setData('rallyEngagement',origin);return origin;}
+      }
+      return home;
+    }
     const center=this.bodyCenter(this.player);if(this.missionIndex===undefined)return center;
     const hero=unit.getData('companionHero') as Hero|undefined;const slot=hero?this.party.indexOf(hero):this.party.length+Number(String(unit.getData('deploymentId')).split('-')[1]??0);
     const anchor=this.followFormation.anchor(this.followIdentity(unit),slot,center,this.time.now);const target={x:Phaser.Math.Clamp(anchor.x,24,this.width-24),y:Phaser.Math.Clamp(anchor.y,24,this.height-24)};return this.unitFlying(unit)?target:this.navigation.recoveryPoint(target)??target;
   }
   private followIdentity(unit:Enemy):string {return unit.getData('companionHero')??unit.getData('deploymentId')??unit.name;}
   private following(unit:Enemy,origin:Point,target:Point):boolean {return this.tactical&&this.missionIndex!==undefined&&this.map.companionBehavior==='follow'?this.followFormation.moving(this.followIdentity(unit),origin,target):Phaser.Math.Distance.BetweenPoints(origin,target)>(this.tactical?16:70);}
-  private followSpeed(unit:Enemy,origin:Point,target:Point):number {const distance=Phaser.Math.Distance.BetweenPoints(origin,target);return unit.getData('speed')*(this.missionIndex!==undefined&&this.map.companionBehavior==='follow'?Phaser.Math.Clamp(distance/130,.45,.94):1);}
+  private followSpeed(unit:Enemy,origin:Point,target:Point):number {const distance=Phaser.Math.Distance.BetweenPoints(origin,target);return unit.getData('speed')*(this.missionIndex!==undefined&&this.map.companionBehavior==='follow'?Phaser.Math.Clamp(distance/130,.45,.94):this.tactical&&unit.getData('companionHero')&&!this.rallying(unit)?Phaser.Math.Clamp(distance/130,.45,.75):1);}
   private retaliationRadius(unit:Enemy):number {return this.tactical&&this.map.companionBehavior==='hold'?(unit.getData('companionHero')?this.map.companionRadius:Math.min(300,this.map.companionRadius)):480;}
   private chooseTarget(unit: Enemy, current?: Enemy): Enemy | undefined {
     if(this.enemyWeapon(unit)==='staff')return undefined;
