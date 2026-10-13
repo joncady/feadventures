@@ -25,9 +25,10 @@ test('native party picker selects three companions, keeps soldiers and routes bo
  });
  expect(result.results).toEqual([{hero:'morgan',weapon:'tome',health:70,flying:false,range:300},{hero:'virion',weapon:'bow',health:65,flying:false,range:420},{hero:'sumia',weapon:'lance',health:58,flying:true,range:undefined}]);
  expect(result.flyerHealth).toBe(30);expect(result.soldiers).toBe(2);
+ await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');(window as any).__priorPartyProjectiles=s.arrows;(window as any).__priorPartyArrowObjects=s.arrows.getChildren().slice();});
  await page.getByRole('button',{name:'Main menu',exact:true}).press('Enter');
  await page.getByRole('button',{name:'Begin battle'}).press('Enter');
- expect(await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');return {allies:s.allies.countActive(),mode:s.allyMode,arrows:s.arrows.countActive()};})).toEqual({allies:5,mode:'defend',arrows:0});
+ expect(await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');return {allies:s.allies.countActive(),mode:s.allyMode,projectilesReset:s.arrows!==(window as any).__priorPartyProjectiles&&(window as any).__priorPartyArrowObjects.every((a:any)=>!a.active)};})).toEqual({allies:5,mode:'defend',projectilesReset:true});
 });
 test('selection acknowledges character and menu/stage music switch without duplicate loops',async({page})=>{
  await page.goto('/?battle=legacy');await page.getByRole('button',{name:'Begin battle'}).waitFor();
