@@ -11,8 +11,11 @@ test('loads assets, starts a wave, pauses, dies and restarts cleanly', async ({ 
   await expect(page.locator('#game')).toHaveAttribute('data-enemies', '1');
   await page.getByRole('button', { name: 'Pause', exact: true }).press('Enter');
   await expect(page.locator('#notice')).toContainText('Paused');
+  const pausedEnemyCount = await page.locator('#game').getAttribute('data-enemies');
   await page.waitForTimeout(1800);
-  await expect(page.locator('#game')).toHaveAttribute('data-enemies', '1');
+  // A second staggered spawn can happen before the pause input is processed on
+  // software-rendered CI. Assert that the observed paused state stays frozen.
+  await expect(page.locator('#game')).toHaveAttribute('data-enemies', pausedEnemyCount!);
   await page.getByRole('button', { name: 'Resume', exact: true }).press('Enter');
   await page.locator('#game').focus();
   await page.keyboard.down('d'); await page.waitForTimeout(400); await page.keyboard.up('d');
