@@ -1,3 +1,4 @@
+import { waitForAsyncReady } from './async-readiness';
 import {test,expect} from '@playwright/test';
 test('four-mission campaign carries party progress and equipment through shop and victory',async({page})=>{
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.stack??e.message));await page.goto('/');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);await page.locator('#start').press('Enter');
@@ -18,7 +19,7 @@ test('traveling party cannot shove the controlled hero while attacking and wave 
  await page.goto('/');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);
  await page.locator('#party-mode').press('Enter');for(const hero of ['Virion','Sumia','Lissa'])await page.getByRole('button',{name:hero,exact:true}).press('Enter');await page.locator('#start').press('Enter');
  await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);game.events.emit('campaign-continue');});
- await page.waitForFunction(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').deploying;});
+ await waitForAsyncReady(page, async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').deploying;});
  for(let i=0;i<4;i++)await page.keyboard.press('Space',{delay:70});await page.keyboard.press('r',{delay:70});
  const initial=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');return {x:a.player.x,y:a.player.y};});
  await page.keyboard.down('d');for(let i=0;i<4;i++){await page.keyboard.press('Space',{delay:80});await page.waitForTimeout(400);}await page.keyboard.up('d');
@@ -27,20 +28,20 @@ test('traveling party cannot shove the controlled hero while attacking and wave 
 });
 test('an objective victory reached inside Arena update shuts down cleanly before publishing the old camera',async({page})=>{
  const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));await page.goto('/');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);await page.locator('#start').press('Enter');
- await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);game.events.emit('campaign-continue');});await page.waitForFunction(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').deploying;});
+ await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);game.events.emit('campaign-continue');});await waitForAsyncReady(page, async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').deploying;});
  const victory=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');a.confirmDeployment();a.launchBattle();game.scene.pause('Arena');a.stage.phase='complete';a.player.body.reset(1184,a.map.objective.y);a.player.body.updateFromGameObject();a.update(a.time.now,0);return {ended:a.ended,results:game.scene.isActive('Results')};});expect(victory).toEqual({ended:true,results:true});await page.keyboard.press('Enter');await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Campaign').dataState.missionIndex;})).toBe(1);expect(errors).toEqual([]);
 });
 test('campaign defeat restores pre-mission HP equipment XP and exact treasury without duplicating pickups',async({page})=>{
  await page.goto('/');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);await page.locator('#start').press('Enter');
  await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);game.events.emit('campaign-shop-upgrade',{hero:'chrom',slot:0});game.events.emit('campaign-continue');});
- await page.waitForFunction(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').deploying;});
+ await waitForAsyncReady(page, async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').deploying;});
  await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');a.confirmDeployment();a.launchBattle();a.partyStates.get('chrom').progress.xp=99;a.missionGold=777;a.health=0;a.partyStates.get('chrom').health=0;a.finishTactical(false,'Party defeated.');});
  await page.locator('#restart').press('Enter');
  const restored=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena'),s=a.partyStates.get('chrom');return {health:s.health,xp:s.progress.xp,forge:s.loadout.items[0].forge,gold:a.treasuryGold,earned:a.missionGold};});expect(restored).toEqual({health:100,xp:0,forge:1,gold:20,earned:0});
 });
 test('staff support ignores hostile retaliation and party companions share controlled hit grace',async({page})=>{
  await page.goto('/');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);await page.locator('#party-mode').press('Enter');await page.getByRole('button',{name:'Lissa',exact:true}).press('Enter');await page.locator('#start').press('Enter');
- await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);game.events.emit('campaign-continue');});await page.waitForFunction(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').deploying;});
+ await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);game.events.emit('campaign-continue');});await waitForAsyncReady(page, async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').deploying;});
  const support=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');a.confirmDeployment();a.launchBattle();game.scene.pause('Arena');const healer=a.allies.getChildren().find((u:any)=>u.getData('companionHero')==='lissa');const foe=a.createHostile(healer.x+120,healer.y,'archer');healer.setData('retaliation',{unit:foe,until:a.time.now+6000});a.updateEnemy(healer,a.time.now);const target=a.chooseTarget(healer,foe);const before=healer.getData('health');a.damageEnemy(healer,20,'bow','enemy',undefined,foe);const once=healer.getData('health');a.damageEnemy(healer,20,'bow','enemy',undefined,foe);return {target:!!target,retaliation:!!healer.getData('retaliation'),before,once,twice:healer.getData('health')};});expect(support.target).toBe(false);expect(support.once).toBeLessThan(support.before);expect(support.twice).toBe(support.once);
 });
 

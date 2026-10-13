@@ -1,3 +1,4 @@
+import { waitForAsyncReady } from './async-readiness';
 import {test,expect} from '@playwright/test';
 test.use({hasTouch:true,viewport:{width:844,height:390}});
 test('dual touch sticks aim through all angles and retain independent pointer ownership',async({page})=>{
@@ -5,7 +6,7 @@ test('dual touch sticks aim through all angles and retain independent pointer ow
  test.setTimeout(process.env.CI?120000:60000);
  await page.goto('/');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);
  await page.evaluate(async()=>{const{game}=await import(String('/src/main.ts'));game.scene.start('Arena',{hero:'chrom',tactical:true,companions:[],missionIndex:0});});
- await page.waitForFunction(async()=>{const{game}=await import(String('/src/main.ts'));return game.scene.getScene('Arena').player?.active;});
+ await waitForAsyncReady(page, async()=>{const{game}=await import(String('/src/main.ts'));return game.scene.getScene('Arena').player?.active;});
  await page.evaluate(async()=>{const{game}=await import(String('/src/main.ts'));const a=game.scene.getScene('Arena');a.autoPlaceDeployment();a.launchBattle();a.releases=[];a.enemies.clear(true,true);a.updateEnemy=()=>{};game.events.emit('ui-state',{...game.registry.get('interface-state'),phase:'battle',playing:true,paused:false,settingsOpen:false});});
  // Isolate pointer ownership from random combat deaths; keep native inputs, frames and cooldowns live.
  const cdp=await page.context().newCDPSession(page);
@@ -41,7 +42,7 @@ test('touch staff stick heals allies; self heal, guard, and pause remain separat
  // Initialize the actual application battle phase so Pause has its real state gate.
  await page.locator('#start').press('Enter');await page.keyboard.press('Space',{delay:70});await page.keyboard.press('r',{delay:70});
  await page.evaluate(async()=>{const{game}=await import(String('/src/main.ts'));game.scene.start('Arena',{hero:'lissa',tactical:true,companions:['chrom'],missionIndex:0});});
- await page.waitForFunction(async()=>{const{game}=await import(String('/src/main.ts'));return game.scene.getScene('Arena').player?.active;});
+ await waitForAsyncReady(page, async()=>{const{game}=await import(String('/src/main.ts'));return game.scene.getScene('Arena').player?.active;});
  await page.evaluate(async()=>{const{game}=await import(String('/src/main.ts'));const a=game.scene.getScene('Arena');a.autoPlaceDeployment();a.launchBattle();a.releases=[];a.enemies.clear(true,true);a.updateEnemy=()=>{};a.health=50;a.partyStates.get('lissa').health=50;const u=a.allies.getChildren().find((u:any)=>u.getData('companionHero')==='chrom');u.body.reset(a.player.x+80,a.player.y);u.setData('health',20);a.partyStates.get('chrom').health=20;game.events.emit('ui-state',{...game.registry.get('interface-state'),phase:'battle',playing:true,paused:false,settingsOpen:false});});
  const cdp=await page.context().newCDPSession(page),b=(await page.locator('canvas').boundingBox())!;
  const l=await page.evaluate(async()=>{const{game}=await import(String('/src/main.ts'));return game.registry.get('touch-control-layout');});

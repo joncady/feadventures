@@ -1,9 +1,10 @@
+import { waitForAsyncReady } from './async-readiness';
 import {test,expect,type Page} from '@playwright/test';
 
 async function battle(page:Page,hero='lissa'){
  await page.goto('/?mission=siege');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);
  await page.evaluate(async hero=>{const entry='/src/main.ts';const{game}=await import(entry);game.scene.start('Arena',{hero,companions:['chrom','sumia'],tactical:true});},hero);
- await page.waitForFunction(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').player?.active;});
+ await waitForAsyncReady(page, async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').player?.active;});
  await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');for(const [i,hero] of s.party.entries()){s.selectedDeployment=hero;if(!s.placeDeployment({x:480+i*128,y:352}))throw Error('Fixture deployment failed');}if(!s.launchBattle())throw Error('Fixture launch failed');game.scene.pause('Arena');});
 }
 

@@ -1,8 +1,9 @@
+import { waitForAsyncReady } from './async-readiness';
 import {test,expect} from '@playwright/test';
 async function fixture(page:any){
  await page.goto('/');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);
  await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);game.scene.start('Arena',{hero:'chrom',companions:['lissa'],tactical:true,missionIndex:1});});
- await page.waitForFunction(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').allies?.getChildren().some((u:any)=>u.getData('companionHero'));});
+ await waitForAsyncReady(page, async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').allies?.getChildren().some((u:any)=>u.getData('companionHero'));});
  await page.locator('canvas').click({position:{x:10,y:10}});
  await page.keyboard.press('Shift');
  // Finish the unlocked menu selection voice before instrumenting battle-only audio.

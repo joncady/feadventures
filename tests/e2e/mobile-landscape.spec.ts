@@ -1,3 +1,4 @@
+import { waitForAsyncReady } from './async-readiness';
 import {test,expect} from '@playwright/test';
 test('portrait touch device gates menu and restores it after rotation; narrow desktop stays usable',async({browser})=>{
  const context=await browser.newContext({viewport:{width:390,height:844},hasTouch:true,isMobile:true});const page=await context.newPage();const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('/');
@@ -13,7 +14,7 @@ test('portrait touch device gates menu and restores it after rotation; narrow de
 test('rotation clears held sticks, resumes running battle and preserves manual pause',async({browser})=>{
  const context=await browser.newContext({viewport:{width:844,height:390},hasTouch:true,isMobile:true});const page=await context.newPage();await page.goto('/');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);
  await page.evaluate(async()=>{const{game}=await import(String('/src/main.ts'));game.scene.start('Arena',{hero:'chrom',tactical:true,companions:[],missionIndex:0});});
- await page.waitForFunction(async()=>{const{game}=await import(String('/src/main.ts'));return game.scene.getScene('Arena').player?.active;});
+ await waitForAsyncReady(page, async()=>{const{game}=await import(String('/src/main.ts'));return game.scene.getScene('Arena').player?.active;});
  await page.evaluate(async()=>{const{game}=await import(String('/src/main.ts'));const a=game.scene.getScene('Arena');a.autoPlaceDeployment();a.launchBattle();a.releases=[];a.enemies.clear(true,true);game.events.emit('ui-state',{...game.registry.get('interface-state'),phase:'battle',playing:true,paused:false,settingsOpen:false});});
  const cdp=await context.newCDPSession(page),b=(await page.locator('canvas').boundingBox())!,l=await page.evaluate(async()=>{const{game}=await import(String('/src/main.ts'));return game.registry.get('touch-control-layout');});
  const at=(x:number,y:number,id:number)=>({x:b.x+x*b.width/896,y:b.y+y*b.height/544,id});await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[at(l.joystick.x+l.radius*.7,l.joystick.y,1),at(l.attack.x+l.attack.radius*.8,l.attack.y,2)]});

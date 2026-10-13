@@ -1,8 +1,9 @@
+import { waitForAsyncReady } from './async-readiness';
 import {test,expect} from '@playwright/test';
 test('gold does not consume health drop slots, three health items cap drops and restart clears both',async({page})=>{
  await page.goto('/');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);
  await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);game.scene.stop('Menu');game.scene.start('Arena',{hero:'chrom',companions:['miriel'],tactical:true,missionIndex:1});});
- await page.waitForFunction(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return !!game.scene.getScene('Arena').pickups;});
+ await waitForAsyncReady(page, async()=>{const entry='/src/main.ts';const{game}=await import(entry);return !!game.scene.getScene('Arena').pickups;});
  const result=await page.evaluate(async()=>{
   const entry='/src/main.ts';const{game}=await import(entry);
   const a=game.scene.getScene('Arena');game.scene.pause('Arena');

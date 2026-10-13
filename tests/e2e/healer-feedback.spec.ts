@@ -1,8 +1,9 @@
+import { waitForAsyncReady } from './async-readiness';
 import {test,expect,type Page} from '@playwright/test';
 async function setup(page:Page,hero='lissa'){
  await page.goto('/?mission=siege');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);
  await page.evaluate(async hero=>{const entry='/src/main.ts';const{game}=await import(entry);game.scene.start('Arena',{hero,companions:['chrom'],tactical:true,missionIndex:2});},hero);
- await page.waitForFunction(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').player?.active;});
+ await waitForAsyncReady(page, async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').player?.active;});
  await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');a.autoPlaceDeployment();a.launchBattle();a.stage.deadline=Infinity;a.releases=[];a.enemies.clear(true,true);a.updateEnemy=()=>{};game.events.emit('ui-state',{...game.registry.get('interface-state'),playing:true,phase:'battle'});});await page.locator('#game').focus();
 }
 async function state(page:Page){return page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena'),ui=game.scene.getScene('Interface');return {text:ui.actionFeedback.text,feedbackVisible:ui.actionFeedback.visible,guide:a.aimGuide.commandBuffer.length,patient:a.healingSelection(a.player).patient?.unit.getData('companionHero')??null,weapon:a.profile().weapon,icons:ui.partyWeaponIcons.map((i:any)=>({visible:i.visible,key:i.texture.key})),hp:a.allies.getChildren().find((u:any)=>u.getData('companionHero')==='chrom')?.getData('health'),lastAttack:a.lastAttack,selectionId:ui.state.hero};});}

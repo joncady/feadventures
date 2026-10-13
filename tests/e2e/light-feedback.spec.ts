@@ -1,8 +1,9 @@
+import { waitForAsyncReady } from './async-readiness';
 import {test,expect} from '@playwright/test';
 test('health recovery and evade use local symbols and expired notices remain hidden',async({page})=>{
  await page.goto('/?mission=siege');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);
  await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);game.scene.start('Arena',{hero:'chrom',companions:['lissa'],tactical:true,missionIndex:1});});
- await page.waitForFunction(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return !!game.scene.getScene('Arena').player;});
+ await waitForAsyncReady(page, async()=>{const entry='/src/main.ts';const{game}=await import(entry);return !!game.scene.getScene('Arena').player;});
  await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');a.autoPlaceDeployment();a.launchBattle();a.releases=[];a.updateEnemy=()=>{};a.health=90;const item=a.pickups.create(a.player.x,a.player.y,'vulnerary');item.body.setAllowGravity(false);game.events.emit('ui-state',{...game.registry.get('interface-state'),playing:true,phase:'battle'});});
  await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');return a.children.list.find((x:any)=>x.getData('health-gain'))?.getData('health-gain');})).toBe(10);
  const dodge=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');a.progression.stats.speed=100;a.lastDamage=-Infinity;const old=Math.random;Math.random=()=>0;try{a.takeDamage(10);}finally{Math.random=old;}return{hp:a.health,symbol:a.children.list.find((x:any)=>x.getData('evade-feedback'))?.text};});expect(dodge).toEqual({hp:100,symbol:'↷'});

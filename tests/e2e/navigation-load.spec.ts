@@ -1,3 +1,4 @@
+import { waitForAsyncReady } from './async-readiness';
 import {test,expect} from '@playwright/test';
 
 // Real renderer/physics timings, not a promise about frame rate on other hardware.
@@ -5,7 +6,7 @@ for(const mission of [0,1,2,3])test(`stage ${mission+1} capped pursuit remains l
  test.setTimeout(60000);
  await page.goto('/');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);
  await page.evaluate(async(mission)=>{const entry='/src/main.ts';const{game}=await import(entry);game.events.emit('dev-jump',mission);game.events.emit('campaign-continue');},mission);
- await page.waitForFunction(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').deploying;});
+ await waitForAsyncReady(page, async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').deploying;});
  await page.evaluate(async()=>{
   const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');a.autoPlaceDeployment();game.events.emit('ui-launch');
   a.releases=[];a.stage.phase='rest';a.stage.deadline=1e9;a.health=100000;a.player.setData('health',100000);
@@ -35,7 +36,7 @@ for(const mission of [0,1,2,3])test(`stage ${mission+1} capped pursuit remains l
 test('Black Keep capped crowd crosses both doorways toward a living target',async({page})=>{
  test.setTimeout(60000);await page.goto('/');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);
  await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);game.events.emit('dev-jump',3);game.events.emit('campaign-continue');});
- await page.waitForFunction(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').deploying;});
+ await waitForAsyncReady(page, async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Arena').deploying;});
  await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');a.autoPlaceDeployment();game.events.emit('ui-launch');a.allies.clear(true,true);a.enemies.clear(true,true);a.releases=[];a.stage.phase='rest';a.stage.deadline=1e9;a.player.body.reset(512,664);a.player.body.updateFromGameObject();a.health=100000;for(let i=0;i<24;i++){const e=a.createHostile(384+(i%8)*36,168+Math.floor(i/8)*36,'soldier');e.setData({damage:0,health:100000,maxHealth:100000,speed:100});}});
  await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');return a.enemies.getChildren().filter((u:any)=>u.y>550).length;}),{timeout:20000}).toBe(24);
  const state=await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const a=game.scene.getScene('Arena');return {embedded:a.enemies.getChildren().filter((u:any)=>!a.navigation.isWalkable(a.bodyCenter(u))).length};});expect(state.embedded).toBe(0);
