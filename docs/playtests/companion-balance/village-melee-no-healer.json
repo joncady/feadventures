@@ -1,0 +1,1516 @@
+{
+  "party": [
+    "chrom",
+    "frederick",
+    "lonqu",
+    "vaike"
+  ],
+  "settings": "default damage 50%; normal real-time native keyboard/mouse",
+  "started": "2026-10-13T00:43:36.815Z",
+  "events": [
+    {
+      "kind": "sample",
+      "clock": 96.6499999999999,
+      "mission": 1,
+      "kills": 0,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "frederick",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "lonqu",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "vaike",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "camp": 900,
+      "enemies": 0
+    },
+    {
+      "kind": "sample",
+      "clock": 10464.55999999999,
+      "mission": 1,
+      "kills": 2,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "frederick",
+          "health": 71,
+          "max": 101
+        },
+        {
+          "hero": "lonqu",
+          "health": 100,
+          "max": 100
+        },
+        {
+          "hero": "vaike",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "camp": 900,
+      "enemies": 2
+    },
+    {
+      "kind": "sample",
+      "clock": 20499.170000000027,
+      "mission": 1,
+      "kills": 6,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "frederick",
+          "health": 47,
+          "max": 101
+        },
+        {
+          "hero": "lonqu",
+          "health": 73,
+          "max": 100
+        },
+        {
+          "hero": "vaike",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "camp": 900,
+      "enemies": 2
+    },
+    {
+      "kind": "sample",
+      "clock": 30785.420000000093,
+      "mission": 1,
+      "kills": 10,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 90,
+          "max": 101
+        },
+        {
+          "hero": "frederick",
+          "health": 47,
+          "max": 101
+        },
+        {
+          "hero": "lonqu",
+          "health": 19,
+          "max": 100
+        },
+        {
+          "hero": "vaike",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "camp": 892,
+      "enemies": 6
+    },
+    {
+      "kind": "sample",
+      "clock": 40948.35000000018,
+      "mission": 1,
+      "kills": 11,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 90,
+          "max": 101
+        },
+        {
+          "hero": "frederick",
+          "health": 47,
+          "max": 101
+        },
+        {
+          "hero": "lonqu",
+          "health": 0,
+          "max": 100
+        },
+        {
+          "hero": "vaike",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "camp": 855,
+      "enemies": 5
+    },
+    {
+      "kind": "sample",
+      "clock": 51146.26000000036,
+      "mission": 1,
+      "kills": 15,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 90,
+          "max": 101
+        },
+        {
+          "hero": "frederick",
+          "health": 47,
+          "max": 101
+        },
+        {
+          "hero": "lonqu",
+          "health": 0,
+          "max": 100
+        },
+        {
+          "hero": "vaike",
+          "health": 94,
+          "max": 100
+        }
+      ],
+      "camp": 814,
+      "enemies": 1
+    },
+    {
+      "kind": "sample",
+      "clock": 61555.87000000044,
+      "mission": 1,
+      "kills": 16,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 90,
+          "max": 101
+        },
+        {
+          "hero": "frederick",
+          "health": 47,
+          "max": 101
+        },
+        {
+          "hero": "lonqu",
+          "health": 0,
+          "max": 100
+        },
+        {
+          "hero": "vaike",
+          "health": 94,
+          "max": 100
+        }
+      ],
+      "camp": 805,
+      "enemies": 4
+    },
+    {
+      "kind": "sample",
+      "clock": 71863.76000000059,
+      "mission": 1,
+      "kills": 19,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 91,
+          "max": 102
+        },
+        {
+          "hero": "frederick",
+          "health": 48,
+          "max": 102
+        },
+        {
+          "hero": "lonqu",
+          "health": 0,
+          "max": 100
+        },
+        {
+          "hero": "vaike",
+          "health": 94,
+          "max": 100
+        }
+      ],
+      "camp": 805,
+      "enemies": 5
+    },
+    {
+      "kind": "sample",
+      "clock": 82130.02000000073,
+      "mission": 1,
+      "kills": 21,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 91,
+          "max": 102
+        },
+        {
+          "hero": "frederick",
+          "health": 42,
+          "max": 102
+        },
+        {
+          "hero": "lonqu",
+          "health": 0,
+          "max": 100
+        },
+        {
+          "hero": "vaike",
+          "health": 88,
+          "max": 100
+        }
+      ],
+      "camp": 801,
+      "enemies": 8
+    },
+    {
+      "kind": "sample",
+      "clock": 92229.6500000009,
+      "mission": 1,
+      "kills": 24,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 91,
+          "max": 102
+        },
+        {
+          "hero": "frederick",
+          "health": 36,
+          "max": 102
+        },
+        {
+          "hero": "lonqu",
+          "health": 0,
+          "max": 100
+        },
+        {
+          "hero": "vaike",
+          "health": 88,
+          "max": 100
+        }
+      ],
+      "camp": 781,
+      "enemies": 8
+    },
+    {
+      "kind": "sample",
+      "clock": 102309.21000000103,
+      "mission": 1,
+      "kills": 26,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 91,
+          "max": 102
+        },
+        {
+          "hero": "frederick",
+          "health": 36,
+          "max": 102
+        },
+        {
+          "hero": "lonqu",
+          "health": 0,
+          "max": 100
+        },
+        {
+          "hero": "vaike",
+          "health": 89,
+          "max": 101
+        }
+      ],
+      "camp": 610,
+      "enemies": 6
+    },
+    {
+      "kind": "sample",
+      "clock": 112560.49000000118,
+      "mission": 1,
+      "kills": 26,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 91,
+          "max": 102
+        },
+        {
+          "hero": "frederick",
+          "health": 36,
+          "max": 102
+        },
+        {
+          "hero": "lonqu",
+          "health": 0,
+          "max": 100
+        },
+        {
+          "hero": "vaike",
+          "health": 89,
+          "max": 101
+        }
+      ],
+      "camp": 478,
+      "boss": 700,
+      "enemies": 7
+    },
+    {
+      "kind": "sample",
+      "clock": 122795.0900000013,
+      "mission": 1,
+      "kills": 29,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 91,
+          "max": 102
+        },
+        {
+          "hero": "frederick",
+          "health": 36,
+          "max": 102
+        },
+        {
+          "hero": "lonqu",
+          "health": 0,
+          "max": 100
+        },
+        {
+          "hero": "vaike",
+          "health": 89,
+          "max": 101
+        }
+      ],
+      "camp": 358,
+      "boss": 687,
+      "enemies": 4
+    },
+    {
+      "kind": "sample",
+      "clock": 132944.66000000178,
+      "mission": 1,
+      "kills": 29,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 91,
+          "max": 102
+        },
+        {
+          "hero": "frederick",
+          "health": 36,
+          "max": 102
+        },
+        {
+          "hero": "lonqu",
+          "health": 0,
+          "max": 100
+        },
+        {
+          "hero": "vaike",
+          "health": 89,
+          "max": 101
+        }
+      ],
+      "camp": 297,
+      "boss": 543,
+      "enemies": 4
+    },
+    {
+      "kind": "sample",
+      "clock": 142977.63000000262,
+      "mission": 1,
+      "kills": 29,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 91,
+          "max": 102
+        },
+        {
+          "hero": "frederick",
+          "health": 36,
+          "max": 102
+        },
+        {
+          "hero": "lonqu",
+          "health": 0,
+          "max": 100
+        },
+        {
+          "hero": "vaike",
+          "health": 89,
+          "max": 101
+        }
+      ],
+      "camp": 244,
+      "boss": 444,
+      "enemies": 4
+    },
+    {
+      "kind": "sample",
+      "clock": 153127.18000000258,
+      "mission": 1,
+      "kills": 29,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 91,
+          "max": 102
+        },
+        {
+          "hero": "frederick",
+          "health": 36,
+          "max": 102
+        },
+        {
+          "hero": "lonqu",
+          "health": 0,
+          "max": 100
+        },
+        {
+          "hero": "vaike",
+          "health": 89,
+          "max": 101
+        }
+      ],
+      "camp": 182,
+      "boss": 207,
+      "enemies": 6
+    },
+    {
+      "kind": "sample",
+      "clock": 163460.11000000263,
+      "mission": 1,
+      "kills": 29,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 91,
+          "max": 102
+        },
+        {
+          "hero": "frederick",
+          "health": 36,
+          "max": 102
+        },
+        {
+          "hero": "lonqu",
+          "health": 0,
+          "max": 100
+        },
+        {
+          "hero": "vaike",
+          "health": 89,
+          "max": 101
+        }
+      ],
+      "camp": 71,
+      "boss": 207,
+      "enemies": 6
+    }
+  ],
+  "errors": [],
+  "prepared": {
+    "missionIndex": 1,
+    "gold": 610,
+    "members": [
+      {
+        "hero": "chrom",
+        "health": 101,
+        "progress": {
+          "level": 2,
+          "xp": 44,
+          "stats": {
+            "hp": 101,
+            "str": 21,
+            "mag": 15,
+            "skill": 11,
+            "speed": 10,
+            "luck": 11,
+            "def": 0,
+            "res": 0
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "falchion",
+              "uses": null,
+              "forge": 1
+            },
+            {
+              "weaponId": "iron-sword",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "frederick",
+        "health": 101,
+        "progress": {
+          "level": 2,
+          "xp": 44,
+          "stats": {
+            "hp": 101,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 11,
+            "luck": 10,
+            "def": 1,
+            "res": 1
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "iron-lance",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-sword",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-axe",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "lonqu",
+        "health": 100,
+        "progress": {
+          "level": 1,
+          "xp": 0,
+          "stats": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "iron-sword",
+              "uses": null
+            },
+            {
+              "weaponId": "killing-edge",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "vaike",
+        "health": 100,
+        "progress": {
+          "level": 1,
+          "xp": 0,
+          "stats": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "iron-axe",
+              "uses": null
+            },
+            {
+              "weaponId": "steel-axe",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      }
+    ],
+    "complete": false,
+    "reserve": [
+      {
+        "hero": "lissa",
+        "health": 102,
+        "progress": {
+          "level": 3,
+          "xp": 8,
+          "stats": {
+            "hp": 102,
+            "str": 20,
+            "mag": 16,
+            "skill": 11,
+            "speed": 10,
+            "luck": 11,
+            "def": 0,
+            "res": 2
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "heal",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-axe",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "miriel",
+        "health": 101,
+        "progress": {
+          "level": 2,
+          "xp": 60,
+          "stats": {
+            "hp": 101,
+            "str": 20,
+            "mag": 16,
+            "skill": 11,
+            "speed": 11,
+            "luck": 11,
+            "def": 0,
+            "res": 0
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "fire",
+              "uses": null
+            },
+            {
+              "weaponId": "thunder",
+              "uses": null
+            },
+            {
+              "weaponId": "heal",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      }
+    ]
+  },
+  "shop": {
+    "missionIndex": 1,
+    "gold": 610,
+    "members": [
+      {
+        "hero": "chrom",
+        "health": 101,
+        "progress": {
+          "level": 2,
+          "xp": 44,
+          "stats": {
+            "hp": 101,
+            "str": 21,
+            "mag": 15,
+            "skill": 11,
+            "speed": 10,
+            "luck": 11,
+            "def": 0,
+            "res": 0
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "falchion",
+              "uses": null,
+              "forge": 1
+            },
+            {
+              "weaponId": "iron-sword",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "frederick",
+        "health": 101,
+        "progress": {
+          "level": 2,
+          "xp": 44,
+          "stats": {
+            "hp": 101,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 11,
+            "luck": 10,
+            "def": 1,
+            "res": 1
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "iron-lance",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-sword",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-axe",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "lonqu",
+        "health": 100,
+        "progress": {
+          "level": 1,
+          "xp": 0,
+          "stats": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "iron-sword",
+              "uses": null
+            },
+            {
+              "weaponId": "killing-edge",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "vaike",
+        "health": 100,
+        "progress": {
+          "level": 1,
+          "xp": 0,
+          "stats": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "iron-axe",
+              "uses": null
+            },
+            {
+              "weaponId": "steel-axe",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      }
+    ],
+    "complete": false,
+    "reserve": [
+      {
+        "hero": "lissa",
+        "health": 102,
+        "progress": {
+          "level": 3,
+          "xp": 8,
+          "stats": {
+            "hp": 102,
+            "str": 20,
+            "mag": 16,
+            "skill": 11,
+            "speed": 10,
+            "luck": 11,
+            "def": 0,
+            "res": 2
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "heal",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-axe",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "miriel",
+        "health": 101,
+        "progress": {
+          "level": 2,
+          "xp": 60,
+          "stats": {
+            "hp": 101,
+            "str": 20,
+            "mag": 16,
+            "skill": 11,
+            "speed": 11,
+            "luck": 11,
+            "def": 0,
+            "res": 0
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "fire",
+              "uses": null
+            },
+            {
+              "weaponId": "thunder",
+              "uses": null
+            },
+            {
+              "weaponId": "heal",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      }
+    ],
+    "party": [
+      "chrom",
+      "frederick",
+      "lonqu",
+      "vaike"
+    ]
+  },
+  "start": {
+    "arena": true,
+    "deploying": true,
+    "ended": false,
+    "health": 101,
+    "hero": "chrom",
+    "party": [
+      "chrom",
+      "frederick",
+      "lonqu",
+      "vaike"
+    ],
+    "states": [
+      {
+        "hero": "chrom",
+        "health": 101,
+        "max": 101
+      },
+      {
+        "hero": "frederick",
+        "health": 101,
+        "max": 101
+      },
+      {
+        "hero": "lonqu",
+        "health": 100,
+        "max": 100
+      },
+      {
+        "hero": "vaike",
+        "health": 100,
+        "max": 100
+      }
+    ],
+    "p": {
+      "x": 179,
+      "y": 219
+    },
+    "enemies": [],
+    "clock": 0,
+    "mission": 1,
+    "kills": 0,
+    "camp": 900,
+    "phase": "opening",
+    "wave": 0,
+    "boss": null,
+    "objective": {
+      "kind": "defend",
+      "victory": "defend-commander",
+      "label": "Protect the village and defeat Gangrel",
+      "x": 512,
+      "y": 352,
+      "radius": 96
+    },
+    "items": [
+      "falchion",
+      "iron-sword"
+    ],
+    "profile": {
+      "weapon": "sword",
+      "range": 85,
+      "minRange": 0,
+      "damage": 39,
+      "cooldown": 320,
+      "speed": 170,
+      "description": "Sword · close combat · strong against axes",
+      "id": "falchion",
+      "name": "Falchion +2",
+      "type": "sword",
+      "icon": "weapon-sword",
+      "effect": "attack",
+      "healingBonus": 0
+    },
+    "ready": true,
+    "camera": {
+      "origin": {
+        "x": -0.00001307896232560779,
+        "y": -0.000008719308169702344
+      },
+      "ex": {
+        "x": 1.4285714528998597,
+        "y": 0
+      },
+      "ey": {
+        "x": 0,
+        "y": 1.4285714528998597
+      }
+    },
+    "heroPositions": [
+      {
+        "hero": "chrom",
+        "x": 190,
+        "y": 230,
+        "health": 101
+      },
+      {
+        "hero": "frederick",
+        "x": 0,
+        "y": 0,
+        "health": 101
+      },
+      {
+        "hero": "lonqu",
+        "x": 0,
+        "y": 0,
+        "health": 100
+      },
+      {
+        "hero": "vaike",
+        "x": 0,
+        "y": 0,
+        "health": 100
+      }
+    ]
+  },
+  "defeat": {
+    "arena": true,
+    "deploying": false,
+    "ended": true,
+    "health": 91,
+    "hero": "chrom",
+    "party": [
+      "chrom",
+      "frederick",
+      "lonqu",
+      "vaike"
+    ],
+    "states": [
+      {
+        "hero": "chrom",
+        "health": 91,
+        "max": 102
+      },
+      {
+        "hero": "frederick",
+        "health": 36,
+        "max": 102
+      },
+      {
+        "hero": "lonqu",
+        "health": 0,
+        "max": 100
+      },
+      {
+        "hero": "vaike",
+        "health": 89,
+        "max": 101
+      }
+    ],
+    "p": {
+      "x": 61.582104720491884,
+      "y": 218.5459150779261
+    },
+    "enemies": [
+      {
+        "x": 872.0000000253035,
+        "y": 299.85679354926333,
+        "hp": 68,
+        "boss": false,
+        "key": "archer"
+      },
+      {
+        "x": 711.6619075919197,
+        "y": 551.9999985073451,
+        "hp": 61,
+        "boss": false,
+        "key": "mage"
+      },
+      {
+        "x": 472.5699552218917,
+        "y": 644.4206858995481,
+        "hp": 68,
+        "boss": false,
+        "key": "archer"
+      },
+      {
+        "x": 537.5637981639321,
+        "y": 335.9735433456702,
+        "hp": 63,
+        "boss": true,
+        "key": "gangrel"
+      },
+      {
+        "x": 565.5637981639321,
+        "y": 345.840189561845,
+        "hp": 122,
+        "boss": false,
+        "key": "soldier"
+      },
+      {
+        "x": 808.0715346545909,
+        "y": 266.66340934840383,
+        "hp": 102,
+        "boss": false,
+        "key": "archer"
+      }
+    ],
+    "clock": 169551.54000000266,
+    "mission": 1,
+    "kills": 29,
+    "camp": 0,
+    "phase": "boss",
+    "wave": 2,
+    "boss": {
+      "x": 537.5637981639321,
+      "y": 331.9735433456702,
+      "hp": 63
+    },
+    "objective": {
+      "kind": "defend",
+      "victory": "defend-commander",
+      "label": "Protect the village and defeat Gangrel",
+      "x": 512,
+      "y": 352,
+      "radius": 96
+    },
+    "items": [
+      "falchion",
+      "iron-sword"
+    ],
+    "profile": {
+      "weapon": "sword",
+      "range": 85,
+      "minRange": 0,
+      "damage": 39,
+      "cooldown": 320,
+      "speed": 170,
+      "description": "Sword · close combat · strong against axes",
+      "id": "falchion",
+      "name": "Falchion +2",
+      "type": "sword",
+      "icon": "weapon-sword",
+      "effect": "attack",
+      "healingBonus": 0
+    },
+    "ready": true,
+    "camera": {
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "ex": {
+        "x": 1,
+        "y": 0
+      },
+      "ey": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    "heroPositions": [
+      {
+        "hero": "chrom",
+        "x": 61.582104720491884,
+        "y": 214.5459150779261,
+        "health": 91
+      },
+      {
+        "hero": "frederick",
+        "x": 490.01699643539075,
+        "y": 316.5930682004325,
+        "health": 36
+      },
+      {
+        "hero": "lonqu",
+        "health": 0
+      },
+      {
+        "hero": "vaike",
+        "x": 462.01699643539075,
+        "y": 324.7979336500077,
+        "health": 89
+      }
+    ]
+  },
+  "elapsedMs": 176512,
+  "final": {
+    "arena": true,
+    "deploying": false,
+    "ended": true,
+    "health": 91,
+    "hero": "chrom",
+    "party": [
+      "chrom",
+      "frederick",
+      "lonqu",
+      "vaike"
+    ],
+    "states": [
+      {
+        "hero": "chrom",
+        "health": 91,
+        "max": 102
+      },
+      {
+        "hero": "frederick",
+        "health": 36,
+        "max": 102
+      },
+      {
+        "hero": "lonqu",
+        "health": 0,
+        "max": 100
+      },
+      {
+        "hero": "vaike",
+        "health": 89,
+        "max": 101
+      }
+    ],
+    "p": {
+      "x": 61.582104720491884,
+      "y": 218.5459150779261
+    },
+    "enemies": [
+      {
+        "x": 872.0000000253035,
+        "y": 299.85679354926333,
+        "hp": 68,
+        "boss": false,
+        "key": "archer"
+      },
+      {
+        "x": 711.6619075919197,
+        "y": 551.9999985073451,
+        "hp": 61,
+        "boss": false,
+        "key": "mage"
+      },
+      {
+        "x": 472.5699552218917,
+        "y": 644.4206858995481,
+        "hp": 68,
+        "boss": false,
+        "key": "archer"
+      },
+      {
+        "x": 537.5637981639321,
+        "y": 335.9735433456702,
+        "hp": 63,
+        "boss": true,
+        "key": "gangrel"
+      },
+      {
+        "x": 565.5637981639321,
+        "y": 345.840189561845,
+        "hp": 122,
+        "boss": false,
+        "key": "soldier"
+      },
+      {
+        "x": 808.0715346545909,
+        "y": 266.66340934840383,
+        "hp": 102,
+        "boss": false,
+        "key": "archer"
+      }
+    ],
+    "clock": 169551.54000000266,
+    "mission": 1,
+    "kills": 29,
+    "camp": 0,
+    "phase": "boss",
+    "wave": 2,
+    "boss": {
+      "x": 537.5637981639321,
+      "y": 331.9735433456702,
+      "hp": 63
+    },
+    "objective": {
+      "kind": "defend",
+      "victory": "defend-commander",
+      "label": "Protect the village and defeat Gangrel",
+      "x": 512,
+      "y": 352,
+      "radius": 96
+    },
+    "items": [
+      "falchion",
+      "iron-sword"
+    ],
+    "profile": {
+      "weapon": "sword",
+      "range": 85,
+      "minRange": 0,
+      "damage": 39,
+      "cooldown": 320,
+      "speed": 170,
+      "description": "Sword · close combat · strong against axes",
+      "id": "falchion",
+      "name": "Falchion +2",
+      "type": "sword",
+      "icon": "weapon-sword",
+      "effect": "attack",
+      "healingBonus": 0
+    },
+    "ready": true,
+    "camera": {
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "ex": {
+        "x": 1,
+        "y": 0
+      },
+      "ey": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    "heroPositions": [
+      {
+        "hero": "chrom",
+        "x": 61.582104720491884,
+        "y": 214.5459150779261,
+        "health": 91
+      },
+      {
+        "hero": "frederick",
+        "x": 490.01699643539075,
+        "y": 316.5930682004325,
+        "health": 36
+      },
+      {
+        "hero": "lonqu",
+        "health": 0
+      },
+      {
+        "hero": "vaike",
+        "x": 462.01699643539075,
+        "y": 324.7979336500077,
+        "health": 89
+      }
+    ]
+  }
+}

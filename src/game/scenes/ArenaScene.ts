@@ -607,8 +607,9 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
       const {x,y,key,hero}=unit;
       const ally=this.allies.create(x,y,key) as Enemy;
       ally.setSize(28,28).setOffset(11,15).setCollideWorldBounds(true).setTint(0x8edfff).setDepth(hero&&isFlying(hero)?12:9);
-      const p=hero?weaponProfile(hero,this.partyStates.get(hero)!.loadout):undefined;
-      ally.setData({faction:'ally',companionHero:hero,flying:hero?isFlying(hero):false,weapon:p?.weapon??'sword',health:hero?this.partyStates.get(hero)!.health:100,maxHealth:hero?this.partyStates.get(hero)!.progress.stats.hp:100,defense:hero?0:3,resistance:hero?0:2,damage:p?.damage??18,speed:p?p.speed*PLAYER_SPEED_SCALE:85,progression:hero?this.partyStates.get(hero)!.progress:undefined,loadout:hero?this.partyStates.get(hero)!.loadout:undefined});
+      const state=hero?this.partyStates.get(hero)!:undefined;
+      const p=hero&&state?weaponProfile(hero,state.loadout):undefined;
+      ally.setData({faction:'ally',companionHero:hero,flying:hero?isFlying(hero):false,weapon:p?.weapon??'sword',health:hero?this.partyStates.get(hero)!.health:100,maxHealth:hero?this.partyStates.get(hero)!.progress.stats.hp:100,defense:hero?this.partyStates.get(hero)!.progress.stats.def:3,resistance:hero?this.partyStates.get(hero)!.progress.stats.res:2,damage:hero?attackPower(this.partyStates.get(hero)!.progress,hero,equippedWeapon(this.partyStates.get(hero)!.loadout)):18,speed:p&&state?p.speed*PLAYER_SPEED_SCALE+2*(state.progress.stats.speed-state.progress.base.speed):85,progression:hero?this.partyStates.get(hero)!.progress:undefined,loadout:hero?this.partyStates.get(hero)!.loadout:undefined});
       ally.setData('home',{x,y});if(this.tactical){ally.setData('deploymentId',hero??`soldier-${index}`);ally.setVisible(false);ally.body!.enable=false;}
       const marker=this.add.text(x,y,hero?hero==='robin-female'?'ROBIN F':hero.toUpperCase():'ALLY',{fontFamily:'FE',fontSize:'10px',color:'#9de6ff',backgroundColor:'#15201b'}).setDepth(21);
       ally.setData('weaponMarker',marker);

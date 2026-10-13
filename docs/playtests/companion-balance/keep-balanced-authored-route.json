@@ -1,0 +1,1460 @@
+{
+  "party": [
+    "chrom",
+    "frederick",
+    "lissa",
+    "miriel"
+  ],
+  "settings": "default damage 50%; normal real-time native keyboard/mouse",
+  "started": "2026-10-13T00:35:01.704Z",
+  "events": [
+    {
+      "kind": "sample",
+      "clock": 101.66000000000005,
+      "mission": 3,
+      "kills": 0,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 102,
+          "max": 102
+        },
+        {
+          "hero": "frederick",
+          "health": 103,
+          "max": 103
+        },
+        {
+          "hero": "lissa",
+          "health": 104,
+          "max": 104
+        },
+        {
+          "hero": "miriel",
+          "health": 103,
+          "max": 103
+        }
+      ],
+      "enemies": 0
+    },
+    {
+      "kind": "sample",
+      "clock": 10149.569999999994,
+      "mission": 3,
+      "kills": 0,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 102,
+          "max": 102
+        },
+        {
+          "hero": "frederick",
+          "health": 103,
+          "max": 103
+        },
+        {
+          "hero": "lissa",
+          "health": 104,
+          "max": 104
+        },
+        {
+          "hero": "miriel",
+          "health": 103,
+          "max": 103
+        }
+      ],
+      "enemies": 4
+    },
+    {
+      "kind": "sample",
+      "clock": 20215.83999999991,
+      "mission": 3,
+      "kills": 3,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 102,
+          "max": 102
+        },
+        {
+          "hero": "frederick",
+          "health": 69,
+          "max": 103
+        },
+        {
+          "hero": "lissa",
+          "health": 94,
+          "max": 104
+        },
+        {
+          "hero": "miriel",
+          "health": 103,
+          "max": 103
+        }
+      ],
+      "enemies": 6
+    },
+    {
+      "kind": "sample",
+      "clock": 30432.099999999737,
+      "mission": 3,
+      "kills": 6,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 103
+        },
+        {
+          "hero": "frederick",
+          "health": 70,
+          "max": 104
+        },
+        {
+          "hero": "lissa",
+          "health": 54,
+          "max": 104
+        },
+        {
+          "hero": "miriel",
+          "health": 103,
+          "max": 103
+        }
+      ],
+      "enemies": 6
+    },
+    {
+      "kind": "sample",
+      "clock": 40514.989999999816,
+      "mission": 3,
+      "kills": 7,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 103
+        },
+        {
+          "hero": "frederick",
+          "health": 70,
+          "max": 104
+        },
+        {
+          "hero": "lissa",
+          "health": 54,
+          "max": 104
+        },
+        {
+          "hero": "miriel",
+          "health": 103,
+          "max": 103
+        }
+      ],
+      "enemies": 5
+    },
+    {
+      "kind": "sample",
+      "clock": 50631.270000000004,
+      "mission": 3,
+      "kills": 8,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 103
+        },
+        {
+          "hero": "frederick",
+          "health": 70,
+          "max": 104
+        },
+        {
+          "hero": "lissa",
+          "health": 54,
+          "max": 104
+        },
+        {
+          "hero": "miriel",
+          "health": 103,
+          "max": 103
+        }
+      ],
+      "enemies": 6
+    },
+    {
+      "kind": "sample",
+      "clock": 60814.20000000016,
+      "mission": 3,
+      "kills": 9,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 103
+        },
+        {
+          "hero": "frederick",
+          "health": 103,
+          "max": 104
+        },
+        {
+          "hero": "lissa",
+          "health": 42,
+          "max": 104
+        },
+        {
+          "hero": "miriel",
+          "health": 103,
+          "max": 103
+        }
+      ],
+      "enemies": 11
+    },
+    {
+      "kind": "sample",
+      "clock": 71097.1300000001,
+      "mission": 3,
+      "kills": 12,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 103
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 104
+        },
+        {
+          "hero": "lissa",
+          "health": 41,
+          "max": 104
+        },
+        {
+          "hero": "miriel",
+          "health": 99,
+          "max": 103
+        }
+      ],
+      "enemies": 12
+    },
+    {
+      "kind": "sample",
+      "clock": 81113.39000000038,
+      "mission": 3,
+      "kills": 15,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 103
+        },
+        {
+          "hero": "frederick",
+          "health": 101,
+          "max": 104
+        },
+        {
+          "hero": "lissa",
+          "health": 15,
+          "max": 104
+        },
+        {
+          "hero": "miriel",
+          "health": 103,
+          "max": 103
+        }
+      ],
+      "enemies": 9
+    },
+    {
+      "kind": "sample",
+      "clock": 91179.64000000065,
+      "mission": 3,
+      "kills": 16,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 103
+        },
+        {
+          "hero": "frederick",
+          "health": 101,
+          "max": 104
+        },
+        {
+          "hero": "lissa",
+          "health": 32,
+          "max": 104
+        },
+        {
+          "hero": "miriel",
+          "health": 103,
+          "max": 103
+        }
+      ],
+      "enemies": 8
+    },
+    {
+      "kind": "sample",
+      "clock": 101195.91000000096,
+      "mission": 3,
+      "kills": 18,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 103
+        },
+        {
+          "hero": "frederick",
+          "health": 104,
+          "max": 104
+        },
+        {
+          "hero": "lissa",
+          "health": 28,
+          "max": 104
+        },
+        {
+          "hero": "miriel",
+          "health": 99,
+          "max": 103
+        }
+      ],
+      "enemies": 10
+    },
+    {
+      "kind": "sample",
+      "clock": 111262.19000000127,
+      "mission": 3,
+      "kills": 21,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 103
+        },
+        {
+          "hero": "frederick",
+          "health": 87,
+          "max": 104
+        },
+        {
+          "hero": "lissa",
+          "health": 30,
+          "max": 104
+        },
+        {
+          "hero": "miriel",
+          "health": 100,
+          "max": 104
+        }
+      ],
+      "enemies": 15
+    },
+    {
+      "kind": "sample",
+      "clock": 121315.1300000015,
+      "mission": 3,
+      "kills": 23,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 103
+        },
+        {
+          "hero": "frederick",
+          "health": 81,
+          "max": 104
+        },
+        {
+          "hero": "lissa",
+          "health": 31,
+          "max": 105
+        },
+        {
+          "hero": "miriel",
+          "health": 100,
+          "max": 104
+        }
+      ],
+      "enemies": 13
+    },
+    {
+      "kind": "sample",
+      "clock": 131528.04000000175,
+      "mission": 3,
+      "kills": 24,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 103
+        },
+        {
+          "hero": "frederick",
+          "health": 104,
+          "max": 104
+        },
+        {
+          "hero": "lissa",
+          "health": 12,
+          "max": 105
+        },
+        {
+          "hero": "miriel",
+          "health": 104,
+          "max": 104
+        }
+      ],
+      "enemies": 12
+    },
+    {
+      "kind": "sample",
+      "clock": 141694.3100000035,
+      "mission": 3,
+      "kills": 26,
+      "hero": "miriel",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 103
+        },
+        {
+          "hero": "frederick",
+          "health": 98,
+          "max": 104
+        },
+        {
+          "hero": "lissa",
+          "health": 47,
+          "max": 105
+        },
+        {
+          "hero": "miriel",
+          "health": 104,
+          "max": 104
+        }
+      ],
+      "boss": 1400,
+      "enemies": 11
+    },
+    {
+      "kind": "sample",
+      "clock": 151927.23000000458,
+      "mission": 3,
+      "kills": 28,
+      "hero": "miriel",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 73,
+          "max": 103
+        },
+        {
+          "hero": "frederick",
+          "health": 104,
+          "max": 104
+        },
+        {
+          "hero": "lissa",
+          "health": 0,
+          "max": 105
+        },
+        {
+          "hero": "miriel",
+          "health": 104,
+          "max": 104
+        }
+      ],
+      "boss": 1260,
+      "enemies": 9
+    },
+    {
+      "kind": "sample",
+      "clock": 162010.17000000714,
+      "mission": 3,
+      "kills": 28,
+      "hero": "miriel",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 28,
+          "max": 103
+        },
+        {
+          "hero": "frederick",
+          "health": 58,
+          "max": 104
+        },
+        {
+          "hero": "lissa",
+          "health": 0,
+          "max": 105
+        },
+        {
+          "hero": "miriel",
+          "health": 104,
+          "max": 104
+        }
+      ],
+      "boss": 1040,
+      "enemies": 9
+    },
+    {
+      "kind": "sample",
+      "clock": 172326.42000000912,
+      "mission": 3,
+      "kills": 30,
+      "hero": "miriel",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 0,
+          "max": 103
+        },
+        {
+          "hero": "frederick",
+          "health": 36,
+          "max": 104
+        },
+        {
+          "hero": "lissa",
+          "health": 0,
+          "max": 105
+        },
+        {
+          "hero": "miriel",
+          "health": 104,
+          "max": 104
+        }
+      ],
+      "boss": 900,
+      "enemies": 7
+    },
+    {
+      "kind": "sample",
+      "clock": 182542.67000001168,
+      "mission": 3,
+      "kills": 32,
+      "hero": "miriel",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 0,
+          "max": 103
+        },
+        {
+          "hero": "frederick",
+          "health": 7,
+          "max": 104
+        },
+        {
+          "hero": "lissa",
+          "health": 0,
+          "max": 105
+        },
+        {
+          "hero": "miriel",
+          "health": 104,
+          "max": 104
+        }
+      ],
+      "boss": 900,
+      "enemies": 5
+    },
+    {
+      "kind": "sample",
+      "clock": 192608.9300000137,
+      "mission": 3,
+      "kills": 32,
+      "hero": "miriel",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 0,
+          "max": 103
+        },
+        {
+          "hero": "frederick",
+          "health": 0,
+          "max": 104
+        },
+        {
+          "hero": "lissa",
+          "health": 0,
+          "max": 105
+        },
+        {
+          "hero": "miriel",
+          "health": 104,
+          "max": 104
+        }
+      ],
+      "boss": 900,
+      "enemies": 5
+    },
+    {
+      "kind": "sample",
+      "clock": 202858.52000001507,
+      "mission": 3,
+      "kills": 32,
+      "hero": "miriel",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 0,
+          "max": 103
+        },
+        {
+          "hero": "frederick",
+          "health": 0,
+          "max": 104
+        },
+        {
+          "hero": "lissa",
+          "health": 0,
+          "max": 105
+        },
+        {
+          "hero": "miriel",
+          "health": 104,
+          "max": 104
+        }
+      ],
+      "boss": 900,
+      "enemies": 5
+    },
+    {
+      "kind": "sample",
+      "clock": 212958.1400000173,
+      "mission": 3,
+      "kills": 32,
+      "hero": "miriel",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 0,
+          "max": 103
+        },
+        {
+          "hero": "frederick",
+          "health": 0,
+          "max": 104
+        },
+        {
+          "hero": "lissa",
+          "health": 0,
+          "max": 105
+        },
+        {
+          "hero": "miriel",
+          "health": 104,
+          "max": 104
+        }
+      ],
+      "boss": 900,
+      "enemies": 5
+    }
+  ],
+  "errors": [],
+  "prepared": {
+    "missionIndex": 3,
+    "gold": 1163,
+    "members": [
+      {
+        "hero": "chrom",
+        "health": 102,
+        "progress": {
+          "level": 4,
+          "xp": 78,
+          "stats": {
+            "hp": 102,
+            "str": 23,
+            "mag": 15,
+            "skill": 13,
+            "speed": 11,
+            "luck": 13,
+            "def": 1,
+            "res": 2
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "falchion",
+              "uses": null,
+              "forge": 3
+            },
+            {
+              "weaponId": "iron-sword",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "frederick",
+        "health": 103,
+        "progress": {
+          "level": 4,
+          "xp": 78,
+          "stats": {
+            "hp": 103,
+            "str": 22,
+            "mag": 16,
+            "skill": 12,
+            "speed": 13,
+            "luck": 11,
+            "def": 3,
+            "res": 1
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "iron-lance",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-sword",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-axe",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "lissa",
+        "health": 104,
+        "progress": {
+          "level": 6,
+          "xp": 8,
+          "stats": {
+            "hp": 104,
+            "str": 21,
+            "mag": 18,
+            "skill": 13,
+            "speed": 10,
+            "luck": 14,
+            "def": 1,
+            "res": 5
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "heal",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-axe",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "miriel",
+        "health": 103,
+        "progress": {
+          "level": 5,
+          "xp": 13,
+          "stats": {
+            "hp": 103,
+            "str": 20,
+            "mag": 17,
+            "skill": 11,
+            "speed": 14,
+            "luck": 13,
+            "def": 1,
+            "res": 2
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "fire",
+              "uses": null
+            },
+            {
+              "weaponId": "thunder",
+              "uses": null
+            },
+            {
+              "weaponId": "heal",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      }
+    ],
+    "complete": false,
+    "reserve": []
+  },
+  "shop": {
+    "missionIndex": 3,
+    "gold": 1163,
+    "members": [
+      {
+        "hero": "chrom",
+        "health": 102,
+        "progress": {
+          "level": 4,
+          "xp": 78,
+          "stats": {
+            "hp": 102,
+            "str": 23,
+            "mag": 15,
+            "skill": 13,
+            "speed": 11,
+            "luck": 13,
+            "def": 1,
+            "res": 2
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "falchion",
+              "uses": null,
+              "forge": 3
+            },
+            {
+              "weaponId": "iron-sword",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "frederick",
+        "health": 103,
+        "progress": {
+          "level": 4,
+          "xp": 78,
+          "stats": {
+            "hp": 103,
+            "str": 22,
+            "mag": 16,
+            "skill": 12,
+            "speed": 13,
+            "luck": 11,
+            "def": 3,
+            "res": 1
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "iron-lance",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-sword",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-axe",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "lissa",
+        "health": 104,
+        "progress": {
+          "level": 6,
+          "xp": 8,
+          "stats": {
+            "hp": 104,
+            "str": 21,
+            "mag": 18,
+            "skill": 13,
+            "speed": 10,
+            "luck": 14,
+            "def": 1,
+            "res": 5
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "heal",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-axe",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "miriel",
+        "health": 103,
+        "progress": {
+          "level": 5,
+          "xp": 13,
+          "stats": {
+            "hp": 103,
+            "str": 20,
+            "mag": 17,
+            "skill": 11,
+            "speed": 14,
+            "luck": 13,
+            "def": 1,
+            "res": 2
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "fire",
+              "uses": null
+            },
+            {
+              "weaponId": "thunder",
+              "uses": null
+            },
+            {
+              "weaponId": "heal",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      }
+    ],
+    "complete": false,
+    "reserve": [],
+    "party": [
+      "chrom",
+      "frederick",
+      "lissa",
+      "miriel"
+    ]
+  },
+  "start": {
+    "arena": true,
+    "deploying": true,
+    "ended": false,
+    "health": 102,
+    "hero": "chrom",
+    "party": [
+      "chrom",
+      "frederick",
+      "lissa",
+      "miriel"
+    ],
+    "states": [
+      {
+        "hero": "chrom",
+        "health": 102,
+        "max": 102
+      },
+      {
+        "hero": "frederick",
+        "health": 103,
+        "max": 103
+      },
+      {
+        "hero": "lissa",
+        "health": 104,
+        "max": 104
+      },
+      {
+        "hero": "miriel",
+        "health": 103,
+        "max": 103
+      }
+    ],
+    "p": {
+      "x": 179,
+      "y": 219
+    },
+    "enemies": [],
+    "clock": 0,
+    "mission": 3,
+    "kills": 0,
+    "phase": "opening",
+    "wave": 0,
+    "boss": null,
+    "objective": {
+      "kind": "boss",
+      "victory": "defeat-commander",
+      "label": "Advance into the keep and defeat Validar",
+      "x": 512,
+      "y": 128,
+      "radius": 96
+    },
+    "items": [
+      "falchion",
+      "iron-sword"
+    ],
+    "profile": {
+      "weapon": "sword",
+      "range": 85,
+      "minRange": 0,
+      "damage": 41,
+      "cooldown": 320,
+      "speed": 170,
+      "description": "Sword · close combat · strong against axes",
+      "id": "falchion",
+      "name": "Falchion +3",
+      "type": "sword",
+      "icon": "weapon-sword",
+      "effect": "attack",
+      "healingBonus": 0
+    },
+    "ready": true,
+    "camera": {
+      "origin": {
+        "x": -0.00001307896232560779,
+        "y": -0.000008719308169702344
+      },
+      "ex": {
+        "x": 1.4285714528998597,
+        "y": 0
+      },
+      "ey": {
+        "x": 0,
+        "y": 1.4285714528998597
+      }
+    },
+    "heroPositions": [
+      {
+        "hero": "chrom",
+        "x": 190,
+        "y": 230,
+        "health": 102
+      },
+      {
+        "hero": "frederick",
+        "x": 0,
+        "y": 0,
+        "health": 103
+      },
+      {
+        "hero": "lissa",
+        "x": 0,
+        "y": 0,
+        "health": 104
+      },
+      {
+        "hero": "miriel",
+        "x": 0,
+        "y": 0,
+        "health": 103
+      }
+    ]
+  },
+  "defeat": {
+    "arena": true,
+    "deploying": false,
+    "ended": true,
+    "health": 0,
+    "hero": "miriel",
+    "party": [
+      "chrom",
+      "frederick",
+      "lissa",
+      "miriel"
+    ],
+    "states": [
+      {
+        "hero": "chrom",
+        "health": 0,
+        "max": 103
+      },
+      {
+        "hero": "frederick",
+        "health": 0,
+        "max": 104
+      },
+      {
+        "hero": "lissa",
+        "health": 0,
+        "max": 105
+      },
+      {
+        "hero": "miriel",
+        "health": 0,
+        "max": 104
+      }
+    ],
+    "p": {
+      "x": 511.6419883105587,
+      "y": 163.762326960981
+    },
+    "enemies": [
+      {
+        "x": 481.5232389133505,
+        "y": 491.92958609325393,
+        "hp": 7,
+        "boss": false,
+        "key": "mage"
+      },
+      {
+        "x": 453.5232389133505,
+        "y": 488.47036295293725,
+        "hp": 7,
+        "boss": false,
+        "key": "mage"
+      },
+      {
+        "x": 389.2278575865818,
+        "y": 565.3965299774204,
+        "hp": 12,
+        "boss": false,
+        "key": "archer"
+      },
+      {
+        "x": 444.2146673658205,
+        "y": 460.47036295293725,
+        "hp": 45,
+        "boss": false,
+        "key": "mage"
+      },
+      {
+        "x": 295.9489182453111,
+        "y": 72.003523185408,
+        "hp": 900,
+        "boss": true,
+        "key": "validar"
+      }
+    ],
+    "clock": 214391.39000001768,
+    "mission": 3,
+    "kills": 32,
+    "phase": "boss",
+    "wave": 3,
+    "boss": {
+      "x": 295.9489182453111,
+      "y": 68.003523185408,
+      "hp": 900
+    },
+    "objective": {
+      "kind": "boss",
+      "victory": "defeat-commander",
+      "label": "Advance into the keep and defeat Validar",
+      "x": 512,
+      "y": 128,
+      "radius": 96
+    },
+    "items": [
+      "fire",
+      "thunder",
+      "heal"
+    ],
+    "profile": {
+      "weapon": "tome",
+      "range": 300,
+      "minRange": 0,
+      "damage": 30,
+      "cooldown": 600,
+      "speed": 170,
+      "description": "Fire tome · cast a ranged bolt · no close-range dead zone",
+      "id": "fire",
+      "name": "Fire",
+      "type": "tome",
+      "icon": "weapon-tome",
+      "effect": "fire-cast"
+    },
+    "ready": false,
+    "camera": {
+      "origin": {
+        "x": 54,
+        "y": 0
+      },
+      "ex": {
+        "x": 1,
+        "y": 0
+      },
+      "ey": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    "heroPositions": [
+      {
+        "hero": "chrom",
+        "health": 0
+      },
+      {
+        "hero": "frederick",
+        "health": 0
+      },
+      {
+        "hero": "lissa",
+        "health": 0
+      },
+      {
+        "hero": "miriel",
+        "x": 511.6419883105587,
+        "y": 159.762326960981,
+        "health": 0
+      }
+    ]
+  },
+  "elapsedMs": 220454,
+  "final": {
+    "arena": true,
+    "deploying": false,
+    "ended": true,
+    "health": 0,
+    "hero": "miriel",
+    "party": [
+      "chrom",
+      "frederick",
+      "lissa",
+      "miriel"
+    ],
+    "states": [
+      {
+        "hero": "chrom",
+        "health": 0,
+        "max": 103
+      },
+      {
+        "hero": "frederick",
+        "health": 0,
+        "max": 104
+      },
+      {
+        "hero": "lissa",
+        "health": 0,
+        "max": 105
+      },
+      {
+        "hero": "miriel",
+        "health": 0,
+        "max": 104
+      }
+    ],
+    "p": {
+      "x": 511.6419883105587,
+      "y": 163.762326960981
+    },
+    "enemies": [
+      {
+        "x": 481.5232389133505,
+        "y": 491.92958609325393,
+        "hp": 7,
+        "boss": false,
+        "key": "mage"
+      },
+      {
+        "x": 453.5232389133505,
+        "y": 488.47036295293725,
+        "hp": 7,
+        "boss": false,
+        "key": "mage"
+      },
+      {
+        "x": 389.2278575865818,
+        "y": 565.3965299774204,
+        "hp": 12,
+        "boss": false,
+        "key": "archer"
+      },
+      {
+        "x": 444.2146673658205,
+        "y": 460.47036295293725,
+        "hp": 45,
+        "boss": false,
+        "key": "mage"
+      },
+      {
+        "x": 295.9489182453111,
+        "y": 72.003523185408,
+        "hp": 900,
+        "boss": true,
+        "key": "validar"
+      }
+    ],
+    "clock": 214391.39000001768,
+    "mission": 3,
+    "kills": 32,
+    "phase": "boss",
+    "wave": 3,
+    "boss": {
+      "x": 295.9489182453111,
+      "y": 68.003523185408,
+      "hp": 900
+    },
+    "objective": {
+      "kind": "boss",
+      "victory": "defeat-commander",
+      "label": "Advance into the keep and defeat Validar",
+      "x": 512,
+      "y": 128,
+      "radius": 96
+    },
+    "items": [
+      "fire",
+      "thunder",
+      "heal"
+    ],
+    "profile": {
+      "weapon": "tome",
+      "range": 300,
+      "minRange": 0,
+      "damage": 30,
+      "cooldown": 600,
+      "speed": 170,
+      "description": "Fire tome · cast a ranged bolt · no close-range dead zone",
+      "id": "fire",
+      "name": "Fire",
+      "type": "tome",
+      "icon": "weapon-tome",
+      "effect": "fire-cast"
+    },
+    "ready": true,
+    "camera": {
+      "origin": {
+        "x": 54,
+        "y": 0
+      },
+      "ex": {
+        "x": 1,
+        "y": 0
+      },
+      "ey": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    "heroPositions": [
+      {
+        "hero": "chrom",
+        "health": 0
+      },
+      {
+        "hero": "frederick",
+        "health": 0
+      },
+      {
+        "hero": "lissa",
+        "health": 0
+      },
+      {
+        "hero": "miriel",
+        "x": 511.6419883105587,
+        "y": 159.762326960981,
+        "health": 0
+      }
+    ]
+  }
+}

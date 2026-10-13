@@ -1,0 +1,1655 @@
+{
+  "party": [
+    "chrom",
+    "frederick",
+    "lissa",
+    "ricken"
+  ],
+  "settings": "default damage 50%; normal real-time native keyboard/mouse",
+  "started": "2026-10-13T00:40:23.915Z",
+  "events": [
+    {
+      "kind": "sample",
+      "clock": 96.65000000000009,
+      "mission": 1,
+      "kills": 0,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "frederick",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "lissa",
+          "health": 102,
+          "max": 102
+        },
+        {
+          "hero": "ricken",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "camp": 900,
+      "enemies": 0
+    },
+    {
+      "kind": "sample",
+      "clock": 10227.909999999994,
+      "mission": 1,
+      "kills": 1,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "frederick",
+          "health": 89,
+          "max": 101
+        },
+        {
+          "hero": "lissa",
+          "health": 102,
+          "max": 102
+        },
+        {
+          "hero": "ricken",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "camp": 900,
+      "enemies": 3
+    },
+    {
+      "kind": "sample",
+      "clock": 20615.84000000002,
+      "mission": 1,
+      "kills": 5,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "frederick",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "lissa",
+          "health": 102,
+          "max": 102
+        },
+        {
+          "hero": "ricken",
+          "health": 89,
+          "max": 100
+        }
+      ],
+      "camp": 900,
+      "enemies": 3
+    },
+    {
+      "kind": "sample",
+      "clock": 30898.730000000192,
+      "mission": 1,
+      "kills": 9,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 90,
+          "max": 101
+        },
+        {
+          "hero": "frederick",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "lissa",
+          "health": 102,
+          "max": 102
+        },
+        {
+          "hero": "ricken",
+          "health": 99,
+          "max": 100
+        }
+      ],
+      "camp": 879,
+      "enemies": 7
+    },
+    {
+      "kind": "sample",
+      "clock": 41015.01000000024,
+      "mission": 1,
+      "kills": 13,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "frederick",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "lissa",
+          "health": 102,
+          "max": 102
+        },
+        {
+          "hero": "ricken",
+          "health": 89,
+          "max": 100
+        }
+      ],
+      "camp": 825,
+      "enemies": 3
+    },
+    {
+      "kind": "sample",
+      "clock": 51097.930000000415,
+      "mission": 1,
+      "kills": 16,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "frederick",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "lissa",
+          "health": 102,
+          "max": 102
+        },
+        {
+          "hero": "ricken",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "camp": 825,
+      "enemies": 0
+    },
+    {
+      "kind": "sample",
+      "clock": 61310.88000000057,
+      "mission": 1,
+      "kills": 17,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "frederick",
+          "health": 101,
+          "max": 101
+        },
+        {
+          "hero": "lissa",
+          "health": 102,
+          "max": 102
+        },
+        {
+          "hero": "ricken",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "camp": 816,
+      "enemies": 3
+    },
+    {
+      "kind": "sample",
+      "clock": 71330.46000000069,
+      "mission": 1,
+      "kills": 19,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 102,
+          "max": 102
+        },
+        {
+          "hero": "frederick",
+          "health": 97,
+          "max": 102
+        },
+        {
+          "hero": "lissa",
+          "health": 102,
+          "max": 102
+        },
+        {
+          "hero": "ricken",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "camp": 780,
+      "enemies": 5
+    },
+    {
+      "kind": "sample",
+      "clock": 81563.3900000008,
+      "mission": 1,
+      "kills": 23,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 94,
+          "max": 102
+        },
+        {
+          "hero": "frederick",
+          "health": 71,
+          "max": 102
+        },
+        {
+          "hero": "lissa",
+          "health": 103,
+          "max": 103
+        },
+        {
+          "hero": "ricken",
+          "health": 80,
+          "max": 100
+        }
+      ],
+      "camp": 780,
+      "enemies": 7
+    },
+    {
+      "kind": "sample",
+      "clock": 91862.95000000087,
+      "mission": 1,
+      "kills": 28,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 102,
+          "max": 102
+        },
+        {
+          "hero": "frederick",
+          "health": 33,
+          "max": 102
+        },
+        {
+          "hero": "lissa",
+          "health": 103,
+          "max": 103
+        },
+        {
+          "hero": "ricken",
+          "health": 96,
+          "max": 100
+        }
+      ],
+      "camp": 741,
+      "enemies": 4
+    },
+    {
+      "kind": "sample",
+      "clock": 101929.2400000011,
+      "mission": 1,
+      "kills": 32,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 102,
+          "max": 102
+        },
+        {
+          "hero": "frederick",
+          "health": 33,
+          "max": 102
+        },
+        {
+          "hero": "lissa",
+          "health": 103,
+          "max": 103
+        },
+        {
+          "hero": "ricken",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "camp": 737,
+      "enemies": 0
+    },
+    {
+      "kind": "sample",
+      "clock": 112495.51000000132,
+      "mission": 1,
+      "kills": 32,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 102,
+          "max": 102
+        },
+        {
+          "hero": "frederick",
+          "health": 49,
+          "max": 102
+        },
+        {
+          "hero": "lissa",
+          "health": 103,
+          "max": 103
+        },
+        {
+          "hero": "ricken",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "camp": 737,
+      "boss": 674,
+      "enemies": 1
+    },
+    {
+      "kind": "sample",
+      "clock": 122795.08000000147,
+      "mission": 1,
+      "kills": 32,
+      "hero": "chrom",
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 102,
+          "max": 102
+        },
+        {
+          "hero": "frederick",
+          "health": 65,
+          "max": 102
+        },
+        {
+          "hero": "lissa",
+          "health": 103,
+          "max": 103
+        },
+        {
+          "hero": "ricken",
+          "health": 100,
+          "max": 100
+        }
+      ],
+      "camp": 737,
+      "boss": 125,
+      "enemies": 3
+    }
+  ],
+  "errors": [],
+  "prepared": {
+    "missionIndex": 1,
+    "gold": 610,
+    "members": [
+      {
+        "hero": "chrom",
+        "health": 101,
+        "progress": {
+          "level": 2,
+          "xp": 44,
+          "stats": {
+            "hp": 101,
+            "str": 21,
+            "mag": 15,
+            "skill": 11,
+            "speed": 10,
+            "luck": 11,
+            "def": 0,
+            "res": 0
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "falchion",
+              "uses": null,
+              "forge": 1
+            },
+            {
+              "weaponId": "iron-sword",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "frederick",
+        "health": 101,
+        "progress": {
+          "level": 2,
+          "xp": 44,
+          "stats": {
+            "hp": 101,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 11,
+            "luck": 10,
+            "def": 1,
+            "res": 1
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "iron-lance",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-sword",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-axe",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "lissa",
+        "health": 102,
+        "progress": {
+          "level": 3,
+          "xp": 8,
+          "stats": {
+            "hp": 102,
+            "str": 20,
+            "mag": 16,
+            "skill": 11,
+            "speed": 10,
+            "luck": 11,
+            "def": 0,
+            "res": 2
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "heal",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-axe",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "ricken",
+        "health": 100,
+        "progress": {
+          "level": 1,
+          "xp": 0,
+          "stats": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "fire",
+              "uses": null
+            },
+            {
+              "weaponId": "thunder",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      }
+    ],
+    "complete": false,
+    "reserve": [
+      {
+        "hero": "miriel",
+        "health": 101,
+        "progress": {
+          "level": 2,
+          "xp": 60,
+          "stats": {
+            "hp": 101,
+            "str": 20,
+            "mag": 16,
+            "skill": 11,
+            "speed": 11,
+            "luck": 11,
+            "def": 0,
+            "res": 0
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "fire",
+              "uses": null
+            },
+            {
+              "weaponId": "thunder",
+              "uses": null
+            },
+            {
+              "weaponId": "heal",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      }
+    ]
+  },
+  "shop": {
+    "missionIndex": 1,
+    "gold": 610,
+    "members": [
+      {
+        "hero": "chrom",
+        "health": 101,
+        "progress": {
+          "level": 2,
+          "xp": 44,
+          "stats": {
+            "hp": 101,
+            "str": 21,
+            "mag": 15,
+            "skill": 11,
+            "speed": 10,
+            "luck": 11,
+            "def": 0,
+            "res": 0
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "falchion",
+              "uses": null,
+              "forge": 1
+            },
+            {
+              "weaponId": "iron-sword",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "frederick",
+        "health": 101,
+        "progress": {
+          "level": 2,
+          "xp": 44,
+          "stats": {
+            "hp": 101,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 11,
+            "luck": 10,
+            "def": 1,
+            "res": 1
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "iron-lance",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-sword",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-axe",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "lissa",
+        "health": 102,
+        "progress": {
+          "level": 3,
+          "xp": 8,
+          "stats": {
+            "hp": 102,
+            "str": 20,
+            "mag": 16,
+            "skill": 11,
+            "speed": 10,
+            "luck": 11,
+            "def": 0,
+            "res": 2
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "heal",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-axe",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "ricken",
+        "health": 100,
+        "progress": {
+          "level": 1,
+          "xp": 0,
+          "stats": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "fire",
+              "uses": null
+            },
+            {
+              "weaponId": "thunder",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      }
+    ],
+    "complete": false,
+    "reserve": [
+      {
+        "hero": "miriel",
+        "health": 101,
+        "progress": {
+          "level": 2,
+          "xp": 60,
+          "stats": {
+            "hp": 101,
+            "str": 20,
+            "mag": 16,
+            "skill": 11,
+            "speed": 11,
+            "luck": 11,
+            "def": 0,
+            "res": 0
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "fire",
+              "uses": null
+            },
+            {
+              "weaponId": "thunder",
+              "uses": null
+            },
+            {
+              "weaponId": "heal",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      }
+    ],
+    "party": [
+      "chrom",
+      "frederick",
+      "lissa",
+      "ricken"
+    ]
+  },
+  "start": {
+    "arena": true,
+    "deploying": true,
+    "ended": false,
+    "health": 101,
+    "hero": "chrom",
+    "party": [
+      "chrom",
+      "frederick",
+      "lissa",
+      "ricken"
+    ],
+    "states": [
+      {
+        "hero": "chrom",
+        "health": 101,
+        "max": 101
+      },
+      {
+        "hero": "frederick",
+        "health": 101,
+        "max": 101
+      },
+      {
+        "hero": "lissa",
+        "health": 102,
+        "max": 102
+      },
+      {
+        "hero": "ricken",
+        "health": 100,
+        "max": 100
+      }
+    ],
+    "p": {
+      "x": 179,
+      "y": 219
+    },
+    "enemies": [],
+    "clock": 0,
+    "mission": 1,
+    "kills": 0,
+    "camp": 900,
+    "phase": "opening",
+    "wave": 0,
+    "boss": null,
+    "objective": {
+      "kind": "defend",
+      "victory": "defend-commander",
+      "label": "Protect the village and defeat Gangrel",
+      "x": 512,
+      "y": 352,
+      "radius": 96
+    },
+    "items": [
+      "falchion",
+      "iron-sword"
+    ],
+    "profile": {
+      "weapon": "sword",
+      "range": 85,
+      "minRange": 0,
+      "damage": 39,
+      "cooldown": 320,
+      "speed": 170,
+      "description": "Sword · close combat · strong against axes",
+      "id": "falchion",
+      "name": "Falchion +2",
+      "type": "sword",
+      "icon": "weapon-sword",
+      "effect": "attack",
+      "healingBonus": 0
+    },
+    "ready": true,
+    "camera": {
+      "origin": {
+        "x": -0.00001307896232560779,
+        "y": -0.000008719308169702344
+      },
+      "ex": {
+        "x": 1.4285714528998597,
+        "y": 0
+      },
+      "ey": {
+        "x": 0,
+        "y": 1.4285714528998597
+      }
+    },
+    "heroPositions": [
+      {
+        "hero": "chrom",
+        "x": 190,
+        "y": 230,
+        "health": 101
+      },
+      {
+        "hero": "frederick",
+        "x": 0,
+        "y": 0,
+        "health": 101
+      },
+      {
+        "hero": "lissa",
+        "x": 0,
+        "y": 0,
+        "health": 102
+      },
+      {
+        "hero": "ricken",
+        "x": 0,
+        "y": 0,
+        "health": 100
+      }
+    ]
+  },
+  "victory": {
+    "result": {
+      "missionIndex": 1,
+      "reason": "Gangrel defeated. The village stands.",
+      "kills": 33,
+      "elapsed": 125,
+      "gold": 138,
+      "reward": 100,
+      "progressBefore": [
+        {
+          "hero": "chrom",
+          "level": 2,
+          "xp": 44
+        },
+        {
+          "hero": "frederick",
+          "level": 2,
+          "xp": 44
+        },
+        {
+          "hero": "lissa",
+          "level": 3,
+          "xp": 8
+        },
+        {
+          "hero": "ricken",
+          "level": 1,
+          "xp": 0
+        }
+      ]
+    },
+    "members": [
+      {
+        "hero": "chrom",
+        "health": 74,
+        "progress": {
+          "level": 3,
+          "xp": 52,
+          "stats": {
+            "hp": 102,
+            "str": 22,
+            "mag": 15,
+            "skill": 11,
+            "speed": 10,
+            "luck": 12,
+            "def": 0,
+            "res": 0
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "falchion",
+              "uses": null,
+              "forge": 2
+            },
+            {
+              "weaponId": "iron-sword",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "frederick",
+        "health": 65,
+        "progress": {
+          "level": 3,
+          "xp": 52,
+          "stats": {
+            "hp": 102,
+            "str": 20,
+            "mag": 15,
+            "skill": 11,
+            "speed": 12,
+            "luck": 11,
+            "def": 2,
+            "res": 1
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "iron-lance",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-sword",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-axe",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "lissa",
+        "health": 103,
+        "progress": {
+          "level": 4,
+          "xp": 68,
+          "stats": {
+            "hp": 103,
+            "str": 20,
+            "mag": 16,
+            "skill": 12,
+            "speed": 11,
+            "luck": 12,
+            "def": 1,
+            "res": 2
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "heal",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-axe",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "ricken",
+        "health": 100,
+        "progress": {
+          "level": 2,
+          "xp": 27,
+          "stats": {
+            "hp": 100,
+            "str": 21,
+            "mag": 15,
+            "skill": 11,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 1
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "fire",
+              "uses": null
+            },
+            {
+              "weaponId": "thunder",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      }
+    ],
+    "gold": 748,
+    "heldKeys": []
+  },
+  "elapsedMs": 131162,
+  "final": {
+    "arena": false,
+    "results": true,
+    "campaign": false,
+    "interface": {
+      "preparationEditing": false,
+      "hero": "chrom",
+      "companions": [
+        "frederick",
+        "lissa",
+        "ricken"
+      ],
+      "selectionMode": "player",
+      "phase": "battle",
+      "tactical": true,
+      "ready": true,
+      "playing": true,
+      "paused": false,
+      "muted": false,
+      "settingsOpen": false,
+      "result": "",
+      "audio": {
+        "music": 0.18,
+        "effects": 1,
+        "voices": 0.6,
+        "characterVoices": true,
+        "spellEffect": "fire-cast"
+      }
+    },
+    "result": {
+      "result": {
+        "missionIndex": 1,
+        "reason": "Gangrel defeated. The village stands.",
+        "kills": 33,
+        "elapsed": 125,
+        "gold": 138,
+        "reward": 100,
+        "progressBefore": [
+          {
+            "hero": "chrom",
+            "level": 2,
+            "xp": 44
+          },
+          {
+            "hero": "frederick",
+            "level": 2,
+            "xp": 44
+          },
+          {
+            "hero": "lissa",
+            "level": 3,
+            "xp": 8
+          },
+          {
+            "hero": "ricken",
+            "level": 1,
+            "xp": 0
+          }
+        ]
+      },
+      "members": [
+        {
+          "hero": "chrom",
+          "health": 74,
+          "progress": {
+            "level": 3,
+            "xp": 52,
+            "stats": {
+              "hp": 102,
+              "str": 22,
+              "mag": 15,
+              "skill": 11,
+              "speed": 10,
+              "luck": 12,
+              "def": 0,
+              "res": 0
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "falchion",
+                "uses": null,
+                "forge": 2
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "frederick",
+          "health": 65,
+          "progress": {
+            "level": 3,
+            "xp": 52,
+            "stats": {
+              "hp": 102,
+              "str": 20,
+              "mag": 15,
+              "skill": 11,
+              "speed": 12,
+              "luck": 11,
+              "def": 2,
+              "res": 1
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "iron-lance",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "lissa",
+          "health": 103,
+          "progress": {
+            "level": 4,
+            "xp": 68,
+            "stats": {
+              "hp": 103,
+              "str": 20,
+              "mag": 16,
+              "skill": 12,
+              "speed": 11,
+              "luck": 12,
+              "def": 1,
+              "res": 2
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "heal",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "ricken",
+          "health": 100,
+          "progress": {
+            "level": 2,
+            "xp": 27,
+            "stats": {
+              "hp": 100,
+              "str": 21,
+              "mag": 15,
+              "skill": 11,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 1
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fire",
+                "uses": null
+              },
+              {
+                "weaponId": "thunder",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        }
+      ],
+      "gold": 748,
+      "heldKeys": []
+    },
+    "campaignData": {
+      "missionIndex": 1,
+      "gold": 510,
+      "members": [
+        {
+          "hero": "chrom",
+          "health": 101,
+          "progress": {
+            "level": 2,
+            "xp": 44,
+            "stats": {
+              "hp": 101,
+              "str": 21,
+              "mag": 15,
+              "skill": 11,
+              "speed": 10,
+              "luck": 11,
+              "def": 0,
+              "res": 0
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "falchion",
+                "uses": null,
+                "forge": 2
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "frederick",
+          "health": 101,
+          "progress": {
+            "level": 2,
+            "xp": 44,
+            "stats": {
+              "hp": 101,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 11,
+              "luck": 10,
+              "def": 1,
+              "res": 1
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "iron-lance",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "lissa",
+          "health": 102,
+          "progress": {
+            "level": 3,
+            "xp": 8,
+            "stats": {
+              "hp": 102,
+              "str": 20,
+              "mag": 16,
+              "skill": 11,
+              "speed": 10,
+              "luck": 11,
+              "def": 0,
+              "res": 2
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "heal",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "ricken",
+          "health": 100,
+          "progress": {
+            "level": 1,
+            "xp": 0,
+            "stats": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fire",
+                "uses": null
+              },
+              {
+                "weaponId": "thunder",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        }
+      ],
+      "complete": false,
+      "reserve": [
+        {
+          "hero": "miriel",
+          "health": 101,
+          "progress": {
+            "level": 2,
+            "xp": 60,
+            "stats": {
+              "hp": 101,
+              "str": 20,
+              "mag": 16,
+              "skill": 11,
+              "speed": 11,
+              "luck": 11,
+              "def": 0,
+              "res": 0
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fire",
+                "uses": null
+              },
+              {
+                "weaponId": "thunder",
+                "uses": null
+              },
+              {
+                "weaponId": "heal",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        }
+      ],
+      "party": [
+        "chrom",
+        "frederick",
+        "lissa",
+        "ricken"
+      ]
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "source": "genuinely earned Road pending result; accepted via production campaign function, no synthetic stats",
+  "rows": [
+    {
+      "hero": "frederick",
+      "actual": {
+        "health": 101,
+        "maxHealth": 101,
+        "def": 1,
+        "res": 1,
+        "power": 35,
+        "speed": 124.39999999999999
+      },
+      "expected": {
+        "health": 101,
+        "maxHealth": 101,
+        "def": 1,
+        "res": 1,
+        "power": 35,
+        "speed": 124.39999999999999
+      }
+    },
+    {
+      "hero": "lissa",
+      "actual": {
+        "health": 102,
+        "maxHealth": 102,
+        "def": 0,
+        "res": 2,
+        "power": 1,
+        "speed": 122.39999999999999
+      },
+      "expected": {
+        "health": 102,
+        "maxHealth": 102,
+        "def": 0,
+        "res": 2,
+        "power": 1,
+        "speed": 122.39999999999999
+      }
+    },
+    {
+      "hero": "miriel",
+      "actual": {
+        "health": 101,
+        "maxHealth": 101,
+        "def": 0,
+        "res": 0,
+        "power": 31,
+        "speed": 124.39999999999999
+      },
+      "expected": {
+        "health": 101,
+        "maxHealth": 101,
+        "def": 0,
+        "res": 0,
+        "power": 31,
+        "speed": 124.39999999999999
+      }
+    }
+  ],
+  "switched": {
+    "hero": "frederick",
+    "def": 1,
+    "res": 1,
+    "power": 35
+  },
+  "kills": 0,
+  "battleClock": 0
+}
