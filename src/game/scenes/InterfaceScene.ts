@@ -147,7 +147,8 @@ export class InterfaceScene extends Phaser.Scene {
     const fullscreen=this.add.container().setDepth(180);
     this.button(fullscreen,0,0,28,'⛶',()=>this.request('fullscreen'));
     const layoutFullscreen=()=>{const width=this.game.canvas.getBoundingClientRect().width||896;const factor=this.touchUsed?Math.max(1,44*896/width/28):1;fullscreen.setScale(factor).setPosition(896-28*factor-4,3);const shift=Math.min(0,fullscreen.x-8-802);this.headerUtilities.setX(shift);this.menuButton?.setX(shift);if(this.pauseButton){const frame=this.pauseButton.list[0] as Phaser.GameObjects.NineSlice;if(this.touchUsed){const hit=28*factor,center=fullscreen.x-8-hit/2;this.pauseButton.setScale(1).setPosition(center-14,3);frame.setPosition(0,0).setSize(28,28);(frame.input!.hitArea as Phaser.Geom.Rectangle).setTo(14-hit/2,14-hit/2,hit,hit);this.pauseText.setPosition(14,14).setFontSize(18);this.menuButton?.setX(Math.min(shift,center-hit/2-8-734));}else{this.pauseButton.setScale(1).setPosition(shift,0);frame.setPosition(737,3).setSize(65,28);(frame.input!.hitArea as Phaser.Geom.Rectangle).setTo(0,0,65,28);this.pauseText.setPosition(769.5,17).setFontSize(13);}}this.registry.set('fullscreen-control',{x:fullscreen.x,y:fullscreen.y,width:28*factor,height:28*factor});};
-    this.scale.on('resize',layoutFullscreen);this.events.once('shutdown',()=>this.scale.off('resize',layoutFullscreen));layoutFullscreen();
+    // Layout after the new Pause control is created; scene restarts retain destroyed old references.
+    this.scale.on('resize',layoutFullscreen);this.events.once('shutdown',()=>this.scale.off('resize',layoutFullscreen));
     this.menuButton = this.add.container();
     this.button(this.menuButton, 678, 3, 56, 'Menu', () => this.request('main-menu'));
     this.pauseButton = this.add.container();
