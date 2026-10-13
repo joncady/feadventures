@@ -113,6 +113,10 @@ export class InterfaceScene extends Phaser.Scene {
   private controlMessage!:Phaser.GameObjects.Text;
   private settings!: Phaser.GameObjects.Container;
   private pauseOverlay!: Phaser.GameObjects.Container;
+  private partyInfo!:Phaser.GameObjects.Container;
+  private partyInfoRows:Phaser.GameObjects.Text[]=[];
+  private partyInfoOpen=false;
+  private tacticalSnapshot?:TacticalMap;
   private endOverlay!: Phaser.GameObjects.Container;
   private resultText!: Phaser.GameObjects.Text;
   private levels!: Phaser.GameObjects.Graphics;
@@ -124,6 +128,7 @@ export class InterfaceScene extends Phaser.Scene {
   constructor() { super('Interface'); }
   create(): void {
     // Scene instances survive shutdown; never retain destroyed controls across phases.
+    this.partyInfoRows=[];this.partyInfoOpen=false;this.tacticalSnapshot=undefined;
     this.controlRows=[];this.pauseKeyLabels=[];this.controlFocus=0;this.capturing=undefined;this.controlPrefs=readControlPreferences();this.registry.set('controls-open',false);this.registry.set('controls-capture',false);
     this.events.once('shutdown',()=>{if(this.registry.get('controls-open'))this.game.events.emit('controls-open',false);this.registry.set('controls-open',false);this.registry.set('controls-capture',false);this.capturing=undefined;});
     this.touchUsed=window.matchMedia('(pointer: coarse)').matches;
@@ -176,13 +181,21 @@ export class InterfaceScene extends Phaser.Scene {
     this.spell = this.button(this.settings, -158, 99, 316, '', () => this.game.events.emit('ui-spell'));
     this.button(this.settings, -158, 139, 151, 'Fullscreen', () => this.request('fullscreen'));
     this.button(this.settings, 7, 139, 151, 'Close', () => this.request('audio-close'));
-    this.pauseOverlay = this.panel(620, 400, 'Paused · Battle controls');
+    this.pauseOverlay = this.panel(620, 480, 'Paused · Battle controls');
     const controls=[['WASD / Arrows','Move'],['Mouse','Aim attacks (including melee)'],['Space / Left click','Attack or cast equipped ability'],['Q / E','Previous / next living hero'],['F','Switch weapon or ability'],['I / Info','Inspect stats and equipment'],['R','Call companions · 10s / 20s cooldown'],['P','Pause / resume battle']];
     controls.forEach(([key,meaning],i)=>{const y=-140+i*27;const label=this.add.text(-266,y,key,{...this.style,fontSize:'14px',color:'#183e57'});this.pauseKeyLabels.push(label);this.pauseOverlay.add(label);this.pauseOverlay.add(this.add.text(-100,y,meaning,{...this.style,fontSize:'13px'}));});
     this.pauseGuardText=this.add.text(-266,84,'Ctrl / right mouse: Guard frontal physical attacks.\nStaff: Space heals allies · Shift + Space heals yourself.\nCompanions with staves automatically help nearby allies in danger.',{...this.style,fontSize:'11px',wordWrap:{width:530}});this.pauseOverlay.add(this.pauseGuardText);
-    this.pauseActions=[()=>this.request('pause'),()=>this.request('audio-options'),()=>this.request('main-menu')];
-    this.pauseChoices=['Resume','Settings','Main menu'].map((label,i)=>this.button(this.pauseOverlay,-270+i*185,135,170,label,this.pauseActions[i]));
-    this.pauseOverlay.add(this.add.text(0,174,'← / →: choose · Enter / Space: confirm',{...this.style,fontSize:'11px'}).setOrigin(.5));
+    this.pauseActions=[()=>this.request('pause'),()=>this.showPartyInfo(),()=>this.request('audio-options'),()=>this.request('main-menu')];
+    this.pauseChoices=['Resume','Info','Settings','Main menu'].map((label,i)=>this.button(this.pauseOverlay,-270+i*140,135,130,label,this.pauseActions[i]));
+    const layoutPauseInfo=()=>{const scale=Math.max(.1,this.game.canvas.getBoundingClientRect().width/WORLD.width),height=Math.max(28,44/scale);const text=this.pauseChoices[1],index=this.pauseOverlay.list.indexOf(text),frame=this.pauseOverlay.list[index-1] as Phaser.GameObjects.NineSlice;frame.setSize(130,height);if(frame.input)(frame.input.hitArea as Phaser.Geom.Rectangle).setTo(0,0,130,height);text.setY(135+height/2);};
+    this.scale.on('resize',layoutPauseInfo);this.events.once('shutdown',()=>this.scale.off('resize',layoutPauseInfo));layoutPauseInfo();
+    this.partyInfo=this.panel(620,400,'Party · Progress and equipment').setVisible(false);
+    for(let i=0;i<4;i++){const row=this.add.text(-270,-138+i*65,'',{...this.style,fontSize:'18px',color:'#183e57'});this.partyInfo.add(row);this.partyInfoRows.push(row);}
+    const back=this.add.container(-270,140),resume=this.add.container(40,140);this.partyInfo.add([back,resume]);
+    this.button(back,0,0,90,'Back',()=>{this.partyInfoOpen=false;this.apply(this.state);});
+    this.button(resume,0,0,90,'Resume',()=>{this.partyInfoOpen=false;this.request('pause');});
+    const layoutInfo=()=>{const scale=Math.max(.1,this.game.canvas.getBoundingClientRect().width/WORLD.width),factor=Math.max(1,44/(28*scale));back.setScale(factor);resume.setScale(factor);};
+    this.scale.on('resize',layoutInfo);this.events.once('shutdown',()=>this.scale.off('resize',layoutInfo));layoutInfo();
     this.refreshPauseBindings();
     const retryPanel=this.textures.exists('ui-parchment')?this.panel(360,180,'Unable to load game assets'):this.add.container(WORLD.width/2,WORLD.height/2).add([this.add.rectangle(0,0,WORLD.width,WORLD.height,0x0d1d28,.9).setInteractive(),this.add.rectangle(0,0,360,180,0x183e57).setStrokeStyle(2,0xe6d19a),this.add.text(0,-68,'Unable to load game assets',{...this.style,color:'#fff1c7',fontSize:'18px'}).setOrigin(.5)]);retryPanel.setDepth(260).setVisible(false);const fallback=!this.textures.exists('ui-parchment');retryPanel.add(this.add.text(0,-40,'Check your connection, then try again.',{...this.style,color:fallback?'#fff1c7':'#44351e',fontSize:'13px'}).setOrigin(.5));if(fallback){const retryTarget=this.add.rectangle(0,42,280,46,0xe6d19a).setInteractive({useHandCursor:true});retryTarget.on('pointerdown',()=>this.game.events.emit('ui-retry-load'));retryPanel.add([retryTarget,this.add.text(0,42,'Retry loading',{...this.style,color:'#183e57',fontSize:'18px'}).setOrigin(.5)]);}else this.button(retryPanel,-140,18,280,'Retry loading',()=>this.game.events.emit('ui-retry-load'));const onLoadingError=()=>retryPanel.setVisible(true);this.game.events.on('loading-error',onLoadingError);this.events.once('shutdown',()=>this.game.events.off('loading-error',onLoadingError));if(this.registry.get('loading-error'))onLoadingError();
     this.endOverlay = this.panel(340, 208, 'The battle is over');
@@ -299,10 +312,41 @@ export class InterfaceScene extends Phaser.Scene {
   }
   private drawTacticalMap(data:TacticalMap):void {
     if(!this.state?.tactical)return;
+    this.tacticalSnapshot=data;
     const background=getMap(data.missionIndex??2).backgroundKey;if(this.textures.exists(background))this.miniTerrain.setTexture(background).setDisplaySize(164,100);
-    const rosterHeight=Math.max(1,data.party.length)*34+14;const roadPlanning=data.deploying&&data.missionIndex===0;this.partyPanel.setPosition(roadPlanning?WORLD.width-216:0,roadPlanning?WORLD.height-48-rosterHeight:0);this.partyBackground.setSize(192,rosterHeight).setY(40+rosterHeight/2);this.damageControls.setPosition(roadPlanning?-260:0,rosterHeight-150-(roadPlanning?36:0)).setVisible(data.deploying);const rally=data.rally;this.rallyLabel.setPosition(16,rosterHeight+45).setVisible(!data.deploying&&!!rally&&data.party.filter(p=>p.health>0).length>1).setText(rally?.active?`Rallying · ${Math.ceil(rally.remaining)}s`:rally?.available?'Rally ready':`Rally · ${Math.ceil(rally?.cooldown??0)}s`).setColor(rally?.active?'#a8dcaa':rally?.available?'#fff0c6':'#acb7b9');
-    for(const [i,row] of this.partyRows.entries()){const unit=data.party[i];this.partyZones[i].setVisible(!!unit);row.setVisible(!!unit);this.partyHeads[i].setVisible(!!unit);if(unit)this.partyHeads[i].setTexture(`portrait-face-${unit.hero}`).setDisplaySize(30,30).setAlpha(unit.health>0?1:.3);const item=unit?.equippedWeaponId?WEAPONS[unit.equippedWeaponId]:undefined;this.partyWeaponIcons[i].setVisible(!!item);if(item)this.partyWeaponIcons[i].setTexture(item.icon).setAlpha(unit.health>0?1:.3);row.setText(unit?`${(data.deploying?data.selected:data.controlled)===unit.hero?'▶ ':''}${HERO_NAMES[unit.hero]}  LV ${unit.level}\n${data.deploying&&!unit.placed?'Not placed':`${unit.health<=0?'Fallen':`HP ${Math.max(0,unit.health)} / ${unit.maxHealth??unit.health}`} · XP ${unit.xp}`}`:'').setAlpha(unit&&unit.health>0?1:.4);}
-    this.partyHealth.clear();for(const [i,unit]of data.party.entries()){const fraction=Phaser.Math.Clamp(unit.health/Math.max(1,unit.maxHealth??unit.health),0,1),color=unit.health<=0?0x53636c:fraction>.5?0x88c899:fraction>.25?0xe8be6c:0xe87969;this.partyHealth.fillStyle(0x0c2533).fillRect(59,76+i*34,131,5).fillStyle(color).fillRect(60,77+i*34,129*fraction,3);}
+    const canvasBounds=this.game.canvas.getBoundingClientRect();
+    const cssScale=Math.max(.1,canvasBounds.width/WORLD.width);
+    const combatFont=Math.max(17,Math.ceil(12/cssScale));
+    const rowHeight=data.deploying?34:Math.max(32,combatFont+10);
+    const rosterHeight=Math.max(1,data.party.length)*rowHeight+(data.deploying?14:8);
+    const panelWidthVitality=data.deploying?192:146;
+    const roadPlanning=data.deploying&&data.missionIndex===0;
+    this.partyPanel.setPosition(roadPlanning?WORLD.width-216:0,roadPlanning?WORLD.height-48-rosterHeight:0);
+    this.partyBackground.setSize(panelWidthVitality,rosterHeight).setPosition(12+panelWidthVitality/2,40+rosterHeight/2).setAlpha(data.deploying?.94:.72);
+    this.damageControls.setPosition(roadPlanning?-260:0,rosterHeight-150-(roadPlanning?36:0)).setVisible(data.deploying);
+    const rally=data.rally;
+    this.rallyLabel.setPosition(16,rosterHeight+45).setVisible(!data.deploying&&!!rally&&data.party.filter(p=>p.health>0).length>1).setText(rally?.active?`Rallying · ${Math.ceil(rally.remaining)}s`:rally?.available?'Rally ready':`Rally · ${Math.ceil(rally?.cooldown??0)}s`).setColor(rally?.active?'#a8dcaa':rally?.available?'#fff0c6':'#acb7b9');
+    this.partyHealth.clear();
+    for(const [i,row] of this.partyRows.entries()){
+      const unit=data.party[i],y=44+i*rowHeight;
+      this.partyZones[i].setVisible(!!unit).setPosition(108,62+i*34);
+      row.setVisible(!!unit).setPosition(data.deploying?60:52,data.deploying?48+i*34:y).setFontSize(data.deploying?10:combatFont);
+      const head=this.partyHeads[i];head.setVisible(!!unit).setPosition(data.deploying?38:32,data.deploying?62+i*34:y+14);
+      if(unit)head.setTexture(`portrait-face-${unit.hero}`).setDisplaySize(data.deploying?30:26,data.deploying?30:26).setAlpha(unit.health>0?1:.3);
+      const item=unit?.equippedWeaponId?WEAPONS[unit.equippedWeaponId]:undefined;
+      this.partyWeaponIcons[i].setVisible(data.deploying&&!!item);
+      if(item)this.partyWeaponIcons[i].setTexture(item.icon).setAlpha(unit.health>0?1:.3);
+      row.setText(unit?(data.deploying?`${data.selected===unit.hero?'▶ ':''}${HERO_NAMES[unit.hero]}  LV ${unit.level}\n${!unit.placed?'Not placed':`${unit.health<=0?'Fallen':`HP ${Math.max(0,unit.health)} / ${unit.maxHealth??unit.health}`} · XP ${unit.xp}`}`:unit.health<=0?'—':`${Math.max(0,Math.ceil(unit.health))}`):'').setAlpha(unit&&unit.health>0?1:.55);
+      if(!unit)continue;
+      const fraction=Phaser.Math.Clamp(unit.health/Math.max(1,unit.maxHealth??unit.health),0,1),color=unit.health<=0?0x53636c:fraction>.5?0x88c899:fraction>.25?0xe8be6c:0xe87969;
+      if(data.deploying)this.partyHealth.fillStyle(0x0c2533).fillRect(59,76+i*34,131,5).fillStyle(color).fillRect(60,77+i*34,129*fraction,3);
+      else{
+        this.partyHealth.fillStyle(0x0c2533).fillRect(53,y+combatFont+1,95,5).fillStyle(color).fillRect(54,y+combatFont+2,93*fraction,3);
+        const controlled=data.controlled===unit.hero;
+        if(controlled||fraction<=.25)this.partyHealth.lineStyle(controlled?2:1,controlled?0xe8c57b:color).strokeRect(18,y,28,28);
+        if(unit.health<=0)this.partyHealth.lineStyle(1,0x89949a).lineBetween(20,y+3,44,y+25);
+      }
+    }
     this.soldiersControl.setVisible(false);this.soldiersButton.setText(`Place soldiers · ${data.placed-data.party.filter(p=>p.placed).length}/${getMap(data.missionIndex??2).soldierCount}`);
     this.deploymentHeroes=data.party.map(p=>p.hero);this.selectedDeployment=data.selected;
     const keepPlanning=data.deploying&&data.missionIndex===3,panelWidth=keepPlanning?156:240;
@@ -335,6 +379,7 @@ export class InterfaceScene extends Phaser.Scene {
     if(!this.state||this.state.settingsOpen||this.state.result)return;
     if(event.target instanceof HTMLElement&&event.target.closest('button,input,select,textarea,dialog'))return;
     const key=event.key.toLowerCase();
+    if(this.state.paused&&this.partyInfoOpen){if(['escape','enter',' '].includes(key)&&!event.repeat){this.partyInfoOpen=false;this.apply(this.state);event.preventDefault();event.stopImmediatePropagation();}return;}
     if(this.state.paused){if(['w','a','arrowup','arrowleft','s','d','arrowdown','arrowright'].includes(key)){this.pauseFocus=(this.pauseFocus+(['w','a','arrowup','arrowleft'].includes(key)?-1:1)+this.pauseActions.length)%this.pauseActions.length;this.game.events.emit('ux-feedback',{kind:'cursor'});this.updatePauseFocus();}else if((key==='enter'||key===' ')&&!event.repeat)this.pauseActions[this.pauseFocus]?.();else return;event.preventDefault();event.stopImmediatePropagation();return;}
     if(this.state.phase==='battle'){if(event.code===keyFor('weapon')&&!event.repeat&&!this.state.paused){this.game.events.emit('ui-switch-weapon');event.preventDefault();}return;}
     if(this.state.phase==='deployment'){
@@ -373,6 +418,12 @@ export class InterfaceScene extends Phaser.Scene {
     if(this.capturing){if(event.code==='Escape'){this.capturing=undefined;this.registry.set('controls-capture',false);this.controlMessage.setText('Change canceled.');this.renderControls();return;}const action=this.capturing;if(!validBinding(event.code)){this.controlMessage.setText('Use a letter, number, Space, Shift or Control. I and navigation keys are reserved.');return;}const conflict=(Object.keys(DEFAULT_BINDINGS) as ControlAction[]).find(a=>a!==action&&this.controlPrefs.bindings[a]===event.code);if(conflict){this.controlMessage.setText(`${keyLabel(event.code)} is already assigned to ${CONTROL_LABELS[conflict]}.`);return;}this.controlPrefs.bindings[action]=event.code;this.capturing=undefined;this.registry.set('controls-capture',false);this.controlMessage.setText('Saved. Arrow keys still move and navigate menus.');this.persistControls();return;}
     if(event.code==='Escape'){this.closeControls();return;}if(['ArrowUp','ArrowLeft','ArrowDown','ArrowRight','Tab'].includes(event.code)){this.controlFocus=(this.controlFocus+(['ArrowUp','ArrowLeft'].includes(event.code)?-1:1)+this.controlRows.length)%this.controlRows.length;this.renderControls();return;}
     if(event.code==='Enter'||event.code==='Space'){const actions=Object.keys(DEFAULT_BINDINGS) as ControlAction[];if(this.controlFocus<12)this.captureControl(actions[this.controlFocus]);else if(this.controlFocus===12){this.controlPrefs.reducedMotion=!this.controlPrefs.reducedMotion;this.persistControls();}else if(this.controlFocus===13){this.controlPrefs={bindings:{...DEFAULT_BINDINGS},reducedMotion:typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches};this.persistControls();}else this.closeControls();}
+  }
+  private showPartyInfo():void {
+    this.partyInfoOpen=true;
+    const scale=Math.max(.1,this.game.canvas.getBoundingClientRect().width/WORLD.width),font=Math.max(18,Math.ceil(12/scale));
+    this.partyInfoRows.forEach((row,i)=>{const unit=this.tacticalSnapshot?.party[i],item=unit?.equippedWeaponId?WEAPONS[unit.equippedWeaponId]:undefined;row.setVisible(!!unit).setFontSize(font).setText(unit?`${unit.hero===this.tacticalSnapshot?.controlled?'▶ ':''}${HERO_NAMES[unit.hero]} · LV ${unit.level} · XP ${unit.xp}\n${unit.health<=0?'Fallen':`HP ${Math.ceil(unit.health)} / ${unit.maxHealth??unit.health}`} · ${item?.name??'Equipment'}`:'');});
+    this.apply(this.state);
   }
   private updatePauseFocus():void {this.pauseChoices.forEach((choice,i)=>choice.setColor(i===this.pauseFocus?'#153e66':'#44351e').setBackgroundColor(i===this.pauseFocus?'#fff2cd':'#00000000'));}
   private request(id:string):void { this.game.events.emit('ui-action',id); }
@@ -419,7 +470,9 @@ export class InterfaceScene extends Phaser.Scene {
     this.notice.setVisible(inBattle && state.phase!=='deployment' && Boolean(this.notice.text)); this.instructions.setVisible(false);
     this.pauseText.setText(state.paused?'Resume':'Pause').setAlpha(state.playing?1:.5);
     this.settings.setVisible(state.settingsOpen);
-    this.pauseOverlay.setVisible(state.playing&&state.paused&&!state.settingsOpen);
+    if(!state.paused)this.partyInfoOpen=false;
+    this.pauseOverlay.setVisible(state.playing&&state.paused&&!state.settingsOpen&&!this.partyInfoOpen);
+    this.partyInfo.setVisible(state.playing&&state.paused&&!state.settingsOpen&&this.partyInfoOpen);
     this.endOverlay.setVisible(Boolean(state.result)&&!state.settingsOpen);
     this.resultText.setText(state.result);
     this.enabled.setText(state.muted?'[ ] Enable audio':'[✓] Enable audio');

@@ -1,0 +1,222 @@
+[
+  {
+    "full": false,
+    "entry": {
+      "buttons": [
+        {
+          "x": -310,
+          "y": -240,
+          "width": 620,
+          "height": 480,
+          "cssHeight": 276.8470982142857
+        },
+        {
+          "x": -270,
+          "y": 135,
+          "width": 130,
+          "height": 28,
+          "hitHeight": 28,
+          "cssHeight": 16.1494140625
+        },
+        {
+          "x": -130,
+          "y": 135,
+          "width": 130,
+          "height": 76.28759750861704,
+          "hitHeight": 76.28759750861704,
+          "cssHeight": 44
+        },
+        {
+          "x": 10,
+          "y": 135,
+          "width": 130,
+          "height": 28,
+          "hitHeight": 28,
+          "cssHeight": 16.1494140625
+        },
+        {
+          "x": 150,
+          "y": 135,
+          "width": 130,
+          "height": 28,
+          "hitHeight": 28,
+          "cssHeight": 16.1494140625
+        }
+      ],
+      "textBounds": {
+        "type": 5,
+        "x": 371,
+        "y": 437.64929764041693,
+        "width": 24,
+        "height": 14.989002227783203
+      },
+      "paused": true
+    },
+    "info": {
+      "visible": true,
+      "paused": true,
+      "clock": 153.32999999999993,
+      "rows": [
+        {
+          "text": "▶ Chrom · LV 1 · XP 0\nHP 100 / 100 · Falchion",
+          "cssFont": 12.112060546875
+        },
+        {
+          "text": "Frederick · LV 1 · XP 0\nHP 100 / 100 · Iron Lance",
+          "cssFont": 12.112060546875
+        },
+        {
+          "text": "Lissa · LV 1 · XP 0\nHP 100 / 100 · Heal",
+          "cssFont": 12.112060546875
+        },
+        {
+          "text": "Ricken · LV 1 · XP 0\nHP 100 / 100 · Fire",
+          "cssFont": 12.112060546875
+        }
+      ],
+      "frames": [
+        {
+          "bounds": {
+            "type": 5,
+            "x": 178,
+            "y": 412,
+            "width": 245.2101445198059,
+            "height": 76.28760051727295
+          }
+        },
+        {
+          "bounds": {
+            "type": 5,
+            "x": 488,
+            "y": 412,
+            "width": 245.2101445198059,
+            "height": 76.28760051727295
+          }
+        }
+      ],
+      "count": 4
+    },
+    "back": {
+      "pause": true,
+      "info": false,
+      "paused": true
+    },
+    "resumed": true
+  },
+  {
+    "full": true,
+    "entry": {
+      "buttons": [
+        {
+          "x": -310,
+          "y": -240,
+          "width": 620,
+          "height": 480,
+          "cssHeight": 330.8621651785714
+        },
+        {
+          "x": -270,
+          "y": 135,
+          "width": 130,
+          "height": 28,
+          "hitHeight": 28,
+          "cssHeight": 19.30029296875
+        },
+        {
+          "x": -130,
+          "y": 135,
+          "width": 130,
+          "height": 63.83322792015585,
+          "hitHeight": 63.83322792015585,
+          "cssHeight": 44
+        },
+        {
+          "x": 10,
+          "y": 135,
+          "width": 130,
+          "height": 28,
+          "hitHeight": 28,
+          "cssHeight": 19.30029296875
+        },
+        {
+          "x": 150,
+          "y": 135,
+          "width": 130,
+          "height": 28,
+          "hitHeight": 28,
+          "cssHeight": 19.30029296875
+        }
+      ],
+      "textBounds": {
+        "type": 5,
+        "x": 371,
+        "y": 431.42211284618634,
+        "width": 24,
+        "height": 14.989002227783203
+      },
+      "paused": true
+    },
+    "info": {
+      "visible": true,
+      "paused": true,
+      "clock": 825.0099999999999,
+      "rows": [
+        {
+          "text": "▶ Chrom · LV 1 · XP 0\nHP 100 / 100 · Falchion",
+          "cssFont": 12.407331194196427
+        },
+        {
+          "text": "Frederick · LV 1 · XP 0\nHP 100 / 100 · Iron Lance",
+          "cssFont": 12.407331194196427
+        },
+        {
+          "text": "Lissa · LV 1 · XP 0\nHP 100 / 100 · Heal",
+          "cssFont": 12.407331194196427
+        },
+        {
+          "text": "Ricken · LV 1 · XP 0\nHP 100 / 100 · Fire",
+          "cssFont": 12.407331194196427
+        }
+      ],
+      "frames": [
+        {
+          "bounds": {
+            "type": 5,
+            "x": 178,
+            "y": 412,
+            "width": 205.17823934555054,
+            "height": 63.83323001861572
+          }
+        },
+        {
+          "bounds": {
+            "type": 5,
+            "x": 488,
+            "y": 412,
+            "width": 205.17823934555054,
+            "height": 63.83323001861572
+          }
+        }
+      ],
+      "count": 4
+    },
+    "back": {
+      "pause": true,
+      "info": false,
+      "paused": true
+    },
+    "resumed": true
+  },
+  {
+    "restarted": {
+      "count": 4,
+      "rows": [
+        "▶ Chrom · LV 1 · XP 0\nHP 100 / 100 · Falchion",
+        "Frederick · LV 1 · XP 0\nHP 100 / 100 · Iron Lance",
+        "Lissa · LV 1 · XP 0\nHP 100 / 100 · Heal",
+        "Ricken · LV 1 · XP 0\nHP 100 / 100 · Fire"
+      ],
+      "paused": true
+    }
+  }
+]

@@ -11,7 +11,7 @@ test('native HUD controls work, music defaults on and Begin battle plays the sel
  await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.isPaused('Arena');})).toBe(true);
  await clickCanvas(page,263,421);
  await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.isPaused('Arena');})).toBe(false);
- await page.keyboard.press('p');await clickCanvas(page,448,421);
+ await page.keyboard.press('p');await clickCanvas(page,523,421);
  await expect.poll(()=>page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.getScene('Interface').settings.visible;})).toBe(true);
  expect(await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);return game.scene.isPaused('Arena');})).toBe(true);
  await clickCanvas(page,373,186);
