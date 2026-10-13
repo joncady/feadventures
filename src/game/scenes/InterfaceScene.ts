@@ -314,7 +314,8 @@ export class InterfaceScene extends Phaser.Scene {
   private drawTacticalMap(data:TacticalMap):void {
     if(!this.state?.tactical)return;
     this.tacticalSnapshot=data;
-    const background=getMap(data.missionIndex??2).backgroundKey;if(this.textures.exists(background))this.miniTerrain.setTexture(background).setDisplaySize(164,100);
+    const minimapHeight=!data.deploying&&this.touchUsed?Math.min(100,this.registry.get('touch-minimap-height')??100):100;
+    const background=getMap(data.missionIndex??2).backgroundKey;if(this.textures.exists(background))this.miniTerrain.setTexture(background).setDisplaySize(164,minimapHeight).setY(58+minimapHeight/2);
     const canvasBounds=this.game.canvas.getBoundingClientRect();
     const cssScale=Math.max(.1,canvasBounds.width/WORLD.width);
     const combatFont=Math.max(17,Math.ceil(12/cssScale));
@@ -365,13 +366,13 @@ export class InterfaceScene extends Phaser.Scene {
     if(!data.deploying)this.stats.setText(data.objectiveStatus??data.objective??'Complete the objective');
     // Gold is spent in preparations; combat uses brief pickup feedback only.
     this.goldCounter.setVisible(false);this.goldValue.setText(`${data.gold??0}`);this.cooldownBar.clear();this.cooldownText.setVisible(!data.deploying);if(!data.deploying){const cooldownY=525,cooldownX=this.touchUsed?300:330,cooldownWidth=this.touchUsed?180:280;this.cooldownText.setPosition(cooldownX+cooldownWidth/2,cooldownY-11);this.cooldownBar.fillStyle(0x183e57).fillRect(cooldownX,cooldownY,cooldownWidth,10).fillStyle(data.cooldown.recovering?0xe7a55d:data.cooldown.fraction===1?0x85cda1:0x86baff).fillRect(cooldownX+2,cooldownY+2,(cooldownWidth-4)*data.cooldown.fraction,6);this.cooldownText.setText(`${data.cooldown.recovering?'Recovering':data.cooldown.fraction===1?'Attack ready':'Recharging'}${data.cooldown.remaining>0?` · ${data.cooldown.remaining.toFixed(1)}s`:''}${data.camp?` · Camp ${Math.max(0,data.camp.health)}`:''}`);}
-    const g=this.minimap;g.clear().fillStyle(0x152c37,.96).fillRect(712,38,172,20).lineStyle(1,0xae8746).strokeRect(716,58,164,100);
-    const sx=164/data.width,sy=100/data.height;
+    const g=this.minimap;g.clear().fillStyle(0x152c37,.96).fillRect(712,38,172,20).lineStyle(1,0xae8746).strokeRect(716,58,164,minimapHeight);
+    const sx=164/data.width,sy=minimapHeight/data.height;
     for(const p of data.enemies)g.fillStyle(0xeb5555).fillCircle(716+p.x*sx,58+p.y*sy,2);
     for(const p of data.allies)g.fillStyle(0x77bfff).fillCircle(716+p.x*sx,58+p.y*sy,2);
     if(data.goal){const x=716+data.goal.x*sx,y=58+data.goal.y*sy;g.lineStyle(1,0xffdd75).lineBetween(x-2,y-4,x-2,y+5).fillStyle(0xffdd75).fillTriangle(x-1,y-4,x+5,y-2,x-1,y);}
     const controlled=data.controlledPosition;if(controlled)g.lineStyle(1,0xffedb2).strokeCircle(716+controlled.x*sx,58+controlled.y*sy,4);
-    g.lineStyle(1,0xe6d19a,.65).strokeRect(716+data.camera.x*sx,58+data.camera.y*sy,Math.min(164,data.camera.width*sx),Math.min(100,data.camera.height*sy));
+    g.lineStyle(1,0xe6d19a,.65).strokeRect(716+data.camera.x*sx,58+data.camera.y*sy,Math.min(164,data.camera.width*sx),Math.min(minimapHeight,data.camera.height*sy));
   }
   private drawFocus():void {const tile=this.heroTiles[this.focusIndex];if(!tile)return;this.focusFrame.clear().lineStyle(2,0xe7c878).strokeRect(tile.x-2,tile.y-2,100*tile.scaleX+4,76*tile.scaleY+4);this.updatePreview();this.registry.set('character-focus',HEROES[this.focusIndex]);}
   private navigate(event:KeyboardEvent):void {

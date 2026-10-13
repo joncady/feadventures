@@ -22,8 +22,8 @@ test('dual touch sticks aim through all angles and retain independent pointer ow
   for(let column=0;column<3;column++) expect(l.actions[column].x).toBe(l.actions[column+3].x);
   expect(l.actions[0].x-l.actions[0].size/2).toBeGreaterThan(480); // Cooldown remains unobstructed at the bottom center.
   for(const action of l.actions.slice(0,6)){const dx=Math.max(0,Math.abs(l.joystick.x-action.x)-action.size/2),dy=Math.max(0,Math.abs(l.joystick.y-action.y)-action.size/2);expect(Math.hypot(dx,dy)).toBeGreaterThan(l.radius*1.2);}
-  expect(l.attack.y-l.attack.radius*1.2).toBeGreaterThan(158);
-  for(const action of l.actions){const dx=Math.max(0,Math.abs(l.attack.x-action.x)-action.size/2),dy=Math.max(0,Math.abs(l.attack.y-action.y)-action.size/2);expect(Math.hypot(dx,dy)).toBeGreaterThan(l.attack.radius*1.2);}
+  const minimapBottom=await page.evaluate(async()=>{const{game}=await import(String('/src/main.ts'));return 58+(game.registry.get('touch-minimap-height')??100);});expect(l.attack.y-l.attack.radius*1.2).toBeGreaterThanOrEqual(minimapBottom+8-0.01);
+  for(const action of l.actions){const dx=Math.max(0,Math.abs(l.attack.x-action.x)-action.size/2),dy=Math.max(0,Math.abs(l.attack.y-action.y)-action.size/2);expect(Math.hypot(dx,dy)).toBeGreaterThanOrEqual(l.attack.radius*1.2+10);}
   await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[move]});await expect.poll(async()=>(await snapshot()).move.x).toBeGreaterThan(0);
   for(const[x,y]of[[1,0],[0,1],[-1,0],[0,-1],[.707,.707],[-.707,-.707]]){
    await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[move,aim(x,y)]});
