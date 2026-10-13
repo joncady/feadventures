@@ -1,9 +1,10 @@
-import {writeFileSync} from 'node:fs';
+import {writeFileSync,readFileSync} from 'node:fs';
+const version=JSON.parse(readFileSync(new URL('../../package.json',import.meta.url),'utf8')).version;
 import {test,expect,chromium,webkit} from '@playwright/test';
 test('independent mobile header matrix and fullscreen restoration',async()=>{
  for(const [name,type] of [['chromium',chromium],['webkit',webkit]] as const){
   const browser=await type.launch();const context=await browser.newContext({viewport:{width:390,height:844},hasTouch:true,isMobile:true});const page=await context.newPage();const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('http://127.0.0.1:4173/');
-  await expect(page.locator('main > header')).toBeVisible();await expect(page.locator('main > header')).toContainText('FIRE EMBLEM ADVENTURES');await expect(page.locator('main > header')).toContainText('Stand against the swarm.');await expect(page.locator('.version')).toContainText('v1.1.4');await expect(page.locator('#landscape-required')).toBeVisible();
+  await expect(page.locator('main > header')).toBeVisible();await expect(page.locator('main > header')).toContainText('FIRE EMBLEM ADVENTURES');await expect(page.locator('main > header')).toContainText('Stand against the swarm.');await expect(page.locator('.version')).toContainText(`v${version}`);await expect(page.locator('#landscape-required')).toBeVisible();
   expect(await page.evaluate(()=>{const h=document.querySelector('header')!.getBoundingClientRect(),g=document.querySelector('#landscape-required')!.getBoundingClientRect();return h.bottom<=g.top&&h.top>=0;})).toBe(true);await page.screenshot({path:`docs/playtests/header-accessibility-1.1.4/${name}-portrait.png`});
   await page.setViewportSize({width:844,height:390});await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);await expect(page.locator('#landscape-required')).toBeHidden();
   await expect.poll(()=>page.evaluate(()=>{const c=document.querySelector('canvas')!.getBoundingClientRect(),h=document.querySelector('header')!.getBoundingClientRect();return c.top>=h.bottom&&c.bottom<=visualViewport!.height+.5&&c.right<=visualViewport!.width+.5;})).toBe(true);await page.screenshot({path:`docs/playtests/header-accessibility-1.1.4/${name}-landscape.png`});
