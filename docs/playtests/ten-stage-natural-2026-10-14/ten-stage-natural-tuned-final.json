@@ -1,0 +1,6789 @@
+{
+  "party": [
+    "chrom",
+    "frederick",
+    "lissa",
+    "ricken"
+  ],
+  "settings": "default damage 50%; normal real-time native keyboard/mouse",
+  "started": "2026-10-14T06:55:58.595Z",
+  "events": [
+    {
+      "kind": "start",
+      "wall": 4692
+    },
+    {
+      "kind": "verified native equipment setup",
+      "hero": "frederick",
+      "weapon": "hammer",
+      "clock": 1583.2700000000004,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 109,
+          "max": 109,
+          "level": 10,
+          "xp": 54,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 110,
+          "max": 110,
+          "level": 10,
+          "xp": 81,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 108,
+          "max": 108,
+          "level": 12,
+          "xp": 92,
+          "slot": 0,
+          "equipped": "fortify"
+        },
+        {
+          "hero": "ricken",
+          "health": 108,
+          "max": 108,
+          "level": 10,
+          "xp": 81,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ]
+    },
+    {
+      "kind": "verified native equipment setup",
+      "hero": "lissa",
+      "weapon": "physic",
+      "clock": 2516.570000000002,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 109,
+          "max": 109,
+          "level": 10,
+          "xp": 54,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 110,
+          "max": 110,
+          "level": 10,
+          "xp": 81,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 108,
+          "max": 108,
+          "level": 12,
+          "xp": 92,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 108,
+          "max": 108,
+          "level": 10,
+          "xp": 81,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ]
+    },
+    {
+      "kind": "battle start",
+      "mission": 9,
+      "wall": 8096,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 109,
+          "max": 109,
+          "level": 10,
+          "xp": 54,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 110,
+          "max": 110,
+          "level": 10,
+          "xp": 81,
+          "slot": 1,
+          "equipped": "iron-sword"
+        },
+        {
+          "hero": "lissa",
+          "health": 108,
+          "max": 108,
+          "level": 12,
+          "xp": 92,
+          "slot": 0,
+          "equipped": "fortify"
+        },
+        {
+          "hero": "ricken",
+          "health": 108,
+          "max": 108,
+          "level": 10,
+          "xp": 81,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ]
+    },
+    {
+      "kind": "battle sample",
+      "wall": 8113,
+      "mission": 9,
+      "clock": 3150,
+      "wave": 0,
+      "phase": "opening",
+      "kills": 0,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 109,
+          "max": 109,
+          "level": 10,
+          "xp": 54,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 110,
+          "max": 110,
+          "level": 10,
+          "xp": 81,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 108,
+          "max": 108,
+          "level": 12,
+          "xp": 92,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 108,
+          "max": 108,
+          "level": 10,
+          "xp": 81,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 401.398902015032,
+        "y": 589.2603634788801
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 10347,
+      "mission": 9,
+      "clock": 5383,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 0,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 109,
+          "max": 109,
+          "level": 10,
+          "xp": 54,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 110,
+          "max": 110,
+          "level": 10,
+          "xp": 81,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 108,
+          "max": 108,
+          "level": 12,
+          "xp": 92,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 108,
+          "max": 108,
+          "level": 10,
+          "xp": 81,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 493.6056262817585,
+        "y": 390.5603058788216
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 12413,
+      "mission": 9,
+      "clock": 7450,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 0,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 109,
+          "max": 109,
+          "level": 10,
+          "xp": 54,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 110,
+          "max": 110,
+          "level": 10,
+          "xp": 81,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 108,
+          "max": 108,
+          "level": 12,
+          "xp": 92,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 108,
+          "max": 108,
+          "level": 10,
+          "xp": 81,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 476.0645055706374,
+        "y": 283.17961041212425
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 14714,
+      "mission": 9,
+      "clock": 9733,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 0,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 109,
+          "max": 109,
+          "level": 10,
+          "xp": 54,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 110,
+          "max": 110,
+          "level": 10,
+          "xp": 81,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 108,
+          "max": 108,
+          "level": 12,
+          "xp": 93,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 108,
+          "max": 108,
+          "level": 10,
+          "xp": 81,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 476.0645055706374,
+        "y": 283.17961041212425
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 16962,
+      "mission": 9,
+      "clock": 12000,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 1,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 105,
+          "max": 109,
+          "level": 10,
+          "xp": 58,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 110,
+          "max": 110,
+          "level": 10,
+          "xp": 85,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 108,
+          "max": 108,
+          "level": 12,
+          "xp": 96,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 108,
+          "max": 108,
+          "level": 10,
+          "xp": 85,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 507.43663492176745,
+        "y": 251.80748106099418
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 19064,
+      "mission": 9,
+      "clock": 14099,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 2,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 101,
+          "max": 109,
+          "level": 10,
+          "xp": 62,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 110,
+          "max": 110,
+          "level": 10,
+          "xp": 89,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 108,
+          "max": 108,
+          "level": 12,
+          "xp": 99,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 108,
+          "max": 108,
+          "level": 10,
+          "xp": 89,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 529.5880918462252,
+        "y": 231.8293574698701
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 21626,
+      "mission": 9,
+      "clock": 16336,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 2,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 109,
+          "max": 109,
+          "level": 10,
+          "xp": 62,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 98,
+          "max": 110,
+          "level": 10,
+          "xp": 89,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 109,
+          "max": 109,
+          "level": 13,
+          "xp": 0,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 108,
+          "max": 108,
+          "level": 10,
+          "xp": 89,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 584.2158821688836,
+        "y": 91.3459377364474
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 23981,
+      "mission": 9,
+      "clock": 18799,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 2,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 109,
+          "max": 109,
+          "level": 10,
+          "xp": 62,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 86,
+          "max": 110,
+          "level": 10,
+          "xp": 89,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 109,
+          "max": 109,
+          "level": 13,
+          "xp": 0,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 108,
+          "max": 108,
+          "level": 10,
+          "xp": 89,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 568.8480947910966,
+        "y": 317.8889667854815
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 26060,
+      "mission": 9,
+      "clock": 20866,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 3,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 109,
+          "max": 109,
+          "level": 10,
+          "xp": 66,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 74,
+          "max": 110,
+          "level": 10,
+          "xp": 93,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 109,
+          "max": 109,
+          "level": 13,
+          "xp": 4,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 108,
+          "max": 108,
+          "level": 10,
+          "xp": 93,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 665.5856830560829,
+        "y": 327.49607398718956
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 28350,
+      "mission": 9,
+      "clock": 23166,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 3,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 109,
+          "max": 109,
+          "level": 10,
+          "xp": 66,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 74,
+          "max": 110,
+          "level": 10,
+          "xp": 93,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 4,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 108,
+          "max": 108,
+          "level": 10,
+          "xp": 93,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 483.59049898489974,
+        "y": 371.42610278721946
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 30378,
+      "mission": 9,
+      "clock": 25199,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 4,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 109,
+          "max": 109,
+          "level": 10,
+          "xp": 69,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 50,
+          "max": 110,
+          "level": 10,
+          "xp": 96,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 6,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 108,
+          "max": 108,
+          "level": 10,
+          "xp": 96,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 446.07125468265457,
+        "y": 406.7720137561313
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 32529,
+      "mission": 9,
+      "clock": 27349,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 4,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 92,
+          "max": 109,
+          "level": 10,
+          "xp": 69,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 60,
+          "max": 110,
+          "level": 10,
+          "xp": 96,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 7,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 108,
+          "max": 108,
+          "level": 10,
+          "xp": 96,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 388.3102172426157,
+        "y": 565.4331087962289
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 34782,
+      "mission": 9,
+      "clock": 29599,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 5,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 92,
+          "max": 109,
+          "level": 10,
+          "xp": 73,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 61,
+          "max": 111,
+          "level": 11,
+          "xp": 0,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 10,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 0,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 357.76478335141627,
+        "y": 672.107396298515
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 36828,
+      "mission": 9,
+      "clock": 31649,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 7,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 86,
+          "max": 109,
+          "level": 10,
+          "xp": 80,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 61,
+          "max": 111,
+          "level": 11,
+          "xp": 7,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 15,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 7,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 409.1150362936704,
+        "y": 622.930476689596
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 39010,
+      "mission": 9,
+      "clock": 33832,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 7,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 86,
+          "max": 109,
+          "level": 10,
+          "xp": 80,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 61,
+          "max": 111,
+          "level": 11,
+          "xp": 7,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 16,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 7,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 521.2998841515214,
+        "y": 384.69229549841464
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 41178,
+      "mission": 9,
+      "clock": 35999,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 8,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 86,
+          "max": 109,
+          "level": 10,
+          "xp": 84,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 61,
+          "max": 111,
+          "level": 11,
+          "xp": 11,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 19,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 11,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 521.2998841515214,
+        "y": 121.71896216507982
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 43362,
+      "mission": 9,
+      "clock": 38182,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 8,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 86,
+          "max": 109,
+          "level": 10,
+          "xp": 84,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 61,
+          "max": 111,
+          "level": 11,
+          "xp": 11,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 19,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 11,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 521.2998841515214,
+        "y": 121.71896216507982
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 45461,
+      "mission": 9,
+      "clock": 40282,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 8,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 86,
+          "max": 109,
+          "level": 10,
+          "xp": 84,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 61,
+          "max": 111,
+          "level": 11,
+          "xp": 11,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 20,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 11,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 521.2998841515214,
+        "y": 121.71896216507982
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 47511,
+      "mission": 9,
+      "clock": 42332,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 8,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 86,
+          "max": 109,
+          "level": 10,
+          "xp": 84,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 61,
+          "max": 111,
+          "level": 11,
+          "xp": 11,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 20,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 11,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 521.2998841515214,
+        "y": 121.71896216507982
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 49562,
+      "mission": 9,
+      "clock": 44381,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 8,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 86,
+          "max": 109,
+          "level": 10,
+          "xp": 84,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 61,
+          "max": 111,
+          "level": 11,
+          "xp": 11,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 20,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 11,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 521.2998841515214,
+        "y": 121.71896216507982
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 51660,
+      "mission": 9,
+      "clock": 46481,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 8,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 86,
+          "max": 109,
+          "level": 10,
+          "xp": 84,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 83,
+          "max": 111,
+          "level": 11,
+          "xp": 11,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 21,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 11,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 521.2998841515214,
+        "y": 121.71896216507982
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 53810,
+      "mission": 9,
+      "clock": 48631,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 8,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 86,
+          "max": 109,
+          "level": 10,
+          "xp": 84,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 83,
+          "max": 111,
+          "level": 11,
+          "xp": 11,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 21,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 11,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 521.2998841515214,
+        "y": 121.71896216507982
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 55976,
+      "mission": 9,
+      "clock": 50798,
+      "wave": 1,
+      "phase": "rest",
+      "kills": 8,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 86,
+          "max": 109,
+          "level": 10,
+          "xp": 84,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 83,
+          "max": 111,
+          "level": 11,
+          "xp": 11,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 21,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 11,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 521.2998841515214,
+        "y": 121.71896216507982
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 58011,
+      "mission": 9,
+      "clock": 52831,
+      "wave": 1,
+      "phase": "rest",
+      "kills": 8,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 86,
+          "max": 109,
+          "level": 10,
+          "xp": 84,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 83,
+          "max": 111,
+          "level": 11,
+          "xp": 11,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 22,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 11,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 521.2998841515214,
+        "y": 121.71896216507982
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 60043,
+      "mission": 9,
+      "clock": 54864,
+      "wave": 1,
+      "phase": "rest",
+      "kills": 8,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 86,
+          "max": 109,
+          "level": 10,
+          "xp": 84,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 83,
+          "max": 111,
+          "level": 11,
+          "xp": 11,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 22,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 11,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 521.2998841515214,
+        "y": 121.71896216507982
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 62220,
+      "mission": 9,
+      "clock": 57004,
+      "wave": 1,
+      "phase": "rest",
+      "kills": 8,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 86,
+          "max": 109,
+          "level": 10,
+          "xp": 84,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 83,
+          "max": 111,
+          "level": 11,
+          "xp": 11,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 22,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 11,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 521.2998841515214,
+        "y": 121.71896216507982
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 64327,
+      "mission": 9,
+      "clock": 59148,
+      "wave": 1,
+      "phase": "rest",
+      "kills": 8,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 86,
+          "max": 109,
+          "level": 10,
+          "xp": 84,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 83,
+          "max": 111,
+          "level": 11,
+          "xp": 11,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 23,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 11,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 521.2998841515214,
+        "y": 121.71896216507982
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 66480,
+      "mission": 9,
+      "clock": 61298,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 8,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 86,
+          "max": 109,
+          "level": 10,
+          "xp": 84,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 83,
+          "max": 111,
+          "level": 11,
+          "xp": 11,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 23,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 11,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 414.62559664923106,
+        "y": 226.21991633403638
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 68660,
+      "mission": 9,
+      "clock": 63481,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 8,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 86,
+          "max": 109,
+          "level": 10,
+          "xp": 84,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 105,
+          "max": 111,
+          "level": 11,
+          "xp": 11,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 24,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 11,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 414.62559664923106,
+        "y": 485.4643991785219
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 70863,
+      "mission": 9,
+      "clock": 65681,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 8,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 80,
+          "max": 109,
+          "level": 10,
+          "xp": 84,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 105,
+          "max": 111,
+          "level": 11,
+          "xp": 11,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 24,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 11,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 363.6120850273084,
+        "y": 613.8173598286721
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 72924,
+      "mission": 9,
+      "clock": 67722,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 9,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 80,
+          "max": 109,
+          "level": 10,
+          "xp": 87,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 105,
+          "max": 111,
+          "level": 11,
+          "xp": 14,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 26,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 14,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 363.6120850273084,
+        "y": 665.1146931620038
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 75112,
+      "mission": 9,
+      "clock": 69931,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 10,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 80,
+          "max": 109,
+          "level": 10,
+          "xp": 90,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 105,
+          "max": 111,
+          "level": 11,
+          "xp": 17,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 29,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 17,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 467.5320850273092,
+        "y": 676.3372619019349
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 77251,
+      "mission": 9,
+      "clock": 72064,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 10,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 80,
+          "max": 109,
+          "level": 10,
+          "xp": 90,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 93,
+          "max": 111,
+          "level": 11,
+          "xp": 17,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 29,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 17,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 683.1160850273062,
+        "y": 676.3372619019349
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 79307,
+      "mission": 9,
+      "clock": 74100,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 11,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 80,
+          "max": 109,
+          "level": 10,
+          "xp": 94,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 93,
+          "max": 111,
+          "level": 11,
+          "xp": 21,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 100,
+          "max": 109,
+          "level": 13,
+          "xp": 32,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 21,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 606.8497257739482,
+        "y": 717.8302878219603
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 81544,
+      "mission": 9,
+      "clock": 76342,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 11,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 80,
+          "max": 109,
+          "level": 10,
+          "xp": 94,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 93,
+          "max": 111,
+          "level": 11,
+          "xp": 21,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 91,
+          "max": 109,
+          "level": 13,
+          "xp": 33,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 21,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 654.5351051873272,
+        "y": 553.3896637866638
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 84016,
+      "mission": 9,
+      "clock": 78830,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 11,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 80,
+          "max": 109,
+          "level": 10,
+          "xp": 94,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 93,
+          "max": 111,
+          "level": 11,
+          "xp": 21,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 91,
+          "max": 109,
+          "level": 13,
+          "xp": 33,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 21,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 407.73154458276656,
+        "y": 410.46924117323834
+      },
+      "enemies": 5
+    },
+    {
+      "kind": "battle sample",
+      "wall": 86276,
+      "mission": 9,
+      "clock": 81097,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 12,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 80,
+          "max": 109,
+          "level": 10,
+          "xp": 98,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 93,
+          "max": 111,
+          "level": 11,
+          "xp": 25,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 73,
+          "max": 109,
+          "level": 13,
+          "xp": 36,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 25,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 327.81905021827026,
+        "y": 470.65174545524826
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 88293,
+      "mission": 9,
+      "clock": 83113,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 12,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 102,
+          "max": 109,
+          "level": 10,
+          "xp": 98,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 93,
+          "max": 111,
+          "level": 11,
+          "xp": 25,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 64,
+          "max": 109,
+          "level": 13,
+          "xp": 37,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 25,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 327.81905021827026,
+        "y": 470.65174545524826
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 90311,
+      "mission": 9,
+      "clock": 85130,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 13,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 110,
+          "level": 11,
+          "xp": 1,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 93,
+          "max": 111,
+          "level": 11,
+          "xp": 28,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 39,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 28,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 327.81905021827026,
+        "y": 470.65174545524826
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 92442,
+      "mission": 9,
+      "clock": 87263,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 14,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 110,
+          "level": 11,
+          "xp": 5,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 93,
+          "max": 111,
+          "level": 11,
+          "xp": 32,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 42,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 32,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 358.0182835611988,
+        "y": 441.06451211231973
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 94476,
+      "mission": 9,
+      "clock": 89296,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 15,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 110,
+          "level": 11,
+          "xp": 9,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 93,
+          "max": 111,
+          "level": 11,
+          "xp": 36,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 46,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 36,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 450.2250078279253,
+        "y": 238.01778784559258
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 96510,
+      "mission": 9,
+      "clock": 91330,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 15,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 110,
+          "level": 11,
+          "xp": 9,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 93,
+          "max": 111,
+          "level": 11,
+          "xp": 36,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 46,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 36,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 625.7857793230547,
+        "y": 104.36234968379378
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 98543,
+      "mission": 9,
+      "clock": 93363,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 15,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 110,
+          "level": 11,
+          "xp": 9,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 93,
+          "max": 111,
+          "level": 11,
+          "xp": 36,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 46,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 36,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 657.8584402297149,
+        "y": 132.97857187557224
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 100593,
+      "mission": 9,
+      "clock": 95413,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 110,
+          "level": 11,
+          "xp": 13,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 93,
+          "max": 111,
+          "level": 11,
+          "xp": 40,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 50,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 40,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 557.3312676785437,
+        "y": 136.64344540444534
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 102775,
+      "mission": 9,
+      "clock": 97380,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 110,
+          "level": 11,
+          "xp": 13,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 93,
+          "max": 111,
+          "level": 11,
+          "xp": 40,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 50,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 40,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 505.9170377763139,
+        "y": 124.34921550221522
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 104809,
+      "mission": 9,
+      "clock": 99398,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 110,
+          "level": 11,
+          "xp": 13,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 93,
+          "max": 111,
+          "level": 11,
+          "xp": 40,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 50,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 40,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 505.9170377763139,
+        "y": 124.34921550221522
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 106825,
+      "mission": 9,
+      "clock": 101429,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 110,
+          "level": 11,
+          "xp": 13,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 93,
+          "max": 111,
+          "level": 11,
+          "xp": 40,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 51,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 40,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 505.9170377763139,
+        "y": 124.34921550221522
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 108992,
+      "mission": 9,
+      "clock": 103596,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 110,
+          "level": 11,
+          "xp": 13,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 93,
+          "max": 111,
+          "level": 11,
+          "xp": 40,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 51,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 40,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 505.9170377763139,
+        "y": 124.34921550221522
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 111057,
+      "mission": 9,
+      "clock": 105663,
+      "wave": 2,
+      "phase": "rest",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 110,
+          "level": 11,
+          "xp": 13,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 93,
+          "max": 111,
+          "level": 11,
+          "xp": 40,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 51,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 40,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 505.9170377763139,
+        "y": 124.34921550221522
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 113158,
+      "mission": 9,
+      "clock": 107762,
+      "wave": 2,
+      "phase": "rest",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 110,
+          "level": 11,
+          "xp": 13,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 93,
+          "max": 111,
+          "level": 11,
+          "xp": 40,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 52,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 40,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 505.9170377763139,
+        "y": 124.34921550221522
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 115208,
+      "mission": 9,
+      "clock": 109812,
+      "wave": 2,
+      "phase": "rest",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 110,
+          "level": 11,
+          "xp": 13,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 93,
+          "max": 111,
+          "level": 11,
+          "xp": 40,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 52,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 40,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 505.9170377763139,
+        "y": 124.34921550221522
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 117374,
+      "mission": 9,
+      "clock": 111979,
+      "wave": 2,
+      "phase": "rest",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 110,
+          "level": 11,
+          "xp": 13,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 111,
+          "max": 111,
+          "level": 11,
+          "xp": 40,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 53,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 40,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 505.9170377763139,
+        "y": 124.34921550221522
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 119524,
+      "mission": 9,
+      "clock": 114129,
+      "wave": 2,
+      "phase": "rest",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 110,
+          "level": 11,
+          "xp": 13,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 111,
+          "max": 111,
+          "level": 11,
+          "xp": 40,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 53,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 40,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 505.9170377763139,
+        "y": 124.34921550221522
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 121675,
+      "mission": 9,
+      "clock": 116279,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 110,
+          "level": 11,
+          "xp": 13,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 111,
+          "max": 111,
+          "level": 11,
+          "xp": 40,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 53,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 40,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 410.0002014384753,
+        "y": 218.09271850672042
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 123840,
+      "mission": 9,
+      "clock": 118445,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "max": 110,
+          "level": 11,
+          "xp": 13,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 111,
+          "max": 111,
+          "level": 11,
+          "xp": 40,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 54,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 40,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 537.1347130829897,
+        "y": 432.6879025779079
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 125996,
+      "mission": 9,
+      "clock": 120595,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 99,
+          "max": 110,
+          "level": 11,
+          "xp": 13,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 111,
+          "max": 111,
+          "level": 11,
+          "xp": 40,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 54,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 40,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 658,
+        "y": 559.3403136713209
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 128171,
+      "mission": 9,
+      "clock": 122762,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 89,
+          "max": 110,
+          "level": 11,
+          "xp": 13,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 111,
+          "max": 111,
+          "level": 11,
+          "xp": 40,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 54,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 40,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 658,
+        "y": 559.3403136713209
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 130240,
+      "mission": 9,
+      "clock": 124828,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 85,
+          "max": 110,
+          "level": 11,
+          "xp": 13,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 111,
+          "max": 111,
+          "level": 11,
+          "xp": 40,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 55,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 40,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 658,
+        "y": 559.3403136713209
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 132633,
+      "mission": 9,
+      "clock": 127228,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 17,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 85,
+          "max": 110,
+          "level": 11,
+          "xp": 17,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 111,
+          "max": 111,
+          "level": 11,
+          "xp": 44,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 58,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 44,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 519.0533590043603,
+        "y": 696.1136213336268
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 134807,
+      "mission": 9,
+      "clock": 129412,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 18,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 74,
+          "max": 110,
+          "level": 11,
+          "xp": 20,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 111,
+          "max": 111,
+          "level": 11,
+          "xp": 47,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 55,
+          "max": 109,
+          "level": 13,
+          "xp": 60,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 47,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 374.3137496887484,
+        "y": 653.9840408180469
+      },
+      "enemies": 5
+    },
+    {
+      "kind": "battle sample",
+      "wall": 137199,
+      "mission": 9,
+      "clock": 131795,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 18,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 64,
+          "max": 110,
+          "level": 11,
+          "xp": 20,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 111,
+          "max": 111,
+          "level": 11,
+          "xp": 47,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 49,
+          "max": 109,
+          "level": 13,
+          "xp": 61,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 47,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 374.3137496887484,
+        "y": 653.9840408180469
+      },
+      "enemies": 6
+    },
+    {
+      "kind": "battle sample",
+      "wall": 139512,
+      "mission": 9,
+      "clock": 134111,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 19,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 60,
+          "max": 110,
+          "level": 11,
+          "xp": 24,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 51,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 43,
+          "max": 109,
+          "level": 13,
+          "xp": 64,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 51,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 374.3137496887484,
+        "y": 653.9840408180469
+      },
+      "enemies": 5
+    },
+    {
+      "kind": "battle sample",
+      "wall": 141541,
+      "mission": 9,
+      "clock": 136145,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 20,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 60,
+          "max": 110,
+          "level": 11,
+          "xp": 28,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 55,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 28,
+          "max": 109,
+          "level": 13,
+          "xp": 67,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 55,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 355.8724048354031,
+        "y": 674.5987190047248
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 143624,
+      "mission": 9,
+      "clock": 138228,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 20,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 60,
+          "max": 110,
+          "level": 11,
+          "xp": 28,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 55,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 41,
+          "max": 109,
+          "level": 13,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 55,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 429.63778424878427,
+        "y": 457.39333959134746
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 145818,
+      "mission": 9,
+      "clock": 140411,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 20,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 54,
+          "max": 110,
+          "level": 11,
+          "xp": 28,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 55,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 41,
+          "max": 109,
+          "level": 13,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 55,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 429.63778424878427,
+        "y": 457.39333959134746
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 148057,
+      "mission": 9,
+      "clock": 142661,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 22,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 48,
+          "max": 110,
+          "level": 11,
+          "xp": 35,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 62,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 41,
+          "max": 109,
+          "level": 13,
+          "xp": 74,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 62,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 434.577277749646,
+        "y": 453.06584609048576
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 150344,
+      "mission": 9,
+      "clock": 144944,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 23,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 48,
+          "max": 110,
+          "level": 11,
+          "xp": 38,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 65,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 35,
+          "max": 109,
+          "level": 13,
+          "xp": 76,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 65,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 562.5626623353696,
+        "y": 242.99463380693163
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 152456,
+      "mission": 9,
+      "clock": 147061,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 23,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 48,
+          "max": 110,
+          "level": 11,
+          "xp": 38,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 65,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 29,
+          "max": 109,
+          "level": 13,
+          "xp": 76,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 65,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 361.662771277475,
+        "y": 61.65474274903684
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 154490,
+      "mission": 9,
+      "clock": 149094,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 23,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 48,
+          "max": 110,
+          "level": 11,
+          "xp": 38,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 65,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 77,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 65,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 366.69123108193526,
+        "y": 182.20073002673195
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 156638,
+      "mission": 9,
+      "clock": 151244,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 23,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 48,
+          "max": 110,
+          "level": 11,
+          "xp": 38,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 65,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 77,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 65,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 334,
+        "y": 333.6600319290371
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 158923,
+      "mission": 9,
+      "clock": 153527,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 23,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 48,
+          "max": 110,
+          "level": 11,
+          "xp": 38,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 65,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 77,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 65,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 140.70858605355022,
+        "y": 371.09354016857225
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 161023,
+      "mission": 9,
+      "clock": 155627,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 23,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 48,
+          "max": 110,
+          "level": 11,
+          "xp": 38,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 65,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 78,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 65,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 138.54483930311937,
+        "y": 373.8692869190031
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 163140,
+      "mission": 9,
+      "clock": 157744,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 48,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 80,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 237.48999457427652,
+        "y": 302
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 165222,
+      "mission": 9,
+      "clock": 159827,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 48,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 80,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 433.4066643699508,
+        "y": 235.91851427551268
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 167406,
+      "mission": 9,
+      "clock": 162010,
+      "wave": 3,
+      "phase": "boss-warning",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 48,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 81,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 514.8559374722258,
+        "y": 126.21590783990415
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 169538,
+      "mission": 9,
+      "clock": 164144,
+      "wave": 3,
+      "phase": "boss-warning",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 48,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 81,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 514.8559374722258,
+        "y": 126.21590783990415
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 171589,
+      "mission": 9,
+      "clock": 166193,
+      "wave": 3,
+      "phase": "boss-warning",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 48,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 81,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "hero": "chrom",
+      "equipped": "falchion",
+      "p": {
+        "x": 514.8559374722258,
+        "y": 126.21590783990415
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 174539,
+      "mission": 9,
+      "clock": 169143,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 70,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 82,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 2160,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 571.2794188795848,
+        "y": 88.2631851381501
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 176790,
+      "mission": 9,
+      "clock": 171393,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 70,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 82,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 2092,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 571.2794188795848,
+        "y": 88.2631851381501
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 179205,
+      "mission": 9,
+      "clock": 173785,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 70,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 83,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 1939,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 571.2794188795848,
+        "y": 88.2631851381501
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 181391,
+      "mission": 9,
+      "clock": 175993,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 70,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 83,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 1819,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 571.2794188795848,
+        "y": 88.2631851381501
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 183656,
+      "mission": 9,
+      "clock": 178260,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 70,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 83,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 1725,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 571.2794188795848,
+        "y": 88.2631851381501
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 185872,
+      "mission": 9,
+      "clock": 180476,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 70,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 84,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 1664,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 571.2794188795848,
+        "y": 88.2631851381501
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 188139,
+      "mission": 9,
+      "clock": 182743,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 70,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 84,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 1631,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 571.2794188795848,
+        "y": 88.2631851381501
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 190438,
+      "mission": 9,
+      "clock": 185043,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 70,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 84,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 1598,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 571.2794188795848,
+        "y": 88.2631851381501
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 192655,
+      "mission": 9,
+      "clock": 186993,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 70,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 85,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 1579,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 571.2794188795848,
+        "y": 88.2631851381501
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 194943,
+      "mission": 9,
+      "clock": 189276,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 70,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 85,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 1560,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 631.4194188795834,
+        "y": 88.2631851381501
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 197155,
+      "mission": 9,
+      "clock": 191492,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 92,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 86,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 1445,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 199425,
+      "mission": 9,
+      "clock": 193744,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 92,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 86,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 1419,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 201672,
+      "mission": 9,
+      "clock": 196009,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 92,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 86,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 1360,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 203822,
+      "mission": 9,
+      "clock": 198159,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 92,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 87,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 1301,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 205888,
+      "mission": 9,
+      "clock": 200225,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 92,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 87,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 1242,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 208022,
+      "mission": 9,
+      "clock": 202359,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 92,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 87,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 1202,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 210037,
+      "mission": 9,
+      "clock": 204375,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 92,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 88,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 1143,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 212221,
+      "mission": 9,
+      "clock": 206558,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 92,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 88,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 1046,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 214325,
+      "mission": 9,
+      "clock": 208658,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 92,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 88,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 994,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 216497,
+      "mission": 9,
+      "clock": 210825,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 110,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 89,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 935,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 218704,
+      "mission": 9,
+      "clock": 213042,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 110,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 89,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 839,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 220737,
+      "mission": 9,
+      "clock": 215075,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 110,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 89,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 742,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 222970,
+      "mission": 9,
+      "clock": 217308,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 110,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 109,
+          "level": 13,
+          "xp": 90,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 683,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 225138,
+      "mission": 9,
+      "clock": 219475,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 110,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 33,
+          "max": 109,
+          "level": 13,
+          "xp": 90,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 624,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 227156,
+      "mission": 9,
+      "clock": 221491,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 110,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 21,
+          "max": 109,
+          "level": 13,
+          "xp": 90,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 584,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 229427,
+      "mission": 9,
+      "clock": 223716,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 110,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 31,
+          "max": 109,
+          "level": 13,
+          "xp": 91,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 525,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 231713,
+      "mission": 9,
+      "clock": 226041,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 110,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 7,
+          "max": 109,
+          "level": 13,
+          "xp": 91,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 428,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 233914,
+      "mission": 9,
+      "clock": 228241,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 97,
+          "max": 110,
+          "level": 11,
+          "xp": 41,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 68,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 0,
+          "max": 109,
+          "level": 13,
+          "xp": 91,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 68,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 350,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 236290,
+      "mission": 9,
+      "clock": 230591,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 25,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 71,
+          "max": 110,
+          "level": 11,
+          "xp": 45,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 72,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 0,
+          "max": 109,
+          "level": 13,
+          "xp": 91,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 72,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 291,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 238528,
+      "mission": 9,
+      "clock": 232857,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 25,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 58,
+          "max": 110,
+          "level": 11,
+          "xp": 45,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 72,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 0,
+          "max": 109,
+          "level": 13,
+          "xp": 91,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 72,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 232,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 240774,
+      "mission": 9,
+      "clock": 235094,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 25,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 17,
+          "max": 110,
+          "level": 11,
+          "xp": 45,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 72,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 0,
+          "max": 109,
+          "level": 13,
+          "xp": 91,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 72,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 192,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 243040,
+      "mission": 9,
+      "clock": 237361,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 25,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 4,
+          "max": 110,
+          "level": 11,
+          "xp": 45,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 72,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 0,
+          "max": 109,
+          "level": 13,
+          "xp": 91,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "max": 109,
+          "level": 11,
+          "xp": 72,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 95,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 245361,
+      "mission": 9,
+      "clock": 239609,
+      "wave": 3,
+      "phase": "boss",
+      "kills": 25,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 0,
+          "max": 110,
+          "level": 11,
+          "xp": 45,
+          "slot": 0,
+          "equipped": "falchion"
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 111,
+          "level": 11,
+          "xp": 72,
+          "slot": 0,
+          "equipped": "hammer"
+        },
+        {
+          "hero": "lissa",
+          "health": 0,
+          "max": 109,
+          "level": 13,
+          "xp": 91,
+          "slot": 2,
+          "equipped": "physic"
+        },
+        {
+          "hero": "ricken",
+          "health": 97,
+          "max": 109,
+          "level": 11,
+          "xp": 72,
+          "slot": 2,
+          "equipped": "thoron"
+        }
+      ],
+      "boss": 29,
+      "hero": "ricken",
+      "equipped": "thoron",
+      "p": {
+        "x": 653.160741814295,
+        "y": 81.3391955367714
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "mission victory",
+      "wall": 246245,
+      "result": {
+        "result": {
+          "missionIndex": 9,
+          "missionId": "dark-castle",
+          "reason": "Validar defeated. The remaining guards surrender.",
+          "kills": 26,
+          "elapsed": 240,
+          "gold": 112,
+          "reward": 200,
+          "progressBefore": [
+            {
+              "hero": "chrom",
+              "level": 10,
+              "xp": 54
+            },
+            {
+              "hero": "frederick",
+              "level": 10,
+              "xp": 81
+            },
+            {
+              "hero": "lissa",
+              "level": 12,
+              "xp": 92
+            },
+            {
+              "hero": "ricken",
+              "level": 10,
+              "xp": 81
+            }
+          ]
+        },
+        "campaignId": "awakening-ten",
+        "members": [
+          {
+            "hero": "chrom",
+            "health": 0,
+            "progress": {
+              "level": 11,
+              "xp": 45,
+              "stats": {
+                "hp": 110,
+                "str": 26,
+                "mag": 15,
+                "skill": 19,
+                "speed": 14,
+                "luck": 17,
+                "def": 3,
+                "res": 2
+              },
+              "base": {
+                "hp": 100,
+                "str": 20,
+                "mag": 15,
+                "skill": 10,
+                "speed": 10,
+                "luck": 10,
+                "def": 0,
+                "res": 0
+              }
+            },
+            "loadout": {
+              "items": [
+                {
+                  "weaponId": "falchion",
+                  "uses": null,
+                  "forge": 3
+                },
+                {
+                  "weaponId": "iron-sword",
+                  "uses": null
+                }
+              ],
+              "equippedSlot": 0
+            }
+          },
+          {
+            "hero": "frederick",
+            "health": 99,
+            "progress": {
+              "level": 11,
+              "xp": 75,
+              "stats": {
+                "hp": 111,
+                "str": 26,
+                "mag": 17,
+                "skill": 14,
+                "speed": 12,
+                "luck": 12,
+                "def": 8,
+                "res": 1
+              },
+              "base": {
+                "hp": 100,
+                "str": 20,
+                "mag": 15,
+                "skill": 10,
+                "speed": 10,
+                "luck": 10,
+                "def": 0,
+                "res": 0
+              }
+            },
+            "loadout": {
+              "items": [
+                {
+                  "weaponId": "hammer",
+                  "uses": null,
+                  "forge": 1
+                },
+                {
+                  "weaponId": "iron-sword",
+                  "uses": null
+                },
+                {
+                  "weaponId": "iron-axe",
+                  "uses": null
+                }
+              ],
+              "equippedSlot": 0
+            }
+          },
+          {
+            "hero": "lissa",
+            "health": 0,
+            "progress": {
+              "level": 13,
+              "xp": 91,
+              "stats": {
+                "hp": 109,
+                "str": 27,
+                "mag": 21,
+                "skill": 14,
+                "speed": 14,
+                "luck": 17,
+                "def": 2,
+                "res": 6
+              },
+              "base": {
+                "hp": 100,
+                "str": 20,
+                "mag": 15,
+                "skill": 10,
+                "speed": 10,
+                "luck": 10,
+                "def": 0,
+                "res": 0
+              }
+            },
+            "loadout": {
+              "items": [
+                {
+                  "weaponId": "fortify",
+                  "uses": null
+                },
+                {
+                  "weaponId": "iron-axe",
+                  "uses": null
+                },
+                {
+                  "weaponId": "physic",
+                  "uses": null
+                }
+              ],
+              "equippedSlot": 2
+            }
+          },
+          {
+            "hero": "ricken",
+            "health": 97,
+            "progress": {
+              "level": 11,
+              "xp": 75,
+              "stats": {
+                "hp": 109,
+                "str": 21,
+                "mag": 19,
+                "skill": 15,
+                "speed": 15,
+                "luck": 16,
+                "def": 1,
+                "res": 3
+              },
+              "base": {
+                "hp": 100,
+                "str": 20,
+                "mag": 15,
+                "skill": 10,
+                "speed": 10,
+                "luck": 10,
+                "def": 0,
+                "res": 0
+              }
+            },
+            "loadout": {
+              "items": [
+                {
+                  "weaponId": "fire",
+                  "uses": null,
+                  "forge": 3
+                },
+                {
+                  "weaponId": "thunder",
+                  "uses": null
+                },
+                {
+                  "weaponId": "thoron",
+                  "uses": null
+                }
+              ],
+              "equippedSlot": 2
+            }
+          }
+        ],
+        "gold": 367,
+        "heldKeys": []
+      }
+    }
+  ],
+  "errors": [],
+  "complete": true,
+  "checkpoints": {
+    "feadventures.campaign.v1": "{\"version\":2,\"savedAt\":\"2026-10-14T07:00:05.507Z\",\"campaignId\":\"awakening-ten\",\"missionId\":null,\"campaign\":{\"campaignId\":\"awakening-ten\",\"missionIndex\":10,\"gold\":367,\"members\":[{\"hero\":\"chrom\",\"health\":110,\"progress\":{\"level\":11,\"xp\":45,\"stats\":{\"hp\":110,\"str\":26,\"mag\":15,\"skill\":19,\"speed\":14,\"luck\":17,\"def\":3,\"res\":2},\"base\":{\"hp\":100,\"str\":20,\"mag\":15,\"skill\":10,\"speed\":10,\"luck\":10,\"def\":0,\"res\":0}},\"loadout\":{\"items\":[{\"weaponId\":\"falchion\",\"uses\":null,\"forge\":3},{\"weaponId\":\"iron-sword\",\"uses\":null}],\"equippedSlot\":0}},{\"hero\":\"frederick\",\"health\":111,\"progress\":{\"level\":11,\"xp\":75,\"stats\":{\"hp\":111,\"str\":26,\"mag\":17,\"skill\":14,\"speed\":12,\"luck\":12,\"def\":8,\"res\":1},\"base\":{\"hp\":100,\"str\":20,\"mag\":15,\"skill\":10,\"speed\":10,\"luck\":10,\"def\":0,\"res\":0}},\"loadout\":{\"items\":[{\"weaponId\":\"hammer\",\"uses\":null,\"forge\":1},{\"weaponId\":\"iron-sword\",\"uses\":null},{\"weaponId\":\"iron-axe\",\"uses\":null}],\"equippedSlot\":0}},{\"hero\":\"lissa\",\"health\":109,\"progress\":{\"level\":13,\"xp\":91,\"stats\":{\"hp\":109,\"str\":27,\"mag\":21,\"skill\":14,\"speed\":14,\"luck\":17,\"def\":2,\"res\":6},\"base\":{\"hp\":100,\"str\":20,\"mag\":15,\"skill\":10,\"speed\":10,\"luck\":10,\"def\":0,\"res\":0}},\"loadout\":{\"items\":[{\"weaponId\":\"fortify\",\"uses\":null},{\"weaponId\":\"iron-axe\",\"uses\":null},{\"weaponId\":\"physic\",\"uses\":null}],\"equippedSlot\":2}},{\"hero\":\"ricken\",\"health\":109,\"progress\":{\"level\":11,\"xp\":75,\"stats\":{\"hp\":109,\"str\":21,\"mag\":19,\"skill\":15,\"speed\":15,\"luck\":16,\"def\":1,\"res\":3},\"base\":{\"hp\":100,\"str\":20,\"mag\":15,\"skill\":10,\"speed\":10,\"luck\":10,\"def\":0,\"res\":0}},\"loadout\":{\"items\":[{\"weaponId\":\"fire\",\"uses\":null,\"forge\":3},{\"weaponId\":\"thunder\",\"uses\":null},{\"weaponId\":\"thoron\",\"uses\":null}],\"equippedSlot\":2}}],\"complete\":true}}",
+    "feadventures:first-time-controls:v1": "{\"status\":\"completed\"}"
+  },
+  "elapsedMs": 247509,
+  "final": {
+    "arena": false,
+    "results": false,
+    "campaign": true,
+    "interface": {
+      "preparationEditing": false,
+      "hero": "chrom",
+      "companions": [
+        "frederick",
+        "lissa",
+        "ricken"
+      ],
+      "selectionMode": "player",
+      "phase": "battle",
+      "tactical": true,
+      "ready": true,
+      "playing": true,
+      "paused": false,
+      "muted": false,
+      "settingsOpen": false,
+      "result": "",
+      "audio": {
+        "music": 0.18,
+        "effects": 1,
+        "voices": 0.6,
+        "characterVoices": true,
+        "spellEffect": "fire-cast"
+      }
+    },
+    "result": {
+      "result": {
+        "missionIndex": 9,
+        "missionId": "dark-castle",
+        "reason": "Validar defeated. The remaining guards surrender.",
+        "kills": 26,
+        "elapsed": 240,
+        "gold": 112,
+        "reward": 200,
+        "progressBefore": [
+          {
+            "hero": "chrom",
+            "level": 10,
+            "xp": 54
+          },
+          {
+            "hero": "frederick",
+            "level": 10,
+            "xp": 81
+          },
+          {
+            "hero": "lissa",
+            "level": 12,
+            "xp": 92
+          },
+          {
+            "hero": "ricken",
+            "level": 10,
+            "xp": 81
+          }
+        ]
+      },
+      "campaignId": "awakening-ten",
+      "members": [
+        {
+          "hero": "chrom",
+          "health": 0,
+          "progress": {
+            "level": 11,
+            "xp": 45,
+            "stats": {
+              "hp": 110,
+              "str": 26,
+              "mag": 15,
+              "skill": 19,
+              "speed": 14,
+              "luck": 17,
+              "def": 3,
+              "res": 2
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "falchion",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "progress": {
+            "level": 11,
+            "xp": 75,
+            "stats": {
+              "hp": 111,
+              "str": 26,
+              "mag": 17,
+              "skill": 14,
+              "speed": 12,
+              "luck": 12,
+              "def": 8,
+              "res": 1
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "hammer",
+                "uses": null,
+                "forge": 1
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "lissa",
+          "health": 0,
+          "progress": {
+            "level": 13,
+            "xp": 91,
+            "stats": {
+              "hp": 109,
+              "str": 27,
+              "mag": 21,
+              "skill": 14,
+              "speed": 14,
+              "luck": 17,
+              "def": 2,
+              "res": 6
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fortify",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              },
+              {
+                "weaponId": "physic",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 2
+          }
+        },
+        {
+          "hero": "ricken",
+          "health": 97,
+          "progress": {
+            "level": 11,
+            "xp": 75,
+            "stats": {
+              "hp": 109,
+              "str": 21,
+              "mag": 19,
+              "skill": 15,
+              "speed": 15,
+              "luck": 16,
+              "def": 1,
+              "res": 3
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fire",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "thunder",
+                "uses": null
+              },
+              {
+                "weaponId": "thoron",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 2
+          }
+        }
+      ],
+      "gold": 367,
+      "heldKeys": []
+    },
+    "campaignData": {
+      "campaignId": "awakening-ten",
+      "missionIndex": 10,
+      "gold": 367,
+      "members": [
+        {
+          "hero": "chrom",
+          "health": 110,
+          "progress": {
+            "level": 11,
+            "xp": 45,
+            "stats": {
+              "hp": 110,
+              "str": 26,
+              "mag": 15,
+              "skill": 19,
+              "speed": 14,
+              "luck": 17,
+              "def": 3,
+              "res": 2
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "falchion",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "frederick",
+          "health": 111,
+          "progress": {
+            "level": 11,
+            "xp": 75,
+            "stats": {
+              "hp": 111,
+              "str": 26,
+              "mag": 17,
+              "skill": 14,
+              "speed": 12,
+              "luck": 12,
+              "def": 8,
+              "res": 1
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "hammer",
+                "uses": null,
+                "forge": 1
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "lissa",
+          "health": 109,
+          "progress": {
+            "level": 13,
+            "xp": 91,
+            "stats": {
+              "hp": 109,
+              "str": 27,
+              "mag": 21,
+              "skill": 14,
+              "speed": 14,
+              "luck": 17,
+              "def": 2,
+              "res": 6
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fortify",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              },
+              {
+                "weaponId": "physic",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 2
+          }
+        },
+        {
+          "hero": "ricken",
+          "health": 109,
+          "progress": {
+            "level": 11,
+            "xp": 75,
+            "stats": {
+              "hp": 109,
+              "str": 21,
+              "mag": 19,
+              "skill": 15,
+              "speed": 15,
+              "luck": 16,
+              "def": 1,
+              "res": 3
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fire",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "thunder",
+                "uses": null
+              },
+              {
+                "weaponId": "thoron",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 2
+          }
+        }
+      ],
+      "complete": true,
+      "party": [
+        "chrom",
+        "frederick",
+        "lissa",
+        "ricken"
+      ],
+      "victory": true
+    }
+  }
+}

@@ -1,0 +1,15 @@
+# First-time native controls guide — local implementation
+
+Production source is local and uncommitted pending independent review. No version bump or deployment performed.
+
+Integration: Arena validates full deployment, then requests the native Interface guide before calling stage.start, changing camera, resuming physics, or clearing planning. Its completion callback re-enters the existing ui-launch handler with a one-use registry approval. The main launch event, audio, and phase transition remain centralized and occur exactly once.
+
+Phaser-native modal scrim, sourced parchment, current FE font, one-step descriptions, separate destination arrow outlines, current remapped keyboard hints, Back/Next/Skip, and contextual staff/solo/weapon steps. Actual mobile wheel coordinates read from touch-control-layout. Guide preview shows disabled wheels while a full modal intercepts input; staff/guard symbols get bright preview glyphs at their existing hit targets. Copy and button labels wrap according to the current CSS scale; touch buttons >=44 CSS px, copy >=12 CSS px.
+
+Persistence: `feadventures:first-time-controls:v1` stores completed/skipped. No campaign save mutation. Storage exceptions fall back to in-session acknowledgement. Mid-guide reload does not persist. Settings -> Controls -> Replay quick guide opens again without changing acknowledgement or manual pause. Shutdown removes modal keyboard and resize listeners.
+
+Verification: four dedicated native Chromium tests passed (25.1s): deployment clock, health, wave, enemy count freeze; Skip starts then survives reload; final completion persists; mobile touch/text/card sizing; Pause -> Settings -> Controls -> Replay -> Close remains paused. Existing pause-controls regression also passed earlier. Typecheck passed. Independent small-window, staff/party/resize/restart/orientation and remapped controls review still required. Full existing suite uses a returning-player storage fixture; first-time tests override it with empty storage.
+
+Independent-review corrections: target-aware card placement leaves >=16 logical px before every right-side target outline, including the entire previous-hero button. First-launch preview captures/hides deployment instructions, placement/damage/roster controls, planning grid/cursor, and camp labels while preserving frozen deployment logic; restore before explicit launch. Five dedicated tests now passed (38.7s), including all six steps at three landscape widths with zero highlighted-target/card overlap and all planning chrome hidden.
+
+Final orientation correction: guide key capture yields entirely to the portrait gate when landscape-required is true, allowing the HTML rotate prompt's Tab focus trap and preventing hidden step advancement. Focused fresh mobile regression passed on isolated port 5188: Space preserves step zero in portrait; Tab focuses rotate Fullscreen; returning landscape preserves open step and frozen deployment; Skip then launches normally. Keyboard navigation now emits existing UX cursor/confirm cues, matching pointer button feedback. Temporary test configuration removed after the check.

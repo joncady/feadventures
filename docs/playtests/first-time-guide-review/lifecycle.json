@@ -1,0 +1,63 @@
+[
+  {
+    "before": {
+      "open": true,
+      "index": 0,
+      "clock": 0,
+      "deploying": true
+    },
+    "portrait": {
+      "open": true,
+      "index": 1,
+      "landscape": true,
+      "clock": 0,
+      "deploying": true
+    },
+    "afterRotation": {
+      "open": true,
+      "index": 1,
+      "landscape": false,
+      "clock": 0,
+      "deploying": true
+    },
+    "restarted": {
+      "open": true,
+      "index": 0,
+      "landscape": false,
+      "clock": 0,
+      "deploying": true
+    },
+    "afterNext": {
+      "open": true,
+      "index": 1,
+      "landscape": false,
+      "clock": 0,
+      "deploying": true
+    },
+    "errors": []
+  },
+  {
+    "remappedCopies": [
+      {
+        "title": "Move",
+        "copy": "TGVB / Arrows: move."
+      },
+      {
+        "title": "Aim & attack",
+        "copy": "Aim with the mouse, including swords. X or left-click attacks."
+      },
+      {
+        "title": "Switch weapon",
+        "copy": "Z: cycle equipped weapons."
+      },
+      {
+        "title": "Guard",
+        "copy": "Hold Shift or right mouse to block frontal physical attacks. Guard uses stamina."
+      },
+      {
+        "title": "Heal with a staff",
+        "copy": "Control + X: heal yourself. X: heal an ally."
+      }
+    ]
+  }
+]

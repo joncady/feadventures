@@ -15,7 +15,7 @@ export interface HealingUnit {
 
 /** Prefer the ally in greatest danger, with proximity breaking equal-health ties.
  * Callers supply friendly living units only; castles and barricades are not patients.
- * The caster is a real-time adaptation fallback when no nearby ally needs help.
+ * A critically injured AI caster joins the same urgency ranking; otherwise it is a fallback.
  * Healing never revives a fallen unit or wastes a cast on full HP.
  */
 export function selectHealingTarget<T extends HealingUnit>(source:{x:number;y:number},candidates:readonly T[],range:number,caster?:T):T|undefined {
@@ -26,6 +26,7 @@ export function selectHealingTarget<T extends HealingUnit>(source:{x:number;y:nu
       const health=unit.health/unit.maxHealth,bestHealth=best.health/best.maxHealth;
       return health<bestHealth||(health===bestHealth&&distance(unit)<distance(best))?unit:best;
     },undefined);
+  if(caster?.active&&caster.health>0&&caster.health/caster.maxHealth<=.3&&(!target||caster.health/caster.maxHealth<target.health/target.maxHealth))return caster;
   return target??(caster?.active&&caster.health>0&&caster.health<caster.maxHealth?caster:undefined);
 }
 

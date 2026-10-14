@@ -1,0 +1,1052 @@
+{
+  "status": "All ten chapters won; game-created campaign.complete verified true",
+  "method": "State-informed Playwright pilot; only native keyboard/mouse mutations, normal real time, default damage 50%; read-only scene/camera/navigation instrumentation. Not natural-human acceptance.",
+  "party": [
+    "chrom",
+    "frederick",
+    "lissa",
+    "ricken"
+  ],
+  "chapters": [
+    {
+      "chapter": 1,
+      "title": "Reports from the East",
+      "elapsedSeconds": 139,
+      "kills": 48,
+      "goldCollected": 631,
+      "reward": 80,
+      "treasuryAtResults": 731,
+      "reason": "Exit reached. The party survived the attacks.",
+      "party": [
+        {
+          "hero": "chrom",
+          "health": 101,
+          "level": 2,
+          "xp": 44,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "falchion",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "frederick",
+          "health": 97,
+          "level": 2,
+          "xp": 44,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "iron-lance",
+                "uses": null,
+                "forge": 1
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "lissa",
+          "health": 102,
+          "level": 3,
+          "xp": 4,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "heal",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "ricken",
+          "health": 45,
+          "level": 2,
+          "xp": 44,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fire",
+                "uses": null
+              },
+              {
+                "weaponId": "thunder",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        }
+      ]
+    },
+    {
+      "chapter": 2,
+      "title": "The Village Watch",
+      "elapsedSeconds": 163,
+      "kills": 32,
+      "goldCollected": 85,
+      "reward": 100,
+      "treasuryAtResults": 616,
+      "reason": "2 attacks survived. The village stands.",
+      "party": [
+        {
+          "hero": "chrom",
+          "health": 102,
+          "level": 3,
+          "xp": 44,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "falchion",
+                "uses": null,
+                "forge": 1
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "frederick",
+          "health": 102,
+          "level": 3,
+          "xp": 44,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "iron-lance",
+                "uses": null,
+                "forge": 1
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "lissa",
+          "health": 103,
+          "level": 4,
+          "xp": 37,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "heal",
+                "uses": null,
+                "forge": 1
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "ricken",
+          "health": 102,
+          "level": 3,
+          "xp": 44,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fire",
+                "uses": null,
+                "forge": 1
+              },
+              {
+                "weaponId": "thunder",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        }
+      ]
+    },
+    {
+      "chapter": 3,
+      "title": "Through the Plegian Gate",
+      "elapsedSeconds": 255,
+      "kills": 24,
+      "goldCollected": 192,
+      "reward": 110,
+      "treasuryAtResults": 398,
+      "reason": "Exit reached. The party survived the attacks.",
+      "party": [
+        {
+          "hero": "chrom",
+          "health": 103,
+          "level": 4,
+          "xp": 25,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "falchion",
+                "uses": null,
+                "forge": 1
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "frederick",
+          "health": 104,
+          "level": 4,
+          "xp": 25,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "iron-lance",
+                "uses": null,
+                "forge": 1
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "lissa",
+          "health": 85,
+          "level": 5,
+          "xp": 94,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "heal",
+                "uses": null,
+                "forge": 2
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "ricken",
+          "health": 103,
+          "level": 4,
+          "xp": 25,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fire",
+                "uses": null,
+                "forge": 2
+              },
+              {
+                "weaponId": "thunder",
+                "uses": null
+              },
+              {
+                "weaponId": "elfire",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        }
+      ]
+    },
+    {
+      "chapter": 4,
+      "title": "The Mad King",
+      "elapsedSeconds": 166,
+      "kills": 33,
+      "goldCollected": 210,
+      "reward": 150,
+      "treasuryAtResults": 478,
+      "reason": "Gangrel defeated. The village stands.",
+      "party": [
+        {
+          "hero": "chrom",
+          "health": 104,
+          "level": 5,
+          "xp": 32,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "falchion",
+                "uses": null,
+                "forge": 1
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "frederick",
+          "health": 54,
+          "level": 5,
+          "xp": 32,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "iron-lance",
+                "uses": null,
+                "forge": 1
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "lissa",
+          "health": 104,
+          "level": 7,
+          "xp": 24,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "heal",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "ricken",
+          "health": 104,
+          "level": 5,
+          "xp": 32,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fire",
+                "uses": null,
+                "forge": 2
+              },
+              {
+                "weaponId": "thunder",
+                "uses": null
+              },
+              {
+                "weaponId": "elfire",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 2
+          }
+        }
+      ]
+    },
+    {
+      "chapter": 5,
+      "title": "A Valmese Foothold",
+      "elapsedSeconds": 186,
+      "kills": 48,
+      "goldCollected": 493,
+      "reward": 120,
+      "treasuryAtResults": 631,
+      "reason": "Exit reached. The party survived the attacks.",
+      "party": [
+        {
+          "hero": "chrom",
+          "health": 102,
+          "level": 7,
+          "xp": 0,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "falchion",
+                "uses": null,
+                "forge": 2
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "frederick",
+          "health": 107,
+          "level": 7,
+          "xp": 0,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "iron-lance",
+                "uses": null,
+                "forge": 1
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "lissa",
+          "health": 32,
+          "level": 8,
+          "xp": 98,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "heal",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "ricken",
+          "health": 105,
+          "level": 7,
+          "xp": 0,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fire",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "thunder",
+                "uses": null
+              },
+              {
+                "weaponId": "elfire",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 2
+          }
+        }
+      ]
+    },
+    {
+      "chapter": 6,
+      "title": "The Castle Siege",
+      "elapsedSeconds": 175,
+      "kills": 23,
+      "goldCollected": 135,
+      "reward": 140,
+      "treasuryAtResults": 626,
+      "reason": "The castle held. The attackers retreat.",
+      "party": [
+        {
+          "hero": "chrom",
+          "health": 0,
+          "level": 7,
+          "xp": 56,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "falchion",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "frederick",
+          "health": 40,
+          "level": 7,
+          "xp": 77,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "iron-lance",
+                "uses": null,
+                "forge": 1
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "lissa",
+          "health": 79,
+          "level": 9,
+          "xp": 87,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "heal",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "ricken",
+          "health": 18,
+          "level": 7,
+          "xp": 77,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fire",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "thunder",
+                "uses": null
+              },
+              {
+                "weaponId": "elfire",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 2
+          }
+        }
+      ]
+    },
+    {
+      "chapter": 7,
+      "title": "The Chon\u2019sin Pass",
+      "elapsedSeconds": 178,
+      "kills": 33,
+      "goldCollected": 307,
+      "reward": 160,
+      "treasuryAtResults": 1093,
+      "reason": "Yen\u2019fay defeated. The remaining guards surrender.",
+      "party": [
+        {
+          "hero": "chrom",
+          "health": 0,
+          "level": 8,
+          "xp": 58,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "falchion",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "frederick",
+          "health": 108,
+          "level": 8,
+          "xp": 82,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "iron-lance",
+                "uses": null,
+                "forge": 1
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "lissa",
+          "health": 0,
+          "level": 10,
+          "xp": 98,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "heal",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "ricken",
+          "health": 106,
+          "level": 8,
+          "xp": 82,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fire",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "thunder",
+                "uses": null
+              },
+              {
+                "weaponId": "elfire",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 2
+          }
+        }
+      ]
+    },
+    {
+      "chapter": 8,
+      "title": "The Conqueror",
+      "elapsedSeconds": 198,
+      "kills": 25,
+      "goldCollected": 100,
+      "reward": 180,
+      "treasuryAtResults": 423,
+      "reason": "Walhart defeated. The remaining guards surrender.",
+      "party": [
+        {
+          "hero": "chrom",
+          "health": 0,
+          "level": 9,
+          "xp": 47,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "falchion",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "frederick",
+          "health": 69,
+          "level": 9,
+          "xp": 74,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "hammer",
+                "uses": null,
+                "forge": 1
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "lissa",
+          "health": 0,
+          "level": 12,
+          "xp": 7,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "heal",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              },
+              {
+                "weaponId": "physic",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "ricken",
+          "health": 107,
+          "level": 9,
+          "xp": 74,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fire",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "thunder",
+                "uses": null
+              },
+              {
+                "weaponId": "arcfire",
+                "uses": null,
+                "forge": 1
+              }
+            ],
+            "equippedSlot": 2
+          }
+        }
+      ]
+    },
+    {
+      "chapter": 9,
+      "title": "The Grimleal Approach",
+      "elapsedSeconds": 174,
+      "kills": 32,
+      "goldCollected": 192,
+      "reward": 180,
+      "treasuryAtResults": 415,
+      "reason": "Aversa defeated. The remaining guards surrender.",
+      "party": [
+        {
+          "hero": "chrom",
+          "health": 109,
+          "level": 10,
+          "xp": 54,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "falchion",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "frederick",
+          "health": 11,
+          "level": 10,
+          "xp": 81,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "hammer",
+                "uses": null,
+                "forge": 1
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 1
+          }
+        },
+        {
+          "hero": "lissa",
+          "health": 0,
+          "level": 12,
+          "xp": 92,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fortify",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              },
+              {
+                "weaponId": "physic",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "ricken",
+          "health": 102,
+          "level": 10,
+          "xp": 81,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fire",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "thunder",
+                "uses": null
+              },
+              {
+                "weaponId": "arcfire",
+                "uses": null,
+                "forge": 1
+              }
+            ],
+            "equippedSlot": 2
+          }
+        }
+      ]
+    },
+    {
+      "chapter": 10,
+      "title": "Break the Black Keep",
+      "elapsedSeconds": 240,
+      "kills": 26,
+      "goldCollected": 112,
+      "reward": 200,
+      "treasuryAtResults": 367,
+      "reason": "Validar defeated. The remaining guards surrender.",
+      "party": [
+        {
+          "hero": "chrom",
+          "health": 0,
+          "level": 11,
+          "xp": 45,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "falchion",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "level": 11,
+          "xp": 75,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "hammer",
+                "uses": null,
+                "forge": 1
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "lissa",
+          "health": 0,
+          "level": 13,
+          "xp": 91,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fortify",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              },
+              {
+                "weaponId": "physic",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 2
+          }
+        },
+        {
+          "hero": "ricken",
+          "health": 97,
+          "level": 11,
+          "xp": 75,
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fire",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "thunder",
+                "uses": null
+              },
+              {
+                "weaponId": "thoron",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 2
+          }
+        }
+      ]
+    }
+  ],
+  "defeats": {
+    "chapter8": [
+      217.7,
+      88.3,
+      139.6,
+      154.7
+    ],
+    "chapter9": [
+      157,
+      178.5
+    ],
+    "chapter10": [
+      86.2,
+      89.5,
+      79.8,
+      80.27
+    ]
+  },
+  "objectiveHealthLimit": "Village Watch last observed 846/850; Mad King 866/900 at163s; Castle last observed368 at162s. Exact final objectiveHP not stored in result and not captured. Other chapters have no damageable victory objective.",
+  "sourceCaveats": [
+    "Source freeze05:24:55UTC includes Gate/Ritual door arrivals, Keep/Conqueror entry fixes and Brave projectile actor fix. Walhart armor/mounted tag fix was not included in winning chapter8.",
+    "Chapter3 old source camera-blocked spawn queue was reproduced, then fixed via authored source refresh and native same-checkpoint Resume.",
+    "AI healer self-rescue fix pending new chapter10 trial; no combat values or cooldowns were injected."
+  ],
+  "limitations": [
+    "Several native setup key taps merged under frame cadence; failed equip assumptions were corrected with actual hero/weapon checks.",
+    "Three early final losses had unverified staff setup. Fourth final loss verified Physic; Frederick inherited a sword and fell before a Hammer intervention.",
+    "Multiple browser harness restarts used exact persistent game checkpoints and native Resume; no fabricated save. Initial incognito warmup was replayed fresh.",
+    "No audio listening or video capture claim: headless Chromium was muted; screenshots/JSON are actual browser captures.",
+    "Aversa/Yenfay visual sprite captures missed their brief fight boundaries; no positive visual QA claim for those sprites."
+  ],
+  "finalSourceHashes": {
+    "scenes/ArenaScene.ts": "7fce9b8276ea7985681c7777311b573d9b0e53310c701c00c17895a2c7ca5a7e",
+    "systems/healing.ts": "64995d54c4aa5e2719aa4f767a2629071b3ae816f1b3e22983126aee28622aaa",
+    "data/commanders.ts": "4bb1213e6dbe9783d8ab365880d3b031c8eab8d836323d64d7249897c72b1a02",
+    "data/campaign-expansion.ts": "97192b8b3b394b801324472a2e035d1bb54fed8fa8d25c89a165a6ba754cf899"
+  },
+  "successfulChapterElapsedSeconds": 1874,
+  "acceptanceLimit": "State-informed native-input pilot, multiple legitimate retries and source refreshes; not uninterrupted human or broad party balance acceptance."
+}

@@ -1,3 +1,4 @@
+import {CriticalVoiceGate} from './game/systems/critical-voice-gate';
 import {keyFor} from './game/input/control-preferences';
 import {installMobileLandscape,lockLandscape} from './game/platform/mobile-landscape';
 import {AUDIO_PREFERENCES_KEY,decodeAudioPreferences} from './game/systems/audio-preferences';
@@ -12,6 +13,8 @@ import {ResultsScene} from './game/scenes/ResultsScene';
 import {CampaignScene} from './game/scenes/CampaignScene';
 import {completeMission,acceptMissionResult,changeCampaignParty,newCampaign,cloneMembers,buyCampaignItem,upgradeCampaignItem,type CampaignState,type CampaignMember} from './game/systems/campaign';
 import {getMap} from './game/data/maps';
+import {mapForCampaign,mapsForCampaign} from './game/data/campaign-expansion';
+import {chapterFor,missionIdAt,type CampaignId,type MissionId} from './game/data/campaign-catalog';
 import { BootScene } from './game/scenes/BootScene';
 import { InterfaceScene, type InterfaceState } from './game/scenes/InterfaceScene';
 import { ArenaScene, type Hud } from './game/scenes/ArenaScene';
@@ -60,7 +63,7 @@ let devRun=false;
 let devOpen=false;
 let devPausedScenes:string[]=[];
 function readSave():ReturnType<typeof loadCampaign> {try{return loadCampaign(localStorage);}catch{return undefined;}}
-function publishSave():void {const saved=readSave();const state={available:!!saved,missionName:saved?(saved.campaign.complete?'Campaign complete':saved.campaign.pendingResult?'Mission results':getMap(saved.campaign.missionIndex).name):'',complete:saved?.campaign.complete??false,savedAt:saved?.savedAt};game.registry.set('campaign-save-state',state);game.events.emit('campaign-save-state',state);}
+function publishSave():void {const saved=readSave();const state={available:!!saved,missionName:saved?(saved.campaign.complete?'Campaign complete':saved.campaign.pendingResult?'Mission results':mapForCampaign(saved.campaign.campaignId??'classic-four',saved.campaign.missionIndex)?.name??'Mission'):'',complete:saved?.campaign.complete??false,savedAt:saved?.savedAt};game.registry.set('campaign-save-state',state);game.events.emit('campaign-save-state',state);}
 function checkpointCampaign():void {if(campaign&&!devRun){let saved=false;try{saved=saveCampaign(localStorage,campaign);}catch{}if(!saved)notice('Saving unavailable in this browser. Keep this tab open.');publishSave();}}
 let missionCheckpoint:CampaignMember[]=[];
 let checkpointGold=0;
@@ -115,6 +118,14 @@ const feedbackAt=new Map<string,number>();
 game.events.on('ux-feedback',({kind,message}:{kind:string;message?:string})=>{const now=performance.now(),last=feedbackAt.get(kind)??-Infinity;if(now-last<(kind==='reject'?450:kind==='cursor'?65:80)){if(kind==='confirm'&&message)game.events.emit('ux-feedback-visible',{kind,message});return;}feedbackAt.set(kind,now);const key=kind==='cursor'?'ui-cursor':kind==='reject'?'ui-reject':'ui-confirm';if(kind==='cursor')game.sound.stopByKey(key);if(game.cache.audio.exists(key))game.events.emit('effect',key,{volume:kind==='cursor'?.22:.3,rate:kind==='reject'?.65:kind==='confirm'?1.3:1});game.events.emit('ux-feedback-visible',{kind,message});});
 game.events.on('hero-attack', ({ hero: character }: { hero: Hero }) => characterVoice(character, 'attack'));
 game.events.on('hero-voice', ({ hero: character, event }: { hero: Hero; event: string }) => characterVoice(character, event));
+const criticalVoiceGate=new CriticalVoiceGate();
+game.events.on('hero-critical',({hero,position,controlled}:{hero:Hero;position:{x:number;y:number};controlled:boolean})=>{
+ const arena=game.scene.getScene('Arena') as ArenaScene;
+ const player=(arena as unknown as {player?:{x:number;y:number}}).player;
+ const distance=player?Math.hypot(position.x-player.x,position.y-player.y):Infinity;
+ const busy=!!deathVoice||deathQueue.length>0||game.sound.getAllPlaying().some(sound=>sound.key.includes('-rally-'));
+ if(criticalVoiceGate.accept(hero,performance.now(),{controlled,distance,busy,muted:muted||!audioSettings.characterVoices||audioSettings.voices===0}))characterVoice(hero,'critical');
+});
 let loadingFailed = false;
 const startButton = element<HTMLButtonElement>('start');
 const pauseButton = element<HTMLButtonElement>('pause');
@@ -168,9 +179,9 @@ game.events.on('hud', (hud: Hud) => {
   element('kills').textContent = `Defeated ${hud.kills}`;
   element('game').dataset.enemies = String(hud.enemies);
 });
-game.events.on('game-over', (battleResult: { wave: number; kills: number; victory?:boolean;reason?:string;missionIndex?:number;members?:CampaignMember[];gold?:number;elapsed?:number;heldKeys?:string[] }) => {
+game.events.on('game-over', (battleResult: { wave: number; kills: number; victory?:boolean;reason?:string;missionIndex?:number;missionId?:MissionId;members?:CampaignMember[];gold?:number;elapsed?:number;heldKeys?:string[] }) => {
   if(campaign&&battleResult.victory&&battleResult.missionIndex!==undefined){
-    const snapshot={missionIndex:battleResult.missionIndex,reason:battleResult.reason??'Objective complete.',kills:battleResult.kills,elapsed:battleResult.elapsed??0,gold:battleResult.gold??0,reward:100,progressBefore:missionCheckpoint.map(member=>({hero:member.hero,level:member.progress.level,xp:member.progress.xp}))};
+    const snapshot={missionIndex:battleResult.missionIndex,missionId:missionIdAt(battleResult.missionIndex,campaign.campaignId),reason:battleResult.reason??'Objective complete.',kills:battleResult.kills,elapsed:battleResult.elapsed??0,gold:battleResult.gold??0,reward:campaign.campaignId==='awakening-ten'?chapterFor(missionIdAt(battleResult.missionIndex,'awakening-ten')!).rewardGold:100,progressBefore:missionCheckpoint.map(member=>({hero:member.hero,level:member.progress.level,xp:member.progress.xp}))};
     if(!completeMission(campaign,snapshot,battleResult.members??campaign.members))return;
     checkpointCampaign();playing=false;paused=false;pauseButton.disabled=true;game.scene.stop('Arena');game.scene.stop('Interface');showMissionResult(battleResult.heldKeys);return;
   }
@@ -189,7 +200,7 @@ function start(): void {
     game.scene.stop('Interface');game.scene.stop('Boot');
     game.scene.start('Campaign',{...campaign,party:campaign.members.map(m=>m.hero),skipDialogue:true});ensureMusic();return;
   }
-  if(campaignEnabled&&!campaign){devRun=false;campaign=newCampaign([hero,...companions]);checkpointCampaign();element('menu').hidden=true;element('end').hidden=true;result='';game.scene.stop('Boot');game.scene.stop('Interface');game.scene.start('Campaign',{...campaign,party:campaign.members.map(m=>m.hero)});ensureMusic();return;}
+  if(campaignEnabled&&!campaign){devRun=false;campaign=newCampaign([hero,...companions],'awakening-ten');checkpointCampaign();element('menu').hidden=true;element('end').hidden=true;result='';game.scene.stop('Boot');game.scene.stop('Interface');game.scene.start('Campaign',{...campaign,party:campaign.members.map(m=>m.hero)});ensureMusic();return;}
   if(campaign){campaign.members=cloneMembers(missionCheckpoint.length?missionCheckpoint:campaign.members);if(missionCheckpoint.length)campaign.gold=checkpointGold;}
 
   stopVoices();ensureMusic();
@@ -200,7 +211,7 @@ function start(): void {
   phase=tactical?'deployment':'battle';
   playing = true; paused = false; pauseButton.disabled = tactical; pauseButton.textContent = 'Pause';
   element('hero-name').textContent = `${HERO_NAMES[hero]} · ${HERO_PROFILES[hero].weapon}`;
-  game.scene.start('Arena', { hero, companions, tactical,missionIndex:campaign?.missionIndex,members:campaign?.members,gold:campaign?.gold });
+  game.scene.start('Arena', { hero, companions, tactical,missionIndex:campaign?.missionIndex,campaignId:campaign?.campaignId,missionId:campaign?.missionId,members:campaign?.members,gold:campaign?.gold });
   ensureMusic();
   game.scene.bringToTop('Interface'); publishInterface();
   element('game').focus();
@@ -248,7 +259,7 @@ for (const button of document.querySelectorAll<HTMLButtonElement>('[data-charact
 }
 startButton.addEventListener('click', start);
 element('restart').addEventListener('click', start);
-function showMissionResult(heldKeys:string[]=[]):void {if(!campaign?.pendingResult)return;game.scene.start('Results',{result:campaign.pendingResult,members:cloneMembers(campaign.members),gold:campaign.gold,heldKeys});ensureMusic();}
+function showMissionResult(heldKeys:string[]=[]):void {if(!campaign?.pendingResult)return;game.scene.start('Results',{result:campaign.pendingResult,campaignId:campaign.campaignId,members:cloneMembers(campaign.members),gold:campaign.gold,heldKeys});ensureMusic();}
 game.events.on('results-continue',()=>{if(!campaign||!acceptMissionResult(campaign))return;checkpointCampaign();game.scene.stop('Results');game.scene.start('Campaign',{...campaign,party:campaign.members.map(member=>member.hero),victory:true});ensureMusic();});
 function showMenu(): void {
   if (!element('menu').hidden) return;
@@ -363,8 +374,9 @@ game.events.on('campaign-edit-party',()=>{
 });
 function publishShop(message:string):void {if(!campaign)return;game.events.emit('campaign-shop-state',{gold:campaign.gold,members:campaign.members,message});}
 game.events.on('campaign-shop-buy',({hero:target,itemId}:{hero:Hero;itemId:string})=>{if(!campaign)return;const ok=buyCampaignItem(campaign,target,itemId);if(ok)checkpointCampaign();game.events.emit('ux-feedback',{kind:ok?'confirm':'reject',message:ok?'Weapon purchased':'Cannot purchase: check gold and class'});publishShop(ok?'Weapon purchased. F switches equipment in battle.':'Not enough gold, already owned, or unavailable to this class.');});
-game.events.on('campaign-shop-upgrade',({hero:target,slot}:{hero:Hero;slot:number})=>{if(!campaign)return;const ok=upgradeCampaignItem(campaign,target,slot);if(ok)checkpointCampaign();game.events.emit('ux-feedback',{kind:ok?'confirm':'reject'});publishShop(ok?'Equipment upgraded.':'Needs 100 gold. Each item can be forged three times.');});
-game.events.on('campaign-continue',()=>{if(!campaign)return;game.scene.stop('Campaign');if(campaign.complete){showMenu();return;}hero=campaign.members[0].hero;companions=campaign.members.slice(1).map(m=>m.hero);missionCheckpoint=cloneMembers(campaign.members);checkpointGold=campaign.gold;checkpointCampaign();game.scene.start('Interface');start();notice(getMap(campaign.missionIndex).objective.label);});
+game.events.on('campaign-shop-upgrade',({hero:target,slot}:{hero:Hero;slot:number})=>{if(!campaign)return;const ok=upgradeCampaignItem(campaign,target,slot);if(ok)checkpointCampaign();game.events.emit('ux-feedback',{kind:ok?'confirm':'reject'});publishShop(ok?'Equipment upgraded.':'Not enough gold or this item is fully forged.');});
+game.events.on('campaign-migration-acknowledge',()=>{if(campaign?.migrationNotice){campaign.migrationNotice.acknowledged=true;checkpointCampaign();}});
+game.events.on('campaign-continue',()=>{if(!campaign)return;game.scene.stop('Campaign');if(campaign.complete){showMenu();return;}hero=campaign.members[0].hero;companions=campaign.members.slice(1).map(m=>m.hero);missionCheckpoint=cloneMembers(campaign.members);checkpointGold=campaign.gold;checkpointCampaign();game.scene.start('Interface');start();notice(mapForCampaign(campaign.campaignId??'classic-four',campaign.missionIndex)!.objective.label);});
 
 function closeDev():void {
  if(!devOpen)return;devOpen=false;game.scene.stop('Dev');
@@ -380,9 +392,9 @@ function openCampaign(state:CampaignState,testRun=false):void {
  if(campaign.pendingResult)showMissionResult();else {game.scene.start('Campaign',{...campaign,party:campaign.members.map(m=>m.hero)});ensureMusic();}
 }
 game.events.on('campaign-resume',()=>{const saved=readSave();if(!saved){game.events.emit('ux-feedback',{kind:'reject',message:'No valid saved campaign available.'});return;}openCampaign(saved.campaign);game.events.emit('ux-feedback',{kind:'confirm',message:saved.campaign.pendingResult?'Mission results restored.':'Campaign restored. Battles restart from deployment.'});});
-game.events.on('dev-jump',(index:number)=>{if(!Number.isInteger(index)||index<0||index>=4)return;const test=newCampaign([hero,...companions]);test.missionIndex=index;openCampaign(test,true);game.events.emit('ux-feedback',{kind:'confirm',message:'Developer test mission — regular save preserved.'});});
+game.events.on('dev-jump',(index:number,requestedCampaign?:CampaignId)=>{const campaignId:CampaignId=requestedCampaign??campaign?.campaignId??'classic-four';if(!Number.isInteger(index)||index<0||index>=mapsForCampaign(campaignId).length)return;const test=newCampaign([hero,...companions],campaignId);test.missionIndex=index;test.missionId=missionIdAt(index,campaignId);openCampaign(test,true);game.events.emit('ux-feedback',{kind:'confirm',message:'Developer test mission — regular save preserved.'});});
 game.events.on('dev-close',closeDev);
-function openDev():void {if(devOpen||startButton.disabled)return;devOpen=true;devPausedScenes=['Boot','Arena','Interface','Campaign','Results'].filter(key=>game.scene.isActive(key));for(const key of devPausedScenes)game.scene.pause(key);game.scene.start('Dev');game.scene.bringToTop('Dev');}
+function openDev():void {if(devOpen||startButton.disabled)return;devOpen=true;devPausedScenes=['Boot','Arena','Interface','Campaign','Results'].filter(key=>game.scene.isActive(key));for(const key of devPausedScenes)game.scene.pause(key);game.scene.start('Dev',{campaignId:campaign?.campaignId??'awakening-ten'});game.scene.bringToTop('Dev');}
 game.events.on('dev-open',openDev);
 window.addEventListener('keydown',event=>{if(event.defaultPrevented)return;if((event.code!=='F9'&&event.code!=='Backquote')||event.repeat)return;event.preventDefault();openDev();});
 

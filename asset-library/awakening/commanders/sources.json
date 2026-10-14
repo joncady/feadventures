@@ -52,5 +52,41 @@
     "uploader": "Ploaj",
     "sha256": "b7db4ae8762f0f4618ae6e48c4a2471c06820d6488335e6774cad6073d3a16d0",
     "status": "Reference source acquired and visually inspected; not registered in runtime"
+  },
+  {
+    "character": "Yen'fay",
+    "kind": "map",
+    "file": "asset-library/awakening/commanders/63524.png",
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63524/",
+    "uploader": "Ploaj",
+    "sha256": "4c2457a29c0118a15e222448d721315a9f29c352c37fe6b30c735fe774258f3d",
+    "status": "Genuine source acquired via site download and visually inspected; normalized runtime asset registered"
+  },
+  {
+    "character": "Yen'fay",
+    "kind": "portrait",
+    "file": "asset-library/awakening/commanders/63397.png",
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63397/",
+    "uploader": "Ploaj",
+    "sha256": "9b7d4e13e24fbc0d3061dee7715ce54ea6afae10eaaa880d3e885c5295901f9d",
+    "status": "Genuine source acquired via site download and visually inspected; normalized runtime asset registered"
+  },
+  {
+    "character": "Aversa",
+    "kind": "map",
+    "file": "asset-library/awakening/commanders/63501.png",
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63501/",
+    "uploader": "Ploaj",
+    "sha256": "164689cc36ecc39f0885b1f91a02a959498dcd9e984f9a3e5db23dae3424ea65",
+    "status": "Genuine source acquired via site download and visually inspected; normalized runtime asset registered"
+  },
+  {
+    "character": "Aversa",
+    "kind": "portrait",
+    "file": "asset-library/awakening/commanders/63358.png",
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63358/",
+    "uploader": "Ploaj",
+    "sha256": "1248a9bb3372512c57beebc39483d55e3dce837663c6234190ce63a2bddf5c72",
+    "status": "Genuine source acquired via site download and visually inspected; normalized runtime asset registered"
   }
 ]

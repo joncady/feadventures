@@ -1,0 +1,509 @@
+{
+  "active": [
+    "Arena",
+    "Interface"
+  ],
+  "interface": {
+    "preparationEditing": false,
+    "hero": "chrom",
+    "companions": [
+      "frederick",
+      "lissa",
+      "ricken"
+    ],
+    "selectionMode": "player",
+    "phase": "battle",
+    "tactical": true,
+    "ready": true,
+    "playing": true,
+    "paused": false,
+    "muted": false,
+    "settingsOpen": false,
+    "result": "",
+    "audio": {
+      "music": 0.18,
+      "effects": 1,
+      "voices": 0.6,
+      "characterVoices": true,
+      "spellEffect": "fire-cast"
+    }
+  },
+  "lastResult": {
+    "result": {
+      "missionIndex": 5,
+      "missionId": "castle-defense",
+      "reason": "The castle held. The attackers retreat.",
+      "kills": 23,
+      "elapsed": 175,
+      "gold": 135,
+      "reward": 140,
+      "progressBefore": [
+        {
+          "hero": "chrom",
+          "level": 7,
+          "xp": 0
+        },
+        {
+          "hero": "frederick",
+          "level": 7,
+          "xp": 0
+        },
+        {
+          "hero": "lissa",
+          "level": 8,
+          "xp": 98
+        },
+        {
+          "hero": "ricken",
+          "level": 7,
+          "xp": 0
+        }
+      ]
+    },
+    "campaignId": "awakening-ten",
+    "members": [
+      {
+        "hero": "chrom",
+        "health": 0,
+        "progress": {
+          "level": 7,
+          "xp": 56,
+          "stats": {
+            "hp": 106,
+            "str": 23,
+            "mag": 15,
+            "skill": 16,
+            "speed": 12,
+            "luck": 13,
+            "def": 2,
+            "res": 2
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "falchion",
+              "uses": null,
+              "forge": 3
+            },
+            {
+              "weaponId": "iron-sword",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "frederick",
+        "health": 40,
+        "progress": {
+          "level": 7,
+          "xp": 77,
+          "stats": {
+            "hp": 107,
+            "str": 24,
+            "mag": 16,
+            "skill": 12,
+            "speed": 11,
+            "luck": 11,
+            "def": 6,
+            "res": 1
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "iron-lance",
+              "uses": null,
+              "forge": 1
+            },
+            {
+              "weaponId": "iron-sword",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-axe",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "lissa",
+        "health": 79,
+        "progress": {
+          "level": 9,
+          "xp": 87,
+          "stats": {
+            "hp": 105,
+            "str": 25,
+            "mag": 19,
+            "skill": 13,
+            "speed": 12,
+            "luck": 15,
+            "def": 2,
+            "res": 4
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "heal",
+              "uses": null,
+              "forge": 3
+            },
+            {
+              "weaponId": "iron-axe",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "ricken",
+        "health": 18,
+        "progress": {
+          "level": 7,
+          "xp": 77,
+          "stats": {
+            "hp": 105,
+            "str": 21,
+            "mag": 17,
+            "skill": 12,
+            "speed": 13,
+            "luck": 14,
+            "def": 0,
+            "res": 2
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "fire",
+              "uses": null,
+              "forge": 3
+            },
+            {
+              "weaponId": "thunder",
+              "uses": null
+            },
+            {
+              "weaponId": "elfire",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 2
+        }
+      }
+    ],
+    "gold": 626,
+    "heldKeys": []
+  },
+  "chapter": 6,
+  "map": "chonsin-pass",
+  "health": 107,
+  "pos": {
+    "x": 520.6666666666658,
+    "y": 354.58176872037643
+  },
+  "pending": 5,
+  "releases": [
+    {
+      "at": 94545.23000000011,
+      "camp": 3,
+      "key": "knight"
+    },
+    {
+      "at": 102045.23000000011,
+      "camp": 0,
+      "key": "assassin"
+    },
+    {
+      "at": 102545.23000000011,
+      "camp": 1,
+      "key": "soldier"
+    },
+    {
+      "at": 103045.23000000011,
+      "camp": 2,
+      "key": "soldier"
+    }
+  ],
+  "camera": {
+    "type": 5,
+    "x": 128,
+    "y": 0,
+    "width": 896,
+    "height": 544
+  },
+  "terrain": [
+    [
+      0,
+      0,
+      320,
+      96
+    ],
+    [
+      0,
+      448,
+      320,
+      96
+    ],
+    [
+      320,
+      0,
+      384,
+      96
+    ],
+    [
+      320,
+      448,
+      384,
+      96
+    ],
+    [
+      384,
+      96,
+      128,
+      128
+    ],
+    [
+      640,
+      320,
+      64,
+      128
+    ],
+    [
+      704,
+      0,
+      320,
+      96
+    ],
+    [
+      704,
+      448,
+      320,
+      96
+    ],
+    [
+      704,
+      320,
+      64,
+      128
+    ]
+  ],
+  "totalenemies": 7,
+  "enemyUnits": [
+    {
+      "x": 421.90325945501843,
+      "y": 288.89159998541726,
+      "hp": 98,
+      "key": "archer",
+      "body": {
+        "x": 421.90325945501843,
+        "y": 292.89159998541726,
+        "vx": 0,
+        "vy": 0,
+        "walkable": true,
+        "route": true,
+        "waypoint": {
+          "x": 440,
+          "y": 296
+        },
+        "brain": "chase",
+        "target": "chrom"
+      }
+    },
+    {
+      "x": 228.33157717048354,
+      "y": 234.30882407268828,
+      "hp": 98,
+      "key": "archer",
+      "body": {
+        "x": 228.33157717048354,
+        "y": 238.30882407268828,
+        "vx": 0,
+        "vy": 0,
+        "walkable": true,
+        "route": true,
+        "waypoint": {
+          "x": 248,
+          "y": 232
+        },
+        "brain": "chase",
+        "target": "chrom"
+      }
+    },
+    {
+      "x": 209.04218567406983,
+      "y": 385.91826434099346,
+      "hp": 98,
+      "key": "archer",
+      "body": {
+        "x": 209.04218567406983,
+        "y": 389.91826434099346,
+        "vx": 0,
+        "vy": 0,
+        "walkable": true,
+        "route": true,
+        "waypoint": {
+          "x": 232,
+          "y": 392
+        },
+        "brain": "chase",
+        "target": "chrom"
+      }
+    },
+    {
+      "x": 209.93468296084515,
+      "y": 308.9598180085072,
+      "hp": 98,
+      "key": "archer",
+      "body": {
+        "x": 209.93468296084515,
+        "y": 312.9598180085072,
+        "vx": 0,
+        "vy": 0,
+        "walkable": true,
+        "route": true,
+        "waypoint": {
+          "x": 232,
+          "y": 312
+        },
+        "brain": "chase",
+        "target": "chrom"
+      }
+    },
+    {
+      "x": 113.0259502791397,
+      "y": 190.54518420653037,
+      "hp": 117,
+      "key": "soldier",
+      "body": {
+        "x": 113.0259502791397,
+        "y": 194.54518420653037,
+        "vx": 55.66232426951445,
+        "vy": 22.398786951873564,
+        "walkable": true,
+        "route": true,
+        "waypoint": {
+          "x": 136,
+          "y": 200
+        },
+        "brain": "chase",
+        "target": "chrom"
+      }
+    },
+    {
+      "x": 69.15929350050364,
+      "y": 292.3662784966837,
+      "hp": 146,
+      "key": "knight",
+      "body": {
+        "x": 69.15929350050364,
+        "y": 296.3662784966837,
+        "vx": 74.29795137827666,
+        "vy": 10.237891432870171,
+        "walkable": true,
+        "route": true,
+        "waypoint": {
+          "x": 88,
+          "y": 296
+        },
+        "brain": "chase",
+        "target": "chrom"
+      }
+    },
+    {
+      "x": 53.489185218560365,
+      "y": 398.76771365149756,
+      "hp": 88,
+      "key": "mage",
+      "body": {
+        "x": 53.489185218560365,
+        "y": 402.76771365149756,
+        "vx": 49.77785187900861,
+        "vy": -4.708021061070125,
+        "walkable": true,
+        "route": true,
+        "waypoint": {
+          "x": 72,
+          "y": 408
+        },
+        "brain": "chase",
+        "target": "chrom"
+      }
+    }
+  ],
+  "spawnPoints": [
+    {
+      "x": 40,
+      "y": 160
+    },
+    {
+      "x": 16,
+      "y": 272
+    },
+    {
+      "x": 40,
+      "y": 224
+    },
+    {
+      "x": 16,
+      "y": 272
+    }
+  ],
+  "objective": {
+    "kind": "boss",
+    "victory": "defeat-commander",
+    "label": "Defeat Yen’fay at the pass",
+    "x": 896,
+    "y": 272,
+    "radius": 96
+  },
+  "phase": "wave",
+  "wave": 2
+}

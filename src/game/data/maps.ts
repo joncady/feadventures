@@ -8,6 +8,7 @@ import {VILLAGE_LAYOUT} from './village-layout';
 import {BLACK_KEEP_CHUNKS} from './black-keep-chunks';
 export interface MapDefinition {
  commander?:CommanderId;
+ spawnEntries?:readonly {x:number;y:number}[];spawnMargin?:number;advanceGates?:readonly {x:number;y:number;radius:number}[];
  id:string;title:string;name:string;width:number;height:number;backgroundKey:string;backgroundPath:string;
  soldierCount:number;gridSize:number;heroCamp:{x:number;y:number;health:number};companionBehavior:'hold'|'follow';companionRadius:number;
  courtyard:{left:number;top:number;right:number;bottom:number};siegeWalls:{name:string;rect:TerrainRect;health:number}[];

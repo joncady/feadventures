@@ -4,9 +4,9 @@ import {healAmount,healingExperience,restoreHealth,selectHealingTarget,type Heal
 
 const unit=(x:number,health:number,maxHealth=100):HealingUnit=>({x,y:0,health,maxHealth,active:true});
 
-test('staff targets endangered nearby allies and uses injured caster only as a fallback',()=>{
+test('staff targets endangered nearby allies and rescues a more critically injured AI caster',()=>{
   const caster=unit(0,5),healthy=unit(10,100),dead=unit(10,0),distant=unit(181,1),injured=unit(100,20),near=unit(20,50),inactive={...unit(10,1),active:false};
-  assert.equal(selectHealingTarget(caster,[caster,healthy,dead,distant,injured,near,inactive],180,caster),injured);
+  assert.equal(selectHealingTarget(caster,[caster,healthy,dead,distant,injured,near,inactive],180,caster),caster);
   assert.equal(selectHealingTarget(caster,[caster,healthy,dead,distant,inactive],180,caster),caster);
   caster.health=100;
   assert.equal(selectHealingTarget(caster,[caster,healthy,dead,distant,inactive],180,caster),undefined);
@@ -27,4 +27,16 @@ test('healing scales with magic, caps at maximum health, never revives, and only
   assert.equal(healingExperience(1,8),17);
   assert.equal(healingExperience(20,8),5);
   assert.equal(healingExperience(1,0),0);
+});
+
+test('critical AI self rescue respects a more endangered ally and leaves manual ally-only intent unchanged',()=>{
+ const caster=unit(0,20),ally=unit(30,60),criticalAlly=unit(40,5);
+ assert.equal(selectHealingTarget(caster,[caster,ally],180,caster),caster);
+ assert.equal(selectHealingTarget(caster,[caster,criticalAlly],180,caster),criticalAlly);
+ caster.health=5;
+ assert.equal(selectHealingTarget(caster,[caster,unit(30,99)],180,caster),caster);
+ caster.health=40;
+ assert.equal(selectHealingTarget(caster,[caster,ally],180,caster),ally);
+ caster.health=20;
+ assert.equal(selectHealingTarget(caster,[ally],180),ally);
 });

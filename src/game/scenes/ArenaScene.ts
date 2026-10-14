@@ -1,5 +1,9 @@
+import {createWeaponAttack,claimAttackTarget,realDamageDrain,type WeaponAttack} from '../systems/weapon-attack';
+import {weaponCapabilities,targetsInImpact} from '../systems/weapon-capabilities';
+import {rollCritical} from '../systems/critical';
+import {needsFirstTimeGuide} from '../ui/FirstTimeGuide';
 import { keyFor, reducedMotion, phaserKeyCode } from '../input/control-preferences';
-import {COMMANDERS,commanderDefinition,type CommanderId} from '../data/commanders';
+import {COMMANDERS,commanderDefinition,commanderGuardLevel,type CommanderId} from '../data/commanders';
 import {healAmount,healingExperience,restoreHealth,selectHealingTarget} from '../systems/healing';
 import {StageOne,STAGE_ONE} from '../systems/stage-one';
 import Phaser from 'phaser';
@@ -11,10 +15,12 @@ import {newGuard,updateGuard,guardedDamage,GUARD} from '../systems/guard';
 import { BattleHud } from '../systems/BattleHud';
 import { newProgress, type Progress, gainExperience, attackPower, attackCooldown, killExperience } from '../systems/progression';
 import { actionFlipX } from '../data/animation-layout';
-import { initialLoadout, equippedWeapon, cycleWeapon, weaponProfile, type Loadout, WEAPONS } from '../data/equipment';
+import { initialLoadout, equippedWeapon, cycleWeapon, weaponProfile, type Loadout, type WeaponDefinition, WEAPONS } from '../data/equipment';
 import { unitDefinition, type UnitDefinition } from '../systems/unit-profile';
 import { defaultDeployment } from '../data/battlefield';
 import {getMap,type MapDefinition} from '../data/maps';
+import {mapForCampaign} from '../data/campaign-expansion';
+import {chapterFor,type CampaignId,type MissionId} from '../data/campaign-catalog';
 import {cloneMembers,type CampaignMember} from '../systems/campaign';
 import { HERO_NAMES } from '../data/config';
 import { NavigationField } from '../systems/navigation';
@@ -37,6 +43,8 @@ export interface Hud { maxHealth:number; level:number; xp:number; allyMode:strin
 export class ArenaScene extends Phaser.Scene {
   private map:MapDefinition=getMap(2);
   private missionIndex:number|undefined;
+  private campaignId:CampaignId='classic-four';
+  private routeGateReached=false;
   private missionGold=0;
   private treasuryGold=0;
   private goldPopup?:Phaser.GameObjects.Text;
@@ -106,15 +114,15 @@ export class ArenaScene extends Phaser.Scene {
   private rallyReadyAt = 0;
   private advancing = false;
   private ended = false;
-  private playerShot: { aim: Point; at: number } | undefined;
+  private playerShot: { aim: Point; at: number; attack?:WeaponAttack } | undefined;
   private aimGuide!: Phaser.GameObjects.Graphics;
   private healthBar!: Phaser.GameObjects.Graphics;
   private telegraphs!: Phaser.GameObjects.Graphics;
   private navigation!: NavigationField;
   private brains = new WeakMap<Enemy, EnemyBrain>();
   constructor() { super('Arena'); }
-  init(data: { hero?: Hero; companions?: Hero[]; tactical?:boolean;missionIndex?:number;members?:CampaignMember[];gold?:number }): void {
-    this.fallenVoices.clear();this.rallyUntil=0;this.rallyReadyAt=0;this.missionIndex=data.missionIndex;this.map=getMap(data.missionIndex??2);this.missionGold=0;this.goldPopup=undefined;this.goldPopupTotal=0;this.goldCollectedAt=-Infinity;this.treasuryGold=data.gold??0;this.objectiveReached=false;this.objectiveMarker=undefined;
+  init(data: { hero?: Hero; companions?: Hero[]; tactical?:boolean;missionIndex?:number;campaignId?:CampaignId;missionId?:MissionId;members?:CampaignMember[];gold?:number }): void {
+    this.fallenVoices.clear();this.rallyUntil=0;this.rallyReadyAt=0;this.missionIndex=data.missionIndex;this.campaignId=data.campaignId??'classic-four';const selected=this.missionIndex===undefined?getMap(2):mapForCampaign(this.campaignId,data.missionId??this.missionIndex);if(!selected)throw new Error('Unknown campaign mission');this.map=selected;this.routeGateReached=false;this.missionGold=0;this.goldPopup=undefined;this.goldPopupTotal=0;this.goldCollectedAt=-Infinity;this.treasuryGold=data.gold??0;this.objectiveReached=false;this.objectiveMarker=undefined;
     this.tactical = data.tactical === true; this.deploying=this.tactical;
     this.width=this.tactical?this.map.width:WORLD.width;this.height=this.tactical?this.map.height:WORLD.height;this.terrain=this.tactical?[...this.map.terrain,...this.map.siegeWalls.map(w=>w.rect)]:OBSTACLES;
     this.hero = data.hero ?? 'chrom';
@@ -156,7 +164,7 @@ export class ArenaScene extends Phaser.Scene {
       wall.setData({structure:true,faction:'ally',weapon:'tome',health:section.health,maxHealth:section.health,defense:0,resistance:0,rect:section.rect,name:section.name,art});
       this.siegeWalls.push(wall);this.targetFields.set(wall,new NavigationField(this.width,this.height,this.terrain));
       this.physics.add.collider(this.player,wall,undefined,()=>!isFlying(this.hero));
-      this.physics.add.collider(this.enemies,wall);
+      this.physics.add.collider(this.enemies,wall,undefined,(a)=>!this.unitFlying(a as Enemy));
       this.physics.add.collider(this.allies,wall,undefined,(a,b)=>!this.unitFlying(a as Enemy)&&!this.unitFlying(b as Enemy));
       wall.once('destroy',()=>art.destroy());
     }
@@ -168,14 +176,14 @@ export class ArenaScene extends Phaser.Scene {
     this.physics.add.overlap(this.player, this.arrows, (_player, arrow) => this.projectileHit(arrow as Enemy, this.player));
     this.physics.add.overlap(this.arrows, this.enemies, (arrow, target) => this.projectileHit(arrow as Enemy, target as Enemy));
     this.physics.add.overlap(this.arrows, this.allies, (arrow, target) => this.projectileHit(arrow as Enemy, target as Enemy));
-    this.physics.add.collider(this.enemies, this.enemies);
+    this.physics.add.collider(this.enemies, this.enemies,undefined,(a,b)=>this.unitFlying(a as Enemy)===this.unitFlying(b as Enemy));
     this.physics.add.collider(this.allies, this.allies, undefined, (a,b) => this.unitFlying(a as Enemy) === this.unitFlying(b as Enemy));
     this.physics.add.collider(this.allies, this.enemies, undefined, (a,b) => !this.unitFlying(a as Enemy)&&!this.unitFlying(b as Enemy));
     this.physics.add.collider(this.player, this.allies, undefined, (a,b) => !this.tactical&&!this.unitFlying(a as Enemy)&&!this.unitFlying(b as Enemy));
-    this.physics.add.collider(this.player, this.enemies, undefined, () => !isFlying(this.hero));
+    this.physics.add.collider(this.player, this.enemies, undefined, (_p,b) => !isFlying(this.hero)&&!this.unitFlying(b as Enemy));
     // Resolve terrain last: crowd separation must not leave bodies inside walls.
     this.physics.add.collider(this.player, this.walls, undefined, () => !isFlying(this.hero));
-    this.physics.add.collider(this.enemies, this.walls);
+    this.physics.add.collider(this.enemies, this.walls,undefined,(a)=>!this.unitFlying(a as Enemy));
     this.physics.add.collider(this.allies, this.walls, undefined, (a,b) => !this.unitFlying(a as Enemy)&&!this.unitFlying(b as Enemy));
     this.physics.add.overlap(this.player, this.pickups, (_player, item) => {
       const pickup=item as Enemy;if(pickup.getData('gold')){this.missionGold+=pickup.getData('gold');this.game.events.emit('campaign-gold',this.missionGold);this.showGoldPickup(pickup.getData('gold'));}else {const before=this.health;this.health = Math.min(this.progression.stats.hp, this.health + 25);const restored=this.health-before;if(restored){this.showHealthGain(this.player,restored);this.feedback('confirm');}}item.destroy();this.publishHud();
@@ -271,7 +279,7 @@ export class ArenaScene extends Phaser.Scene {
       if(profile.weapon==='staff'){if(this.castHeal(this.player))this.lastAttack=time;}else {this.lastAttack = time; this.attack();}
     }
     if (this.playerShot && time >= this.playerShot.at) {
-      this.fireArrow(this.player, this.playerShot.aim, 'player', profile.weapon);
+      this.fireArrow(this.player, this.playerShot.aim, 'player', this.playerShot.attack?.weapon.type??profile.weapon,this.playerShot.attack);
       this.playerShot = undefined;
     }
     this.drawAimGuide();
@@ -302,7 +310,7 @@ export class ArenaScene extends Phaser.Scene {
       this.time.delayedCall(1600, () => { this.wave++; this.advancing = false; this.startWave(); });
     }
   }
-  private combatTags(unit:Enemy):EffectivenessTag[] {const tags=[...(unit.getData('combatTags')??[])] as EffectivenessTag[];if(this.unitFlying(unit))tags.push('flying');const hero=unit===this.player?this.hero:unit.getData('companionHero');if(['frederick','stahl','sully'].includes(hero))tags.push('mounted');if(hero==='frederick'||['knight','heavy'].includes(unit.texture.key))tags.push('armored');return tags;}
+  private combatTags(unit:Enemy):EffectivenessTag[] {const commander=unit.getData('commanderId') as CommanderId|undefined;const tags=[...(unit.getData('combatTags')??[]),...(commander?COMMANDERS[commander].combatTags??[]:[])] as EffectivenessTag[];if(this.unitFlying(unit))tags.push('flying');const hero=unit===this.player?this.hero:unit.getData('companionHero');if(['frederick','stahl','sully'].includes(hero))tags.push('mounted');if(hero==='frederick'||['knight','heavy'].includes(unit.texture.key))tags.push('armored');return tags;}
   private drawGuard():void {this.guardGuide.clear();if(!this.guard.active&&!this.guard.broken)return;const origin=this.bodyCenter(this.player),angle=Math.atan2(this.facing.y,this.facing.x);if(this.guard.active)this.guardGuide.lineStyle(4,0xbce9ff,.9).beginPath().arc(origin.x,origin.y,34,angle-GUARD.halfArc,angle+GUARD.halfArc,false).strokePath();this.guardGuide.fillStyle(0x192d36,.85).fillRect(origin.x-24,origin.y+32,48,5).fillStyle(this.guard.broken?0xf1a46b:0xbce9ff,1).fillRect(origin.x-24,origin.y+32,48*this.guard.meter/GUARD.capacity,5);}
   private weaponLoadout():Loadout {return this.partyStates.get(this.hero)!.loadout;}
   private profile(){return weaponProfile(this.hero,this.weaponLoadout());}
@@ -325,7 +333,7 @@ export class ArenaScene extends Phaser.Scene {
   selectSoldierDeployment():void {if(!this.deploying)return;const soldiers=this.allies.getChildren().filter(a=>!a.getData('companionHero'));if(!soldiers.length){this.feedback('reject','This mission has no NPC soldiers to place.');return;}const unit=soldiers.find(a=>!this.deployment[a.getData('deploymentId')])??soldiers[(soldiers.findIndex(a=>a.getData('deploymentId')===this.selectedDeployment)+1)%soldiers.length];this.selectedDeployment=unit.getData('deploymentId');this.game.events.emit('notice',`Place Soldier ${Number(this.selectedDeployment.split('-')[1])+1} on open terrain.`);}
   private clampDeploymentCursor(point:Point):Point {const c=this.map.courtyard;const snap=(value:number,low:number,high:number)=>Phaser.Math.Clamp(Math.floor(value/64)*64+32,Math.ceil((low+20-32)/64)*64+32,Math.floor((high-20-32)/64)*64+32);return {x:snap(point.x,c.left,c.right),y:snap(point.y,c.top,c.bottom)};}
   nudgeDeployment(dx:number,dy:number):void {if(!this.deploying)return;const previous=this.deploymentCursor;this.deploymentCursor=this.clampDeploymentCursor({x:previous.x+Math.sign(dx)*64,y:previous.y+Math.sign(dy)*64});if(previous.x!==this.deploymentCursor.x||previous.y!==this.deploymentCursor.y)this.feedback('cursor');else this.feedback('reject','Keep deployment inside the courtyard.');}
-  confirmDeployment():boolean {if(!this.deploying)return false;const placedId=this.selectedDeployment;if(!this.placeDeployment(this.deploymentCursor))return false;this.feedback('confirm',`${HERO_NAMES[placedId as Hero]} deployed`);const ids:readonly string[]=this.party;const index=ids.indexOf(placedId);const next=[...ids.slice(index+1),...ids.slice(0,index+1)].find(id=>!this.deployment[id]);if(next){this.selectedDeployment=next;for(let n=0;n<40;n++){const c=this.map.courtyard;this.deploymentCursor=this.deploymentCursor.x+64>c.right-32?{x:c.left+32,y:this.deploymentCursor.y+64>c.bottom-32?c.top+32:this.deploymentCursor.y+64}:{x:this.deploymentCursor.x+64,y:this.deploymentCursor.y};if(this.canDeploy(this.deploymentCursor))break;}this.game.events.emit('notice',`Placed. Next: ${HERO_NAMES[next as Hero]??'Soldier '+(Number(next.split('-')[1])+1)}. WASD moves; Space places.`);}else this.game.events.emit('notice','Army ready. R or Begin battle starts stage one.');return true;}
+  confirmDeployment():boolean {if(!this.deploying)return false;const placedId=this.selectedDeployment;if(!this.placeDeployment(this.deploymentCursor))return false;this.feedback('confirm',`${HERO_NAMES[placedId as Hero]} deployed`);const ids:readonly string[]=this.party;const index=ids.indexOf(placedId);const next=[...ids.slice(index+1),...ids.slice(0,index+1)].find(id=>!this.deployment[id]);if(next){this.selectedDeployment=next;for(let n=0;n<40;n++){const c=this.map.courtyard;this.deploymentCursor=this.deploymentCursor.x+64>c.right-32?{x:c.left+32,y:this.deploymentCursor.y+64>c.bottom-32?c.top+32:this.deploymentCursor.y+64}:{x:this.deploymentCursor.x+64,y:this.deploymentCursor.y};if(this.canDeploy(this.deploymentCursor))break;}this.game.events.emit('notice',`Placed. Next: ${HERO_NAMES[next as Hero]??'Soldier '+(Number(next.split('-')[1])+1)}. WASD moves; Space places.`);}else this.game.events.emit('notice','Army ready. R or Begin battle starts the mission.');return true;}
   selectDeployment(hero:Hero):void { if(this.deploying && this.party.includes(hero)){this.feedback('cursor');this.selectedDeployment=hero;this.deploymentCursor=this.deployment[hero]??this.deploymentCursor;this.game.events.emit('notice',`Place ${HERO_NAMES[hero]} on open terrain.`);} }
   autoPlaceDeployment():number {
     if(!this.deploying||this.ended)return 0;
@@ -348,9 +356,21 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     this.game.events.emit('notice',`${HERO_NAMES[this.selectedDeployment as Hero]??'Soldier'} deployed. Select another unit or begin battle.`);return true;
   }
   private showCamps():void {
+    if(this.map.spawnEntries?.length){
+      const planned:Record<string,number>={};
+      for(const camp of this.map.camps)for(let wave=1;wave<=this.stage.settings.waves;wave++)for(let batch=0;batch<(this.map.waves.batches??4);batch++){const key=camp.units[(batch+wave-1)%camp.units.length];planned[key]=(planned[key]??0)+1;}
+      for(const entry of this.map.spawnEntries){
+        const side=entry.x<=32?'West':entry.x>=this.width-32?'East':entry.y<=64?'North':'South';
+        this.campLabels.push(this.add.circle(entry.x,entry.y,32,0x9c3434,.35).setStrokeStyle(3,0xe56565).setDepth(2));
+        this.campLabels.push(this.add.text(Phaser.Math.Clamp(entry.x,96,this.width-96),Phaser.Math.Clamp(entry.y,64,this.height-64),`${side} arrival`,{fontFamily:'FE',fontSize:'18px',color:'#fff0c6',backgroundColor:'#522c2c',padding:{x:6,y:4}}).setResolution(3).setOrigin(.5).setDepth(22));
+      }
+      const rows=Object.entries(planned).map(([key,count])=>`${count} ${key}`),lines=[rows.slice(0,3).join(' · '),rows.slice(3).join(' · ')].filter(Boolean);
+      this.campLabels.push(this.add.text(this.width/2,this.height/2,`Possible arrival routes marked\n${lines.join('\n')}`,{fontFamily:'FE',fontSize:'18px',color:'#fff0c6',backgroundColor:'#522c2c',align:'center',padding:{x:6,y:4}}).setResolution(3).setOrigin(.5).setDepth(22));
+      this.game.events.emit('notice',`${this.map.title}: ${this.map.objective.label}. Reinforcements enter through the marked routes.`);return;
+    }
     for(const camp of this.map.camps){
       this.campLabels.push(this.add.circle(camp.x,camp.y,48,0x9c3434,.35).setStrokeStyle(3,0xe56565).setDepth(2));
-      const planned:Record<string,number>={};for(let wave=1;wave<=this.stage.settings.waves;wave++)for(let batch=0;batch<(this.missionIndex===undefined?4:this.map.waves.batches??4);batch++){const key=camp.units[(batch+wave-1)%4];planned[key]=(planned[key]??0)+1;}const entries=Object.entries(planned).map(([key,n])=>`${n} ${key}`);const counts=[entries.slice(0,2).join(' · '),entries.slice(2).join(' · ')].filter(Boolean).join('\n');
+      const planned:Record<string,number>={};for(let wave=1;wave<=this.stage.settings.waves;wave++)for(let batch=0;batch<(this.missionIndex===undefined?4:this.map.waves.batches??4);batch++){const key=camp.units[(batch+wave-1)%camp.units.length];planned[key]=(planned[key]??0)+1;}const entries=Object.entries(planned).map(([key,n])=>`${n} ${key}`);const counts=[entries.slice(0,2).join(' · '),entries.slice(2).join(' · ')].filter(Boolean).join('\n');
       this.campLabels.push(this.add.text(Phaser.Math.Clamp(camp.x+(camp.x<this.width/2?-80:80),150,this.width-150),camp.y+(camp.y<600?100:-80),`${camp.name}\n${counts}`,{fontFamily:'FE',fontSize:'18px',color:'#fff0c6',backgroundColor:'#522c2c',align:'center',lineSpacing:3,padding:{x:6,y:4}}).setResolution(3).setOrigin(.5).setDepth(22));
 
     }
@@ -359,6 +379,11 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
   launchBattle():boolean {
     if(!this.deploying || this.ended)return false;
     if(this.party.some(h=>!this.deployment[h])||this.allies.getChildren().some(a=>!this.deployment[a.getData('companionHero')??a.getData('deploymentId')])){this.feedback('reject','Place every hero before beginning.');this.game.events.emit('notice','Place every party member before beginning. Soldiers are already deployed.');return false;}
+    if(!this.registry.get('first-time-guide-approved')&&needsFirstTimeGuide()){
+      if(!this.registry.get('first-time-guide-open'))this.game.events.emit('first-time-controls-request',()=>{this.registry.set('first-time-guide-approved',true);this.game.events.emit('ui-launch');});
+      return false;
+    }
+    this.registry.set('first-time-guide-approved',false);
     this.deploying=false;this.deploymentGuide.clear().setVisible(false);this.planningGrid.clear().setVisible(false);this.battleClock=0;this.stage.start(0);for(const object of this.campLabels)object.destroy();this.campLabels=[];
     this.cameras.main.setZoom(1).startFollow(this.player,true,.12,.12).setDeadzone(180,100);
     this.physics.resume();this.input.keyboard?.resetKeys();this.pointerAim=undefined;this.pointerAttack=false;
@@ -368,20 +393,22 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
   private campSpawnPoint(index:number):Point|undefined {
     const camp=this.map.camps[index];
     const offsets=[[0,0],[-80,0],[80,0],[0,80],[0,-80],[-80,80],[80,80],[-160,0],[160,0],[0,160],[0,-160]];
-    const assault=this.missionIndex!==undefined&&this.map.id==='dark-castle';
+    const assault=this.missionIndex!==undefined&&this.map.objective.kind==='boss';
     const candidates=offsets.map(([x,y])=>({x:camp.x+x,y:camp.y+y}));
     if(this.map.id==='east-road')candidates.push(...[192,272,352].flatMap(y=>[{x:40,y},{x:this.width-40,y}]));
     if(this.map.id==='village')candidates.push({x:512,y:40},{x:512,y:this.height-40},...[176,528].flatMap(y=>[{x:40,y},{x:this.width-40,y}]));
     if(assault)candidates.push(...[96,this.height-96].flatMap(y=>[{x:128,y},{x:this.width-128,y}]));
     else candidates.push({x:camp.x<this.width/2?40:this.width-40,y:40},{x:camp.x<this.width/2?40:this.width-40,y:this.height-40});
-    const view=this.cameras.main.worldView,margin=this.missionIndex===1?24:assault?32:70;
+    candidates.push(...(this.map.spawnEntries??[]));
+    const view=this.cameras.main.worldView,margin=this.map.spawnMargin??(this.map.id==='village'?24:assault?32:70);
     return candidates.find(p=>this.navigation.isWalkable(p)&&!(p.x>view.x-margin&&p.x<view.right+margin&&p.y>view.y-margin&&p.y<view.bottom+margin)&&![this.player,...this.allies.getChildren(),...this.enemies.getChildren()].some(a=>a.active&&Phaser.Math.Distance.Between(p.x,p.y,(a as Enemy).x,(a as Enemy).y)<52));
   }
+  private advanceGate():Point&{radius:number}|undefined {if(this.map.objective.kind!=='advance')return;const gates=this.map.advanceGates??[{x:448,y:this.map.objective.y,radius:110},{x:832,y:this.map.objective.y,radius:110},{x:1120,y:this.map.objective.y,radius:110}];return gates[Math.min(gates.length-1,Math.max(0,this.stage.wave-1))];}
   private updateStage(now:number):void {
     const ready=this.releases.find(r=>now>=r.at&&this.campSpawnPoint(r.camp));
     if(ready&&this.enemies.countActive()<this.stage.settings.hostileCap){
       const point=this.campSpawnPoint(ready.camp);
-      if(point){const unit=this.createHostile(point.x,point.y,ready.key);if(ready.elite){unit.setData({level:3,health:Math.round(unit.getData('health')*1.5),maxHealth:Math.round(unit.getData('maxHealth')*1.5),damage:Math.round(unit.getData('damage')*1.25)});unit.setTint(0xe8b4ff);}this.releases.splice(this.releases.indexOf(ready),1);}
+      if(point){const unit=this.createHostile(point.x,point.y,ready.key);if(ready.elite){unit.setData({level:commanderGuardLevel(unit.getData('level')??1,this.missionIndex!==undefined&&this.campaignId==='awakening-ten'),health:Math.round(unit.getData('health')*1.5),maxHealth:Math.round(unit.getData('maxHealth')*1.5),damage:Math.round(unit.getData('damage')*1.25)});unit.setTint(0xe8b4ff);}this.releases.splice(this.releases.indexOf(ready),1);}
     }
     if(this.boss?.active){
       const commander=this.map.commander;
@@ -390,15 +417,16 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
       this.releases.sort((a,b)=>a.at-b.at);
     }
     const clear=this.releases.length===0&&this.enemies.countActive()===0&&!this.arrows.getChildren().some(a=>a.getData('faction')==='enemy');
-    const campaignWaveReady=this.missionIndex!==undefined&&this.map.objective.victory!=='defeat-all'&&this.stage.phase==='wave'&&this.releases.length===0&&(this.map.objective.kind!=='advance'||this.player.x>=[448,832,1120][Math.min(2,this.stage.wave-1)]-24);
+    const gate=this.advanceGate();if(gate&&Phaser.Math.Distance.BetweenPoints(this.player,gate)<=gate.radius)this.routeGateReached=true;
+    const campaignWaveReady=this.missionIndex!==undefined&&this.map.objective.victory!=='defeat-all'&&this.stage.phase==='wave'&&this.releases.length===0&&(this.map.objective.kind!=='advance'||this.routeGateReached);
     const commanderDefeated=this.missionIndex!==undefined&&this.stage.phase==='boss'&&!!this.boss&&!this.boss.active;
     if(commanderDefeated&&this.map.objective.victory!=='defeat-all')this.releases=[];
     const bossEntryBlocked=this.stage.phase==='boss-warning'&&(this.enemies.countActive()>=this.stage.settings.hostileCap||this.map.objective.kind!=='boss'&&!this.campSpawnPoint(1));
     const change=bossEntryBlocked?undefined:this.stage.advance(now,clear||campaignWaveReady||(commanderDefeated&&this.map.objective.victory!=='defeat-all'));
     if(change==='wave'){
-      this.wave=this.stage.wave;this.game.events.emit('notice',`Wave ${this.wave}/${this.stage.settings.waves}. ${this.map.objective.kind==='advance'?`Advance east to ${['the road bend','the village approach','the eastern exit'][Math.min(2,this.wave-1)]}`:this.map.objective.label}.`);
-      if(this.map.objective.kind==='advance')this.objectiveMarker?.setPosition([448,832,1120][Math.min(2,this.wave-1)],this.map.objective.y);
-      for(let batch=0;batch<(this.missionIndex===undefined?4:this.map.waves.batches??4);batch++)for(let camp=0;camp<4;camp++)this.releases.push({at:now+batch*this.stage.settings.releaseInterval+camp*500,camp,key:this.map.camps[camp].units[(batch+this.wave-1)%4]});
+      this.wave=this.stage.wave;this.routeGateReached=false;this.game.events.emit('notice',`Wave ${this.wave}/${this.stage.settings.waves}. ${this.map.objective.kind==='advance'?'Follow the next flag':this.map.objective.label}.`);
+      if(this.map.objective.kind==='advance'){const next=this.advanceGate()??this.map.objective;this.objectiveMarker?.setPosition(next.x,next.y);}
+      for(let batch=0;batch<(this.missionIndex===undefined?4:this.map.waves.batches??4);batch++)for(let camp=0;camp<this.map.camps.length;camp++)this.releases.push({at:now+batch*this.stage.settings.releaseInterval+camp*500,camp,key:this.map.camps[camp].units[(batch+this.wave-1)%this.map.camps[camp].units.length]});
     }else if(change==='rest')this.game.events.emit('notice',this.missionIndex===undefined?'Fronts cleared. Regroup: next wave in 10 seconds.':`Reinforcements arrive in ${Math.ceil(this.stage.settings.intermission/1000)} seconds. Hold your positions.`);
     else if(change==='boss-warning')this.game.events.emit('notice',this.map.commander?`${COMMANDERS[this.map.commander].name} approaches · 8s`:this.map.objective.kind==='boss'?'The final commander enters the throne room in 8 seconds!':'The siege commander approaches the northeast camp in 8 seconds!');
     else if(change==='boss'){
@@ -414,7 +442,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
       const exitReached=Phaser.Math.Distance.BetweenPoints(this.player,this.map.objective)<=this.map.objective.radius;
       const won=this.missionIndex===undefined?clear:victoryReady(this.map.objective.victory,{phase:this.stage.phase,enemies:this.enemies.countActive(),pending:this.releases.length,commanderDefeated,exitReached,objectiveAlive:!!this.camp?.active&&this.camp.getData('health')>0});
       if(won)this.finishTactical(true);
-      else if(this.map.objective.kind==='advance'&&!this.objectiveReached){this.objectiveReached=true;this.game.events.emit('notice','Ambush waves survived. Reach the eastern exit to complete the mission.');}
+      else if(this.map.objective.kind==='advance'&&!this.objectiveReached){this.objectiveReached=true;this.objectiveMarker?.setPosition(this.map.objective.x,this.map.objective.y);this.game.events.emit('notice','Attacks survived. Reach the exit flag to complete the mission.');}
     }
     this.spawning=this.releases.length;
   }
@@ -423,7 +451,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     enemy.setSize(28,28).setOffset(11,15).setCollideWorldBounds(true).setDepth(9);enemy.body!.updateFromGameObject();
     const icon=this.add.image(x,y,`weapon-${type.weapon}`).setDisplaySize(16,16).setDepth(21);
     const health=Math.round(('health' in type?Number(type.health):100)*(this.missionIndex===undefined?1:this.map.waves.healthScale??1));
-    const marker=this.add.text(x,y,'',{fontFamily:'FE',fontSize:'11px',backgroundColor:'#15201b'}).setDepth(21);enemy.setData({weaponIcon:icon,weaponMarker:marker,weapon:type.weapon,defense:type.defense,resistance:type.resistance,health,maxHealth:health,speed:type.speed,damage:Math.round(type.damage*(this.missionIndex===undefined?1:this.map.waves.damageScale)),level:this.missionIndex===undefined?1:this.missionIndex+1});enemy.once('destroy',()=>{marker.destroy();icon.destroy();});return enemy;
+    const marker=this.add.text(x,y,'',{fontFamily:'FE',fontSize:'11px',backgroundColor:'#15201b'}).setDepth(21);enemy.setData({weaponIcon:icon,weaponMarker:marker,weapon:type.weapon,defense:type.defense,resistance:type.resistance,health,maxHealth:health,speed:type.speed,damage:Math.round(type.damage*(this.missionIndex===undefined?1:this.map.waves.damageScale)),flying:('flying' in type&&type.flying===true),level:this.missionIndex===undefined?1:this.campaignId==='awakening-ten'?chapterFor(this.map.id as MissionId).enemyLevel:this.missionIndex+1});enemy.once('destroy',()=>{marker.destroy();icon.destroy();});return enemy;
   }
   private switchCharacter(step:number):boolean {
     if(!this.tactical || this.deploying || this.ended)return false;
@@ -442,16 +470,17 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     (ally.getData('weaponIcon') as Phaser.GameObjects.Image).setTexture(`weapon-${p.weapon}`);this.playerWeapon.setTexture(`weapon-${this.profile().weapon}`);
     this.brains.delete(ally);for(const unit of [...this.enemies.getChildren(),...this.allies.getChildren()]){const brain=this.brains.get(unit as Enemy);if(brain?.targetUnit===this.player)brain.targetUnit=ally;else if(brain?.targetUnit===ally)brain.targetUnit=this.player;}
     if(state.health<=0)ally.destroy();else ally.anims.play(`${previous}-idle`);
+    for(const arrow of this.arrows.getChildren() as Enemy[]){const sourceHero=arrow.getData('sourceHero') as Hero|undefined;if(sourceHero)arrow.setData('source',this.attackActor(sourceHero));}
     this.playerShot=undefined;this.actionUntil=0;this.pointerAim=undefined;this.pointerAttack=false;this.guard=newGuard();this.touchGuard=false;this.touchAim=undefined;this.touchMovement={x:0,y:0};this.touchSelfHeal=false;this.guardGuide.clear();this.facing={x:1,y:0};this.keyboardFacing={...this.facing};
     this.battleHud.destroy();this.battleHud=new BattleHud(this,hero,()=>this.switchCharacter(1));this.battleHud.synchronize(this.progression);
     this.feedback('confirm',`${HERO_NAMES[hero]} · controlling`);this.game.events.emit('controlled-character',hero);this.game.events.emit('hero-voice',{hero,event:'select'});this.publishHud();return true;
   }
   private finishTactical(victory:boolean,reason?:string):void {
-    if(this.ended)return;for(const unit of this.allies.getChildren() as Enemy[]){const prior=unit.getData('autoHealPrior') as number|undefined;if(prior!==undefined)this.setCompanionSlot(unit,prior);}this.ended=true;this.guard.active=false;this.touchGuard=false;this.guardGuide.clear();this.releases=[];this.playerShot=undefined;this.arrows.clear(true,true);this.physics.pause();this.time.removeAllEvents();this.aimGuide.clear();this.telegraphs.clear();this.partyStates.get(this.hero)!.health=this.health;const members=this.party.map(hero=>{const state=this.partyStates.get(hero)!;return {hero,health:state.health,progress:state.progress,loadout:state.loadout};});const victoryReason=victory?(this.map.objective.victory==='defeat-all'?'All enemy forces defeated.':this.map.objective.kind==='advance'?'Eastern exit reached. The party escaped the ambushes.':this.map.objective.kind==='defend'?this.map.commander?`${COMMANDERS[this.map.commander].name} defeated. The village stands.`:'Three attacks survived. The raiders withdraw; the village stands.':this.map.objective.kind==='survive'?this.map.commander?`${COMMANDERS[this.map.commander].name} defeated. The remaining attackers retreat.`:'Siege commander defeated. The remaining attackers retreat.':this.map.commander?`${COMMANDERS[this.map.commander].name} defeated. The remaining guards surrender.`:'Keep commander defeated. The remaining guards surrender.'):reason;this.game.events.emit('game-over',{wave:this.wave,kills:this.kills,victory,reason:victoryReason,missionIndex:this.missionIndex,members:cloneMembers(members),gold:this.missionGold,elapsed:Math.floor(this.battleClock/1000),heldKeys:this.keys.SPACE.isDown?[keyFor('attack')]:[]});
+    if(this.ended)return;for(const unit of this.allies.getChildren() as Enemy[]){const prior=unit.getData('autoHealPrior') as number|undefined;if(prior!==undefined)this.setCompanionSlot(unit,prior);}this.ended=true;this.guard.active=false;this.touchGuard=false;this.guardGuide.clear();this.releases=[];this.playerShot=undefined;this.arrows.clear(true,true);this.physics.pause();this.time.removeAllEvents();this.aimGuide.clear();this.telegraphs.clear();this.partyStates.get(this.hero)!.health=this.health;const members=this.party.map(hero=>{const state=this.partyStates.get(hero)!;return {hero,health:state.health,progress:state.progress,loadout:state.loadout};});const victoryReason=victory?(this.map.objective.victory==='defeat-all'?'All enemy forces defeated.':this.map.objective.kind==='advance'?'Exit reached. The party survived the attacks.':this.map.objective.kind==='defend'?this.map.commander?`${COMMANDERS[this.map.commander].name} defeated. The village stands.`:`${this.stage.settings.waves} attacks survived. The village stands.`:this.map.objective.kind==='survive'?this.map.commander?`${COMMANDERS[this.map.commander].name} defeated. The remaining attackers retreat.`:'The castle held. The attackers retreat.':this.map.commander?`${COMMANDERS[this.map.commander].name} defeated. The remaining guards surrender.`:'Keep commander defeated. The remaining guards surrender.'):reason;this.game.events.emit('game-over',{wave:this.wave,kills:this.kills,victory,reason:victoryReason,missionIndex:this.missionIndex,missionId:this.missionIndex!==undefined?this.map.id:undefined,members:cloneMembers(members),gold:this.missionGold,elapsed:Math.floor(this.battleClock/1000),heldKeys:this.keys.SPACE.isDown?[keyFor('attack')]:[]});
   }
   private objectiveStatus():string {
     const phase=this.stage.phase,condition=this.map.objective.victory;
-    const label=(condition==='hold-waves'||condition==='defend-commander')?'Protect village':condition==='reach-exit'?'Reach eastern exit':condition==='defeat-all'?'Defeat all enemies':this.map.objective.kind==='survive'?'Defend keep':'Defeat commander';
+    const label=condition==='reach-exit'?'Reach exit':condition==='defeat-all'?'Defeat all enemies':this.map.objective.kind==='survive'?'Defend keep':this.map.objective.kind==='defend'?'Protect village':'Defeat commander';
     const remaining=Math.max(0,Math.ceil(((phase==='wave'?this.stage.waveStarted+this.stage.settings.waveMinimum:this.stage.deadline)-this.battleClock)/1000));
     if(phase==='wave')return `${label} · ${this.stage.wave}/${this.stage.settings.waves} · ${remaining>0?formatClock(remaining):this.releases.length?'Reinforcements incoming':'Advance'}`;
     if(phase==='opening')return `${label} · Begins ${formatClock(remaining)}`;
@@ -459,11 +488,11 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     if(phase==='boss-warning')return remaining>0?`Commander arrives · ${formatClock(remaining)}`:'Commander approaching';
     if(phase==='boss'&&condition==='defeat-all')return `Defeat all enemies · ${this.enemies.countActive()} + ${this.releases.length} incoming`;
     if(phase==='boss')return `Defeat ${this.map.commander?COMMANDERS[this.map.commander].name:'commander'}${this.boss?.active?` · HP ${Math.max(0,this.boss.getData('health'))}/${this.boss.getData('maxHealth')}`:''}`;
-    return condition==='reach-exit'?'Reach eastern exit · Ambush waves survived':`${label} · ${this.enemies.countActive()} remaining`;
+    return condition==='reach-exit'?'Reach exit · Attacks survived':`${label} · ${this.enemies.countActive()} remaining`;
   }
   private publishTacticalMap():void {
     const camera=this.cameras.main;
-    this.game.events.emit('tactical-map',{goal:this.objectiveMarker?{x:this.objectiveMarker.x,y:this.objectiveMarker.y}:{x:this.map.heroCamp.x,y:this.map.heroCamp.y},rally:{active:this.rallyUntil>this.time.now,remaining:Math.max(0,Math.ceil((this.rallyUntil-this.time.now)/1000)),cooldown:Math.max(0,Math.ceil((this.rallyReadyAt-this.time.now)/1000)),available:!this.deploying&&this.time.now>=this.rallyReadyAt},missionIndex:this.missionIndex,title:this.map.title,objective:this.map.objective.label,objectiveStatus:this.objectiveStatus(),gold:this.treasuryGold+this.missionGold,totalWaves:this.stage.settings.waves,width:this.width,height:this.height,deploying:this.deploying,selected:this.selectedDeployment,party:this.party.map(hero=>{const state=this.partyStates.get(hero)!;const health=hero===this.hero?this.health:state.health;return {hero,placed:!!this.deployment[hero],health,maxHealth:state.progress.stats.hp,level:state.progress.level,xp:state.progress.xp,equippedWeaponId:equippedWeapon(state.loadout).id,weaponCount:state.loadout.items.length};}),camp:this.camp?.active?{health:this.camp.getData('health'),maxHealth:this.camp.getData('maxHealth')}:undefined,cooldown:{fraction:Phaser.Math.Clamp((this.time.now-this.lastAttack)/this.attackDelay(),0,1),remaining:Math.max(0,(this.lastAttack+this.attackDelay()-this.time.now)/1000),recovering:this.time.now-this.lastAttack<this.attackDelay()*.65},stagePhase:this.stage.phase,wave:this.stage.wave,remaining:Math.max(0,Math.ceil(((this.stage.phase==='wave'?this.stage.waveStarted+this.stage.settings.waveMinimum:this.stage.deadline)-this.battleClock)/1000)),elapsed:Math.floor(this.battleClock/1000),pending:this.releases.length,boss:this.boss?.active?{id:this.map.commander,name:this.map.commander?COMMANDERS[this.map.commander].name:'Commander',title:this.map.commander?COMMANDERS[this.map.commander].title:'',phase:this.brains.get(this.boss)?.phase??'chase',enraged:this.map.commander==='validar'&&this.boss.getData('health')/this.boss.getData('maxHealth')<=.5,health:this.boss.getData('health'),maxHealth:this.boss.getData('maxHealth')}:undefined,controlled:this.hero,controlledPosition:this.player.visible?{x:this.player.x,y:this.player.y}:undefined,placed:Object.keys(this.deployment).length,total:this.party.length+this.map.soldierCount,allies:[...(this.player.visible?[{x:this.player.x,y:this.player.y}]:[]),...this.allies.getChildren().filter(a=>(a as Enemy).visible).map(a=>({x:(a as Enemy).x,y:(a as Enemy).y}))],enemies:this.enemies.getChildren().filter(a=>this.cameras.main.worldView.contains((a as Enemy).x,(a as Enemy).y)).map(a=>({x:(a as Enemy).x,y:(a as Enemy).y})),camera:{x:camera.worldView.x,y:camera.worldView.y,width:camera.worldView.width,height:camera.worldView.height}});
+    this.game.events.emit('tactical-map',{backgroundKey:this.map.backgroundKey,mapId:this.map.id,objectiveKind:this.map.objective.kind,goal:this.objectiveMarker?{x:this.objectiveMarker.x,y:this.objectiveMarker.y}:{x:this.map.heroCamp.x,y:this.map.heroCamp.y},rally:{active:this.rallyUntil>this.time.now,remaining:Math.max(0,Math.ceil((this.rallyUntil-this.time.now)/1000)),cooldown:Math.max(0,Math.ceil((this.rallyReadyAt-this.time.now)/1000)),available:!this.deploying&&this.time.now>=this.rallyReadyAt},missionIndex:this.missionIndex,title:this.map.title,objective:this.map.objective.label,objectiveStatus:this.objectiveStatus(),gold:this.treasuryGold+this.missionGold,totalWaves:this.stage.settings.waves,width:this.width,height:this.height,deploying:this.deploying,selected:this.selectedDeployment,party:this.party.map(hero=>{const state=this.partyStates.get(hero)!;const health=hero===this.hero?this.health:state.health;return {hero,placed:!!this.deployment[hero],health,maxHealth:state.progress.stats.hp,level:state.progress.level,xp:state.progress.xp,equippedWeaponId:equippedWeapon(state.loadout).id,weaponCount:state.loadout.items.length};}),camp:this.camp?.active?{health:this.camp.getData('health'),maxHealth:this.camp.getData('maxHealth')}:undefined,cooldown:{fraction:Phaser.Math.Clamp((this.time.now-this.lastAttack)/this.attackDelay(),0,1),remaining:Math.max(0,(this.lastAttack+this.attackDelay()-this.time.now)/1000),recovering:this.time.now-this.lastAttack<this.attackDelay()*.65},stagePhase:this.stage.phase,wave:this.stage.wave,remaining:Math.max(0,Math.ceil(((this.stage.phase==='wave'?this.stage.waveStarted+this.stage.settings.waveMinimum:this.stage.deadline)-this.battleClock)/1000)),elapsed:Math.floor(this.battleClock/1000),pending:this.releases.length,boss:this.boss?.active?{id:this.map.commander,name:this.map.commander?COMMANDERS[this.map.commander].name:'Commander',title:this.map.commander?COMMANDERS[this.map.commander].title:'',phase:this.brains.get(this.boss)?.phase??'chase',enraged:this.map.commander==='validar'&&this.boss.getData('health')/this.boss.getData('maxHealth')<=.5,health:this.boss.getData('health'),maxHealth:this.boss.getData('maxHealth')}:undefined,controlled:this.hero,controlledPosition:this.player.visible?{x:this.player.x,y:this.player.y}:undefined,placed:Object.keys(this.deployment).length,total:this.party.length+this.map.soldierCount,allies:[...(this.player.visible?[{x:this.player.x,y:this.player.y}]:[]),...this.allies.getChildren().filter(a=>(a as Enemy).visible).map(a=>({x:(a as Enemy).x,y:(a as Enemy).y}))],enemies:this.enemies.getChildren().filter(a=>this.cameras.main.worldView.contains((a as Enemy).x,(a as Enemy).y)).map(a=>({x:(a as Enemy).x,y:(a as Enemy).y})),camera:{x:camera.worldView.x,y:camera.worldView.y,width:camera.worldView.width,height:camera.worldView.height}});
   }
   private updatePointerAim(pointer: Phaser.Input.Pointer): void {
     if (this.ended || pointer.x < 0 || pointer.y < 0 || pointer.x > WORLD.width || pointer.y > WORLD.height) return;
@@ -592,13 +621,26 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     if ((faction === 'enemy') === (this.faction(target) === 'enemy')) return;
     const distance = Phaser.Math.Distance.BetweenPoints(arrow.getData('origin') as Point, this.bodyCenter(arrow));
     if (!withinWeaponRange(distance, arrow.getData('minRange'), arrow.getData('maxRange'))) return;
-    const healthBefore=target===this.player?this.health:target.getData('health');
-    if (target === this.player) this.takeDamage(arrow.getData('damage'), arrow.getData('weapon'),arrow.getData('origin'));
-    else this.damageEnemy(target, arrow.getData('damage'), arrow.getData('weapon'),faction,arrow.getData('attackingHero'),arrow.getData('source'),WEAPONS[arrow.getData('weaponId')]);
-    const drain=WEAPONS[arrow.getData('weaponId')]?.drain??0;
-    if(drain&&arrow.getData('attackingHero')){const hero=arrow.getData('attackingHero') as Hero;const restored=Math.round(Math.max(0,healthBefore-Math.max(0,target===this.player?this.health:target.active?target.getData('health'):0))*drain);const state=this.partyStates.get(hero);if(state&&state.health>0){state.health=Math.min(state.progress.stats.hp,(hero===this.hero?this.health:state.health)+restored);if(hero===this.hero)this.health=state.health;else (this.allies.getChildren().find(a=>a.getData('companionHero')===hero) as Enemy|undefined)?.setData('health',state.health);}}
-    arrow.destroy(); this.game.events.emit('effect', 'damage', { volume: 0.3, position:{x:target.x,y:target.y} });
+    const launch=arrow.getData('attackLaunch') as WeaponAttack|undefined;
+    const shape=launch?.capabilities.shape;
+    const radius=shape?.kind==='impact'?shape.radius:arrow.getData('impactRadius') as number|undefined;
+    const candidates=[this.player,...this.allies.getChildren() as Enemy[],...this.enemies.getChildren() as Enemy[]].filter(unit=>unit.active&&unit.visible&&((faction==='enemy')!==(this.faction(unit)==='enemy'))&&!unit.getData('structure'));
+    const victims=radius?targetsInImpact(this.bodyCenter(target),candidates.map(unit=>({...this.bodyCenter(unit),unit})),radius,shape?.kind==='impact'?shape.maxTargets:3).map(entry=>entry.unit):[target];
+    if(radius){const ring=this.add.graphics().setDepth(23).lineStyle(2,faction==='enemy'?0xbd8aff:0xffc06c,.8).strokeCircle(target.x,target.y,radius);this.tweens.add({targets:ring,alpha:0,duration:350,onComplete:()=>ring.destroy()});}
+    let damaged=false;
+    for(const victim of victims){
+      if(launch&&!claimAttackTarget(launch,victim))continue;damaged=true;
+      const before=victim===this.player?this.health:victim.getData('health');
+      if(victim===this.player)this.takeDamage(arrow.getData('damage'),arrow.getData('weapon'),arrow.getData('origin'));
+      else this.damageEnemy(victim,arrow.getData('damage'),arrow.getData('weapon'),faction,arrow.getData('attackingHero'),launch?this.attackActor(launch.hero):arrow.getData('source'),launch?.weapon??WEAPONS[arrow.getData('weaponId')],launch);
+      const drain=launch?.weapon.drain??WEAPONS[arrow.getData('weaponId')]?.drain??0;
+      if(drain&&arrow.getData('attackingHero')){const hero=arrow.getData('attackingHero') as Hero,restored=realDamageDrain(before,victim===this.player?this.health:victim.active?victim.getData('health'):0,drain),state=this.partyStates.get(hero);if(state&&state.health>0){state.health=Math.min(state.progress.stats.hp,(hero===this.hero?this.health:state.health)+restored);if(hero===this.hero)this.health=state.health;else (this.allies.getChildren().find(a=>a.getData('companionHero')===hero) as Enemy|undefined)?.setData('health',state.health);}}
+    }
+    if(!damaged)return;
+    if(shape?.kind!=='line'||launch!.hitTargets.size>=6)arrow.destroy();
+    this.game.events.emit('effect','damage',{volume:.3,position:{x:target.x,y:target.y}});
   }
+
   private spawnAllies(): void {
     const units: { key:string;x:number;y:number;hero?:Hero }[] = this.tactical?Array.from({length:this.map.soldierCount},()=>({key:'soldier',x:0,y:0})):[{key:'soldier',x:168,y:280},{key:'soldier',x:120,y:230}];
     const positions = [[236,230],[190,310],[138,310]];
@@ -626,7 +668,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     const hero=unit.getData('companionHero') as Hero|undefined;if(!hero||hero===this.hero)return;
     const state=this.partyStates.get(hero)!;const prior=unit.getData('autoHealPrior') as number|undefined;
     const anchor=this.allyAnchor(unit),origin=this.bodyCenter(unit);
-    const patients=[this.player,...this.allies.getChildren() as Enemy[]].filter(u=>u!==unit&&u.active&&u.visible).filter(u=>{const hp=u===this.player?this.health:u.getData('health'),max=u===this.player?this.progression.stats.hp:u.getData('maxHealth');return hp>0&&hp/max<(prior===undefined?.5:.75)&&Phaser.Math.Distance.BetweenPoints(anchor,this.bodyCenter(u))<=this.retaliationRadius(unit)&&Phaser.Math.Distance.BetweenPoints(origin,this.bodyCenter(u))<=320&&(this.unitFlying(unit)||this.navigation.isWalkable(this.bodyCenter(u)));});
+    const patients=[this.player,...this.allies.getChildren() as Enemy[]].filter(u=>u.active&&u.visible).filter(u=>{const hp=u===this.player?this.health:u.getData('health'),max=u===this.player?this.progression.stats.hp:u.getData('maxHealth');return hp>0&&(u===unit?hp/max<=(prior===undefined?.3:.5):hp/max<(prior===undefined?.5:.75))&&Phaser.Math.Distance.BetweenPoints(anchor,this.bodyCenter(u))<=this.retaliationRadius(unit)&&Phaser.Math.Distance.BetweenPoints(origin,this.bodyCenter(u))<=320&&(this.unitFlying(unit)||this.navigation.isWalkable(this.bodyCenter(u)));});
     if(prior!==undefined){if(!patients.length){this.setCompanionSlot(unit,prior);unit.setData({autoHealPrior:undefined,autoHealReadyAt:this.time.now+4000});}return;}
     if(!patients.length||this.time.now<(unit.getData('autoHealReadyAt')??0)||equippedWeapon(state.loadout).type==='staff')return;
     const slot=state.loadout.items.findIndex(item=>WEAPONS[item.weaponId].type==='staff');if(slot<0)return;
@@ -650,12 +692,14 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
       if(waypoint){const aim=direction(waypoint.x-origin.x,waypoint.y-origin.y);const speed=wounded.length?enemy.getData('speed'):this.followSpeed(enemy,origin,target);enemy.setVelocity(aim.x*speed,aim.y*speed).setFlipX(false);enemy.anims.play(`${enemy.texture.key}-walk-${this.directionName(aim)}`,true);}else {enemy.setVelocity(0).setFlipX(false);enemy.anims.play(`${enemy.texture.key}-idle`,true);}
       return;
     }
-    const pending=enemy.getData('pendingShot') as {aim:Point;at:number}|undefined;
-    if(pending){enemy.setVelocity(0);if(time>=pending.at){this.fireArrow(enemy,pending.aim,'ally',this.enemyWeapon(enemy));enemy.setData('pendingShot',undefined);}return;}
+    const pending=enemy.getData('pendingShot') as {aim:Point;at:number;attack?:WeaponAttack}|undefined;
+    if(pending){enemy.setVelocity(0);if(time>=pending.at){this.fireArrow(enemy,pending.aim,'ally',pending.attack?.weapon.type??this.enemyWeapon(enemy),pending.attack);enemy.setData('pendingShot',undefined);}return;}
     const equipment=enemy.getData('loadout') as Loadout|undefined;
     const original = unitDefinition(enemy.texture.key,equipment?equippedWeapon(equipment):undefined);
     const companion=enemy.getData('companionHero') as Hero|undefined;
     const commanderId=enemy.getData('commanderId') as CommanderId|undefined;
+    const ability=equipment?weaponCapabilities(equippedWeapon(equipment)):undefined;
+    if(ability&&['projectile','impact','line'].includes(ability.shape.kind))original.attack={...original.attack,kind:'ranged',range:equippedWeapon(equipment!).range,minRange:equippedWeapon(equipment!).minRange};
     const definition=commanderId?commanderDefinition(commanderId,enemy.getData('strikes'),enemy.getData('health')/enemy.getData('maxHealth')):companion&&this.tactical?{...original,attack:{...original.attack,cooldown:attackCooldown(enemy.getData('progression'),companion,equipment?equippedWeapon(equipment):undefined)*2.4}}:enemy.getData('boss')?{...original,attack:{...original.attack,windup:950,recovery:850,cooldown:1900,range:115}}:original;
     if(commanderId){enemy.setData('weapon',definition.weapon);(enemy.getData('weaponIcon') as Phaser.GameObjects.Image).setTexture(`weapon-${definition.weapon}`);}
     let brain = this.brains.get(enemy);
@@ -706,6 +750,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     if (canAttack && time >= brain.nextAttackAt) {
       brain.phase = 'windup'; brain.aim = direction(target.x - origin.x, target.y - origin.y);
       brain.target = target; brain.strikeAt = time + attack.windup;
+      enemy.setData('attackLaunch',companion&&equipment?createWeaponAttack(companion,this.partyStates.get(companion)!.progress,equippedWeapon(equipment)):undefined);
       enemy.setVelocity(0).setFlipX(actionFlipX(enemy.texture.key,brain.aim.x)); enemy.anims.play(`${enemy.texture.key}-action`);
       this.drawTelegraph(enemy, brain, definition);
       return;
@@ -735,7 +780,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
       this.telegraphs.fillStyle(0xf4bd62, 0.08).fillCircle(enemy.x, enemy.y, range).strokeCircle(enemy.x, enemy.y, range);
     }
     const length = definition.attack.kind === 'melee' ? range : enemy.getData('commanderId')?range:100;
-    if(enemy.getData('commanderId')&&definition.attack.kind==='ranged'){this.telegraphs.lineStyle(3,enemy.getData('commanderId')==='validar'?0xd1a1ff:0xffed8b,.9);this.telegraphs.strokeCircle(brain.target.x,brain.target.y,22);}
+    if(enemy.getData('commanderId')&&definition.attack.kind==='ranged'){this.telegraphs.lineStyle(3,enemy.getData('commanderId')==='validar'?0xd1a1ff:0xffed8b,.9);this.telegraphs.strokeCircle(brain.target.x,brain.target.y,enemy.getData('commanderId')==='aversa'?COMMANDERS.aversa.impactRadius!:22);}
     this.telegraphs.lineBetween(enemy.x, enemy.y, enemy.x + brain.aim.x * length, enemy.y + brain.aim.y * length);
   }
   private resolveEnemyAttack(enemy: Enemy, brain: EnemyBrain, definition: EnemyDefinition): void {
@@ -744,7 +789,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     if (!targetUnit.active) return;
     const origin = this.bodyCenter(enemy), target = this.structureTarget(targetUnit,origin);
     if (definition.attack.kind === 'ranged') {
-      if (this.hasLineOfSight(origin, brain.target,definition.weapon==='bow')) this.fireArrow(enemy, brain.aim, this.faction(enemy), definition.weapon);
+      if (this.hasLineOfSight(origin, brain.target,definition.weapon==='bow')) this.fireArrow(enemy, brain.aim, this.faction(enemy), definition.weapon,enemy.getData('attackLaunch'));
       return;
     }
     this.game.events.emit('effect', weaponAttackSound(definition.weapon), { volume: 0.18, position:{x:enemy.x,y:enemy.y} });
@@ -753,7 +798,9 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     this.tweens.add({ targets: slash, alpha: 0, duration: 180, onComplete: () => slash.destroy() });
     if (inMeleeRange(origin, target, brain.aim, definition.attack.range) && (this.unitFlying(enemy) || this.hasLineOfSight(origin, target))) {
       if (targetUnit === this.player) this.takeDamage(enemy.getData('damage') as number, definition.weapon,this.bodyCenter(enemy));
-      else this.damageEnemy(targetUnit, enemy.getData('damage') as number, definition.weapon,this.faction(enemy),enemy.getData('companionHero'),enemy);
+      else {const launch=enemy.getData('attackLaunch') as WeaponAttack|undefined;this.damageEnemy(targetUnit,launch?.power??enemy.getData('damage') as number,definition.weapon,this.faction(enemy),launch?.hero??enemy.getData('companionHero'),enemy,launch?.weapon,launch);
+        const burst=launch?.capabilities.burst;if(launch&&burst)for(let i=1;i<burst.count;i++)this.time.delayedCall(burst.intervalMs*i,()=>{const actor=this.attackActor(launch.hero);if(!this.ended&&actor?.active&&targetUnit.active&&inMeleeRange(this.bodyCenter(actor),this.bodyCenter(targetUnit),brain.aim,launch.weapon.range)&&this.hasLineOfSight(this.bodyCenter(actor),this.bodyCenter(targetUnit)))this.damageEnemy(targetUnit,launch.power,launch.weapon.type,actor===this.player?'player':'ally',launch.hero,actor,launch.weapon,launch);});}
+
     }
   }
   private structureTarget(unit:Enemy,origin:Point):Point {
@@ -773,25 +820,34 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     const line = new Phaser.Geom.Line(from.x, from.y, to.x, to.y);
     return !(overWalls&&this.tactical?this.map.terrain:this.terrain).some(([x, y, width, height]) => Phaser.Geom.Intersects.LineToRectangle(line, new Phaser.Geom.Rectangle(x, y, width, height)));
   }
-  private fireArrow(source: Enemy, aim: Point, faction: 'player' | 'ally' | 'enemy' = 'enemy', weapon: WeaponType = 'bow'): void {
+  /** Sprites are reused by Q/E; hero identity must resolve the live actor instead of retaining an alias. */
+  private attackActor(hero:Hero):Enemy|undefined {
+    if((this.partyStates.get(hero)?.health??0)<=0)return;
+    const actor=hero===this.hero?this.player:this.allies.getChildren().find(unit=>unit.getData('companionHero')===hero) as Enemy|undefined;
+    return actor?.active&&actor.visible?actor:undefined;
+  }
+  private fireArrow(source: Enemy, aim: Point, faction: 'player' | 'ally' | 'enemy' = 'enemy', weapon: WeaponType = 'bow',launch?:WeaponAttack,burstChild=false): void {
     const origin = this.bodyCenter(source);
-    const magic = weapon === 'tome';
+    const magic = weapon === 'tome'||launch?.weapon.damageKind==='magical';
     const arrow = this.arrows.create(origin.x + aim.x * 28, origin.y + aim.y * 28, magic ? 'fire-bolt' : 'arrow', magic ? undefined : 'shaft') as Enemy;
     const speed = faction === 'player' ? 360 : 230;
     const sourceLoadout=faction==='player'?this.weaponLoadout():source.getData('loadout') as Loadout|undefined;
-    const sourceWeapon=sourceLoadout?equippedWeapon(sourceLoadout):undefined;
+    const sourceWeapon=launch?.weapon??(sourceLoadout?equippedWeapon(sourceLoadout):undefined);
+    const launchHero=faction==='player'?this.hero:source.getData('companionHero') as Hero|undefined;
+    launch??=launchHero&&sourceWeapon?createWeaponAttack(launchHero,this.partyStates.get(launchHero)!.progress,sourceWeapon):undefined;
+    const burst=launch?.capabilities.burst;if(burst&&!burstChild)for(let i=1;i<burst.count;i++)this.time.delayedCall(burst.intervalMs*i,()=>{const actor=launch?this.attackActor(launch.hero):source;if(!this.ended&&actor?.active)this.fireArrow(actor,aim,launch?(actor===this.player?'player':'ally'):faction,weapon,launch?{...launch,hitTargets:new Set()}:undefined,true);});
     const definition = unitDefinition(source.texture.key,sourceWeapon);
-    const range = faction === 'player' ? this.profile().range : source.getData('commanderId')?commanderDefinition(source.getData('commanderId'),source.getData('strikes'),source.getData('health')/source.getData('maxHealth')).attack.range:definition.attack.range;
+    const range = launch?.weapon.range ?? (faction === 'player' ? this.profile().range : source.getData('commanderId')?commanderDefinition(source.getData('commanderId'),source.getData('strikes'),source.getData('health')/source.getData('maxHealth')).attack.range:definition.attack.range);
     arrow.setDisplaySize(magic ? 24 : 40, magic ? 24 : 8).setRotation(Math.atan2(aim.y, aim.x) + (magic ? Math.PI / 2 : Math.PI)).setDepth(12);
     if (faction === 'player' && !magic) arrow.setTint(0x9de6ff);
-    arrow.setSize(10 / arrow.scaleX, 10 / arrow.scaleY).setVelocity(aim.x * speed, aim.y * speed);
-    arrow.setData({ source,faction, weapon, origin,weaponId:sourceWeapon?.id,siegeTarget:this.brains.get(source)?.targetUnit?.getData('structure')?this.brains.get(source)?.targetUnit:undefined,attackingHero:faction==='player'?this.hero:source.getData('companionHero'), minRange: faction === 'player' ? this.profile().minRange : (definition.attack.minRange ?? 0), maxRange: range,
-      damage: faction === 'player' ? attackPower(this.progression,this.hero,equippedWeapon(this.weaponLoadout())) : source.getData('companionHero')?attackPower(source.getData('progression'),source.getData('companionHero'),sourceWeapon):source.getData('damage'), expires: this.time.now + range / speed * 1000 });
+    arrow.setSize((launch?.capabilities.shape.kind==='line'?launch.capabilities.shape.width:10) / arrow.scaleX,(launch?.capabilities.shape.kind==='line'?launch.capabilities.shape.width:10) / arrow.scaleY).setVelocity(aim.x * speed, aim.y * speed);
+    arrow.setData({ source,sourceHero:launch?.hero,sourceKey:launch?.hero??source.texture.key,faction, weapon, origin,weaponId:sourceWeapon?.id,attackLaunch:launch,impactRadius:source.getData('commanderId')==='aversa'?COMMANDERS.aversa.impactRadius:undefined,siegeTarget:this.brains.get(source)?.targetUnit?.getData('structure')?this.brains.get(source)?.targetUnit:undefined,attackingHero:launch?.hero??(faction==='player'?this.hero:source.getData('companionHero')), minRange: launch?.weapon.minRange??(faction === 'player' ? this.profile().minRange : (definition.attack.minRange ?? 0)), maxRange: range,
+      damage: launch?.power ?? (faction === 'player' ? attackPower(this.progression,this.hero,equippedWeapon(this.weaponLoadout())) : source.getData('companionHero')?attackPower(source.getData('progression'),source.getData('companionHero'),sourceWeapon):source.getData('damage')), expires: this.time.now + range / speed * 1000 });
     if(sourceWeapon?.id==='wind')arrow.setTint(0xa9efc4);
     if(source.getData('commanderId')==='validar')arrow.setTint(0xc183ff);
     if(source.getData('commanderId')==='gangrel')arrow.setTint(0xffee87);
     if (magic) this.game.events.emit('spell-effect',{x:source.x,y:source.y});
-    else this.game.events.emit('effect', 'arrow-fire', { volume: 0.25, position:{x:source.x,y:source.y} });
+    else this.game.events.emit('effect',weaponAttackSound(weapon),{volume:.25,position:{x:source.x,y:source.y}});
   }
   private drawAimGuide(): void {
     this.aimGuide.clear();
@@ -889,12 +945,17 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
       if(source===this.player)this.feedback('reject',self?'You are at full HP':candidates.some(unit=>unit.unit!==source&&unit.health>0&&unit.health<unit.maxHealth)?'Wounded ally out of range':'All allies at full HP');
       return false;
     }
-    const result=restoreHealth(patient.health,patient.maxHealth,healAmount(state.progress.stats.mag)+(weapon.healingBonus??0));
-    if(!result.restored)return false;
-    const targetHero=patient.unit===this.player?this.hero:patient.unit.getData('companionHero') as Hero|undefined;
-    if(patient.unit===this.player)this.health=result.health;else patient.unit.setData('health',result.health);
-    if(targetHero)this.partyStates.get(targetHero)!.health=result.health;
-    const hpBefore=state.progress.stats.hp,experience=Math.max(1,Math.floor(healingExperience(state.progress.level,result.restored)*(this.missionIndex===undefined?1:.15))),gains=gainExperience(state.progress,hero,experience);
+    const ability=weaponCapabilities(weapon),patients=ability.healing?.kind==='area'?candidates.filter(candidate=>candidate.health>0&&candidate.health<candidate.maxHealth&&Phaser.Math.Distance.BetweenPoints(this.bodyCenter(source),candidate)<=ability.healing!.radius).sort((a,b)=>a.health/a.maxHealth-b.health/b.maxHealth).slice(0,ability.healing.maxTargets):[patient];
+    let restored=0;
+    const healed:{unit:Enemy;restored:number}[]=[];
+    for(const target of patients){const result=restoreHealth(target.health,target.maxHealth,healAmount(state.progress.stats.mag)+(weapon.healingBonus??0));if(!result.restored)continue;
+      restored+=result.restored;healed.push({unit:target.unit,restored:result.restored});
+      const targetHero=target.unit===this.player?this.hero:target.unit.getData('companionHero') as Hero|undefined;
+      if(target.unit===this.player)this.health=result.health;else target.unit.setData('health',result.health);
+      if(targetHero)this.partyStates.get(targetHero)!.health=result.health;
+    }
+    if(!restored)return false;
+    const hpBefore=state.progress.stats.hp,experience=Math.max(1,Math.floor(healingExperience(state.progress.level,restored)*(this.missionIndex===undefined?1:.15))),gains=gainExperience(state.progress,hero,experience);
     state.health=(source===this.player?this.health:source.getData('health'))+state.progress.stats.hp-hpBefore;
     state.lastAttack=this.time.now;
     if(source===this.player){this.health=state.health;this.lastAttack=this.time.now;this.actionUntil=this.time.now+350;this.battleHud.gain(experience,gains);}else source.setData({health:state.health,maxHealth:state.progress.stats.hp,defense:state.progress.stats.def,resistance:state.progress.stats.res,nextAttackAt:this.time.now+attackCooldown(state.progress,hero,weapon)*(this.tactical?2.4:1)});
@@ -903,7 +964,7 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     source.setFlipX(actionFlipX(hero,patient.unit.x-source.x));source.anims.play(`${hero}-action`);source.setData('healUntil',this.time.now+350);
     if(this.cache.audio.exists('heal'))this.game.events.emit('effect','heal',{volume:.3,position:{x:source.x,y:source.y}});
     const ring=this.add.graphics().setDepth(24).lineStyle(3,0x8deaa8,.9).strokeCircle(patient.unit.x,patient.unit.y,30);
-    this.showHealthGain(patient.unit,result.restored);
+    for(const target of healed)this.showHealthGain(target.unit,target.restored);
     this.tweens.add({targets:ring,alpha:0,duration:650,onComplete:()=>ring.destroy()});
     this.publishHud();return true;
   }
@@ -919,8 +980,9 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     this.player.setFlipX(actionFlipX(this.hero,this.facing.x));
     if(profile.weapon==='staff'){this.castHeal(this.player);return;}
     this.game.events.emit('hero-attack', { hero: this.hero, spell: profile.weapon === 'tome' ? profile.name : undefined });
-    if (profile.weapon === 'bow' || profile.weapon === 'tome') {
-      this.playerShot = { aim: { ...this.facing }, at: this.time.now + (profile.weapon === 'tome' ? 250 : 180) };
+    const launch=createWeaponAttack(this.hero,this.progression,equippedWeapon(this.weaponLoadout())),launchAim={...this.actionAim};
+    if (['projectile','impact','line'].includes(launch.capabilities.shape.kind)) {
+      this.playerShot = { aim: { ...this.facing }, at: this.time.now + (profile.weapon === 'tome' ? 250 : 180),attack:launch };
       this.player.anims.play(`${this.hero}-action`);
       return;
     }
@@ -932,11 +994,17 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     for (const object of [...this.enemies.getChildren()]) {
       const enemy = object as Enemy;
       if (!inMeleeRange(this.bodyCenter(this.player), this.bodyCenter(enemy), this.facing, profile.range) || !this.hasLineOfSight(this.bodyCenter(this.player), this.bodyCenter(enemy))) continue;
-      hit = true; this.damageEnemy(enemy, attackPower(this.progression,this.hero,equippedWeapon(this.weaponLoadout())), profile.weapon);
+      hit = true; this.damageEnemy(enemy,launch.power,profile.weapon,'player',launch.hero,this.player,launch.weapon,launch);
     }
     if (hit) this.game.events.emit('effect', 'damage', { volume: 0.3 });
+    const burst=launch.capabilities.burst;
+    if(burst)for(let i=1;i<burst.count;i++)this.time.delayedCall(burst.intervalMs*i,()=>{
+      if(this.ended)return;const actor=this.attackActor(launch.hero);
+      if(!actor?.active)return;
+      for(const target of this.enemies.getChildren() as Enemy[])if(inMeleeRange(this.bodyCenter(actor),this.bodyCenter(target),launchAim,launch.weapon.range)&&this.hasLineOfSight(this.bodyCenter(actor),this.bodyCenter(target)))this.damageEnemy(target,launch.power,launch.weapon.type,actor===this.player?'player':'ally',launch.hero,actor,launch.weapon,launch);
+    });
   }
-  private damageEnemy(enemy: Enemy, base: number, weapon: WeaponType, attacker:'player'|'ally'|'enemy'='player',attackingHero?:Hero,source?:Enemy,attackWeapon?:CombatWeapon): void {
+  private damageEnemy(enemy: Enemy, base: number, weapon: WeaponType, attacker:'player'|'ally'|'enemy'='player',attackingHero?:Hero,source?:Enemy,attackWeapon?:CombatWeapon,launch?:WeaponAttack): void {
     if (!enemy.active) return;
     if(enemy.getData('structure')){if(attacker!=='enemy')return;enemy.setData('health',enemy.getData('health')-scaleDamage(base,this.registry.get('damage-scale')??.5));if(enemy.getData('health')<=0)this.breachWall(enemy);return;}
     const defendedHero=enemy.getData('companionHero') as Hero|undefined;
@@ -944,19 +1012,19 @@ return this.insideDeployment(point) && (isFlying(this.selectedDeployment as Hero
     const targetProgress=enemy.getData('progression') as Progress|undefined;
     if(this.tactical && targetProgress){const avoid=Math.min(.25,((targetProgress.stats.speed-targetProgress.base.speed)*3+targetProgress.stats.luck-targetProgress.base.luck)/200);if(Math.random()<avoid)return;}
     const attackingProgress=attackingHero?this.partyStates.get(attackingHero)?.progress:attacker==='player'?this.progression:undefined;
-    const attackingLoadout=attackingHero?this.partyStates.get(attackingHero)?.loadout:attacker==='player'?this.weaponLoadout():undefined;const criticalBonus=attackingLoadout?equippedWeapon(attackingLoadout).criticalBonus??0:0;
-    const criticalChance=attackingProgress?Math.min(.25,((attackingProgress.stats.skill-attackingProgress.base.skill)/2+(attackingProgress.stats.luck-attackingProgress.base.luck)/4+criticalBonus)/100):0;
-    const critical=Math.random()<criticalChance;
+    const attackingLoadout=attackingHero?this.partyStates.get(attackingHero)?.loadout:attacker==='player'?this.weaponLoadout():undefined;
+    const critical=launch?.critical.critical??rollCritical(attackingProgress,attackingLoadout?equippedWeapon(attackingLoadout).criticalBonus??0:0);
     const resolved=resolveDamage({power:base,weapon:attackWeapon??(attackingLoadout?equippedWeapon(attackingLoadout):{type:weapon}),defenderWeapon:this.enemyWeapon(enemy),defense:enemy.getData('defense')??0,resistance:enemy.getData('resistance')??0,targetTags:this.combatTags(enemy),critical,scale:this.tactical?(this.registry.get('damage-scale')??.5):1});
     const damage=resolved.damage;
+    if(launch?.critical.claimFeedback())this.game.events.emit('hero-critical',{hero:launch.hero,position:{x:source?.x??enemy.x,y:source?.y??enemy.y},controlled:launch.hero===this.hero});
     const health = (enemy.getData('health') as number) - damage;
     enemy.setData('health', health);if(enemy===this.camp&&health<=0){this.finishTactical(false,'Hero camp destroyed.');return;}
     const companion=enemy.getData('companionHero') as Hero|undefined;
     if(this.faction(enemy)==='ally'&&attacker==='enemy'&&source?.active&&health>0&&Phaser.Math.Distance.BetweenPoints(this.allyAnchor(enemy),this.bodyCenter(source))<=this.retaliationRadius(enemy)){enemy.setData('retaliation',{unit:source,until:this.time.now+6000});const brain=this.brains.get(enemy);if(brain?.phase==='chase')brain.targetUnit=source;}
     if(this.tactical&&companion&&attacker==='enemy'&&health>0&&this.time.now-(this.allyWarningAt.get(companion)??-Infinity)>6000){this.allyWarningAt.set(companion,this.time.now);this.game.events.emit('companion-warning',{hero:companion,health:Math.max(0,health)});}
     if(companion)this.partyStates.get(companion)!.health=Math.max(0,health);
-    const text = this.add.text(enemy.x, enemy.y - 42, `${critical?'CRIT ':''}${damage}${resolved.effective?' ✦':''}${weaponMatchup(weapon, this.enemyWeapon(enemy)) === 1 ? ' ↑' : weaponMatchup(weapon, this.enemyWeapon(enemy)) === -1 ? ' ↓' : ''}`,
-      { fontFamily: 'FE', fontSize: '13px', color: '#f5edda', stroke: '#15201b', strokeThickness: 3 }).setDepth(25);
+    const text = this.add.text(enemy.x, enemy.y - 42, `${critical?'✦ ':''}${damage}${resolved.effective?' ✦':''}${weaponMatchup(weapon, this.enemyWeapon(enemy)) === 1 ? ' ↑' : weaponMatchup(weapon, this.enemyWeapon(enemy)) === -1 ? ' ↓' : ''}`,
+      { fontFamily: 'FE', fontSize: '13px', color: critical?'#ffe078':'#f5edda', stroke: '#15201b', strokeThickness: 3 }).setDepth(25);
     this.tweens.add({ targets: text, y: text.y - (reducedMotion()?0:18), alpha: 0, duration: 650, onComplete: () => text.destroy() });
     if (health <= 0) {
       const { x, y } = enemy; const typeKey=enemy.texture.key;const defeatedLevel=enemy.getData('level')??1; const companion=enemy.getData('companionHero') as Hero|undefined;if(companion){this.partyStates.get(companion)!.health=0;this.heroDeath(companion);} const hostile = this.faction(enemy) === 'enemy'; enemy.destroy(); if (hostile) { this.kills++; this.awardExperience(typeKey,defeatedLevel); }

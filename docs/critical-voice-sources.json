@@ -1,0 +1,189 @@
+[
+  {
+    "key": "voice-chrom-critical",
+    "file": "audio/chrom-critical.wav",
+    "hero": "chrom",
+    "member": "SE_VOICE_CHROM_CUTIN1_1.wav",
+    "sha256": "4beed351fae47ecdf8be4ef30e489cbab44ca55678d3070934e78d64edfa769e",
+    "durationSeconds": 0.97,
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise",
+    "classification": "Source CUTIN critical battle line; no transcript or audible audition claimed"
+  },
+  {
+    "key": "voice-lucina-critical",
+    "file": "audio/lucina-critical.wav",
+    "hero": "lucina",
+    "member": "SE_VOICE_MARTH_CUTIN1_1.wav",
+    "sha256": "fe18b5781b69dd456276b166f3e32c998bb5958eed31c684a705281526b6d484",
+    "durationSeconds": 1.095,
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise",
+    "classification": "Source CUTIN critical battle line; no transcript or audible audition claimed"
+  },
+  {
+    "key": "voice-frederick-critical",
+    "file": "audio/frederick-critical.wav",
+    "hero": "frederick",
+    "member": "SE_VOICE_FREDERIK_CUTIN1_1.wav",
+    "sha256": "593c1d0d3690b888e01fc5e8770be8b6e6986e883e2d7bcb76c61080da7d5ad4",
+    "durationSeconds": 0.532,
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise",
+    "classification": "Source CUTIN critical battle line; no transcript or audible audition claimed"
+  },
+  {
+    "key": "voice-virion-critical",
+    "file": "audio/virion-critical.wav",
+    "hero": "virion",
+    "member": "SE_VOICE_VIAUR_CUTIN1_1.wav",
+    "sha256": "ccadf1c7a91345a79eef0bd9a84946a3406d588fb8efa3757d6b0329d8667534",
+    "durationSeconds": 2.065,
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise",
+    "classification": "Source CUTIN critical battle line; no transcript or audible audition claimed"
+  },
+  {
+    "key": "voice-sumia-critical",
+    "file": "audio/sumia-critical.wav",
+    "hero": "sumia",
+    "member": "SE_VOICE_SMIA_CUTIN1_1.wav",
+    "sha256": "195915cceb9774cfe835345ada5b7fd65840a3d1503631225735ddce72c6849d",
+    "durationSeconds": 1.001,
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise",
+    "classification": "Source CUTIN critical battle line; no transcript or audible audition claimed"
+  },
+  {
+    "key": "voice-morgan-critical",
+    "file": "audio/morgan-critical.wav",
+    "hero": "morgan",
+    "member": "SE_VOICE_MARC_M_CUTIN1_1.wav",
+    "sha256": "95074b74410751379ebd204a2583e8446c777689540be882fcd6e1014a3ed694",
+    "durationSeconds": 1.345,
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise",
+    "classification": "Source CUTIN critical battle line; no transcript or audible audition claimed"
+  },
+  {
+    "key": "voice-cordelia-critical",
+    "file": "audio/cordelia-critical.wav",
+    "hero": "cordelia",
+    "member": "SE_VOICE_TIAMO_CUTIN1_1.wav",
+    "sha256": "1da3b48876d7b1dab54bb5c321c11e085b29f9cdd48589858a79aa0928ff0eef",
+    "durationSeconds": 1.314,
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise",
+    "classification": "Source CUTIN critical battle line; no transcript or audible audition claimed"
+  },
+  {
+    "key": "voice-lissa-critical",
+    "file": "audio/lissa-critical.wav",
+    "hero": "lissa",
+    "member": "SE_VOICE_LIZ_CUTIN1_1.wav",
+    "sha256": "90b8809a6e55b416f00c7340dbe0f24dd35b2615ef170dc1f9642d0687fea8f1",
+    "durationSeconds": 1.408,
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise",
+    "classification": "Source CUTIN critical battle line; no transcript or audible audition claimed"
+  },
+  {
+    "key": "voice-lonqu-critical",
+    "file": "audio/lonqu-critical.wav",
+    "hero": "lonqu",
+    "member": "SE_VOICE_RONKUU_CUTIN1_1.wav",
+    "sha256": "2eafc2317620323256673e63b0b3dbff0fd3aeb2b3b7214811d56c0152912f96",
+    "durationSeconds": 1.158,
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise",
+    "classification": "Source CUTIN critical battle line; no transcript or audible audition claimed"
+  },
+  {
+    "key": "voice-miriel-critical",
+    "file": "audio/miriel-critical.wav",
+    "hero": "miriel",
+    "member": "SE_VOICE_MYRIEL_CUTIN1_1.wav",
+    "sha256": "985dc80152aa4465647ef5d16e1b93dcc834c984703fec9fc5867939be2d5d4f",
+    "durationSeconds": 1.345,
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise",
+    "classification": "Source CUTIN critical battle line; no transcript or audible audition claimed"
+  },
+  {
+    "key": "voice-ricken-critical",
+    "file": "audio/ricken-critical.wav",
+    "hero": "ricken",
+    "member": "SE_VOICE_LICHT_CUTIN1_1.wav",
+    "sha256": "3d4dc0588e90fee897b8e78495941d90733bf36555e8a100660feac0ccc2f6fa",
+    "durationSeconds": 1.126,
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise",
+    "classification": "Source CUTIN critical battle line; no transcript or audible audition claimed"
+  },
+  {
+    "key": "voice-stahl-critical",
+    "file": "audio/stahl-critical.wav",
+    "hero": "stahl",
+    "member": "SE_VOICE_SORT_CUTIN1_1.wav",
+    "sha256": "6e08aae396e6b8b3c6f28c272624cfe6a594a7c7f3752f535e8626cc230095a9",
+    "durationSeconds": 1.126,
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise",
+    "classification": "Source CUTIN critical battle line; no transcript or audible audition claimed"
+  },
+  {
+    "key": "voice-sully-critical",
+    "file": "audio/sully-critical.wav",
+    "hero": "sully",
+    "member": "SE_VOICE_SOIREE_CUTIN1_1.wav",
+    "sha256": "5c3d92017631e62866a80f5814e633ef1592de53acd00c13fb1f43a87c895be4",
+    "durationSeconds": 1.314,
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise",
+    "classification": "Source CUTIN critical battle line; no transcript or audible audition claimed"
+  },
+  {
+    "key": "voice-tharja-critical",
+    "file": "audio/tharja-critical.wav",
+    "hero": "tharja",
+    "member": "SE_VOICE_SALLYA_CUTIN1_1.wav",
+    "sha256": "65c16d7dab884862ca32e63842b871a5f90caebcaff1edb36519edd89a03e2b5",
+    "durationSeconds": 1.783,
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise",
+    "classification": "Source CUTIN critical battle line; no transcript or audible audition claimed"
+  },
+  {
+    "key": "voice-vaike-critical",
+    "file": "audio/vaike-critical.wav",
+    "hero": "vaike",
+    "member": "SE_VOICE_WYCK_CUTIN1_1.wav",
+    "sha256": "bb0b8206aa9b04d12578e24fb1d3729531817ff4300fdbd1ea2c8b9bfd3c547b",
+    "durationSeconds": 1.033,
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/399888/",
+    "uploader": "robotortoise",
+    "classification": "Source CUTIN critical battle line; no transcript or audible audition claimed"
+  },
+  {
+    "key": "voice-robin-critical",
+    "file": "audio/robin-critical.wav",
+    "hero": "robin",
+    "member": "SE_VOICE_PLAYER_M1_CUTIN1_1.wav",
+    "sha256": "5b27fcf6a0e99885e495250f52b7073e659ad3ef6e8965d166dc9d690d0d7f97",
+    "durationSeconds": 1.502,
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
+    "uploader": "robotortoise",
+    "classification": "Source CUTIN critical battle line; no transcript or audible audition claimed"
+  },
+  {
+    "key": "voice-robin-female-critical",
+    "file": "audio/robin-female-critical.wav",
+    "hero": "robin-female",
+    "member": "SE_VOICE_PLAYER_F1_CUTIN1_1.wav",
+    "sha256": "e32f8e57c7f75bcc1a964109b86b22b559e572c14dc404b325af1e0c7a5aedc3",
+    "durationSeconds": 1.408,
+    "source": "https://sounds.spriters-resource.com/3ds/fireemblemawakening/asset/406669/",
+    "uploader": "robotortoise",
+    "classification": "Source CUTIN critical battle line; no transcript or audible audition claimed"
+  }
+]

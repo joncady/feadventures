@@ -1,0 +1,3710 @@
+{
+  "party": [
+    "chrom",
+    "frederick",
+    "lissa",
+    "ricken"
+  ],
+  "settings": "default damage 50%; normal real-time native keyboard/mouse",
+  "started": "2026-10-14T05:37:01.579Z",
+  "events": [
+    {
+      "kind": "start",
+      "wall": 4825
+    },
+    {
+      "kind": "mission victory",
+      "wall": 5184,
+      "result": {
+        "result": {
+          "missionIndex": 4,
+          "missionId": "valm-landing",
+          "reason": "Exit reached. The party survived the attacks.",
+          "kills": 48,
+          "elapsed": 186,
+          "gold": 493,
+          "reward": 120,
+          "progressBefore": [
+            {
+              "hero": "chrom",
+              "level": 5,
+              "xp": 32
+            },
+            {
+              "hero": "frederick",
+              "level": 5,
+              "xp": 32
+            },
+            {
+              "hero": "lissa",
+              "level": 7,
+              "xp": 24
+            },
+            {
+              "hero": "ricken",
+              "level": 5,
+              "xp": 32
+            }
+          ]
+        },
+        "campaignId": "awakening-ten",
+        "members": [
+          {
+            "hero": "chrom",
+            "health": 102,
+            "progress": {
+              "level": 7,
+              "xp": 0,
+              "stats": {
+                "hp": 106,
+                "str": 23,
+                "mag": 15,
+                "skill": 16,
+                "speed": 12,
+                "luck": 13,
+                "def": 2,
+                "res": 2
+              },
+              "base": {
+                "hp": 100,
+                "str": 20,
+                "mag": 15,
+                "skill": 10,
+                "speed": 10,
+                "luck": 10,
+                "def": 0,
+                "res": 0
+              }
+            },
+            "loadout": {
+              "items": [
+                {
+                  "weaponId": "falchion",
+                  "uses": null,
+                  "forge": 2
+                },
+                {
+                  "weaponId": "iron-sword",
+                  "uses": null
+                }
+              ],
+              "equippedSlot": 0
+            }
+          },
+          {
+            "hero": "frederick",
+            "health": 107,
+            "progress": {
+              "level": 7,
+              "xp": 0,
+              "stats": {
+                "hp": 107,
+                "str": 24,
+                "mag": 16,
+                "skill": 12,
+                "speed": 11,
+                "luck": 11,
+                "def": 6,
+                "res": 1
+              },
+              "base": {
+                "hp": 100,
+                "str": 20,
+                "mag": 15,
+                "skill": 10,
+                "speed": 10,
+                "luck": 10,
+                "def": 0,
+                "res": 0
+              }
+            },
+            "loadout": {
+              "items": [
+                {
+                  "weaponId": "iron-lance",
+                  "uses": null,
+                  "forge": 1
+                },
+                {
+                  "weaponId": "iron-sword",
+                  "uses": null
+                },
+                {
+                  "weaponId": "iron-axe",
+                  "uses": null
+                }
+              ],
+              "equippedSlot": 0
+            }
+          },
+          {
+            "hero": "lissa",
+            "health": 32,
+            "progress": {
+              "level": 8,
+              "xp": 98,
+              "stats": {
+                "hp": 104,
+                "str": 25,
+                "mag": 19,
+                "skill": 13,
+                "speed": 12,
+                "luck": 14,
+                "def": 2,
+                "res": 3
+              },
+              "base": {
+                "hp": 100,
+                "str": 20,
+                "mag": 15,
+                "skill": 10,
+                "speed": 10,
+                "luck": 10,
+                "def": 0,
+                "res": 0
+              }
+            },
+            "loadout": {
+              "items": [
+                {
+                  "weaponId": "heal",
+                  "uses": null,
+                  "forge": 3
+                },
+                {
+                  "weaponId": "iron-axe",
+                  "uses": null
+                }
+              ],
+              "equippedSlot": 0
+            }
+          },
+          {
+            "hero": "ricken",
+            "health": 105,
+            "progress": {
+              "level": 7,
+              "xp": 0,
+              "stats": {
+                "hp": 105,
+                "str": 21,
+                "mag": 17,
+                "skill": 12,
+                "speed": 13,
+                "luck": 14,
+                "def": 0,
+                "res": 2
+              },
+              "base": {
+                "hp": 100,
+                "str": 20,
+                "mag": 15,
+                "skill": 10,
+                "speed": 10,
+                "luck": 10,
+                "def": 0,
+                "res": 0
+              }
+            },
+            "loadout": {
+              "items": [
+                {
+                  "weaponId": "fire",
+                  "uses": null,
+                  "forge": 3
+                },
+                {
+                  "weaponId": "thunder",
+                  "uses": null
+                },
+                {
+                  "weaponId": "elfire",
+                  "uses": null
+                }
+              ],
+              "equippedSlot": 2
+            }
+          }
+        ],
+        "gold": 631,
+        "heldKeys": []
+      }
+    },
+    {
+      "kind": "shop",
+      "mission": 5,
+      "wall": 8024,
+      "gold": 631,
+      "members": [
+        {
+          "hero": "chrom",
+          "health": 106,
+          "progress": {
+            "level": 7,
+            "xp": 0,
+            "stats": {
+              "hp": 106,
+              "str": 23,
+              "mag": 15,
+              "skill": 16,
+              "speed": 12,
+              "luck": 13,
+              "def": 2,
+              "res": 2
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "falchion",
+                "uses": null,
+                "forge": 2
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "frederick",
+          "health": 107,
+          "progress": {
+            "level": 7,
+            "xp": 0,
+            "stats": {
+              "hp": 107,
+              "str": 24,
+              "mag": 16,
+              "skill": 12,
+              "speed": 11,
+              "luck": 11,
+              "def": 6,
+              "res": 1
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "iron-lance",
+                "uses": null,
+                "forge": 1
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "lissa",
+          "health": 104,
+          "progress": {
+            "level": 8,
+            "xp": 98,
+            "stats": {
+              "hp": 104,
+              "str": 25,
+              "mag": 19,
+              "skill": 13,
+              "speed": 12,
+              "luck": 14,
+              "def": 2,
+              "res": 3
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "heal",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "ricken",
+          "health": 105,
+          "progress": {
+            "level": 7,
+            "xp": 0,
+            "stats": {
+              "hp": 105,
+              "str": 21,
+              "mag": 17,
+              "skill": 12,
+              "speed": 13,
+              "luck": 14,
+              "def": 0,
+              "res": 2
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fire",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "thunder",
+                "uses": null
+              },
+              {
+                "weaponId": "elfire",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 2
+          }
+        }
+      ]
+    },
+    {
+      "kind": "battle start",
+      "mission": 5,
+      "wall": 14166,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 106,
+          "max": 106,
+          "level": 7,
+          "xp": 0
+        },
+        {
+          "hero": "frederick",
+          "health": 107,
+          "max": 107,
+          "level": 7,
+          "xp": 0
+        },
+        {
+          "hero": "lissa",
+          "health": 104,
+          "max": 104,
+          "level": 8,
+          "xp": 98
+        },
+        {
+          "hero": "ricken",
+          "health": 105,
+          "max": 105,
+          "level": 7,
+          "xp": 0
+        }
+      ]
+    },
+    {
+      "kind": "battle sample",
+      "wall": 14315,
+      "mission": 5,
+      "clock": 687,
+      "wave": 0,
+      "phase": "opening",
+      "kills": 0,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 106,
+          "max": 106,
+          "level": 7,
+          "xp": 0
+        },
+        {
+          "hero": "frederick",
+          "health": 107,
+          "max": 107,
+          "level": 7,
+          "xp": 0
+        },
+        {
+          "hero": "lissa",
+          "health": 104,
+          "max": 104,
+          "level": 8,
+          "xp": 98
+        },
+        {
+          "hero": "ricken",
+          "health": 105,
+          "max": 105,
+          "level": 7,
+          "xp": 0
+        }
+      ],
+      "camp": 800,
+      "hero": "chrom",
+      "p": {
+        "x": 480,
+        "y": 292
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 25068,
+      "mission": 5,
+      "clock": 10518,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 0,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 106,
+          "max": 106,
+          "level": 7,
+          "xp": 0
+        },
+        {
+          "hero": "frederick",
+          "health": 107,
+          "max": 107,
+          "level": 7,
+          "xp": 0
+        },
+        {
+          "hero": "lissa",
+          "health": 104,
+          "max": 104,
+          "level": 8,
+          "xp": 98
+        },
+        {
+          "hero": "ricken",
+          "health": 105,
+          "max": 105,
+          "level": 7,
+          "xp": 0
+        }
+      ],
+      "camp": 800,
+      "hero": "chrom",
+      "p": {
+        "x": 825.9756927591758,
+        "y": 612.5096493295431
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 35920,
+      "mission": 5,
+      "clock": 20422,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 0,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 106,
+          "max": 106,
+          "level": 7,
+          "xp": 0
+        },
+        {
+          "hero": "frederick",
+          "health": 107,
+          "max": 107,
+          "level": 7,
+          "xp": 0
+        },
+        {
+          "hero": "lissa",
+          "health": 104,
+          "max": 104,
+          "level": 8,
+          "xp": 98
+        },
+        {
+          "hero": "ricken",
+          "health": 105,
+          "max": 105,
+          "level": 7,
+          "xp": 0
+        }
+      ],
+      "camp": 800,
+      "hero": "chrom",
+      "p": {
+        "x": 684.7122982862114,
+        "y": 215.95855314279868
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 46533,
+      "mission": 5,
+      "clock": 30409,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 0,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 97,
+          "max": 106,
+          "level": 7,
+          "xp": 0
+        },
+        {
+          "hero": "frederick",
+          "health": 105,
+          "max": 107,
+          "level": 7,
+          "xp": 0
+        },
+        {
+          "hero": "lissa",
+          "health": 104,
+          "max": 104,
+          "level": 8,
+          "xp": 99
+        },
+        {
+          "hero": "ricken",
+          "health": 105,
+          "max": 105,
+          "level": 7,
+          "xp": 0
+        }
+      ],
+      "camp": 800,
+      "hero": "chrom",
+      "p": {
+        "x": 1078.4880779046282,
+        "y": 658.880934855566
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 57225,
+      "mission": 5,
+      "clock": 41093,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 0,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 66,
+          "max": 106,
+          "level": 7,
+          "xp": 0
+        },
+        {
+          "hero": "frederick",
+          "health": 99,
+          "max": 107,
+          "level": 7,
+          "xp": 0
+        },
+        {
+          "hero": "lissa",
+          "health": 105,
+          "max": 105,
+          "level": 9,
+          "xp": 2
+        },
+        {
+          "hero": "ricken",
+          "health": 105,
+          "max": 105,
+          "level": 7,
+          "xp": 0
+        }
+      ],
+      "camp": 800,
+      "hero": "chrom",
+      "p": {
+        "x": 991.7657846604949,
+        "y": 531.7484585288104
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 67409,
+      "mission": 5,
+      "clock": 51146,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 0,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 54,
+          "max": 106,
+          "level": 7,
+          "xp": 0
+        },
+        {
+          "hero": "frederick",
+          "health": 103,
+          "max": 107,
+          "level": 7,
+          "xp": 0
+        },
+        {
+          "hero": "lissa",
+          "health": 98,
+          "max": 105,
+          "level": 9,
+          "xp": 4
+        },
+        {
+          "hero": "ricken",
+          "health": 100,
+          "max": 105,
+          "level": 7,
+          "xp": 0
+        }
+      ],
+      "camp": 793,
+      "hero": "lissa",
+      "p": {
+        "x": 696.915975610466,
+        "y": 391.5066422771307
+      },
+      "enemies": 8
+    },
+    {
+      "kind": "battle sample",
+      "wall": 78520,
+      "mission": 5,
+      "clock": 61188,
+      "wave": 1,
+      "phase": "rest",
+      "kills": 7,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 61,
+          "max": 106,
+          "level": 7,
+          "xp": 24
+        },
+        {
+          "hero": "frederick",
+          "health": 107,
+          "max": 107,
+          "level": 7,
+          "xp": 24
+        },
+        {
+          "hero": "lissa",
+          "health": 67,
+          "max": 105,
+          "level": 9,
+          "xp": 23
+        },
+        {
+          "hero": "ricken",
+          "health": 100,
+          "max": 105,
+          "level": 7,
+          "xp": 24
+        }
+      ],
+      "camp": 763,
+      "hero": "lissa",
+      "p": {
+        "x": 339.2838131350438,
+        "y": 398
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 88730,
+      "mission": 5,
+      "clock": 71705,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 9,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 61,
+          "max": 106,
+          "level": 7,
+          "xp": 30
+        },
+        {
+          "hero": "frederick",
+          "health": 107,
+          "max": 107,
+          "level": 7,
+          "xp": 30
+        },
+        {
+          "hero": "lissa",
+          "health": 70,
+          "max": 105,
+          "level": 9,
+          "xp": 29
+        },
+        {
+          "hero": "ricken",
+          "health": 100,
+          "max": 105,
+          "level": 7,
+          "xp": 30
+        }
+      ],
+      "camp": 763,
+      "hero": "lissa",
+      "p": {
+        "x": 373.15212307147976,
+        "y": 413.5789766031021
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 99093,
+      "mission": 5,
+      "clock": 82033,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 11,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 39,
+          "max": 106,
+          "level": 7,
+          "xp": 36
+        },
+        {
+          "hero": "frederick",
+          "health": 97,
+          "max": 107,
+          "level": 7,
+          "xp": 36
+        },
+        {
+          "hero": "lissa",
+          "health": 70,
+          "max": 105,
+          "level": 9,
+          "xp": 36
+        },
+        {
+          "hero": "ricken",
+          "health": 100,
+          "max": 105,
+          "level": 7,
+          "xp": 36
+        }
+      ],
+      "camp": 763,
+      "hero": "chrom",
+      "p": {
+        "x": 328,
+        "y": 329.2614945785887
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 109435,
+      "mission": 5,
+      "clock": 92418,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 12,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 74,
+          "max": 106,
+          "level": 7,
+          "xp": 39
+        },
+        {
+          "hero": "frederick",
+          "health": 93,
+          "max": 107,
+          "level": 7,
+          "xp": 39
+        },
+        {
+          "hero": "lissa",
+          "health": 52,
+          "max": 105,
+          "level": 9,
+          "xp": 40
+        },
+        {
+          "hero": "ricken",
+          "health": 77,
+          "max": 105,
+          "level": 7,
+          "xp": 39
+        }
+      ],
+      "camp": 763,
+      "hero": "chrom",
+      "p": {
+        "x": 429.0268224759269,
+        "y": 296.81348914259354
+      },
+      "enemies": 5
+    },
+    {
+      "kind": "battle sample",
+      "wall": 119483,
+      "mission": 5,
+      "clock": 102319,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 13,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 77,
+          "max": 106,
+          "level": 7,
+          "xp": 43
+        },
+        {
+          "hero": "frederick",
+          "health": 93,
+          "max": 107,
+          "level": 7,
+          "xp": 43
+        },
+        {
+          "hero": "lissa",
+          "health": 20,
+          "max": 105,
+          "level": 9,
+          "xp": 46
+        },
+        {
+          "hero": "ricken",
+          "health": 102,
+          "max": 105,
+          "level": 7,
+          "xp": 43
+        }
+      ],
+      "camp": 763,
+      "hero": "chrom",
+      "p": {
+        "x": 951.5491987032593,
+        "y": 173.31592430558624
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 129747,
+      "mission": 5,
+      "clock": 112442,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 15,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 78,
+          "max": 106,
+          "level": 7,
+          "xp": 50
+        },
+        {
+          "hero": "frederick",
+          "health": 107,
+          "max": 107,
+          "level": 7,
+          "xp": 50
+        },
+        {
+          "hero": "lissa",
+          "health": 5,
+          "max": 105,
+          "level": 9,
+          "xp": 53
+        },
+        {
+          "hero": "ricken",
+          "health": 105,
+          "max": 105,
+          "level": 7,
+          "xp": 50
+        }
+      ],
+      "camp": 748,
+      "hero": "chrom",
+      "p": {
+        "x": 934.8431583715576,
+        "y": 35.68654603351979
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 140177,
+      "mission": 5,
+      "clock": 122938,
+      "wave": 2,
+      "phase": "rest",
+      "kills": 17,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 78,
+          "max": 106,
+          "level": 7,
+          "xp": 56
+        },
+        {
+          "hero": "frederick",
+          "health": 107,
+          "max": 107,
+          "level": 7,
+          "xp": 56
+        },
+        {
+          "hero": "lissa",
+          "health": 32,
+          "max": 105,
+          "level": 9,
+          "xp": 60
+        },
+        {
+          "hero": "ricken",
+          "health": 105,
+          "max": 105,
+          "level": 7,
+          "xp": 56
+        }
+      ],
+      "camp": 697,
+      "hero": "chrom",
+      "p": {
+        "x": 694.6091618187648,
+        "y": 315.447733039864
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 150313,
+      "mission": 5,
+      "clock": 132753,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 17,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 50,
+          "max": 106,
+          "level": 7,
+          "xp": 56
+        },
+        {
+          "hero": "frederick",
+          "health": 101,
+          "max": 107,
+          "level": 7,
+          "xp": 56
+        },
+        {
+          "hero": "lissa",
+          "health": 32,
+          "max": 105,
+          "level": 9,
+          "xp": 62
+        },
+        {
+          "hero": "ricken",
+          "health": 95,
+          "max": 105,
+          "level": 7,
+          "xp": 56
+        }
+      ],
+      "camp": 652,
+      "hero": "chrom",
+      "p": {
+        "x": 196.29274515426164,
+        "y": 750.8132535553266
+      },
+      "enemies": 5
+    },
+    {
+      "kind": "battle sample",
+      "wall": 162514,
+      "mission": 5,
+      "clock": 142524,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 17,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 0,
+          "max": 106,
+          "level": 7,
+          "xp": 56
+        },
+        {
+          "hero": "frederick",
+          "health": 103,
+          "max": 107,
+          "level": 7,
+          "xp": 56
+        },
+        {
+          "hero": "lissa",
+          "health": 32,
+          "max": 105,
+          "level": 9,
+          "xp": 65
+        },
+        {
+          "hero": "ricken",
+          "health": 100,
+          "max": 105,
+          "level": 7,
+          "xp": 56
+        }
+      ],
+      "camp": 618,
+      "hero": "ricken",
+      "p": {
+        "x": 691.5473987810971,
+        "y": 314.0795636804759
+      },
+      "enemies": 8
+    },
+    {
+      "kind": "battle sample",
+      "wall": 172838,
+      "mission": 5,
+      "clock": 151158,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 18,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 0,
+          "max": 106,
+          "level": 7,
+          "xp": 56
+        },
+        {
+          "hero": "frederick",
+          "health": 79,
+          "max": 107,
+          "level": 7,
+          "xp": 59
+        },
+        {
+          "hero": "lissa",
+          "health": 78,
+          "max": 105,
+          "level": 9,
+          "xp": 69
+        },
+        {
+          "hero": "ricken",
+          "health": 66,
+          "max": 105,
+          "level": 7,
+          "xp": 59
+        }
+      ],
+      "camp": 541,
+      "hero": "lissa",
+      "p": {
+        "x": 671.3916068956022,
+        "y": 358.4257263328788
+      },
+      "enemies": 10
+    },
+    {
+      "kind": "battle sample",
+      "wall": 183751,
+      "mission": 5,
+      "clock": 162126,
+      "wave": 3,
+      "phase": "wave",
+      "kills": 21,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 0,
+          "max": 106,
+          "level": 7,
+          "xp": 56
+        },
+        {
+          "hero": "frederick",
+          "health": 30,
+          "max": 107,
+          "level": 7,
+          "xp": 69
+        },
+        {
+          "hero": "lissa",
+          "health": 71,
+          "max": 105,
+          "level": 9,
+          "xp": 78
+        },
+        {
+          "hero": "ricken",
+          "health": 52,
+          "max": 105,
+          "level": 7,
+          "xp": 69
+        }
+      ],
+      "camp": 368,
+      "hero": "lissa",
+      "p": {
+        "x": 610.2009759783888,
+        "y": 260.0574939964506
+      },
+      "enemies": 10
+    },
+    {
+      "kind": "shop",
+      "mission": 6,
+      "wall": 207736,
+      "gold": 626,
+      "members": [
+        {
+          "hero": "chrom",
+          "health": 106,
+          "progress": {
+            "level": 7,
+            "xp": 56,
+            "stats": {
+              "hp": 106,
+              "str": 23,
+              "mag": 15,
+              "skill": 16,
+              "speed": 12,
+              "luck": 13,
+              "def": 2,
+              "res": 2
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "falchion",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "frederick",
+          "health": 107,
+          "progress": {
+            "level": 7,
+            "xp": 77,
+            "stats": {
+              "hp": 107,
+              "str": 24,
+              "mag": 16,
+              "skill": 12,
+              "speed": 11,
+              "luck": 11,
+              "def": 6,
+              "res": 1
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "iron-lance",
+                "uses": null,
+                "forge": 1
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "lissa",
+          "health": 105,
+          "progress": {
+            "level": 9,
+            "xp": 87,
+            "stats": {
+              "hp": 105,
+              "str": 25,
+              "mag": 19,
+              "skill": 13,
+              "speed": 12,
+              "luck": 15,
+              "def": 2,
+              "res": 4
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "heal",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "ricken",
+          "health": 105,
+          "progress": {
+            "level": 7,
+            "xp": 77,
+            "stats": {
+              "hp": 105,
+              "str": 21,
+              "mag": 17,
+              "skill": 12,
+              "speed": 13,
+              "luck": 14,
+              "def": 0,
+              "res": 2
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fire",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "thunder",
+                "uses": null
+              },
+              {
+                "weaponId": "elfire",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 2
+          }
+        }
+      ]
+    },
+    {
+      "kind": "battle start",
+      "mission": 6,
+      "wall": 212106,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 106,
+          "max": 106,
+          "level": 7,
+          "xp": 56
+        },
+        {
+          "hero": "frederick",
+          "health": 107,
+          "max": 107,
+          "level": 7,
+          "xp": 77
+        },
+        {
+          "hero": "lissa",
+          "health": 105,
+          "max": 105,
+          "level": 9,
+          "xp": 87
+        },
+        {
+          "hero": "ricken",
+          "health": 105,
+          "max": 105,
+          "level": 7,
+          "xp": 77
+        }
+      ]
+    },
+    {
+      "kind": "battle sample",
+      "wall": 212255,
+      "mission": 6,
+      "clock": 562,
+      "wave": 0,
+      "phase": "opening",
+      "kills": 0,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 106,
+          "max": 106,
+          "level": 7,
+          "xp": 56
+        },
+        {
+          "hero": "frederick",
+          "health": 107,
+          "max": 107,
+          "level": 7,
+          "xp": 77
+        },
+        {
+          "hero": "lissa",
+          "health": 105,
+          "max": 105,
+          "level": 9,
+          "xp": 87
+        },
+        {
+          "hero": "ricken",
+          "health": 105,
+          "max": 105,
+          "level": 7,
+          "xp": 77
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 192,
+        "y": 228
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 222424,
+      "mission": 6,
+      "clock": 10708,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 1,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 106,
+          "max": 106,
+          "level": 7,
+          "xp": 59
+        },
+        {
+          "hero": "frederick",
+          "health": 107,
+          "max": 107,
+          "level": 7,
+          "xp": 80
+        },
+        {
+          "hero": "lissa",
+          "health": 105,
+          "max": 105,
+          "level": 9,
+          "xp": 91
+        },
+        {
+          "hero": "ricken",
+          "health": 105,
+          "max": 105,
+          "level": 7,
+          "xp": 80
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 804.3445742854955,
+        "y": 392.1434390468136
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 232692,
+      "mission": 6,
+      "clock": 21016,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 3,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 100,
+          "max": 106,
+          "level": 7,
+          "xp": 65
+        },
+        {
+          "hero": "frederick",
+          "health": 107,
+          "max": 107,
+          "level": 7,
+          "xp": 86
+        },
+        {
+          "hero": "lissa",
+          "health": 105,
+          "max": 105,
+          "level": 9,
+          "xp": 99
+        },
+        {
+          "hero": "ricken",
+          "health": 105,
+          "max": 105,
+          "level": 7,
+          "xp": 86
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 738.2894398645265,
+        "y": 291.4282328014595
+      },
+      "enemies": 5
+    },
+    {
+      "kind": "battle sample",
+      "wall": 243065,
+      "mission": 6,
+      "clock": 31385,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 6,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 80,
+          "max": 106,
+          "level": 7,
+          "xp": 74
+        },
+        {
+          "hero": "frederick",
+          "health": 104,
+          "max": 107,
+          "level": 7,
+          "xp": 95
+        },
+        {
+          "hero": "lissa",
+          "health": 106,
+          "max": 106,
+          "level": 10,
+          "xp": 8
+        },
+        {
+          "hero": "ricken",
+          "health": 105,
+          "max": 105,
+          "level": 7,
+          "xp": 95
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 630.3354140617187,
+        "y": 253.51454127105086
+      },
+      "enemies": 6
+    },
+    {
+      "kind": "battle sample",
+      "wall": 253607,
+      "mission": 6,
+      "clock": 41930,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 10,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 90,
+          "max": 106,
+          "level": 7,
+          "xp": 86
+        },
+        {
+          "hero": "frederick",
+          "health": 92,
+          "max": 108,
+          "level": 8,
+          "xp": 7
+        },
+        {
+          "hero": "lissa",
+          "health": 106,
+          "max": 106,
+          "level": 10,
+          "xp": 19
+        },
+        {
+          "hero": "ricken",
+          "health": 106,
+          "max": 106,
+          "level": 8,
+          "xp": 7
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 337.2940923914122,
+        "y": 246.62007146976583
+      },
+      "enemies": 6
+    },
+    {
+      "kind": "battle sample",
+      "wall": 263698,
+      "mission": 6,
+      "clock": 51996,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 13,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 76,
+          "max": 106,
+          "level": 7,
+          "xp": 96
+        },
+        {
+          "hero": "frederick",
+          "health": 57,
+          "max": 108,
+          "level": 8,
+          "xp": 17
+        },
+        {
+          "hero": "lissa",
+          "health": 106,
+          "max": 106,
+          "level": 10,
+          "xp": 28
+        },
+        {
+          "hero": "ricken",
+          "health": 106,
+          "max": 106,
+          "level": 8,
+          "xp": 17
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 329.9661990084585,
+        "y": 258.84569194584674
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 274110,
+      "mission": 6,
+      "clock": 62197,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 98,
+          "max": 107,
+          "level": 8,
+          "xp": 7
+        },
+        {
+          "hero": "frederick",
+          "health": 103,
+          "max": 108,
+          "level": 8,
+          "xp": 28
+        },
+        {
+          "hero": "lissa",
+          "health": 106,
+          "max": 106,
+          "level": 10,
+          "xp": 39
+        },
+        {
+          "hero": "ricken",
+          "health": 106,
+          "max": 106,
+          "level": 8,
+          "xp": 28
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 350.63470228590467,
+        "y": 288.24543123642826
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 284273,
+      "mission": 6,
+      "clock": 72347,
+      "wave": 1,
+      "phase": "rest",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 107,
+          "max": 107,
+          "level": 8,
+          "xp": 7
+        },
+        {
+          "hero": "frederick",
+          "health": 108,
+          "max": 108,
+          "level": 8,
+          "xp": 28
+        },
+        {
+          "hero": "lissa",
+          "health": 106,
+          "max": 106,
+          "level": 10,
+          "xp": 41
+        },
+        {
+          "hero": "ricken",
+          "health": 106,
+          "max": 106,
+          "level": 8,
+          "xp": 28
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 891.1102948535206,
+        "y": 264.29012800040994
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 294416,
+      "mission": 6,
+      "clock": 82513,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 107,
+          "max": 107,
+          "level": 8,
+          "xp": 7
+        },
+        {
+          "hero": "frederick",
+          "health": 108,
+          "max": 108,
+          "level": 8,
+          "xp": 28
+        },
+        {
+          "hero": "lissa",
+          "health": 106,
+          "max": 106,
+          "level": 10,
+          "xp": 42
+        },
+        {
+          "hero": "ricken",
+          "health": 106,
+          "max": 106,
+          "level": 8,
+          "xp": 28
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 577.5344685720091,
+        "y": 343.83510205370965
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 304848,
+      "mission": 6,
+      "clock": 92446,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 19,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 96,
+          "max": 107,
+          "level": 8,
+          "xp": 16
+        },
+        {
+          "hero": "frederick",
+          "health": 108,
+          "max": 108,
+          "level": 8,
+          "xp": 37
+        },
+        {
+          "hero": "lissa",
+          "health": 106,
+          "max": 106,
+          "level": 10,
+          "xp": 50
+        },
+        {
+          "hero": "ricken",
+          "health": 106,
+          "max": 106,
+          "level": 8,
+          "xp": 37
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 626,
+        "y": 358.58176872037643
+      },
+      "enemies": 5
+    },
+    {
+      "kind": "battle sample",
+      "wall": 314909,
+      "mission": 6,
+      "clock": 102687,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 21,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 82,
+          "max": 107,
+          "level": 8,
+          "xp": 22
+        },
+        {
+          "hero": "frederick",
+          "health": 108,
+          "max": 108,
+          "level": 8,
+          "xp": 43
+        },
+        {
+          "hero": "lissa",
+          "health": 83,
+          "max": 106,
+          "level": 10,
+          "xp": 56
+        },
+        {
+          "hero": "ricken",
+          "health": 106,
+          "max": 106,
+          "level": 8,
+          "xp": 43
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 340.16631074049246,
+        "y": 239.6676069429896
+      },
+      "enemies": 7
+    },
+    {
+      "kind": "battle sample",
+      "wall": 325205,
+      "mission": 6,
+      "clock": 112580,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 26,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 90,
+          "max": 107,
+          "level": 8,
+          "xp": 39
+        },
+        {
+          "hero": "frederick",
+          "health": 108,
+          "max": 108,
+          "level": 8,
+          "xp": 60
+        },
+        {
+          "hero": "lissa",
+          "health": 45,
+          "max": 106,
+          "level": 10,
+          "xp": 71
+        },
+        {
+          "hero": "ricken",
+          "health": 97,
+          "max": 106,
+          "level": 8,
+          "xp": 60
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 156.39582144874782,
+        "y": 285.3838255545376
+      },
+      "enemies": 6
+    },
+    {
+      "kind": "battle sample",
+      "wall": 335660,
+      "mission": 6,
+      "clock": 122165,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 29,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 57,
+          "max": 107,
+          "level": 8,
+          "xp": 48
+        },
+        {
+          "hero": "frederick",
+          "health": 108,
+          "max": 108,
+          "level": 8,
+          "xp": 69
+        },
+        {
+          "hero": "lissa",
+          "health": 12,
+          "max": 106,
+          "level": 10,
+          "xp": 79
+        },
+        {
+          "hero": "ricken",
+          "health": 99,
+          "max": 106,
+          "level": 8,
+          "xp": 69
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 181.23084868548085,
+        "y": 387.65191090261106
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 346577,
+      "mission": 6,
+      "clock": 132879,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 32,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 94,
+          "max": 107,
+          "level": 8,
+          "xp": 58
+        },
+        {
+          "hero": "frederick",
+          "health": 108,
+          "max": 108,
+          "level": 8,
+          "xp": 79
+        },
+        {
+          "hero": "lissa",
+          "health": 7,
+          "max": 106,
+          "level": 10,
+          "xp": 89
+        },
+        {
+          "hero": "ricken",
+          "health": 99,
+          "max": 106,
+          "level": 8,
+          "xp": 79
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 295.24272988289164,
+        "y": 387.8212131433111
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 356783,
+      "mission": 6,
+      "clock": 142689,
+      "wave": 2,
+      "phase": "boss-warning",
+      "kills": 32,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 107,
+          "max": 107,
+          "level": 8,
+          "xp": 58
+        },
+        {
+          "hero": "frederick",
+          "health": 108,
+          "max": 108,
+          "level": 8,
+          "xp": 79
+        },
+        {
+          "hero": "lissa",
+          "health": 30,
+          "max": 106,
+          "level": 10,
+          "xp": 92
+        },
+        {
+          "hero": "ricken",
+          "health": 106,
+          "max": 106,
+          "level": 8,
+          "xp": 79
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 942.9284281639891,
+        "y": 243.2795102852905
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 367679,
+      "mission": 6,
+      "clock": 153654,
+      "wave": 2,
+      "phase": "boss",
+      "kills": 32,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 107,
+          "max": 107,
+          "level": 8,
+          "xp": 58
+        },
+        {
+          "hero": "frederick",
+          "health": 96,
+          "max": 108,
+          "level": 8,
+          "xp": 79
+        },
+        {
+          "hero": "lissa",
+          "health": 30,
+          "max": 106,
+          "level": 10,
+          "xp": 94
+        },
+        {
+          "hero": "ricken",
+          "health": 106,
+          "max": 106,
+          "level": 8,
+          "xp": 79
+        }
+      ],
+      "boss": 817,
+      "hero": "chrom",
+      "p": {
+        "x": 843.874232441154,
+        "y": 298.13067654685875
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 378070,
+      "mission": 6,
+      "clock": 163858,
+      "wave": 2,
+      "phase": "boss",
+      "kills": 32,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 107,
+          "max": 107,
+          "level": 8,
+          "xp": 58
+        },
+        {
+          "hero": "frederick",
+          "health": 107,
+          "max": 108,
+          "level": 8,
+          "xp": 79
+        },
+        {
+          "hero": "lissa",
+          "health": 30,
+          "max": 106,
+          "level": 10,
+          "xp": 97
+        },
+        {
+          "hero": "ricken",
+          "health": 106,
+          "max": 106,
+          "level": 8,
+          "xp": 79
+        }
+      ],
+      "boss": 513,
+      "hero": "chrom",
+      "p": {
+        "x": 958.0955338337816,
+        "y": 289.68966718314135
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "shop",
+      "mission": 7,
+      "wall": 399903,
+      "gold": 1093,
+      "members": [
+        {
+          "hero": "chrom",
+          "health": 107,
+          "progress": {
+            "level": 8,
+            "xp": 58,
+            "stats": {
+              "hp": 107,
+              "str": 24,
+              "mag": 15,
+              "skill": 17,
+              "speed": 12,
+              "luck": 14,
+              "def": 2,
+              "res": 2
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "falchion",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "frederick",
+          "health": 108,
+          "progress": {
+            "level": 8,
+            "xp": 82,
+            "stats": {
+              "hp": 108,
+              "str": 24,
+              "mag": 16,
+              "skill": 12,
+              "speed": 11,
+              "luck": 12,
+              "def": 6,
+              "res": 1
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "iron-lance",
+                "uses": null,
+                "forge": 1
+              },
+              {
+                "weaponId": "iron-sword",
+                "uses": null
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "lissa",
+          "health": 106,
+          "progress": {
+            "level": 10,
+            "xp": 98,
+            "stats": {
+              "hp": 106,
+              "str": 26,
+              "mag": 19,
+              "skill": 13,
+              "speed": 13,
+              "luck": 15,
+              "def": 2,
+              "res": 4
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "heal",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "iron-axe",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 0
+          }
+        },
+        {
+          "hero": "ricken",
+          "health": 106,
+          "progress": {
+            "level": 8,
+            "xp": 82,
+            "stats": {
+              "hp": 106,
+              "str": 21,
+              "mag": 17,
+              "skill": 12,
+              "speed": 14,
+              "luck": 14,
+              "def": 1,
+              "res": 2
+            },
+            "base": {
+              "hp": 100,
+              "str": 20,
+              "mag": 15,
+              "skill": 10,
+              "speed": 10,
+              "luck": 10,
+              "def": 0,
+              "res": 0
+            }
+          },
+          "loadout": {
+            "items": [
+              {
+                "weaponId": "fire",
+                "uses": null,
+                "forge": 3
+              },
+              {
+                "weaponId": "thunder",
+                "uses": null
+              },
+              {
+                "weaponId": "elfire",
+                "uses": null
+              }
+            ],
+            "equippedSlot": 2
+          }
+        }
+      ]
+    },
+    {
+      "kind": "battle start",
+      "mission": 7,
+      "wall": 407267,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 107,
+          "max": 107,
+          "level": 8,
+          "xp": 58
+        },
+        {
+          "hero": "frederick",
+          "health": 108,
+          "max": 108,
+          "level": 8,
+          "xp": 82
+        },
+        {
+          "hero": "lissa",
+          "health": 106,
+          "max": 106,
+          "level": 10,
+          "xp": 98
+        },
+        {
+          "hero": "ricken",
+          "health": 106,
+          "max": 106,
+          "level": 8,
+          "xp": 82
+        }
+      ]
+    },
+    {
+      "kind": "battle sample",
+      "wall": 407467,
+      "mission": 7,
+      "clock": 837,
+      "wave": 0,
+      "phase": "opening",
+      "kills": 0,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 107,
+          "max": 107,
+          "level": 8,
+          "xp": 58
+        },
+        {
+          "hero": "frederick",
+          "health": 108,
+          "max": 108,
+          "level": 8,
+          "xp": 82
+        },
+        {
+          "hero": "lissa",
+          "health": 106,
+          "max": 106,
+          "level": 10,
+          "xp": 98
+        },
+        {
+          "hero": "ricken",
+          "health": 106,
+          "max": 106,
+          "level": 8,
+          "xp": 82
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 480,
+        "y": 612
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 417853,
+      "mission": 7,
+      "clock": 11185,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 0,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 107,
+          "max": 107,
+          "level": 8,
+          "xp": 58
+        },
+        {
+          "hero": "frederick",
+          "health": 96,
+          "max": 108,
+          "level": 8,
+          "xp": 82
+        },
+        {
+          "hero": "lissa",
+          "health": 106,
+          "max": 106,
+          "level": 10,
+          "xp": 99
+        },
+        {
+          "hero": "ricken",
+          "health": 106,
+          "max": 106,
+          "level": 8,
+          "xp": 82
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 471.03648304855415,
+        "y": 229.1961714300331
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 428110,
+      "mission": 7,
+      "clock": 21476,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 1,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 107,
+          "max": 107,
+          "level": 8,
+          "xp": 62
+        },
+        {
+          "hero": "frederick",
+          "health": 48,
+          "max": 108,
+          "level": 8,
+          "xp": 86
+        },
+        {
+          "hero": "lissa",
+          "health": 107,
+          "max": 107,
+          "level": 11,
+          "xp": 5
+        },
+        {
+          "hero": "ricken",
+          "health": 106,
+          "max": 106,
+          "level": 8,
+          "xp": 86
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 870.9385754847937,
+        "y": 130.50169877577957
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 438583,
+      "mission": 7,
+      "clock": 31892,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 2,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 107,
+          "max": 107,
+          "level": 8,
+          "xp": 66
+        },
+        {
+          "hero": "frederick",
+          "health": 42,
+          "max": 108,
+          "level": 8,
+          "xp": 90
+        },
+        {
+          "hero": "lissa",
+          "health": 82,
+          "max": 107,
+          "level": 11,
+          "xp": 10
+        },
+        {
+          "hero": "ricken",
+          "health": 106,
+          "max": 106,
+          "level": 8,
+          "xp": 90
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 118.05689485863397,
+        "y": 428.8679354276781
+      },
+      "enemies": 7
+    },
+    {
+      "kind": "battle sample",
+      "wall": 449359,
+      "mission": 7,
+      "clock": 42690,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 4,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 93,
+          "max": 107,
+          "level": 8,
+          "xp": 73
+        },
+        {
+          "hero": "frederick",
+          "health": 84,
+          "max": 108,
+          "level": 8,
+          "xp": 97
+        },
+        {
+          "hero": "lissa",
+          "health": 42,
+          "max": 107,
+          "level": 11,
+          "xp": 18
+        },
+        {
+          "hero": "ricken",
+          "health": 106,
+          "max": 106,
+          "level": 8,
+          "xp": 97
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 460.7204472922946,
+        "y": 493.81066341587365
+      },
+      "enemies": 8
+    },
+    {
+      "kind": "battle sample",
+      "wall": 459683,
+      "mission": 7,
+      "clock": 52713,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 8,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 54,
+          "max": 107,
+          "level": 8,
+          "xp": 88
+        },
+        {
+          "hero": "frederick",
+          "health": 78,
+          "max": 109,
+          "level": 9,
+          "xp": 12
+        },
+        {
+          "hero": "lissa",
+          "health": 15,
+          "max": 107,
+          "level": 11,
+          "xp": 32
+        },
+        {
+          "hero": "ricken",
+          "health": 107,
+          "max": 107,
+          "level": 9,
+          "xp": 12
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 498.3228512919871,
+        "y": 462.5282594161812
+      },
+      "enemies": 4
+    },
+    {
+      "kind": "battle sample",
+      "wall": 469843,
+      "mission": 7,
+      "clock": 62333,
+      "wave": 1,
+      "phase": "wave",
+      "kills": 11,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 55,
+          "max": 108,
+          "level": 9,
+          "xp": 0
+        },
+        {
+          "hero": "frederick",
+          "health": 72,
+          "max": 109,
+          "level": 9,
+          "xp": 24
+        },
+        {
+          "hero": "lissa",
+          "health": 15,
+          "max": 107,
+          "level": 11,
+          "xp": 43
+        },
+        {
+          "hero": "ricken",
+          "health": 107,
+          "max": 107,
+          "level": 9,
+          "xp": 24
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 855.4882137154235,
+        "y": 418.191786284572
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 480639,
+      "mission": 7,
+      "clock": 72477,
+      "wave": 1,
+      "phase": "rest",
+      "kills": 12,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 79,
+          "max": 108,
+          "level": 9,
+          "xp": 3
+        },
+        {
+          "hero": "frederick",
+          "health": 109,
+          "max": 109,
+          "level": 9,
+          "xp": 27
+        },
+        {
+          "hero": "lissa",
+          "health": 15,
+          "max": 107,
+          "level": 11,
+          "xp": 48
+        },
+        {
+          "hero": "ricken",
+          "health": 107,
+          "max": 107,
+          "level": 9,
+          "xp": 27
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 610.6383973335359,
+        "y": 185.85900952673677
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 490879,
+      "mission": 7,
+      "clock": 82765,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 12,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 99,
+          "max": 108,
+          "level": 9,
+          "xp": 3
+        },
+        {
+          "hero": "frederick",
+          "health": 109,
+          "max": 109,
+          "level": 9,
+          "xp": 27
+        },
+        {
+          "hero": "lissa",
+          "health": 15,
+          "max": 107,
+          "level": 11,
+          "xp": 51
+        },
+        {
+          "hero": "ricken",
+          "health": 107,
+          "max": 107,
+          "level": 9,
+          "xp": 27
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 211.8139278553756,
+        "y": 496.6549870017233
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 500983,
+      "mission": 7,
+      "clock": 92856,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 15,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 108,
+          "max": 108,
+          "level": 9,
+          "xp": 14
+        },
+        {
+          "hero": "frederick",
+          "health": 109,
+          "max": 109,
+          "level": 9,
+          "xp": 38
+        },
+        {
+          "hero": "lissa",
+          "health": 39,
+          "max": 107,
+          "level": 11,
+          "xp": 61
+        },
+        {
+          "hero": "ricken",
+          "health": 88,
+          "max": 107,
+          "level": 9,
+          "xp": 38
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 193.53642045185583,
+        "y": 445.27342620013263
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 511648,
+      "mission": 7,
+      "clock": 103591,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 16,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 108,
+          "max": 108,
+          "level": 9,
+          "xp": 18
+        },
+        {
+          "hero": "frederick",
+          "health": 108,
+          "max": 109,
+          "level": 9,
+          "xp": 42
+        },
+        {
+          "hero": "lissa",
+          "health": 31,
+          "max": 107,
+          "level": 11,
+          "xp": 67
+        },
+        {
+          "hero": "ricken",
+          "health": 79,
+          "max": 107,
+          "level": 9,
+          "xp": 42
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 420.4877172692486,
+        "y": 475.91100723827105
+      },
+      "enemies": 2
+    },
+    {
+      "kind": "battle sample",
+      "wall": 521672,
+      "mission": 7,
+      "clock": 113445,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 19,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 94,
+          "max": 108,
+          "level": 9,
+          "xp": 29
+        },
+        {
+          "hero": "frederick",
+          "health": 107,
+          "max": 109,
+          "level": 9,
+          "xp": 53
+        },
+        {
+          "hero": "lissa",
+          "health": 31,
+          "max": 107,
+          "level": 11,
+          "xp": 77
+        },
+        {
+          "hero": "ricken",
+          "health": 32,
+          "max": 107,
+          "level": 9,
+          "xp": 53
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 680.4848712448311,
+        "y": 339.58838564078724
+      },
+      "enemies": 5
+    },
+    {
+      "kind": "battle sample",
+      "wall": 533266,
+      "mission": 7,
+      "clock": 125110,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 21,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 90,
+          "max": 108,
+          "level": 9,
+          "xp": 36
+        },
+        {
+          "hero": "frederick",
+          "health": 109,
+          "max": 109,
+          "level": 9,
+          "xp": 60
+        },
+        {
+          "hero": "lissa",
+          "health": 12,
+          "max": 107,
+          "level": 11,
+          "xp": 85
+        },
+        {
+          "hero": "ricken",
+          "health": 0,
+          "max": 107,
+          "level": 9,
+          "xp": 53
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 556.135641457263,
+        "y": 81.75131885679187
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 543518,
+      "mission": 7,
+      "clock": 135036,
+      "wave": 2,
+      "phase": "wave",
+      "kills": 23,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 93,
+          "max": 108,
+          "level": 9,
+          "xp": 44
+        },
+        {
+          "hero": "frederick",
+          "health": 109,
+          "max": 109,
+          "level": 9,
+          "xp": 68
+        },
+        {
+          "hero": "lissa",
+          "health": 36,
+          "max": 107,
+          "level": 11,
+          "xp": 94
+        },
+        {
+          "hero": "ricken",
+          "health": 0,
+          "max": 107,
+          "level": 9,
+          "xp": 53
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 262.54532722787405,
+        "y": 74
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 554474,
+      "mission": 7,
+      "clock": 146056,
+      "wave": 2,
+      "phase": "boss-warning",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 108,
+          "max": 108,
+          "level": 9,
+          "xp": 47
+        },
+        {
+          "hero": "frederick",
+          "health": 109,
+          "max": 109,
+          "level": 9,
+          "xp": 71
+        },
+        {
+          "hero": "lissa",
+          "health": 84,
+          "max": 107,
+          "level": 11,
+          "xp": 99
+        },
+        {
+          "hero": "ricken",
+          "health": 0,
+          "max": 107,
+          "level": 9,
+          "xp": 53
+        }
+      ],
+      "hero": "chrom",
+      "p": {
+        "x": 563.2768575116281,
+        "y": 173.1887367609102
+      },
+      "enemies": 0
+    },
+    {
+      "kind": "battle sample",
+      "wall": 564859,
+      "mission": 7,
+      "clock": 156480,
+      "wave": 2,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 108,
+          "max": 108,
+          "level": 9,
+          "xp": 47
+        },
+        {
+          "hero": "frederick",
+          "health": 109,
+          "max": 109,
+          "level": 9,
+          "xp": 71
+        },
+        {
+          "hero": "lissa",
+          "health": 107,
+          "max": 107,
+          "level": 12,
+          "xp": 1
+        },
+        {
+          "hero": "ricken",
+          "health": 0,
+          "max": 107,
+          "level": 9,
+          "xp": 53
+        }
+      ],
+      "boss": 1435,
+      "hero": "chrom",
+      "p": {
+        "x": 603.9642129688754,
+        "y": 121.82164593307095
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 584260,
+      "mission": 7,
+      "clock": 174238,
+      "wave": 2,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 102,
+          "max": 108,
+          "level": 9,
+          "xp": 47
+        },
+        {
+          "hero": "frederick",
+          "health": 109,
+          "max": 109,
+          "level": 9,
+          "xp": 71
+        },
+        {
+          "hero": "lissa",
+          "health": 107,
+          "max": 107,
+          "level": 12,
+          "xp": 3
+        },
+        {
+          "hero": "ricken",
+          "health": 0,
+          "max": 107,
+          "level": 9,
+          "xp": 53
+        }
+      ],
+      "boss": 1051,
+      "hero": "chrom",
+      "p": {
+        "x": 552.3134249907939,
+        "y": 238.08219070478785
+      },
+      "enemies": 1
+    },
+    {
+      "kind": "battle sample",
+      "wall": 594662,
+      "mission": 7,
+      "clock": 184664,
+      "wave": 2,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 93,
+          "max": 108,
+          "level": 9,
+          "xp": 47
+        },
+        {
+          "hero": "frederick",
+          "health": 109,
+          "max": 109,
+          "level": 9,
+          "xp": 71
+        },
+        {
+          "hero": "lissa",
+          "health": 86,
+          "max": 107,
+          "level": 12,
+          "xp": 5
+        },
+        {
+          "hero": "ricken",
+          "health": 0,
+          "max": 107,
+          "level": 9,
+          "xp": 53
+        }
+      ],
+      "boss": 890,
+      "hero": "chrom",
+      "p": {
+        "x": 539.1247932884946,
+        "y": 162.6054870636185
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 605474,
+      "mission": 7,
+      "clock": 195349,
+      "wave": 2,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 93,
+          "max": 108,
+          "level": 9,
+          "xp": 47
+        },
+        {
+          "hero": "frederick",
+          "health": 109,
+          "max": 109,
+          "level": 9,
+          "xp": 71
+        },
+        {
+          "hero": "lissa",
+          "health": 20,
+          "max": 107,
+          "level": 12,
+          "xp": 8
+        },
+        {
+          "hero": "ricken",
+          "health": 0,
+          "max": 107,
+          "level": 9,
+          "xp": 53
+        }
+      ],
+      "boss": 576,
+      "hero": "chrom",
+      "p": {
+        "x": 539.1247932884946,
+        "y": 162.6054870636185
+      },
+      "enemies": 3
+    },
+    {
+      "kind": "battle sample",
+      "wall": 615898,
+      "mission": 7,
+      "clock": 205712,
+      "wave": 2,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 28,
+          "max": 108,
+          "level": 9,
+          "xp": 47
+        },
+        {
+          "hero": "frederick",
+          "health": 109,
+          "max": 109,
+          "level": 9,
+          "xp": 71
+        },
+        {
+          "hero": "lissa",
+          "health": 0,
+          "max": 107,
+          "level": 12,
+          "xp": 9
+        },
+        {
+          "hero": "ricken",
+          "health": 0,
+          "max": 107,
+          "level": 9,
+          "xp": 53
+        }
+      ],
+      "boss": 219,
+      "hero": "chrom",
+      "p": {
+        "x": 539.1247932884946,
+        "y": 162.6054870636185
+      },
+      "enemies": 5
+    },
+    {
+      "kind": "battle sample",
+      "wall": 626438,
+      "mission": 7,
+      "clock": 216151,
+      "wave": 2,
+      "phase": "boss",
+      "kills": 24,
+      "states": [
+        {
+          "hero": "chrom",
+          "health": 0,
+          "max": 108,
+          "level": 9,
+          "xp": 47
+        },
+        {
+          "hero": "frederick",
+          "health": 31,
+          "max": 109,
+          "level": 9,
+          "xp": 71
+        },
+        {
+          "hero": "lissa",
+          "health": 0,
+          "max": 107,
+          "level": 12,
+          "xp": 9
+        },
+        {
+          "hero": "ricken",
+          "health": 0,
+          "max": 107,
+          "level": 9,
+          "xp": 53
+        }
+      ],
+      "boss": 93,
+      "hero": "frederick",
+      "p": {
+        "x": 602.4315479957011,
+        "y": 180.1425315808866
+      },
+      "enemies": 5
+    },
+    {
+      "kind": "defeat",
+      "wall": 627907,
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": true,
+        "health": 0,
+        "hero": "frederick",
+        "party": [
+          "chrom",
+          "frederick",
+          "lissa",
+          "ricken"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 0,
+            "max": 108,
+            "level": 9,
+            "xp": 47
+          },
+          {
+            "hero": "frederick",
+            "health": 0,
+            "max": 109,
+            "level": 9,
+            "xp": 71
+          },
+          {
+            "hero": "lissa",
+            "health": 0,
+            "max": 107,
+            "level": 12,
+            "xp": 9
+          },
+          {
+            "hero": "ricken",
+            "health": 0,
+            "max": 107,
+            "level": 9,
+            "xp": 53
+          }
+        ],
+        "p": {
+          "x": 602.4315479957011,
+          "y": 180.1425315808866
+        },
+        "enemies": [
+          {
+            "x": 589.8148747543978,
+            "y": 152.1425315808866,
+            "hp": 80,
+            "boss": true,
+            "key": "walhart"
+          },
+          {
+            "x": 561.8148747543978,
+            "y": 174.11905197733367,
+            "hp": 111,
+            "boss": false,
+            "key": "knight"
+          },
+          {
+            "x": 593.1923912824261,
+            "y": 216.75529694332658,
+            "hp": 236,
+            "boss": false,
+            "key": "axeman"
+          },
+          {
+            "x": 559.8214548159667,
+            "y": 201.80128207287186,
+            "hp": 219,
+            "boss": false,
+            "key": "knight"
+          },
+          {
+            "x": 565.1923912824261,
+            "y": 229.80128207287186,
+            "hp": 252,
+            "boss": false,
+            "key": "axeman"
+          }
+        ],
+        "clock": 217689.38000000094,
+        "mission": 7,
+        "kills": 24,
+        "phase": "boss",
+        "wave": 2,
+        "boss": {
+          "x": 589.8148747543978,
+          "y": 148.1425315808866,
+          "hp": 80
+        },
+        "objective": {
+          "kind": "boss",
+          "victory": "defeat-commander",
+          "label": "Defeat Walhart in his stronghold",
+          "x": 512,
+          "y": 128,
+          "radius": 96
+        },
+        "pending": 0,
+        "routeReached": false,
+        "profile": {
+          "weapon": "lance",
+          "range": 110,
+          "minRange": 0,
+          "damage": 37,
+          "cooldown": 380,
+          "speed": 170,
+          "description": "Lance · longer reach · strong against swords",
+          "id": "iron-lance",
+          "name": "Iron Lance +1",
+          "type": "lance",
+          "icon": "weapon-lance",
+          "effect": "lance-thrust",
+          "healingBonus": 0
+        },
+        "ready": false,
+        "camera": {
+          "origin": {
+            "x": 87,
+            "y": 0
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "health": 0
+          },
+          {
+            "hero": "frederick",
+            "x": 602.4315479957011,
+            "y": 176.1425315808866,
+            "health": 0
+          },
+          {
+            "hero": "lissa",
+            "health": 0
+          },
+          {
+            "hero": "ricken",
+            "health": 0
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "failure": "Error: page.evaluate: Error: missing Retry\n    at eval (eval at evaluate (:370:30), <anonymous>:1:340)\n    at async <anonymous>:396:30",
+  "checkpoints": {
+    "feadventures.campaign.v1": "{\"version\":2,\"savedAt\":\"2026-10-14T05:43:46.372Z\",\"campaignId\":\"awakening-ten\",\"missionId\":\"conqueror-hall\",\"campaign\":{\"campaignId\":\"awakening-ten\",\"missionId\":\"conqueror-hall\",\"missionIndex\":7,\"gold\":1093,\"members\":[{\"hero\":\"chrom\",\"health\":107,\"progress\":{\"level\":8,\"xp\":58,\"stats\":{\"hp\":107,\"str\":24,\"mag\":15,\"skill\":17,\"speed\":12,\"luck\":14,\"def\":2,\"res\":2},\"base\":{\"hp\":100,\"str\":20,\"mag\":15,\"skill\":10,\"speed\":10,\"luck\":10,\"def\":0,\"res\":0}},\"loadout\":{\"items\":[{\"weaponId\":\"falchion\",\"uses\":null,\"forge\":3},{\"weaponId\":\"iron-sword\",\"uses\":null}],\"equippedSlot\":0}},{\"hero\":\"frederick\",\"health\":108,\"progress\":{\"level\":8,\"xp\":82,\"stats\":{\"hp\":108,\"str\":24,\"mag\":16,\"skill\":12,\"speed\":11,\"luck\":12,\"def\":6,\"res\":1},\"base\":{\"hp\":100,\"str\":20,\"mag\":15,\"skill\":10,\"speed\":10,\"luck\":10,\"def\":0,\"res\":0}},\"loadout\":{\"items\":[{\"weaponId\":\"iron-lance\",\"uses\":null,\"forge\":1},{\"weaponId\":\"iron-sword\",\"uses\":null},{\"weaponId\":\"iron-axe\",\"uses\":null}],\"equippedSlot\":0}},{\"hero\":\"lissa\",\"health\":106,\"progress\":{\"level\":10,\"xp\":98,\"stats\":{\"hp\":106,\"str\":26,\"mag\":19,\"skill\":13,\"speed\":13,\"luck\":15,\"def\":2,\"res\":4},\"base\":{\"hp\":100,\"str\":20,\"mag\":15,\"skill\":10,\"speed\":10,\"luck\":10,\"def\":0,\"res\":0}},\"loadout\":{\"items\":[{\"weaponId\":\"heal\",\"uses\":null,\"forge\":3},{\"weaponId\":\"iron-axe\",\"uses\":null}],\"equippedSlot\":0}},{\"hero\":\"ricken\",\"health\":106,\"progress\":{\"level\":8,\"xp\":82,\"stats\":{\"hp\":106,\"str\":21,\"mag\":17,\"skill\":12,\"speed\":14,\"luck\":14,\"def\":1,\"res\":2},\"base\":{\"hp\":100,\"str\":20,\"mag\":15,\"skill\":10,\"speed\":10,\"luck\":10,\"def\":0,\"res\":0}},\"loadout\":{\"items\":[{\"weaponId\":\"fire\",\"uses\":null,\"forge\":3},{\"weaponId\":\"thunder\",\"uses\":null},{\"weaponId\":\"elfire\",\"uses\":null}],\"equippedSlot\":2}}],\"complete\":false}}",
+    "feadventures:first-time-controls:v1": "{\"status\":\"completed\"}"
+  },
+  "elapsedMs": 628671,
+  "final": {
+    "arena": true,
+    "deploying": false,
+    "ended": true,
+    "health": 0,
+    "hero": "frederick",
+    "party": [
+      "chrom",
+      "frederick",
+      "lissa",
+      "ricken"
+    ],
+    "states": [
+      {
+        "hero": "chrom",
+        "health": 0,
+        "max": 108,
+        "level": 9,
+        "xp": 47
+      },
+      {
+        "hero": "frederick",
+        "health": 0,
+        "max": 109,
+        "level": 9,
+        "xp": 71
+      },
+      {
+        "hero": "lissa",
+        "health": 0,
+        "max": 107,
+        "level": 12,
+        "xp": 9
+      },
+      {
+        "hero": "ricken",
+        "health": 0,
+        "max": 107,
+        "level": 9,
+        "xp": 53
+      }
+    ],
+    "p": {
+      "x": 602.4315479957011,
+      "y": 180.1425315808866
+    },
+    "enemies": [
+      {
+        "x": 589.8148747543978,
+        "y": 152.1425315808866,
+        "hp": 80,
+        "boss": true,
+        "key": "walhart"
+      },
+      {
+        "x": 561.8148747543978,
+        "y": 174.11905197733367,
+        "hp": 111,
+        "boss": false,
+        "key": "knight"
+      },
+      {
+        "x": 593.1923912824261,
+        "y": 216.75529694332658,
+        "hp": 236,
+        "boss": false,
+        "key": "axeman"
+      },
+      {
+        "x": 559.8214548159667,
+        "y": 201.80128207287186,
+        "hp": 219,
+        "boss": false,
+        "key": "knight"
+      },
+      {
+        "x": 565.1923912824261,
+        "y": 229.80128207287186,
+        "hp": 252,
+        "boss": false,
+        "key": "axeman"
+      }
+    ],
+    "clock": 217689.38000000094,
+    "mission": 7,
+    "kills": 24,
+    "phase": "boss",
+    "wave": 2,
+    "boss": {
+      "x": 589.8148747543978,
+      "y": 148.1425315808866,
+      "hp": 80
+    },
+    "objective": {
+      "kind": "boss",
+      "victory": "defeat-commander",
+      "label": "Defeat Walhart in his stronghold",
+      "x": 512,
+      "y": 128,
+      "radius": 96
+    },
+    "pending": 0,
+    "routeReached": false,
+    "profile": {
+      "weapon": "lance",
+      "range": 110,
+      "minRange": 0,
+      "damage": 37,
+      "cooldown": 380,
+      "speed": 170,
+      "description": "Lance · longer reach · strong against swords",
+      "id": "iron-lance",
+      "name": "Iron Lance +1",
+      "type": "lance",
+      "icon": "weapon-lance",
+      "effect": "lance-thrust",
+      "healingBonus": 0
+    },
+    "ready": true,
+    "camera": {
+      "origin": {
+        "x": 87,
+        "y": 0
+      },
+      "ex": {
+        "x": 1,
+        "y": 0
+      },
+      "ey": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    "heroPositions": [
+      {
+        "hero": "chrom",
+        "health": 0
+      },
+      {
+        "hero": "frederick",
+        "x": 602.4315479957011,
+        "y": 176.1425315808866,
+        "health": 0
+      },
+      {
+        "hero": "lissa",
+        "health": 0
+      },
+      {
+        "hero": "ricken",
+        "health": 0
+      }
+    ]
+  }
+}

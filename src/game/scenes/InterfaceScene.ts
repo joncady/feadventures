@@ -1,3 +1,4 @@
+import {FirstTimeGuide} from '../ui/FirstTimeGuide';
 import { CONTROL_LABELS, DEFAULT_BINDINGS, readControlPreferences, saveControlPreferences, keyFor, keyLabel, validBinding, type ControlAction, type ControlPreferences } from '../input/control-preferences';
 import Phaser from 'phaser';
 import { TouchControls } from '../input/TouchControls';
@@ -25,6 +26,8 @@ export interface InterfaceState {
 }
 export class InterfaceScene extends Phaser.Scene {
   private touchControls!:TouchControls;
+  private firstTimeGuide!:FirstTimeGuide;
+  private guideHidden:{object:Phaser.GameObjects.GameObject & {visible:boolean;setVisible(value:boolean):unknown};visible:boolean}[]=[];
   private touchUsed=false;
   private partyHealth!:Phaser.GameObjects.Graphics;
   private resumeControl!:Phaser.GameObjects.Container;
@@ -128,12 +131,12 @@ export class InterfaceScene extends Phaser.Scene {
   constructor() { super('Interface'); }
   create(): void {
     // Scene instances survive shutdown; never retain destroyed controls across phases.
-    this.partyInfoRows=[];this.partyInfoOpen=false;this.tacticalSnapshot=undefined;
+    this.partyInfoRows=[];this.partyInfoOpen=false;this.tacticalSnapshot=undefined;this.guideHidden=[];
     this.controlRows=[];this.pauseKeyLabels=[];this.controlFocus=0;this.capturing=undefined;this.controlPrefs=readControlPreferences();this.registry.set('controls-open',false);this.registry.set('controls-capture',false);
     this.events.once('shutdown',()=>{if(this.registry.get('controls-open'))this.game.events.emit('controls-open',false);this.registry.set('controls-open',false);this.registry.set('controls-capture',false);this.capturing=undefined;});
     this.touchUsed=window.matchMedia('(pointer: coarse)').matches;
     this.touchControls=new TouchControls(this);
-    this.input.on('pointerdown',(p:Phaser.Input.Pointer)=>{if(p.wasTouch){this.touchUsed=true;this.touchControls.setEnabled(this.state?.phase==='battle'&&this.state.playing&&!this.state.paused&&!this.state.settingsOpen);}});
+    this.input.on('pointerdown',(p:Phaser.Input.Pointer)=>{if(this.firstTimeGuide?.visible)return;if(p.wasTouch){this.touchUsed=true;this.touchControls.setEnabled(this.state?.phase==='battle'&&this.state.playing&&!this.state.paused&&!this.state.settingsOpen);}});
     this.registry.set('app-version', APP_VERSION);
     this.partyHeads=[];this.partyWeaponIcons=[];this.partyRows=[];this.partyZones=[];this.selectionMarks=new Map();this.cards=new Map();this.heroTiles=[];this.emptyConfirmation=false;this.partyActionFocus=false;this.values={};this.warningTimer=undefined;this.actionFeedbackTimer=undefined;
     this.add.rectangle(WORLD.width/2, 17, WORLD.width, 34, 0x183e57, .94);
@@ -165,6 +168,12 @@ export class InterfaceScene extends Phaser.Scene {
     this.settings = this.panel(360, 414, 'Settings');
     this.button(this.settings,-158,175,316,'Controls & accessibility · C',()=>this.openControls());
     this.createControls();
+    this.firstTimeGuide=new FirstTimeGuide(this,(show,touch)=>{this.touchControls.setEnabled(false);this.touchControls.root.setVisible(show&&!!touch);this.guidePlanningVisibility(show);});
+    const showGuide=(done:()=>void,first=true)=>{const data=this.tacticalSnapshot,unit=data?.party.find(p=>p.hero===data.controlled),item=unit?.equippedWeaponId?WEAPONS[unit.equippedWeaponId]:undefined;this.firstTimeGuide.open({first,touch:this.touchUsed,party:data?.party.filter(p=>p.health>0).length??1,weapons:unit?.weaponCount??1,staff:item?.type==='staff'},done);};
+    const guideRequest=(done:()=>void)=>showGuide(done);
+    this.game.events.on('first-time-controls-request',guideRequest);this.events.once('shutdown',()=>this.game.events.off('first-time-controls-request',guideRequest));
+    this.controlMessage.setX(-276).setWordWrapWidth(260).setFontSize(11);
+    this.button(this.controlPanel,12,186,264,'Replay quick guide',()=>{this.closeControls();showGuide(()=>this.apply(this.state!),false);});
     this.enabled = this.button(this.settings, -158, -138, 316, '', () => this.request('music'));
     this.levels = this.add.graphics(); this.settings.add(this.levels);
     for (const [i, key] of (['music','effects','voices'] as const).entries()) {
@@ -316,17 +325,17 @@ export class InterfaceScene extends Phaser.Scene {
     this.tacticalSnapshot=data;
     const controlledUnit=data.party.find(p=>p.hero===data.controlled),controlledItem=controlledUnit?.equippedWeaponId?WEAPONS[controlledUnit.equippedWeaponId]:undefined;this.touchControls.updateCommands({living:data.party.filter(p=>p.health>0).length,weaponIcon:controlledItem?.icon??'weapon-sword',weaponCount:controlledUnit?.weaponCount??1,staff:controlledItem?.type==='staff',rally:!!data.rally?.available,heal:(controlledUnit?.health??0)<(controlledUnit?.maxHealth??0)&&data.cooldown.fraction===1});
     const minimapHeight=!data.deploying&&this.touchUsed?Math.min(100,this.registry.get('touch-minimap-height')??100):100;
-    const background=getMap(data.missionIndex??2).backgroundKey;if(this.textures.exists(background))this.miniTerrain.setTexture(background).setDisplaySize(164,minimapHeight).setY(58+minimapHeight/2);
+    const background=data.backgroundKey??getMap(data.missionIndex??2).backgroundKey;if(this.textures.exists(background))this.miniTerrain.setTexture(background).setDisplaySize(164,minimapHeight).setY(58+minimapHeight/2);
     const canvasBounds=this.game.canvas.getBoundingClientRect();
     const cssScale=Math.max(.1,canvasBounds.width/WORLD.width);
     const combatFont=Math.max(17,Math.ceil(12/cssScale));
     const rowHeight=data.deploying?34:Math.max(32,combatFont+10);
     const rosterHeight=Math.max(1,data.party.length)*rowHeight+(data.deploying?14:8);
     const panelWidthVitality=data.deploying?192:146;
-    const roadPlanning=data.deploying&&data.missionIndex===0;
+    const roadPlanning=data.deploying&&(data.objectiveKind==='advance'||data.missionIndex===0);
     this.partyPanel.setPosition(roadPlanning?WORLD.width-216:0,roadPlanning?WORLD.height-48-rosterHeight:0);
     this.partyBackground.setSize(panelWidthVitality,rosterHeight).setPosition(12+panelWidthVitality/2,40+rosterHeight/2).setAlpha(data.deploying?.94:.72);
-    this.damageControls.setPosition(roadPlanning?-260:0,rosterHeight-150-(roadPlanning?36:0)).setVisible(data.deploying);
+    this.damageControls.setPosition(roadPlanning?-260:0,rosterHeight-150-(roadPlanning?36:0)).setVisible(data.deploying&&!this.firstTimeGuide?.visible);
     const rally=data.rally;
     this.rallyLabel.setPosition(16,rosterHeight+45).setVisible(!data.deploying&&!!rally&&data.party.filter(p=>p.health>0).length>1).setText(rally?.active?`Rallying · ${Math.ceil(rally.remaining)}s`:rally?.available?'Rally ready':`Rally · ${Math.ceil(rally?.cooldown??0)}s`).setColor(rally?.active?'#a8dcaa':rally?.available?'#fff0c6':'#acb7b9');
     this.partyHealth.clear();
@@ -352,7 +361,7 @@ export class InterfaceScene extends Phaser.Scene {
     }
     this.soldiersControl.setVisible(false);this.soldiersButton.setText(`Place soldiers · ${data.placed-data.party.filter(p=>p.placed).length}/${getMap(data.missionIndex??2).soldierCount}`);
     this.deploymentHeroes=data.party.map(p=>p.hero);this.selectedDeployment=data.selected;
-    const keepPlanning=data.deploying&&data.missionIndex===3,panelWidth=keepPlanning?156:240;
+    const keepPlanning=data.deploying&&(data.mapId==='dark-castle'||(!data.mapId&&data.missionIndex===3)),panelWidth=keepPlanning?156:240;
     this.deploymentHint.setWordWrapWidth(panelWidth-24).setText(data.party.every(p=>p.placed)?'Army ready.':data.objective??'Choose deployment positions.');
     this.deploymentControls.setWordWrapWidth(panelWidth-24).setY(12+this.deploymentHint.height+10);
     this.deploymentBegin.setY(this.deploymentControls.y+this.deploymentControls.height+16);
@@ -377,6 +386,7 @@ export class InterfaceScene extends Phaser.Scene {
   }
   private drawFocus():void {const tile=this.heroTiles[this.focusIndex];if(!tile)return;this.focusFrame.clear().lineStyle(2,0xe7c878).strokeRect(tile.x-2,tile.y-2,100*tile.scaleX+4,76*tile.scaleY+4);this.updatePreview();this.registry.set('character-focus',HEROES[this.focusIndex]);}
   private navigate(event:KeyboardEvent):void {
+    if(this.firstTimeGuide?.visible)return;
     if(this.controlPanel?.visible){this.navigateControls(event);return;}
     if(this.state?.settingsOpen&&event.code==='KeyC'&&!event.repeat){this.openControls();event.preventDefault();return;}
     if(!this.state||this.state.settingsOpen||this.state.result)return;
@@ -409,6 +419,16 @@ export class InterfaceScene extends Phaser.Scene {
     this.controlRows.push(this.button(this.controlPanel,-276,142,264,'Reset defaults',()=>{this.controlPrefs={bindings:{...DEFAULT_BINDINGS},reducedMotion:typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches};this.persistControls();}));
     this.controlRows.push(this.button(this.controlPanel,12,142,264,'Back',()=>this.closeControls()));
     this.controlMessage=this.add.text(0,186,'Battle bindings only. Menus and deployment retain default keys.\nChoose an action, then press a key. Escape cancels.',{...this.style,fontSize:'12px',align:'center',wordWrap:{width:540}}).setOrigin(.5,0);this.controlPanel.add(this.controlMessage);this.renderControls();
+  }
+  private guidePlanningVisibility(hide:boolean):void {
+    if(hide){
+      if(!this.guideHidden.length&&this.state?.phase==='deployment'){
+        const arena=this.game.scene.getScene('Arena') as unknown as {planningGrid?:Phaser.GameObjects.Graphics;deploymentGuide?:Phaser.GameObjects.Graphics;campLabels?:Phaser.GameObjects.GameObject[]};
+        const objects=[this.deploymentPanel,this.damageControls,this.soldiersControl,this.partyPanel,this.headerUtilities,this.stats,this.actionFeedback,arena.planningGrid,arena.deploymentGuide,...arena.campLabels??[]];
+        this.guideHidden=objects.filter((o):o is Phaser.GameObjects.GameObject & {visible:boolean;setVisible(value:boolean):unknown}=>!!o&&'visible' in o&&'setVisible' in o).map(object=>({object,visible:object.visible}));
+      }
+      for(const {object} of this.guideHidden)if(object.scene)object.setVisible(false);
+    }else{for(const {object,visible} of this.guideHidden)if(object.scene)object.setVisible(visible);this.guideHidden=[];}
   }
   private openControls():void {this.controlFocus=0;this.capturing=undefined;this.registry.set('controls-open',true);this.game.events.emit('controls-open',true);this.controlPanel.setVisible(true);this.renderControls();}
   private closeControls():void {this.capturing=undefined;this.registry.set('controls-open',false);this.registry.set('controls-capture',false);this.game.events.emit('controls-open',false);this.controlPanel.setVisible(false);}
@@ -444,7 +464,7 @@ export class InterfaceScene extends Phaser.Scene {
     container.add([shade,frame,text]);return container;
   }
   private apply(state:InterfaceState):void {
-    if(!state)return;this.touchControls.setEnabled(this.touchUsed&&state.phase==='battle'&&state.playing&&!state.paused&&!state.settingsOpen);if(state.paused&&!this.state?.paused)this.pauseFocus=0;this.state=state;this.updatePauseFocus();if(state.phase!=='battle'||state.result)this.warning.setText('');
+    if(!state)return;this.touchControls.setEnabled(!this.firstTimeGuide?.visible&&this.touchUsed&&state.phase==='battle'&&state.playing&&!state.paused&&!state.settingsOpen);if(this.firstTimeGuide?.visible)this.touchControls.root.setVisible(this.touchUsed);if(state.paused&&!this.state?.paused)this.pauseFocus=0;this.state=state;this.updatePauseFocus();if(state.phase!=='battle'||state.result)this.warning.setText('');
     if(!state.playing){this.goldCounter.setVisible(false);this.cooldownBar.clear();this.cooldownText.setVisible(false);}
     this.menu.setVisible(!state.playing && !state.result && !state.settingsOpen);
     if(state.phase==='party')this.stats.setText(state.selectionMode==='player'?'Choose your party leader':'Select Companions');
@@ -472,7 +492,7 @@ export class InterfaceScene extends Phaser.Scene {
     this.headerUtilities.setVisible(!inBattle || state.phase==='deployment');this.menuButton.setVisible(inBattle); this.pauseButton.setVisible(state.playing && state.phase!=='deployment');
     this.notice.setVisible(inBattle && state.phase!=='deployment' && Boolean(this.notice.text)); this.instructions.setVisible(false);
     this.pauseText.setText(this.touchUsed?(state.paused?'▶':'Ⅱ'):(state.paused?'Resume':'Pause')).setAlpha(state.playing?1:.5);
-    this.settings.setVisible(state.settingsOpen);
+    this.settings.setVisible(state.settingsOpen);if(this.firstTimeGuide?.visible)this.guidePlanningVisibility(true);
     if(!state.paused)this.partyInfoOpen=false;
     this.pauseOverlay.setVisible(state.playing&&state.paused&&!state.settingsOpen&&!this.partyInfoOpen);
     this.partyInfo.setVisible(state.playing&&state.paused&&!state.settingsOpen&&this.partyInfoOpen);
@@ -493,4 +513,4 @@ export class InterfaceScene extends Phaser.Scene {
   }
 }
 
-interface TacticalMap {goal?:{x:number;y:number};rally?:{active:boolean;remaining:number;cooldown:number;available:boolean};missionIndex?:number;title?:string;objective?:string;objectiveStatus?:string;totalWaves?:number;gold?:number;camp?:{health:number;maxHealth:number};cooldown:{fraction:number;remaining:number;recovering:boolean};stagePhase:string;wave:number;remaining:number;elapsed:number;pending:number;boss?:{id?:CommanderId;name?:string;title?:string;phase?:string;enraged?:boolean;health:number;maxHealth:number};width:number;height:number;deploying:boolean;controlled:Hero;controlledPosition?:{x:number;y:number};selected:string;placed:number;total:number;party:{hero:Hero;placed:boolean;health:number;maxHealth?:number;level:number;xp:number;equippedWeaponId?:string;weaponCount?:number}[];allies:{x:number;y:number}[];enemies:{x:number;y:number}[];camera:{x:number;y:number;width:number;height:number};}
+interface TacticalMap {backgroundKey?:string;mapId?:string;objectiveKind?:string;goal?:{x:number;y:number};rally?:{active:boolean;remaining:number;cooldown:number;available:boolean};missionIndex?:number;title?:string;objective?:string;objectiveStatus?:string;totalWaves?:number;gold?:number;camp?:{health:number;maxHealth:number};cooldown:{fraction:number;remaining:number;recovering:boolean};stagePhase:string;wave:number;remaining:number;elapsed:number;pending:number;boss?:{id?:CommanderId;name?:string;title?:string;phase?:string;enraged?:boolean;health:number;maxHealth:number};width:number;height:number;deploying:boolean;controlled:Hero;controlledPosition?:{x:number;y:number};selected:string;placed:number;total:number;party:{hero:Hero;placed:boolean;health:number;maxHealth?:number;level:number;xp:number;equippedWeaponId?:string;weaponCount?:number}[];allies:{x:number;y:number}[];enemies:{x:number;y:number}[];camera:{x:number;y:number;width:number;height:number};}

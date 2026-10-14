@@ -1,0 +1,46 @@
+TEN-STAGE CAMPAIGN NATIVE-INPUT TRIAL — 2026-10-14 UTC
+Status: ALL TEN CHAPTERS WON. Native Finish campaign reached the campaign-complete screen; game-created save completion verified. Successful chapter clocks total 31m14s; real trial took about two hours including retries, source waits and pilot corrections.
+
+State-informed Playwright pilot; only native keyboard/mouse mutations, normal real time, default damage 50%; read-only scene/camera/navigation instrumentation. Not natural-human acceptance.
+Party: Chrom / Frederick / Lissa / Ricken. No direct HP, damage, gold, XP, wave, win, equipment or save mutations.
+
+CHAPTER RESULTS (game elapsed; party order as above)
+1. Reports from the East: 139s, 48 kills; HP 101/97/102/45; LV 2/2/3/2; +631 loot +80 reward; treasury 731. Exit reached. The party survived the attacks.
+2. The Village Watch: 163s, 32 kills; HP 102/102/103/102; LV 3/3/4/3; +85 loot +100 reward; treasury 616. 2 attacks survived. The village stands.
+3. Through the Plegian Gate: 255s, 24 kills; HP 103/104/85/103; LV 4/4/5/4; +192 loot +110 reward; treasury 398. Exit reached. The party survived the attacks.
+4. The Mad King: 166s, 33 kills; HP 104/54/104/104; LV 5/5/7/5; +210 loot +150 reward; treasury 478. Gangrel defeated. The village stands.
+5. A Valmese Foothold: 186s, 48 kills; HP 102/107/32/105; LV 7/7/8/7; +493 loot +120 reward; treasury 631. Exit reached. The party survived the attacks.
+6. The Castle Siege: 175s, 23 kills; HP 0/40/79/18; LV 7/7/9/7; +135 loot +140 reward; treasury 626. The castle held. The attackers retreat.
+7. The Chon’sin Pass: 178s, 33 kills; HP 0/108/0/106; LV 8/8/10/8; +307 loot +160 reward; treasury 1093. Yen’fay defeated. The remaining guards surrender.
+8. The Conqueror: 198s, 25 kills; HP 0/69/0/107; LV 9/9/12/9; +100 loot +180 reward; treasury 423. Walhart defeated. The remaining guards surrender.
+9. The Grimleal Approach: 174s, 32 kills; HP 109/11/0/102; LV 10/10/12/10; +192 loot +180 reward; treasury 415. Aversa defeated. The remaining guards surrender.
+
+10. Break the Black Keep: 240s, 26 kills; HP 0/99/0/97; LV 11/11/13/11; XP 45/75/91/75; +112 loot +200 reward; treasury 367. Validar defeated. Remaining guards surrender. Campaign complete.
+
+DEFECT / STRATEGY NOTES
+Gate: standing at northern flag left12 due releases, no enemies, camera0,0/896x544. Native retreat made5spawn immediately. Authored open arrival collars fixed this; patched255s includes70s intentional north-flag check.
+Walhart: four defeats before198s win. Hammer+1 player control, Heal+3 restored, guard on visible windup and rally were decisive; ended Fred69/Ricken107, Chrom/Lissa fallen. Armor-tag bug later diagnosed by root, so winning frozen build did not apply intended Walhart effectiveness bonus.
+Aversa: Fortify purchase replaced Heal+3 and left43gold. First157s and later178.5s wave defeats. Winning174s run used Ricken Arcfire at boss and lateral movement on magic windup; Lissa fell. Exact staff setup was not verified for that win, result retained Fortify.
+Final: Thoron360 purchased with chapter9 rewards, replacing Arcfire+1;55gold remained. Three losses86.2/89.5/79.8s before boss; corrected verified-Physic attempt also lost80.27s,14kills,wave2 before Validar.
+AI-healer audit: caster was always considered after any wounded ally; root-approved critical-self-rescue fix now supplied for one bounded replay. Physic at earned Lissa stats heals22HP with about6.1s AI cadence. No cooldown retuning in the supplied fix.
+
+GEAR CHOICES
+Native forging: Falchion+3; starting Frederick lance+1; Heal+3; Fire+3; Elfire+1; replacement Hammer+1 and Arcfire+1. Native purchases Elfire160, Physic240, Hammer160+forge100, Arcfire250+forge100, Fortify380, Thoron360. Each choice is preserved in raw scene snapshots; attempted unaffordable purchases are not reported as acquisitions.
+Forge row clicks forge rather than equip; purchased items stay in bag unless equipped item is replaced at full capacity. Replacement modal names old and new item, but selecting another existing slot to replace requires battle F switching. This complicated staff choice and is a QoL limitation.
+
+Village Watch last observed 846/850; Mad King 866/900 at163s; Castle last observed368 at162s. Exact final objectiveHP not stored in result and not captured. Other chapters have no damageable victory objective.
+
+LIMITATIONS
+Several native setup key taps merged under frame cadence; failed equip assumptions were corrected with actual hero/weapon checks.
+Three early final losses had unverified staff setup. Fourth final loss verified Physic; Frederick inherited a sword and fell before a Hammer intervention.
+Multiple browser harness restarts used exact persistent game checkpoints and native Resume; no fabricated save. Initial incognito warmup was replayed fresh.
+No audio listening or video capture claim: headless Chromium was muted; screenshots/JSON are actual browser captures.
+Aversa/Yenfay visual sprite captures missed their brief fight boundaries; no positive visual QA claim for those sprites.
+
+FINAL FOLLOW-UP AND ACCEPTANCE
+The first final replay with the AI self-rescue patch lost at106.56s/21kills/wave3. Verified Hammer1.65s and Physic2.70s. NPC Lissa27HP at30.7s became49HP at32.7s while Chrom controlled, same level: actual automatic22HP self-rescue observed. A pilot maxHealth read bug later caused improper manual-healer intervention; that loss alone does not establish a balance defect.
+The next pilot corrected the maxHP source, never controlled Lissa after opening, sought visible health pickups and used native guard/dodge/rally. It lost116.49s/24kills with12 ordinary mixed enemies alive, pending0; boss never reached. Both replays retained actual earned levels/gold and native Resume.
+Parent approved a targeted authored FINAL-chapter pressure adjustment: ordinary budget36->24, hostile cap24->8, release11s, minimum phase45s, rest10s. Enemy healthScale2.5, damageScale1.7 and Validar2200HP unchanged. No global stat or cooldown tuning. Full reviewed source was copied to the isolated frozen server before the final run.
+First run of that adjusted chapter (v13) won240s. Hammer and Physic were verified via actual active weapon names at1.58s and2.52s; Ricken had Thoron. Controlled Chrom through the waves, left Lissa on Physic AI, switched fighters on falls, targeted only visible enemies, used normal health pickups/guard/rally. At127s17kills all four remained alive85/111/55/109HP. Chrom and Lissa subsequently fell; Frederick99HP and Ricken97HP won. Native Results then Finish campaign saved missionIndex10 and complete=true. No direct combat/equipment/save mutations.
+This proves a full functional route with this party and pilot after the documented source fixes. It does not establish natural-human fun, first-try balance or all-party coverage. Several repeated losses included pilot defects; source corrections and source freeze changes are explicit confounds. No positive live Validar sprite capture: the capture attempt occurred after victory. Actual result and completion PNGs were visually verified.
+Final setup: Falchion+3 / Hammer+1 / Physic / Thoron. No further purchase after the55gold pre-final treasury. NPC Physic remained equipped in the final result. Exact raw completed save and raw traces accompany this report.

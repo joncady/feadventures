@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import {COMMANDER_IDS} from '../data/commanders';
 import {CAMPAIGN_MAPS} from '../data/maps';
+import {EXPANDED_CAMPAIGN_MAPS} from '../data/campaign-expansion';
 import { MOVEMENT_ROWS } from '../data/animation-layout';
 import { AUDIO_ASSETS } from '../data/audio-assets';
 import { ENEMY_TYPES, HEROES, HERO_SHEETS } from '../data/config';
@@ -17,7 +18,7 @@ export class BootScene extends Phaser.Scene {
     this.load.image('objective-standard','maps/objective-standard.png');
     this.load.image('gold','maps/gold-icon.png');
     this.load.image('fire-bolt','maps/fire-bolt.png');
-    for(const map of CAMPAIGN_MAPS)this.load.image(map.backgroundKey,map.backgroundPath);
+    for(const map of new Map([...CAMPAIGN_MAPS,...EXPANDED_CAMPAIGN_MAPS].map(map=>[map.backgroundKey,map])).values())this.load.image(map.backgroundKey,map.backgroundPath);
     this.load.image('title', 'titleScreen.png');
     this.load.image('vulnerary', 'vulnerary.png');
     this.load.image('slash', 'slash.png');

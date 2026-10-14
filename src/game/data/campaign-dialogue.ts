@@ -1,4 +1,5 @@
 import type { Hero } from './config';
+import {EXPANDED_CHAPTERS,type CampaignId} from './campaign-catalog';
 export const MISSION_BRIEFS=[
  {title:'1 · Rumors on the East Road',objective:'Advance east. Fight through the bandits and reach the eastern road marker.',lines:['Reports of bandits on the eastern road. The village needs us before nightfall.','Then we move together. Keep an eye on the trees—an empty road can still hide an ambush.','Agreed. We clear a path, and nobody gets left behind.']},
  {title:'2 · The Village Holds',objective:'Protect the village through two attacks, then defeat Gangrel while the village stands.',lines:['Plegian raiders are closing on the village. Gangrel, their king, is following them himself.','We cannot cover every road alone. Give each companion a post and watch the approaches.','Hold through their first two attacks. When Gangrel arrives, stop him before he reaches the village.']},
@@ -6,4 +7,21 @@ export const MISSION_BRIEFS=[
  {title:'4 · Into the Dark Keep',objective:'Advance into the Black Keep and defeat Validar.',lines:['With the Valmese invasion turned back, reports point to a Grimleal gathering in the Black Keep. Their leader, Validar, is inside.','Validar serves the Grimleal, not Walhart. Watch his dark magic and move before the spell lands.','One last push. We fight our way forward—together.']},
 ] as const;
 // Original mission dialogue inspired by Awakening's companion-focused preparation scenes.
-export function missionDialogue(mission:number,party:Hero[]):{hero:Hero;text:string}[]{const brief=MISSION_BRIEFS[Math.min(3,Math.max(0,mission))];return brief.lines.map((text,i)=>({hero:party[i%Math.max(1,party.length)]??'chrom',text}));}
+export const EXPANDED_BRIEFS=[
+ {objective:'Survive three ambushes. Reach each road flag, then the eastern exit.',lines:['Bandits have been seen on the eastern road. We should reach the village before they do.','Stay together, but leave room to move. The trees are perfect cover for an ambush.','If one of us is surrounded, call the others over. We leave nobody behind.']},
+ {objective:'Protect the village through two attacks. Do not let its camp fall.',lines:['The villagers are sheltering here. The raiders are coming down both roads.','We can give each companion a post. Watch the village while the others handle the flanks.','Their first attack will not be their last. Save an opening to help whoever needs it.']},
+ {objective:'Survive the gate patrols. Reach both flags and leave through the north gate.',lines:['The bandits were only the beginning. Plegian troops are holding the northern gate.','Armor in front, archers behind. A straight charge would give them exactly what they want.','Let our magic open a path. We can approach from either side of the hall.']},
+ {objective:'Protect the village through two attacks, then defeat Gangrel.',lines:['Gangrel has followed his raiders to the village. The king of Plegia wants this fight himself.','He is quick, and that sword carries more than a blade. Watch before committing to an attack.','Keep someone near the villagers. Stopping their king means nothing if the village burns.']},
+ {objective:'Survive the Valmese patrols. Follow the flags to the inland exit.',lines:['Plegia is quiet for now. Across the water, Walhart’s armies have begun their own invasion.','The landing is narrow. Knights hold the road while spellcasters cover the beach.','We reach the inland path together. Their armor will not protect them from every weapon.']},
+ {objective:'Protect the castle through three assaults. The camp must survive.',lines:['The Valmese army has reached the castle. There are more entrances than we can hold alone.','The gates stay open for our fighters. Our archers can fire from behind the barricades.','When a line gives way, call for help. Then spread out again before the next assault.']},
+ {objective:'Survive the approach waves, then defeat Yen’fay.',lines:['Yen’fay guards the pass for Walhart. This will be no ordinary patrol.','His sword is fast. If we crowd the same opening, he can strike before we recover.','Hold the bend, watch his approach, and answer when he leaves an opening.']},
+ {objective:'Fight through the stronghold, then defeat Walhart.',lines:['Walhart waits in his stronghold. He believes strength alone gives him the right to rule.','His axe can break our formation, but a committed strike leaves him exposed.','We have come too far to rely on one fighter. Protect each other and take our chance.']},
+ {objective:'Survive the cultist attacks, then defeat Aversa.',lines:['Walhart has fallen. Now the reports lead back to the Grimleal, and Aversa is guarding their approach.','She serves Validar. Watch the sky: walls will not stop a flying spellcaster.','Our bows and wind magic can reach her. Keep moving before her spell arrives.']},
+ {objective:'Fight through the Black Keep and defeat Validar.',lines:['Validar is gathering the Grimleal inside the Black Keep. We stop the ritual here.','His guards will try to divide us. Watch the side rooms while we advance.','This is the last push. Whatever comes through those doors, we face it together.']},
+] as const;
+export function missionBrief(mission:number,campaignId:CampaignId='classic-four') {
+ if(campaignId==='classic-four')return MISSION_BRIEFS[Math.min(3,Math.max(0,mission))];
+ const index=Math.min(EXPANDED_BRIEFS.length-1,Math.max(0,mission));
+ return {title:`${index+1} · ${EXPANDED_CHAPTERS[index].title}`,...EXPANDED_BRIEFS[index]};
+}
+export function missionDialogue(mission:number,party:Hero[],campaignId:CampaignId='classic-four'):{hero:Hero;text:string}[]{const brief=missionBrief(mission,campaignId);return brief.lines.map((text,i)=>({hero:party[i%Math.max(1,party.length)]??'chrom',text}));}

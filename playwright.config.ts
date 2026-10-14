@@ -1,4 +1,5 @@
 import { defineConfig } from '@playwright/test';
+import { returningPlayerStorageState } from './tests/e2e/returning-player';
 export default defineConfig({
   // CI uses CPU-rendered WebGL; concurrent dense framebuffers starve game-clock checks.
   workers: process.env.CI ? 1 : undefined,
@@ -7,6 +8,8 @@ export default defineConfig({
   reporter: process.env.CI ? [['list'], ['html', { open: 'never' }]] : undefined,
   testDir: './tests/e2e', use: {
     baseURL: 'http://127.0.0.1:4173',
+    // Existing combat regressions exercise returning players; onboarding has fresh-state tests.
+    storageState: returningPlayerStorageState(),
     // Keep a useful artifact for genuine failures without recording passing runs.
     trace: process.env.CI ? 'retain-on-failure' : 'off',
     screenshot: 'only-on-failure',

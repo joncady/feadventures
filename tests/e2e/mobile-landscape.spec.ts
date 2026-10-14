@@ -1,7 +1,8 @@
+import { returningPlayerStorageState } from './returning-player';
 import { waitForAsyncReady } from './async-readiness';
 import {test,expect} from '@playwright/test';
-test('portrait touch device gates menu and restores it after rotation; narrow desktop stays usable',async({browser})=>{
- const context=await browser.newContext({viewport:{width:390,height:844},hasTouch:true,isMobile:true});const page=await context.newPage();const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('/');
+test('portrait touch device gates menu and restores it after rotation; narrow desktop stays usable',async({browser},testInfo)=>{
+ const context=await browser.newContext({storageState:returningPlayerStorageState(new URL(testInfo.project.use.baseURL!).origin),viewport:{width:390,height:844},hasTouch:true,isMobile:true});const page=await context.newPage();const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('/');
  await expect(page.locator('#landscape-required')).toBeVisible();await page.keyboard.press('Tab');expect(await page.evaluate(()=>document.activeElement===document.querySelector('#landscape-required button'))).toBe(true);await page.keyboard.press('Shift+Tab');expect(await page.evaluate(()=>document.activeElement===document.querySelector('#landscape-required button'))).toBe(true);await page.evaluate(()=>document.querySelector<HTMLButtonElement>('#landscape-required button')!.blur());
  await page.evaluate(()=>document.querySelector<HTMLElement>('#game')!.focus());await page.keyboard.press('Enter');await page.keyboard.press('Space');
  expect(await page.evaluate(async()=>{const{game}=await import(String('/src/main.ts'));return game.registry.get('landscape-required');})).toBe(true);
@@ -9,10 +10,10 @@ test('portrait touch device gates menu and restores it after rotation; narrow de
  await page.setViewportSize({width:844,height:390});await expect(page.locator('#landscape-required')).toBeHidden();await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);
  expect(await page.evaluate(async()=>{const{game}=await import(String('/src/main.ts'));return game.registry.get('interface-state').selectionMode;})).toBe('player');
  await page.screenshot({path:'docs/playtests/landscape-1.1.3/landscape-picker.png'});expect(errors).toEqual([]);await context.close();
- const desktop=await browser.newContext({viewport:{width:390,height:844},hasTouch:false});const d=await desktop.newPage();await d.goto('/');await d.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);await expect(d.locator('#landscape-required')).toBeHidden();await desktop.close();
+ const desktop=await browser.newContext({storageState:returningPlayerStorageState(new URL(testInfo.project.use.baseURL!).origin),viewport:{width:390,height:844},hasTouch:false});const d=await desktop.newPage();await d.goto('/');await d.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);await expect(d.locator('#landscape-required')).toBeHidden();await desktop.close();
 });
-test('rotation clears held sticks, resumes running battle and preserves manual pause',async({browser})=>{
- const context=await browser.newContext({viewport:{width:844,height:390},hasTouch:true,isMobile:true});const page=await context.newPage();await page.goto('/');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);
+test('rotation clears held sticks, resumes running battle and preserves manual pause',async({browser},testInfo)=>{
+ const context=await browser.newContext({storageState:returningPlayerStorageState(new URL(testInfo.project.use.baseURL!).origin),viewport:{width:844,height:390},hasTouch:true,isMobile:true});const page=await context.newPage();await page.goto('/');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);
  await page.evaluate(async()=>{const{game}=await import(String('/src/main.ts'));game.scene.start('Arena',{hero:'chrom',tactical:true,companions:[],missionIndex:0});});
  await waitForAsyncReady(page, async()=>{const{game}=await import(String('/src/main.ts'));return game.scene.getScene('Arena').player?.active;});
  await page.evaluate(async()=>{const{game}=await import(String('/src/main.ts'));const a=game.scene.getScene('Arena');a.autoPlaceDeployment();a.launchBattle();a.releases=[];a.enemies.clear(true,true);game.events.emit('ui-state',{...game.registry.get('interface-state'),phase:'battle',playing:true,paused:false,settingsOpen:false});});

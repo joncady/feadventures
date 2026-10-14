@@ -918,5 +918,59 @@
       584
     ],
     "purpose": "Genuine selected speaking expression"
+  },
+  "yenfay-animated.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63524/",
+    "uploader": "Ploaj",
+    "origin": [
+      0,
+      0
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "processing": "Exact red palette ten rows, magenta-only transparency, no movement flipping; Swordmaster block."
+  },
+  "yenfayPortrait.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63397/",
+    "uploader": "Ploaj",
+    "crop": [
+      2,
+      298,
+      256,
+      554
+    ]
+  },
+  "aversa-animated.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63501/",
+    "uploader": "Ploaj",
+    "origin": [
+      0,
+      2560
+    ],
+    "sourceFrame": [
+      32,
+      32
+    ],
+    "outputFrame": [
+      50,
+      50
+    ],
+    "processing": "Exact red palette ten rows, magenta-only transparency, no movement flipping; Dark Flier flying block. Source action is a physical weapon swing, so idle frames reused for tome casting."
+  },
+  "aversaPortrait.png": {
+    "source": "https://www.spriters-resource.com/3ds/fireemblemawakening/asset/63358/",
+    "uploader": "Ploaj",
+    "crop": [
+      2,
+      298,
+      256,
+      554
+    ]
   }
 }

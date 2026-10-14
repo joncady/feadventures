@@ -1,0 +1,389 @@
+{
+  "active": [
+    "Arena",
+    "Interface"
+  ],
+  "interface": {
+    "preparationEditing": false,
+    "hero": "chrom",
+    "companions": [
+      "frederick",
+      "lissa",
+      "ricken"
+    ],
+    "selectionMode": "player",
+    "phase": "battle",
+    "tactical": true,
+    "ready": true,
+    "playing": true,
+    "paused": false,
+    "muted": false,
+    "settingsOpen": false,
+    "result": "",
+    "audio": {
+      "music": 0.18,
+      "effects": 1,
+      "voices": 0.6,
+      "characterVoices": true,
+      "spellEffect": "fire-cast"
+    }
+  },
+  "lastResult": {
+    "result": {
+      "missionIndex": 6,
+      "missionId": "chonsin-pass",
+      "reason": "Yen’fay defeated. The remaining guards surrender.",
+      "kills": 33,
+      "elapsed": 178,
+      "gold": 307,
+      "reward": 160,
+      "progressBefore": [
+        {
+          "hero": "chrom",
+          "level": 7,
+          "xp": 56
+        },
+        {
+          "hero": "frederick",
+          "level": 7,
+          "xp": 77
+        },
+        {
+          "hero": "lissa",
+          "level": 9,
+          "xp": 87
+        },
+        {
+          "hero": "ricken",
+          "level": 7,
+          "xp": 77
+        }
+      ]
+    },
+    "campaignId": "awakening-ten",
+    "members": [
+      {
+        "hero": "chrom",
+        "health": 0,
+        "progress": {
+          "level": 8,
+          "xp": 58,
+          "stats": {
+            "hp": 107,
+            "str": 24,
+            "mag": 15,
+            "skill": 17,
+            "speed": 12,
+            "luck": 14,
+            "def": 2,
+            "res": 2
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "falchion",
+              "uses": null,
+              "forge": 3
+            },
+            {
+              "weaponId": "iron-sword",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "frederick",
+        "health": 108,
+        "progress": {
+          "level": 8,
+          "xp": 82,
+          "stats": {
+            "hp": 108,
+            "str": 24,
+            "mag": 16,
+            "skill": 12,
+            "speed": 11,
+            "luck": 12,
+            "def": 6,
+            "res": 1
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "iron-lance",
+              "uses": null,
+              "forge": 1
+            },
+            {
+              "weaponId": "iron-sword",
+              "uses": null
+            },
+            {
+              "weaponId": "iron-axe",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "lissa",
+        "health": 0,
+        "progress": {
+          "level": 10,
+          "xp": 98,
+          "stats": {
+            "hp": 106,
+            "str": 26,
+            "mag": 19,
+            "skill": 13,
+            "speed": 13,
+            "luck": 15,
+            "def": 2,
+            "res": 4
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "heal",
+              "uses": null,
+              "forge": 3
+            },
+            {
+              "weaponId": "iron-axe",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 0
+        }
+      },
+      {
+        "hero": "ricken",
+        "health": 106,
+        "progress": {
+          "level": 8,
+          "xp": 82,
+          "stats": {
+            "hp": 106,
+            "str": 21,
+            "mag": 17,
+            "skill": 12,
+            "speed": 14,
+            "luck": 14,
+            "def": 1,
+            "res": 2
+          },
+          "base": {
+            "hp": 100,
+            "str": 20,
+            "mag": 15,
+            "skill": 10,
+            "speed": 10,
+            "luck": 10,
+            "def": 0,
+            "res": 0
+          }
+        },
+        "loadout": {
+          "items": [
+            {
+              "weaponId": "fire",
+              "uses": null,
+              "forge": 3
+            },
+            {
+              "weaponId": "thunder",
+              "uses": null
+            },
+            {
+              "weaponId": "elfire",
+              "uses": null
+            }
+          ],
+          "equippedSlot": 2
+        }
+      }
+    ],
+    "gold": 1093,
+    "heldKeys": []
+  },
+  "chapter": 7,
+  "map": "conqueror-hall",
+  "health": 79,
+  "pos": {
+    "x": 581.1450640002023,
+    "y": 181.85900952673677
+  },
+  "pending": 0,
+  "releases": [],
+  "camera": {
+    "type": 5,
+    "x": 98,
+    "y": 0,
+    "width": 896,
+    "height": 544
+  },
+  "terrain": [
+    [
+      0,
+      0,
+      1024,
+      32
+    ],
+    [
+      0,
+      32,
+      32,
+      224
+    ],
+    [
+      992,
+      32,
+      32,
+      224
+    ],
+    [
+      224,
+      96,
+      64,
+      64
+    ],
+    [
+      736,
+      96,
+      64,
+      64
+    ],
+    [
+      0,
+      256,
+      32,
+      256
+    ],
+    [
+      992,
+      256,
+      32,
+      256
+    ],
+    [
+      32,
+      256,
+      224,
+      32
+    ],
+    [
+      768,
+      256,
+      224,
+      32
+    ],
+    [
+      224,
+      352,
+      64,
+      64
+    ],
+    [
+      736,
+      352,
+      64,
+      64
+    ],
+    [
+      0,
+      736,
+      1024,
+      32
+    ],
+    [
+      0,
+      512,
+      32,
+      224
+    ],
+    [
+      992,
+      512,
+      32,
+      224
+    ],
+    [
+      32,
+      512,
+      224,
+      32
+    ],
+    [
+      768,
+      512,
+      224,
+      32
+    ]
+  ],
+  "totalenemies": 0,
+  "enemyUnits": [],
+  "spawnPoints": [
+    {
+      "x": 48,
+      "y": 112
+    },
+    {
+      "x": 128,
+      "y": 672
+    },
+    {
+      "x": 48,
+      "y": 384
+    },
+    {
+      "x": 128,
+      "y": 672
+    }
+  ],
+  "objective": {
+    "kind": "boss",
+    "victory": "defeat-commander",
+    "label": "Defeat Walhart in his stronghold",
+    "x": 512,
+    "y": 128,
+    "radius": 96
+  },
+  "phase": "rest",
+  "wave": 1
+}

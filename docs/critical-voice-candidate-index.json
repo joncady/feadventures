@@ -1,0 +1,632 @@
+[
+  {
+    "hero": "chrom",
+    "name": "SE_VOICE_CHROM_CUTIN1_1.wav",
+    "localPath": "audio-review/399888/421-SE_VOICE_CHROM_CUTIN1_1.wav",
+    "archive": "399888",
+    "durationSeconds": 0.97,
+    "sha256": "4beed351fae47ecdf8be4ef30e489cbab44ca55678d3070934e78d64edfa769e",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "chrom",
+    "name": "SE_VOICE_CHROM_CUTIN1_2.wav",
+    "localPath": "audio-review/399888/422-SE_VOICE_CHROM_CUTIN1_2.wav",
+    "archive": "399888",
+    "durationSeconds": 1.22,
+    "sha256": "d409cec9b83cfc012034182e198c32d2d9bff177b635b8435dc6a4d35e98dd36",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "chrom",
+    "name": "SE_VOICE_CHROM_CUTIN1_3.wav",
+    "localPath": "audio-review/399888/423-SE_VOICE_CHROM_CUTIN1_3.wav",
+    "archive": "399888",
+    "durationSeconds": 1.158,
+    "sha256": "76f57f6430d77327e265e96c9f8013423a36a484a2ae09531d423769c06e9cfc",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "chrom",
+    "name": "SE_VOICE_CHROM_CUTIN2_1.wav",
+    "localPath": "audio-review/399888/424-SE_VOICE_CHROM_CUTIN2_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.314,
+    "sha256": "176a9545a0a5501f8e1d30fb70c054e06fd9aab590724d40a755dc3c5f8f2615",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "lucina",
+    "name": "SE_VOICE_MARTH_CUTIN1_1.wav",
+    "localPath": "audio-review/399888/2081-SE_VOICE_MARTH_CUTIN1_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.095,
+    "sha256": "fe18b5781b69dd456276b166f3e32c998bb5958eed31c684a705281526b6d484",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "lucina",
+    "name": "SE_VOICE_MARTH_CUTIN1_2.wav",
+    "localPath": "audio-review/399888/2082-SE_VOICE_MARTH_CUTIN1_2.wav",
+    "archive": "399888",
+    "durationSeconds": 1.126,
+    "sha256": "951adebae3224935bc6e9386e13a8f3f59f2d5e82c3d7a59f5e01367b595ce17",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "lucina",
+    "name": "SE_VOICE_MARTH_CUTIN1_3.wav",
+    "localPath": "audio-review/399888/2083-SE_VOICE_MARTH_CUTIN1_3.wav",
+    "archive": "399888",
+    "durationSeconds": 1.408,
+    "sha256": "7eb29e4a02e7bd54b440e41d89d00132a62e67762877a4d448719a651b108671",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "lucina",
+    "name": "SE_VOICE_MARTH_CUTIN2_1.wav",
+    "localPath": "audio-review/399888/2084-SE_VOICE_MARTH_CUTIN2_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.252,
+    "sha256": "5608362513bb9f14e2f83eb420dd255206120da0130eea09528510911cc2d518",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "frederick",
+    "name": "SE_VOICE_FREDERIK_CUTIN1_1.wav",
+    "localPath": "audio-review/399888/1096-SE_VOICE_FREDERIK_CUTIN1_1.wav",
+    "archive": "399888",
+    "durationSeconds": 0.532,
+    "sha256": "593c1d0d3690b888e01fc5e8770be8b6e6986e883e2d7bcb76c61080da7d5ad4",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "frederick",
+    "name": "SE_VOICE_FREDERIK_CUTIN1_2.wav",
+    "localPath": "audio-review/399888/1097-SE_VOICE_FREDERIK_CUTIN1_2.wav",
+    "archive": "399888",
+    "durationSeconds": 1.439,
+    "sha256": "9c487821040d04c8046230f65117b34fa9e6541b0add41ec5ec717a009089be1",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "frederick",
+    "name": "SE_VOICE_FREDERIK_CUTIN1_3.wav",
+    "localPath": "audio-review/399888/1098-SE_VOICE_FREDERIK_CUTIN1_3.wav",
+    "archive": "399888",
+    "durationSeconds": 0.845,
+    "sha256": "299d12352cae6d209d50e10f44f1f3c9cfe9f5c2122d3106cfb1e5437f5fbaa0",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "frederick",
+    "name": "SE_VOICE_FREDERIK_CUTIN2_1.wav",
+    "localPath": "audio-review/399888/1099-SE_VOICE_FREDERIK_CUTIN2_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.502,
+    "sha256": "e51d7feb8c29b09a7fffb9d54c2ba15aeb05e4a00f9a26bb44edc5831ecbc851",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "virion",
+    "name": "SE_VOICE_VIAUR_CUTIN1_1.wav",
+    "localPath": "audio-review/399888/3531-SE_VOICE_VIAUR_CUTIN1_1.wav",
+    "archive": "399888",
+    "durationSeconds": 2.065,
+    "sha256": "ccadf1c7a91345a79eef0bd9a84946a3406d588fb8efa3757d6b0329d8667534",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "virion",
+    "name": "SE_VOICE_VIAUR_CUTIN1_2.wav",
+    "localPath": "audio-review/399888/3532-SE_VOICE_VIAUR_CUTIN1_2.wav",
+    "archive": "399888",
+    "durationSeconds": 1.815,
+    "sha256": "18d03e6cd36a25a55a2f2b995be197018541dff726f310087a29d991acd76a5f",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "virion",
+    "name": "SE_VOICE_VIAUR_CUTIN1_3.wav",
+    "localPath": "audio-review/399888/3533-SE_VOICE_VIAUR_CUTIN1_3.wav",
+    "archive": "399888",
+    "durationSeconds": 0.626,
+    "sha256": "6fb9456802d0d690daa22e396959c3fd5911f9a12e8fa333da70f86ea83ec034",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "virion",
+    "name": "SE_VOICE_VIAUR_CUTIN2_1.wav",
+    "localPath": "audio-review/399888/3534-SE_VOICE_VIAUR_CUTIN2_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.533,
+    "sha256": "529cd8672efa4f15e0af330d068a520c9f6f2d33e7ae42fd0264cb1ab0529d55",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "virion",
+    "name": "SE_VOICE_VIAUR_CUTIN2_1_ALT.wav",
+    "localPath": "audio-review/399888/3535-SE_VOICE_VIAUR_CUTIN2_1_ALT.wav",
+    "archive": "399888",
+    "durationSeconds": 1.752,
+    "sha256": "b08a57f9a8fef48b7b76076024665f91e001f0d9ba85a7f9b6d378f58697bdfd",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "sumia",
+    "name": "SE_VOICE_SMIA_CUTIN1_1.wav",
+    "localPath": "audio-review/399888/3078-SE_VOICE_SMIA_CUTIN1_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.001,
+    "sha256": "195915cceb9774cfe835345ada5b7fd65840a3d1503631225735ddce72c6849d",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "sumia",
+    "name": "SE_VOICE_SMIA_CUTIN1_2.wav",
+    "localPath": "audio-review/399888/3079-SE_VOICE_SMIA_CUTIN1_2.wav",
+    "archive": "399888",
+    "durationSeconds": 0.782,
+    "sha256": "e2f909f9c6cbee5d4a7f49f15f215ae90cce1ecaa648eb848ce88181a38f0d2a",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "sumia",
+    "name": "SE_VOICE_SMIA_CUTIN1_3.wav",
+    "localPath": "audio-review/399888/3080-SE_VOICE_SMIA_CUTIN1_3.wav",
+    "archive": "399888",
+    "durationSeconds": 1.189,
+    "sha256": "35d362ca7f3e3470910c15d2acbfa0e0a5c4ef9fb95dd59a24bcc4230637856d",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "sumia",
+    "name": "SE_VOICE_SMIA_CUTIN2_1.wav",
+    "localPath": "audio-review/399888/3081-SE_VOICE_SMIA_CUTIN2_1.wav",
+    "archive": "399888",
+    "durationSeconds": 0.939,
+    "sha256": "e70ab6d4865622a7c30cb262699227223d08ea30f4226004c3aee3c6e2de44ba",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "morgan",
+    "name": "SE_VOICE_MARC_M_CUTIN1_1.wav",
+    "localPath": "audio-review/399888/1911-SE_VOICE_MARC_M_CUTIN1_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.345,
+    "sha256": "95074b74410751379ebd204a2583e8446c777689540be882fcd6e1014a3ed694",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "morgan",
+    "name": "SE_VOICE_MARC_M_CUTIN1_2.wav",
+    "localPath": "audio-review/399888/1912-SE_VOICE_MARC_M_CUTIN1_2.wav",
+    "archive": "399888",
+    "durationSeconds": 0.782,
+    "sha256": "ed2117427bc8fef15e264d858a0e7128c6aedb2a3e7ed9af7aad2fcb9cbe4333",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "morgan",
+    "name": "SE_VOICE_MARC_M_CUTIN1_3.wav",
+    "localPath": "audio-review/399888/1913-SE_VOICE_MARC_M_CUTIN1_3.wav",
+    "archive": "399888",
+    "durationSeconds": 0.688,
+    "sha256": "c9db9688664c1b06305daa7256df3bc403c24446de5bd7a40d506f3e8f8e12b6",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "morgan",
+    "name": "SE_VOICE_MARC_M_CUTIN2_1.wav",
+    "localPath": "audio-review/399888/1914-SE_VOICE_MARC_M_CUTIN2_1.wav",
+    "archive": "399888",
+    "durationSeconds": 0.688,
+    "sha256": "de3c7c89293a03db5d93d55c4817a08f9fb3553be346fe161463fc4461ac9033",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "cordelia",
+    "name": "SE_VOICE_TIAMO_CUTIN1_1.wav",
+    "localPath": "audio-review/399888/3257-SE_VOICE_TIAMO_CUTIN1_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.314,
+    "sha256": "1da3b48876d7b1dab54bb5c321c11e085b29f9cdd48589858a79aa0928ff0eef",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "cordelia",
+    "name": "SE_VOICE_TIAMO_CUTIN1_2.wav",
+    "localPath": "audio-review/399888/3258-SE_VOICE_TIAMO_CUTIN1_2.wav",
+    "archive": "399888",
+    "durationSeconds": 1.126,
+    "sha256": "48a5e383f2a9ed06fd090943593f86ffe3b9edcb556d212e0ca9342844f7fb3d",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "cordelia",
+    "name": "SE_VOICE_TIAMO_CUTIN1_3.wav",
+    "localPath": "audio-review/399888/3259-SE_VOICE_TIAMO_CUTIN1_3.wav",
+    "archive": "399888",
+    "durationSeconds": 0.907,
+    "sha256": "269c2e73a7152f1a4e3eb2875e108528fa5a341b9921d670e9ff6285598ba272",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "cordelia",
+    "name": "SE_VOICE_TIAMO_CUTIN2_1.wav",
+    "localPath": "audio-review/399888/3260-SE_VOICE_TIAMO_CUTIN2_1.wav",
+    "archive": "399888",
+    "durationSeconds": 0.907,
+    "sha256": "b33ba67438900c33b28e9bb792aa98c2315e70bcb5992d7ded10adf35df9d449",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "lissa",
+    "name": "SE_VOICE_LIZ_CUTIN1_1.wav",
+    "localPath": "audio-review/399888/1719-SE_VOICE_LIZ_CUTIN1_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.408,
+    "sha256": "90b8809a6e55b416f00c7340dbe0f24dd35b2615ef170dc1f9642d0687fea8f1",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "lissa",
+    "name": "SE_VOICE_LIZ_CUTIN1_2.wav",
+    "localPath": "audio-review/399888/1720-SE_VOICE_LIZ_CUTIN1_2.wav",
+    "archive": "399888",
+    "durationSeconds": 1.22,
+    "sha256": "7a9e8334e0f05a5a42363b7bb130606b0cac73937ab0da44ce32b3605fe201c7",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "lissa",
+    "name": "SE_VOICE_LIZ_CUTIN1_3.wav",
+    "localPath": "audio-review/399888/1721-SE_VOICE_LIZ_CUTIN1_3.wav",
+    "archive": "399888",
+    "durationSeconds": 1.314,
+    "sha256": "e99ea76577171582356e80be3361e3b385c16538c1b3991fe3debdc692d96889",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "lissa",
+    "name": "SE_VOICE_LIZ_CUTIN2_1.wav",
+    "localPath": "audio-review/399888/1722-SE_VOICE_LIZ_CUTIN2_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.439,
+    "sha256": "d4e9b4637234fddcb35cb358425b7cd835de94595764f689a6fb356f5f730ff6",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "lonqu",
+    "name": "SE_VOICE_RONKUU_CUTIN1_1.wav",
+    "localPath": "audio-review/399888/2776-SE_VOICE_RONKUU_CUTIN1_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.158,
+    "sha256": "2eafc2317620323256673e63b0b3dbff0fd3aeb2b3b7214811d56c0152912f96",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "lonqu",
+    "name": "SE_VOICE_RONKUU_CUTIN1_2.wav",
+    "localPath": "audio-review/399888/2777-SE_VOICE_RONKUU_CUTIN1_2.wav",
+    "archive": "399888",
+    "durationSeconds": 1.064,
+    "sha256": "57da528bd1855dec9d22312c3676ea2a6a02c4a8beae5ada38eb096ffd322184",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "lonqu",
+    "name": "SE_VOICE_RONKUU_CUTIN1_3.wav",
+    "localPath": "audio-review/399888/2778-SE_VOICE_RONKUU_CUTIN1_3.wav",
+    "archive": "399888",
+    "durationSeconds": 0.939,
+    "sha256": "73058f4d1f8389c8655533af95cea78daa5b5572b801a1e1fd3cec47f6669757",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "lonqu",
+    "name": "SE_VOICE_RONKUU_CUTIN2_1.wav",
+    "localPath": "audio-review/399888/2779-SE_VOICE_RONKUU_CUTIN2_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.22,
+    "sha256": "e65dee3115209f1c14773310ee96229f17f82f622669e230f2c55e1e1b6d9414",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "miriel",
+    "name": "SE_VOICE_MYRIEL_CUTIN1_1.wav",
+    "localPath": "audio-review/399888/2156-SE_VOICE_MYRIEL_CUTIN1_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.345,
+    "sha256": "985dc80152aa4465647ef5d16e1b93dcc834c984703fec9fc5867939be2d5d4f",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "miriel",
+    "name": "SE_VOICE_MYRIEL_CUTIN1_2.wav",
+    "localPath": "audio-review/399888/2157-SE_VOICE_MYRIEL_CUTIN1_2.wav",
+    "archive": "399888",
+    "durationSeconds": 2.065,
+    "sha256": "5ea6b3e949488a58bf893e9d507037691610c6bc4b83546f4407c55dfa1c43ab",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "miriel",
+    "name": "SE_VOICE_MYRIEL_CUTIN1_3.wav",
+    "localPath": "audio-review/399888/2158-SE_VOICE_MYRIEL_CUTIN1_3.wav",
+    "archive": "399888",
+    "durationSeconds": 1.533,
+    "sha256": "e42cc614bdb53ebf6c1f353b597767d4486c7f390e9852d1befd9b32f0f08a33",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "miriel",
+    "name": "SE_VOICE_MYRIEL_CUTIN2_1.wav",
+    "localPath": "audio-review/399888/2159-SE_VOICE_MYRIEL_CUTIN2_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.564,
+    "sha256": "75416602d858c934afc4f466cb46823a627054227e82bbe2f4f585f6ee085e65",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "ricken",
+    "name": "SE_VOICE_LICHT_CUTIN1_1.wav",
+    "localPath": "audio-review/399888/1660-SE_VOICE_LICHT_CUTIN1_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.126,
+    "sha256": "3d4dc0588e90fee897b8e78495941d90733bf36555e8a100660feac0ccc2f6fa",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "ricken",
+    "name": "SE_VOICE_LICHT_CUTIN1_2.wav",
+    "localPath": "audio-review/399888/1661-SE_VOICE_LICHT_CUTIN1_2.wav",
+    "archive": "399888",
+    "durationSeconds": 1.189,
+    "sha256": "6ea41125be07281b5087fe97d0815584b80d0b451e94640d220026f4af1d7931",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "ricken",
+    "name": "SE_VOICE_LICHT_CUTIN1_3.wav",
+    "localPath": "audio-review/399888/1662-SE_VOICE_LICHT_CUTIN1_3.wav",
+    "archive": "399888",
+    "durationSeconds": 0.782,
+    "sha256": "5559650838d2b386aed3d62c479ea15cfe86469f96c9744e3093558e77a47cc5",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "ricken",
+    "name": "SE_VOICE_LICHT_CUTIN2_1.wav",
+    "localPath": "audio-review/399888/1663-SE_VOICE_LICHT_CUTIN2_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.189,
+    "sha256": "d2b5281dc95b325ceac49d542432deb1daf01ed983b7f21eaee4453e04e5501f",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "stahl",
+    "name": "SE_VOICE_SORT_CUTIN1_1.wav",
+    "localPath": "audio-review/399888/3201-SE_VOICE_SORT_CUTIN1_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.126,
+    "sha256": "6e08aae396e6b8b3c6f28c272624cfe6a594a7c7f3752f535e8626cc230095a9",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "stahl",
+    "name": "SE_VOICE_SORT_CUTIN1_2.wav",
+    "localPath": "audio-review/399888/3202-SE_VOICE_SORT_CUTIN1_2.wav",
+    "archive": "399888",
+    "durationSeconds": 0.501,
+    "sha256": "6fc86ab9887f06eaa280fafd5fffeaf57621217251a5bbb91486d910d59bdcd5",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "stahl",
+    "name": "SE_VOICE_SORT_CUTIN1_3.wav",
+    "localPath": "audio-review/399888/3203-SE_VOICE_SORT_CUTIN1_3.wav",
+    "archive": "399888",
+    "durationSeconds": 1.189,
+    "sha256": "1d074dee8715afb14edba62d06be83aa08de87e58a8df606c224af78a60efda8",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "stahl",
+    "name": "SE_VOICE_SORT_CUTIN2_1.wav",
+    "localPath": "audio-review/399888/3204-SE_VOICE_SORT_CUTIN2_1.wav",
+    "archive": "399888",
+    "durationSeconds": 0.626,
+    "sha256": "674d8539e43d7a29db83a60ecde725f5d1ea71c8cf268b3bc5d082fee9477534",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "sully",
+    "name": "SE_VOICE_SOIREE_CUTIN1_1.wav",
+    "localPath": "audio-review/399888/3141-SE_VOICE_SOIREE_CUTIN1_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.314,
+    "sha256": "5c3d92017631e62866a80f5814e633ef1592de53acd00c13fb1f43a87c895be4",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "sully",
+    "name": "SE_VOICE_SOIREE_CUTIN1_2.wav",
+    "localPath": "audio-review/399888/3142-SE_VOICE_SOIREE_CUTIN1_2.wav",
+    "archive": "399888",
+    "durationSeconds": 1.69,
+    "sha256": "1f0c24f30c36652a4544ebef34eea9da3d7c6da8c5e57f524c16a2e0db588863",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "sully",
+    "name": "SE_VOICE_SOIREE_CUTIN1_3.wav",
+    "localPath": "audio-review/399888/3143-SE_VOICE_SOIREE_CUTIN1_3.wav",
+    "archive": "399888",
+    "durationSeconds": 0.97,
+    "sha256": "bbc8af33ed4a22f8bb5c5fc1f7dd982d3a1ce964013afa31116ef4b573d24868",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "sully",
+    "name": "SE_VOICE_SOIREE_CUTIN2_1.wav",
+    "localPath": "audio-review/399888/3144-SE_VOICE_SOIREE_CUTIN2_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.189,
+    "sha256": "e1e9822062c4dfc2f5102bd346c705739a7646431873e39c44d4d8d16a0c82c1",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "tharja",
+    "name": "SE_VOICE_SALLYA_CUTIN1_1.wav",
+    "localPath": "audio-review/399888/2831-SE_VOICE_SALLYA_CUTIN1_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.783,
+    "sha256": "65c16d7dab884862ca32e63842b871a5f90caebcaff1edb36519edd89a03e2b5",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "tharja",
+    "name": "SE_VOICE_SALLYA_CUTIN1_2.wav",
+    "localPath": "audio-review/399888/2832-SE_VOICE_SALLYA_CUTIN1_2.wav",
+    "archive": "399888",
+    "durationSeconds": 0.97,
+    "sha256": "424d7fecebd7a96f417f5c599664dd45d0ed5cf22bc1de2f4d8c302a11842442",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "tharja",
+    "name": "SE_VOICE_SALLYA_CUTIN1_3.wav",
+    "localPath": "audio-review/399888/2833-SE_VOICE_SALLYA_CUTIN1_3.wav",
+    "archive": "399888",
+    "durationSeconds": 2.034,
+    "sha256": "c1d313a598752017988885a076c11adddc4cc40debc3cc6a1f6d213877fd28cc",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "tharja",
+    "name": "SE_VOICE_SALLYA_CUTIN2_1.wav",
+    "localPath": "audio-review/399888/2834-SE_VOICE_SALLYA_CUTIN2_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.658,
+    "sha256": "d12e3c042ed4d9191f45392a8ef924d620c3e56791511c5c6293d06072b4ca72",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "vaike",
+    "name": "SE_VOICE_WYCK_CUTIN1_1.wav",
+    "localPath": "audio-review/399888/3679-SE_VOICE_WYCK_CUTIN1_1.wav",
+    "archive": "399888",
+    "durationSeconds": 1.033,
+    "sha256": "bb0b8206aa9b04d12578e24fb1d3729531817ff4300fdbd1ea2c8b9bfd3c547b",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "vaike",
+    "name": "SE_VOICE_WYCK_CUTIN1_2.wav",
+    "localPath": "audio-review/399888/3680-SE_VOICE_WYCK_CUTIN1_2.wav",
+    "archive": "399888",
+    "durationSeconds": 1.408,
+    "sha256": "8ea5917896c2020ac47b87d23a7ab7a88769c3e47a6dcd012ef5e2615336bd02",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "vaike",
+    "name": "SE_VOICE_WYCK_CUTIN1_3.wav",
+    "localPath": "audio-review/399888/3681-SE_VOICE_WYCK_CUTIN1_3.wav",
+    "archive": "399888",
+    "durationSeconds": 2.065,
+    "sha256": "5949dccc1e5018c13656e429ae10e8c7f1b63bcf6e1f7ffd9e100edccafd4a57",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "vaike",
+    "name": "SE_VOICE_WYCK_CUTIN1_3_ALT.wav",
+    "localPath": "audio-review/399888/3682-SE_VOICE_WYCK_CUTIN1_3_ALT.wav",
+    "archive": "399888",
+    "durationSeconds": 1.658,
+    "sha256": "2af9e1002e27398bca82a9f7e6dec65771e8fe49ad75bab650ce29da6e722dc2",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "vaike",
+    "name": "SE_VOICE_WYCK_CUTIN2_1.wav",
+    "localPath": "audio-review/399888/3683-SE_VOICE_WYCK_CUTIN2_1.wav",
+    "archive": "399888",
+    "durationSeconds": 0.907,
+    "sha256": "cc71e70e2b8520676051a97a01efb4eebe216bcb3a147ca2e5b2375dc37cf918",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "robin",
+    "name": "SE_VOICE_PLAYER_M1_CUTIN1_1.wav",
+    "localPath": "audio-review/406669/225-SE_VOICE_PLAYER_M1_CUTIN1_1.wav",
+    "archive": "406669",
+    "durationSeconds": 1.502,
+    "sha256": "5b27fcf6a0e99885e495250f52b7073e659ad3ef6e8965d166dc9d690d0d7f97",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "robin",
+    "name": "SE_VOICE_PLAYER_M1_CUTIN1_2.wav",
+    "localPath": "audio-review/406669/226-SE_VOICE_PLAYER_M1_CUTIN1_2.wav",
+    "archive": "406669",
+    "durationSeconds": 0.813,
+    "sha256": "326ba0af385ef014e85272901f8837d5dccd7205b4a013e86892d4f80bb5d70b",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "robin",
+    "name": "SE_VOICE_PLAYER_M1_CUTIN1_3.wav",
+    "localPath": "audio-review/406669/227-SE_VOICE_PLAYER_M1_CUTIN1_3.wav",
+    "archive": "406669",
+    "durationSeconds": 0.97,
+    "sha256": "399f3101e8129e886f7930d301e195aee3910fa45e515936a70b104691b90273",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "robin",
+    "name": "SE_VOICE_PLAYER_M1_CUTIN2_1.wav",
+    "localPath": "audio-review/406669/228-SE_VOICE_PLAYER_M1_CUTIN2_1.wav",
+    "archive": "406669",
+    "durationSeconds": 0.688,
+    "sha256": "1ea613c945117e9e96a2214f5856989f5e05cc39552a5e1b3f3675b91dce12a5",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "robin-female",
+    "name": "SE_VOICE_PLAYER_F1_CUTIN1_1.wav",
+    "localPath": "audio-review/406669/7-SE_VOICE_PLAYER_F1_CUTIN1_1.wav",
+    "archive": "406669",
+    "durationSeconds": 1.408,
+    "sha256": "e32f8e57c7f75bcc1a964109b86b22b559e572c14dc404b325af1e0c7a5aedc3",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "robin-female",
+    "name": "SE_VOICE_PLAYER_F1_CUTIN1_2.wav",
+    "localPath": "audio-review/406669/8-SE_VOICE_PLAYER_F1_CUTIN1_2.wav",
+    "archive": "406669",
+    "durationSeconds": 0.782,
+    "sha256": "e02fb7cc955574ba31d6076d1d71b50b922d10bf3c0993ce0bc1bc19674928e0",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "robin-female",
+    "name": "SE_VOICE_PLAYER_F1_CUTIN1_3.wav",
+    "localPath": "audio-review/406669/9-SE_VOICE_PLAYER_F1_CUTIN1_3.wav",
+    "archive": "406669",
+    "durationSeconds": 1.064,
+    "sha256": "1508bc2398aefd9b7a9c98680ddbfceee490dd3f867d0e83d9984a3c8229b83a",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  },
+  {
+    "hero": "robin-female",
+    "name": "SE_VOICE_PLAYER_F1_CUTIN2_1.wav",
+    "localPath": "audio-review/406669/10-SE_VOICE_PLAYER_F1_CUTIN2_1.wav",
+    "archive": "406669",
+    "durationSeconds": 0.72,
+    "sha256": "4766bf0240a32e866194e18a01f61c210f0a1b22e929da693e334de1d919e0ef",
+    "status": "Pending audible audition: candidate filename alone is not a verified transcript"
+  }
+]

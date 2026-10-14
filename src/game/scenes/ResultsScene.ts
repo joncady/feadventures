@@ -1,8 +1,9 @@
 import Phaser from 'phaser';
 import {HERO_NAMES} from '../data/config';
-import {getMap} from '../data/maps';
+import {mapForCampaign} from '../data/campaign-expansion';
+import {missionIds,type CampaignId} from '../data/campaign-catalog';
 import type {CampaignMember, MissionResult} from '../systems/campaign';
-export interface ResultsData {result:MissionResult;members:CampaignMember[];gold:number;heldKeys?:string[];}
+export interface ResultsData {result:MissionResult;campaignId?:CampaignId;members:CampaignMember[];gold:number;heldKeys?:string[];}
 /** A frozen, explicit boundary between combat and the next mission. */
 export class ResultsScene extends Phaser.Scene {
  private dataState!:ResultsData;
@@ -12,7 +13,8 @@ export class ResultsScene extends Phaser.Scene {
  init(data:ResultsData):void {this.dataState=data;this.accepted=false;this.blockedKeys=new Set(data.heldKeys??[]);}
  create():void {
   this.cameras.main.setBackgroundColor('#132f3a');
-  const result=this.dataState.result,map=getMap(result.missionIndex);
+  const result=this.dataState.result,map=mapForCampaign(this.dataState.campaignId??'classic-four',result.missionIndex)!;
+  const final=result.missionIndex===missionIds(this.dataState.campaignId).length-1;
   this.add.image(448,272,map.backgroundKey).setDisplaySize(896,544).setAlpha(.18);
   this.add.nineslice(52,38,'ui-parchment',undefined,792,468,12,12,12,12).setOrigin(0);
   const text=(x:number,y:number,value:string,size=18)=>this.add.text(x,y,value,{fontFamily:'FE',fontSize:`${size}px`,color:'#44351e',wordWrap:{width:728}});
@@ -33,9 +35,9 @@ export class ResultsScene extends Phaser.Scene {
    const hp=member.health,max=member.progress.stats.hp;
    text(140,y+22,hp>0?`HP ${hp}/${max}`:'Fallen · returns next mission',12);
   });
-  text(84,424,result.missionIndex===3?'The eastern campaign is won.':'Full health restored before the next mission.',13);
+  text(84,424,final?'The campaign is won.':'Full health restored before the next mission.',13);
   const button=this.add.nineslice(448,467,'ui-parchment',undefined,230,38,10,10,10,10).setInteractive({useHandCursor:true}).setData('results-continue',true);
-  text(448,455,result.missionIndex===3?'Finish campaign':'Continue',19).setOrigin(.5,0);
+  text(448,455,final?'Finish campaign':'Continue',19).setOrigin(.5,0);
   const enteredAt=performance.now();
   button.on('pointerdown',()=>{if(performance.now()-enteredAt>=150)this.continue();});
   const key=(event:KeyboardEvent)=>{if(this.registry.get('controls-open'))return;if(this.blockedKeys.has(event.code)||event.repeat||event.code!=='Space'&&event.code!=='Enter')return;event.preventDefault();event.stopImmediatePropagation();this.continue();};
