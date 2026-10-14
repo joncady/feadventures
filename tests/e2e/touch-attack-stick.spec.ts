@@ -17,9 +17,9 @@ test('dual touch sticks aim through all angles and retain independent pointer ow
   const at=(x:number,y:number,id:number)=>({x:b.x+x*b.width/896,y:b.y+y*b.height/544,id});
   const move=at(l.joystick.x+l.radius*.7,l.joystick.y,1),aim=(x:number,y:number)=>at(l.attack.x+x*l.attack.radius*.8,l.attack.y+y*l.attack.radius*.8,2);
   expect(l.attack.radius*2.4*b.width/896).toBeGreaterThan(71);
-  // Commands form aligned columns in two rows, with full-sized targets clear of both sticks.
+  // Companion controls flank the wheel; the four lower commands remain below it.
   expect(new Set(l.actions.slice(0,6).map((action:any)=>action.y)).size).toBe(2);
-  for(let column=0;column<3;column++) expect(l.actions[column].x).toBe(l.actions[column+3].x);
+  expect(l.actions[0].y).toBe(l.attack.y);expect(l.actions[1].y).toBe(l.attack.y);expect(l.actions[0].x).toBeLessThan(l.attack.x);expect(l.actions[1].x).toBeGreaterThan(l.attack.x);expect(new Set(l.actions.slice(2).map((action:any)=>action.y)).size).toBe(1);
   expect(l.actions[0].x-l.actions[0].size/2).toBeGreaterThan(480); // Cooldown remains unobstructed at the bottom center.
   for(const action of l.actions.slice(0,6)){const dx=Math.max(0,Math.abs(l.joystick.x-action.x)-action.size/2),dy=Math.max(0,Math.abs(l.joystick.y-action.y)-action.size/2);expect(Math.hypot(dx,dy)).toBeGreaterThan(l.radius*1.2);}
   const minimapBottom=await page.evaluate(async()=>{const{game}=await import(String('/src/main.ts'));return 58+(game.registry.get('touch-minimap-height')??100);});expect(l.attack.y-l.attack.radius*1.2).toBeGreaterThanOrEqual(minimapBottom+8-0.01);

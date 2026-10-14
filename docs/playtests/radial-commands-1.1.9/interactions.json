@@ -1,0 +1,1408 @@
+{
+  "start": {
+    "hero": "chrom",
+    "hp": 100,
+    "last": 2792.7,
+    "pointer": false,
+    "guard": false,
+    "commands": [
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "‹"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "›"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "icon": "weapon-sword",
+        "label": "↻"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "⚑"
+      },
+      {
+        "visible": false,
+        "available": false,
+        "alpha": 0.35,
+        "input": false,
+        "label": "+"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "⛨"
+      }
+    ],
+    "layout": {
+      "joystick": {
+        "x": 90.19771653206188,
+        "y": 441.80228346793814
+      },
+      "radius": 68.49809711005156,
+      "attack": {
+        "x": 727.1323273328792,
+        "y": 317.72643281113164,
+        "radius": 74.5745412085239
+      },
+      "actions": [
+        {
+          "x": 596.8537662742044,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 857.410888391554,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 830.2477423372579,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 624.0169123285004,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 761.5041323343388,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": false,
+          "available": false
+        },
+        {
+          "x": 692.7605223314196,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        }
+      ]
+    }
+  },
+  "next": {
+    "hero": "frederick",
+    "hp": 100,
+    "last": 1647.4,
+    "pointer": false,
+    "guard": false,
+    "commands": [
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "‹"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "›"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "icon": "weapon-lance",
+        "label": "↻"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "⚑"
+      },
+      {
+        "visible": false,
+        "available": false,
+        "alpha": 0.35,
+        "input": false,
+        "label": "+"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "⛨"
+      }
+    ],
+    "layout": {
+      "joystick": {
+        "x": 90.19771653206188,
+        "y": 441.80228346793814
+      },
+      "radius": 68.49809711005156,
+      "attack": {
+        "x": 727.1323273328792,
+        "y": 317.72643281113164,
+        "radius": 74.5745412085239
+      },
+      "actions": [
+        {
+          "x": 596.8537662742044,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 857.410888391554,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 830.2477423372579,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 624.0169123285004,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 761.5041323343388,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": false,
+          "available": false
+        },
+        {
+          "x": 692.7605223314196,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        }
+      ]
+    }
+  },
+  "weapon": {
+    "hero": "frederick",
+    "hp": 100,
+    "last": 1791.4,
+    "pointer": false,
+    "guard": false,
+    "commands": [
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "‹"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "›"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "icon": "weapon-sword",
+        "label": "↻"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "⚑"
+      },
+      {
+        "visible": false,
+        "available": false,
+        "alpha": 0.35,
+        "input": false,
+        "label": "+"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "⛨"
+      }
+    ],
+    "layout": {
+      "joystick": {
+        "x": 90.19771653206188,
+        "y": 441.80228346793814
+      },
+      "radius": 68.49809711005156,
+      "attack": {
+        "x": 727.1323273328792,
+        "y": 317.72643281113164,
+        "radius": 74.5745412085239
+      },
+      "actions": [
+        {
+          "x": 596.8537662742044,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 857.410888391554,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 830.2477423372579,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 624.0169123285004,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 761.5041323343388,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": false,
+          "available": false
+        },
+        {
+          "x": 692.7605223314196,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        }
+      ]
+    }
+  },
+  "previous": {
+    "hero": "chrom",
+    "hp": 100,
+    "last": 2792.7,
+    "pointer": false,
+    "guard": false,
+    "commands": [
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "‹"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "›"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "icon": "weapon-sword",
+        "label": "↻"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "⚑"
+      },
+      {
+        "visible": false,
+        "available": false,
+        "alpha": 0.35,
+        "input": false,
+        "label": "+"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "⛨"
+      }
+    ],
+    "layout": {
+      "joystick": {
+        "x": 90.19771653206188,
+        "y": 441.80228346793814
+      },
+      "radius": 68.49809711005156,
+      "attack": {
+        "x": 727.1323273328792,
+        "y": 317.72643281113164,
+        "radius": 74.5745412085239
+      },
+      "actions": [
+        {
+          "x": 596.8537662742044,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 857.410888391554,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 830.2477423372579,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 624.0169123285004,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 761.5041323343388,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": false,
+          "available": false
+        },
+        {
+          "x": 692.7605223314196,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        }
+      ]
+    }
+  },
+  "rally": {
+    "hero": "chrom",
+    "hp": 100,
+    "last": 2792.7,
+    "pointer": false,
+    "guard": false,
+    "commands": [
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "‹"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "›"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "icon": "weapon-sword",
+        "label": "↻"
+      },
+      {
+        "visible": true,
+        "available": false,
+        "alpha": 0.35,
+        "input": true,
+        "label": "⚑"
+      },
+      {
+        "visible": false,
+        "available": false,
+        "alpha": 0.35,
+        "input": false,
+        "label": "+"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "⛨"
+      }
+    ],
+    "layout": {
+      "joystick": {
+        "x": 90.19771653206188,
+        "y": 441.80228346793814
+      },
+      "radius": 68.49809711005156,
+      "attack": {
+        "x": 727.1323273328792,
+        "y": 317.72643281113164,
+        "radius": 74.5745412085239
+      },
+      "actions": [
+        {
+          "x": 596.8537662742044,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 857.410888391554,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 830.2477423372579,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 624.0169123285004,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": false
+        },
+        {
+          "x": 761.5041323343388,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": false,
+          "available": false
+        },
+        {
+          "x": 692.7605223314196,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        }
+      ]
+    }
+  },
+  "dimRally": {
+    "hero": "chrom",
+    "hp": 100,
+    "last": 2792.7,
+    "pointer": false,
+    "guard": false,
+    "commands": [
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "‹"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "›"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "icon": "weapon-sword",
+        "label": "↻"
+      },
+      {
+        "visible": true,
+        "available": false,
+        "alpha": 0.35,
+        "input": true,
+        "label": "⚑"
+      },
+      {
+        "visible": false,
+        "available": false,
+        "alpha": 0.35,
+        "input": false,
+        "label": "+"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "⛨"
+      }
+    ],
+    "layout": {
+      "joystick": {
+        "x": 90.19771653206188,
+        "y": 441.80228346793814
+      },
+      "radius": 68.49809711005156,
+      "attack": {
+        "x": 727.1323273328792,
+        "y": 317.72643281113164,
+        "radius": 74.5745412085239
+      },
+      "actions": [
+        {
+          "x": 596.8537662742044,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 857.410888391554,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 830.2477423372579,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 624.0169123285004,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": false
+        },
+        {
+          "x": 761.5041323343388,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": false,
+          "available": false
+        },
+        {
+          "x": 692.7605223314196,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        }
+      ]
+    },
+    "unchangedAttack": true
+  },
+  "staffFull": {
+    "hero": "lissa",
+    "hp": 100,
+    "last": null,
+    "pointer": false,
+    "guard": false,
+    "commands": [
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "‹"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "›"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "icon": "weapon-staff",
+        "label": "↻"
+      },
+      {
+        "visible": true,
+        "available": false,
+        "alpha": 0.35,
+        "input": true,
+        "label": "⚑"
+      },
+      {
+        "visible": true,
+        "available": false,
+        "alpha": 0.35,
+        "input": true,
+        "label": "+"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "⛨"
+      }
+    ],
+    "layout": {
+      "joystick": {
+        "x": 90.19771653206188,
+        "y": 441.80228346793814
+      },
+      "radius": 68.49809711005156,
+      "attack": {
+        "x": 727.1323273328792,
+        "y": 317.72643281113164,
+        "radius": 74.5745412085239
+      },
+      "actions": [
+        {
+          "x": 596.8537662742044,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 857.410888391554,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 830.2477423372579,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 624.0169123285004,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": false
+        },
+        {
+          "x": 761.5041323343388,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": false
+        },
+        {
+          "x": 692.7605223314196,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        }
+      ]
+    }
+  },
+  "staffHurt": {
+    "hero": "lissa",
+    "hp": 50,
+    "last": null,
+    "pointer": false,
+    "guard": false,
+    "commands": [
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "‹"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "›"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "icon": "weapon-staff",
+        "label": "↻"
+      },
+      {
+        "visible": true,
+        "available": false,
+        "alpha": 0.35,
+        "input": true,
+        "label": "⚑"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "+"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "⛨"
+      }
+    ],
+    "layout": {
+      "joystick": {
+        "x": 90.19771653206188,
+        "y": 441.80228346793814
+      },
+      "radius": 68.49809711005156,
+      "attack": {
+        "x": 727.1323273328792,
+        "y": 317.72643281113164,
+        "radius": 74.5745412085239
+      },
+      "actions": [
+        {
+          "x": 596.8537662742044,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 857.410888391554,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 830.2477423372579,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 624.0169123285004,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": false
+        },
+        {
+          "x": 761.5041323343388,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 692.7605223314196,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        }
+      ]
+    }
+  },
+  "selfHealed": {
+    "hero": "lissa",
+    "hp": 65,
+    "last": 5692.6,
+    "pointer": false,
+    "guard": false,
+    "commands": [
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "‹"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "›"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "icon": "weapon-staff",
+        "label": "↻"
+      },
+      {
+        "visible": true,
+        "available": false,
+        "alpha": 0.35,
+        "input": true,
+        "label": "⚑"
+      },
+      {
+        "visible": true,
+        "available": false,
+        "alpha": 0.35,
+        "input": true,
+        "label": "+"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "⛨"
+      }
+    ],
+    "layout": {
+      "joystick": {
+        "x": 90.19771653206188,
+        "y": 441.80228346793814
+      },
+      "radius": 68.49809711005156,
+      "attack": {
+        "x": 727.1323273328792,
+        "y": 317.72643281113164,
+        "radius": 74.5745412085239
+      },
+      "actions": [
+        {
+          "x": 596.8537662742044,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 857.410888391554,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 830.2477423372579,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 624.0169123285004,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": false
+        },
+        {
+          "x": 761.5041323343388,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": false
+        },
+        {
+          "x": 692.7605223314196,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        }
+      ]
+    }
+  },
+  "guardHeld": {
+    "hero": "lissa",
+    "hp": 65,
+    "last": 5692.6,
+    "pointer": false,
+    "guard": true,
+    "commands": [
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "‹"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "›"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "icon": "weapon-staff",
+        "label": "↻"
+      },
+      {
+        "visible": true,
+        "available": false,
+        "alpha": 0.35,
+        "input": true,
+        "label": "⚑"
+      },
+      {
+        "visible": true,
+        "available": false,
+        "alpha": 0.35,
+        "input": true,
+        "label": "+"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "⛨"
+      }
+    ],
+    "layout": {
+      "joystick": {
+        "x": 90.19771653206188,
+        "y": 441.80228346793814
+      },
+      "radius": 68.49809711005156,
+      "attack": {
+        "x": 727.1323273328792,
+        "y": 317.72643281113164,
+        "radius": 74.5745412085239
+      },
+      "actions": [
+        {
+          "x": 596.8537662742044,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 857.410888391554,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 830.2477423372579,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 624.0169123285004,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": false
+        },
+        {
+          "x": 761.5041323343388,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": false
+        },
+        {
+          "x": 692.7605223314196,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        }
+      ]
+    }
+  },
+  "guardReleased": {
+    "hero": "lissa",
+    "hp": 65,
+    "last": 5692.6,
+    "pointer": false,
+    "guard": false,
+    "commands": [
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "‹"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "›"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "icon": "weapon-staff",
+        "label": "↻"
+      },
+      {
+        "visible": true,
+        "available": false,
+        "alpha": 0.35,
+        "input": true,
+        "label": "⚑"
+      },
+      {
+        "visible": true,
+        "available": false,
+        "alpha": 0.35,
+        "input": true,
+        "label": "+"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "⛨"
+      }
+    ],
+    "layout": {
+      "joystick": {
+        "x": 90.19771653206188,
+        "y": 441.80228346793814
+      },
+      "radius": 68.49809711005156,
+      "attack": {
+        "x": 727.1323273328792,
+        "y": 317.72643281113164,
+        "radius": 74.5745412085239
+      },
+      "actions": [
+        {
+          "x": 596.8537662742044,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 857.410888391554,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 830.2477423372579,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 624.0169123285004,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": false
+        },
+        {
+          "x": 761.5041323343388,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": false
+        },
+        {
+          "x": 692.7605223314196,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        }
+      ]
+    }
+  },
+  "singleWeapon": {
+    "hero": "lissa",
+    "hp": 65,
+    "last": 5692.6,
+    "pointer": false,
+    "guard": false,
+    "commands": [
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "‹"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "›"
+      },
+      {
+        "visible": true,
+        "available": false,
+        "alpha": 0.35,
+        "input": true,
+        "icon": "weapon-staff",
+        "label": "↻"
+      },
+      {
+        "visible": true,
+        "available": false,
+        "alpha": 0.35,
+        "input": true,
+        "label": "⚑"
+      },
+      {
+        "visible": true,
+        "available": false,
+        "alpha": 0.35,
+        "input": true,
+        "label": "+"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "⛨"
+      }
+    ],
+    "layout": {
+      "joystick": {
+        "x": 90.19771653206188,
+        "y": 441.80228346793814
+      },
+      "radius": 68.49809711005156,
+      "attack": {
+        "x": 727.1323273328792,
+        "y": 317.72643281113164,
+        "radius": 74.5745412085239
+      },
+      "actions": [
+        {
+          "x": 596.8537662742044,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 857.410888391554,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 830.2477423372579,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": false
+        },
+        {
+          "x": 624.0169123285004,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": false
+        },
+        {
+          "x": 761.5041323343388,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": false
+        },
+        {
+          "x": 692.7605223314196,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        }
+      ]
+    }
+  },
+  "dimWeapon": {
+    "hero": "lissa",
+    "hp": 65,
+    "last": 5692.6,
+    "pointer": false,
+    "guard": false,
+    "commands": [
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "‹"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "›"
+      },
+      {
+        "visible": true,
+        "available": false,
+        "alpha": 0.35,
+        "input": true,
+        "icon": "weapon-staff",
+        "label": "↻"
+      },
+      {
+        "visible": true,
+        "available": false,
+        "alpha": 0.35,
+        "input": true,
+        "label": "⚑"
+      },
+      {
+        "visible": true,
+        "available": false,
+        "alpha": 0.35,
+        "input": true,
+        "label": "+"
+      },
+      {
+        "visible": true,
+        "available": true,
+        "alpha": 1,
+        "input": true,
+        "label": "⛨"
+      }
+    ],
+    "layout": {
+      "joystick": {
+        "x": 90.19771653206188,
+        "y": 441.80228346793814
+      },
+      "radius": 68.49809711005156,
+      "attack": {
+        "x": 727.1323273328792,
+        "y": 317.72643281113164,
+        "radius": 74.5745412085239
+      },
+      "actions": [
+        {
+          "x": 596.8537662742044,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 857.410888391554,
+          "y": 317.72643281113164,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        },
+        {
+          "x": 830.2477423372579,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": false
+        },
+        {
+          "x": 624.0169123285004,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": false
+        },
+        {
+          "x": 761.5041323343388,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": false
+        },
+        {
+          "x": 692.7605223314196,
+          "y": 510.2419772307093,
+          "size": 61.37822321689209,
+          "visible": true,
+          "available": true
+        }
+      ]
+    },
+    "unchangedAttack": true
+  }
+}
