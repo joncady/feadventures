@@ -15,17 +15,16 @@ test('replaying from settings preserves manual pause and saved acknowledgement',
  await clickText('pauseOverlay','Settings');await clickText('settings','Controls & accessibility');await clickText('controlPanel','Replay quick guide');await expect.poll(()=>inspect(page).then(s=>s.open)).toBe(true);await clickGuide(page,0);expect((await inspect(page)).paused).toBe(true);expect((await inspect(page)).stored).toContain('skipped');
 });
 
-test('all highlighted controls remain outside the card at three landscape sizes',async({page})=>{
+for(const viewport of [{width:667,height:375},{width:844,height:390},{width:932,height:430}])test(`all highlighted controls remain outside the card at ${viewport.width}px`,async({page})=>{
  await page.setViewportSize({width:844,height:390});await prepare(page,true);
  await page.evaluate(async()=>{const e='/src/main.ts';const{game}=await import(e);const ui=game.scene.getScene('Interface') as any;ui.touchUsed=true;ui.firstTimeGuide.touch=true;ui.touchControls.root.setVisible(true);ui.firstTimeGuide.render();});
- for(const viewport of [{width:667,height:375},{width:844,height:390},{width:932,height:430}]){
   await page.setViewportSize(viewport);await page.waitForTimeout(150);
   for(let index=0;index<6;index++){
    const result=await page.evaluate(async()=>{const e='/src/main.ts';const{game}=await import(e);const ui=game.scene.getScene('Interface') as any,g=ui.firstTimeGuide,a=game.scene.getScene('Arena') as any,l=game.registry.get('touch-control-layout'),step=g.steps[g.index],c=g.card.getBounds(),intersects=(b:any)=>c.left<b.right&&c.right>b.left&&c.top<b.bottom&&c.bottom>b.top;let boxes:any[]=[];if(step.target==='move'){const r=l.radius+7;boxes=[{left:l.joystick.x-r,right:l.joystick.x+r,top:l.joystick.y-r,bottom:l.joystick.y+r}];}else if(step.target==='attack'){const r=l.attack.radius*1.2+7;boxes=[{left:l.attack.x-r,right:l.attack.x+r,top:l.attack.y-r,bottom:l.attack.y+r}];}else boxes=step.target.map((i:number)=>{const b=l.actions[i],r=b.size/2+4;return {left:b.x-r,right:b.x+r,top:b.y-r,bottom:b.y+r};});return {title:step.title,overlaps:boxes.map(intersects),bottom:c.bottom,planning:[ui.deploymentPanel.visible,ui.damageControls.visible,a.planningGrid.visible,a.deploymentGuide.visible,...a.campLabels.map((o:any)=>o.visible)]};});
    expect(result.overlaps,`${viewport.width} ${result.title}`).not.toContain(true);expect(result.bottom).toBeLessThanOrEqual(544);expect(result.planning).not.toContain(true);if(index<5)await clickGuide(page,2);
   }
   for(let i=0;i<5;i++)await clickGuide(page,1);
- }
+ expect((await inspect(page)).index).toBe(0);
 });
 test('portrait gate preserves the guide step and owns keyboard focus',async({browser})=>{
  const context=await browser.newContext({viewport:{width:844,height:390},hasTouch:true,isMobile:true,storageState:{cookies:[],origins:[]}});const page=await context.newPage();await prepare(page);const before=await inspect(page);expect(before.index).toBe(0);await page.setViewportSize({width:390,height:844});await expect(page.locator('#landscape-required')).toBeVisible();await page.keyboard.press('Space');expect((await inspect(page)).index).toBe(0);await page.keyboard.press('Tab');expect(await page.evaluate(()=>document.activeElement===document.querySelector('#landscape-required button'))).toBe(true);await page.setViewportSize({width:844,height:390});await expect(page.locator('#landscape-required')).toBeHidden();const after=await inspect(page);expect(after.open).toBe(true);expect(after.index).toBe(0);expect(after.deploying).toBe(true);expect(after.clock).toBe(0);await clickGuide(page,0);await expect.poll(()=>inspect(page).then(s=>s.deploying)).toBe(false);await context.close();

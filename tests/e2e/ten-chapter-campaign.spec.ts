@@ -2,6 +2,8 @@ import {test,expect} from '@playwright/test';
 import {waitForAsyncReady} from './async-readiness';
 import {EXPANDED_CAMPAIGN_MAPS} from '../../src/game/data/campaign-expansion';
 test('a fresh story chooses the expanded campaign and ten result boundaries reach its actual finale',async({page})=>{
+ // Ten real scene/result round trips need an aggregate budget on software-rendered CI.
+ if(process.env.CI)test.setTimeout(120000);
  const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));await page.goto('/');await page.waitForFunction(()=>!(document.querySelector('#start') as HTMLButtonElement).disabled);await page.locator('#start').press('Enter');
  await waitForAsyncReady(page,async()=>{const entry=(document.querySelector('script[src*="/src/main.ts"]') as HTMLScriptElement).src;const {game}=await import(entry);return game.scene.isActive('Campaign');});
  const first=await page.evaluate(async()=>{const entry=(document.querySelector('script[src*="/src/main.ts"]') as HTMLScriptElement).src;const {game}=await import(entry);return game.scene.getScene('Campaign').dataState;});expect(first.campaignId).toBe('awakening-ten');expect(first.missionId).toBe('east-road');

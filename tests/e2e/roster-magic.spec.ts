@@ -23,15 +23,9 @@ for (let rosterIndex = 0; rosterIndex < 17; rosterIndex++) test(`roster hero ${r
     });
     expect(state.idle).toBe(4); expect(state.portrait).toBe(true);
     if (name === 'Morgan') {
-      const frames: number[] = [];
-      for (let i = 0; i < 5; i++) {
-        await page.waitForTimeout(120);
-        frames.push(await page.evaluate(async () => {
-          const entry = '/src/main.ts'; const { game } = await import(entry);
-          return game.scene.getScene('Arena').player.anims.currentFrame.index;
-        }));
-      }
-      expect(new Set(frames).size).toBeGreaterThan(1);
+      // Observe actual animation events rather than aliasing fixed wall-time samples.
+      await page.evaluate(async()=>{const entry='/src/main.ts';const{game}=await import(entry);const player=game.scene.getScene('Arena').player;const seen=new Set<number>([player.anims.currentFrame.index]);(window as any).__idleFrames=seen;player.on('animationupdate',(animation:any,frame:any)=>{if(animation.key==='morgan-idle')seen.add(frame.index);});});
+      await expect.poll(()=>page.evaluate(()=>(window as any).__idleFrames.size)).toBeGreaterThan(1);
     }
     await page.locator('#game').focus();
     for (const [key, direction] of [['ArrowRight', 'down-right'], ['ArrowLeft', 'down-left']]) {
