@@ -50,8 +50,11 @@ export class TouchControls {
     this.knob.setScale(target*.28*1.2*1.5/20);if(this.owner===undefined)this.knob.setPosition(this.center.x,this.center.y);
     this.attackRadius=target*.675*1.2*1.5;const outer=this.attackRadius*1.2;const commandTop=544-target*.55-target/2;const minimapBottom=Math.min(158,commandTop-10.1-outer*2-8);this.scene.registry.set('touch-minimap-height',Math.max(1,minimapBottom-58));const slotTop=minimapBottom+8,slotBottom=commandTop-10.1;const attackY=(slotTop+slotBottom)/2,attackX=896-outer-target-18;this.attackCenter={x:attackX,y:attackY};this.attackBase.setPosition(this.attackCenter.x,this.attackCenter.y).setScale(this.attackRadius*1.2/48);this.attackKnob.setScale(target*.28*1.2*1.5/18);if(this.attackOwner===undefined)this.attackKnob.setPosition(this.attackCenter.x,this.attackCenter.y);(this.attackBase.getData('icon') as Phaser.GameObjects.Text).setPosition(this.attackCenter.x,this.attackCenter.y);
     const side=outer+target/2+10.1;
-    const positions=[{x:attackX-side,y:attackY},{x:attackX+side,y:attackY},{x:attackX+1.5*(target+gap),y:544-target*.55},{x:attackX-1.5*(target+gap),y:544-target*.55},{x:attackX+.5*(target+gap),y:544-target*.55},{x:attackX-.5*(target+gap),y:544-target*.55}];
-    const overflow=Math.max(0,positions[2].x+target/2-888);positions.slice(2).forEach(p=>p.x-=overflow);
+    const bottomY=544-target*.55;
+    const positions=[{x:attackX-side,y:attackY},{x:attackX+side,y:attackY},{x:attackX,y:bottomY},{x:attackX,y:bottomY},{x:attackX,y:bottomY},{x:attackX,y:bottomY}];
+    // Center the visible commands, rather than reserving an empty staff slot.
+    const lower=this.commandState.staff?[3,5,4,2]:[3,5,2];
+    lower.forEach((index,column)=>positions[index].x=attackX+(column-(lower.length-1)/2)*(target+gap));
     this.actions.forEach((button,i)=>button.setScale(target/48).setPosition(positions[i].x,positions[i].y));
     this.scene.registry.set('touch-control-layout',{joystick:{...this.center},radius:this.radius,attack:{...this.attackCenter,radius:this.attackRadius},actions:this.actions.map(b=>({x:b.x,y:b.y,size:target,visible:b.visible,available:b.getData('available')}))});
   }
