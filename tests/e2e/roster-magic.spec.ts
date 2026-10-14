@@ -1,14 +1,13 @@
 import { test, expect } from '@playwright/test';
 
-test('every roster hero loads, idles, and returns to menu without retained battle state', async ({ page }) => {
-  test.setTimeout(process.env.CI ? 240000 : 120000);
+for (let rosterIndex = 0; rosterIndex < 17; rosterIndex++) test(`roster hero ${rosterIndex + 1} loads, idles, and returns to menu without retained battle state`, async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', e => errors.push(e.message));
   page.on('response', r => { if (r.status() >= 400) errors.push(`${r.status()} ${r.url()}`); });
   await page.goto('/?battle=legacy');
   const names = await page.locator('.hero').allTextContents();
   expect(names).toHaveLength(17);
-  for (const name of names) {
+  const name = names[rosterIndex];
     await page.getByRole('button', { name, exact: true }).press('Enter');
     await page.getByRole('button', { name: 'Begin battle' }).press('Enter');
     await expect.poll(() => page.evaluate(async () => {
@@ -68,7 +67,6 @@ test('every roster hero loads, idles, and returns to menu without retained battl
       const entry = '/src/main.ts'; const { game } = await import(entry);
       return { active: game.scene.isActive('Arena'), boot: game.scene.isActive('Boot') };
     })).toEqual({ active: false, boot: true });
-  }
   expect(errors).toEqual([]);
 });
 
