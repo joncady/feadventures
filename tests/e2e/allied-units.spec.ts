@@ -4,7 +4,8 @@ test('allied soldiers attract mage fire, take resistance damage and ignore frien
   await page.goto('/?battle=legacy');await page.getByRole('button',{name:'Begin battle'}).press('Enter');
   const before=await page.evaluate(async()=>{
     const entry='/src/main.ts';const{game}=await import(entry);const s=game.scene.getScene('Arena');s.scene.pause();
-    s.enemies.clear(true,true);s.time.removeAllEvents();s.spawning=1;
+    // Isolate the authored mage shot from arrows already fired before the fixture pauses.
+    s.enemies.clear(true,true);s.arrows.clear(true,true);s.time.removeAllEvents();s.spawning=1;
     const allies=s.allies.getChildren();allies[1].destroy();const ally=allies[0];ally.body.reset(300,230);ally.body.updateFromGameObject();ally.setData('speed',0);
     s.player.body.reset(190,230);s.player.body.updateFromGameObject();
     const mage=s.enemies.create(500,230,'mage');mage.setSize(28,28).setOffset(11,15);mage.body.reset(500,230);mage.body.updateFromGameObject();mage.setData({health:45,maxHealth:45,resistance:5,weapon:'tome',speed:0,damage:14});
