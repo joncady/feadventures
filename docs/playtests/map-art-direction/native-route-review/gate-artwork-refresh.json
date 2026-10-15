@@ -1,0 +1,5 @@
+{
+  "path": "public/assets/maps/expanded/plegian-gate.png",
+  "sha256": "c9e9196af9ef91ebfed58ada02ff9c6d61fa75f7582c24e1e5114117fc399c9f",
+  "change": "Only Gate art refreshed after rootGO; clean owned server restart and fresh browser profile; no geometry change."
+}

@@ -1,0 +1,1212 @@
+[
+  {
+    "name": "grass",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      352,
+      176,
+      368,
+      192
+    ]
+  },
+  {
+    "name": "water",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      368,
+      272,
+      384,
+      288
+    ]
+  },
+  {
+    "name": "paving center",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      32,
+      272,
+      48,
+      288
+    ]
+  },
+  {
+    "name": "weathered paving center",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      64,
+      272,
+      80,
+      288
+    ]
+  },
+  {
+    "name": "water left / quay right",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      432,
+      272,
+      448,
+      288
+    ]
+  },
+  {
+    "name": "masonry",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      272,
+      144,
+      288,
+      160
+    ]
+  },
+  {
+    "name": "wall cap",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      272,
+      128,
+      288,
+      144
+    ]
+  },
+  {
+    "name": "stair flight",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      240,
+      80,
+      288,
+      128
+    ]
+  },
+  {
+    "name": "arched portal",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      288,
+      224,
+      336,
+      288
+    ]
+  },
+  {
+    "name": "complete dragon floor medallion",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      352,
+      16,
+      400,
+      64
+    ]
+  },
+  {
+    "name": "tree clump",
+    "source": "fort-tileset.png",
+    "rect": [
+      0,
+      112,
+      32,
+      144
+    ]
+  },
+  {
+    "name": "complete small shrub",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      384,
+      224,
+      400,
+      256
+    ]
+  },
+  {
+    "name": "broken masonry",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      128,
+      128,
+      144,
+      144
+    ]
+  },
+  {
+    "name": "banner",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      256,
+      32,
+      288,
+      64
+    ]
+  },
+  {
+    "name": "cliff face",
+    "source": "fort-tileset.png",
+    "rect": [
+      320,
+      160,
+      368,
+      208
+    ]
+  },
+  {
+    "name": "fence",
+    "source": "fort-tileset.png",
+    "rect": [
+      400,
+      112,
+      448,
+      128
+    ]
+  },
+  {
+    "name": "roofed house",
+    "source": "fort-tileset.png",
+    "rect": [
+      400,
+      64,
+      448,
+      112
+    ]
+  },
+  {
+    "name": "complete gatehouse frontage",
+    "source": "castle-moat.png",
+    "rect": [
+      48,
+      64,
+      240,
+      144
+    ]
+  },
+  {
+    "name": "complete ruined wall corner",
+    "source": "royal-great-hall.png",
+    "rect": [
+      0,
+      48,
+      80,
+      128
+    ]
+  },
+  {
+    "name": "quiet blue floor",
+    "source": "royal-great-hall.png",
+    "rect": [
+      16,
+      96,
+      32,
+      112
+    ]
+  },
+  {
+    "name": "quiet stone interior, bevel excluded",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      164,
+      52,
+      172,
+      60
+    ]
+  },
+  {
+    "name": "beach sand",
+    "source": "plains-preview-map.png",
+    "rect": [
+      64,
+      112,
+      80,
+      128
+    ]
+  },
+  {
+    "name": "grass-free path center strip",
+    "source": "fort-tileset.png",
+    "rect": [
+      228,
+      128,
+      236,
+      144
+    ]
+  },
+  {
+    "name": "stone boundary 1110",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      128,
+      304,
+      144,
+      320
+    ]
+  },
+  {
+    "name": "stone boundary 1100",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      320,
+      128,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1100",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      320,
+      128,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1100",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      320,
+      128,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1100",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      320,
+      128,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1100",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      320,
+      128,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1100",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      320,
+      128,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1100",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      320,
+      128,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1100",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      320,
+      128,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1100",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      320,
+      128,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1100",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      320,
+      128,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1100",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      320,
+      128,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1100",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      320,
+      128,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1100",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      320,
+      128,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1100",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      320,
+      128,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1100",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      320,
+      128,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1100",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      320,
+      128,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1100",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      320,
+      128,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1101",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      304,
+      128,
+      320
+    ]
+  },
+  {
+    "name": "stone boundary 1010",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      144,
+      320,
+      160,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 0101",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      160,
+      320,
+      176,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1110",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      128,
+      304,
+      144,
+      320
+    ]
+  },
+  {
+    "name": "stone boundary 1100",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      320,
+      128,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1000",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      256,
+      128,
+      272
+    ]
+  },
+  {
+    "name": "stone boundary 0101",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      160,
+      320,
+      176,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1010",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      144,
+      320,
+      160,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 0101",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      160,
+      320,
+      176,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1010",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      144,
+      320,
+      160,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 0101",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      160,
+      320,
+      176,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1010",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      144,
+      320,
+      160,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 0101",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      160,
+      320,
+      176,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1010",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      144,
+      320,
+      160,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 0101",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      160,
+      320,
+      176,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1010",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      144,
+      320,
+      160,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 0101",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      160,
+      320,
+      176,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1010",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      144,
+      320,
+      160,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 0101",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      160,
+      320,
+      176,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1010",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      144,
+      320,
+      160,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 0100",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      128,
+      256,
+      144,
+      272
+    ]
+  },
+  {
+    "name": "stone boundary 1100",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      320,
+      128,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1101",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      304,
+      128,
+      320
+    ]
+  },
+  {
+    "name": "stone boundary 1010",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      144,
+      320,
+      160,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 0101",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      160,
+      320,
+      176,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1010",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      144,
+      320,
+      160,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 0101",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      160,
+      320,
+      176,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      128,
+      288,
+      144,
+      304
+    ]
+  },
+  {
+    "name": "stone boundary 0011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      336,
+      128,
+      352
+    ]
+  },
+  {
+    "name": "stone boundary 0010",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      272,
+      128,
+      288
+    ]
+  },
+  {
+    "name": "stone boundary 0101",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      160,
+      320,
+      176,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1010",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      144,
+      320,
+      160,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 0101",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      160,
+      320,
+      176,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1010",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      144,
+      320,
+      160,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 0101",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      160,
+      320,
+      176,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1010",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      144,
+      320,
+      160,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 0101",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      160,
+      320,
+      176,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      128,
+      288,
+      144,
+      304
+    ]
+  },
+  {
+    "name": "stone boundary 0011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      336,
+      128,
+      352
+    ]
+  },
+  {
+    "name": "stone boundary 0011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      336,
+      128,
+      352
+    ]
+  },
+  {
+    "name": "stone boundary 0011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      336,
+      128,
+      352
+    ]
+  },
+  {
+    "name": "stone boundary 0011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      336,
+      128,
+      352
+    ]
+  },
+  {
+    "name": "stone boundary 0011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      336,
+      128,
+      352
+    ]
+  },
+  {
+    "name": "stone boundary 0011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      336,
+      128,
+      352
+    ]
+  },
+  {
+    "name": "stone boundary 0011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      336,
+      128,
+      352
+    ]
+  },
+  {
+    "name": "stone boundary 0011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      336,
+      128,
+      352
+    ]
+  },
+  {
+    "name": "stone boundary 0011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      336,
+      128,
+      352
+    ]
+  },
+  {
+    "name": "stone boundary 0011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      336,
+      128,
+      352
+    ]
+  },
+  {
+    "name": "stone boundary 0011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      336,
+      128,
+      352
+    ]
+  },
+  {
+    "name": "stone boundary 0010",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      272,
+      128,
+      288
+    ]
+  },
+  {
+    "name": "stone boundary 0101",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      160,
+      320,
+      176,
+      336
+    ]
+  },
+  {
+    "name": "stone boundary 1011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      128,
+      288,
+      144,
+      304
+    ]
+  },
+  {
+    "name": "stone boundary 0011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      336,
+      128,
+      352
+    ]
+  },
+  {
+    "name": "stone boundary 0011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      336,
+      128,
+      352
+    ]
+  },
+  {
+    "name": "stone boundary 0011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      336,
+      128,
+      352
+    ]
+  },
+  {
+    "name": "stone boundary 0011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      336,
+      128,
+      352
+    ]
+  },
+  {
+    "name": "stone boundary 0011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      336,
+      128,
+      352
+    ]
+  },
+  {
+    "name": "stone boundary 0011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      336,
+      128,
+      352
+    ]
+  },
+  {
+    "name": "stone boundary 0011",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      336,
+      128,
+      352
+    ]
+  },
+  {
+    "name": "stone boundary 0111",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      112,
+      288,
+      128,
+      304
+    ]
+  },
+  {
+    "name": "complete west-wing column",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      160,
+      16,
+      176,
+      64
+    ]
+  },
+  {
+    "name": "gray carved guardian relief A",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      400,
+      64,
+      432,
+      112
+    ]
+  },
+  {
+    "name": "gray carved guardian relief B",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      432,
+      64,
+      464,
+      112
+    ]
+  },
+  {
+    "name": "guardian stone foundation",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      272,
+      112,
+      304,
+      128
+    ]
+  },
+  {
+    "name": "coherent moss / broken-paving footprint",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      96,
+      240,
+      144,
+      288
+    ]
+  },
+  {
+    "name": "continuous bastion rear cap",
+    "source": "castle-moat.png",
+    "rect": [
+      112,
+      64,
+      128,
+      80
+    ]
+  },
+  {
+    "name": "bastion roof left side",
+    "source": "barons-castle.png",
+    "rect": [
+      0,
+      16,
+      16,
+      32
+    ]
+  },
+  {
+    "name": "bastion roof right side",
+    "source": "barons-castle.png",
+    "rect": [
+      96,
+      16,
+      112,
+      32
+    ]
+  },
+  {
+    "name": "intact bastion front depth",
+    "source": "castle-moat.png",
+    "rect": [
+      112,
+      64,
+      192,
+      112
+    ]
+  },
+  {
+    "name": "collapsed bastion masonry",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      0,
+      128,
+      80,
+      160
+    ]
+  },
+  {
+    "name": "continuous bastion rear cap",
+    "source": "castle-moat.png",
+    "rect": [
+      112,
+      64,
+      128,
+      80
+    ]
+  },
+  {
+    "name": "bastion roof left side",
+    "source": "barons-castle.png",
+    "rect": [
+      0,
+      16,
+      16,
+      32
+    ]
+  },
+  {
+    "name": "bastion roof right side",
+    "source": "barons-castle.png",
+    "rect": [
+      96,
+      16,
+      112,
+      32
+    ]
+  },
+  {
+    "name": "intact bastion front depth",
+    "source": "castle-moat.png",
+    "rect": [
+      112,
+      64,
+      192,
+      112
+    ]
+  },
+  {
+    "name": "collapsed bastion masonry",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      0,
+      128,
+      80,
+      160
+    ]
+  },
+  {
+    "name": "attached shrine / wing masonry",
+    "source": "stronghold-tileset.png",
+    "rect": [
+      256,
+      64,
+      272,
+      80
+    ]
+  },
+  {
+    "name": "LOCKED Rev6 coast district",
+    "source": "castle-moat.png",
+    "rect": [
+      24,
+      0,
+      240,
+      160
+    ]
+  },
+  {
+    "name": "LOCKED Rev6 cyan sea",
+    "source": "castle-palette.png",
+    "rect": [
+      336,
+      80,
+      368,
+      112
+    ]
+  },
+  {
+    "name": "LOCKED Rev6 quay continuation",
+    "source": "castle-moat.png",
+    "rect": [
+      32,
+      64,
+      48,
+      80
+    ]
+  },
+  {
+    "name": "LOCKED Rev6 yard railing",
+    "source": "castle-palette.png",
+    "rect": [
+      0,
+      128,
+      64,
+      144
+    ]
+  }
+]

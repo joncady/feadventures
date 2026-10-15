@@ -57,12 +57,16 @@ test('all ten chapter maps have legal connected objectives, spawn sites, guard p
   assert.ok(nav.isWalkable(map.objective),`${map.id}: objective is blocked`);
   assert.equal(map.soldiers.length,map.soldierCount,`${map.id}: guard budget differs`);
   for(const point of [...map.camps,...map.soldiers,map.heroCamp,...(map.chapter.advanceGates??[])])assert.ok(nav.isWalkable(point)&&nav.hasRoute(point),`${map.id}: target ${point.x},${point.y} blocked or disconnected`);
-  for(let x=map.courtyard.left+32;x<map.courtyard.right;x+=32)for(let y=map.courtyard.top+32;y<map.courtyard.bottom;y+=32)assert.ok(nav.isWalkable({x,y})&&nav.hasRoute({x,y}),`${map.id}: deployment ${x},${y} blocked or trapped`);
+  let reachableCells=0;
+  for(let x=map.courtyard.left+32;x<map.courtyard.right;x+=32)for(let y=map.courtyard.top+32;y<map.courtyard.bottom;y+=32)if(nav.isWalkable({x,y})){assert.ok(nav.hasRoute({x,y}),`${map.id}: selectable deployment ${x},${y} trapped`);reachableCells++;}
+  assert.ok(reachableCells>=4,`${map.id}: insufficient reachable deployment cells`);
   assert.ok(existsSync(`public/assets/${map.backgroundPath}`),`${map.id}: missing authored pixels`);
   if(['village-watch','plegian-gate','valm-landing','chonsin-pass','conqueror-hall','grimleal-approach'].includes(map.id)){
    assert.deepEqual(map.terrain,assembleTerrain(map),`${map.id}: art manifest differs from runtime collision`);
-   assert.equal(map.chunks.length,3);
-   for(let i=1;i<3;i++){const prior=map.chunks[i-1],next=map.chunks[i],vertical=next.position.y>prior.position.y;assert.deepEqual(connectChunk(prior,vertical?'south':'east',next,vertical?'north':'west').position,next.position);}
+   const reviewedScene=map.backgroundPath.startsWith('maps/expanded/');
+   assert.equal(map.chunks.length,reviewedScene?1:3);
+   if(reviewedScene){assert.equal(map.chunks[0].source,`public/assets/maps/expanded/${map.id}.png`);assert.deepEqual(map.chunks[0].sourceRect,[0,0,map.width,map.height]);}
+   for(let i=1;i<map.chunks.length;i++){const prior=map.chunks[i-1],next=map.chunks[i],vertical=next.position.y>prior.position.y;assert.deepEqual(connectChunk(prior,vertical?'south':'east',next,vertical?'north':'west').position,next.position);}
   }
  }
 });

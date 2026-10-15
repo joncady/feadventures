@@ -1,0 +1,66 @@
+SECONDARY MAP ART — EIGHT CHAPTERS — 2026-10-15
+
+Authored profiles live in src/game/data/map-art/chapters/{id}.json.
+This artist owns no shared composer or gameplay changes. Runtime integration,
+actual phone/deployment tests, final approval and publishing remain with lead/root.
+
+Identities:
+1 east-road — connected woodland groves, winding path, edge creek/ravine.
+2 village-watch — dense roofed village, garden railings, market/muster square.
+3 plegian-gate — exterior arched gate frontage, original bridge, matching teal moat.
+4 village — palace court, complete throne landmark, attached shattered west wing.
+6 castle-defense — four-entry bastion court and west hospital/supply garden.
+7 chonsin-pass — connected shaded mountain ridges framing a switchback valley.
+8 conqueror-hall — whole royal room, connected native walls/stairs/throne, imperial avenue.
+10 dark-castle — cross-shaped ritual chamber, broken side wings, grounded guardian plinths.
+
+All artwork is existing source pixels. No AI images, custom recoloring, or painted
+replacement terrain. Native16px source tiles render at2x to32worldpixels. Whole
+Royal Great Hall240x160 renders480x320 as one coherent authored landmark, without
+stretching to the runtime map dimensions. Actor-camera images use actual50px game
+frames pasted for scale; they are composition previews, NOT actual runtime captures.
+
+Sources and exact crops are embedded in every JSON and source-crop-ledger.json.
+Existing credited kits: ZoramineFae/Flasuban Fort; ZoramineFae/N426/Flasuban/Wan
+Stronghold; RandomWizard Castle Moat, Barons Castle and Royal Great Hall using
+N426 improved castle graphics. Existing local source/credit records retained.
+
+One new creator-posted reference was downloaded:
+asset-library/map-candidates/compact/randomwizard-wilderness.png
+Creator: RandomWizard. Kit: N426 / Zoramine / Vennobennu.
+Primary terms/source: https://feuniverse.us/t/1-screen-mapping-blitz-challenge/9639/9
+Creator explicitly grants free editing of map/permutations with credit.
+Image: https://feuniverse.us/uploads/default/original/3X/1/8/1856c033a41df8bfb32bb641901e1998a2f843e6.png
+Only the coherent lower ravine/stream contour is used on chapter1, at native2x.
+
+Review corrections preserved in the final profiles:
+- Removed raised-block path texture; exact approved Fort corner/edge family and
+  grass-free center source strips now join all bends and approaches.
+- Removed broken palette crops, stray throne fragments and fake crate/post props.
+- Gate uses original coherent source facade/bridge geometry and matching water.
+- Mountain peak grid replaced by joined full sloping rock masses, retaining source feet.
+- Removed detached floating staircase strips from chapters8/10.
+- Chapter8 now uses complete Royal Great Hall room; chapter10 uses ritual-room silhouette.
+- Final carved guardians each have masonry backing and a full source64x32 plinth;
+  combined64x128 visible structure has matching static solid metadata.
+- Four-camp composition counts preserved; only positions/layouts supplied.
+- Explicit NPC guard anchors preserve0/4/2/4/4/0/4/4 guards.
+- Lead owns final Castle6 physical facade/destructible barricade reconciliation.
+
+Checks:
+Independent renderer asserts crop bounds, map bounds and exact native2x stamp sizes.
+anchor-clearance.json tests radius16/static-solid connectivity for objective, heroCamp,
+four camps and all authored entry points.
+deployment-clearance.json simulates actual courtyard20px margins,64px separation,
+150px camp exclusion,64px hero-camp exclusion and body+4.5px offset. It verifies
+four hero slots remain after explicit NPC guards. This does NOT replace actual
+Arena initialization/autoplace or hidden-camera spawn checks; lead/reviewer own those.
+
+Preview regeneration from repository root:
+  <bundled-python> Main Game/docs/playtests/map-art-direction/batch-eight-preview.py
+  <bundled-python> Main Game/docs/playtests/map-art-direction/secondary/build-contact-proofs.py
+Paths containing spaces must be shell-quoted. Helpers do not mutate profile JSONs.
+
+Independent reviewer approved direction for all8 after bounded fixes. Final10 plinth
+re-review and actual runtime acceptance were pending at this artist's handoff.
+No commit, push, deploy, or publishing action was performed by this artist.

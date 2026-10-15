@@ -1,0 +1,13 @@
+[WebServer] (node:45068) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:45086) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+CASTLE_RULES {"initial":{"launch":true,"count":8,"hp":[320,320,320,320,320,320,320,320],"art":true,"ground":false,"bow":true,"magic":false},"ground":334,"flyer":{"hero":"sumia","y":519.2399999999977},"breach":{"active":false,"art":false,"open":true,"magic":true}}
+(node:45088) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/e2e/map-art-castle-review.spec.ts:2:1 › authored castle barricades preserve ground flight projectile and breach rules (10.0s)
+
+  1 passed (11.0s)

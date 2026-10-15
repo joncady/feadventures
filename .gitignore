@@ -6,3 +6,7 @@ test-results/
 v1/assets/Source/
 
 /audio-review/
+
+# Python map-authoring build caches
+__pycache__/
+*.py[cod]

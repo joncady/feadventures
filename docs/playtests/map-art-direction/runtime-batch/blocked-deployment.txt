@@ -1,0 +1,32 @@
+[WebServer] (node:46212) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:46230) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+BLOCKED_DEPLOY 1 {
+  p: { x: 272, y: 208 },
+  allowed: false,
+  placed: false,
+  unchanged: true
+}
+(node:46232) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/e2e/map-art-negative-deployment-review.spec.ts:2:27 › authored chapter2 rejects terrain deployment (3.8s)
+BLOCKED_DEPLOY 3 {
+  p: { x: 368, y: 336 },
+  allowed: false,
+  placed: false,
+  unchanged: true
+}
+  ✓  2 tests/e2e/map-art-negative-deployment-review.spec.ts:2:27 › authored chapter4 rejects terrain deployment (3.3s)
+BLOCKED_DEPLOY 5 {
+  p: { x: 432, y: 304 },
+  allowed: false,
+  placed: false,
+  unchanged: true
+}
+  ✓  3 tests/e2e/map-art-negative-deployment-review.spec.ts:2:27 › authored chapter6 rejects terrain deployment (3.4s)
+
+  3 passed (11.6s)

@@ -19,7 +19,7 @@
     ],
     "source": "https://feuniverse.us/t/1-screen-mapping-blitz-challenge/9639/39",
     "creditsAndTerms": "Map F2U/F2E; uses N426 improved castle tileset.",
-    "usage": "Reference / candidate only; not shipped in runtime"
+    "usage": "Source pixels used in expanded campaign map compositions; original source file is retained for reproducible rendering, not loaded by the game."
   },
   {
     "file": "royal-great-hall.png",
@@ -30,7 +30,7 @@
     ],
     "source": "https://feuniverse.us/t/1-screen-mapping-blitz-challenge/9639/39",
     "creditsAndTerms": "Map F2U/F2E; uses N426 improved castle tileset.",
-    "usage": "Reference / candidate only; not shipped in runtime"
+    "usage": "Source pixels used in expanded campaign map compositions; original source file is retained for reproducible rendering, not loaded by the game."
   },
   {
     "file": "barons-castle.png",
@@ -41,7 +41,7 @@
     ],
     "source": "https://feuniverse.us/t/1-screen-mapping-blitz-challenge/9639/39",
     "creditsAndTerms": "Map F2U/F2E; uses N426 improved castle tileset.",
-    "usage": "Reference / candidate only; not shipped in runtime"
+    "usage": "Source pixels used in expanded campaign map compositions; original source file is retained for reproducible rendering, not loaded by the game."
   },
   {
     "file": "fort-tileset.png",
@@ -52,7 +52,7 @@
     ],
     "source": "https://feuniverse.us/t/updated-fort-tileset/9288",
     "creditsAndTerms": "Creator-posted tileset image; original game graphics plus edits. Preserve contributor credits.",
-    "usage": "Reference / candidate only; not shipped in runtime"
+    "usage": "Source pixels used in expanded campaign map compositions; original source file is retained for reproducible rendering, not loaded by the game."
   },
   {
     "file": "stronghold-tileset.png",
@@ -63,6 +63,26 @@
     ],
     "source": "https://feuniverse.us/t/updated-stronghold-tileset/6134",
     "creditsAndTerms": "Creator-posted tileset image; original game graphics plus edits. Preserve contributor credits.",
-    "usage": "Reference / candidate only; not shipped in runtime"
+    "usage": "Source pixels used in expanded campaign map compositions; original source file is retained for reproducible rendering, not loaded by the game."
+  },
+  {
+    "file": "randomwizard-wilderness.png",
+    "title": "The Wilderness \u2014 RandomWizard",
+    "dimensions": [
+      240,
+      160
+    ],
+    "source": "https://feuniverse.us/t/1-screen-mapping-blitz-challenge/9639/9",
+    "imageSource": "https://feuniverse.us/uploads/default/original/3X/1/8/1856c033a41df8bfb32bb641901e1998a2f843e6.png",
+    "creator": "RandomWizard",
+    "tilesetContributors": [
+      "N426",
+      "Zoramine",
+      "Vennobennu"
+    ],
+    "creditsAndTerms": "Creator explicitly permits this map and all permutations to be edited with credit. Village tileset edit credited to N426, Zoramine and Vennobennu.",
+    "permissionQuote": "As long as you give credit, this map and all permutations of it are free to edit.",
+    "sha256": "7dec64992f912865edf6dc24e11f3fd4f65edd01323eb7c21d8d960ba54deadd",
+    "usage": "Source creek/cliff/bridge chunk used in expanded chapter1 East Road; source pixels enlarged exactly2x."
   }
 ]

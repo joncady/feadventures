@@ -44,3 +44,13 @@ The final complete unit/typecheck/build check now passes **100/100 unit tests**.
 The carried-progression balanced-party trial has now cleared chapters1–9 and the patched chapter10 finale. The final mission won in240 seconds with26 recorded defeats, against Validar’s unchanged2200HP; Frederick finished at99HP and Ricken at97HP. The actual Results → Continue interaction reached the campaign-complete state. Earlier retries and failures were retained rather than presented as a flawless first attempt.
 
 This establishes one complete natural campaign route with carried progression and the final reviewed fixes. It does not establish balance for every companion combination, solo/no-healer completion, physical-phone acceptance, or broad accessibility certification. The local review server remains http://127.0.0.1:5173/. No version bump, commit, push, or deployment was performed.
+
+## Published release
+
+The user explicitly approved publishing on October14,2026. Frontend/package version is now **1.2.0**. Release implementation commit: `464a344f3c0200dc2925d3968e581a219216d8bb`; final test-only acceptance repair: `91ab60adcc3be41f37c0bece671d603c58648346`.
+
+[Successful complete CI and Pages deployment](https://github.com/joncady/feadventures/actions/runs/38598702607). All three browser shards and the100-test unit/type/build gate passed. Actual public HTTP200 and a fresh844×390 touch-browser load confirmed the servedv1.2.0 badge and `assets/index-CevZ7RuA.js`, with no page errors.
+
+The first release run was blocked by three acceptance-fixture issues: fixed wall-clock Morgan idle sampling aliased frames; a three-size guide case exceeded its aggregate budget; the continuous ten-result-boundary case exhausted60 seconds after nine successful boundaries and tenth Arena readiness. Independently reviewed test-only fixes observe actual animation updates, parameterize the three unchanged guide-size cases, and give only the continuous ten-boundary integration case a120-second CI aggregate budget. No runtime behavior, skips, or assertion weakening was introduced.
+
+Live game: https://joncady.github.io/feadventures/. Choose **New Story** for the ten-chapter route; old saved classic-four campaigns remain on their compatible original route. Human physical-phone acceptance and broader party balance remain open. This publication note was added locally after verification; no further product changes were made.

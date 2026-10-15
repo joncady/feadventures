@@ -1,0 +1,1731 @@
+{
+  "method": "Native developer menu selects fresh-stat chapter fixture; native keyboard/mouse gameplay. Read-only scene/nav observations. Not earned campaign, full victory, or human acceptance.",
+  "started": "2026-10-15T08:40:09.861Z",
+  "events": [
+    {
+      "kind": "native-party-selected",
+      "state": {
+        "arena": false,
+        "results": false,
+        "campaign": false,
+        "interface": {
+          "preparationEditing": false,
+          "hero": "chrom",
+          "companions": [
+            "frederick",
+            "lissa",
+            "sumia"
+          ],
+          "selectionMode": "companions",
+          "phase": "party",
+          "tactical": true,
+          "ready": true,
+          "playing": false,
+          "paused": false,
+          "muted": false,
+          "settingsOpen": false,
+          "result": "",
+          "audio": {
+            "music": 0.18,
+            "effects": 1,
+            "voices": 0.6,
+            "characterVoices": true,
+            "spellEffect": "fire-cast"
+          }
+        }
+      }
+    },
+    {
+      "kind": "chapter-start",
+      "index": 2,
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "lissa",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "lissa",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "heal"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 448,
+          "y": 484
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 473.27999999999975,
+        "mission": 2,
+        "kills": 0,
+        "phase": "opening",
+        "wave": 0,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the gate patrols, then reach the northern flag",
+          "x": 448,
+          "y": 96,
+          "radius": 96
+        },
+        "pending": 0,
+        "gates": [
+          {
+            "x": 448,
+            "y": 352,
+            "radius": 100
+          },
+          {
+            "x": 448,
+            "y": 96,
+            "radius": 100
+          }
+        ],
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 896,
+        "height": 640,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 0,
+            "y": 96
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 448,
+            "y": 480,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 527.1434011979637,
+            "y": 499.72252271266035,
+            "health": 100
+          },
+          {
+            "hero": "lissa",
+            "x": 555.1434011979637,
+            "y": 507.5191855773342,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 359.4470532879352,
+            "y": 504.64259910590135,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "open-gate-opening",
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "lissa",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "lissa",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "heal"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 448,
+          "y": 484
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 584.9399999999998,
+        "mission": 2,
+        "kills": 0,
+        "phase": "opening",
+        "wave": 0,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the gate patrols, then reach the northern flag",
+          "x": 448,
+          "y": 96,
+          "radius": 96
+        },
+        "pending": 0,
+        "gates": [
+          {
+            "x": 448,
+            "y": 352,
+            "radius": 100
+          },
+          {
+            "x": 448,
+            "y": 96,
+            "radius": 100
+          }
+        ],
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 896,
+        "height": 640,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 0,
+            "y": 96
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 448,
+            "y": 480,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 526.0454194382802,
+            "y": 503.7517275118933,
+            "health": 100
+          },
+          {
+            "hero": "lissa",
+            "x": 554.0454194382802,
+            "y": 514.3349790072211,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 370.06741378853314,
+            "y": 494.0463757882594,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "route-sample",
+      "label": "open-gate-bridge-foot",
+      "target": {
+        "x": 448,
+        "y": 384
+      },
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "lissa",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "lissa",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "heal"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 448,
+          "y": 451.3599999999997
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 1574.91,
+        "mission": 2,
+        "kills": 0,
+        "phase": "opening",
+        "wave": 0,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the gate patrols, then reach the northern flag",
+          "x": 448,
+          "y": 96,
+          "radius": 96
+        },
+        "pending": 0,
+        "gates": [
+          {
+            "x": 448,
+            "y": 352,
+            "radius": 100
+          },
+          {
+            "x": 448,
+            "y": 96,
+            "radius": 100
+          }
+        ],
+        "routeReached": true,
+        "rallyReady": true,
+        "width": 896,
+        "height": 640,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 0,
+            "y": 96
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 448,
+            "y": 447.3599999999997,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 542.4025099666321,
+            "y": 524.6361662584582,
+            "health": 100
+          },
+          {
+            "hero": "lissa",
+            "x": 515.0717027650081,
+            "y": 560.5703267425589,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 459.4740792132352,
+            "y": 404.84290733043235,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "open-gate-bridge-foot-reached",
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "lissa",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "lissa",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "heal"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 448,
+          "y": 361.5999999999988
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 2454.89,
+        "mission": 2,
+        "kills": 0,
+        "phase": "opening",
+        "wave": 0,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the gate patrols, then reach the northern flag",
+          "x": 448,
+          "y": 96,
+          "radius": 96
+        },
+        "pending": 0,
+        "gates": [
+          {
+            "x": 448,
+            "y": 352,
+            "radius": 100
+          },
+          {
+            "x": 448,
+            "y": 96,
+            "radius": 100
+          }
+        ],
+        "routeReached": true,
+        "rallyReady": true,
+        "width": 896,
+        "height": 640,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 0,
+            "y": 96
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 448,
+            "y": 357.5999999999988,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 583.6667478815168,
+            "y": 505.00654709080726,
+            "health": 100
+          },
+          {
+            "hero": "lissa",
+            "x": 440.00655284464915,
+            "y": 582.1708618358492,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 508.7757257981125,
+            "y": 326.71149111301554,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "route-sample",
+      "label": "open-gate-threshold",
+      "target": {
+        "x": 448,
+        "y": 256
+      },
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "lissa",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "lissa",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "heal"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 448,
+          "y": 337.1199999999985
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 3391.499999999999,
+        "mission": 2,
+        "kills": 0,
+        "phase": "opening",
+        "wave": 0,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the gate patrols, then reach the northern flag",
+          "x": 448,
+          "y": 96,
+          "radius": 96
+        },
+        "pending": 0,
+        "gates": [
+          {
+            "x": 448,
+            "y": 352,
+            "radius": 100
+          },
+          {
+            "x": 448,
+            "y": 96,
+            "radius": 100
+          }
+        ],
+        "routeReached": true,
+        "rallyReady": true,
+        "width": 896,
+        "height": 640,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 0,
+            "y": 96
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 448,
+            "y": 333.1199999999985,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 595.2367208351699,
+            "y": 479.85831581774147,
+            "health": 100
+          },
+          {
+            "hero": "lissa",
+            "x": 421.5418914453311,
+            "y": 576.6885362207495,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 527.9797259005481,
+            "y": 265.78027868822653,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "open-gate-threshold-reached",
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "lissa",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "lissa",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "heal"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 448,
+          "y": 255.51999999999794
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 4183.149999999998,
+        "mission": 2,
+        "kills": 0,
+        "phase": "opening",
+        "wave": 0,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the gate patrols, then reach the northern flag",
+          "x": 448,
+          "y": 96,
+          "radius": 96
+        },
+        "pending": 0,
+        "gates": [
+          {
+            "x": 448,
+            "y": 352,
+            "radius": 100
+          },
+          {
+            "x": 448,
+            "y": 96,
+            "radius": 100
+          }
+        ],
+        "routeReached": true,
+        "rallyReady": true,
+        "width": 896,
+        "height": 640,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 0,
+            "y": 42
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 448,
+            "y": 251.51999999999794,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 600.2388396518758,
+            "y": 450.9309871551198,
+            "health": 100
+          },
+          {
+            "hero": "lissa",
+            "x": 412.6305178523116,
+            "y": 555.93406763683,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 531.5919013058862,
+            "y": 232.3752747802182,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "route-sample",
+      "label": "open-gate-crossing",
+      "target": {
+        "x": 448,
+        "y": 192
+      },
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "lissa",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "lissa",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "heal"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 448,
+          "y": 228.99999999999804
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 5123.129999999997,
+        "mission": 2,
+        "kills": 0,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the gate patrols, then reach the northern flag",
+          "x": 448,
+          "y": 96,
+          "radius": 96
+        },
+        "pending": 11,
+        "gates": [
+          {
+            "x": 448,
+            "y": 352,
+            "radius": 100
+          },
+          {
+            "x": 448,
+            "y": 96,
+            "radius": 100
+          }
+        ],
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 896,
+        "height": 640,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 0,
+            "y": 15
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 448,
+            "y": 224.99999999999804,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 607.5981843780012,
+            "y": 414.07581080910796,
+            "health": 100
+          },
+          {
+            "hero": "lissa",
+            "x": 393.8113287341125,
+            "y": 496.1401849827449,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 536.8020288195806,
+            "y": 166.43449980424631,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "open-gate-crossing-reached",
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "lissa",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "lissa",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "heal"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 448,
+          "y": 200.43999999999815
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 5476.429999999997,
+        "mission": 2,
+        "kills": 0,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the gate patrols, then reach the northern flag",
+          "x": 448,
+          "y": 96,
+          "radius": 96
+        },
+        "pending": 11,
+        "gates": [
+          {
+            "x": 448,
+            "y": 352,
+            "radius": 100
+          },
+          {
+            "x": 448,
+            "y": 96,
+            "radius": 100
+          }
+        ],
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 896,
+        "height": 640,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 0,
+            "y": 0
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 448,
+            "y": 196.43999999999815,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 607.5981843780012,
+            "y": 414.07581080910796,
+            "health": 100
+          },
+          {
+            "hero": "lissa",
+            "x": 390.4338704687329,
+            "y": 476.450508611974,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 536.8020288195806,
+            "y": 166.43449980424631,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "route-sample",
+      "label": "open-gate-north-objective",
+      "target": {
+        "x": 448,
+        "y": 96
+      },
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "lissa",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "lissa",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "heal"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 448,
+          "y": 175.95999999999825
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 6416.399999999996,
+        "mission": 2,
+        "kills": 0,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the gate patrols, then reach the northern flag",
+          "x": 448,
+          "y": 96,
+          "radius": 96
+        },
+        "pending": 9,
+        "gates": [
+          {
+            "x": 448,
+            "y": 352,
+            "radius": 100
+          },
+          {
+            "x": 448,
+            "y": 96,
+            "radius": 100
+          }
+        ],
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 896,
+        "height": 640,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 0,
+            "y": 0
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 448,
+            "y": 171.95999999999825,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 607.5981843780012,
+            "y": 414.07581080910796,
+            "health": 100
+          },
+          {
+            "hero": "lissa",
+            "x": 387.1361059878667,
+            "y": 450.8473009178085,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 538.6401273193167,
+            "y": 113.2155761329544,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "open-gate-north-objective-reached",
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "lissa",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "lissa",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "heal"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 448,
+          "y": 94.35999999999824
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 7168.029999999995,
+        "mission": 2,
+        "kills": 0,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the gate patrols, then reach the northern flag",
+          "x": 448,
+          "y": 96,
+          "radius": 96
+        },
+        "pending": 8,
+        "gates": [
+          {
+            "x": 448,
+            "y": 352,
+            "radius": 100
+          },
+          {
+            "x": 448,
+            "y": 96,
+            "radius": 100
+          }
+        ],
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 896,
+        "height": 640,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 0,
+            "y": 0
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 448,
+            "y": 90.35999999999824,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 523.8285007950421,
+            "y": 419.9918432677812,
+            "health": 100
+          },
+          {
+            "hero": "lissa",
+            "x": 387.1361059878667,
+            "y": 450.8473009178085,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 539.4285253432233,
+            "y": 64.45631500382055,
+            "health": 100
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "finished": true,
+  "final": {
+    "arena": true,
+    "deploying": false,
+    "ended": false,
+    "health": 100,
+    "hero": "chrom",
+    "party": [
+      "chrom",
+      "frederick",
+      "lissa",
+      "sumia"
+    ],
+    "states": [
+      {
+        "hero": "chrom",
+        "health": 100,
+        "max": 100,
+        "level": 1,
+        "xp": 0,
+        "slot": 0,
+        "equipped": "falchion"
+      },
+      {
+        "hero": "frederick",
+        "health": 100,
+        "max": 100,
+        "level": 1,
+        "xp": 0,
+        "slot": 0,
+        "equipped": "iron-lance"
+      },
+      {
+        "hero": "lissa",
+        "health": 100,
+        "max": 100,
+        "level": 1,
+        "xp": 0,
+        "slot": 0,
+        "equipped": "heal"
+      },
+      {
+        "hero": "sumia",
+        "health": 100,
+        "max": 100,
+        "level": 1,
+        "xp": 0,
+        "slot": 0,
+        "equipped": "iron-lance"
+      }
+    ],
+    "p": {
+      "x": 448,
+      "y": 94.35999999999824
+    },
+    "enemies": [],
+    "potions": [],
+    "clock": 7498.019999999995,
+    "mission": 2,
+    "kills": 0,
+    "phase": "wave",
+    "wave": 1,
+    "boss": null,
+    "objective": {
+      "kind": "advance",
+      "victory": "reach-exit",
+      "label": "Clear the gate patrols, then reach the northern flag",
+      "x": 448,
+      "y": 96,
+      "radius": 96
+    },
+    "pending": 8,
+    "gates": [
+      {
+        "x": 448,
+        "y": 352,
+        "radius": 100
+      },
+      {
+        "x": 448,
+        "y": 96,
+        "radius": 100
+      }
+    ],
+    "routeReached": false,
+    "rallyReady": true,
+    "width": 896,
+    "height": 640,
+    "profile": {
+      "weapon": "sword",
+      "range": 85,
+      "minRange": 0,
+      "damage": 35,
+      "cooldown": 320,
+      "speed": 170,
+      "description": "Sword · close combat · strong against axes",
+      "id": "falchion",
+      "name": "Falchion",
+      "type": "sword",
+      "icon": "weapon-sword",
+      "effect": "attack",
+      "allowedHeroes": [
+        "chrom"
+      ],
+      "effectiveAgainst": [
+        "dragon"
+      ]
+    },
+    "ready": true,
+    "camera": {
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "ex": {
+        "x": 1,
+        "y": 0
+      },
+      "ey": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    "heroPositions": [
+      {
+        "hero": "chrom",
+        "x": 448,
+        "y": 90.35999999999824,
+        "health": 100
+      },
+      {
+        "hero": "frederick",
+        "x": 487.3941020418407,
+        "y": 419.9994454930877,
+        "health": 100
+      },
+      {
+        "hero": "lissa",
+        "x": 358.9802648467784,
+        "y": 462.82934258533106,
+        "health": 100
+      },
+      {
+        "hero": "sumia",
+        "x": 539.4285253432233,
+        "y": 64.45631500382055,
+        "health": 100
+      }
+    ]
+  }
+}

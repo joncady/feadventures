@@ -1,0 +1,4055 @@
+{
+  "method": "Native developer menu selects fresh-stat chapter fixture; native keyboard/mouse gameplay. Read-only scene/nav observations. Not earned campaign, full victory, or human acceptance.",
+  "started": "2026-10-15T08:36:46.025Z",
+  "events": [
+    {
+      "kind": "native-party-selected",
+      "state": {
+        "arena": false,
+        "results": false,
+        "campaign": false,
+        "interface": {
+          "preparationEditing": false,
+          "hero": "chrom",
+          "companions": [
+            "frederick",
+            "sumia"
+          ],
+          "selectionMode": "companions",
+          "phase": "party",
+          "tactical": true,
+          "ready": true,
+          "playing": false,
+          "paused": false,
+          "muted": false,
+          "settingsOpen": false,
+          "result": "",
+          "audio": {
+            "music": 0.18,
+            "effects": 1,
+            "voices": 0.6,
+            "characterVoices": true,
+            "spellEffect": "fire-cast"
+          }
+        }
+      }
+    },
+    {
+      "kind": "chapter-start",
+      "index": 8,
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 480,
+          "y": 452
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 380.00999999999965,
+        "mission": 8,
+        "kills": 0,
+        "phase": "opening",
+        "wave": 0,
+        "boss": null,
+        "objective": {
+          "kind": "boss",
+          "victory": "defeat-commander",
+          "label": "Defeat Aversa and reach the Black Keep",
+          "x": 512,
+          "y": 128,
+          "radius": 96
+        },
+        "pending": 0,
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 1024,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 32,
+            "y": 176
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 480,
+            "y": 448,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 572.3714617904681,
+            "y": 464.45544783847157,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 575.0492799445904,
+            "y": 478.65775757732655,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "phone-shrine-opening",
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 480,
+          "y": 452
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 486.6499999999999,
+        "mission": 8,
+        "kills": 0,
+        "phase": "opening",
+        "wave": 0,
+        "boss": null,
+        "objective": {
+          "kind": "boss",
+          "victory": "defeat-commander",
+          "label": "Defeat Aversa and reach the Black Keep",
+          "x": 512,
+          "y": 128,
+          "radius": 96
+        },
+        "pending": 0,
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 1024,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 32,
+            "y": 176
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 480,
+            "y": 448,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 579.9113016746222,
+            "y": 468.828554971281,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 564.0657065927871,
+            "y": 488.87701010310207,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "route-sample",
+      "label": "phone-shrine-left-approach",
+      "target": {
+        "x": 320,
+        "y": 400
+      },
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 460.6500259965532,
+          "y": 434.69002599655323
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 1123.3099999999995,
+        "mission": 8,
+        "kills": 0,
+        "phase": "opening",
+        "wave": 0,
+        "boss": null,
+        "objective": {
+          "kind": "boss",
+          "victory": "defeat-commander",
+          "label": "Defeat Aversa and reach the Black Keep",
+          "x": 512,
+          "y": 128,
+          "radius": 96
+        },
+        "pending": 0,
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 1024,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 32,
+            "y": 176
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 460.6500259965532,
+            "y": 430.69002599655323,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 606.1913814113558,
+            "y": 484.0710012185862,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 504.44059411157065,
+            "y": 544.3529523858825,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "phone-shrine-left-approach-reached",
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 311.35514298104204,
+          "y": 414.49505632586533
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 2693.2500000000005,
+        "mission": 8,
+        "kills": 0,
+        "phase": "opening",
+        "wave": 0,
+        "boss": null,
+        "objective": {
+          "kind": "boss",
+          "victory": "defeat-commander",
+          "label": "Defeat Aversa and reach the Black Keep",
+          "x": 512,
+          "y": 128,
+          "radius": 96
+        },
+        "pending": 0,
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 1024,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 0,
+            "y": 159
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 311.35514298104204,
+            "y": 410.49505632586533,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 598.1344871264603,
+            "y": 481.36891028785783,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 372.23974322284045,
+            "y": 575.15409520997,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "route-sample",
+      "label": "phone-shrine-legal-breach",
+      "target": {
+        "x": 320,
+        "y": 160
+      },
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 311.35514298104204,
+          "y": 390.0150563258651
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 3271.5399999999995,
+        "mission": 8,
+        "kills": 0,
+        "phase": "opening",
+        "wave": 0,
+        "boss": null,
+        "objective": {
+          "kind": "boss",
+          "victory": "defeat-commander",
+          "label": "Defeat Aversa and reach the Black Keep",
+          "x": 512,
+          "y": 128,
+          "radius": 96
+        },
+        "pending": 0,
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 1024,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 0,
+            "y": 159
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 311.35514298104204,
+            "y": 386.0150563258651,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 552.8766460745867,
+            "y": 474.14129516440335,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 321.1254848671523,
+            "y": 580.608488338114,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "phone-shrine-legal-breach-reached",
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 311.35514298104204,
+          "y": 167.6550563258644
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 5171.459999999997,
+        "mission": 8,
+        "kills": 0,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "boss",
+          "victory": "defeat-commander",
+          "label": "Defeat Aversa and reach the Black Keep",
+          "x": 512,
+          "y": 128,
+          "radius": 96
+        },
+        "pending": 15,
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 1024,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 0,
+            "y": 0
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 311.35514298104204,
+            "y": 163.6550563258644,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 490.12333180453936,
+            "y": 423.6442264879977,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 255.16555139872435,
+            "y": 481.0608986544246,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "route-sample",
+      "label": "phone-shrine-altar-objective",
+      "target": {
+        "x": 512,
+        "y": 128
+      },
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 330.7051169844888,
+          "y": 150.34508232241762
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 5804.779999999997,
+        "mission": 8,
+        "kills": 0,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "boss",
+          "victory": "defeat-commander",
+          "label": "Defeat Aversa and reach the Black Keep",
+          "x": 512,
+          "y": 128,
+          "radius": 96
+        },
+        "pending": 14,
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 1024,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 0,
+            "y": 0
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 330.7051169844888,
+            "y": 146.34508232241762,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 417.51151969028905,
+            "y": 420.015619572223,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 250.35332338820723,
+            "y": 420.645872334045,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "route-sample",
+      "label": "phone-shrine-altar-objective",
+      "target": {
+        "x": 512,
+        "y": 128
+      },
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 527.8323331887827,
+          "y": 114.28263648190374
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 8064.679999999995,
+        "mission": 8,
+        "kills": 0,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "boss",
+          "victory": "defeat-commander",
+          "label": "Defeat Aversa and reach the Black Keep",
+          "x": 512,
+          "y": 128,
+          "radius": 96
+        },
+        "pending": 12,
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 1024,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 0,
+            "y": 0
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 527.8323331887827,
+            "y": 110.28263648190374,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 328.00000584584245,
+            "y": 244.56808064234207,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 349.52325575185586,
+            "y": 314.12166442362786,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "phone-shrine-altar-objective-reached",
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 521.7547963603326,
+          "y": 142.88509965345312
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 8732.999999999995,
+        "mission": 8,
+        "kills": 0,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "boss",
+          "victory": "defeat-commander",
+          "label": "Defeat Aversa and reach the Black Keep",
+          "x": 512,
+          "y": 128,
+          "radius": 96
+        },
+        "pending": 12,
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 1024,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 6,
+            "y": 0
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 521.7547963603326,
+            "y": 138.88509965345312,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 331.4558949454131,
+            "y": 170.03628658088002,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 401.76043059865253,
+            "y": 304.5762055656712,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "phone-shrine-altar-hud",
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 521.7547963603326,
+          "y": 142.88509965345312
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 9044.659999999994,
+        "mission": 8,
+        "kills": 0,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "boss",
+          "victory": "defeat-commander",
+          "label": "Defeat Aversa and reach the Black Keep",
+          "x": 512,
+          "y": 128,
+          "radius": 96
+        },
+        "pending": 12,
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 1024,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 6,
+            "y": 0
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 521.7547963603326,
+            "y": 138.88509965345312,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 367.114041362617,
+            "y": 164.38047918387065,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 422.47714504096194,
+            "y": 304.36312569086544,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "chapter-start",
+      "index": 4,
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 448,
+          "y": 516
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 598.2999999999993,
+        "mission": 4,
+        "kills": 0,
+        "phase": "opening",
+        "wave": 0,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the Valmese patrols, then reach the inland flag",
+          "x": 1184,
+          "y": 272,
+          "radius": 110
+        },
+        "pending": 0,
+        "gates": [
+          {
+            "x": 512,
+            "y": 448,
+            "radius": 96
+          },
+          {
+            "x": 832,
+            "y": 464,
+            "radius": 96
+          },
+          {
+            "x": 1184,
+            "y": 272,
+            "radius": 96
+          }
+        ],
+        "routeReached": true,
+        "rallyReady": true,
+        "width": 1280,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 0,
+            "y": 224
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 448,
+            "y": 512,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 553.0272355900029,
+            "y": 535.7957966422017,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 524.2202970557854,
+            "y": 560.1764761929404,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "phone-coast-opening",
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 448,
+          "y": 516
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 779.9499999999989,
+        "mission": 4,
+        "kills": 0,
+        "phase": "opening",
+        "wave": 0,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the Valmese patrols, then reach the inland flag",
+          "x": 1184,
+          "y": 272,
+          "radius": 110
+        },
+        "pending": 0,
+        "gates": [
+          {
+            "x": 512,
+            "y": 448,
+            "radius": 96
+          },
+          {
+            "x": 832,
+            "y": 464,
+            "radius": 96
+          },
+          {
+            "x": 1184,
+            "y": 272,
+            "radius": 96
+          }
+        ],
+        "routeReached": true,
+        "rallyReady": true,
+        "width": 1280,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 0,
+            "y": 224
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 448,
+            "y": 512,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 562.5330901251657,
+            "y": 541.3091922725963,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 506.96039607438104,
+            "y": 576.235301590587,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "route-sample",
+      "label": "phone-coast-staging",
+      "target": {
+        "x": 512,
+        "y": 448
+      },
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 474.31496967068796,
+          "y": 495.8050303293121
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 1781.5899999999995,
+        "mission": 4,
+        "kills": 0,
+        "phase": "opening",
+        "wave": 0,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the Valmese patrols, then reach the inland flag",
+          "x": 1184,
+          "y": 272,
+          "radius": 110
+        },
+        "pending": 0,
+        "gates": [
+          {
+            "x": 512,
+            "y": 448,
+            "radius": 96
+          },
+          {
+            "x": 832,
+            "y": 464,
+            "radius": 96
+          },
+          {
+            "x": 1184,
+            "y": 272,
+            "radius": 96
+          }
+        ],
+        "routeReached": true,
+        "rallyReady": true,
+        "width": 1280,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 0,
+            "y": 224
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 474.31496967068796,
+            "y": 491.8050303293121,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 575.2386682330437,
+            "y": 548.6784275751653,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 427.79455392584214,
+            "y": 649.8921804968312,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "route-sample",
+      "label": "phone-coast-staging",
+      "target": {
+        "x": 512,
+        "y": 448
+      },
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 469.8673721836128,
+          "y": 453.079965337929
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 4353.139999999999,
+        "mission": 4,
+        "kills": 0,
+        "phase": "opening",
+        "wave": 0,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the Valmese patrols, then reach the inland flag",
+          "x": 1184,
+          "y": 272,
+          "radius": 110
+        },
+        "pending": 0,
+        "gates": [
+          {
+            "x": 512,
+            "y": 448,
+            "radius": 96
+          },
+          {
+            "x": 832,
+            "y": 464,
+            "radius": 96
+          },
+          {
+            "x": 1184,
+            "y": 272,
+            "radius": 96
+          }
+        ],
+        "routeReached": true,
+        "rallyReady": true,
+        "width": 1280,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 11,
+            "y": 204
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 469.8673721836128,
+            "y": 449.079965337929,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 646.2337359052849,
+            "y": 520.2867479922127,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 420.12185648126194,
+            "y": 657.0596621159611,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "route-sample",
+      "label": "phone-coast-staging",
+      "target": {
+        "x": 512,
+        "y": 448
+      },
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 519.4874588387906,
+          "y": 481.9173981801666
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 6846.379999999997,
+        "mission": 4,
+        "kills": 0,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the Valmese patrols, then reach the inland flag",
+          "x": 1184,
+          "y": 272,
+          "radius": 110
+        },
+        "pending": 12,
+        "gates": [
+          {
+            "x": 512,
+            "y": 448,
+            "radius": 96
+          },
+          {
+            "x": 832,
+            "y": 464,
+            "radius": 96
+          },
+          {
+            "x": 1184,
+            "y": 272,
+            "radius": 96
+          }
+        ],
+        "routeReached": true,
+        "rallyReady": true,
+        "width": 1280,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 11,
+            "y": 182
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 519.4874588387906,
+            "y": 477.9173981801666,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 646.2337359052849,
+            "y": 520.2867479922127,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 420.12185648126194,
+            "y": 657.0596621159611,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "route-sample",
+      "label": "phone-coast-staging",
+      "target": {
+        "x": 512,
+        "y": 448
+      },
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 490.9450476603478,
+          "y": 488.04992201034037
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 9036.309999999996,
+        "mission": 4,
+        "kills": 0,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the Valmese patrols, then reach the inland flag",
+          "x": 1184,
+          "y": 272,
+          "radius": 110
+        },
+        "pending": 12,
+        "gates": [
+          {
+            "x": 512,
+            "y": 448,
+            "radius": 96
+          },
+          {
+            "x": 832,
+            "y": 464,
+            "radius": 96
+          },
+          {
+            "x": 1184,
+            "y": 272,
+            "radius": 96
+          }
+        ],
+        "routeReached": true,
+        "rallyReady": true,
+        "width": 1280,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 14,
+            "y": 182
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 490.9450476603478,
+            "y": 484.04992201034037,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 646.2337359052849,
+            "y": 520.2867479922127,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 420.12185648126194,
+            "y": 657.0596621159611,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "route-sample",
+      "label": "phone-coast-staging",
+      "target": {
+        "x": 512,
+        "y": 448
+      },
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 472.6202253034607,
+          "y": 440.09748483534395
+        },
+        "enemies": [
+          {
+            "x": 791.9998589395186,
+            "y": 244.12368577599366,
+            "hp": 120,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "chase",
+            "targetPlayer": false
+          },
+          {
+            "x": 847.4584168872826,
+            "y": 247.99999999999014,
+            "hp": 96,
+            "boss": false,
+            "key": "soldier",
+            "weapon": "sword",
+            "phase": "chase",
+            "targetPlayer": false
+          },
+          {
+            "x": 852.8546083561919,
+            "y": 695.7484339873511,
+            "hp": 120,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "chase",
+            "targetPlayer": false
+          }
+        ],
+        "potions": [],
+        "clock": 11381.209999999994,
+        "mission": 4,
+        "kills": 0,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the Valmese patrols, then reach the inland flag",
+          "x": 1184,
+          "y": 272,
+          "radius": 110
+        },
+        "pending": 12,
+        "gates": [
+          {
+            "x": 512,
+            "y": 448,
+            "radius": 96
+          },
+          {
+            "x": 832,
+            "y": 464,
+            "radius": 96
+          },
+          {
+            "x": 1184,
+            "y": 272,
+            "radius": 96
+          }
+        ],
+        "routeReached": true,
+        "rallyReady": false,
+        "width": 1280,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 38,
+            "y": 182
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 472.6202253034607,
+            "y": 436.09748483534395,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 709.5163010658023,
+            "y": 510.1539222844943,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 429.71914962928696,
+            "y": 607.1838713470203,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "phone-coast-staging-reached",
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 517.952749133635,
+          "y": 458.0049610051702
+        },
+        "enemies": [
+          {
+            "x": 791.9999999029101,
+            "y": 344.1236857756154,
+            "hp": 120,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "chase",
+            "targetPlayer": false
+          },
+          {
+            "x": 792.798557550659,
+            "y": 278.9542961625438,
+            "hp": 96,
+            "boss": false,
+            "key": "soldier",
+            "weapon": "sword",
+            "phase": "chase",
+            "targetPlayer": false
+          },
+          {
+            "x": 778.5559720872808,
+            "y": 629.2851163936593,
+            "hp": 120,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "chase",
+            "targetPlayer": false
+          }
+        ],
+        "potions": [],
+        "clock": 12712.819999999992,
+        "mission": 4,
+        "kills": 0,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the Valmese patrols, then reach the inland flag",
+          "x": 1184,
+          "y": 272,
+          "radius": 110
+        },
+        "pending": 12,
+        "gates": [
+          {
+            "x": 512,
+            "y": 448,
+            "radius": 96
+          },
+          {
+            "x": 832,
+            "y": 464,
+            "radius": 96
+          },
+          {
+            "x": 1184,
+            "y": 272,
+            "radius": 96
+          }
+        ],
+        "routeReached": true,
+        "rallyReady": false,
+        "width": 1280,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 38,
+            "y": 182
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 517.952749133635,
+            "y": 454.0049610051702,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 692.947702491062,
+            "y": 557.9791567928048,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 426.40262616838163,
+            "y": 589.627560912846,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "route-sample",
+      "label": "phone-coast-town-road",
+      "target": {
+        "x": 832,
+        "y": 464
+      },
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 542.4327491336347,
+          "y": 458.0049610051702
+        },
+        "enemies": [
+          {
+            "x": 791.9999999990029,
+            "y": 405.3736857756154,
+            "hp": 120,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "chase",
+            "targetPlayer": false
+          },
+          {
+            "x": 792.021574991764,
+            "y": 327.94153566881425,
+            "hp": 96,
+            "boss": false,
+            "key": "soldier",
+            "weapon": "sword",
+            "phase": "chase",
+            "targetPlayer": false
+          },
+          {
+            "x": 742.197482118812,
+            "y": 600.6997581273594,
+            "hp": 105,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "windup",
+            "targetPlayer": false
+          }
+        ],
+        "potions": [],
+        "clock": 13529.439999999991,
+        "mission": 4,
+        "kills": 0,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the Valmese patrols, then reach the inland flag",
+          "x": 1184,
+          "y": 272,
+          "radius": 110
+        },
+        "pending": 12,
+        "gates": [
+          {
+            "x": 512,
+            "y": 448,
+            "radius": 96
+          },
+          {
+            "x": 832,
+            "y": 464,
+            "radius": 96
+          },
+          {
+            "x": 1184,
+            "y": 272,
+            "radius": 96
+          }
+        ],
+        "routeReached": true,
+        "rallyReady": false,
+        "width": 1280,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 38,
+            "y": 182
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 542.4327491336347,
+            "y": 454.0049610051702,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 692.947702491062,
+            "y": 557.9791567928048,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 506.1042363094039,
+            "y": 593.2673288138582,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "route-sample",
+      "label": "phone-coast-town-road",
+      "target": {
+        "x": 832,
+        "y": 464
+      },
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 84,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 759.8981595505779,
+          "y": 458.0049610051702
+        },
+        "enemies": [
+          {
+            "x": 729.0184217997185,
+            "y": 508.5915532016621,
+            "hp": 108,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "recover",
+            "targetPlayer": false
+          },
+          {
+            "x": 787.8981595505779,
+            "y": 431.27759618187315,
+            "hp": 96,
+            "boss": false,
+            "key": "soldier",
+            "weapon": "sword",
+            "phase": "windup",
+            "targetPlayer": true
+          },
+          {
+            "x": 738.2668345546532,
+            "y": 597.6094491255974,
+            "hp": 60,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "chase",
+            "targetPlayer": false
+          }
+        ],
+        "potions": [],
+        "clock": 15699.39999999999,
+        "mission": 4,
+        "kills": 0,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the Valmese patrols, then reach the inland flag",
+          "x": 1184,
+          "y": 272,
+          "radius": 110
+        },
+        "pending": 8,
+        "gates": [
+          {
+            "x": 512,
+            "y": 448,
+            "radius": 96
+          },
+          {
+            "x": 832,
+            "y": 464,
+            "radius": 96
+          },
+          {
+            "x": 1184,
+            "y": 272,
+            "radius": 96
+          }
+        ],
+        "routeReached": true,
+        "rallyReady": false,
+        "width": 1280,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 204,
+            "y": 182
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 759.8981595505779,
+            "y": 454.0049610051702,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 705.3596512685397,
+            "y": 552.86925349987,
+            "health": 84
+          },
+          {
+            "hero": "sumia",
+            "x": 640.6014695374079,
+            "y": 595.4340240182572,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "phone-coast-town-road-reached",
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 86,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 86,
+            "max": 100,
+            "level": 1,
+            "xp": 5,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 76,
+            "max": 100,
+            "level": 1,
+            "xp": 5,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 5,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 832.1141595505792,
+          "y": 458.0049610051702
+        },
+        "enemies": [
+          {
+            "x": 729.0184217997185,
+            "y": 508.5915532016621,
+            "hp": 108,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "chase",
+            "targetPlayer": false
+          },
+          {
+            "x": 860.1141595505792,
+            "y": 431.27759618187315,
+            "hp": 60,
+            "boss": false,
+            "key": "soldier",
+            "weapon": "sword",
+            "phase": "chase",
+            "targetPlayer": true
+          },
+          {
+            "x": 1027.703855950678,
+            "y": 247.999972591634,
+            "hp": 80,
+            "boss": false,
+            "key": "archer",
+            "weapon": "bow",
+            "phase": "chase",
+            "targetPlayer": true
+          },
+          {
+            "x": 1144.7163081190358,
+            "y": 691.0457020317087,
+            "hp": 80,
+            "boss": false,
+            "key": "archer",
+            "weapon": "bow",
+            "phase": "chase",
+            "targetPlayer": true
+          }
+        ],
+        "potions": [],
+        "clock": 17600.969999999994,
+        "mission": 4,
+        "kills": 1,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the Valmese patrols, then reach the inland flag",
+          "x": 1184,
+          "y": 272,
+          "radius": 110
+        },
+        "pending": 8,
+        "gates": [
+          {
+            "x": 512,
+            "y": 448,
+            "radius": 96
+          },
+          {
+            "x": 832,
+            "y": 464,
+            "radius": 96
+          },
+          {
+            "x": 1184,
+            "y": 272,
+            "radius": 96
+          }
+        ],
+        "routeReached": true,
+        "rallyReady": false,
+        "width": 1280,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": false,
+        "camera": {
+          "origin": {
+            "x": 286,
+            "y": 182
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 832.1141595505792,
+            "y": 454.0049610051702,
+            "health": 86
+          },
+          {
+            "hero": "frederick",
+            "x": 773.1560560107993,
+            "y": 532.1523002308489,
+            "health": 76
+          },
+          {
+            "hero": "sumia",
+            "x": 662.119040989463,
+            "y": 576.0382096094518,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "route-sample",
+      "label": "phone-coast-inland-objective",
+      "target": {
+        "x": 1184,
+        "y": 272
+      },
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 86,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 86,
+            "max": 100,
+            "level": 1,
+            "xp": 5,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 76,
+            "max": 100,
+            "level": 1,
+            "xp": 5,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 5,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 837.4864024015271,
+          "y": 456.2611571680477
+        },
+        "enemies": [
+          {
+            "x": 729.0184217997185,
+            "y": 508.5915532016621,
+            "hp": 93,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "windup",
+            "targetPlayer": false
+          },
+          {
+            "x": 860.7261595505793,
+            "y": 428.2611571680477,
+            "hp": 42,
+            "boss": false,
+            "key": "soldier",
+            "weapon": "sword",
+            "phase": "windup",
+            "targetPlayer": true
+          },
+          {
+            "x": 981.8705226173627,
+            "y": 247.9999989363021,
+            "hp": 80,
+            "boss": false,
+            "key": "archer",
+            "weapon": "bow",
+            "phase": "chase",
+            "targetPlayer": true
+          },
+          {
+            "x": 1144.7163081190358,
+            "y": 691.0457020317087,
+            "hp": 80,
+            "boss": false,
+            "key": "archer",
+            "weapon": "bow",
+            "phase": "chase",
+            "targetPlayer": true
+          }
+        ],
+        "potions": [],
+        "clock": 18440.91999999999,
+        "mission": 4,
+        "kills": 1,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the Valmese patrols, then reach the inland flag",
+          "x": 1184,
+          "y": 272,
+          "radius": 110
+        },
+        "pending": 8,
+        "gates": [
+          {
+            "x": 512,
+            "y": 448,
+            "radius": 96
+          },
+          {
+            "x": 832,
+            "y": 464,
+            "radius": 96
+          },
+          {
+            "x": 1184,
+            "y": 272,
+            "radius": 96
+          }
+        ],
+        "routeReached": true,
+        "rallyReady": false,
+        "width": 1280,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": false,
+        "camera": {
+          "origin": {
+            "x": 292,
+            "y": 182
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 837.4864024015271,
+            "y": 452.2611571680477,
+            "health": 86
+          },
+          {
+            "hero": "frederick",
+            "x": 775.0241257878932,
+            "y": 531.7192816770803,
+            "health": 76
+          },
+          {
+            "hero": "sumia",
+            "x": 662.119040989463,
+            "y": 576.0382096094518,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "route-sample",
+      "label": "phone-coast-inland-objective",
+      "target": {
+        "x": 1184,
+        "y": 272
+      },
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 79,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 79,
+            "max": 100,
+            "level": 1,
+            "xp": 5,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 71,
+            "max": 100,
+            "level": 1,
+            "xp": 5,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 92,
+            "max": 100,
+            "level": 1,
+            "xp": 5,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 1007.5949888398786,
+          "y": 380.69002599655323
+        },
+        "enemies": [
+          {
+            "x": 797.6607597760462,
+            "y": 508.0269215847911,
+            "hp": 33,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "recover",
+            "targetPlayer": false
+          },
+          {
+            "x": 879.2807431864261,
+            "y": 405.17805323244636,
+            "hp": 24,
+            "boss": false,
+            "key": "soldier",
+            "weapon": "sword",
+            "phase": "chase",
+            "targetPlayer": true
+          },
+          {
+            "x": 834.3012912650134,
+            "y": 204.41539769063405,
+            "hp": 72,
+            "boss": false,
+            "key": "mage",
+            "weapon": "tome",
+            "phase": "chase",
+            "targetPlayer": true
+          },
+          {
+            "x": 952.1296310046581,
+            "y": 303.6530144044631,
+            "hp": 80,
+            "boss": false,
+            "key": "archer",
+            "weapon": "bow",
+            "phase": "chase",
+            "targetPlayer": true
+          },
+          {
+            "x": 1031.4646902059494,
+            "y": 271.58238046509376,
+            "hp": 120,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "chase",
+            "targetPlayer": true
+          },
+          {
+            "x": 1110.344325690304,
+            "y": 695.550209343767,
+            "hp": 80,
+            "boss": false,
+            "key": "archer",
+            "weapon": "bow",
+            "phase": "windup",
+            "targetPlayer": false
+          }
+        ],
+        "potions": [],
+        "clock": 20604.179999999997,
+        "mission": 4,
+        "kills": 1,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the Valmese patrols, then reach the inland flag",
+          "x": 1184,
+          "y": 272,
+          "radius": 110
+        },
+        "pending": 8,
+        "gates": [
+          {
+            "x": 512,
+            "y": 448,
+            "radius": 96
+          },
+          {
+            "x": 832,
+            "y": 464,
+            "radius": 96
+          },
+          {
+            "x": 1184,
+            "y": 272,
+            "radius": 96
+          }
+        ],
+        "routeReached": true,
+        "rallyReady": false,
+        "width": 1280,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 384,
+            "y": 162
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 1007.5949888398786,
+            "y": 376.69002599655323,
+            "health": 79
+          },
+          {
+            "hero": "frederick",
+            "x": 943.5831620974016,
+            "y": 474.0560410409894,
+            "health": 71
+          },
+          {
+            "hero": "sumia",
+            "x": 786.8393533969928,
+            "y": 530.6080900825609,
+            "health": 92
+          }
+        ]
+      }
+    },
+    {
+      "kind": "route-sample",
+      "label": "phone-coast-inland-objective",
+      "target": {
+        "x": 1184,
+        "y": 272
+      },
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 69,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 69,
+            "max": 100,
+            "level": 1,
+            "xp": 5,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 71,
+            "max": 100,
+            "level": 1,
+            "xp": 5,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 84,
+            "max": 100,
+            "level": 1,
+            "xp": 5,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 1143.3212960321098,
+          "y": 252.30771880432303
+        },
+        "enemies": [
+          {
+            "x": 797.6607597760462,
+            "y": 508.0269215847911,
+            "hp": 3,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "chase",
+            "targetPlayer": false
+          },
+          {
+            "x": 976.1992522757371,
+            "y": 482.2849332070858,
+            "hp": 24,
+            "boss": false,
+            "key": "soldier",
+            "weapon": "sword",
+            "phase": "chase",
+            "targetPlayer": false
+          },
+          {
+            "x": 838.8574041292828,
+            "y": 239.8581838304292,
+            "hp": 72,
+            "boss": false,
+            "key": "mage",
+            "weapon": "tome",
+            "phase": "chase",
+            "targetPlayer": true
+          },
+          {
+            "x": 857.4517663073657,
+            "y": 211.8581838304292,
+            "hp": 96,
+            "boss": false,
+            "key": "soldier",
+            "weapon": "sword",
+            "phase": "chase",
+            "targetPlayer": true
+          },
+          {
+            "x": 952.1296310046581,
+            "y": 303.6530144044631,
+            "hp": 80,
+            "boss": false,
+            "key": "archer",
+            "weapon": "bow",
+            "phase": "chase",
+            "targetPlayer": true
+          },
+          {
+            "x": 1078.012046463429,
+            "y": 280.39322050407895,
+            "hp": 96,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "windup",
+            "targetPlayer": true
+          }
+        ],
+        "potions": [],
+        "clock": 22755.760000000013,
+        "mission": 4,
+        "kills": 1,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the Valmese patrols, then reach the inland flag",
+          "x": 1184,
+          "y": 272,
+          "radius": 110
+        },
+        "pending": 8,
+        "gates": [
+          {
+            "x": 512,
+            "y": 448,
+            "radius": 96
+          },
+          {
+            "x": 832,
+            "y": 464,
+            "radius": 96
+          },
+          {
+            "x": 1184,
+            "y": 272,
+            "radius": 96
+          }
+        ],
+        "routeReached": true,
+        "rallyReady": false,
+        "width": 1280,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": false,
+        "camera": {
+          "origin": {
+            "x": 384,
+            "y": 26
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 1143.3212960321098,
+            "y": 248.30771880432303,
+            "health": 69
+          },
+          {
+            "hero": "frederick",
+            "x": 1043.8052949780365,
+            "y": 591.7681379340621,
+            "health": 71
+          },
+          {
+            "hero": "sumia",
+            "x": 832.5407195586756,
+            "y": 512.1892532319263,
+            "health": 84
+          }
+        ]
+      }
+    },
+    {
+      "kind": "phone-coast-inland-objective-reached",
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 69,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 69,
+            "max": 100,
+            "level": 1,
+            "xp": 5,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 66,
+            "max": 100,
+            "level": 1,
+            "xp": 5,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 84,
+            "max": 100,
+            "level": 1,
+            "xp": 5,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 1201.8682657027975,
+          "y": 276.58268847501097
+        },
+        "enemies": [
+          {
+            "x": 797.6607597760462,
+            "y": 508.0269215847911,
+            "hp": 3,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "windup",
+            "targetPlayer": false
+          },
+          {
+            "x": 997.8689714421013,
+            "y": 519.4250650400963,
+            "hp": 24,
+            "boss": false,
+            "key": "soldier",
+            "weapon": "sword",
+            "phase": "chase",
+            "targetPlayer": false
+          },
+          {
+            "x": 831.3084924455508,
+            "y": 244.58277016494822,
+            "hp": 72,
+            "boss": false,
+            "key": "mage",
+            "weapon": "tome",
+            "phase": "windup",
+            "targetPlayer": false
+          },
+          {
+            "x": 899.9525758478815,
+            "y": 215.74811667840734,
+            "hp": 96,
+            "boss": false,
+            "key": "soldier",
+            "weapon": "sword",
+            "phase": "chase",
+            "targetPlayer": true
+          },
+          {
+            "x": 952.1296310046581,
+            "y": 303.6530144044631,
+            "hp": 80,
+            "boss": false,
+            "key": "archer",
+            "weapon": "bow",
+            "phase": "chase",
+            "targetPlayer": true
+          },
+          {
+            "x": 1097.8813869720693,
+            "y": 278.4731413028525,
+            "hp": 96,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "chase",
+            "targetPlayer": true
+          }
+        ],
+        "potions": [],
+        "clock": 23479.050000000014,
+        "mission": 4,
+        "kills": 1,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "advance",
+          "victory": "reach-exit",
+          "label": "Clear the Valmese patrols, then reach the inland flag",
+          "x": 1184,
+          "y": 272,
+          "radius": 110
+        },
+        "pending": 7,
+        "gates": [
+          {
+            "x": 512,
+            "y": 448,
+            "radius": 96
+          },
+          {
+            "x": 832,
+            "y": 464,
+            "radius": 96
+          },
+          {
+            "x": 1184,
+            "y": 272,
+            "radius": 96
+          }
+        ],
+        "routeReached": true,
+        "rallyReady": false,
+        "width": 1280,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 384,
+            "y": 26
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 1201.8682657027975,
+            "y": 272.58268847501097,
+            "health": 69
+          },
+          {
+            "hero": "frederick",
+            "x": 1049.7083165173544,
+            "y": 604.7709351987419,
+            "health": 66
+          },
+          {
+            "hero": "sumia",
+            "x": 832.5407195586756,
+            "y": 512.1892532319263,
+            "health": 84
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "finished": true,
+  "final": {
+    "arena": true,
+    "deploying": false,
+    "ended": false,
+    "health": 69,
+    "hero": "chrom",
+    "party": [
+      "chrom",
+      "frederick",
+      "sumia"
+    ],
+    "states": [
+      {
+        "hero": "chrom",
+        "health": 69,
+        "max": 100,
+        "level": 1,
+        "xp": 5,
+        "slot": 0,
+        "equipped": "falchion"
+      },
+      {
+        "hero": "frederick",
+        "health": 66,
+        "max": 100,
+        "level": 1,
+        "xp": 5,
+        "slot": 0,
+        "equipped": "iron-lance"
+      },
+      {
+        "hero": "sumia",
+        "health": 84,
+        "max": 100,
+        "level": 1,
+        "xp": 5,
+        "slot": 0,
+        "equipped": "iron-lance"
+      }
+    ],
+    "p": {
+      "x": 1201.8682657027975,
+      "y": 276.58268847501097
+    },
+    "enemies": [
+      {
+        "x": 797.6607597760462,
+        "y": 508.0269215847911,
+        "hp": 3,
+        "boss": false,
+        "key": "knight",
+        "weapon": "lance",
+        "phase": "windup",
+        "targetPlayer": false
+      },
+      {
+        "x": 1005.3967790393449,
+        "y": 532.3993516400944,
+        "hp": 24,
+        "boss": false,
+        "key": "soldier",
+        "weapon": "sword",
+        "phase": "chase",
+        "targetPlayer": false
+      },
+      {
+        "x": 831.3084924455508,
+        "y": 244.58277016494822,
+        "hp": 72,
+        "boss": false,
+        "key": "mage",
+        "weapon": "tome",
+        "phase": "windup",
+        "targetPlayer": false
+      },
+      {
+        "x": 914.9515350935452,
+        "y": 215.91912521014666,
+        "hp": 96,
+        "boss": false,
+        "key": "soldier",
+        "weapon": "sword",
+        "phase": "chase",
+        "targetPlayer": true
+      },
+      {
+        "x": 952.1296310046581,
+        "y": 303.6530144044631,
+        "hp": 80,
+        "boss": false,
+        "key": "archer",
+        "weapon": "bow",
+        "phase": "chase",
+        "targetPlayer": true
+      },
+      {
+        "x": 1116.628289279986,
+        "y": 278.13232777989793,
+        "hp": 96,
+        "boss": false,
+        "key": "knight",
+        "weapon": "lance",
+        "phase": "chase",
+        "targetPlayer": true
+      }
+    ],
+    "potions": [],
+    "clock": 23717.380000000012,
+    "mission": 4,
+    "kills": 1,
+    "phase": "wave",
+    "wave": 1,
+    "boss": null,
+    "objective": {
+      "kind": "advance",
+      "victory": "reach-exit",
+      "label": "Clear the Valmese patrols, then reach the inland flag",
+      "x": 1184,
+      "y": 272,
+      "radius": 110
+    },
+    "pending": 6,
+    "gates": [
+      {
+        "x": 512,
+        "y": 448,
+        "radius": 96
+      },
+      {
+        "x": 832,
+        "y": 464,
+        "radius": 96
+      },
+      {
+        "x": 1184,
+        "y": 272,
+        "radius": 96
+      }
+    ],
+    "routeReached": true,
+    "rallyReady": false,
+    "width": 1280,
+    "height": 768,
+    "profile": {
+      "weapon": "sword",
+      "range": 85,
+      "minRange": 0,
+      "damage": 35,
+      "cooldown": 320,
+      "speed": 170,
+      "description": "Sword · close combat · strong against axes",
+      "id": "falchion",
+      "name": "Falchion",
+      "type": "sword",
+      "icon": "weapon-sword",
+      "effect": "attack",
+      "allowedHeroes": [
+        "chrom"
+      ],
+      "effectiveAgainst": [
+        "dragon"
+      ]
+    },
+    "ready": true,
+    "camera": {
+      "origin": {
+        "x": 384,
+        "y": 26
+      },
+      "ex": {
+        "x": 1,
+        "y": 0
+      },
+      "ey": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    "heroPositions": [
+      {
+        "hero": "chrom",
+        "x": 1201.8682657027975,
+        "y": 272.58268847501097,
+        "health": 69
+      },
+      {
+        "hero": "frederick",
+        "x": 1049.7083165173544,
+        "y": 604.7709351987419,
+        "health": 66
+      },
+      {
+        "hero": "sumia",
+        "x": 832.5407195586756,
+        "y": 512.1892532319263,
+        "health": 84
+      }
+    ]
+  }
+}

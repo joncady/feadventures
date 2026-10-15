@@ -2,6 +2,7 @@ import {CAMPAIGN_MAPS,type MapDefinition} from './maps';
 import {EXPANDED_CHAPTERS,type MissionChapter,type MissionId,type CampaignId} from './campaign-catalog';
 import {EXPANSION_LAYOUTS} from './expansion-layouts';
 import {assembleTerrain} from './map-chunks';
+import {authoredMapGeometry} from './map-art';
 
 export interface ExpandedMissionDefinition extends MapDefinition {
  chapter:MissionChapter;
@@ -24,7 +25,9 @@ const CHAPTER_BUDGETS:Partial<Record<MissionId,Partial<MapDefinition['waves']>>>
 function mission(id:MissionId,source:string,changes:Partial<MapDefinition>,readiness:ExpandedMissionDefinition['readiness']):ExpandedMissionDefinition {
  const chapter=EXPANDED_CHAPTERS.find(value=>value.id===id)!;
  const layout=EXPANSION_LAYOUTS.find(value=>value.id===id);
- return {...structuredClone(original(source)),...changes,...(layout?{width:layout.width,height:layout.height,backgroundKey:`mission-${id}`,backgroundPath:`maps/${id}.png`,chunks:layout.chunks,terrain:assembleTerrain(layout)}:{}),waves:{...original(source).waves,...changes.waves,...CHAPTER_BUDGETS[id]},id,title:`${EXPANDED_CHAPTERS.indexOf(chapter)+1} · ${chapter.title}`,name:chapter.title,advanceGates:chapter.advanceGates,spawnMargin:changes.spawnMargin??32,chapter,readiness};
+ const base = {...structuredClone(original(source)),...changes,...(layout?{width:layout.width,height:layout.height,backgroundKey:`mission-${id}`,backgroundPath:`maps/${id}.png`,chunks:layout.chunks,terrain:assembleTerrain(layout)}:{}),waves:{...original(source).waves,...changes.waves,...CHAPTER_BUDGETS[id]},id,title:`${EXPANDED_CHAPTERS.indexOf(chapter)+1} · ${chapter.title}`,name:chapter.title,advanceGates:chapter.advanceGates,spawnMargin:changes.spawnMargin??32,chapter,readiness};
+ const art=authoredMapGeometry(id,base);
+ return {...base,...art,chapter:{...chapter,advanceGates:art.advanceGates??chapter.advanceGates}};
 }
 /** Data foundation, intentionally not selected by the launcher until integration is reviewed.
  * Six additions use their own authored source-tile compositions and shared collision

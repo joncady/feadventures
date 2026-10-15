@@ -1,0 +1,792 @@
+{
+  "id": "dark-castle",
+  "width": 1024,
+  "height": 768,
+  "identity": "Validar ritual sanctum, shattered columns and crest-side approaches",
+  "layers": [
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        164,
+        52,
+        8,
+        8
+      ],
+      "rect": [
+        0,
+        0,
+        1024,
+        768
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        0,
+        208,
+        16,
+        16
+      ],
+      "rect": [
+        0,
+        0,
+        256,
+        288
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        0,
+        208,
+        16,
+        16
+      ],
+      "rect": [
+        768,
+        0,
+        256,
+        288
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        0,
+        208,
+        16,
+        16
+      ],
+      "rect": [
+        0,
+        480,
+        256,
+        288
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        0,
+        208,
+        16,
+        16
+      ],
+      "rect": [
+        768,
+        480,
+        256,
+        288
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        256,
+        64,
+        16,
+        16
+      ],
+      "rect": [
+        256,
+        32,
+        192,
+        32
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        256,
+        64,
+        16,
+        16
+      ],
+      "rect": [
+        576,
+        32,
+        192,
+        32
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        256,
+        64,
+        16,
+        16
+      ],
+      "rect": [
+        256,
+        64,
+        32,
+        224
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        256,
+        64,
+        16,
+        16
+      ],
+      "rect": [
+        736,
+        64,
+        32,
+        224
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        256,
+        64,
+        16,
+        16
+      ],
+      "rect": [
+        64,
+        256,
+        192,
+        32
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        256,
+        64,
+        16,
+        16
+      ],
+      "rect": [
+        768,
+        256,
+        192,
+        32
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        256,
+        64,
+        16,
+        16
+      ],
+      "rect": [
+        64,
+        288,
+        32,
+        192
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        256,
+        64,
+        16,
+        16
+      ],
+      "rect": [
+        928,
+        288,
+        32,
+        192
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        256,
+        64,
+        16,
+        16
+      ],
+      "rect": [
+        64,
+        480,
+        192,
+        32
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        256,
+        64,
+        16,
+        16
+      ],
+      "rect": [
+        768,
+        480,
+        192,
+        32
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        256,
+        64,
+        16,
+        16
+      ],
+      "rect": [
+        256,
+        512,
+        32,
+        128
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        256,
+        64,
+        16,
+        16
+      ],
+      "rect": [
+        736,
+        512,
+        32,
+        128
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        256,
+        64,
+        16,
+        16
+      ],
+      "rect": [
+        256,
+        640,
+        192,
+        32
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        256,
+        64,
+        16,
+        16
+      ],
+      "rect": [
+        576,
+        640,
+        192,
+        32
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        272,
+        112,
+        32,
+        16
+      ],
+      "rect": [
+        256,
+        32,
+        192,
+        32
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        272,
+        112,
+        32,
+        16
+      ],
+      "rect": [
+        576,
+        32,
+        192,
+        32
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        272,
+        112,
+        32,
+        16
+      ],
+      "rect": [
+        64,
+        256,
+        192,
+        32
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        272,
+        112,
+        32,
+        16
+      ],
+      "rect": [
+        768,
+        256,
+        192,
+        32
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        352,
+        16,
+        48,
+        48
+      ],
+      "rect": [
+        464,
+        128,
+        96,
+        96
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        128,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        160,
+        320,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        0,
+        144,
+        32,
+        16
+      ],
+      "rect": [
+        128,
+        352,
+        64,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        128,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        800,
+        352,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        0,
+        144,
+        32,
+        16
+      ],
+      "rect": [
+        768,
+        384,
+        64,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        160,
+        16,
+        16,
+        48
+      ],
+      "rect": [
+        352,
+        512,
+        32,
+        96
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        160,
+        16,
+        16,
+        48
+      ],
+      "rect": [
+        640,
+        512,
+        32,
+        96
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        256,
+        64,
+        16,
+        16
+      ],
+      "rect": [
+        352,
+        96,
+        64,
+        128
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        400,
+        64,
+        32,
+        48
+      ],
+      "rect": [
+        352,
+        96,
+        64,
+        96
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        272,
+        112,
+        32,
+        16
+      ],
+      "rect": [
+        352,
+        192,
+        64,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        256,
+        64,
+        16,
+        16
+      ],
+      "rect": [
+        640,
+        96,
+        64,
+        128
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        400,
+        64,
+        32,
+        48
+      ],
+      "rect": [
+        640,
+        96,
+        64,
+        96
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        272,
+        112,
+        32,
+        16
+      ],
+      "rect": [
+        640,
+        192,
+        64,
+        32
+      ],
+      "mode": "stamp"
+    }
+  ],
+  "solids": [
+    [
+      256,
+      32,
+      192,
+      32
+    ],
+    [
+      576,
+      32,
+      192,
+      32
+    ],
+    [
+      256,
+      64,
+      32,
+      224
+    ],
+    [
+      736,
+      64,
+      32,
+      224
+    ],
+    [
+      64,
+      256,
+      192,
+      32
+    ],
+    [
+      768,
+      256,
+      192,
+      32
+    ],
+    [
+      64,
+      288,
+      32,
+      192
+    ],
+    [
+      928,
+      288,
+      32,
+      192
+    ],
+    [
+      64,
+      480,
+      192,
+      32
+    ],
+    [
+      768,
+      480,
+      192,
+      32
+    ],
+    [
+      256,
+      512,
+      32,
+      128
+    ],
+    [
+      736,
+      512,
+      32,
+      128
+    ],
+    [
+      256,
+      640,
+      192,
+      32
+    ],
+    [
+      576,
+      640,
+      192,
+      32
+    ],
+    [
+      160,
+      320,
+      32,
+      32
+    ],
+    [
+      128,
+      352,
+      64,
+      32
+    ],
+    [
+      800,
+      352,
+      32,
+      32
+    ],
+    [
+      768,
+      384,
+      64,
+      32
+    ],
+    [
+      352,
+      512,
+      32,
+      96
+    ],
+    [
+      640,
+      512,
+      32,
+      96
+    ],
+    [
+      352,
+      96,
+      64,
+      128
+    ],
+    [
+      640,
+      96,
+      64,
+      128
+    ]
+  ],
+  "anchors": {
+    "deployment": [
+      352,
+      448,
+      672,
+      704
+    ],
+    "heroCamp": [
+      512,
+      656
+    ],
+    "objective": [
+      512,
+      128
+    ],
+    "camps": [
+      [
+        448,
+        128
+      ],
+      [
+        576,
+        128
+      ],
+      [
+        128,
+        432
+      ],
+      [
+        896,
+        384
+      ]
+    ],
+    "spawnEntries": [
+      [
+        512,
+        48
+      ],
+      [
+        512,
+        720
+      ]
+    ],
+    "soldiers": [
+      [
+        384,
+        480
+      ],
+      [
+        448,
+        480
+      ],
+      [
+        512,
+        480
+      ],
+      [
+        576,
+        480
+      ]
+    ]
+  },
+  "credits": [
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "url": "https://feuniverse.us/t/updated-stronghold-tileset/6134",
+      "credit": "ZoramineFae / N426 / Flasuban / Wan"
+    }
+  ],
+  "notes": [
+    "Authored native16px crops at2x nearest. Solid rectangles correspond to visible terrain. Decorative floors and stairs remain walkable.",
+    "Cross-shaped ritual room silhouette with side chambers and broken masonry; center seal stays walkable, no throne/carpet avenue or detached floating stair stripe.",
+    "Final review: both complete carved guardians now mount on short masonry backing and full matching32px-high source foundation/plinth. Combined visible structure is a static64x128 solid; no detached floor plaque."
+  ]
+}

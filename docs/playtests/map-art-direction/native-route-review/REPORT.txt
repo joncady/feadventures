@@ -1,0 +1,121 @@
+NATIVE-INPUT MAP ROUTE REVIEW — 2026-10-15
+
+Method: Chromium Playwright, actual game native keyboard/mouse/touch UI inputs.
+The normal F9 developer menu selected fresh level1 chapter test parties; this is
+explicit route-fixture evidence, NOT earned campaign continuation, full mission
+victory, human fun acceptance or phone thumb/joystick usability testing.
+No actor position, health, damage, gold, XP, equipment, wave, time or save injection.
+Read-only scene/camera/unit observations and a separate local NavigationField
+planned keyboard movement. Only camera-visible enemies were aimed at.
+
+Frozen source/public copied physically to /tmp/map-route-native-frozen, server5213,
+CDP5223. No source HMR refresh during the trial. actual-frozen-source-sha256.json
+records the exact copy. All rendered assets and map adapter match source freeze;
+generated.ts differs solely in Castle6 NW barricade correction, independently
+exact-diffed by lead: copied3b191930e3bb71291ea66f011d28ca10d7b150bce82bc8e4925e4c5974d11f67
+versus current93c631bbe481aa93cf2e39bc9f713eb4963213cf3b421d03fca4f7f135a3ba30.
+Only chapters3/5/7/9 were played, whose data is identical. No Castle6 acceptance
+is inferred from this route trial.
+
+DESKTOP1440x1066 — Chrom/Frederick/Lissa/Sumia, native selected.
+Chapter5 coast: staging reached1.77s, town road5.10s, actual inland objective13.63s;
+Chrom100HP. Ground route follows exterior road, not the scenic closed gate.
+Native E selected Sumia at her actual companion location near the eastern fight.
+She flew back across the coast and water to279,558 by51.13s,87HP,5party kills.
+No teleport, flight flag mutation or movement exception injection. Screenshot shows
+her over open water while grounded companions remain on land.
+
+Chapter9 shrine: front court1.69s,100HP. A pilot-chosen waypoint384,336 was inside
+the visible solid facade352,192,288,176. The local planner produced no route and
+pilot held there until a45s bounded timeout; this is a PILOT ERROR, not a map
+softlock. Chrom fell under normal combat during that wasted interval and the game
+switched to Frederick. The subsequent valid goal route went around the facade to
+actual objective510,124 by55.06s,33HP,8kills, then east side739,323 by61.43s,22HP,
+9kills. Do not use this loss/stall to infer map difficulty or enemy tuning.
+
+Chapter7 pass: first turn3.30s, upper turn6.48s, boss site904,271 at8.45s;
+Chrom100HP,1kill. Ground path through the connected valley clear. Native camera
+follows horizontally; no visible cliff penetration on this path.
+
+Chapter3 gate: bridge foot1.93s, original gate crossing3.99s, northern objective
+448,78 at5.45s,Chrom100HP. This proved the mandatory route physically open.
+The original source portcullis visibly looked closed while traversable; reported
+as an affordance mismatch. Lead supplied a bounded interior-floor art correction
+with no geometry change; follow-up verification is recorded separately below.
+
+PHONE844x390 — native touch selection/buttons, keyboard movement with full touchHUD.
+Actual selected party was Chrom/Frederick/Sumia (3); the attempted Lissa selection
+did not register in this pilot. This limits party comparison; no source UI defect
+is claimed without a controlled reproduction. The chapter-start traces prove the
+actual party rather than assuming four selections succeeded.
+Chapter9 corrected legal left route: approach311,414 at2.69s; breach311,168 at5.17s;
+actual objective522,143 at8.73s; Chrom100HP throughout. The mandatory left breach
+is above the MOVE joystick and remains visible. The right attack circle covers
+part of the facade/right side; that route is optional. Actual map is1024x768.
+Chapter5: staging12.71s, town17.60s, actual inland objective1202,277 at23.48s;
+Chrom69HP,1kill. Both chapter camera/goal views captured with actualHUD.
+
+Both drivers completed with zero browser page errors. The first desktop setup
+attempt omitted native dialogue advancement and could not find Deploy; corrected
+before combat. No production change followed from that harness setup failure.
+
+Limits: no full wave or mission victory is claimed. Longest active scene exposure
+was61s shrine and51s coast; normal combat, falls, pickups and damage remained on.
+Phone screenshots verify actual overlays and route visibility; keyboard navigation
+was used instead of sustained joystick drags, so thumb feel is untested. Browser
+was headless and muted, so no audio or real-device performance claim.
+
+Evidence: raw reports include ordered2s observations, actual states, camera
+transforms and native chapter-start data. PNGs are actual browser screenshots,
+not the earlier composition previews. Drivers are included for reproducibility;
+they reference local paths and the owned isolated server.
+
+GATE ARTWORK FOLLOW-UP — PASS
+Root approved the lead-authored interior-floor-only correction. Stopped owned5213
+server, copied ONLY public/assets/maps/expanded/plegian-gate.png into frozen copy,
+restarted clean server, used a separate fresh browser profile to avoid cached art.
+New GatePNG SHA256 c9e9196af9ef91ebfed58ada02ff9c6d61fa75f7582c24e1e5114117fc399c9f.
+No geometry, stats, mission or save modifications. Native four-hero party deployed.
+Chrom reached bridge foot2.45s, open threshold448,256 at4.18s, north side448,200
+at5.48s, actual northern objective448,94 at7.17s,100HP throughout. Browser errors0.
+Threshold screenshot visually verified: actual actor stands over a clear gray
+open passage with retained original side posts/bridge, no closed bars behind him.
+The initial visual affordance issue is resolved. No further combat or code review.
+
+Both owned browser/CDP contexts closed after capture; owned5213 server stopped.
+User5173 and reviewer5211/5197 were not touched. No private browser profiles,
+downloads or raw storage profiles are included in this review folder.
+
+FINAL PHONE8 CLOSE-EDGE FOLLOW-UP — PASS
+Native fresh developerfixture,844x390 touchHUD, actual partyChrom/Frederick/Sumia.
+Normal ground controls crossed the royal avenue/connected authored doorway into
+the actual throneobjective. First pass: approach3.09s,doorway5.99s,goal8.21s;
+Chrom100HP,0browsererrors. A second identical bounded pass captured the same goal
+after the transient wave notice faded: goal9.00s, cleanHUD14.30s,Chrom100HP.
+The required center aisle/doorway stays between MOVE/AIM controls. Optional outer
+side aisles/scenery partially sit beneath those controls, without blocking this
+mandatory route. Capture is keyboard movement with native touch UI, not sustained
+thumb joystick testing. No fullwave/victory or balance inference. Same frozen
+chapter8PNG/geometry as sourcefreeze; only priorGatePNG and oldCastle6generated
+exception described above apply. No source edits or stat/entity/save mutations.
+Owned5213/CDP5223 closed again immediately after final capture.
+
+ACTUAL FULLSCREEN CLARIFICATION AND FOLLOW-UP — PASS
+The earlier844x390 captures were PHONE PAGE layout, canvas approximately544x330,
+with the page header still visible. They must not be called actual fullscreen.
+The final repeat explicitly tapped the game's TOPRIGHTfullscreencontrol through
+native touch input. document.fullscreenElement was SECTION.game-shell; viewport
+844x390; CSS viewport fallback=false; actual canvas x100.828125,y0,
+width642.3125,height389.984375. The same fullscreenElement and dimensions persisted
+through native F9 chapter selection for shrine9. This proves browser fullscreen,
+not physical-phone Safari behavior. No requestFullscreen was called by evaluation.
+Chapter8 normal ground route: approach4.55s,connected doorway6.46s,throneobjective
+9.12s; actual goalHUD13.10s,Chrom100HP. The central mandatory route remains between
+MOVE/AIM; optional side décor/aisles partly under controls.
+Chapter9 normal ground route: legal left breach8.42s,actual objective11.66s at
+533,128,Chrom89HP; goalHUD14.16s,Chrom78HP under ordinary enemy fire. No claim of
+fullhealth at this fullscreen shrine goal. Left mandatory approach and flag remain
+visible; optional right edge sits beneath AIM. Actual selected party3 heroes.
+Zero browser errors. Source, stats, entities, saves and gameplay unchanged. All
+actualfullscreen PNGs, raw DOM/state trace and driver preserved. Owned5213/CDP5223
+stopped after capture; user5173 and reviewer5211 untouched. No further tests.

@@ -1,0 +1,7047 @@
+{
+  "id": "plegian-gate",
+  "width": 896,
+  "height": 640,
+  "identity": "Exterior Plegian gate: arched curtain wall, water moat and raised approach",
+  "layers": [
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        32,
+        32,
+        32,
+        32
+      ],
+      "rect": [
+        0,
+        0,
+        896,
+        640
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        224,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        352,
+        0,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        384,
+        0,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        400,
+        0,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        416,
+        0,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        432,
+        0,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        448,
+        0,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        464,
+        0,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        240,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        480,
+        0,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        224,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        352,
+        32,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        384,
+        32,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        400,
+        32,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        416,
+        32,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        432,
+        32,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        448,
+        32,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        464,
+        32,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        240,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        480,
+        32,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        160,
+        96,
+        16,
+        16
+      ],
+      "rect": [
+        32,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        64,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        96,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        128,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        160,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        192,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        224,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        256,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        288,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        320,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        128,
+        96,
+        16,
+        16
+      ],
+      "rect": [
+        352,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        384,
+        64,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        400,
+        64,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        416,
+        64,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        432,
+        64,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        448,
+        64,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        464,
+        64,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        144,
+        96,
+        16,
+        16
+      ],
+      "rect": [
+        480,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        512,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        544,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        576,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        608,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        640,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        672,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        704,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        736,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        768,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        176,
+        96,
+        16,
+        16
+      ],
+      "rect": [
+        800,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        224,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        32,
+        96,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        64,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        80,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        96,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        112,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        128,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        144,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        160,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        176,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        192,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        208,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        224,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        240,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        256,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        272,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        288,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        304,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        320,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        336,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        352,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        368,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        384,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        400,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        416,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        432,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        448,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        464,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        480,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        496,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        512,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        528,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        544,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        560,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        576,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        592,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        608,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        624,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        640,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        656,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        672,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        688,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        704,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        720,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        736,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        752,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        768,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        784,
+        96,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        240,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        800,
+        96,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        224,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        32,
+        128,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        64,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        80,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        96,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        112,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        128,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        144,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        160,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        176,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        192,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        208,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        224,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        240,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        256,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        272,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        288,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        304,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        320,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        336,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        352,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        368,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        384,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        400,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        416,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        432,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        448,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        464,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        480,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        496,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        512,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        528,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        544,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        560,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        576,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        592,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        608,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        624,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        640,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        656,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        672,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        688,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        704,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        720,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        736,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        752,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        768,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        784,
+        128,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        240,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        800,
+        128,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        160,
+        112,
+        16,
+        16
+      ],
+      "rect": [
+        32,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        64,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        96,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        128,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        160,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        192,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        224,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        256,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        288,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        320,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        128,
+        112,
+        16,
+        16
+      ],
+      "rect": [
+        352,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        384,
+        160,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        400,
+        160,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        416,
+        160,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        432,
+        160,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        448,
+        160,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        464,
+        160,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        144,
+        112,
+        16,
+        16
+      ],
+      "rect": [
+        480,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        512,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        544,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        576,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        608,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        640,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        672,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        704,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        736,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        768,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        176,
+        112,
+        16,
+        16
+      ],
+      "rect": [
+        800,
+        160,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        224,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        352,
+        192,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        384,
+        192,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        400,
+        192,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        416,
+        192,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        432,
+        192,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        448,
+        192,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        464,
+        192,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        240,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        480,
+        192,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        224,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        352,
+        224,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        384,
+        224,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        400,
+        224,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        416,
+        224,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        432,
+        224,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        448,
+        224,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        464,
+        224,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        240,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        480,
+        224,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        224,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        352,
+        256,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        384,
+        256,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        400,
+        256,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        416,
+        256,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        432,
+        256,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        448,
+        256,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        464,
+        256,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        240,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        480,
+        256,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        224,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        352,
+        288,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        384,
+        288,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        400,
+        288,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        416,
+        288,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        432,
+        288,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        448,
+        288,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        464,
+        288,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        240,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        480,
+        288,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        224,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        352,
+        320,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        384,
+        320,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        400,
+        320,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        416,
+        320,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        432,
+        320,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        448,
+        320,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        464,
+        320,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        240,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        480,
+        320,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        224,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        352,
+        352,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        384,
+        352,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        400,
+        352,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        416,
+        352,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        432,
+        352,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        448,
+        352,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        464,
+        352,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        240,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        480,
+        352,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        224,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        352,
+        384,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        384,
+        384,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        400,
+        384,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        416,
+        384,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        432,
+        384,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        448,
+        384,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        464,
+        384,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        240,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        480,
+        384,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        160,
+        96,
+        16,
+        16
+      ],
+      "rect": [
+        32,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        64,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        96,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        128,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        160,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        192,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        224,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        256,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        288,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        320,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        128,
+        96,
+        16,
+        16
+      ],
+      "rect": [
+        352,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        384,
+        416,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        400,
+        416,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        416,
+        416,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        432,
+        416,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        448,
+        416,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        464,
+        416,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        144,
+        96,
+        16,
+        16
+      ],
+      "rect": [
+        480,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        512,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        544,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        576,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        608,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        640,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        672,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        704,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        736,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        768,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        176,
+        96,
+        16,
+        16
+      ],
+      "rect": [
+        800,
+        416,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        224,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        32,
+        448,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        64,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        80,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        96,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        112,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        128,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        144,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        160,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        176,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        192,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        208,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        224,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        240,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        256,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        272,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        288,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        304,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        320,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        336,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        352,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        368,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        384,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        400,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        416,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        432,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        448,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        464,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        480,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        496,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        512,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        528,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        544,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        560,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        576,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        592,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        608,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        624,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        640,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        656,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        672,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        688,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        704,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        720,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        736,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        752,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        768,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        784,
+        448,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        240,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        800,
+        448,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        224,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        32,
+        480,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        64,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        80,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        96,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        112,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        128,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        144,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        160,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        176,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        192,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        208,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        224,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        240,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        256,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        272,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        288,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        304,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        320,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        336,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        352,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        368,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        384,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        400,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        416,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        432,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        448,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        464,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        480,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        496,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        512,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        528,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        544,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        560,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        576,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        592,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        608,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        624,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        640,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        656,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        672,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        688,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        704,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        720,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        736,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        752,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        768,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        784,
+        480,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        240,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        800,
+        480,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        160,
+        112,
+        16,
+        16
+      ],
+      "rect": [
+        32,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        64,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        96,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        128,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        160,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        192,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        224,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        256,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        288,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        320,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        128,
+        112,
+        16,
+        16
+      ],
+      "rect": [
+        352,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        384,
+        512,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        400,
+        512,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        416,
+        512,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        432,
+        512,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        448,
+        512,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        464,
+        512,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        144,
+        112,
+        16,
+        16
+      ],
+      "rect": [
+        480,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        512,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        544,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        576,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        608,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        640,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        672,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        704,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        736,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        768,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        176,
+        112,
+        16,
+        16
+      ],
+      "rect": [
+        800,
+        512,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        224,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        352,
+        544,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        384,
+        544,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        400,
+        544,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        416,
+        544,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        432,
+        544,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        448,
+        544,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        464,
+        544,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        240,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        480,
+        544,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        224,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        352,
+        576,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        384,
+        576,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        400,
+        576,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        416,
+        576,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        432,
+        576,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        228,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        448,
+        576,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        244,
+        128,
+        8,
+        16
+      ],
+      "rect": [
+        464,
+        576,
+        16,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        240,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        480,
+        576,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        160,
+        112,
+        16,
+        16
+      ],
+      "rect": [
+        352,
+        608,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        384,
+        608,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        416,
+        608,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        256,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        448,
+        608,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        176,
+        112,
+        16,
+        16
+      ],
+      "rect": [
+        480,
+        608,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/castle-moat.png",
+      "crop": [
+        112,
+        64,
+        32,
+        48
+      ],
+      "rect": [
+        0,
+        192,
+        352,
+        96
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/castle-palette.png",
+      "crop": [
+        336,
+        80,
+        32,
+        32
+      ],
+      "rect": [
+        0,
+        288,
+        352,
+        64
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/castle-moat.png",
+      "crop": [
+        112,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        0,
+        352,
+        352,
+        32
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/castle-moat.png",
+      "crop": [
+        112,
+        64,
+        32,
+        48
+      ],
+      "rect": [
+        736,
+        192,
+        160,
+        96
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/castle-palette.png",
+      "crop": [
+        336,
+        80,
+        32,
+        32
+      ],
+      "rect": [
+        736,
+        288,
+        160,
+        64
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/castle-moat.png",
+      "crop": [
+        112,
+        128,
+        16,
+        16
+      ],
+      "rect": [
+        736,
+        352,
+        160,
+        32
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/castle-moat.png",
+      "crop": [
+        48,
+        64,
+        192,
+        80
+      ],
+      "rect": [
+        352,
+        192,
+        384,
+        160
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        164,
+        52,
+        8,
+        8
+      ],
+      "rect": [
+        424,
+        232,
+        48,
+        56
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        164,
+        52,
+        8,
+        8
+      ],
+      "rect": [
+        192,
+        64,
+        160,
+        64
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/castle-moat.png",
+      "crop": [
+        112,
+        64,
+        16,
+        16
+      ],
+      "rect": [
+        192,
+        64,
+        160,
+        32
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/barons-castle.png",
+      "crop": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "rect": [
+        192,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/barons-castle.png",
+      "crop": [
+        96,
+        0,
+        16,
+        16
+      ],
+      "rect": [
+        320,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/barons-castle.png",
+      "crop": [
+        0,
+        16,
+        16,
+        16
+      ],
+      "rect": [
+        192,
+        96,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/barons-castle.png",
+      "crop": [
+        96,
+        16,
+        16,
+        16
+      ],
+      "rect": [
+        320,
+        96,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/castle-moat.png",
+      "crop": [
+        112,
+        64,
+        80,
+        48
+      ],
+      "rect": [
+        192,
+        128,
+        160,
+        96
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        164,
+        52,
+        8,
+        8
+      ],
+      "rect": [
+        640,
+        64,
+        160,
+        64
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/castle-moat.png",
+      "crop": [
+        112,
+        64,
+        16,
+        16
+      ],
+      "rect": [
+        640,
+        64,
+        160,
+        32
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/barons-castle.png",
+      "crop": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "rect": [
+        640,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/barons-castle.png",
+      "crop": [
+        96,
+        0,
+        16,
+        16
+      ],
+      "rect": [
+        768,
+        64,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/barons-castle.png",
+      "crop": [
+        0,
+        16,
+        16,
+        16
+      ],
+      "rect": [
+        640,
+        96,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/barons-castle.png",
+      "crop": [
+        96,
+        16,
+        16,
+        16
+      ],
+      "rect": [
+        768,
+        96,
+        32,
+        32
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/castle-moat.png",
+      "crop": [
+        112,
+        64,
+        80,
+        48
+      ],
+      "rect": [
+        640,
+        128,
+        160,
+        96
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        400,
+        64,
+        48,
+        48
+      ],
+      "rect": [
+        64,
+        448,
+        96,
+        96
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "crop": [
+        400,
+        64,
+        48,
+        48
+      ],
+      "rect": [
+        704,
+        448,
+        96,
+        96
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        384,
+        224,
+        16,
+        32
+      ],
+      "rect": [
+        32,
+        32,
+        32,
+        64
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        384,
+        224,
+        16,
+        32
+      ],
+      "rect": [
+        96,
+        32,
+        32,
+        64
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        384,
+        224,
+        16,
+        32
+      ],
+      "rect": [
+        768,
+        32,
+        32,
+        64
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        384,
+        224,
+        16,
+        32
+      ],
+      "rect": [
+        800,
+        64,
+        32,
+        64
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        384,
+        224,
+        16,
+        32
+      ],
+      "rect": [
+        32,
+        576,
+        32,
+        64
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        384,
+        224,
+        16,
+        32
+      ],
+      "rect": [
+        128,
+        576,
+        32,
+        64
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        384,
+        224,
+        16,
+        32
+      ],
+      "rect": [
+        736,
+        576,
+        32,
+        64
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        384,
+        224,
+        16,
+        32
+      ],
+      "rect": [
+        800,
+        576,
+        32,
+        64
+      ],
+      "mode": "stamp"
+    }
+  ],
+  "solids": [
+    [
+      0,
+      192,
+      352,
+      96
+    ],
+    [
+      0,
+      288,
+      352,
+      64
+    ],
+    [
+      736,
+      192,
+      160,
+      96
+    ],
+    [
+      736,
+      288,
+      160,
+      64
+    ],
+    [
+      352,
+      192,
+      64,
+      96
+    ],
+    [
+      480,
+      192,
+      256,
+      96
+    ],
+    [
+      352,
+      288,
+      64,
+      64
+    ],
+    [
+      480,
+      288,
+      256,
+      64
+    ],
+    [
+      192,
+      64,
+      160,
+      160
+    ],
+    [
+      640,
+      64,
+      160,
+      160
+    ],
+    [
+      64,
+      448,
+      96,
+      96
+    ],
+    [
+      704,
+      448,
+      96,
+      96
+    ]
+  ],
+  "anchors": {
+    "deployment": [
+      288,
+      448,
+      608,
+      608
+    ],
+    "heroCamp": [
+      448,
+      528
+    ],
+    "objective": [
+      448,
+      96
+    ],
+    "camps": [
+      [
+        128,
+        128
+      ],
+      [
+        832,
+        128
+      ],
+      [
+        64,
+        576
+      ],
+      [
+        832,
+        576
+      ]
+    ],
+    "spawnEntries": [
+      [
+        448,
+        16
+      ],
+      [
+        448,
+        624
+      ]
+    ],
+    "soldiers": [
+      [
+        320,
+        480
+      ],
+      [
+        384,
+        480
+      ]
+    ]
+  },
+  "credits": [
+    {
+      "source": "asset-library/map-candidates/castle-palette.png",
+      "url": "https://feuniverse.us/t/1-screen-mapping-blitz-challenge/9639/9",
+      "credit": "N426 improved castle tileset; local castle-credits.txt"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/barons-castle.png",
+      "url": "https://feuniverse.us/t/1-screen-mapping-blitz-challenge/9639/39",
+      "credit": "RandomWizard; N426 improved castle kit; F2U/F2E"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/castle-moat.png",
+      "url": "https://feuniverse.us/t/1-screen-mapping-blitz-challenge/9639/39",
+      "credit": "RandomWizard; N426 improved castle kit; F2U/F2E"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/fort-tileset.png",
+      "url": "https://feuniverse.us/t/updated-fort-tileset/9288",
+      "credit": "ZoramineFae / Flasuban; original game graphics and edits"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "url": "https://feuniverse.us/t/updated-stronghold-tileset/6134",
+      "credit": "ZoramineFae / N426 / Flasuban / Wan"
+    }
+  ],
+  "notes": [
+    "Authored native16px crops at2x nearest. Solid rectangles correspond to visible terrain. Decorative floors and stairs remain walkable.",
+    "Chapter3-only open gate: native source floor tiles replace the lowered-bar interior only; N426 roof/header/posts and bridge remain intact. Coast closed scenic gate remains unchanged."
+  ]
+}

@@ -1,0 +1,652 @@
+[
+  {
+    "id": "castle-defense",
+    "heroRadius": 16,
+    "gridStep": 16,
+    "records": [
+      {
+        "anchor": "heroCamp",
+        "point": [
+          640,
+          448
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "objective",
+        "point": [
+          640,
+          448
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp0",
+        "point": [
+          96,
+          128
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp1",
+        "point": [
+          1184,
+          128
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp2",
+        "point": [
+          96,
+          768
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp3",
+        "point": [
+          1184,
+          768
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "entry0",
+        "point": [
+          16,
+          448
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "entry1",
+        "point": [
+          1264,
+          448
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "entry2",
+        "point": [
+          640,
+          16
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "entry3",
+        "point": [
+          640,
+          880
+        ],
+        "free": true,
+        "connected": true
+      }
+    ]
+  },
+  {
+    "id": "east-road",
+    "heroRadius": 16,
+    "gridStep": 16,
+    "records": [
+      {
+        "anchor": "heroCamp",
+        "point": [
+          160,
+          272
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "objective",
+        "point": [
+          1184,
+          272
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp0",
+        "point": [
+          544,
+          160
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp1",
+        "point": [
+          864,
+          320
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp2",
+        "point": [
+          1184,
+          160
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp3",
+        "point": [
+          1184,
+          384
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "entry0",
+        "point": [
+          16,
+          272
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "entry1",
+        "point": [
+          1264,
+          272
+        ],
+        "free": true,
+        "connected": true
+      }
+    ]
+  },
+  {
+    "id": "plegian-gate",
+    "heroRadius": 16,
+    "gridStep": 16,
+    "records": [
+      {
+        "anchor": "heroCamp",
+        "point": [
+          448,
+          528
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "objective",
+        "point": [
+          448,
+          96
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp0",
+        "point": [
+          128,
+          128
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp1",
+        "point": [
+          832,
+          128
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp2",
+        "point": [
+          64,
+          576
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp3",
+        "point": [
+          832,
+          576
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "entry0",
+        "point": [
+          448,
+          16
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "entry1",
+        "point": [
+          448,
+          624
+        ],
+        "free": true,
+        "connected": true
+      }
+    ]
+  },
+  {
+    "id": "chonsin-pass",
+    "heroRadius": 16,
+    "gridStep": 16,
+    "records": [
+      {
+        "anchor": "heroCamp",
+        "point": [
+          160,
+          272
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "objective",
+        "point": [
+          896,
+          272
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp0",
+        "point": [
+          48,
+          160
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp1",
+        "point": [
+          976,
+          160
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp2",
+        "point": [
+          48,
+          384
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp3",
+        "point": [
+          976,
+          384
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "entry0",
+        "point": [
+          16,
+          272
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "entry1",
+        "point": [
+          1008,
+          272
+        ],
+        "free": true,
+        "connected": true
+      }
+    ]
+  },
+  {
+    "id": "dark-castle",
+    "heroRadius": 16,
+    "gridStep": 16,
+    "records": [
+      {
+        "anchor": "heroCamp",
+        "point": [
+          512,
+          656
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "objective",
+        "point": [
+          512,
+          128
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp0",
+        "point": [
+          448,
+          128
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp1",
+        "point": [
+          576,
+          128
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp2",
+        "point": [
+          128,
+          432
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp3",
+        "point": [
+          896,
+          384
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "entry0",
+        "point": [
+          512,
+          48
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "entry1",
+        "point": [
+          512,
+          720
+        ],
+        "free": true,
+        "connected": true
+      }
+    ]
+  },
+  {
+    "id": "village-watch",
+    "heroRadius": 16,
+    "gridStep": 16,
+    "records": [
+      {
+        "anchor": "heroCamp",
+        "point": [
+          416,
+          320
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "objective",
+        "point": [
+          416,
+          320
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp0",
+        "point": [
+          48,
+          160
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp1",
+        "point": [
+          784,
+          160
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp2",
+        "point": [
+          48,
+          480
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp3",
+        "point": [
+          784,
+          480
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "entry0",
+        "point": [
+          416,
+          16
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "entry1",
+        "point": [
+          416,
+          624
+        ],
+        "free": true,
+        "connected": true
+      }
+    ]
+  },
+  {
+    "id": "conqueror-hall",
+    "heroRadius": 16,
+    "gridStep": 16,
+    "records": [
+      {
+        "anchor": "heroCamp",
+        "point": [
+          512,
+          656
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "objective",
+        "point": [
+          512,
+          128
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp0",
+        "point": [
+          128,
+          112
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp1",
+        "point": [
+          896,
+          112
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp2",
+        "point": [
+          128,
+          384
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp3",
+        "point": [
+          896,
+          384
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "entry0",
+        "point": [
+          512,
+          48
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "entry1",
+        "point": [
+          512,
+          720
+        ],
+        "free": true,
+        "connected": true
+      }
+    ]
+  },
+  {
+    "id": "village",
+    "heroRadius": 16,
+    "gridStep": 16,
+    "records": [
+      {
+        "anchor": "heroCamp",
+        "point": [
+          512,
+          352
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "objective",
+        "point": [
+          512,
+          352
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp0",
+        "point": [
+          48,
+          176
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp1",
+        "point": [
+          976,
+          176
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp2",
+        "point": [
+          48,
+          528
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "camp3",
+        "point": [
+          976,
+          528
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "entry0",
+        "point": [
+          512,
+          16
+        ],
+        "free": true,
+        "connected": true
+      },
+      {
+        "anchor": "entry1",
+        "point": [
+          512,
+          688
+        ],
+        "free": true,
+        "connected": true
+      }
+    ]
+  }
+]

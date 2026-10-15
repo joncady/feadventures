@@ -1,0 +1,15 @@
+{
+  "public/assets/maps/expanded/east-road.png": "b3afc8e4b2f9c83c69cb756215291ef80691c8944c55b261a9ecdf3bec973470",
+  "public/assets/maps/expanded/village-watch.png": "9ca85968f34a4bdeb34222f4667ce6dcdfe6be9ee40dc633dd446a439ef2696f",
+  "public/assets/maps/expanded/plegian-gate.png": "e7146cd66ee0adb26e8ffeb4b4e89189ceaed9897e44ecabf4e5c710afecc4d9",
+  "public/assets/maps/expanded/village.png": "f5c8a38865b8c58d824aa78cd0d747e909cac95a8ca3a725cc34bf16ce2035cb",
+  "public/assets/maps/expanded/valm-landing.png": "2e0a11ef477236f3e7e2fa2c69b0e3c43e58bfd4442851d8044819e25c33820a",
+  "public/assets/maps/expanded/castle-defense.png": "270ec49def706a86514d02b5b5b18cbe73e7cb6175afc5ff3f6107d23e25a48e",
+  "public/assets/maps/expanded/chonsin-pass.png": "3a2c5659a59a817ed78e12b654218d3779fabf9b88aee3c9a895d143cfcaca35",
+  "public/assets/maps/expanded/conqueror-hall.png": "040dc05fd1c799de889bcb7b8fffb5395f483b19ab75831dc94d8e90737b31c6",
+  "public/assets/maps/expanded/grimleal-approach.png": "040435cbc752400dd89e0c6a8e04e7b1cb6e2bf484714912290c8ce4976eb78f",
+  "public/assets/maps/expanded/dark-castle.png": "69a51ea804f020a83b7bebbde01992daaacc34d2b06195597de8add7b8bd395c",
+  "src/game/data/map-art.ts": "0eed6963ffd5b4ffbf18f411592dbd4e4e5ac0ee30fcb7cdb1b1d436b49eb587",
+  "src/game/data/map-art/generated.ts": "3b191930e3bb71291ea66f011d28ca10d7b150bce82bc8e4925e4c5974d11f67",
+  "src/game/data/campaign-expansion.ts": "33b2fea8a40a62a7a2073a37c647d7159e479b89ff1639f7190b71f02d8606b9"
+}

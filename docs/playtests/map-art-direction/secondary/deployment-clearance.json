@@ -1,0 +1,336 @@
+[
+  {
+    "id": "east-road",
+    "soldierCount": 0,
+    "soldiers": [],
+    "simulatedFourHeroAutoPlace": [
+      [
+        96,
+        224
+      ],
+      [
+        224,
+        224
+      ],
+      [
+        288,
+        224
+      ],
+      [
+        96,
+        288
+      ]
+    ],
+    "deployment": [
+      64,
+      192,
+      352,
+      352
+    ],
+    "method": "Static radius16 +4.5px body offset, inside courtyard20 margins,64spacing,camps150,heroCamp64. Actual Arena test remains required."
+  },
+  {
+    "id": "village-watch",
+    "soldierCount": 4,
+    "soldiers": [
+      [
+        384,
+        224
+      ],
+      [
+        448,
+        224
+      ],
+      [
+        288,
+        256
+      ],
+      [
+        512,
+        256
+      ]
+    ],
+    "simulatedFourHeroAutoPlace": [
+      [
+        352,
+        288
+      ],
+      [
+        288,
+        320
+      ],
+      [
+        480,
+        320
+      ],
+      [
+        544,
+        320
+      ]
+    ],
+    "deployment": [
+      256,
+      192,
+      576,
+      480
+    ],
+    "method": "Static radius16 +4.5px body offset, inside courtyard20 margins,64spacing,camps150,heroCamp64. Actual Arena test remains required."
+  },
+  {
+    "id": "plegian-gate",
+    "soldierCount": 2,
+    "soldiers": [
+      [
+        320,
+        480
+      ],
+      [
+        384,
+        480
+      ]
+    ],
+    "simulatedFourHeroAutoPlace": [
+      [
+        512,
+        480
+      ],
+      [
+        576,
+        480
+      ],
+      [
+        320,
+        544
+      ],
+      [
+        384,
+        544
+      ]
+    ],
+    "deployment": [
+      288,
+      448,
+      608,
+      608
+    ],
+    "method": "Static radius16 +4.5px body offset, inside courtyard20 margins,64spacing,camps150,heroCamp64. Actual Arena test remains required."
+  },
+  {
+    "id": "village",
+    "soldierCount": 4,
+    "soldiers": [
+      [
+        384,
+        288
+      ],
+      [
+        448,
+        288
+      ],
+      [
+        512,
+        288
+      ],
+      [
+        576,
+        288
+      ]
+    ],
+    "simulatedFourHeroAutoPlace": [
+      [
+        640,
+        288
+      ],
+      [
+        448,
+        352
+      ],
+      [
+        576,
+        352
+      ],
+      [
+        640,
+        352
+      ]
+    ],
+    "deployment": [
+      352,
+      256,
+      672,
+      448
+    ],
+    "method": "Static radius16 +4.5px body offset, inside courtyard20 margins,64spacing,camps150,heroCamp64. Actual Arena test remains required."
+  },
+  {
+    "id": "castle-defense",
+    "soldierCount": 4,
+    "soldiers": [
+      [
+        544,
+        384
+      ],
+      [
+        608,
+        384
+      ],
+      [
+        672,
+        384
+      ],
+      [
+        736,
+        384
+      ]
+    ],
+    "simulatedFourHeroAutoPlace": [
+      [
+        608,
+        320
+      ],
+      [
+        672,
+        320
+      ],
+      [
+        800,
+        352
+      ],
+      [
+        800,
+        416
+      ]
+    ],
+    "deployment": [
+      416,
+      288,
+      864,
+      608
+    ],
+    "method": "Static radius16 +4.5px body offset, inside courtyard20 margins,64spacing,camps150,heroCamp64. Actual Arena test remains required."
+  },
+  {
+    "id": "chonsin-pass",
+    "soldierCount": 0,
+    "soldiers": [],
+    "simulatedFourHeroAutoPlace": [
+      [
+        224,
+        224
+      ],
+      [
+        288,
+        224
+      ],
+      [
+        352,
+        224
+      ],
+      [
+        224,
+        288
+      ]
+    ],
+    "deployment": [
+      64,
+      192,
+      384,
+      384
+    ],
+    "method": "Static radius16 +4.5px body offset, inside courtyard20 margins,64spacing,camps150,heroCamp64. Actual Arena test remains required."
+  },
+  {
+    "id": "conqueror-hall",
+    "soldierCount": 4,
+    "soldiers": [
+      [
+        384,
+        480
+      ],
+      [
+        448,
+        480
+      ],
+      [
+        512,
+        480
+      ],
+      [
+        576,
+        480
+      ]
+    ],
+    "simulatedFourHeroAutoPlace": [
+      [
+        640,
+        480
+      ],
+      [
+        384,
+        544
+      ],
+      [
+        448,
+        544
+      ],
+      [
+        512,
+        544
+      ]
+    ],
+    "deployment": [
+      352,
+      448,
+      672,
+      704
+    ],
+    "method": "Static radius16 +4.5px body offset, inside courtyard20 margins,64spacing,camps150,heroCamp64. Actual Arena test remains required."
+  },
+  {
+    "id": "dark-castle",
+    "soldierCount": 4,
+    "soldiers": [
+      [
+        384,
+        480
+      ],
+      [
+        448,
+        480
+      ],
+      [
+        512,
+        480
+      ],
+      [
+        576,
+        480
+      ]
+    ],
+    "simulatedFourHeroAutoPlace": [
+      [
+        640,
+        480
+      ],
+      [
+        416,
+        544
+      ],
+      [
+        480,
+        544
+      ],
+      [
+        544,
+        544
+      ]
+    ],
+    "deployment": [
+      352,
+      448,
+      672,
+      704
+    ],
+    "method": "Static radius16 +4.5px body offset, inside courtyard20 margins,64spacing,camps150,heroCamp64. Actual Arena test remains required."
+  }
+]

@@ -1,0 +1,1377 @@
+{
+  "method": "Native developer menu selects fresh-stat chapter fixture; native keyboard/mouse gameplay. Read-only scene/nav observations. Not earned campaign, full victory, or human acceptance.",
+  "started": "2026-10-15T08:43:38.821Z",
+  "events": [
+    {
+      "kind": "native-party-selected",
+      "state": {
+        "arena": false,
+        "results": false,
+        "campaign": false,
+        "interface": {
+          "preparationEditing": false,
+          "hero": "chrom",
+          "companions": [
+            "frederick",
+            "sumia"
+          ],
+          "selectionMode": "companions",
+          "phase": "party",
+          "tactical": true,
+          "ready": true,
+          "playing": false,
+          "paused": false,
+          "muted": false,
+          "settingsOpen": false,
+          "result": "",
+          "audio": {
+            "music": 0.18,
+            "effects": 1,
+            "voices": 0.6,
+            "characterVoices": true,
+            "spellEffect": "fire-cast"
+          }
+        }
+      }
+    },
+    {
+      "kind": "chapter-start",
+      "index": 7,
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 640,
+          "y": 484
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 574.9699999999999,
+        "mission": 7,
+        "kills": 0,
+        "phase": "opening",
+        "wave": 0,
+        "boss": null,
+        "objective": {
+          "kind": "boss",
+          "victory": "defeat-commander",
+          "label": "Defeat Walhart in his stronghold",
+          "x": 512,
+          "y": 128,
+          "radius": 96
+        },
+        "pending": 0,
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 1024,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 128,
+            "y": 208
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 640,
+            "y": 480,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 445.1045998680229,
+            "y": 547.9798810201396,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 497.5590204802919,
+            "y": 589.822427666302,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "phone-hall-opening",
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 640,
+          "y": 484
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 741.6300000000001,
+        "mission": 7,
+        "kills": 0,
+        "phase": "opening",
+        "wave": 0,
+        "boss": null,
+        "objective": {
+          "kind": "boss",
+          "victory": "defeat-commander",
+          "label": "Defeat Walhart in his stronghold",
+          "x": 512,
+          "y": 128,
+          "radius": 96
+        },
+        "pending": 0,
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 1024,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 128,
+            "y": 208
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 640,
+            "y": 480,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 464.2805908778447,
+            "y": 547.9956358361321,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 510.0574857901006,
+            "y": 601.3785483694187,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "route-sample",
+      "label": "phone-hall-dais-approach",
+      "target": {
+        "x": 512,
+        "y": 352
+      },
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 612.840034662071,
+          "y": 460.920034662071
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 1794.9200000000003,
+        "mission": 7,
+        "kills": 0,
+        "phase": "opening",
+        "wave": 0,
+        "boss": null,
+        "objective": {
+          "kind": "boss",
+          "victory": "defeat-commander",
+          "label": "Defeat Walhart in his stronghold",
+          "x": 512,
+          "y": 128,
+          "radius": 96
+        },
+        "pending": 0,
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 1024,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 128,
+            "y": 208
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 612.840034662071,
+            "y": 456.920034662071,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 530.5040226911226,
+            "y": 567.2518831816046,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 542.929131562135,
+            "y": 631.7717764046719,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "phone-hall-dais-approach-reached",
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 511.86518630863156,
+          "y": 357.90518630863147
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 3093.2300000000005,
+        "mission": 7,
+        "kills": 0,
+        "phase": "opening",
+        "wave": 0,
+        "boss": null,
+        "objective": {
+          "kind": "boss",
+          "victory": "defeat-commander",
+          "label": "Defeat Walhart in his stronghold",
+          "x": 512,
+          "y": 128,
+          "radius": 96
+        },
+        "pending": 0,
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 1024,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 128,
+            "y": 139
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 511.86518630863156,
+            "y": 353.90518630863147,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 557.4500680042514,
+            "y": 573.4953860267294,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 537.327623065532,
+            "y": 626.3142719145793,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "route-sample",
+      "label": "phone-hall-connected-doorway",
+      "target": {
+        "x": 512,
+        "y": 272
+      },
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 511.86518630863156,
+          "y": 325.26518630863114
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 3999.8500000000004,
+        "mission": 7,
+        "kills": 0,
+        "phase": "opening",
+        "wave": 0,
+        "boss": null,
+        "objective": {
+          "kind": "boss",
+          "victory": "defeat-commander",
+          "label": "Defeat Walhart in his stronghold",
+          "x": 512,
+          "y": 128,
+          "radius": 96
+        },
+        "pending": 0,
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 1024,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 128,
+            "y": 116
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 511.86518630863156,
+            "y": 321.26518630863114,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 561.0757471763941,
+            "y": 543.0864117122414,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 495.6786225132363,
+            "y": 585.6037568376665,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "phone-hall-connected-doorway-reached",
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 511.86518630863156,
+          "y": 290.5851863086308
+        },
+        "enemies": [],
+        "potions": [],
+        "clock": 5988.079999999998,
+        "mission": 7,
+        "kills": 0,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "boss",
+          "victory": "defeat-commander",
+          "label": "Defeat Walhart in his stronghold",
+          "x": 512,
+          "y": 128,
+          "radius": 96
+        },
+        "pending": 10,
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 1024,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 128,
+            "y": 0
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 511.86518630863156,
+            "y": 286.5851863086308,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 579.5162119235806,
+            "y": 437.2310838182954,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 456.10429102577933,
+            "y": 460.9616462064152,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "route-sample",
+      "label": "phone-hall-throne-objective",
+      "target": {
+        "x": 512,
+        "y": 128
+      },
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 511.86518630863156,
+          "y": 264.06518630863064
+        },
+        "enemies": [
+          {
+            "x": 204.7078496291294,
+            "y": 135.99991869689916,
+            "hp": 158,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "chase",
+            "targetPlayer": true
+          },
+          {
+            "x": 130.70063789776665,
+            "y": 413.7363180398743,
+            "hp": 158,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "chase",
+            "targetPlayer": false
+          }
+        ],
+        "potions": [],
+        "clock": 7021.379999999997,
+        "mission": 7,
+        "kills": 0,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "boss",
+          "victory": "defeat-commander",
+          "label": "Defeat Walhart in his stronghold",
+          "x": 512,
+          "y": 128,
+          "radius": 96
+        },
+        "pending": 8,
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 1024,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 128,
+            "y": 0
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 511.86518630863156,
+            "y": 260.06518630863064,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 639.3579929559289,
+            "y": 372.6481940114179,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 456.10429102577933,
+            "y": 460.9616462064152,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "phone-hall-throne-objective-reached",
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 511.86518630863156,
+          "y": 137.5851863086311
+        },
+        "enemies": [
+          {
+            "x": 231.96168514183066,
+            "y": 202.79773402605565,
+            "hp": 158,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "chase",
+            "targetPlayer": false
+          },
+          {
+            "x": 219.10885841500564,
+            "y": 421.51764472465777,
+            "hp": 158,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "chase",
+            "targetPlayer": false
+          }
+        ],
+        "potions": [],
+        "clock": 8209.669999999996,
+        "mission": 7,
+        "kills": 0,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "boss",
+          "victory": "defeat-commander",
+          "label": "Defeat Walhart in his stronghold",
+          "x": 512,
+          "y": 128,
+          "radius": 96
+        },
+        "pending": 8,
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 1024,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 128,
+            "y": 0
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 511.86518630863156,
+            "y": 133.5851863086311,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 655.9389299798345,
+            "y": 327.3572281285492,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 334.61602934744786,
+            "y": 441.00340777093135,
+            "health": 100
+          }
+        ]
+      }
+    },
+    {
+      "kind": "phone-hall-goal-hud",
+      "state": {
+        "arena": true,
+        "deploying": false,
+        "ended": false,
+        "health": 100,
+        "hero": "chrom",
+        "party": [
+          "chrom",
+          "frederick",
+          "sumia"
+        ],
+        "states": [
+          {
+            "hero": "chrom",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "falchion"
+          },
+          {
+            "hero": "frederick",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          },
+          {
+            "hero": "sumia",
+            "health": 100,
+            "max": 100,
+            "level": 1,
+            "xp": 0,
+            "slot": 0,
+            "equipped": "iron-lance"
+          }
+        ],
+        "p": {
+          "x": 511.86518630863156,
+          "y": 137.5851863086311
+        },
+        "enemies": [
+          {
+            "x": 231.99601483097743,
+            "y": 230.29769795442962,
+            "hp": 158,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "chase",
+            "targetPlayer": false
+          },
+          {
+            "x": 235.29627907309165,
+            "y": 422.942394681027,
+            "hp": 143,
+            "boss": false,
+            "key": "knight",
+            "weapon": "lance",
+            "phase": "windup",
+            "targetPlayer": false
+          }
+        ],
+        "potions": [],
+        "clock": 8569.639999999996,
+        "mission": 7,
+        "kills": 0,
+        "phase": "wave",
+        "wave": 1,
+        "boss": null,
+        "objective": {
+          "kind": "boss",
+          "victory": "defeat-commander",
+          "label": "Defeat Walhart in his stronghold",
+          "x": 512,
+          "y": 128,
+          "radius": 96
+        },
+        "pending": 8,
+        "routeReached": false,
+        "rallyReady": true,
+        "width": 1024,
+        "height": 768,
+        "profile": {
+          "weapon": "sword",
+          "range": 85,
+          "minRange": 0,
+          "damage": 35,
+          "cooldown": 320,
+          "speed": 170,
+          "description": "Sword · close combat · strong against axes",
+          "id": "falchion",
+          "name": "Falchion",
+          "type": "sword",
+          "icon": "weapon-sword",
+          "effect": "attack",
+          "allowedHeroes": [
+            "chrom"
+          ],
+          "effectiveAgainst": [
+            "dragon"
+          ]
+        },
+        "ready": true,
+        "camera": {
+          "origin": {
+            "x": 128,
+            "y": 0
+          },
+          "ex": {
+            "x": 1,
+            "y": 0
+          },
+          "ey": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "heroPositions": [
+          {
+            "hero": "chrom",
+            "x": 511.86518630863156,
+            "y": 133.5851863086311,
+            "health": 100
+          },
+          {
+            "hero": "frederick",
+            "x": 661.8305522064177,
+            "y": 300.6232424315179,
+            "health": 100
+          },
+          {
+            "hero": "sumia",
+            "x": 325.6446284317938,
+            "y": 439.363811582531,
+            "health": 100
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "finished": true,
+  "final": {
+    "arena": true,
+    "deploying": false,
+    "ended": false,
+    "health": 100,
+    "hero": "chrom",
+    "party": [
+      "chrom",
+      "frederick",
+      "sumia"
+    ],
+    "states": [
+      {
+        "hero": "chrom",
+        "health": 100,
+        "max": 100,
+        "level": 1,
+        "xp": 0,
+        "slot": 0,
+        "equipped": "falchion"
+      },
+      {
+        "hero": "frederick",
+        "health": 100,
+        "max": 100,
+        "level": 1,
+        "xp": 0,
+        "slot": 0,
+        "equipped": "iron-lance"
+      },
+      {
+        "hero": "sumia",
+        "health": 100,
+        "max": 100,
+        "level": 1,
+        "xp": 0,
+        "slot": 0,
+        "equipped": "iron-lance"
+      }
+    ],
+    "p": {
+      "x": 511.86518630863156,
+      "y": 137.5851863086311
+    },
+    "enemies": [
+      {
+        "x": 231.99967205638373,
+        "y": 264.04769763638063,
+        "hp": 158,
+        "boss": false,
+        "key": "knight",
+        "weapon": "lance",
+        "phase": "chase",
+        "targetPlayer": false
+      },
+      {
+        "x": 235.29627907309165,
+        "y": 422.942394681027,
+        "hp": 138,
+        "boss": false,
+        "key": "knight",
+        "weapon": "lance",
+        "phase": "recover",
+        "targetPlayer": false
+      }
+    ],
+    "potions": [],
+    "clock": 9032.969999999996,
+    "mission": 7,
+    "kills": 0,
+    "phase": "wave",
+    "wave": 1,
+    "boss": null,
+    "objective": {
+      "kind": "boss",
+      "victory": "defeat-commander",
+      "label": "Defeat Walhart in his stronghold",
+      "x": 512,
+      "y": 128,
+      "radius": 96
+    },
+    "pending": 8,
+    "routeReached": false,
+    "rallyReady": true,
+    "width": 1024,
+    "height": 768,
+    "profile": {
+      "weapon": "sword",
+      "range": 85,
+      "minRange": 0,
+      "damage": 35,
+      "cooldown": 320,
+      "speed": 170,
+      "description": "Sword · close combat · strong against axes",
+      "id": "falchion",
+      "name": "Falchion",
+      "type": "sword",
+      "icon": "weapon-sword",
+      "effect": "attack",
+      "allowedHeroes": [
+        "chrom"
+      ],
+      "effectiveAgainst": [
+        "dragon"
+      ]
+    },
+    "ready": true,
+    "camera": {
+      "origin": {
+        "x": 128,
+        "y": 0
+      },
+      "ex": {
+        "x": 1,
+        "y": 0
+      },
+      "ey": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    "heroPositions": [
+      {
+        "hero": "chrom",
+        "x": 511.86518630863156,
+        "y": 133.5851863086311,
+        "health": 100
+      },
+      {
+        "hero": "frederick",
+        "x": 667.0666356203997,
+        "y": 275.43610639168674,
+        "health": 100
+      },
+      {
+        "hero": "sumia",
+        "x": 325.6446284317938,
+        "y": 439.363811582531,
+        "health": 100
+      }
+    ]
+  }
+}

@@ -1,0 +1,516 @@
+{
+  "id": "conqueror-hall",
+  "width": 1024,
+  "height": 768,
+  "identity": "Walhart imperial column avenue, ceremonial stair and raised dais",
+  "layers": [
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        164,
+        52,
+        8,
+        8
+      ],
+      "rect": [
+        0,
+        0,
+        1024,
+        768
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/royal-great-hall.png",
+      "crop": [
+        16,
+        96,
+        16,
+        16
+      ],
+      "rect": [
+        64,
+        64,
+        128,
+        640
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/royal-great-hall.png",
+      "crop": [
+        16,
+        96,
+        16,
+        16
+      ],
+      "rect": [
+        832,
+        64,
+        128,
+        640
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        16,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        0,
+        0,
+        448,
+        32
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        16,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        576,
+        0,
+        448,
+        32
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        16,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        0,
+        736,
+        448,
+        32
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        16,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        576,
+        736,
+        448,
+        32
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        16,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        0,
+        32,
+        32,
+        704
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        16,
+        144,
+        16,
+        16
+      ],
+      "rect": [
+        992,
+        32,
+        32,
+        704
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        64,
+        48,
+        16,
+        16
+      ],
+      "rect": [
+        448,
+        160,
+        128,
+        544
+      ],
+      "mode": "tile"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        352,
+        16,
+        48,
+        48
+      ],
+      "rect": [
+        464,
+        352,
+        96,
+        96
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        160,
+        16,
+        16,
+        48
+      ],
+      "rect": [
+        256,
+        288,
+        32,
+        96
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        160,
+        16,
+        16,
+        48
+      ],
+      "rect": [
+        256,
+        512,
+        32,
+        96
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        160,
+        16,
+        16,
+        48
+      ],
+      "rect": [
+        736,
+        288,
+        32,
+        96
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        160,
+        16,
+        16,
+        48
+      ],
+      "rect": [
+        736,
+        512,
+        32,
+        96
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        256,
+        32,
+        32,
+        32
+      ],
+      "rect": [
+        128,
+        224,
+        64,
+        64
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        256,
+        32,
+        32,
+        32
+      ],
+      "rect": [
+        864,
+        224,
+        64,
+        64
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        256,
+        32,
+        32,
+        32
+      ],
+      "rect": [
+        128,
+        576,
+        64,
+        64
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "crop": [
+        256,
+        32,
+        32,
+        32
+      ],
+      "rect": [
+        864,
+        576,
+        64,
+        64
+      ],
+      "mode": "stamp"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/royal-great-hall.png",
+      "crop": [
+        0,
+        0,
+        240,
+        160
+      ],
+      "rect": [
+        272,
+        0,
+        480,
+        320
+      ],
+      "mode": "stamp"
+    }
+  ],
+  "solids": [
+    [
+      0,
+      0,
+      448,
+      32
+    ],
+    [
+      576,
+      0,
+      448,
+      32
+    ],
+    [
+      0,
+      736,
+      448,
+      32
+    ],
+    [
+      576,
+      736,
+      448,
+      32
+    ],
+    [
+      0,
+      32,
+      32,
+      704
+    ],
+    [
+      992,
+      32,
+      32,
+      704
+    ],
+    [
+      256,
+      288,
+      32,
+      96
+    ],
+    [
+      256,
+      512,
+      32,
+      96
+    ],
+    [
+      736,
+      288,
+      32,
+      96
+    ],
+    [
+      736,
+      512,
+      32,
+      96
+    ],
+    [
+      272,
+      0,
+      32,
+      320
+    ],
+    [
+      720,
+      0,
+      32,
+      320
+    ],
+    [
+      272,
+      0,
+      176,
+      32
+    ],
+    [
+      576,
+      0,
+      176,
+      32
+    ],
+    [
+      304,
+      96,
+      128,
+      32
+    ],
+    [
+      560,
+      96,
+      160,
+      32
+    ],
+    [
+      400,
+      32,
+      32,
+      64
+    ],
+    [
+      560,
+      128,
+      32,
+      128
+    ]
+  ],
+  "anchors": {
+    "deployment": [
+      352,
+      448,
+      672,
+      704
+    ],
+    "heroCamp": [
+      512,
+      656
+    ],
+    "objective": [
+      512,
+      128
+    ],
+    "camps": [
+      [
+        128,
+        112
+      ],
+      [
+        896,
+        112
+      ],
+      [
+        128,
+        384
+      ],
+      [
+        896,
+        384
+      ]
+    ],
+    "spawnEntries": [
+      [
+        512,
+        48
+      ],
+      [
+        512,
+        720
+      ]
+    ],
+    "soldiers": [
+      [
+        384,
+        480
+      ],
+      [
+        448,
+        480
+      ],
+      [
+        512,
+        480
+      ],
+      [
+        576,
+        480
+      ]
+    ]
+  },
+  "credits": [
+    {
+      "source": "asset-library/map-candidates/compact/royal-great-hall.png",
+      "url": "https://feuniverse.us/t/1-screen-mapping-blitz-challenge/9639/39",
+      "credit": "RandomWizard; N426 improved castle kit; F2U/F2E"
+    },
+    {
+      "source": "asset-library/map-candidates/compact/stronghold-tileset.png",
+      "url": "https://feuniverse.us/t/updated-stronghold-tileset/6134",
+      "credit": "ZoramineFae / N426 / Flasuban / Wan"
+    }
+  ],
+  "notes": [
+    "Authored native16px crops at2x nearest. Solid rectangles correspond to visible terrain. Decorative floors and stairs remain walkable.",
+    "Whole Royal Great Hall room240x160 native pixels at2x, not a map enlarged toworlddimensions. Contains complete raised throne/sidewalls/stairs as one authored landmark. No detached staircase stripe."
+  ]
+}

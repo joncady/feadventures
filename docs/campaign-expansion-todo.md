@@ -79,3 +79,29 @@ Final preparation summaries now use each member’s actual speed-adjusted battle
 ## Natural balanced-party route checkpoint
 
 One carried-progression balanced-party route now cleared all ten chapters, with retries recorded. The patched finale won in240 seconds,26 defeats, against Validar2200HP; Frederick99HP and Ricken97HP remained. Actual Results → Continue reached campaign completion. This closes the single-route end-to-end playability check, while the broader melee-heavy/magic-heavy/no-healer/solo matrix and human phone acceptance remain unchecked. The candidate remains local for review.
+
+
+## Distinct-map redesign — issue #92
+
+Source of truth: GitHub project issue #92. No release until visual and runtime review.
+
+| Chapter | Art identity | Source composition | Runtime/navigation | Independent review |
+| --- | --- | --- | --- | --- |
+| 1 East Road | Woodland ambush lane | Authored source-crop composition | Integrated; source/anchor/4-hero-capacity checks pass | Art direction GO; actual launch/hidden spawns pass; focused runtime checks passed; full regression pending |
+| 2 Village Watch | Tight inhabited defense | Authored source-crop composition | Integrated; source/anchor/4-hero-capacity checks pass | Art direction GO; actual launch/hidden spawns pass; focused runtime checks passed; full regression pending |
+| 3 Plegian Gate | Exterior moat and gate | Authored source-crop composition | Integrated; source/anchor/4-hero-capacity checks pass | Art direction GO; actual launch/hidden spawns pass; focused runtime checks passed; full regression pending |
+| 4 Mad King | Damaged capital court | Authored source-crop composition | Integrated; source/anchor/4-hero-capacity checks pass | Art direction GO; actual launch/hidden spawns pass; focused runtime checks passed; full regression pending |
+| 5 Valm Landing | Quay, bridge district, guard yard | Approved Rev6 source-only renderer | Integrated; source/route/deploy checks and actual launch/hidden spawns pass | Approved art benchmark; focused runtime checks passed; full regression pending |
+| 6 Castle Siege | Compact bastion defense | Authored source-crop composition | Integrated; source/anchor/4-hero-capacity checks pass | Art direction GO; actual launch/hidden spawns pass; focused runtime checks passed; full regression pending |
+| 7 Chonsin Pass | Ridge and switchback | Authored source-crop composition | Integrated; source/anchor/4-hero-capacity checks pass | Art direction GO; actual launch/hidden spawns pass; focused runtime checks passed; full regression pending |
+| 8 Conqueror Hall | Imperial avenue and dais | Authored source-crop composition | Integrated; source/anchor/4-hero-capacity checks pass | Art direction GO; actual launch/hidden spawns pass; focused runtime checks passed; full regression pending |
+| 9 Grimleal Approach | Dry shrine and ruined bastions | Approved Rev7 source-only renderer | Integrated; source/route/deploy checks and actual launch/hidden spawns pass | Approved art direction; focused runtime checks passed; full regression pending |
+| 10 Black Keep | Broken ritual sanctum | Authored source-crop composition | Integrated; source/anchor/4-hero-capacity checks pass | Art direction GO; actual launch/hidden spawns pass; focused runtime checks passed; full regression pending |
+
+Production map PNGs contain terrain only: no sample party, hostile sprites, HUD or scenic guards. Classic-four backgrounds and contracts are preserved. Chapter JSON owns exact source crops, physical solids and anchor overrides; canonical composer emits expanded-only PNGs and generated typed data. Closed coastal portcullis is physically solid, and the campaign route stays on the exterior landing road.
+
+All ten expanded profiles are now runtime-integrated under unique `mission-expanded-*` keys. Source/anchor/route/capacity tests pass. Independent actual Arena review confirmed 5/9 auto-placement, launch and twenty hidden spawn camera poses per map; all ten subsequently passed that same actual scene check. The shrine NPC initialization finding was fixed by moving its two reserved guard cells inside the deployment bounds. Castle Siege retains its original eight 320HP dynamic barricades, placed beside four open entrances; visible permanent facades have separate matching terrain footprints.
+
+Independent actual Arena acceptance now passed all ten chapters: four ground heroes plus each map’s reserved NPCs auto-place and battle launch succeeds; 200 sampled hidden legal arrival checks pass. The final source/typecheck validation passes fifteen targeted tests, including all eight castle barricade HP/count preservation, no permanent collision below destructible footprints and four open entrances. Focused independent actual castle movement/flying/projectile/destruction checks now pass; native route and desktop/phone camera evidence is recorded in `docs/playtests/map-art-direction/native-route-review/REPORT.txt`. Full 175-case browser regression remains pending.
+
+Current map-art release gate: all ten visual directions reviewed; actual all-ten deployment/launch and 200 hidden-arrival checks pass; three obstacle-placement rejection cases and castle physics/flight/bow/magic/breach checks pass. Native-input representative routes and phone camera captures are documented separately, with their fixture limits. The full frozen 175-case browser run is in progress. No deployment/version completion is claimed until that run and release CI succeed.
